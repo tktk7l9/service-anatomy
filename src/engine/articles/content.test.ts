@@ -1,8 +1,10 @@
 import { describe, expect, it } from "vitest";
+import ogImageHosts from "../../../content/og-image-hosts.json";
 import { locales } from "@/i18n/config";
 import { renderMarkdown } from "../markdown/render";
 import { extractToc } from "../markdown/toc";
 import { ALL_ARTICLES } from "./index";
+import { loadOgCards } from "./og-cards";
 import { localeParityIssues } from "./parity";
 
 // 実記事（content/articles/**）の横断整合性検証。
@@ -10,6 +12,7 @@ import { localeParityIssues } from "./parity";
 
 const cases = ALL_ARTICLES.map((article) => [article.slug, article] as const);
 const todayIso = new Date().toISOString().slice(0, 10);
+const ogCards = loadOgCards();
 
 describe("記事コンテンツの横断整合性", () => {
   it("slug が一意", () => {
@@ -53,6 +56,19 @@ describe("記事コンテンツの横断整合性", () => {
       // 失敗すると生の ** がHTMLに残るため、ここで検出する。
       const html = renderMarkdown(article[locale].body);
       expect(html).not.toContain("**");
+    });
+
+    it("og-cards.json にリンクカードのエントリがある（漏れたら npm run og-cards を実行）", () => {
+      expect(ogCards[article.slug]).toBeDefined();
+      expect(ogCards[article.slug].url).toBe(article.ja.frontmatter.serviceUrl);
+    });
+
+    it("リンクカード画像のオリジンが og-image-hosts.json（CSP img-src）に含まれる", () => {
+      // 含まれない画像は CSP に黙ってブロックされるため、ここで検出する。
+      const image = ogCards[article.slug]?.image;
+      if (image) {
+        expect(ogImageHosts).toContain(new URL(image).origin);
+      }
     });
   });
 });
