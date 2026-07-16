@@ -25,6 +25,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
   （`split.ts` が純関数分割）。
 - 実行時 fs 読み込みのため next.config.ts の `outputFileTracingIncludes` で content/ を同梱。
   デプロイ後は記事ページの実動作（500 にならないこと）を必ず確認する。
+- **全記事の構造化データを `/api/anatomy.json` で公開**（`src/engine/articles/export.ts`・CORS 全許可）。
+  frontmatter のスキーマを変えたら export も追随させること。
 
 ## テスト方針
 
@@ -48,13 +50,15 @@ This version has breaking changes — APIs, conventions, and file structure may 
   取得は `npm run og-cards`（scripts/fetch-og-cards.mjs）→ 生成物をコミット。記事追加時に再実行する。
   サムネイル・ヒーロー等、リンクプレビュー以外の用途に OGP 画像を使わないこと。
 - 記述の鮮度: `lastVerified`（ISO日付）必須。執筆時に Web 検索・実観測（curl -sI 等）で必ず検証する
-  （LLM の学習知識を信用しない）。
+  （LLM の学習知識を信用しない）。`npm run freshness` が lastVerified の 90 日超過を一覧する —
+  週次の棚卸しで実行し、超過記事は再検証して lastVerified を更新するか、定点観測（再解剖）の候補にする。
 - ja を先に書き、en は同一コミット内で同期する（片言語だけの変更を残さない）。
 
 ## 開発コマンド
 
 - `npm run dev` / `npm run build` / `npm start`
 - `npm run typecheck` / `npm test` / `npm run coverage`（100%ゲート）
+- `npm run og-cards`（リンクカード再取得）/ `npm run freshness`（lastVerified 鮮度一覧）
 
 ## コミット粒度
 

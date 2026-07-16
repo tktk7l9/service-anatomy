@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "coverage": "vitest run --coverage",
-    "og-cards": "node scripts/fetch-og-cards.mjs"
+    "og-cards": "node scripts/fetch-og-cards.mjs",
+    "freshness": "node scripts/freshness.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
