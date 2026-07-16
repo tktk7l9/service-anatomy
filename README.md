@@ -20,8 +20,8 @@ ja/en 完全バイリンガル。
   純関数分割（split.ts）→ React interleave 描画
 - **i18n**: `[locale]` セグメント + `Localized<T>` 型（翻訳漏れは型エラー）
 - **SEO**: sitemap（hreflang alternates）/ BlogPosting JSON-LD / 記事別動的 OG 画像 / RSS 2.0
-- **デザイン**: プレーン CSS + CSS 変数トークン。見出しのみ Web フォント
-  （Newsreader + しっぽり明朝・unicode-range 分割）、本文はシステムフォント
+- **デザイン**: プレーン CSS + CSS 変数トークン。Web フォントは欧文セリフ（Newsreader・約2KB）のみ。
+  日本語セリフはシステム明朝（ヒラギノ明朝/游明朝）、本文はシステムフォント
 
 ## 開発コマンド
 

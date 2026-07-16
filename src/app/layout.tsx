@@ -1,24 +1,18 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
-import { Newsreader, Shippori_Mincho } from "next/font/google";
+import { Newsreader } from "next/font/google";
 import "./globals.css";
 
-// 見出し・プルクオート専用のエディトリアルセリフ。本文はシステムフォント
-// （日本語本文をウェブフォント化しない = 転送量リスクの根本回避）。
-// 日本語セリフは preload: false + unicode-range 分割（acro-finder 実証パターン）。
+// 見出し・プルクオート専用のエディトリアルセリフ（欧文のみ・約2KB）。
+// 日本語セリフはシステム明朝（ヒラギノ明朝/游明朝）にフォールバックする —
+// Webフォント化すると unicode-range 分割の @font-face 群だけで CSS が
+// 約190KB のレンダーブロッキングになり Lighthouse perf が 80 を割った（実測）。
+// 本文はシステムサンズ（日本語本文をウェブフォント化しない）。
 const newsreader = Newsreader({
   subsets: ["latin"],
   style: ["normal", "italic"],
   variable: "--font-newsreader",
   display: "swap",
-});
-
-const shippori = Shippori_Mincho({
-  weight: ["500", "700"],
-  subsets: ["latin"],
-  variable: "--font-shippori",
-  display: "swap",
-  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -35,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${newsreader.variable} ${shippori.variable}`}>
+    <html lang="ja" className={newsreader.variable}>
       <body>
         {children}
         {process.env.VERCEL && <Analytics />}
