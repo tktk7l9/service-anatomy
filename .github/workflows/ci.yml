@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0 # gitleaks-action がコミット差分をスキャンするのに必要
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: gitleaks scan
+        uses: gitleaks/gitleaks-action@v2
+      - name: npm audit
+        run: npm audit --audit-level=low
+      - run: npm run typecheck
+      - run: npm run coverage
+      - run: npm run build
+      - name: Lighthouse regression guard
+        run: |
+          npm start & disown
+          timeout 30 bash -c 'until curl -sf http://localhost:3000/ja >/dev/null; do sleep 1; done'
+          node scripts/lighthouse-ci.mjs
