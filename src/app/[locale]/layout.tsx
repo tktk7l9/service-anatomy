@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { languageAlternates } from "@/engine/seo/alternates";
 import { BASE_URL } from "@/engine/site";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -27,7 +28,7 @@ export async function generateMetadata({
     description: dict.meta.description,
     alternates: {
       canonical: `/${locale}`,
-      languages: { ja: "/ja", en: "/en" },
+      languages: languageAlternates(),
       types: { "application/rss+xml": `/${locale}/rss.xml` },
     },
     openGraph: {

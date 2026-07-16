@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArticleCard } from "@/components/article-card";
 import { JsonLd } from "@/components/json-ld";
 import { articlesByTag } from "@/engine/articles";
+import { languageAlternates } from "@/engine/seo/alternates";
 import { buildBreadcrumbList, buildItemList } from "@/engine/seo/jsonld";
 import { BASE_URL } from "@/engine/site";
 import { isLocale, type Locale } from "@/i18n/config";
@@ -30,7 +31,7 @@ export async function generateMetadata({
     title: `#${tag}`,
     alternates: {
       canonical: `/${locale}${path}`,
-      languages: { ja: `/ja${path}`, en: `/en${path}` },
+      languages: languageAlternates(path),
     },
   };
 }

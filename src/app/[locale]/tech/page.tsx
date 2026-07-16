@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
 import { allTech } from "@/engine/articles";
+import { languageAlternates } from "@/engine/seo/alternates";
 import { buildBreadcrumbList, buildItemList } from "@/engine/seo/jsonld";
 import { BASE_URL } from "@/engine/site";
 import { isLocale, type Locale } from "@/i18n/config";
@@ -22,7 +23,7 @@ export async function generateMetadata({
     description: dict.tech.indexLead,
     alternates: {
       canonical: `/${rawLocale}/tech`,
-      languages: { ja: "/ja/tech", en: "/en/tech" },
+      languages: languageAlternates("/tech"),
     },
   };
 }

@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
 import { ALL_ARTICLES, allTags, allTech, usedCategories } from "@/engine/articles";
+import { absoluteLanguageAlternates } from "@/engine/seo/alternates";
 import { BASE_URL } from "@/engine/site";
 import { locales } from "@/i18n/config";
 
 function alternates(path: string): Record<string, string> {
-  return Object.fromEntries(locales.map((l) => [l, `${BASE_URL}/${l}${path}`]));
+  return absoluteLanguageAlternates(BASE_URL, path);
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
