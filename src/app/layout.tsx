@@ -8,11 +8,14 @@ import "./globals.css";
 // Webフォント化すると unicode-range 分割の @font-face 群だけで CSS が
 // 約190KB のレンダーブロッキングになり Lighthouse perf が 80 を割った（実測）。
 // 本文はシステムサンズ（日本語本文をウェブフォント化しない）。
+// display: "optional" — swap だと LCP(h1) がフォント到着時の再描画に引きずられ、
+// スロットリング下で LCP 0.9s→2.9s+ に膨らむ（CI の Lighthouse ガードが不安定化）。
+// optional なら初回の遅い回線のみシステムセリフ表示（JP見出しは元々システム明朝）。
+// italic は未使用のため含めない（可変フォント1ファイル≈65KBの削減）。
 const newsreader = Newsreader({
   subsets: ["latin"],
-  style: ["normal", "italic"],
   variable: "--font-newsreader",
-  display: "swap",
+  display: "optional",
 });
 
 export const metadata: Metadata = {
