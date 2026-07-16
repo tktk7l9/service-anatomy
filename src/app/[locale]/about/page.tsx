@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { languageAlternates } from "@/engine/seo/alternates";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
@@ -15,7 +16,7 @@ export async function generateMetadata({
     title: dict.about.title,
     alternates: {
       canonical: `/${rawLocale}/about`,
-      languages: { ja: "/ja/about", en: "/en/about" },
+      languages: languageAlternates("/about"),
     },
   };
 }
@@ -42,6 +43,11 @@ export default async function AboutPage({
           <li key={item}>{item}</li>
         ))}
       </ul>
+      <h2>{dict.about.dataTitle}</h2>
+      <p>{dict.about.dataBody}</p>
+      <p>
+        <a href="/api/anatomy.json">/api/anatomy.json</a>
+      </p>
       <h2>{dict.about.disclaimerTitle}</h2>
       <p>{dict.about.disclaimerBody}</p>
     </div>
