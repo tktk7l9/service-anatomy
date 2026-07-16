@@ -105,6 +105,7 @@ const ja = {
     game: "ゲーム",
     "ai-tool": "AIツール",
     "consumer-app": "コンシューマーアプリ",
+    productivity: "生産性",
     saas: "SaaS",
     "dev-tool": "開発者ツール",
     media: "メディア",

@@ -104,6 +104,7 @@ const en: Dictionary = {
     game: "Game",
     "ai-tool": "AI Tool",
     "consumer-app": "Consumer App",
+    productivity: "Productivity",
     saas: "SaaS",
     "dev-tool": "Developer Tool",
     media: "Media",

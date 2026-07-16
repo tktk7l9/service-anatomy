@@ -4,6 +4,7 @@ export const CATEGORY_IDS = [
   "game",
   "ai-tool",
   "consumer-app",
+  "productivity",
   "saas",
   "dev-tool",
   "media",
