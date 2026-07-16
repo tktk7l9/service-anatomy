@@ -9,6 +9,7 @@ import { ArticleCard } from "./article-card";
 import { Footer } from "./footer";
 import { Header } from "./header";
 import { HeroArt } from "./hero-art";
+import { LinkCard } from "./link-card";
 import { Scorecard } from "./scorecard";
 import { SourcesList } from "./sources-list";
 import { TechStackTable } from "./tech-stack-table";
@@ -91,6 +92,37 @@ describe("components smoke", () => {
     expect(container.querySelectorAll("li")).toHaveLength(2);
     const { container: empty } = render(<Toc entries={[]} label="目次" />);
     expect(empty.innerHTML).toBe("");
+  });
+
+  it("LinkCard は OGP メタデータをリンクプレビューとして描画する", () => {
+    const { container } = render(
+      <LinkCard
+        card={{
+          url: "https://example.com/",
+          title: "Example Service",
+          description: "説明",
+          image: "https://cdn.example.com/og.png",
+        }}
+        service="Example"
+        label="公式サイト"
+      />,
+    );
+    const anchor = container.querySelector("a.link-card");
+    expect(anchor).toHaveAttribute("href", "https://example.com/");
+    expect(screen.getByText("Example Service")).toBeInTheDocument();
+    expect(container.querySelector("img.link-card-image")).toHaveAttribute(
+      "src",
+      "https://cdn.example.com/og.png",
+    );
+    expect(screen.getByText(/example\.com ↗/)).toBeInTheDocument();
+  });
+
+  it("LinkCard は画像なしでもテキストカードとして成立する", () => {
+    const { container } = render(
+      <LinkCard card={{ url: "https://example.org/" }} service="Example" label="Official site" />,
+    );
+    expect(screen.getByText("Example")).toBeInTheDocument();
+    expect(container.querySelector("img")).toBeNull();
   });
 
   it("ArticleBody は html と scorecard/techstack を interleave する", () => {

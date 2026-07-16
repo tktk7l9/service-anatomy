@@ -1,0 +1,26 @@
+{
+  "full-card": {
+    "url": "https://example.com/",
+    "title": "Example Service",
+    "description": "説明文",
+    "image": "https://cdn.example.com/og.png",
+    "siteName": "Example",
+    "fetchedAt": "2026-07-16"
+  },
+  "minimal-card": {
+    "url": "https://example.org/"
+  },
+  "http-image": {
+    "url": "https://example.net/",
+    "title": "No Https Image",
+    "image": "http://insecure.example.net/og.png"
+  },
+  "empty-title": {
+    "url": "https://example.dev/",
+    "title": "   "
+  },
+  "bad-url": {
+    "url": "http://insecure.example.com/"
+  },
+  "not-object": "just-a-string"
+}

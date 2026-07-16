@@ -7,6 +7,7 @@ import {
   articlesByCategory,
   articlesByTag,
   articlesByTech,
+  ogCardFor,
   usedCategories,
 } from "./index";
 import { CATEGORY_IDS } from "./taxonomy";
@@ -62,5 +63,15 @@ describe("articles/index", () => {
       expect(articlesByTech(entry.slug)).toHaveLength(entry.count);
     }
     expect(articlesByTech("no-such-tech")).toEqual([]);
+  });
+
+  it("ogCardFor は存在しない slug に undefined、既知の slug には url 付きカードを返す", () => {
+    expect(ogCardFor("no-such-slug")).toBeUndefined();
+    for (const article of ALL_ARTICLES) {
+      const card = ogCardFor(article.slug);
+      if (card) {
+        expect(card.url).toMatch(/^https:\/\//);
+      }
+    }
   });
 });

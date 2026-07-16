@@ -1,0 +1,58 @@
+{
+  "daycity": {
+    "url": "https://theday.city/ja/",
+    "title": "DayCity - 手のひらに、世界の都市を",
+    "description": "天気と時間で表情を変える、手のひらの箱庭。いま世界で起きている景色が、あなたのホーム画面に届きます。",
+    "image": "https://theday.city/images/og-image-ja.png",
+    "fetchedAt": "2026-07-16"
+  },
+  "meccha-chameleon": {
+    "url": "https://store.steampowered.com/app/4704690/MECCHA_CHAMELEON/",
+    "title": "MECCHA CHAMELEON on Steam",
+    "description": "Paint yourself to blend in! \"Meccha Chameleon\" is a new-sensation hide-and-seek game where you paint your white body to mimic the stage. Spot, pose, and \"artistic skill\" are keys to survival. Deceive Seekers with techniques that put chameleons to shame! Supports public matches and streaming.",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4704690/8c199d9c704956104caa7de32cccef828b3cf3d0/capsule_616x353.jpg?t=1782561846",
+    "fetchedAt": "2026-07-16"
+  },
+  "mitene": {
+    "url": "https://mitene.us/",
+    "title": "家族アルバム みてね - 子どもの写真、動画を共有・整理アプリ",
+    "description": "子供の成長をいつでも、どこでも、いつまでも！子供の写真や動画をかんたんに共有、整理。家族みんなで楽しく会話したり、成長をふりかえることができます。",
+    "image": "https://assets.mitene.us/assets/landing_page/main/top/ja_ogp-5c439dfeb954a8480beb3f7b8e0917beb71502ae04b22622fb4ccd555de14f31.png",
+    "siteName": "家族アルバム みてね",
+    "fetchedAt": "2026-07-16"
+  },
+  "nani-translation": {
+    "url": "https://nani.now/ja",
+    "title": "Nani翻訳: AIが解説付きで高速に翻訳",
+    "description": "無料ですぐに使えるAI翻訳サービス。AIが解説と例文つきで高速に翻訳します。翻訳データは端末上に安全に保存されるのでセキュリティ面も安心。",
+    "image": "https://translatorassets.kiok.jp/images/opengraph-image.png",
+    "fetchedAt": "2026-07-16"
+  },
+  "nerv": {
+    "url": "https://nerv.app/",
+    "title": "特務機関NERV防災アプリ",
+    "fetchedAt": "2026-07-16"
+  },
+  "obsidian": {
+    "url": "https://obsidian.md/",
+    "title": "Obsidian - Sharpen your thinking",
+    "description": "The free and flexible app for your private thoughts.",
+    "image": "https://obsidian.md/images/banner.png",
+    "siteName": "Obsidian",
+    "fetchedAt": "2026-07-16"
+  },
+  "pixelpot": {
+    "url": "https://pixelpot.smak.works/",
+    "title": "PixelPot — 歩いて育てる、世界にひとつの植物",
+    "description": "毎日の歩数で、あなただけのデジタル植物が育つ。AIが生成するユニークなアートを、歩いて咲かせよう。",
+    "fetchedAt": "2026-07-16"
+  },
+  "sizu-me": {
+    "url": "https://sizu.me/home",
+    "title": "しずかなインターネット｜日記やエッセイにちょうどいい投稿サービス",
+    "description": "日記やエッセイを書くのにちょうどいい、文章投稿サービス",
+    "image": "https://static.sizu.me/images/og/default-summary.png",
+    "siteName": "しずかなインターネット",
+    "fetchedAt": "2026-07-16"
+  }
+}

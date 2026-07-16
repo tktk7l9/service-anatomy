@@ -5,9 +5,10 @@ import { notFound } from "next/navigation";
 import { ArticleBody } from "@/components/article-body";
 import { HeroArt } from "@/components/hero-art";
 import { JsonLd } from "@/components/json-ld";
+import { LinkCard } from "@/components/link-card";
 import { SourcesList } from "@/components/sources-list";
 import { Toc } from "@/components/toc";
-import { articleBySlug } from "@/engine/articles";
+import { articleBySlug, ogCardFor } from "@/engine/articles";
 import { formatDate } from "@/engine/format/date";
 import { estimateReadingMinutes, formatReadingTime } from "@/engine/format/reading-time";
 import { renderMarkdown } from "@/engine/markdown/render";
@@ -70,6 +71,7 @@ export default async function ArticlePage({
 
   const html = renderMarkdown(body, dict.article.callouts);
   const toc = extractToc(body);
+  const ogCard = ogCardFor(article.slug);
   const url = `${BASE_URL}/${locale}/articles/${article.slug}`;
   const readingTime = formatReadingTime(estimateReadingMinutes(body, locale), locale);
 
@@ -148,6 +150,10 @@ export default async function ArticlePage({
         <Toc entries={toc} label={dict.article.toc} />
         <div>
           <ArticleBody html={html} frontmatter={frontmatter} locale={locale} dict={dict} />
+
+          {ogCard && (
+            <LinkCard card={ogCard} service={frontmatter.service} label={dict.article.visitService} />
+          )}
 
           <ul className="tag-list">
             {frontmatter.tags.map((tag) => (

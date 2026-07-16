@@ -42,6 +42,11 @@ This version has breaking changes — APIs, conventions, and file structure may 
   speculative（推測）の3段階。confirmed は evidenceUrl 必須（テストで強制）。
 - 企業・個人への否定的断定を避ける（名誉毀損リスク）。批評は事実ベース+代替解釈の提示で。
 - スクリーンショット・ロゴ画像は使わない（著作権・商標）。ビジュアルは自作 SVG 生成アートのみ。
+  **唯一の例外 = 記事末尾の公式リンクカード**: serviceUrl の OGP を「公式サイトへのリンクプレビュー」
+  として表示する（SNS のリンクカードと同じ慣行の範囲）。画像は自サーバーへ複製せず各社サーバーから
+  直接表示し、`img-src` は `content/og-image-hosts.json` のオリジンだけ許可する。
+  取得は `npm run og-cards`（scripts/fetch-og-cards.mjs）→ 生成物をコミット。記事追加時に再実行する。
+  サムネイル・ヒーロー等、リンクプレビュー以外の用途に OGP 画像を使わないこと。
 - 記述の鮮度: `lastVerified`（ISO日付）必須。執筆時に Web 検索・実観測（curl -sI 等）で必ず検証する
   （LLM の学習知識を信用しない）。
 - ja を先に書き、en は同一コミット内で同期する（片言語だけの変更を残さない）。
