@@ -57,6 +57,7 @@ const en: Dictionary = {
       guess: "Guess",
     },
     accessedAt: "Accessed",
+    related: "Related dissections",
     disclaimer:
       "This is an unofficial analysis based on public information as of the time of writing, and includes speculation. All names and trademarks belong to their respective owners.",
   },
@@ -86,6 +87,9 @@ const en: Dictionary = {
       "Confidence levels for tech stacks — Confirmed (primary source), Likely (strong circumstantial evidence), or Speculative (a reasonable hypothesis).",
       "Freshness — every article carries a “Last verified” date. Specs and pricing change; always check the official site for the latest.",
     ],
+    dataTitle: "Open data",
+    dataBody:
+      "The structured data behind every article (anatomy scores, tech stacks, sources) is published as JSON. Feel free to quote or aggregate it — please credit this site with a link.",
     disclaimerTitle: "Disclaimer",
     disclaimerBody:
       "The content of this site is analysis and opinion based on public information at the time of writing, with no guarantee of accuracy or completeness. Scores are the editors' subjective ratings. All names and trademarks belong to their respective owners.",

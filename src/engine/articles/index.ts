@@ -1,6 +1,13 @@
 import { loadArticles, type Article, type ArticleFile } from "./load";
 import { loadOgCards, type OgCard } from "./og-cards";
-import { collectCategories, collectTags, filterByCategory, filterByTag, findBySlug } from "./query";
+import {
+  collectCategories,
+  collectTags,
+  filterByCategory,
+  filterByTag,
+  findBySlug,
+  relatedArticles,
+} from "./query";
 import { collectTech, filterByTech, type TechIndexEntry } from "./tech";
 import { CATEGORY_IDS, type CategoryId } from "./taxonomy";
 
@@ -38,6 +45,10 @@ export function articlesByTech(slug: string): Article[] {
 
 export function ogCardFor(slug: string): OgCard | undefined {
   return OG_CARDS[slug];
+}
+
+export function relatedTo(article: Article, limit?: number): Article[] {
+  return relatedArticles(ALL_ARTICLES, article, limit);
 }
 
 export type { Article, ArticleFile };

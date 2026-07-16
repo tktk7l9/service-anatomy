@@ -3,16 +3,18 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { ArticleBody } from "@/components/article-body";
+import { ArticleCard } from "@/components/article-card";
 import { HeroArt } from "@/components/hero-art";
 import { JsonLd } from "@/components/json-ld";
 import { LinkCard } from "@/components/link-card";
 import { SourcesList } from "@/components/sources-list";
 import { Toc } from "@/components/toc";
-import { articleBySlug, ogCardFor } from "@/engine/articles";
+import { articleBySlug, ogCardFor, relatedTo } from "@/engine/articles";
 import { formatDate } from "@/engine/format/date";
 import { estimateReadingMinutes, formatReadingTime } from "@/engine/format/reading-time";
 import { renderMarkdown } from "@/engine/markdown/render";
 import { extractToc } from "@/engine/markdown/toc";
+import { languageAlternates } from "@/engine/seo/alternates";
 import { buildBlogPosting, buildBreadcrumbList } from "@/engine/seo/jsonld";
 import { BASE_URL } from "@/engine/site";
 import { isLocale, type Locale } from "@/i18n/config";
@@ -44,7 +46,7 @@ export async function generateMetadata({
     description: frontmatter.description,
     alternates: {
       canonical: `/${locale}${path}`,
-      languages: { ja: `/ja${path}`, en: `/en${path}` },
+      languages: languageAlternates(path),
     },
     openGraph: {
       type: "article",
@@ -72,6 +74,7 @@ export default async function ArticlePage({
   const html = renderMarkdown(body, dict.article.callouts);
   const toc = extractToc(body);
   const ogCard = ogCardFor(article.slug);
+  const related = relatedTo(article);
   const url = `${BASE_URL}/${locale}/articles/${article.slug}`;
   const readingTime = formatReadingTime(estimateReadingMinutes(body, locale), locale);
 
@@ -168,6 +171,17 @@ export default async function ArticlePage({
           <p className="article-disclaimer">{dict.article.disclaimer}</p>
         </div>
       </div>
+
+      {related.length > 0 && (
+        <section aria-label={dict.article.related}>
+          <p className="section-label">{dict.article.related}</p>
+          <div className="article-grid">
+            {related.map((other) => (
+              <ArticleCard key={other.slug} article={other} locale={locale} dict={dict} />
+            ))}
+          </div>
+        </section>
+      )}
     </article>
   );
 }
