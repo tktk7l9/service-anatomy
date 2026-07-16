@@ -47,5 +47,12 @@ describe("記事コンテンツの横断整合性", () => {
       expect(html.length).toBeGreaterThan(0);
       expect(html).not.toContain("<script");
     });
+
+    it.each(locales)("%s: 強調(**)がCJK括弧の隣接で失敗していない", (locale) => {
+      // CommonMark は「」等の約物に隣接した ** を強調として解釈しないことがある。
+      // 失敗すると生の ** がHTMLに残るため、ここで検出する。
+      const html = renderMarkdown(article[locale].body);
+      expect(html).not.toContain("**");
+    });
   });
 });
