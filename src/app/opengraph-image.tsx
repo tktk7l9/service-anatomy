@@ -24,7 +24,7 @@ export default function OpengraphImage() {
           color: INK,
           padding: "72px 80px",
           borderTop: `14px solid ${INK}`,
-          fontFamily: "serif",
+          fontFamily: "sans-serif",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>

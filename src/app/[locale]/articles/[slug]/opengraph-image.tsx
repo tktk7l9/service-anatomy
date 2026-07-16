@@ -46,7 +46,7 @@ export default async function OpengraphImage({
           color: INK,
           padding: "64px 72px",
           borderTop: `14px solid ${INK}`,
-          fontFamily: "serif",
+          fontFamily: "sans-serif",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
