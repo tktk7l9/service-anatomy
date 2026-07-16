@@ -9,6 +9,7 @@ const en: Dictionary = {
   },
   nav: {
     home: "Articles",
+    tech: "Tech Index",
     about: "About",
     switchLocale: "日本語",
     rss: "RSS",
@@ -62,7 +63,14 @@ const en: Dictionary = {
   listing: {
     categoryTitle: "Category",
     tagTitle: "Tag",
+    techTitle: "Technology",
     countSuffix: "articles",
+  },
+  tech: {
+    indexTitle: "Tech Index",
+    indexLead:
+      "A cross-reference of the technologies confirmed or estimated in our articles. Pick a technology to see the dissections of services that use it. For confidence levels (confirmed / likely / speculative), see each article's tech stack table.",
+    servicesSuffix: "services",
   },
   about: {
     title: "About this site",

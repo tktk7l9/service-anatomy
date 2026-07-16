@@ -11,6 +11,7 @@ const ja = {
   },
   nav: {
     home: "記事一覧",
+    tech: "技術データベース",
     about: "このサイトについて",
     switchLocale: "English",
     rss: "RSS",
@@ -64,7 +65,14 @@ const ja = {
   listing: {
     categoryTitle: "カテゴリ",
     tagTitle: "タグ",
+    techTitle: "技術",
     countSuffix: "本の記事",
+  },
+  tech: {
+    indexTitle: "技術データベース",
+    indexLead:
+      "記事で確認・推定した技術構成を横断する索引です。技術を選ぶと、それを採用しているサービスの解剖記事が並びます。確度（確認済み/有力/推測）は各記事の技術構成表を参照してください。",
+    servicesSuffix: "サービス",
   },
   about: {
     title: "このサイトについて",

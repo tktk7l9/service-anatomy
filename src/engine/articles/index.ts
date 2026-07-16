@@ -1,5 +1,6 @@
 import { loadArticles, type Article, type ArticleFile } from "./load";
 import { collectCategories, collectTags, filterByCategory, filterByTag, findBySlug } from "./query";
+import { collectTech, filterByTech, type TechIndexEntry } from "./tech";
 import { CATEGORY_IDS, type CategoryId } from "./taxonomy";
 
 // モジュール読み込み時に全記事を一度だけ読む（サーバー専用）。
@@ -23,6 +24,14 @@ export function allTags(): string[] {
 
 export function usedCategories(): CategoryId[] {
   return collectCategories(ALL_ARTICLES, CATEGORY_IDS);
+}
+
+export function allTech(): TechIndexEntry[] {
+  return collectTech(ALL_ARTICLES);
+}
+
+export function articlesByTech(slug: string): Article[] {
+  return filterByTech(ALL_ARTICLES, slug);
 }
 
 export type { Article, ArticleFile };

@@ -2,9 +2,11 @@ import { describe, expect, it } from "vitest";
 import {
   ALL_ARTICLES,
   allTags,
+  allTech,
   articleBySlug,
   articlesByCategory,
   articlesByTag,
+  articlesByTech,
   usedCategories,
 } from "./index";
 import { CATEGORY_IDS } from "./taxonomy";
@@ -53,5 +55,12 @@ describe("articles/index", () => {
   it("usedCategories は定義済みカテゴリの部分列", () => {
     const used = usedCategories();
     expect(CATEGORY_IDS.filter((id) => used.includes(id))).toEqual(used);
+  });
+
+  it("allTech の各エントリは articlesByTech で count と同数の記事を引ける", () => {
+    for (const entry of allTech()) {
+      expect(articlesByTech(entry.slug)).toHaveLength(entry.count);
+    }
+    expect(articlesByTech("no-such-tech")).toEqual([]);
   });
 });

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { ALL_ARTICLES, allTags, usedCategories } from "@/engine/articles";
+import { ALL_ARTICLES, allTags, allTech, usedCategories } from "@/engine/articles";
 import { BASE_URL } from "@/engine/site";
 import { locales } from "@/i18n/config";
 
@@ -36,6 +36,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       entries.push({
         url: `${BASE_URL}/${locale}/tag/${tag}`,
         alternates: { languages: alternates(`/tag/${tag}`) },
+      });
+    }
+    entries.push({
+      url: `${BASE_URL}/${locale}/tech`,
+      alternates: { languages: alternates("/tech") },
+    });
+    for (const tech of allTech()) {
+      entries.push({
+        url: `${BASE_URL}/${locale}/tech/${tech.slug}`,
+        alternates: { languages: alternates(`/tech/${tech.slug}`) },
       });
     }
   }

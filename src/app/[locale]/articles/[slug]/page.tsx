@@ -147,7 +147,7 @@ export default async function ArticlePage({
       <div className="article-layout">
         <Toc entries={toc} label={dict.article.toc} />
         <div>
-          <ArticleBody html={html} frontmatter={frontmatter} dict={dict} />
+          <ArticleBody html={html} frontmatter={frontmatter} locale={locale} dict={dict} />
 
           <ul className="tag-list">
             {frontmatter.tags.map((tag) => (

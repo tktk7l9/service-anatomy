@@ -48,25 +48,29 @@ describe("components smoke", () => {
     expect(screen.getByText("プロダクト")).toBeInTheDocument();
   });
 
-  it("TechStackTable は confidence バッジと根拠リンクを表示する", () => {
+  it("TechStackTable は confidence バッジ・根拠リンク・技術横断リンクを表示する", () => {
     render(
       <TechStackTable
         entries={[
           {
             layer: "Frontend",
-            name: "React",
+            name: "Next.js (App Router)",
             confidence: "confirmed",
             evidence: "公式ブログ",
             evidenceUrl: "https://example.com/blog",
           },
           { layer: "CDN", name: "CloudFront", confidence: "speculative", evidence: "ヘッダー観測" },
         ]}
+        locale="ja"
         dict={ja}
       />,
     );
     expect(screen.getByText("確認済み")).toBeInTheDocument();
     expect(screen.getByText("公式ブログ")).toHaveAttribute("href", "https://example.com/blog");
     expect(screen.getByText("推測")).toBeInTheDocument();
+    expect(screen.getByText("Next.js")).toHaveAttribute("href", "/ja/tech/next-js");
+    expect(screen.getByText("CloudFront")).toHaveAttribute("href", "/ja/tech/cloudfront");
+    expect(screen.getByText(/App Router/)).toBeInTheDocument();
   });
 
   it("SourcesList はホスト名と閲覧日を表示する", () => {
@@ -93,7 +97,7 @@ describe("components smoke", () => {
     const markdown = "## 序\n\n本文。\n\n::scorecard\n\n## 技術\n\n::techstack\n\n結び。";
     const html = renderMarkdown(markdown, ja.article.callouts);
     const { container } = render(
-      <ArticleBody html={html} frontmatter={makeFrontmatter()} dict={ja} />,
+      <ArticleBody html={html} frontmatter={makeFrontmatter()} locale="ja" dict={ja} />,
     );
     expect(container.querySelectorAll(".prose")).toHaveLength(3);
     expect(container.querySelectorAll(".anatomy-block")).toHaveLength(2);

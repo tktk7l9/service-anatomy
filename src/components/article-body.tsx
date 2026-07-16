@@ -1,5 +1,6 @@
 import type { ArticleFrontmatter } from "@/engine/articles/schema";
 import { splitArticleHtml } from "@/engine/markdown/split";
+import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { Scorecard } from "./scorecard";
 import { TechStackTable } from "./tech-stack-table";
@@ -11,10 +12,12 @@ import { TechStackTable } from "./tech-stack-table";
 export function ArticleBody({
   html,
   frontmatter,
+  locale,
   dict,
 }: {
   html: string;
   frontmatter: ArticleFrontmatter;
+  locale: Locale;
   dict: Dictionary;
 }) {
   const segments = splitArticleHtml(html);
@@ -33,7 +36,7 @@ export function ArticleBody({
         return segment.component === "scorecard" ? (
           <Scorecard key={i} scores={frontmatter.scores} dict={dict} />
         ) : (
-          <TechStackTable key={i} entries={frontmatter.techStack} dict={dict} />
+          <TechStackTable key={i} entries={frontmatter.techStack} locale={locale} dict={dict} />
         );
       })}
     </div>
