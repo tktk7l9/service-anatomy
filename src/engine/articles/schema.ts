@@ -26,6 +26,13 @@ export interface SourceRef {
   accessedAt: string;
 }
 
+/** 定点観測（再解剖）の1チェックポイント。過去のスコアと発見をnoteに残す。 */
+export interface RevisionEntry {
+  date: string;
+  scores: Scores;
+  note: string;
+}
+
 export interface ArticleFrontmatter {
   service: string;
   title: string;
@@ -43,6 +50,8 @@ export interface ArticleFrontmatter {
   scores: Scores;
   techStack: TechStackEntry[];
   sources: SourceRef[];
+  /** 定点観測（再解剖）の履歴。時系列順（古い→新しい）。scores は現行の frontmatter.scores が最新値。 */
+  revisions?: RevisionEntry[];
 }
 
 export const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
@@ -109,17 +118,37 @@ function parseTags(obj: Record<string, unknown>, context: string): string[] {
   });
 }
 
-function parseScores(obj: Record<string, unknown>, context: string): Scores {
-  const record = asRecord(obj.scores, context, "scores");
+function parseScoresValue(value: unknown, context: string, label: string): Scores {
+  const record = asRecord(value, context, label);
   const scores = {} as Scores;
   for (const axis of SCORE_AXES) {
-    const value = record[axis];
-    if (typeof value !== "number" || value < 0 || value > 5 || (value * 2) % 1 !== 0) {
+    const v = record[axis];
+    if (typeof v !== "number" || v < 0 || v > 5 || (v * 2) % 1 !== 0) {
       fail(context, `scores.${axis} は 0〜5 の 0.5 刻みの数値である必要があります`);
     }
-    scores[axis] = value;
+    scores[axis] = v;
   }
   return scores;
+}
+
+function parseScores(obj: Record<string, unknown>, context: string): Scores {
+  return parseScoresValue(obj.scores, context, "scores");
+}
+
+function parseRevisions(obj: Record<string, unknown>, context: string): RevisionEntry[] | undefined {
+  if (obj.revisions === undefined) {
+    return undefined;
+  }
+  const values = requireArray(obj, "revisions", context);
+  return values.map((raw, i) => {
+    const entryContext = `${context}: revisions[${i}]`;
+    const record = asRecord(raw, entryContext, "要素");
+    return {
+      date: requireIsoDate(record, "date", entryContext),
+      scores: parseScoresValue(record.scores, entryContext, "scores"),
+      note: requireString(record, "note", entryContext),
+    };
+  });
 }
 
 function parseTechStack(obj: Record<string, unknown>, context: string): TechStackEntry[] {
@@ -179,5 +208,6 @@ export function parseFrontmatter(data: unknown, context: string): ArticleFrontma
     scores: parseScores(obj, context),
     techStack: parseTechStack(obj, context),
     sources: parseSources(obj, context),
+    revisions: parseRevisions(obj, context),
   };
 }

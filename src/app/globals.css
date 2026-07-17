@@ -955,6 +955,94 @@ svg {
   overflow-x: auto;
 }
 
+/* 定点観測（再解剖）のスコア推移 */
+.trend-list {
+  display: grid;
+  gap: 1.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trend-item {
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--rule);
+}
+
+.trend-date {
+  margin: 0 0 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--display);
+  font-size: 0.9rem;
+}
+
+.trend-current {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--accent);
+  border-radius: 999px;
+  padding: 0.12rem 0.6rem;
+}
+
+.trend-scores {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem 1.2rem;
+}
+
+@media (min-width: 32rem) {
+  .trend-scores {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.trend-score {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+}
+
+.trend-score dt {
+  color: var(--ink-faint);
+}
+
+.trend-score dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+.trend-delta {
+  font-size: 0.7rem;
+}
+
+.trend-delta-up {
+  color: var(--fact);
+}
+
+.trend-delta-down {
+  color: var(--guess);
+}
+
+.trend-delta-same {
+  color: var(--ink-faint);
+}
+
+.trend-note {
+  margin: 0.5rem 0 0;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
 /* ---------- link card（公式サイトへのリンクプレビュー） ---------- */
 
 .link-card {

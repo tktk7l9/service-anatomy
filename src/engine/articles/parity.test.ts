@@ -62,4 +62,45 @@ describe("localeParityIssues", () => {
     });
     expect(localeParityIssues(differentUrl).join("\n")).toMatch(/sources\[0\]\.url/);
   });
+
+  it("revisions が両方未指定なら一致扱い", () => {
+    expect(localeParityIssues(makeArticle("x"))).toEqual([]);
+  });
+
+  it("revisions の件数不一致を検出する", () => {
+    const article = makeArticle("x", {
+      revisions: [{ date: "2026-07-01", scores: { product: 4, ux: 3.5, tech: 3, business: 4.5 }, note: "ja note" }],
+    });
+    article.en = makeArticleFile({ revisions: undefined });
+    expect(localeParityIssues(article).join("\n")).toMatch(/revisions の件数が ja\/en で一致しません/);
+  });
+
+  it("revisions[].date / scores の不一致を検出し、note の違いは無視する", () => {
+    const article = makeArticle(
+      "x",
+      {
+        revisions: [
+          { date: "2026-07-01", scores: { product: 4, ux: 3.5, tech: 3, business: 4.5 }, note: "ja note" },
+        ],
+      },
+      {
+        revisions: [
+          { date: "2026-07-02", scores: { product: 4, ux: 3.5, tech: 3, business: 5 }, note: "en note (different)" },
+        ],
+      },
+    );
+    const issues = localeParityIssues(article).join("\n");
+    expect(issues).toMatch(/revisions\[0\]\.date が ja\/en で一致しません/);
+    expect(issues).toMatch(/revisions\[0\]\.scores\.business が ja\/en で一致しません/);
+    expect(issues).not.toMatch(/note/);
+  });
+
+  it("revisions が完全一致（note のみ違う）なら issue なし", () => {
+    const article = makeArticle(
+      "x",
+      { revisions: [{ date: "2026-07-01", scores: { product: 4, ux: 3.5, tech: 3, business: 4.5 }, note: "ja" }] },
+      { revisions: [{ date: "2026-07-01", scores: { product: 4, ux: 3.5, tech: 3, business: 4.5 }, note: "en" }] },
+    );
+    expect(localeParityIssues(article)).toEqual([]);
+  });
 });

@@ -60,6 +60,9 @@ const ja = {
     },
     accessedAt: "閲覧日",
     related: "関連する解剖",
+    revisionsTitle: "定点観測",
+    revisionsNote: "過去の解剖スコアからの推移。noteに変更点の根拠を記す時系列データ。",
+    revisionsCurrent: "現在",
     disclaimer:
       "本記事は非公式の分析です。公開情報に基づく執筆時点の内容で、推測を含みます。名称・商標は各社に帰属します。",
   },

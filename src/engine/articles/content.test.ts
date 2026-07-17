@@ -58,6 +58,20 @@ describe("記事コンテンツの横断整合性", () => {
       expect(html).not.toContain("**");
     });
 
+    it("revisions（定点観測）があれば未来日でなく時系列順・updatedAt 以前", () => {
+      const revisions = article.ja.frontmatter.revisions;
+      if (!revisions) {
+        return;
+      }
+      let prev = "";
+      for (const revision of revisions) {
+        expect(revision.date <= todayIso).toBe(true);
+        expect(revision.date >= prev).toBe(true);
+        prev = revision.date;
+      }
+      expect(prev <= article.ja.frontmatter.updatedAt).toBe(true);
+    });
+
     it("og-cards.json にリンクカードのエントリがある（漏れたら npm run og-cards を実行）", () => {
       expect(ogCards[article.slug]).toBeDefined();
       expect(ogCards[article.slug].url).toBe(article.ja.frontmatter.serviceUrl);

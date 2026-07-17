@@ -26,6 +26,21 @@ describe("parseFrontmatter", () => {
     expect(parseFrontmatter(raw, "ctx").techStack[0].evidenceUrl).toBe("https://example.com/proof");
   });
 
+  it("revisions 未指定なら undefined", () => {
+    expect(parseFrontmatter(makeRawFrontmatter(), "ctx").revisions).toBeUndefined();
+  });
+
+  it("revisions（定点観測）を受理する", () => {
+    const raw = mutate((r) => {
+      r.revisions = [
+        { date: "2026-07-01", scores: { product: 4, ux: 3.5, tech: 3, business: 4.5 }, note: "初回" },
+      ];
+    });
+    expect(parseFrontmatter(raw, "ctx").revisions).toEqual([
+      { date: "2026-07-01", scores: { product: 4, ux: 3.5, tech: 3, business: 4.5 }, note: "初回" },
+    ]);
+  });
+
   it.each([
     ["frontmatter が文字列", () => "not-object" as unknown, /frontmatter はオブジェクト/],
     ["frontmatter が null", () => null as unknown, /frontmatter はオブジェクト/],
@@ -107,6 +122,31 @@ describe("parseFrontmatter", () => {
       "sources.accessedAt が形式外",
       (r: Record<string, unknown>) => ((r.sources as Record<string, unknown>[])[0].accessedAt = "July 1"),
       /sources\[0\]: accessedAt は "YYYY-MM-DD"/,
+    ],
+    ["revisions が空配列", (r: Record<string, unknown>) => (r.revisions = []), /revisions は1件以上の配列/],
+    [
+      "revisions 要素がオブジェクトでない",
+      (r: Record<string, unknown>) => (r.revisions = ["2026-07-01"]),
+      /revisions\[0\]: 要素 はオブジェクト/,
+    ],
+    [
+      "revisions[].date が形式外",
+      (r: Record<string, unknown>) => (r.revisions = [{ date: "July 1", scores: (r.scores as unknown), note: "n" }]),
+      /revisions\[0\]: date は "YYYY-MM-DD"/,
+    ],
+    [
+      "revisions[].scores の軸が範囲外",
+      (r: Record<string, unknown>) => (
+        r.revisions = [
+          { date: "2026-07-01", scores: { product: 9, ux: 3.5, tech: 3, business: 4.5 }, note: "n" },
+        ]
+      ),
+      /revisions\[0\]: scores\.product は 0〜5/,
+    ],
+    [
+      "revisions[].note が欠落",
+      (r: Record<string, unknown>) => (r.revisions = [{ date: "2026-07-01", scores: (r.scores as unknown) }]),
+      /revisions\[0\]: note は空でない文字列/,
     ],
   ])("%s なら失敗", (_name, mutator, pattern) => {
     expect(() => parseFrontmatter(mutate(mutator as (r: Record<string, unknown>) => void), "ctx")).toThrow(pattern);

@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { makeArticle, makeFrontmatter } from "@/engine/articles/__fixtures__/factories";
+import { buildScoreTrend } from "@/engine/articles/revision-trend";
 import { renderMarkdown } from "@/engine/markdown/render";
 import { extractToc } from "@/engine/markdown/toc";
 import ja from "@/i18n/dictionaries/ja";
@@ -10,6 +11,7 @@ import { Footer } from "./footer";
 import { Header } from "./header";
 import { HeroArt } from "./hero-art";
 import { LinkCard } from "./link-card";
+import { ScoreTrend } from "./score-trend";
 import { Scorecard } from "./scorecard";
 import { SourcesList } from "./sources-list";
 import { TechStackTable } from "./tech-stack-table";
@@ -123,6 +125,18 @@ describe("components smoke", () => {
     );
     expect(screen.getByText("Example")).toBeInTheDocument();
     expect(container.querySelector("img")).toBeNull();
+  });
+
+  it("ScoreTrend は各チェックポイントのスコアとデルタ・note を描画する", () => {
+    const trend = buildScoreTrend(
+      [{ date: "2026-07-01", scores: { product: 4, ux: 3.5, tech: 3, business: 4.5 }, note: "初回のnote" }],
+      { product: 4.5, ux: 3.5, tech: 3, business: 4.5 },
+      "2026-07-17",
+    );
+    render(<ScoreTrend checkpoints={trend} locale="ja" dict={ja} />);
+    expect(screen.getByText("初回のnote")).toBeInTheDocument();
+    expect(screen.getByText(ja.article.revisionsCurrent)).toBeInTheDocument();
+    expect(screen.getAllByText("4.5").length).toBeGreaterThan(0);
   });
 
   it("ArticleBody は html と scorecard/techstack を interleave する", () => {

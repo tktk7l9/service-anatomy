@@ -58,6 +58,9 @@ const en: Dictionary = {
     },
     accessedAt: "Accessed",
     related: "Related dissections",
+    revisionsTitle: "Re-observations",
+    revisionsNote: "The score trend over time, from past dissections — each note records the evidence behind a change.",
+    revisionsCurrent: "Current",
     disclaimer:
       "This is an unofficial analysis based on public information as of the time of writing, and includes speculation. All names and trademarks belong to their respective owners.",
   },

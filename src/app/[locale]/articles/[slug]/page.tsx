@@ -7,9 +7,11 @@ import { ArticleCard } from "@/components/article-card";
 import { HeroArt } from "@/components/hero-art";
 import { JsonLd } from "@/components/json-ld";
 import { LinkCard } from "@/components/link-card";
+import { ScoreTrend } from "@/components/score-trend";
 import { SourcesList } from "@/components/sources-list";
 import { Toc } from "@/components/toc";
 import { articleBySlug, ogCardFor, relatedTo } from "@/engine/articles";
+import { buildScoreTrend } from "@/engine/articles/revision-trend";
 import { formatDate } from "@/engine/format/date";
 import { estimateReadingMinutes, formatReadingTime } from "@/engine/format/reading-time";
 import { renderMarkdown } from "@/engine/markdown/render";
@@ -75,6 +77,9 @@ export default async function ArticlePage({
   const toc = extractToc(body);
   const ogCard = ogCardFor(article.slug);
   const related = relatedTo(article);
+  const scoreTrend = frontmatter.revisions
+    ? buildScoreTrend(frontmatter.revisions, frontmatter.scores, frontmatter.updatedAt)
+    : null;
   const url = `${BASE_URL}/${locale}/articles/${article.slug}`;
   const readingTime = formatReadingTime(estimateReadingMinutes(body, locale), locale);
 
@@ -167,6 +172,8 @@ export default async function ArticlePage({
           </ul>
 
           <SourcesList sources={frontmatter.sources} locale={locale} dict={dict} />
+
+          {scoreTrend && <ScoreTrend checkpoints={scoreTrend} locale={locale} dict={dict} />}
 
           <p className="article-disclaimer">{dict.article.disclaimer}</p>
         </div>

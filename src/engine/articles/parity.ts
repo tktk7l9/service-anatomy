@@ -50,5 +50,22 @@ export function localeParityIssues(article: Article): string[] {
       }
     });
   }
+  const jaRevisions = ja.revisions ?? [];
+  const enRevisions = en.revisions ?? [];
+  if (jaRevisions.length !== enRevisions.length) {
+    issues.push(`revisions の件数が ja/en で一致しません（ja=${jaRevisions.length} / en=${enRevisions.length}）`);
+  } else {
+    jaRevisions.forEach((revision, i) => {
+      const other = enRevisions[i];
+      if (revision.date !== other.date) {
+        issues.push(`revisions[${i}].date が ja/en で一致しません（ja=${revision.date} / en=${other.date}）`);
+      }
+      for (const axis of ["product", "ux", "tech", "business"] as const) {
+        if (revision.scores[axis] !== other.scores[axis]) {
+          issues.push(`revisions[${i}].scores.${axis} が ja/en で一致しません`);
+        }
+      }
+    });
+  }
   return issues;
 }
