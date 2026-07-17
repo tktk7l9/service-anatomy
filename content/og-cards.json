@@ -6,6 +6,13 @@
     "image": "https://theday.city/images/og-image-ja.png",
     "fetchedAt": "2026-07-17"
   },
+  "deepl": {
+    "url": "https://www.deepl.com/ja/translator",
+    "title": "DeepL翻訳 | 世界最高レベルの精度を誇る翻訳ツール",
+    "description": "テキストや文書ファイルを瞬時に翻訳します。個人でもチームでも、高精度の翻訳をご活用いただけます。毎日、何百万もの人々がDeepLを使って翻訳しています。",
+    "image": "https://www.deepl.com/img/favicon/automatic_social_share_deepl.png",
+    "fetchedAt": "2026-07-17"
+  },
   "duolingo": {
     "url": "https://www.duolingo.com/",
     "title": "Learn a language for free",
