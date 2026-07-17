@@ -78,6 +78,14 @@
     "siteName": "しずかなインターネット",
     "fetchedAt": "2026-07-17"
   },
+  "smarthr": {
+    "url": "https://smarthr.jp/",
+    "title": "SmartHR（スマートHR）｜労務管理クラウド7年連続シェアNo.1",
+    "description": "SmartHRは、労務管理クラウド7年連続シェアNo.1の「人と組織のためのバックオフィスシステム」です。人事労務・情シスの業務効率化はもちろん、働くすべての人の生産性向上を支えます。",
+    "image": "https://smarthr.jp/_astro/ogp_a-1.BA0NIxgO.jpg",
+    "siteName": "SmartHR",
+    "fetchedAt": "2026-07-17"
+  },
   "zenn": {
     "url": "https://zenn.dev/",
     "title": "Zenn｜エンジニアのための情報共有コミュニティ",
