@@ -13,6 +13,13 @@
     "image": "https://www.deepl.com/img/favicon/automatic_social_share_deepl.png",
     "fetchedAt": "2026-07-17"
   },
+  "discord": {
+    "url": "https://discord.com/",
+    "title": "Discord - Group Chat That’s All Fun & Games",
+    "description": "Discord is great for playing games and chilling with friends, or even building a worldwide community. Customize your own space to talk, play, and hang out.",
+    "image": "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/665643dd8c7ac752237b5cef_Discord-OG-1200x630.jpg",
+    "fetchedAt": "2026-07-17"
+  },
   "duolingo": {
     "url": "https://www.duolingo.com/",
     "title": "Learn a language for free",
