@@ -10,6 +10,7 @@ const en: Dictionary = {
   nav: {
     home: "Articles",
     tech: "Tech Index",
+    compare: "Comparisons",
     about: "About",
     switchLocale: "日本語",
     rss: "RSS",
@@ -75,6 +76,17 @@ const en: Dictionary = {
     indexLead:
       "A cross-reference of the technologies confirmed or estimated in our articles. Pick a technology to see the dissections of services that use it. For confidence levels (confirmed / likely / speculative), see each article's tech stack table.",
     servicesSuffix: "services",
+  },
+  compare: {
+    indexTitle: "Comparisons",
+    indexLead:
+      "A head-to-head format that reads two services side by side on the same four-axis scores and tech stacks. Since both come from each article's structured data (scorecard, techStack), every comparison needs minimal new manual input.",
+    countSuffix: "comparisons",
+    techOverlapTitle: "Tech stack overlap",
+    techOverlapNote: "Computed mechanically from each article's techStack frontmatter. See each article's tech stack table for confidence levels.",
+    techShared: "Shared",
+    techOnly: "only",
+    readArticle: "Read the dissection",
   },
   about: {
     title: "About this site",

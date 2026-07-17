@@ -30,6 +30,7 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
         <nav className="site-nav" aria-label="Site">
           <Link href={`/${locale}`}>{dict.nav.home}</Link>
           <Link href={`/${locale}/tech`}>{dict.nav.tech}</Link>
+          <Link href={`/${locale}/compare`}>{dict.nav.compare}</Link>
           <Link href={`/${locale}/about`}>{dict.nav.about}</Link>
           <a href={`/${locale}/rss.xml`}>{dict.nav.rss}</a>
           <LocaleSwitcher locale={locale} label={dict.nav.switchLocale} />

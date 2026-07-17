@@ -1043,6 +1043,112 @@ svg {
   color: var(--ink-soft);
 }
 
+/* ---------- 比較解剖（対決フォーマット） ---------- */
+
+.compare-header,
+.compare-score-row {
+  display: grid;
+  grid-template-columns: 6em minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 1em;
+}
+
+.compare-header {
+  margin: 0 0 0.6rem;
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+.compare-score-rows {
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.compare-score-row dt {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.compare-score-cell {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 2.6em;
+  align-items: center;
+  gap: 0.7em;
+}
+
+.compare-overall {
+  margin: 1.2rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 6em minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1em;
+  text-align: center;
+}
+
+.compare-overall > span:first-child {
+  grid-column: 2;
+}
+
+.compare-tech-groups {
+  display: grid;
+  gap: 1.4rem;
+}
+
+@media (min-width: 40rem) {
+  .compare-tech-groups {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.compare-tech-group-label {
+  margin: 0 0 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.compare-tech-empty {
+  margin: 0;
+  color: var(--ink-faint);
+  font-size: 0.85rem;
+}
+
+.compare-list {
+  display: grid;
+  gap: 1.2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.compare-list-item {
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--rule-strong);
+  background: var(--paper-raised);
+  padding: 1.2rem 1.4rem;
+}
+
+.compare-list-item a {
+  text-decoration: none;
+}
+
+.compare-list-title {
+  margin: 0 0 0.4rem;
+  font-family: var(--display);
+  font-size: 1.15rem;
+}
+
+.compare-list-lead {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
 /* ---------- link card（公式サイトへのリンクプレビュー） ---------- */
 
 .link-card {

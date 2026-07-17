@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { ALL_ARTICLES, allTags, allTech, usedCategories } from "@/engine/articles";
+import { ALL_COMPARISONS } from "@/engine/comparisons";
 import { absoluteLanguageAlternates } from "@/engine/seo/alternates";
 import { BASE_URL } from "@/engine/site";
 import { locales } from "@/i18n/config";
@@ -47,6 +48,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       entries.push({
         url: `${BASE_URL}/${locale}/tech/${tech.slug}`,
         alternates: { languages: alternates(`/tech/${tech.slug}`) },
+      });
+    }
+    entries.push({
+      url: `${BASE_URL}/${locale}/compare`,
+      alternates: { languages: alternates("/compare") },
+    });
+    for (const comparison of ALL_COMPARISONS) {
+      entries.push({
+        url: `${BASE_URL}/${locale}/compare/${comparison.slug}`,
+        lastModified: comparison.ja.frontmatter.updatedAt,
+        alternates: { languages: alternates(`/compare/${comparison.slug}`) },
       });
     }
   }

@@ -12,6 +12,7 @@ const ja = {
   nav: {
     home: "記事一覧",
     tech: "技術データベース",
+    compare: "比較解剖",
     about: "このサイトについて",
     switchLocale: "English",
     rss: "RSS",
@@ -77,6 +78,17 @@ const ja = {
     indexLead:
       "記事で確認・推定した技術構成を横断する索引です。技術を選ぶと、それを採用しているサービスの解剖記事が並びます。確度（確認済み/有力/推測）は各記事の技術構成表を参照してください。",
     servicesSuffix: "サービス",
+  },
+  compare: {
+    indexTitle: "比較解剖",
+    indexLead:
+      "2つのサービスを、同じ4軸のスコアと技術構成で並べて読む対決フォーマットです。各記事の構造化データ（scorecard・techStack）から機械的に算出するため、比較のたびに新たな手入力は最小限です。",
+    countSuffix: "本の比較解剖",
+    techOverlapTitle: "技術構成の重なりと違い",
+    techOverlapNote: "各記事のtechStack frontmatterから機械的に算出した比較です。確度は各記事の技術構成表を参照してください。",
+    techShared: "共通",
+    techOnly: "限定",
+    readArticle: "解剖記事を読む",
   },
   about: {
     title: "このサイトについて",

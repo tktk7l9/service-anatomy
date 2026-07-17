@@ -5,8 +5,11 @@ import { buildScoreTrend } from "@/engine/articles/revision-trend";
 import { renderMarkdown } from "@/engine/markdown/render";
 import { extractToc } from "@/engine/markdown/toc";
 import ja from "@/i18n/dictionaries/ja";
+import { techOverlap } from "@/engine/comparisons/diff";
 import { ArticleBody } from "./article-body";
 import { ArticleCard } from "./article-card";
+import { ComparisonScorecard } from "./comparison-scorecard";
+import { ComparisonTechStack } from "./comparison-techstack";
 import { Footer } from "./footer";
 import { Header } from "./header";
 import { HeroArt } from "./hero-art";
@@ -137,6 +140,36 @@ describe("components smoke", () => {
     expect(screen.getByText("初回のnote")).toBeInTheDocument();
     expect(screen.getByText(ja.article.revisionsCurrent)).toBeInTheDocument();
     expect(screen.getAllByText("4.5").length).toBeGreaterThan(0);
+  });
+
+  it("ComparisonScorecard は2サービスのスコアを並べて表示する", () => {
+    render(
+      <ComparisonScorecard
+        serviceA="Alpha"
+        serviceB="Beta"
+        scoresA={{ product: 4, ux: 3.5, tech: 3, business: 4.5 }}
+        scoresB={{ product: 3, ux: 4, tech: 4.5, business: 3 }}
+        dict={ja}
+      />,
+    );
+    expect(screen.getByText("Alpha")).toBeInTheDocument();
+    expect(screen.getByText("Beta")).toBeInTheDocument();
+    expect(screen.getAllByText("4.5").length).toBeGreaterThan(0);
+  });
+
+  it("ComparisonTechStack は共有/A限定/B限定を分けて表示する", () => {
+    const diff = techOverlap(
+      [{ layer: "L", name: "Next.js", confidence: "likely", evidence: "t" }],
+      [
+        { layer: "L", name: "Next.js", confidence: "likely", evidence: "t" },
+        { layer: "L", name: "Rails", confidence: "likely", evidence: "t" },
+      ],
+    );
+    render(
+      <ComparisonTechStack diff={diff} serviceA="Alpha" serviceB="Beta" locale="ja" dict={ja} />,
+    );
+    expect(screen.getByText("Next.js")).toHaveAttribute("href", "/ja/tech/next-js");
+    expect(screen.getByText("Rails")).toHaveAttribute("href", "/ja/tech/rails");
   });
 
   it("ArticleBody は html と scorecard/techstack を interleave する", () => {
