@@ -21,6 +21,13 @@
     "siteName": "Duolingo",
     "fetchedAt": "2026-07-17"
   },
+  "linear": {
+    "url": "https://linear.app/",
+    "title": "Linear – The system for product development",
+    "description": "Purpose-built for planning and building products with AI agents.",
+    "image": "https://linear.app/static/og/homepage.jpg",
+    "fetchedAt": "2026-07-17"
+  },
   "meccha-chameleon": {
     "url": "https://store.steampowered.com/app/4704690/MECCHA_CHAMELEON/",
     "title": "MECCHA CHAMELEON on Steam",
