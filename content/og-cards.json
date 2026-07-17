@@ -48,6 +48,14 @@
     "title": "特務機関NERV防災アプリ",
     "fetchedAt": "2026-07-17"
   },
+  "notion": {
+    "url": "https://www.notion.com/",
+    "title": "The AI workspace that works for you. | Notion",
+    "description": "Build Custom Agents, search across all your apps, and automate busywork. The AI workspace where teams get more done, faster.",
+    "image": "https://www.notion.com/front-static/meta/teams-and-agents.jpg",
+    "siteName": "Notion",
+    "fetchedAt": "2026-07-17"
+  },
   "obsidian": {
     "url": "https://obsidian.md/",
     "title": "Obsidian - Sharpen your thinking",
