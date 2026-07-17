@@ -12,7 +12,11 @@ serviceUrl: "https://www.notion.com/"
 vendor: "Notion Labs"
 origin: "US"
 heroTheme: "notion"
-scores: { product: 4.5, ux: 4.0, tech: 4.5, business: 4.5 }
+scores: { product: 4.5, ux: 4.0, tech: 4.5, business: 5.0 }
+revisions:
+  - date: "2026-07-17"
+    scores: { product: 4.5, ux: 4.0, tech: 4.5, business: 4.5 }
+    note: "The score at initial publication, based on Forbes' April 2024 reporting of a $10B valuation and the September 2024 official announcement of 100 million users."
 techStack:
   - layer: "Data model"
     name: "Block model (全要素を単一のブロック木で表現)"
@@ -58,6 +62,12 @@ sources:
     accessedAt: "2026-07-17"
   - label: "Forbes: $10B productivity startup Notion (2024-04 — valuation and company trajectory)"
     url: "https://www.forbes.com/sites/kenrickcai/2024/04/11/10-billion-productivity-startup-notion-wants-to-build-your-ai-everything-app/"
+    accessedAt: "2026-07-17"
+  - label: "Notion official blog: GIC, Sequoia, and Index purchase Notion shares ($11B valuation, 2026-01)"
+    url: "https://www.notion.com/blog/gic-sequoia-index-purchase-notion-shares"
+    accessedAt: "2026-07-17"
+  - label: "Forbes: Notion kicks off employee share sale at $11B valuation as AI accelerates its growth (2025-12)"
+    url: "https://www.forbes.com/sites/annatong/2025/12/15/notion-kicks-off-employee-share-sale-at-11-billion-valuation-as-ai-accelerates-its-growth/"
     accessedAt: "2026-07-17"
 ---
 
@@ -106,8 +116,12 @@ Notion's revenue is textbook freemium SaaS with a modern twist: bottom-up adopti
 Individuals get a free plan; paid tiers step up through Plus, Business, and Enterprise. AI features have been offered as an add-on. The officially announced 100 million users form the mouth of this funnel.
 :::
 
+:::fact
+【**Re-observed 2026-07-17**】Per Notion's official blog (January 2026), the company completed an employee tender offer of roughly $270 million — with GIC joining as a new investor alongside returning backers Sequoia Capital and Index Ventures — at an $11 billion valuation, the first update since 2022's $10 billion figure. The same post states that "more than 50% of our ARR came from AI-enabled customers, and that percentage more than doubled over the last year." Forbes (December 2025) reported annual recurring revenue crossed $600 million by the end of 2025. Initial publication cited only Forbes' April 2024 valuation figure of $10B; this quantitative confirmation of AI-driven revenue share is new, so we raise the business axis from 4.5 to 5.0.
+:::
+
 :::guess
-The typical adoption path is bottom-up — an individual starts free, brings it to the team, knowledge accumulates until switching costs are prohibitive, and the company signs an enterprise contract. Data gravity itself is the lock-in device: the more content accrues, the harder it is to leave. The AI add-on monetizes Notion's position of holding accumulated internal knowledge as inference context — a play to shift from "workspace" to "the interface to institutional knowledge."
+The typical adoption path is bottom-up — an individual starts free, brings it to the team, knowledge accumulates until switching costs are prohibitive, and the company signs an enterprise contract. Data gravity itself is the lock-in device: the more content accrues, the harder it is to leave. The AI add-on monetizes Notion's position of holding accumulated internal knowledge as inference context — a play to shift from "workspace" to "the interface to institutional knowledge." A majority of ARR now coming from AI-enabled customers suggests that shift is already showing up in the numbers.
 :::
 
 The 2013-vintage decision to make everything a block still defines the same company in three ways at once: product flexibility, infrastructure difficulty, and fitness for the AI era. Notion is a standing lesson in how early data-model design decides the following decade.
