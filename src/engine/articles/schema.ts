@@ -1,9 +1,21 @@
+import {
+  asRecord,
+  fail,
+  ISO_DATE,
+  KEBAB_CASE,
+  parseSources,
+  requireArray,
+  requireHttpsUrl,
+  requireIsoDate,
+  requireString,
+  type SourceRef,
+} from "@/engine/content/validators";
 import { isCategoryId, type CategoryId } from "./taxonomy";
 
-// frontmatter の手書きバリデータ。zod は使わない（全分岐を 100% カバレッジで
-// テストする方針のため、依存を増やさず失敗メッセージも記事ファイル名付きで出す）。
-// 日付は必ず引用符付き文字列で書く規約 — gray-matter が YAML の裸日付を Date に
-// 変換した場合は string チェックで弾かれる。
+// 記事 frontmatter の手書きバリデータ。共通プリミティブは engine/content/validators.ts
+// （比較解剖など他コンテンツ種別と共用）。scores/techStack/revisions は記事固有。
+
+export { ISO_DATE, KEBAB_CASE, parseSources, type SourceRef };
 
 export const CONFIDENCE_LEVELS = ["confirmed", "likely", "speculative"] as const;
 export type Confidence = (typeof CONFIDENCE_LEVELS)[number];
@@ -18,12 +30,6 @@ export interface TechStackEntry {
   confidence: Confidence;
   evidence: string;
   evidenceUrl?: string;
-}
-
-export interface SourceRef {
-  label: string;
-  url: string;
-  accessedAt: string;
 }
 
 /** 定点観測（再解剖）の1チェックポイント。過去のスコアと発見をnoteに残す。 */
@@ -52,52 +58,6 @@ export interface ArticleFrontmatter {
   sources: SourceRef[];
   /** 定点観測（再解剖）の履歴。時系列順（古い→新しい）。scores は現行の frontmatter.scores が最新値。 */
   revisions?: RevisionEntry[];
-}
-
-export const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
-export const KEBAB_CASE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
-
-function fail(context: string, message: string): never {
-  throw new Error(`${context}: ${message}`);
-}
-
-function asRecord(value: unknown, context: string, label: string): Record<string, unknown> {
-  if (typeof value !== "object" || value === null || Array.isArray(value)) {
-    fail(context, `${label} はオブジェクトである必要があります`);
-  }
-  return value as Record<string, unknown>;
-}
-
-function requireString(obj: Record<string, unknown>, key: string, context: string): string {
-  const value = obj[key];
-  if (typeof value !== "string" || value.trim() === "") {
-    fail(context, `${key} は空でない文字列である必要があります`);
-  }
-  return value;
-}
-
-function requireIsoDate(obj: Record<string, unknown>, key: string, context: string): string {
-  const value = requireString(obj, key, context);
-  if (!ISO_DATE.test(value)) {
-    fail(context, `${key} は "YYYY-MM-DD" 形式の引用符付き文字列である必要があります`);
-  }
-  return value;
-}
-
-function requireHttpsUrl(obj: Record<string, unknown>, key: string, context: string): string {
-  const value = requireString(obj, key, context);
-  if (!value.startsWith("https://")) {
-    fail(context, `${key} は https:// で始まる URL である必要があります`);
-  }
-  return value;
-}
-
-function requireArray(obj: Record<string, unknown>, key: string, context: string): unknown[] {
-  const value = obj[key];
-  if (!Array.isArray(value) || value.length === 0) {
-    fail(context, `${key} は1件以上の配列である必要があります`);
-  }
-  return value;
 }
 
 function parseCategory(obj: Record<string, unknown>, context: string): CategoryId {
@@ -173,19 +133,6 @@ function parseTechStack(obj: Record<string, unknown>, context: string): TechStac
       fail(entryContext, `confidence が confirmed の場合は evidenceUrl（一次情報）が必須です`);
     }
     return entry;
-  });
-}
-
-function parseSources(obj: Record<string, unknown>, context: string): SourceRef[] {
-  const values = requireArray(obj, "sources", context);
-  return values.map((raw, i) => {
-    const sourceContext = `${context}: sources[${i}]`;
-    const record = asRecord(raw, sourceContext, "要素");
-    return {
-      label: requireString(record, "label", sourceContext),
-      url: requireHttpsUrl(record, "url", sourceContext),
-      accessedAt: requireIsoDate(record, "accessedAt", sourceContext),
-    };
   });
 }
 

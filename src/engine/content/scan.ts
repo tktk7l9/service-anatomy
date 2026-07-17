@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
-import { KEBAB_CASE } from "@/engine/articles/schema";
+import { KEBAB_CASE } from "@/engine/content/validators";
 import { locales, type Locale } from "@/i18n/config";
 
 // content/<collection>/<slug>/{ja.md, en.md} という共通レイアウトを持つ
