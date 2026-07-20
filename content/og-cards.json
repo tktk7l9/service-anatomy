@@ -7,6 +7,14 @@
     "siteName": "Bluesky Social",
     "fetchedAt": "2026-07-20"
   },
+  "cursor": {
+    "url": "https://cursor.com/",
+    "title": "Cursor: AI coding agent",
+    "description": "Built to make you extraordinarily productive, Cursor is the best AI coding agent.",
+    "image": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/og/opengraph-default.png",
+    "siteName": "Cursor",
+    "fetchedAt": "2026-07-20"
+  },
   "daycity": {
     "url": "https://theday.city/ja/",
     "title": "DayCity - 手のひらに、世界の都市を",
