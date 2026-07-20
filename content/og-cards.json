@@ -9,10 +9,6 @@
   },
   "cursor": {
     "url": "https://cursor.com/",
-    "title": "Cursor: AI coding agent",
-    "description": "Built to make you extraordinarily productive, Cursor is the best AI coding agent.",
-    "image": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/og/opengraph-default.png",
-    "siteName": "Cursor",
     "fetchedAt": "2026-07-20"
   },
   "daycity": {
@@ -142,6 +138,14 @@
     "description": "SmartHRは、労務管理クラウド7年連続シェアNo.1の「人と組織のためのバックオフィスシステム」です。人事労務・情シスの業務効率化はもちろん、働くすべての人の生産性向上を支えます。",
     "image": "https://smarthr.jp/_astro/ogp_a-1.BA0NIxgO.jpg",
     "siteName": "SmartHR",
+    "fetchedAt": "2026-07-20"
+  },
+  "spotify": {
+    "url": "https://open.spotify.com/",
+    "title": "Spotify - Web Player: Music for everyone",
+    "description": "Spotify is a digital music service that gives you access to millions of songs.",
+    "image": "https://open.spotifycdn.com/cdn/images/download-page-image-mac.fec937cc.png",
+    "siteName": "Spotify",
     "fetchedAt": "2026-07-20"
   },
   "x": {
