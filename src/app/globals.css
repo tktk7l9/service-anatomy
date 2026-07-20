@@ -910,11 +910,13 @@ svg {
 }
 
 .score-track {
+  display: block;
   height: 3px;
   background: var(--rule);
 }
 
 .score-fill {
+  display: block;
   height: 100%;
   background: var(--accent);
 }
