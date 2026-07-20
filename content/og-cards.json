@@ -9,6 +9,10 @@
   },
   "cursor": {
     "url": "https://cursor.com/",
+    "title": "Cursor: AI coding agent",
+    "description": "Built to make you extraordinarily productive, Cursor is the best AI coding agent.",
+    "image": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/og/opengraph-default.png",
+    "siteName": "Cursor",
     "fetchedAt": "2026-07-20"
   },
   "daycity": {
@@ -46,6 +50,13 @@
     "description": "Figma is the canvas where design, code, and AI come together. From first idea to shipped product — go from concept to production with your whole team, in one place.",
     "image": "https://cdn.sanity.io/images/599r6htc/regionalized/b08d37520f7d5ad8d6562975b5932dd2d9a862bb-1200x630.gif?w=1200&q=70&fit=max&auto=format",
     "siteName": "Figma",
+    "fetchedAt": "2026-07-20"
+  },
+  "klarna": {
+    "url": "https://www.klarna.com/",
+    "title": "Klarnaをビジネスに | Klarna Japan",
+    "description": "違いを生み出す、決済とマーケティングのソリューション。「Smoooth」なショッピング体験をご提供します。今よりたくさんのお客様に、より多く、より頻繁に購入いただけるようになります。",
+    "image": "https://locker.klarna.com/transform/37024108-f4e3-4f28-9f94-41c80348c7a1/StockImagery2024_Web_Hero_Device_Backside_V4_16x9_Global",
     "fetchedAt": "2026-07-20"
   },
   "linear": {
