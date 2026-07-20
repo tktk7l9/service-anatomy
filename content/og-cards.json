@@ -44,6 +44,14 @@
     "siteName": "Duolingo",
     "fetchedAt": "2026-07-20"
   },
+  "figma": {
+    "url": "https://www.figma.com/",
+    "title": "Figma: The collaborative canvas for design, code, and AI",
+    "description": "Figma is the canvas where design, code, and AI come together. From first idea to shipped product — go from concept to production with your whole team, in one place.",
+    "image": "https://cdn.sanity.io/images/599r6htc/regionalized/b08d37520f7d5ad8d6562975b5932dd2d9a862bb-1200x630.gif?w=1200&q=70&fit=max&auto=format",
+    "siteName": "Figma",
+    "fetchedAt": "2026-07-20"
+  },
   "linear": {
     "url": "https://linear.app/",
     "title": "Linear – The system for product development",
