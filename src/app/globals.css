@@ -224,12 +224,8 @@ svg {
   color: var(--accent);
 }
 
-.locale-switch {
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  padding: 0.2rem 0.8rem;
-  font-size: 0.78rem;
-}
+/* .locale-switch は他のナビ項目と同じ見た目に揃える（.site-nav a / .mobile-nav-panel a の
+   スタイルをそのまま継承・独自の枠線/pill装飾は持たない） */
 
 /* ---------- ハンバーガーメニュー（狭幅） ---------- */
 /* 40rem 未満は .site-nav を隠して .mobile-nav（ボタン+ドロップダウン）を表示 */
@@ -304,11 +300,6 @@ svg {
 
 .mobile-nav-panel a:hover {
   color: var(--accent);
-}
-
-.mobile-nav-panel .locale-switch {
-  margin: 0.9rem clamp(1.1rem, 4vw, 2rem) 1rem;
-  align-self: flex-start;
 }
 
 @media (min-width: 40rem) {
