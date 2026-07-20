@@ -120,6 +120,14 @@
     "siteName": "App Store",
     "fetchedAt": "2026-07-20"
   },
+  "shopify": {
+    "url": "https://www.shopify.com/",
+    "title": "Shopify: The All-in-One Commerce Platform for Businesses - Shopify",
+    "description": "Try Shopify free. Build or grow your business fast with AI. Get more than ecommerce software with tools to manage every part of your business.",
+    "image": "https://cdn.shopify.com/b/shopify-brochure2-assets/d617483c5e5cdd01ae8b4f2571c76f34.png?originalWidth=2400&originalHeight=1260",
+    "siteName": "Shopify",
+    "fetchedAt": "2026-07-20"
+  },
   "sizu-me": {
     "url": "https://sizu.me/home",
     "title": "しずかなインターネット｜日記やエッセイにちょうどいい投稿サービス",
