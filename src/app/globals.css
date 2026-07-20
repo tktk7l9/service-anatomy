@@ -553,6 +553,7 @@ svg {
 /* 本文 + 目次のレイアウト */
 .article-layout {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 2.5rem;
   padding-block: clamp(2rem, 5vw, 3.5rem) 2rem;
 }
