@@ -501,7 +501,6 @@ svg {
 
 .article-header {
   padding-block: clamp(2.4rem, 6vw, 4.2rem) 0;
-  max-width: 52rem;
 }
 
 .article-header h1 {
