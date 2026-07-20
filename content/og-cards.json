@@ -7,6 +7,14 @@
     "siteName": "Bluesky Social",
     "fetchedAt": "2026-07-20"
   },
+  "canva": {
+    "url": "https://www.canva.com/",
+    "title": "Unsupported client – Canva",
+    "description": "Unsupported client – Canva",
+    "image": "https://static.canva.com/static/images/fb_cover-1.jpg",
+    "siteName": "Canva",
+    "fetchedAt": "2026-07-20"
+  },
   "cursor": {
     "url": "https://cursor.com/",
     "title": "Cursor: AI coding agent",
