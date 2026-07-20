@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { LocaleSwitcher } from "./locale-switcher";
+import { MobileNav } from "./mobile-nav";
 
 /** レティクル（照準・解剖図）モチーフのブランドマーク。 */
 function BrandMark() {
@@ -35,6 +36,7 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           <a href={`/${locale}/rss.xml`}>{dict.nav.rss}</a>
           <LocaleSwitcher locale={locale} label={dict.nav.switchLocale} />
         </nav>
+        <MobileNav locale={locale} dict={dict} />
       </div>
     </header>
   );

@@ -14,6 +14,7 @@ const en: Dictionary = {
     about: "About",
     switchLocale: "日本語",
     rss: "RSS",
+    menu: "Menu",
   },
   home: {
     tagline: "Dissecting popular services.",

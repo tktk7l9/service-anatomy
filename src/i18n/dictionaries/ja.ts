@@ -16,6 +16,7 @@ const ja = {
     about: "このサイトについて",
     switchLocale: "English",
     rss: "RSS",
+    menu: "メニュー",
   },
   home: {
     tagline: "人気サービスを、解剖する。",

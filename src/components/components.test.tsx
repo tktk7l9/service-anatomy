@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { makeArticle, makeFrontmatter } from "@/engine/articles/__fixtures__/factories";
 import { buildScoreTrend } from "@/engine/articles/revision-trend";
@@ -14,6 +14,7 @@ import { Footer } from "./footer";
 import { Header } from "./header";
 import { HeroArt } from "./hero-art";
 import { LinkCard } from "./link-card";
+import { MobileNav } from "./mobile-nav";
 import { ScoreTrend } from "./score-trend";
 import { Scorecard } from "./scorecard";
 import { SourcesList } from "./sources-list";
@@ -128,6 +129,26 @@ describe("components smoke", () => {
     );
     expect(screen.getByText("Example")).toBeInTheDocument();
     expect(container.querySelector("img")).toBeNull();
+  });
+
+  it("MobileNav はボタンで開閉し、リンククリックとEscapeで閉じる", () => {
+    render(<MobileNav locale="ja" dict={ja} />);
+    const button = screen.getByRole("button", { name: ja.nav.menu });
+    expect(button).toHaveAttribute("aria-expanded", "false");
+    expect(screen.queryByRole("navigation")).toBeNull();
+
+    fireEvent.click(button);
+    expect(button).toHaveAttribute("aria-expanded", "true");
+    const panel = screen.getByRole("navigation");
+    expect(panel).toBeInTheDocument();
+    expect(screen.getByText(ja.nav.compare)).toHaveAttribute("href", "/ja/compare");
+
+    fireEvent.keyDown(document, { key: "Escape" });
+    expect(screen.queryByRole("navigation")).toBeNull();
+
+    fireEvent.click(button);
+    fireEvent.click(screen.getByText(ja.nav.tech));
+    expect(screen.queryByRole("navigation")).toBeNull();
   });
 
   it("ScoreTrend は各チェックポイントのスコアとデルタ・note を描画する", () => {
