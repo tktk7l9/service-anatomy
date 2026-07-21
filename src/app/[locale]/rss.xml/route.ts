@@ -36,6 +36,9 @@ export async function GET(
   });
 
   return new Response(xml, {
-    headers: { "Content-Type": "application/rss+xml; charset=utf-8" },
+    headers: {
+      "Content-Type": "application/rss+xml; charset=utf-8",
+      "cache-control": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400",
+    },
   });
 }

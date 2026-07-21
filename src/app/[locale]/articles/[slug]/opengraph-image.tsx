@@ -14,6 +14,13 @@ const INK_SOFT = "#5c5546";
 const RULE = "#ddd4c3";
 const ACCENT = "#9c3b22";
 
+// force-dynamic な親レイアウトの配下でも Vercel Edge の HTTP キャッシュは
+// 効かせられる（/api/anatomy.json と同じパターン）。記事の解剖スコアが
+// 変わっても実害は小さいため、OGP 画像は積極的にキャッシュしてよい。
+const IMAGE_CACHE_HEADERS = {
+  "cache-control": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400",
+};
+
 export default async function OpengraphImage({
   params,
 }: {
@@ -26,7 +33,7 @@ export default async function OpengraphImage({
   if (!article) {
     return new ImageResponse(
       <div style={{ width: "100%", height: "100%", display: "flex", background: PAPER }} />,
-      size,
+      { ...size, headers: IMAGE_CACHE_HEADERS },
     );
   }
   const { frontmatter } = article[locale];
@@ -136,6 +143,6 @@ export default async function OpengraphImage({
         </div>
       </div>
     ),
-    size,
+    { ...size, headers: IMAGE_CACHE_HEADERS },
   );
 }
