@@ -83,6 +83,14 @@
     "siteName": "Figma",
     "fetchedAt": "2026-07-21"
   },
+  "ghost": {
+    "url": "https://ghost.org/",
+    "title": "Ghost: The best open source blog & newsletter platform",
+    "description": "Beautiful, modern publishing with email newsletters and paid subscriptions built-in. Used by Platformer, 404Media, Lever News, Tangle, The Browser, and thousands more.",
+    "image": "https://ghost.org/images/meta/ghost-6.png",
+    "siteName": "Ghost - The Professional Publishing Platform",
+    "fetchedAt": "2026-07-21"
+  },
   "klarna": {
     "url": "https://www.klarna.com/",
     "title": "Klarnaをビジネスに | Klarna Japan",
