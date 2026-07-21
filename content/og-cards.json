@@ -96,6 +96,13 @@
     "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4704690/8c199d9c704956104caa7de32cccef828b3cf3d0/capsule_616x353.jpg?t=1782561846",
     "fetchedAt": "2026-07-21"
   },
+  "mercari": {
+    "url": "https://jp.mercari.com/",
+    "title": "メルカリ - 日本最大のフリマサービス",
+    "description": "メルカリは誰でも安心して簡単に売り買いが楽しめる日本最大のフリマサービスです。新品/未使用品も多数、支払いはクレジットカード・キャリア決済・コンビニ・銀行ATMが利用可能で、品物が届いてから出品者に入金される独自システムのため安心です。",
+    "image": "https://web-jp-assets-v2.mercdn.net/_next/static/media/ogp.1ea52df1.png",
+    "fetchedAt": "2026-07-21"
+  },
   "midjourney": {
     "url": "https://www.midjourney.com/",
     "fetchedAt": "2026-07-21"
