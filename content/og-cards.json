@@ -7,6 +7,14 @@
     "siteName": "Bluesky Social",
     "fetchedAt": "2026-07-21"
   },
+  "browser-company": {
+    "url": "https://thebrowser.company/",
+    "title": "The Browser Company",
+    "description": "We’re building a better way to use the internet, starting with your browser.",
+    "image": "https://www.thebrowser.company/?auto=format&q=100&w=1200&format=png",
+    "siteName": "The Browser Company",
+    "fetchedAt": "2026-07-21"
+  },
   "canva": {
     "url": "https://www.canva.com/",
     "title": "Unsupported client – Canva",
