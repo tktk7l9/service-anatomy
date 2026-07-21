@@ -38,6 +38,14 @@
     "siteName": "Cursor",
     "fetchedAt": "2026-07-21"
   },
+  "cybozu-kintone": {
+    "url": "https://kintone.cybozu.co.jp/",
+    "title": "kintone（キントーン） | みんな、つくれる。業務アプリがつくれるサイボウズのノーコード・ローコードツール",
+    "description": "プログラミングの知識がなくてもノーコードで業務アプリをかんたんに作成できるサイボウズのkintone（キントーン）。チームの業務プロセスを効率化し、生産性向上を支援します。無料お試しも可能です。",
+    "image": "https://kintone.cybozu.co.jp/ogp.png",
+    "siteName": "業務効率化と生産性を上げるサイボウズのクラウド『kintone（キントーン）』",
+    "fetchedAt": "2026-07-21"
+  },
   "daycity": {
     "url": "https://theday.city/ja/",
     "title": "DayCity - 手のひらに、世界の都市を",
