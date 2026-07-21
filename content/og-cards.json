@@ -156,6 +156,14 @@
     "siteName": "Shopify",
     "fetchedAt": "2026-07-21"
   },
+  "signal": {
+    "url": "https://signal.org/",
+    "title": "Signal Messenger: Speak Freely",
+    "description": "Say \"hello\" to a different messaging experience. An unexpected focus on privacy, combined with all of the features you expect.",
+    "image": "https://signal.org/assets/images/og/og-image.png",
+    "siteName": "Signal Messenger",
+    "fetchedAt": "2026-07-21"
+  },
   "sizu-me": {
     "url": "https://sizu.me/home",
     "title": "しずかなインターネット｜日記やエッセイにちょうどいい投稿サービス",
