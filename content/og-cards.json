@@ -195,6 +195,14 @@
     "image": "https://images.stripeassets.com/fzn2n1nzq965/XtX984S1GJVsVOXFC7kMu/01988281e867728dfb09aa7793a6e3b9/Stripe.jpg?q=80",
     "fetchedAt": "2026-07-21"
   },
+  "vercel": {
+    "url": "https://vercel.com/",
+    "title": "Agentic Infrastructure - Vercel",
+    "description": "The autonomous stack for every app and agent.",
+    "image": "https://lishhsx6kmthaacj.public.blob.vercel-storage.com/og-home-not-x.png",
+    "siteName": "Vercel",
+    "fetchedAt": "2026-07-21"
+  },
   "x": {
     "url": "https://x.com/",
     "title": "X. It’s what’s happening",
