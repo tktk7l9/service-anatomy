@@ -15,6 +15,13 @@
     "siteName": "Canva",
     "fetchedAt": "2026-07-21"
   },
+  "cloudflare": {
+    "url": "https://www.cloudflare.com/",
+    "title": "Cloudflare: Build for the agent era",
+    "description": "Welcome to Cloudflare - Powering the next generation of applications",
+    "image": "https://www.cloudflare.com/preview.png",
+    "fetchedAt": "2026-07-21"
+  },
   "cursor": {
     "url": "https://cursor.com/",
     "title": "Cursor: AI coding agent",
