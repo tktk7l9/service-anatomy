@@ -5,7 +5,7 @@
     "description": "Social media as it should be. Find your community among millions of users, unleash your creativity, and have some fun again.",
     "image": "https://bsky.app/static/social-card-default-gradient.png",
     "siteName": "Bluesky Social",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "canva": {
     "url": "https://www.canva.com/",
@@ -13,7 +13,7 @@
     "description": "Unsupported client – Canva",
     "image": "https://static.canva.com/static/images/fb_cover-1.jpg",
     "siteName": "Canva",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "cursor": {
     "url": "https://cursor.com/",
@@ -21,28 +21,28 @@
     "description": "Built to make you extraordinarily productive, Cursor is the best AI coding agent.",
     "image": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/og/opengraph-default.png",
     "siteName": "Cursor",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "daycity": {
     "url": "https://theday.city/ja/",
     "title": "DayCity - 手のひらに、世界の都市を",
     "description": "天気と時間で表情を変える、手のひらの箱庭。いま世界で起きている景色が、あなたのホーム画面に届きます。",
     "image": "https://theday.city/images/og-image-ja.png",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "deepl": {
     "url": "https://www.deepl.com/ja/translator",
     "title": "DeepL翻訳 | 世界最高レベルの精度を誇る翻訳ツール",
     "description": "テキストや文書ファイルを瞬時に翻訳します。個人でもチームでも、高精度の翻訳をご活用いただけます。毎日、何百万もの人々がDeepLを使って翻訳しています。",
     "image": "https://www.deepl.com/img/favicon/automatic_social_share_deepl.png",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "discord": {
     "url": "https://discord.com/",
     "title": "Discord - Group Chat That’s All Fun & Games",
     "description": "Discord is great for playing games and chilling with friends, or even building a worldwide community. Customize your own space to talk, play, and hang out.",
     "image": "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/665643dd8c7ac752237b5cef_Discord-OG-1200x630.jpg",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "duolingo": {
     "url": "https://www.duolingo.com/",
@@ -50,7 +50,7 @@
     "description": "Learn languages by playing a game. It",
     "image": "https://www.duolingo.com/images/facebook/duo-08523a2.jpg",
     "siteName": "Duolingo",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "figma": {
     "url": "https://www.figma.com/",
@@ -58,32 +58,32 @@
     "description": "Figma is the canvas where design, code, and AI come together. From first idea to shipped product — go from concept to production with your whole team, in one place.",
     "image": "https://cdn.sanity.io/images/599r6htc/regionalized/b08d37520f7d5ad8d6562975b5932dd2d9a862bb-1200x630.gif?w=1200&q=70&fit=max&auto=format",
     "siteName": "Figma",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "klarna": {
     "url": "https://www.klarna.com/",
     "title": "Klarnaをビジネスに | Klarna Japan",
     "description": "違いを生み出す、決済とマーケティングのソリューション。「Smoooth」なショッピング体験をご提供します。今よりたくさんのお客様に、より多く、より頻繁に購入いただけるようになります。",
     "image": "https://locker.klarna.com/transform/37024108-f4e3-4f28-9f94-41c80348c7a1/StockImagery2024_Web_Hero_Device_Backside_V4_16x9_Global",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "linear": {
     "url": "https://linear.app/",
     "title": "Linear – The system for product development",
     "description": "Purpose-built for planning and building products with AI agents.",
     "image": "https://linear.app/static/og/homepage.jpg",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "meccha-chameleon": {
     "url": "https://store.steampowered.com/app/4704690/MECCHA_CHAMELEON/",
     "title": "MECCHA CHAMELEON on Steam",
     "description": "Paint yourself to blend in! \"Meccha Chameleon\" is a new-sensation hide-and-seek game where you paint your white body to mimic the stage. Spot, pose, and \"artistic skill\" are keys to survival. Deceive Seekers with techniques that put chameleons to shame! Supports public matches and streaming.",
     "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4704690/8c199d9c704956104caa7de32cccef828b3cf3d0/capsule_616x353.jpg?t=1782561846",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "midjourney": {
     "url": "https://www.midjourney.com/",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "mitene": {
     "url": "https://mitene.us/",
@@ -91,19 +91,19 @@
     "description": "子供の成長をいつでも、どこでも、いつまでも！子供の写真や動画をかんたんに共有、整理。家族みんなで楽しく会話したり、成長をふりかえることができます。",
     "image": "https://assets.mitene.us/assets/landing_page/main/top/ja_ogp-5c439dfeb954a8480beb3f7b8e0917beb71502ae04b22622fb4ccd555de14f31.png",
     "siteName": "家族アルバム みてね",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "nani-translation": {
     "url": "https://nani.now/ja",
     "title": "Nani翻訳: AIが解説付きで高速に翻訳",
     "description": "無料ですぐに使えるAI翻訳サービス。AIが解説と例文つきで高速に翻訳します。翻訳データは端末上に安全に保存されるのでセキュリティ面も安心。",
     "image": "https://translatorassets.kiok.jp/images/opengraph-image.png",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "nerv": {
     "url": "https://nerv.app/",
     "title": "特務機関NERV防災アプリ",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "notion": {
     "url": "https://www.notion.com/",
@@ -111,7 +111,7 @@
     "description": "Build Custom Agents, search across all your apps, and automate busywork. The AI workspace where teams get more done, faster.",
     "image": "https://www.notion.com/front-static/meta/teams-and-agents.jpg",
     "siteName": "Notion",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "obsidian": {
     "url": "https://obsidian.md/",
@@ -119,21 +119,21 @@
     "description": "The free and flexible app for your private thoughts.",
     "image": "https://obsidian.md/images/banner.png",
     "siteName": "Obsidian",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "pixelpot": {
     "url": "https://pixelpot.smak.works/",
     "title": "PixelPot — 歩いて育てる、世界にひとつの植物",
     "description": "毎日の歩数で、あなただけのデジタル植物が育つ。AIが生成するユニークなアートを、歩いて咲かせよう。",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "setlog": {
     "url": "https://apps.apple.com/jp/app/setlog/id6587576438",
     "title": "setlogアプリ - App Store",
     "description": "new chatの「setlog」をApp Storeでダウンロードしてください。スクリーンショット、評価とレビュー、ユーザのヒント、「setlog」に似たゲームを見ることなどができます。",
-    "image": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0e/6d/2c/0e6d2cdc-679e-e378-5f01-ec3af1a9686d/Placeholder.mill/1200x630wa.jpg",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/44/94/e3/4494e3ac-9a7e-2d73-b6ea-3618556d6da7/Placeholder.mill/1200x630wa.jpg",
     "siteName": "App Store",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "shopify": {
     "url": "https://www.shopify.com/",
@@ -141,7 +141,7 @@
     "description": "Try Shopify free. Build or grow your business fast with AI. Get more than ecommerce software with tools to manage every part of your business.",
     "image": "https://cdn.shopify.com/b/shopify-brochure2-assets/d617483c5e5cdd01ae8b4f2571c76f34.png?originalWidth=2400&originalHeight=1260",
     "siteName": "Shopify",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "sizu-me": {
     "url": "https://sizu.me/home",
@@ -149,7 +149,7 @@
     "description": "日記やエッセイを書くのにちょうどいい、文章投稿サービス",
     "image": "https://static.sizu.me/images/og/default-summary.png",
     "siteName": "しずかなインターネット",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "smarthr": {
     "url": "https://smarthr.jp/",
@@ -157,7 +157,7 @@
     "description": "SmartHRは、労務管理クラウド7年連続シェアNo.1の「人と組織のためのバックオフィスシステム」です。人事労務・情シスの業務効率化はもちろん、働くすべての人の生産性向上を支えます。",
     "image": "https://smarthr.jp/_astro/ogp_a-1.BA0NIxgO.jpg",
     "siteName": "SmartHR",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "spotify": {
     "url": "https://open.spotify.com/",
@@ -165,7 +165,14 @@
     "description": "Spotify is a digital music service that gives you access to millions of songs.",
     "image": "https://open.spotifycdn.com/cdn/images/download-page-image-mac.fec937cc.png",
     "siteName": "Spotify",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
+  },
+  "stripe": {
+    "url": "https://stripe.com/",
+    "title": "Stripe | 収益向上のための金融インフラ",
+    "description": "Stripe は、あらゆる規模や業種のビジネスにおける決済の受け入れ、柔軟な請求モデルの構築、および資金移動の管理を支援する、金融サービスプラットフォームです。",
+    "image": "https://images.stripeassets.com/fzn2n1nzq965/XtX984S1GJVsVOXFC7kMu/01988281e867728dfb09aa7793a6e3b9/Stripe.jpg?q=80",
+    "fetchedAt": "2026-07-21"
   },
   "x": {
     "url": "https://x.com/",
@@ -173,7 +180,7 @@
     "description": "From breaking news and entertainment to sports and politics, get the full story with all the live commentary.",
     "image": "https://abs.twimg.com/rweb/ssr/default/v2/og/image.png",
     "siteName": "X (formerly Twitter)",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   },
   "zenn": {
     "url": "https://zenn.dev/",
@@ -181,6 +188,6 @@
     "description": "Zennはエンジニアが技術・開発についての知見をシェアする場所です。本の販売や、読者からのバッジの受付により対価を受け取ることができます。",
     "image": "https://static.zenn.studio/images/logo-only-dark.png",
     "siteName": "Zenn",
-    "fetchedAt": "2026-07-20"
+    "fetchedAt": "2026-07-21"
   }
 }
