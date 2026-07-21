@@ -112,6 +112,12 @@
     "title": "特務機関NERV防災アプリ",
     "fetchedAt": "2026-07-21"
   },
+  "netflix": {
+    "url": "https://www.netflix.com/",
+    "title": "Netflix (ネットフリックス) 日本 - 大好きな映画やドラマを楽しもう!",
+    "description": "Netflix (ネットフリックス) で映画やドラマをオンラインでストリーム再生! スマートテレビ、ゲーム機、パソコン、Mac、モバイル機器、タブレットなどでお楽しみいただけます。",
+    "fetchedAt": "2026-07-21"
+  },
   "notion": {
     "url": "https://www.notion.com/",
     "title": "The AI workspace that works for you. | Notion",
