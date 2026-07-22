@@ -52,13 +52,17 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - 記述の鮮度: `lastVerified`（ISO日付）必須。執筆時に Web 検索・実観測（curl -sI 等）で必ず検証する
   （LLM の学習知識を信用しない）。`npm run freshness` が lastVerified の 90 日超過を一覧する —
   週次の棚卸しで実行し、超過記事は再検証して lastVerified を更新するか、定点観測（再解剖）の候補にする。
+- リンク切れ: `npm run check-links` が serviceUrl / sources[].url / techStack[].evidenceUrl / OGP画像URL
+  （content/og-cards.json）へ実際にリクエストして生死を確認する。週次の棚卸しで実行し、切れているものは
+  URL差し替え・削除、OGP画像なら `npm run og-cards` の再実行で直す。403/999 等は bot 対策による
+  誤検知の可能性があるため、ブラウザで目視確認してから判断する。
 - ja を先に書き、en は同一コミット内で同期する（片言語だけの変更を残さない）。
 
 ## 開発コマンド
 
 - `npm run dev` / `npm run build` / `npm start`
 - `npm run typecheck` / `npm test` / `npm run coverage`（100%ゲート）
-- `npm run og-cards`（リンクカード再取得）/ `npm run freshness`（lastVerified 鮮度一覧）
+- `npm run og-cards`（リンクカード再取得）/ `npm run freshness`（lastVerified 鮮度一覧）/ `npm run check-links`（外部リンク生死チェック）
 
 ## コミット粒度
 
