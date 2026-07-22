@@ -55,9 +55,9 @@ sources:
   - label: "AWS Startup Blog: DeepL CTO Talks (2023-07 — 500k+ paid users / 20k+ registered companies)"
     url: "https://aws.amazon.com/jp/blogs/startup/event-report-ctotalks-deepl-2023/"
     accessedAt: "2026-07-17"
-  - label: "DeepL company profile (official PDF — the Linguee origin story)"
-    url: "https://static.deepl.com/files/press/companyProfile_JA.pdf"
-    accessedAt: "2026-07-17"
+  - label: "DeepL company profile (official PDF — the Linguee origin story; original 404s, archived via Wayback Machine 2022)"
+    url: "https://web.archive.org/web/20220720053339/https://static.deepl.com/files/press/companyProfile_JA.pdf"
+    accessedAt: "2026-07-22"
 ---
 
 In 2017, a small company in Cologne released a translation service that spread worldwide without an ad budget — purely on the phrase "more natural than Google." A few years later, generative AI began translating as a side effect, and DeepL's position flipped from challenger to defender. We dissect its "specialist fortress" strategy — distinct both from translation-UX reinventors like [Nani Translation](/en/articles/nani-translation) and from the general-purpose LLMs.

@@ -17,8 +17,8 @@ techStack:
   - layer: "バックエンド言語"
     name: "Python 3 (マイクロサービス群)"
     confidence: confirmed
-    evidence: "Duolingoが参加したOpsLevel導入事例に「大半はPython 3」「数百のマイクロサービス」と明記"
-    evidenceUrl: "https://www.opslevel.com/case-studies/duolingo"
+    evidence: "公式エンジニアリングブログ（2025-03）にPythonバックエンドサービス群の運用が明記（原OpsLevel事例ページは404のため差し替え。規模の「数百」は同ブログのaislackbot記事で確認）"
+    evidenceUrl: "https://blog.duolingo.com/async-python-migration/"
   - layer: "性能クリティカル部"
     name: "Scala (Session Generator)"
     confidence: confirmed
@@ -69,9 +69,9 @@ sources:
   - label: "AWSパートナー導入事例: ECS移行でコンピューティングコスト60%削減"
     url: "https://d1.awsstatic.com/case-studies/partner-case-studies/Duolingo%20PDF.pdf"
     accessedAt: "2026-07-17"
-  - label: "OpsLevel導入事例: 数百のPython 3マイクロサービス"
-    url: "https://www.opslevel.com/case-studies/duolingo"
-    accessedAt: "2026-07-17"
+  - label: "Duolingo公式ブログ: 数百のマイクロサービスを運用（2026-05・原OpsLevel事例ページ404のため差し替え）"
+    url: "https://blog.duolingo.com/aislackbot/"
+    accessedAt: "2026-07-22"
 ---
 
 語学アプリは無数にあるが、「アプリを開かないと落ち着かない」状態まで人を持っていけるのはDuolingoだけだ。教材の質ではなく継続の設計で勝つ——このプロダクト哲学は賛否両方の議論を生みながら、5,000万人を毎日連れ戻し続けている。
@@ -104,7 +104,7 @@ Duolingoのゲーミフィケーションは、行動科学の応用例として
 ::techstack
 
 :::fact
-Duolingoが参加したOpsLevelの導入事例によれば、バックエンドは大半がPython 3で書かれた数百のマイクロサービス群で、AWS上で動く。公式エンジニアリングブログ（2017年）は、出題順序を決める中核モジュールSession GeneratorをPythonからScalaへ書き換え、平均レイテンシを750msから14msへ98%短縮したと記録している。AWS公式事例ではDynamoDBに310億アイテムを保存し、パートナー事例ではTerraform管理のECS移行によりコンピューティングコストを1四半期で60%以上削減したとされる。音声はAmazon Pollyで合成される。当サイトの2026年7月17日の観測でも、CloudFront（x-cache）とEnvoy（x-envoy-upstream-service-time）のヘッダーが確認できた。
+Duolingo公式エンジニアリングブログによれば、バックエンドは大半がPython 3で書かれた数百のマイクロサービス群で、AWS上で動く。公式エンジニアリングブログ（2017年）は、出題順序を決める中核モジュールSession GeneratorをPythonからScalaへ書き換え、平均レイテンシを750msから14msへ98%短縮したと記録している。AWS公式事例ではDynamoDBに310億アイテムを保存し、パートナー事例ではTerraform管理のECS移行によりコンピューティングコストを1四半期で60%以上削減したとされる。音声はAmazon Pollyで合成される。当サイトの2026年7月17日の観測でも、CloudFront（x-cache）とEnvoy（x-envoy-upstream-service-time）のヘッダーが確認できた。
 :::
 
 :::guess

@@ -55,9 +55,9 @@ sources:
   - label: "AWS Startupブログ: DeepL CTO Talks（2023-07・有料ユーザー50万超/登録2万社超）"
     url: "https://aws.amazon.com/jp/blogs/startup/event-report-ctotalks-deepl-2023/"
     accessedAt: "2026-07-17"
-  - label: "DeepL会社案内（公式PDF・Linguee発の沿革）"
-    url: "https://static.deepl.com/files/press/companyProfile_JA.pdf"
-    accessedAt: "2026-07-17"
+  - label: "DeepL会社案内（公式PDF・Linguee発の沿革・原本404のためWayback Machine 2022年アーカイブ）"
+    url: "https://web.archive.org/web/20220720053339/https://static.deepl.com/files/press/companyProfile_JA.pdf"
+    accessedAt: "2026-07-22"
 ---
 
 2017年、ケルンの小さな会社が公開した翻訳サービスは、広告費ではなく「Googleより自然」という口コミだけで世界に広がった。それから数年、生成AIが翻訳を「ついでに」こなすようになり、DeepLは挑戦者から防衛側に立場を変えた。当サイトで取り上げた[Nani翻訳](/ja/articles/nani-translation)のような「翻訳UXの再発明」勢とも、汎用LLMとも違う、「専業の砦」戦略を解剖する。

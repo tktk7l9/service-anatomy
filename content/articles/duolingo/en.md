@@ -17,8 +17,8 @@ techStack:
   - layer: "Backend language"
     name: "Python 3 (マイクロサービス群)"
     confidence: confirmed
-    evidence: "The OpsLevel case study, made with Duolingo's participation, states the stack is 'mostly Python 3' across hundreds of microservices"
-    evidenceUrl: "https://www.opslevel.com/case-studies/duolingo"
+    evidence: "Official engineering blog (2025-03) documents Python backend service operations (replaces the now-404 OpsLevel case study; the 'hundreds' figure is confirmed in the same blog's aislackbot post)"
+    evidenceUrl: "https://blog.duolingo.com/async-python-migration/"
   - layer: "Performance-critical core"
     name: "Scala (Session Generator)"
     confidence: confirmed
@@ -69,9 +69,9 @@ sources:
   - label: "AWS partner case study: 60% compute cost reduction via ECS migration"
     url: "https://d1.awsstatic.com/case-studies/partner-case-studies/Duolingo%20PDF.pdf"
     accessedAt: "2026-07-17"
-  - label: "OpsLevel case study: hundreds of Python 3 microservices"
-    url: "https://www.opslevel.com/case-studies/duolingo"
-    accessedAt: "2026-07-17"
+  - label: "Duolingo official blog: hundreds of microservices in production (2026-05, replaces the now-404 OpsLevel case study)"
+    url: "https://blog.duolingo.com/aislackbot/"
+    accessedAt: "2026-07-22"
 ---
 
 There are countless language apps, but only Duolingo gets people to the point where *not* opening the app feels wrong. Winning on the design of continuation rather than the quality of teaching materials — that product philosophy has drawn both praise and criticism while bringing 50 million people back every single day.
@@ -104,7 +104,7 @@ Duolingo's gamification is textbook-grade applied behavioral science.
 ::techstack
 
 :::fact
-Per the OpsLevel case study made with Duolingo's participation, the backend is hundreds of microservices, mostly written in Python 3, running on AWS. The official engineering blog (2017) documents rewriting the Session Generator — the core module that decides which exercises you see — from Python to Scala, cutting average latency 98%, from 750ms to 14ms. AWS's official case study reports 31 billion items stored in DynamoDB; a partner case study reports that migrating to Terraform-managed ECS cut compute costs by over 60% in a single quarter. Voices are synthesized with Amazon Polly. Our own observation on July 17, 2026 confirmed CloudFront (x-cache) and Envoy (x-envoy-upstream-service-time) headers.
+Per Duolingo's own engineering blog, the backend is hundreds of microservices, mostly written in Python 3, running on AWS. The official engineering blog (2017) documents rewriting the Session Generator — the core module that decides which exercises you see — from Python to Scala, cutting average latency 98%, from 750ms to 14ms. AWS's official case study reports 31 billion items stored in DynamoDB; a partner case study reports that migrating to Terraform-managed ECS cut compute costs by over 60% in a single quarter. Voices are synthesized with Amazon Polly. Our own observation on July 17, 2026 confirmed CloudFront (x-cache) and Envoy (x-envoy-upstream-service-time) headers.
 :::
 
 :::guess
