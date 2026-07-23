@@ -9,6 +9,22 @@ import { BASE_URL } from "@/engine/site";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
+// 「人気サービスを、解剖する。」のような読点区切りの見出しは、SPで読点の直後ではなく
+// 読点の前の語の途中(例: 「解剖」の「解」と「剖」の間)で改行されることがある。
+// 読点以降を改行不可のまとまりにして、折り返しが必ず読点の直後で起きるようにする。
+function renderTagline(tagline: string) {
+  const breakPoint = tagline.indexOf("、");
+  if (breakPoint === -1) {
+    return tagline;
+  }
+  return (
+    <>
+      {tagline.slice(0, breakPoint + 1)}
+      <span className="no-break">{tagline.slice(breakPoint + 1)}</span>
+    </>
+  );
+}
+
 export default async function HomePage({
   params,
 }: {
@@ -42,7 +58,7 @@ export default async function HomePage({
       <JsonLd data={itemList} nonce={nonce} />
 
       <section className="home-hero">
-        <h1>{dict.home.tagline}</h1>
+        <h1>{renderTagline(dict.home.tagline)}</h1>
         <p>{dict.home.lead}</p>
         {categories.length > 0 && (
           <ul className="tag-list">
