@@ -34,9 +34,8 @@
   "chatgpt": {
     "url": "https://chatgpt.com/",
     "title": "ChatGPT",
-    "description": "ChatGPT helps you get answers, find inspiration, and be more productive.",
+    "description": "Log in or sign up to ChatGPT",
     "image": "https://cdn.openai.com/chatgpt/share-og.png",
-    "siteName": "ChatGPT",
     "fetchedAt": "2026-07-23"
   },
   "claude": {
@@ -292,6 +291,13 @@
     "description": "The autonomous stack for every app and agent.",
     "image": "https://lishhsx6kmthaacj.public.blob.vercel-storage.com/og-home-not-x.png",
     "siteName": "Vercel",
+    "fetchedAt": "2026-07-23"
+  },
+  "whatnot": {
+    "url": "https://www.whatnot.com/",
+    "title": "Whatnot: Shop, Sell, Connect",
+    "description": "Whatnot - The Live Shopping Marketplace. Shop, sell, and connect around things you love. Explore 250+ categories, including coins, sneakers, fashion, electronics, sports and Pokémon cards, fashion, plants, jewelry, and more. Join Whatnot today.",
+    "siteName": "Whatnot",
     "fetchedAt": "2026-07-23"
   },
   "x": {
