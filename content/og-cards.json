@@ -99,6 +99,14 @@
     "siteName": "Figma",
     "fetchedAt": "2026-07-23"
   },
+  "gemini": {
+    "url": "https://gemini.google.com/",
+    "title": "‎Google Gemini",
+    "description": "Meet Gemini, Google’s AI assistant. Get help with writing, planning, brainstorming, and more. Experience the power of generative AI.",
+    "image": "https://www.gstatic.com/lamda/images/gemini_aurora_thumbnail_4g_e74822ff0ca4259beb718.png",
+    "siteName": "Gemini",
+    "fetchedAt": "2026-07-23"
+  },
   "ghost": {
     "url": "https://ghost.org/",
     "title": "Ghost: The best open source blog & newsletter platform",
