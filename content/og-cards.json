@@ -23,6 +23,14 @@
     "siteName": "Canva",
     "fetchedAt": "2026-07-23"
   },
+  "chatgpt": {
+    "url": "https://chatgpt.com/",
+    "title": "ChatGPT",
+    "description": "ChatGPT helps you get answers, find inspiration, and be more productive.",
+    "image": "https://cdn.openai.com/chatgpt/share-og.png",
+    "siteName": "ChatGPT",
+    "fetchedAt": "2026-07-23"
+  },
   "claude": {
     "url": "https://claude.com/",
     "title": "Claude",
