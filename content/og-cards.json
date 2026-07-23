@@ -34,8 +34,9 @@
   "chatgpt": {
     "url": "https://chatgpt.com/",
     "title": "ChatGPT",
-    "description": "Log in or sign up to ChatGPT",
+    "description": "ChatGPT helps you get answers, find inspiration, and be more productive.",
     "image": "https://cdn.openai.com/chatgpt/share-og.png",
+    "siteName": "ChatGPT",
     "fetchedAt": "2026-07-23"
   },
   "claude": {
@@ -136,6 +137,14 @@
     "image": "https://linear.app/static/og/homepage.jpg",
     "fetchedAt": "2026-07-23"
   },
+  "lovable": {
+    "url": "https://lovable.dev/",
+    "title": "AI App Builder | Vibe Code Apps & Websites with AI, Fast",
+    "description": "Build apps, websites, and digital products faster using Lovable's AI-powered platform, no deep coding skills required.",
+    "image": "https://lovable.dev/img/opengraph-image.png",
+    "siteName": "Lovable",
+    "fetchedAt": "2026-07-23"
+  },
   "meccha-chameleon": {
     "url": "https://store.steampowered.com/app/4704690/MECCHA_CHAMELEON/",
     "title": "MECCHA CHAMELEON on Steam",
@@ -198,6 +207,10 @@
   },
   "perplexity": {
     "url": "https://www.perplexity.ai/",
+    "title": "Perplexity",
+    "description": "Perplexity is a free AI-powered answer engine that provides accurate, trusted, and real-time answers to any question.",
+    "image": "https://ppl-ai-public.s3.amazonaws.com/static/img/pplx-default-preview.png",
+    "siteName": "Perplexity AI",
     "fetchedAt": "2026-07-23"
   },
   "pixelpot": {
