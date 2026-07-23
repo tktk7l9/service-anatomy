@@ -153,6 +153,9 @@
   },
   "midjourney": {
     "url": "https://www.midjourney.com/",
+    "title": "Midjourney",
+    "description": "An independent research lab exploring new mediums of thought and expanding the imaginative powers of the human species.",
+    "siteName": "Midjourney",
     "fetchedAt": "2026-07-23"
   },
   "mitene": {
@@ -264,6 +267,10 @@
     "description": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
     "image": "https://supabase.com/images/og/supabase-og.png",
     "siteName": "Supabase",
+    "fetchedAt": "2026-07-23"
+  },
+  "temu": {
+    "url": "https://www.temu.com/",
     "fetchedAt": "2026-07-23"
   },
   "tiktok": {
