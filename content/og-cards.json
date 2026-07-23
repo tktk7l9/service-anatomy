@@ -23,6 +23,14 @@
     "siteName": "Canva",
     "fetchedAt": "2026-07-23"
   },
+  "capcut": {
+    "url": "https://www.capcut.com/",
+    "title": "CapCut AI Video Editor: Smart Online Video Editing with Advanced AI Tools",
+    "description": "Edit YouTube and Instagram videos with CapCut's AI-powered video editor, smart templates, and creative effects. Download CapCut on desktop, mobile, or edit online.",
+    "image": "https://p16-seeyou-sg.ibyteimg.com/tos-alisg-i-2zwwjm3azk-sg/af60401275b14f6684c2af1f7564d717~tplv-2zwwjm3azk-image.image",
+    "siteName": "CapCut",
+    "fetchedAt": "2026-07-23"
+  },
   "chatgpt": {
     "url": "https://chatgpt.com/",
     "title": "ChatGPT",
