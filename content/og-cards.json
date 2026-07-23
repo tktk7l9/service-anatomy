@@ -258,6 +258,10 @@
     "siteName": "Supabase",
     "fetchedAt": "2026-07-23"
   },
+  "tiktok": {
+    "url": "https://www.tiktok.com/",
+    "fetchedAt": "2026-07-23"
+  },
   "vercel": {
     "url": "https://vercel.com/",
     "title": "Agentic Infrastructure - Vercel",
