@@ -153,9 +153,6 @@
   },
   "midjourney": {
     "url": "https://www.midjourney.com/",
-    "title": "Midjourney",
-    "description": "An independent research lab exploring new mediums of thought and expanding the imaginative powers of the human species.",
-    "siteName": "Midjourney",
     "fetchedAt": "2026-07-23"
   },
   "mitene": {
@@ -198,6 +195,10 @@
     "description": "The free and flexible app for your private thoughts.",
     "image": "https://obsidian.md/images/banner.png",
     "siteName": "Obsidian",
+    "fetchedAt": "2026-07-23"
+  },
+  "perplexity": {
+    "url": "https://www.perplexity.ai/",
     "fetchedAt": "2026-07-23"
   },
   "pixelpot": {
