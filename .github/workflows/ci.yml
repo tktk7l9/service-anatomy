@@ -20,6 +20,8 @@ jobs:
       - run: npm ci
       - name: gitleaks scan
         uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: npm audit
         run: npm audit --audit-level=low
       - run: npm run typecheck
