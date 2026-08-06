@@ -34,10 +34,17 @@ export function proxy(request: NextRequest) {
   return response;
 }
 
+// nonce が要るのは HTML を返すルートだけ。メタデータ系の静的ルート
+// (robots.txt / sitemap.xml / アイコン・OG画像) まで middleware を通すと、
+// nonce を使わないのに関数実行だけ消費する。ボットは robots.txt と sitemap.xml を
+// 高頻度で叩くため、除外しないと Vercel の Function Invocation を無駄に食う。
+// 記事別 OG (/[locale]/articles/[slug]/opengraph-image) はパス先頭が一致しないため
+// この除外に含まれない。安全側に倒してそのまま middleware を通す。
 export const config = {
   matcher: [
     {
-      source: "/((?!_next/static|_next/image|favicon.ico|icon.svg).*)",
+      source:
+        "/((?!_next/static|_next/image|favicon.ico|icon.svg|opengraph-image|robots.txt|sitemap.xml).*)",
       missing: [
         { type: "header", key: "next-router-prefetch" },
         { type: "header", key: "purpose", value: "prefetch" },
