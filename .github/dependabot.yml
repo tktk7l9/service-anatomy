@@ -5,6 +5,17 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
+    ignore:
+      # eslint-config-next が抱える typescript-eslint / eslint-plugin-react が
+      # TypeScript 7 と ESLint 10 に未対応なため、この 2 つの major 更新は保留する。
+      #   typescript-eslint does not support TS 7.0
+      #     https://github.com/typescript-eslint/typescript-eslint/issues/10940
+      #   eslint-plugin-react: contextOrFilename.getFilename is not a function（ESLint 10）
+      # 上流が対応したらこの ignore を消す。minor/patch と他パッケージの major は通る。
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "eslint"
+        update-types: ["version-update:semver-major"]
     groups:
       npm-minor-patch:
         update-types:
