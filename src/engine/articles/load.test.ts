@@ -35,7 +35,10 @@ describe("loadArticles", () => {
     expect(loadArticles(path.join(FIXTURES, "no-such-dir"))).toEqual([]);
   });
 
-  it("既定の rootDir（content/articles）でも例外なく読める", () => {
-    expect(Array.isArray(loadArticles())).toBe(true);
+  it("既定の rootDir（content/articles）から実記事を読み切る", () => {
+    // Array.isArray では既定パスが壊れて [] を返しても通ってしまう。ALL_ARTICLES を
+    // 回すテスト群は空配列だと黙って全部通るので、「コンテンツが静かに消えた」を
+    // 捕まえるのはここだけ。実測 46 本（2026-09-12）。
+    expect(loadArticles().length).toBeGreaterThanOrEqual(40);
   });
 });
