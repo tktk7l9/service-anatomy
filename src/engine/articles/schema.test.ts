@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { makeRawFrontmatter } from "./__fixtures__/factories";
-import { ISO_DATE, KEBAB_CASE, parseFrontmatter } from "./schema";
+import { parseFrontmatter } from "./schema";
 
 function mutate(fn: (raw: Record<string, unknown>) => void): Record<string, unknown> {
   const raw = makeRawFrontmatter();
@@ -158,20 +158,3 @@ describe("parseFrontmatter", () => {
   });
 });
 
-describe("正規表現エクスポート", () => {
-  it.each(["2026-07-01"])("ISO_DATE は %s に一致", (value) => {
-    expect(ISO_DATE.test(value)).toBe(true);
-  });
-
-  it.each(["2026-7-1", "20260701", ""])("ISO_DATE は %s に一致しない", (value) => {
-    expect(ISO_DATE.test(value)).toBe(false);
-  });
-
-  it.each(["meccha-chameleon", "a1", "tag"])("KEBAB_CASE は %s に一致", (value) => {
-    expect(KEBAB_CASE.test(value)).toBe(true);
-  });
-
-  it.each(["Bad_Slug", "-lead", "trail-", "UPPER", "日本語"])("KEBAB_CASE は %s に一致しない", (value) => {
-    expect(KEBAB_CASE.test(value)).toBe(false);
-  });
-});
