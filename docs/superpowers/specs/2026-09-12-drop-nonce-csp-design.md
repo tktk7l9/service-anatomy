@@ -144,16 +144,18 @@ service-anatomy の `img-src` は `scripts/fetch-og-cards.mjs` が生成する
 
 ## 到達点と限界
 
-**到達する**: middleware が消えて OpenNext 互換になる。ページがキャッシュ可能になる。
-Cloudflare 移行の障害が外れる。
+**到達する**: middleware が消えて OpenNext 互換になる。Cloudflare 移行の障害が外れる。
+nonce が強制していた per-request レンダリングが解けるので、プリレンダリングできる
+ルートは実際にプリレンダリングされる。
 
-**到達しない**: 「キャッシュ可能」は「プリレンダリング」と同義ではない。`generateStaticParams`
-の有無を実測した。
+**到達しない**: 全ページがキャッシュに乗るわけではない。`generateStaticParams` が
+無いルートは動的のままで、フルルートの CDN キャッシュには乗らない（実測: ビルド後の
+`prerender-manifest.json` の `dynamicRoutes` に現れない）。有無を実測した。
 
 | repo | generateStaticParams | 結果 |
 | --- | --- | --- |
 | ai-primer | 7ルートにあり | 広くプリレンダリングされる |
-| service-anatomy | `[locale]/layout.tsx` のみ | 記事/タグ/tech はオンデマンド動的（CDNキャッシュは効く） |
+| service-anatomy | `[locale]/layout.tsx` のみ | 記事/タグ/tech は動的のまま。**CDN キャッシュには乗らない** |
 | acro-finder | なし | `area/[pref]` / `facilities/[id]` はオンデマンド動的 |
 
 完全な静的化には `generateStaticParams` の追加が必要。今回の範囲外とし、次の一手として残す。
@@ -191,3 +193,15 @@ security の変更なので、1本で通して検証してから残り2本へ横
 各リポジトリで独立した PR を立てる。CSP か OpenNext かの切り分けができなくなるため、
 Cloudflare 移行は別 PR とする（環境変数が Worker に自動で移らず機能が黙って死ぬ事故が
 lifeplan-simulator で実際に起きているため、移行は独立した検証を要する）。
+
+## 訂正（2026-09-12・最終レビュー後）
+
+当初この設計書は「ページがキャッシュ可能になる」「記事/タグ/tech はオンデマンド動的
+（CDNキャッシュは効く）」と書いていた。ビルド後の `prerender-manifest.json` で実測すると
+`generateStaticParams` が無いルートは `dynamicRoutes` に現れず、フルルートの CDN キャッシュ
+には乗らない。上の記述は訂正済み。
+
+この誤りは実害を持ちうる。`robots.ts` のクローラー抑制と `facilities/page.tsx` の prefetch
+抑制は「キャッシュに乗らないので 1 リクエストがそのまま転送量になる」ことを根拠にしている。
+キャッシュが効くと誤解した読者がそれらを不要と判断して外すと、2026-08-05 に無料枠 10GB へ
+到達したのと同じ転送量の事故が再発する。

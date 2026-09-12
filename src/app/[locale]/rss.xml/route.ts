@@ -4,6 +4,8 @@ import { BASE_URL } from "@/engine/site";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
+// nonce 由来ではない。RSS は記事コレクションを実行時に読んで組み立てるため動的でよい
+// （2026-09-12 に nonce CSP を撤去した際、この 1 行は意図的に残した）。
 export const dynamic = "force-dynamic";
 
 export async function GET(

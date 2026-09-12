@@ -13,7 +13,7 @@ ja/en 完全バイリンガル。
 
 ## 技術構成
 
-- **Next.js 16**（App Router / TypeScript / force-dynamic + per-request nonce CSP）
+- **Next.js 16**（App Router / TypeScript / 静的ヘッダーの CSP）
 - **コンテンツ**: `content/articles/<slug>/{ja.md, en.md}` — gray-matter frontmatter +
   unified（remark-parse / remark-gfm / remark-directive / remark-rehype / rehype-slug / rehype-stringify）
 - **記事内コンポーネント**: `::scorecard` / `::techstack` ディレクティブ → HTML コメントマーカー →
@@ -37,4 +37,6 @@ npm run coverage   # カバレッジ（engine/i18n 100% ゲート）
 
 - `src/engine/**` / `src/i18n/**` カバレッジ 100%（CI ゲート）
 - CI: gitleaks / npm audit / typecheck / coverage / build / Lighthouse リグレッションガード
-- 目標: Lighthouse mobile 98+ / desktop 100・Mozilla Observatory A+
+- 目標: Lighthouse mobile 98+ / desktop 100
+  ※ Observatory A+ は 2026-09-12 の CSP 移行（nonce → `'unsafe-inline'`）で外れる。
+    スコア低下は受け入れた代償なので目標から外している（AGENTS.md の公開ゲートも同様）

@@ -1373,7 +1373,8 @@ Expected: tsc 出力なし / eslint エラー0 / 955 tests PASS
 cd service-anatomy && npm run build 2>&1 | tee /tmp/sa-after.txt | grep -E "^[┌├└│]|Route \(app\)" | head -40
 ```
 
-Expected: `ƒ (Dynamic)` が減る。`generateStaticParams` が `[locale]/layout.tsx` にしか無いため、記事・タグ・tech の各ルートは動的のまま（設計書の「到達しない」節どおり）。`articles/[slug]` から force-dynamic を外したことで、少なくとも CDN キャッシュには乗る。
+Expected: `ƒ (Dynamic)` が減る。`generateStaticParams` が `[locale]/layout.tsx` にしか無いため、記事・タグ・tech の各ルートは動的のまま（設計書の「到達しない」節どおり）。`articles/[slug]` から force-dynamic を外しても、`generateStaticParams` が無いので
+フルルートの CDN キャッシュには乗らない。外した意味は nonce 依存が消えたことにある。
 
 記事 Markdown を実行時に fs で読む構成（`outputFileTracingIncludes`）なので、ビルドが記事の読み込みで落ちないことも合わせて確認する。
 
