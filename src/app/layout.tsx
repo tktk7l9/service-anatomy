@@ -21,9 +21,6 @@ export const metadata: Metadata = {
   description: "人気サービスを解剖する分析マガジン",
 };
 
-// Per-request rendering so the CSP nonce (set in proxy.ts) is applied.
-export const dynamic = "force-dynamic";
-
 export default function RootLayout({
   children,
 }: Readonly<{

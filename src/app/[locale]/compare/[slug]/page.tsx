@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { ComparisonScorecard } from "@/components/comparison-scorecard";
 import { ComparisonTechStack } from "@/components/comparison-techstack";
@@ -64,7 +63,6 @@ export default async function ComparePage({
   const { locale, comparison, articleA, articleB } = resolved;
   const { frontmatter, body } = comparison[locale];
   const dict = await getDictionary(locale);
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
 
   const html = renderMarkdown(body, dict.article.callouts);
   const serviceA = articleA[locale].frontmatter.service;
@@ -84,8 +82,8 @@ export default async function ComparePage({
 
   return (
     <article>
-      <JsonLd data={itemList} nonce={nonce} />
-      <JsonLd data={breadcrumbs} nonce={nonce} />
+      <JsonLd data={itemList} />
+      <JsonLd data={breadcrumbs} />
 
       <header className="article-header">
         <p className="kicker">

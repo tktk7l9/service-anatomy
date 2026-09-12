@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
 import { ALL_COMPARISONS } from "@/engine/comparisons";
@@ -37,7 +36,6 @@ export default async function CompareIndexPage({
   if (!isLocale(rawLocale)) notFound();
   const locale = rawLocale as Locale;
   const dict = await getDictionary(locale);
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
 
   const itemList = buildItemList(
     ALL_COMPARISONS.map((comparison) => ({
@@ -52,8 +50,8 @@ export default async function CompareIndexPage({
 
   return (
     <>
-      <JsonLd data={itemList} nonce={nonce} />
-      <JsonLd data={breadcrumbs} nonce={nonce} />
+      <JsonLd data={itemList} />
+      <JsonLd data={breadcrumbs} />
       <header className="listing-header">
         <h1>{dict.compare.indexTitle}</h1>
         <p className="count">

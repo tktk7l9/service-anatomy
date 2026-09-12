@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { ArticleCard } from "@/components/article-card";
 import { JsonLd } from "@/components/json-ld";
@@ -34,7 +33,6 @@ export default async function HomePage({
   if (!isLocale(rawLocale)) notFound();
   const locale = rawLocale as Locale;
   const dict = await getDictionary(locale);
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
 
   const [featured, ...rest] = ALL_ARTICLES;
   const categories = usedCategories();
@@ -54,8 +52,8 @@ export default async function HomePage({
 
   return (
     <>
-      <JsonLd data={webSite} nonce={nonce} />
-      <JsonLd data={itemList} nonce={nonce} />
+      <JsonLd data={webSite} />
+      <JsonLd data={itemList} />
 
       <section className="home-hero">
         <h1>{renderTagline(dict.home.tagline)}</h1>

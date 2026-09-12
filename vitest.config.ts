@@ -14,7 +14,7 @@ export default defineConfig({
     include: ["src/**/*.test.{ts,tsx}"],
     coverage: {
       provider: "v8",
-      include: ["src/engine/**/*.ts", "src/i18n/**/*.ts"],
+      include: ["src/engine/**/*.ts", "src/i18n/**/*.ts", "src/lib/**/*.ts"],
       exclude: ["src/**/*.test.{ts,tsx}", "src/engine/**/__fixtures__/**"],
       reporter: ["text", "json-summary", "html"],
       // 純ロジック層（engine: markdown / articles / seo / feed / format、

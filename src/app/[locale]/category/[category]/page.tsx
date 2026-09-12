@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { ArticleCard } from "@/components/article-card";
 import { JsonLd } from "@/components/json-ld";
@@ -47,7 +46,6 @@ export default async function CategoryPage({
   if (!resolved) notFound();
   const { locale, category, articles } = resolved;
   const dict = await getDictionary(locale);
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
   const label = dict.categories[category];
 
   const itemList = buildItemList(
@@ -63,8 +61,8 @@ export default async function CategoryPage({
 
   return (
     <>
-      <JsonLd data={itemList} nonce={nonce} />
-      <JsonLd data={breadcrumbs} nonce={nonce} />
+      <JsonLd data={itemList} />
+      <JsonLd data={breadcrumbs} />
       <header className="listing-header">
         <p className="kicker">{dict.listing.categoryTitle}</p>
         <h1>{label}</h1>
