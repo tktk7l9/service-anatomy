@@ -56,6 +56,8 @@ nonce 撤去のページ側の編集は14ページすべてで完全に同型で
 1. `import { headers } from "next/headers";` を削除
 2. `const nonce = (await headers()).get("x-nonce") ?? undefined;` を削除
 3. `<JsonLd ... nonce={nonce} />` から `nonce={nonce}` を落とす（計26箇所）
+   — 内訳は ai-primer 3 / acro-finder 4 / service-anatomy 17（1ファイルに複数あるのは
+   service-anatomy と ai-primer のレッスンページのみ。acro-finder は各1箇所）
 
 `headers` の出現は14ページすべてで2回（上の1と2）だけであることを実測済みなので、
 import ごと消して安全。これが確認できているぶん、ページ側の編集は機械的に進められる。
@@ -831,7 +833,7 @@ export const dynamic = "force-dynamic";
 
 - [ ] **Step 7: 4ページから nonce を外す**
 
-次の4ファイルを編集する。`nonce={nonce}` は計5箇所（1ファイルに2つあるものがある）。
+次の4ファイルを編集する。`nonce={nonce}` は各ファイル1箇所ずつ、計4箇所。
 
 - `app/area/[pref]/page.tsx`（nonce 行 60）
 - `app/owners/page.tsx`（nonce 行 59）
