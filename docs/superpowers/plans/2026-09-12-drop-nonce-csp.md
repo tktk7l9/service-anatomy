@@ -355,10 +355,12 @@ export function JsonLd({ data }: { data: unknown }) {
 Run:
 
 ```bash
-cd ai-primer && grep -rn 'x-nonce\|nonce={nonce}\|nonce-\|strict-dynamic' src 2>/dev/null
+cd ai-primer && grep -rn --exclude='*.test.ts' --exclude='*.test.tsx' \
+  'x-nonce\|nonce={nonce}\|nonce-\|strict-dynamic' src 2>/dev/null
 ```
 
-Expected: 出力なし（`src/lib/csp.test.ts` の文字列リテラルは `nonce-` と `strict-dynamic` を含むので、ヒットした場合はそれが csp.test.ts の行だけであることを確認する）
+Expected: 出力なし。`src/lib/csp.test.ts` は `nonce-` と `strict-dynamic` を検出対象の
+文字列リテラルとして意図的に含むため、テストファイルは除外している。
 
 - [ ] **Step 8: 型・リント・テストを通す**
 
@@ -657,8 +659,12 @@ export default nextConfig;
 
 - [ ] **Step 7: 設定が読めることを確認する**
 
-Run: `cd acro-finder && npx next build --no-lint 2>&1 | tail -20`
+Run: `cd acro-finder && npx next build 2>&1 | tail -20`
 Expected: ビルドが完走する。`next.config.ts` の解決に失敗した場合はここで落ちる。
+
+この時点では `proxy.ts` がまだ残っているので CSP ヘッダーは二重になる（proxy の nonce 版と
+next.config の静的版）。ここで見るのは「設定が読めること」だけなのでそれで構わない。
+proxy.ts は Task 4 で消す。
 
 - [ ] **Step 8: スイート全体が通ることを確認する**
 
