@@ -1,7 +1,24 @@
+import { readFileSync } from "node:fs";
 import type { NextConfig } from "next";
+import { contentSecurityPolicy } from "./src/lib/csp";
 
-// The Content-Security-Policy is set per-request in proxy.ts (nonce based).
+// 記事末尾の公式リンクカード（OGP画像の直接表示）で許可するオリジン。
+// 一覧は scripts/fetch-og-cards.mjs が生成する。以前は src/proxy.ts が import して
+// いたが、middleware を廃止したのでここで読む。Next の設定ローダーが JSON import を
+// 解決できるかに依存しないよう readFileSync を使う。
+const ogImageHosts: string[] = JSON.parse(
+  readFileSync(new URL("./content/og-image-hosts.json", import.meta.url), "utf8"),
+);
+
+// CSP は src/lib/csp.ts が正本。
 const securityHeaders = [
+  {
+    key: "Content-Security-Policy",
+    value: contentSecurityPolicy({
+      dev: process.env.NODE_ENV !== "production",
+      extraImgSrc: ogImageHosts,
+    }),
+  },
   { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "X-Frame-Options", value: "DENY" },

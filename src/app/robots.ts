@@ -3,10 +3,9 @@ import { BASE_URL } from "@/engine/site";
 
 /** 学習データ収集・AI要約目的のクローラー。
  *
- *  nonce CSP により全ルートが force-dynamic で CDN キャッシュに乗らないため、
- *  1リクエストが Vercel の Fast Origin Transfer・Function Invocation・Fluid Active CPU を
- *  同時に消費する（2026-08-04〜05 に前2者が 100%、後者も 75% 到達）。
- *  2026-07-22 には 1 記事を秒2回連打するボットで CPU 100% に達した実績もある。
+ *  nonce CSP をやめて CDN キャッシュに乗るようになったが、学習データ収集・AI要約目的の
+ *  クローラーは記事本文を丸ごと持っていくため転送量の観点では依然として抑制する。
+ *  キャッシュ可否とは別の判断として残している。
  *
  *  検索流入は維持したいので Googlebot / Bingbot は通す。
  *  Google-Extended は Gemini の学習利用のみを制御し、検索インデックスには影響しない。 */

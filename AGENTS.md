@@ -11,9 +11,19 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## アーキテクチャの背骨
 
-- **CSP は proxy.ts の per-request nonce 方式**（ai-primer 実証済み・Observatory A+ 前提）。
-  ページは `force-dynamic`。`output: 'export'` や静的化で nonce を壊さないこと。
-  インライン `<script>`（JSON-LD 等）は必ず `(await headers()).get("x-nonce")` の nonce を付ける。
+- **CSP は next.config.ts の静的ヘッダー方式**（正本は `src/lib/csp.ts`）。
+  `script-src` は `'self' 'unsafe-inline'`。**`'strict-dynamic'` を足してはいけない** —
+  CSP Level 3 では strict-dynamic があると `'self'` も `'unsafe-inline'` も無視され、
+  nonce もハッシュも無い本構成では全スクリプトが停止する（`src/lib/csp.test.ts` が止める）。
+  2026-09-12 に per-request nonce 方式から移行した。理由は Next 16 の proxy が Node
+  ランタイム専用で、OpenNext (Cloudflare Workers) が Node middleware 非対応のため
+  Workers へ移行できなかったこと。代償としてインラインXSS防御と Observatory A+ を
+  失っている（意図した判断）。
+  記事末尾の公式リンクカード用の `img-src` は `content/og-image-hosts.json` を
+  `next.config.ts` が読み、`contentSecurityPolicy({ extraImgSrc })` に渡す。
+  ページは静的でよい。`headers()` を呼ぶと動的レンダリングが強制されるので、
+  キャッシュを効かせたいページでは呼ばないこと。
+  インライン `<script>` に nonce は不要（ld+json はデータブロックで script-src の対象外）。
 - **i18n は `[locale]` セグメント + `Localized<T> = Record<"ja"|"en", T>`**。
   middleware での locale 判定はしない。翻訳漏れは型エラーで検出される — `Partial` で逃げない。
 - **記事は `content/articles/<slug>/{ja.md, en.md}`**。slug はディレクトリ名が正（frontmatter に持たない）。
@@ -70,5 +80,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## 公開前
 
-- private 開始。公開は publish-check 経由のみ（gitleaks 0 / npm audit 全0 / PII なし / Observatory A+）。
+- private 開始。公開は publish-check 経由のみ（gitleaks 0 / npm audit 全0 / PII なし）。
+  Observatory は 2026-09-12 の CSP 移行で A+ を外れる見込み。`'unsafe-inline'` による減点は
+  受け入れた代償なので、スコアの低下自体は公開のブロッカーにしない（実測値は記録する）。
 - フッターと about に「非公式・公開情報ベースの分析」ディスクレーマーを常設（外さない）。

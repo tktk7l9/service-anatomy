@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { ArticleBody } from "@/components/article-body";
 import { ArticleCard } from "@/components/article-card";
@@ -21,9 +20,6 @@ import { buildBlogPosting, buildBreadcrumbList } from "@/engine/seo/jsonld";
 import { BASE_URL } from "@/engine/site";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-
-// per-request nonce（proxy.ts）を壊さないよう、ビルド時プリレンダリングを禁止する。
-export const dynamic = "force-dynamic";
 
 async function resolve(params: Promise<{ locale: string; slug: string }>) {
   const { locale: rawLocale, slug } = await params;
@@ -71,7 +67,6 @@ export default async function ArticlePage({
   const { locale, article } = resolved;
   const { frontmatter, body } = article[locale];
   const dict = await getDictionary(locale);
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
 
   const html = renderMarkdown(body, dict.article.callouts);
   const toc = extractToc(body);
@@ -106,8 +101,8 @@ export default async function ArticlePage({
 
   return (
     <article>
-      <JsonLd data={blogPosting} nonce={nonce} />
-      <JsonLd data={breadcrumbs} nonce={nonce} />
+      <JsonLd data={blogPosting} />
+      <JsonLd data={breadcrumbs} />
 
       <header className="article-header">
         <p className="kicker">

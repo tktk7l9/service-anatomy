@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
 import { allTech } from "@/engine/articles";
@@ -37,7 +36,6 @@ export default async function TechIndexPage({
   if (!isLocale(rawLocale)) notFound();
   const locale = rawLocale as Locale;
   const dict = await getDictionary(locale);
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
   const tech = allTech();
 
   const itemList = buildItemList(
@@ -53,8 +51,8 @@ export default async function TechIndexPage({
 
   return (
     <>
-      <JsonLd data={itemList} nonce={nonce} />
-      <JsonLd data={breadcrumbs} nonce={nonce} />
+      <JsonLd data={itemList} />
+      <JsonLd data={breadcrumbs} />
       <header className="listing-header">
         <p className="kicker">{dict.listing.techTitle}</p>
         <h1>{dict.tech.indexTitle}</h1>
