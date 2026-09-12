@@ -14,8 +14,9 @@ const INK_SOFT = "#5c5546";
 const RULE = "#ddd4c3";
 const ACCENT = "#9c3b22";
 
-// force-dynamic な親レイアウトの配下でも Vercel Edge の HTTP キャッシュは
-// 効かせられる（/api/anatomy.json と同じパターン）。記事の解剖スコアが
+// 親が force-dynamic だった時代から、この OGP 画像は HTTP キャッシュを明示指定して
+// 効かせている（/api/anatomy.json と同じパターン）。nonce CSP を外した今も
+// 記事ページ自体は動的のままなので、この指定は引き続き効く。記事の解剖スコアが
 // 変わっても実害は小さいため、OGP 画像は積極的にキャッシュしてよい。
 const IMAGE_CACHE_HEADERS = {
   "cache-control": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400",
