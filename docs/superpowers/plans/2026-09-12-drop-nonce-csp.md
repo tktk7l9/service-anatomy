@@ -232,6 +232,7 @@ EOF
 - Modify: `ai-primer/src/app/[locale]/page.tsx:1,26,45`
 - Modify: `ai-primer/src/app/[locale]/learn/[trackId]/[lessonSlug]/page.tsx:3,61,97,98`
 - Modify: `ai-primer/src/components/json-ld.tsx`
+- Modify: `ai-primer/AGENTS.md:13-15,48`
 
 **Interfaces:**
 - Consumes: `contentSecurityPolicy({ dev }: { dev?: boolean }): string` from `src/lib/csp.ts` (Task 1)
@@ -411,6 +412,53 @@ cd ai-primer && npm run build && (npm start &) && sleep 6
 
 ```bash
 pkill -f "next start"
+```
+
+- [ ] **Step 11b: AGENTS.md をコードの実態に合わせる**
+
+`ai-primer/AGENTS.md` は nonce 方式をアーキテクチャの背骨として明記しており、この変更と
+正面から矛盾する。直さないと次に触る人間/エージェントがこの変更をバグとして戻す。
+
+13-15行目を次に置き換える。
+
+変更前:
+
+```
+- **CSP は proxy.ts の per-request nonce 方式**（acro-finder 実証済み・Observatory A+ 前提）。
+  ページは `force-dynamic`。`output: 'export'` や静的化で nonce を壊さないこと。
+  インライン `<script>`（JSON-LD 等）は必ず `(await headers()).get("x-nonce")` の nonce を付ける。
+```
+
+変更後:
+
+```
+- **CSP は next.config.ts の静的ヘッダー方式**（正本は `src/lib/csp.ts`）。
+  `script-src` は `'self' 'unsafe-inline'`。**`'strict-dynamic'` を足してはいけない** —
+  CSP Level 3 では strict-dynamic があると `'self'` も `'unsafe-inline'` も無視され、
+  nonce もハッシュも無い本構成では全スクリプトが停止する（`src/lib/csp.test.ts` が止める）。
+  2026-09-12 に per-request nonce 方式から移行した。理由は Next 16 の proxy が Node
+  ランタイム専用で、OpenNext (Cloudflare Workers) が Node middleware 非対応のため
+  Workers へ移行できなかったこと。代償としてインラインXSS防御と Observatory A+ を
+  失っている（意図した判断）。
+  ページは静的でよい。`headers()` を呼ぶと動的レンダリングが強制されるので、
+  キャッシュを効かせたいページでは呼ばないこと。
+  インライン `<script>` に nonce は不要（ld+json はデータブロックで script-src の対象外）。
+```
+
+48行目の公開ゲートも直す。
+
+変更前:
+
+```
+- private 開始。公開は publish-check 経由のみ（gitleaks 0 / npm audit 全0 / PII なし / Observatory A+）。
+```
+
+変更後:
+
+```
+- private 開始。公開は publish-check 経由のみ（gitleaks 0 / npm audit 全0 / PII なし）。
+  Observatory は 2026-09-12 の CSP 移行で A+ を外れる見込み。`'unsafe-inline'` による減点は
+  受け入れた代償なので、スコアの低下自体は公開のブロッカーにしない（実測値は記録する）。
 ```
 
 - [ ] **Step 12: コミット**
@@ -1153,6 +1201,7 @@ EOF
 - Modify: `service-anatomy/src/app/[locale]/tech/[tech]/page.tsx:48`
 - Modify: `service-anatomy/src/app/[locale]/tag/[tag]/page.tsx:48`
 - Modify: `service-anatomy/src/components/json-ld.tsx`
+- Modify: `service-anatomy/AGENTS.md:14-16,73`
 
 **Interfaces:**
 - Consumes: `contentSecurityPolicy({ dev, extraImgSrc })` from `src/lib/csp.ts` (Task 5)
@@ -1357,6 +1406,55 @@ Playwright MCP で確認する。記事の slug は `ls content/articles | head 
 
 ```bash
 pkill -f "next start"
+```
+
+- [ ] **Step 14b: AGENTS.md をコードの実態に合わせる**
+
+`service-anatomy/AGENTS.md` は nonce 方式をアーキテクチャの背骨として明記しており、この
+変更と正面から矛盾する。直さないと次に触る人間/エージェントがこの変更をバグとして戻す。
+
+14-16行目を次に置き換える。
+
+変更前:
+
+```
+- **CSP は proxy.ts の per-request nonce 方式**（ai-primer 実証済み・Observatory A+ 前提）。
+  ページは `force-dynamic`。`output: 'export'` や静的化で nonce を壊さないこと。
+  インライン `<script>`（JSON-LD 等）は必ず `(await headers()).get("x-nonce")` の nonce を付ける。
+```
+
+変更後:
+
+```
+- **CSP は next.config.ts の静的ヘッダー方式**（正本は `src/lib/csp.ts`）。
+  `script-src` は `'self' 'unsafe-inline'`。**`'strict-dynamic'` を足してはいけない** —
+  CSP Level 3 では strict-dynamic があると `'self'` も `'unsafe-inline'` も無視され、
+  nonce もハッシュも無い本構成では全スクリプトが停止する（`src/lib/csp.test.ts` が止める）。
+  2026-09-12 に per-request nonce 方式から移行した。理由は Next 16 の proxy が Node
+  ランタイム専用で、OpenNext (Cloudflare Workers) が Node middleware 非対応のため
+  Workers へ移行できなかったこと。代償としてインラインXSS防御と Observatory A+ を
+  失っている（意図した判断）。
+  記事末尾の公式リンクカード用の `img-src` は `content/og-image-hosts.json` を
+  `next.config.ts` が読み、`contentSecurityPolicy({ extraImgSrc })` に渡す。
+  ページは静的でよい。`headers()` を呼ぶと動的レンダリングが強制されるので、
+  キャッシュを効かせたいページでは呼ばないこと。
+  インライン `<script>` に nonce は不要（ld+json はデータブロックで script-src の対象外）。
+```
+
+73行目の公開ゲートも直す。
+
+変更前:
+
+```
+- private 開始。公開は publish-check 経由のみ（gitleaks 0 / npm audit 全0 / PII なし / Observatory A+）。
+```
+
+変更後:
+
+```
+- private 開始。公開は publish-check 経由のみ（gitleaks 0 / npm audit 全0 / PII なし）。
+  Observatory は 2026-09-12 の CSP 移行で A+ を外れる見込み。`'unsafe-inline'` による減点は
+  受け入れた代償なので、スコアの低下自体は公開のブロッカーにしない（実測値は記録する）。
 ```
 
 - [ ] **Step 15: コミットと PR**
