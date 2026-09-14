@@ -7,6 +7,9 @@ const eslintConfig = defineConfig([
   ...nextTs,
   // Override default ignores of eslint-config-next.
   globalIgnores([
+    // OpenNext / wrangler の生成物。lint 対象に入れると数百件のエラーになる。
+    ".open-next/**",
+    ".wrangler/**",
     // Default ignores of eslint-config-next:
     ".next/**",
     "out/**",

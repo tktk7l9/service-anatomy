@@ -1,4 +1,3 @@
-import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Inter_Tight } from "next/font/google";
 import "./globals.css";
@@ -30,7 +29,12 @@ export default function RootLayout({
     <html lang="ja" className={interTight.variable}>
       <body>
         {children}
-        {process.env.VERCEL && <Analytics />}
+        {/* アナリティクスは Cloudflare Web Analytics に差し替える。ダッシュボードで
+            サイトを登録してトークンを取る必要があるので、まず Analytics 無しで
+            デプロイして動作を確認し、トークン取得後に別コミットでビーコンを足す。
+            中途半端なスニペットを入れて CSP 違反を起こすより確実。
+            移行前は VERCEL 環境変数でゲートした Vercel Analytics を置いていたが、
+            Workers ではその変数が存在しないので、そのままだと静かに消えるだけだった。 */}
       </body>
     </html>
   );
