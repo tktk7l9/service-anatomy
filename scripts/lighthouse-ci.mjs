@@ -10,8 +10,11 @@ const URL = process.argv[2] ?? "http://localhost:3000/ja";
 const OUT = "/tmp/lighthouse-ci-report.json";
 const THRESHOLDS = { performance: 80, accessibility: 95, "best-practices": 90, seo: 95 };
 const RUNS = 3;
+// 1回の計測が起動失敗したときに試す回数（フレーク対策。本物の異常なら全部落ちる）
+const ATTEMPTS_PER_RUN = 3;
 
-function measure() {
+// 1回だけ計測する。lighthouse の起動自体が失敗すると execFileSync が例外を投げる。
+function measureOnce() {
   execFileSync(
     "npx",
     [
@@ -32,13 +35,40 @@ function measure() {
   );
 }
 
+// 計測1回ぶんをリトライ付きで取る。
+//
+// **これが無いと 3回計測の中央値という設計が意味をなさない。** execFileSync は
+// 非ゼロ終了で例外を投げ、それが Array.from を素通りしてジョブ全体を落とすので、
+// 共有ランナー由来の1回きりのフレーク（NO_NAVSTART 等、Chrome の起動失敗）が
+// そのまま CI 失敗になっていた。2026-09-14 に service-anatomy で実際に発生し、
+// コード変更ゼロの再実行で通ることを確認している。
+//
+// サーバーが落ちている等の本物の異常なら全試行が失敗するので、見逃しにはならない。
+function measure(runIndex) {
+  for (let attempt = 1; attempt <= ATTEMPTS_PER_RUN; attempt += 1) {
+    try {
+      return measureOnce();
+    } catch (err) {
+      // 途中で死ぬと古いレポートが残り、次の試行がそれを読んでしまうため消す。
+      try {
+        unlinkSync(OUT);
+      } catch {
+        // 元々無ければ何もしなくてよい
+      }
+      if (attempt === ATTEMPTS_PER_RUN) throw err;
+      const first = String(err.message).split("\n")[0];
+      console.warn(`run ${runIndex}: 試行 ${attempt}/${ATTEMPTS_PER_RUN} が失敗。再試行する — ${first}`);
+    }
+  }
+}
+
 function median(values) {
   const sorted = [...values].sort((a, b) => a - b);
   return sorted[Math.floor(sorted.length / 2)];
 }
 
 const runs = Array.from({ length: RUNS }, (_, i) => {
-  const scores = measure();
+  const scores = measure(i + 1);
   console.log(`run ${i + 1}/${RUNS}:`, JSON.stringify(scores));
   return scores;
 });
