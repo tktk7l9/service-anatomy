@@ -25,6 +25,9 @@ jobs:
       - name: npm audit
         run: npm audit --audit-level=low
       - run: npm run typecheck
+      # Next 16 の next build は lint を実行しない。このステップが無いと
+      # lint がどこでも走らない（acro-finder と同じ理由で追加）。
+      - run: npm run lint
       - run: npm run coverage
       - run: npm run build
       - name: Lighthouse regression guard

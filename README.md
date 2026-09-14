@@ -38,5 +38,10 @@ npm run coverage   # カバレッジ（engine/i18n 100% ゲート）
 - `src/engine/**` / `src/i18n/**` カバレッジ 100%（CI ゲート）
 - CI: gitleaks / npm audit / typecheck / coverage / build / Lighthouse リグレッションガード
 - 目標: Lighthouse mobile 98+ / desktop 100
-  ※ Observatory A+ は 2026-09-12 の CSP 移行（nonce → `'unsafe-inline'`）で外れる。
-    スコア低下は受け入れた代償なので目標から外している（AGENTS.md の公開ゲートも同様）
+- Mozilla Observatory: **B（score 75・10/12）** — 2026-09-14 に Workers の本番URLで実測
+  ※ 落ちている2項目はどちらも意図した代償で、目標から外している（AGENTS.md の公開ゲートも同様）
+    - `content-security-policy` −20: 2026-09-12 の CSP 移行（nonce → `'unsafe-inline'`）による
+    - `subresource-integrity` −5: Cloudflare Web Analytics のビーコン導入による。導入前は
+      外部スクリプトが1本も無く素通りで通っていた項目。**SRI は足さない** —
+      `beacon.min.js` はバージョンの付かない URL を Cloudflare が差し替える運用なので、
+      `integrity` を固定すると次の更新でビーコンだけ黙って止まる

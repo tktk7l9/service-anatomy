@@ -24,6 +24,18 @@ This version has breaking changes — APIs, conventions, and file structure may 
   ページは静的でよい。`headers()` を呼ぶと動的レンダリングが強制されるので、
   キャッシュを効かせたいページでは呼ばないこと。
   インライン `<script>` に nonce は不要（ld+json はデータブロックで script-src の対象外）。
+- **全ルートが SSG**（`generateStaticParams` + `dynamicParams = false`）。861ページを
+  ビルド時に生成する。`content/` の Markdown を読むのは**ビルド時だけ**にすること —
+  実行時に読むと Worker ランタイムでの `process.cwd()` 解決に依存する。
+  **route handler は `force-static` を明示する。** Next 15 以降 GET の route handler は
+  既定で動的なので、`force-dynamic` を外すだけでは `ƒ` のまま残る（`rss.xml` と
+  `api/anatomy.json` が該当）。ビルド表に `ƒ` が1つでも出たら直すこと。
+- **`open-next.config.ts` の `incrementalCache` を外してはいけない**
+  （`staticAssetsIncrementalCache`）。外すとプリレンダ成果物がどこからも読めず、
+  `dynamicParams = false` と重なって**記事・タグ・技術・カテゴリが全部 404 になる**。
+  しかも `/ja`・`/en`・`rss.xml`・`sitemap.xml` は素の静的ルートなので 200 を返し続け、
+  **サイトが生きているように見える**。デプロイ後の検証は必ず `sitemap.xml` から
+  実URLを拾って動的セグメントを叩くこと。トップの 200 は何の保証にもならない。
 - **i18n は `[locale]` セグメント + `Localized<T> = Record<"ja"|"en", T>`**。
   middleware での locale 判定はしない。翻訳漏れは型エラーで検出される — `Partial` で逃げない。
 - **記事は `content/articles/<slug>/{ja.md, en.md}`**。slug はディレクトリ名が正（frontmatter に持たない）。
@@ -81,6 +93,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 ## 公開前
 
 - private 開始。公開は publish-check 経由のみ（gitleaks 0 / npm audit 全0 / PII なし）。
-  Observatory は 2026-09-12 の CSP 移行で A+ を外れる見込み。`'unsafe-inline'` による減点は
-  受け入れた代償なので、スコアの低下自体は公開のブロッカーにしない（実測値は記録する）。
+  Observatory は **A+ から B（75・10/12）へ低下**した（2026-09-14 に Workers の本番URLで実測）。
+  落ちている2項目はどちらも受け入れた代償なので、このスコアは公開のブロッカーにしない —
+  `content-security-policy` −20 は CSP 移行の `'unsafe-inline'`、`subresource-integrity` −5 は
+  Cloudflare Web Analytics のビーコン。**ビーコンに SRI を足してはいけない**:
+  `beacon.min.js` はバージョンの付かない URL を Cloudflare が差し替える運用なので、
+  `integrity` を固定すると次の更新でビーコンだけ黙って止まる。
 - フッターと about に「非公式・公開情報ベースの分析」ディスクレーマーを常設（外さない）。
