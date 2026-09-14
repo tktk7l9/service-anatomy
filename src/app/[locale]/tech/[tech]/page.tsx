@@ -9,6 +9,15 @@ import { BASE_URL } from "@/engine/site";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
+// content/ の Markdown はビルド時にだけ読む。ここを動的のままにすると、Cloudflare
+// Workers では実行時に process.cwd() 相対の readdirSync が走り、バンドルに含まれない
+// content/ を探しに行って記事が全滅する。dynamicParams=false で列挙外は 404。
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return allTech().map((entry) => ({ tech: entry.slug }));
+}
+
 async function resolve(params: Promise<{ locale: string; tech: string }>) {
   const { locale: rawLocale, tech } = await params;
   if (!isLocale(rawLocale)) return null;

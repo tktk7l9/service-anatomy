@@ -4,9 +4,13 @@ import { BASE_URL } from "@/engine/site";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
-// nonce 由来ではない。RSS は記事コレクションを実行時に読んで組み立てるため動的でよい
-// （2026-09-12 に nonce CSP を撤去した際、この 1 行は意図的に残した）。
-export const dynamic = "force-dynamic";
+// ビルド時に ja/en 分を生成する（親 layout の generateStaticParams が locale を供給）。
+// 以前は force-dynamic だったが、Cloudflare Workers では実行時に content/ を読めない
+// ため動的では成立しない。記事はデプロイ単位でしか増えないので SSG で十分。
+//
+// force-static は必須。Next 15 以降 GET の route handler は既定で動的なので、
+// force-dynamic を外すだけでは ƒ のままになる（ビルド表で実際に確認した）。
+export const dynamic = "force-static";
 
 export async function GET(
   _request: Request,

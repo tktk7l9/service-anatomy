@@ -9,7 +9,7 @@ import { LinkCard } from "@/components/link-card";
 import { ScoreTrend } from "@/components/score-trend";
 import { SourcesList } from "@/components/sources-list";
 import { Toc } from "@/components/toc";
-import { articleBySlug, ogCardFor, relatedTo } from "@/engine/articles";
+import { ALL_ARTICLES, articleBySlug, ogCardFor, relatedTo } from "@/engine/articles";
 import { buildScoreTrend } from "@/engine/articles/revision-trend";
 import { formatDate } from "@/engine/format/date";
 import { estimateReadingMinutes, formatReadingTime } from "@/engine/format/reading-time";
@@ -20,6 +20,15 @@ import { buildBlogPosting, buildBreadcrumbList } from "@/engine/seo/jsonld";
 import { BASE_URL } from "@/engine/site";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+
+// content/ の Markdown はビルド時にだけ読む。ここを動的のままにすると、Cloudflare
+// Workers では実行時に process.cwd() 相対の readdirSync が走り、バンドルに含まれない
+// content/ を探しに行って記事が全滅する。dynamicParams=false で列挙外は 404。
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return ALL_ARTICLES.map((article) => ({ slug: article.slug }));
+}
 
 async function resolve(params: Promise<{ locale: string; slug: string }>) {
   const { locale: rawLocale, slug } = await params;
