@@ -5,7 +5,7 @@ import { ComparisonScorecard } from "@/components/comparison-scorecard";
 import { ComparisonTechStack } from "@/components/comparison-techstack";
 import { JsonLd } from "@/components/json-ld";
 import { SourcesList } from "@/components/sources-list";
-import { comparisonBySlug, resolveComparison } from "@/engine/comparisons";
+import { ALL_COMPARISONS, comparisonBySlug, resolveComparison } from "@/engine/comparisons";
 import { techOverlap } from "@/engine/comparisons/diff";
 import { formatDate } from "@/engine/format/date";
 import { renderMarkdown } from "@/engine/markdown/render";
@@ -14,6 +14,15 @@ import { buildBreadcrumbList, buildItemList } from "@/engine/seo/jsonld";
 import { BASE_URL } from "@/engine/site";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+
+// content/ の Markdown はビルド時にだけ読む。ここを動的のままにすると、Cloudflare
+// Workers では実行時に process.cwd() 相対の readdirSync が走り、バンドルに含まれない
+// content/ を探しに行って記事が全滅する。dynamicParams=false で列挙外は 404。
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return ALL_COMPARISONS.map((comparison) => ({ slug: comparison.slug }));
+}
 
 async function resolve(params: Promise<{ locale: string; slug: string }>) {
   const { locale: rawLocale, slug } = await params;

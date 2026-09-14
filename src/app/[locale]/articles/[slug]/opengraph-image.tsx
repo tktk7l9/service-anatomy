@@ -1,8 +1,17 @@
 import { ImageResponse } from "next/og";
-import { articleBySlug } from "@/engine/articles";
+import { ALL_ARTICLES, articleBySlug } from "@/engine/articles";
 import { SCORE_AXES } from "@/engine/articles/schema";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+
+// content/ の Markdown はビルド時にだけ読む。ここを動的のままにすると、Cloudflare
+// Workers では実行時に process.cwd() 相対の readdirSync が走り、バンドルに含まれない
+// content/ を探しに行って記事が全滅する。dynamicParams=false で列挙外は 404。
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return ALL_ARTICLES.map((article) => ({ slug: article.slug }));
+}
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";

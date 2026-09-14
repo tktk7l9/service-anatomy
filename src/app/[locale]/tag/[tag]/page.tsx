@@ -2,12 +2,21 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArticleCard } from "@/components/article-card";
 import { JsonLd } from "@/components/json-ld";
-import { articlesByTag } from "@/engine/articles";
+import { allTags, articlesByTag } from "@/engine/articles";
 import { languageAlternates } from "@/engine/seo/alternates";
 import { buildBreadcrumbList, buildItemList } from "@/engine/seo/jsonld";
 import { BASE_URL } from "@/engine/site";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+
+// content/ の Markdown はビルド時にだけ読む。ここを動的のままにすると、Cloudflare
+// Workers では実行時に process.cwd() 相対の readdirSync が走り、バンドルに含まれない
+// content/ を探しに行って記事が全滅する。dynamicParams=false で列挙外は 404。
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return allTags().map((tag) => ({ tag }));
+}
 
 async function resolve(params: Promise<{ locale: string; tag: string }>) {
   const { locale: rawLocale, tag } = await params;
