@@ -18,6 +18,13 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS",
   },
+  // 2026-09-23 独自ドメインへ移行。routes を置くと workers_dev の既定が false になり
+  // 旧URLが消えるので明示的に true にする（旧URLは next.config.ts の redirects で転送する）。
+  "routes": [
+    { "pattern": "serviceanatomy.com", "custom_domain": true },
+    { "pattern": "www.serviceanatomy.com", "custom_domain": true },
+  ],
+  "workers_dev": true,
   "observability": {
     "enabled": true,
   },

@@ -2,8 +2,14 @@ import { describe, expect, it } from "vitest";
 import { BASE_URL } from "./site";
 
 describe("BASE_URL", () => {
-  it("Workers の公開URLを指している", () => {
-    expect(BASE_URL).toBe("https://service-anatomy.saitotakuya0719.workers.dev");
+  it("独自ドメインを指している", () => {
+    expect(BASE_URL).toBe("https://serviceanatomy.com");
+  });
+
+  it("workers.dev を含まない", () => {
+    // 旧URLは next.config.ts の redirects で独自ドメインへ転送している。
+    // canonical が旧URLに戻ると、転送先と正規URLが食い違って検索エンジンが迷う。
+    expect(BASE_URL).not.toContain("workers.dev");
   });
 
   it("vercel.app を含まない", () => {
