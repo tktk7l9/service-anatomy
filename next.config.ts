@@ -38,6 +38,16 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/**": ["./content/**/*"],
   },
+  // 旧URL（workers.dev）と www を正規ドメインへ恒久転送する。
+  // 2026-09-23 に独自ドメインへ移した。BASE_URL（src/engine/site.ts）と揃えること。
+  async redirects() {
+    return ["service-anatomy.saitotakuya0719.workers.dev", "www.serviceanatomy.com"].map((host) => ({
+      source: "/:path*",
+      has: [{ type: "host" as const, value: host }],
+      destination: "https://serviceanatomy.com/:path*",
+      permanent: true,
+    }));
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
