@@ -27,6 +27,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={interTight.variable}>
+      <head>
+        {/* Impact（Shopify 等のアフィリエイト）のサイト所有権確認。2026-09-23 追加。
+            Impact が発行したタグは content ではなく value 属性なので、そのまま書く。
+            content も併記しているのは、一般的な meta の読み方をする検査にも通すため。
+            所有者を示す公開情報で秘密ではない。 */}
+        <meta
+          name="impact-site-verification"
+          // @ts-expect-error -- value は meta の標準属性ではないが、Impact の検査が読む
+          value="522ef2d5-88ce-4612-949d-235b3c6776c3" /* gitleaks:allow */
+          content="522ef2d5-88ce-4612-949d-235b3c6776c3" /* gitleaks:allow */
+        />
+      </head>
       <body>
         {children}
         {/* Cloudflare Web Analytics。2026-09-14 の Workers 移行で Vercel Analytics を
