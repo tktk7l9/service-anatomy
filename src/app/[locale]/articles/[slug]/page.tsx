@@ -5,6 +5,7 @@ import { ArticleBody } from "@/components/article-body";
 import { ArticleCard } from "@/components/article-card";
 import { HeroArt } from "@/components/hero-art";
 import { JsonLd } from "@/components/json-ld";
+import { AffiliateCard } from "@/components/affiliate-card";
 import { LinkCard } from "@/components/link-card";
 import { ScoreTrend } from "@/components/score-trend";
 import { SourcesList } from "@/components/sources-list";
@@ -165,6 +166,9 @@ export default async function ArticlePage({
 
           {ogCard && (
             <LinkCard card={ogCard} service={frontmatter.service} label={dict.article.visitService} />
+          )}
+          {frontmatter.affiliate && (
+            <AffiliateCard affiliate={frontmatter.affiliate} service={frontmatter.service} dict={dict} />
           )}
 
           <ul className="tag-list">

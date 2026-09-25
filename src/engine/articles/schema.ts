@@ -39,6 +39,12 @@ export interface RevisionEntry {
   note: string;
 }
 
+/** 提携（アフィリエイト）リンク。ja/en で同じ URL を持つ（parity.ts が検証）。公開 JSON には出さない。 */
+export interface AffiliateLink {
+  url: string;
+  program: string;
+}
+
 export interface ArticleFrontmatter {
   service: string;
   title: string;
@@ -58,6 +64,8 @@ export interface ArticleFrontmatter {
   sources: SourceRef[];
   /** 定点観測（再解剖）の履歴。時系列順（古い→新しい）。scores は現行の frontmatter.scores が最新値。 */
   revisions?: RevisionEntry[];
+  /** 提携リンク（任意）。ある記事だけ末尾に「PR」枠を出す。 */
+  affiliate?: AffiliateLink;
 }
 
 function parseCategory(obj: Record<string, unknown>, context: string): CategoryId {
@@ -136,6 +144,18 @@ function parseTechStack(obj: Record<string, unknown>, context: string): TechStac
   });
 }
 
+function parseAffiliate(obj: Record<string, unknown>, context: string): AffiliateLink | undefined {
+  if (obj.affiliate === undefined) {
+    return undefined;
+  }
+  const record = asRecord(obj.affiliate, context, "affiliate");
+  const entryContext = `${context}: affiliate`;
+  return {
+    url: requireHttpsUrl(record, "url", entryContext),
+    program: requireString(record, "program", entryContext),
+  };
+}
+
 export function parseFrontmatter(data: unknown, context: string): ArticleFrontmatter {
   const obj = asRecord(data, context, "frontmatter");
   return {
@@ -156,5 +176,6 @@ export function parseFrontmatter(data: unknown, context: string): ArticleFrontma
     techStack: parseTechStack(obj, context),
     sources: parseSources(obj, context),
     revisions: parseRevisions(obj, context),
+    affiliate: parseAffiliate(obj, context),
   };
 }

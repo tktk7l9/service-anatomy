@@ -30,6 +30,11 @@ const en: Dictionary = {
     updated: "Updated",
     lastVerified: "Last verified",
     visitService: "Official site",
+    affiliateAria: "Affiliate link (PR)",
+    affiliatePr: "PR",
+    affiliateCta: "Try {service} for free",
+    affiliateNote:
+      "PR: We may earn a commission if you sign up via this link. It never affects our scores or analysis.",
     vendor: "Operated by",
     origin: "Origin",
     tagsLabel: "Tags",
@@ -94,7 +99,7 @@ const en: Dictionary = {
     lead: "Service Anatomy is an unofficial analysis magazine that dissects popular services from Japan and abroad.",
     paragraphs: [
       "Each article covers a single service from four angles: (1) what the service is and why people use it, (2) UX analysis, (3) an estimated tech stack, and (4) the business model.",
-      "This site is run by an individual and has no affiliation with any of the companies behind the services covered. Articles are not endorsed by those companies and are written solely from public information.",
+      "This site is run by an individual. Apart from participating in the affiliate (referral) programs of some services, it has no financial or business relationship with the companies behind the services covered. Articles are not endorsed by those companies and are written solely from public information. Whether or not a commission is involved never affects the content or the anatomy scores.",
     ],
     methodologyTitle: "Methodology",
     methodology: [
@@ -108,7 +113,7 @@ const en: Dictionary = {
       "The structured data behind every article (anatomy scores, tech stacks, sources) is published as JSON. Feel free to quote or aggregate it — please credit this site with a link.",
     disclaimerTitle: "Disclaimer",
     disclaimerBody:
-      "The content of this site is analysis and opinion based on public information at the time of writing, with no guarantee of accuracy or completeness. Scores are the editors' subjective ratings. All names and trademarks belong to their respective owners.",
+      "The content of this site is analysis and opinion based on public information at the time of writing, with no guarantee of accuracy or completeness. Scores are the editors' subjective ratings. All names and trademarks belong to their respective owners. Links marked \"PR\" in articles are affiliate links.",
   },
   footer: {
     disclaimer:
