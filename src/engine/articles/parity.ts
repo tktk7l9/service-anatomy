@@ -67,5 +67,10 @@ export function localeParityIssues(article: Article): string[] {
       }
     });
   }
+  if (ja.affiliate?.url !== en.affiliate?.url) {
+    issues.push(
+      `affiliate.url が ja/en で一致しません（ja=${ja.affiliate?.url ?? "なし"} / en=${en.affiliate?.url ?? "なし"}）`,
+    );
+  }
   return issues;
 }

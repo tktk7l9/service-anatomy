@@ -37,6 +37,15 @@ describe("articles/export", () => {
     ]);
   });
 
+  it("affiliate（提携リンク）は公開 JSON に出さない", () => {
+    const article = makeArticle("alpha", {
+      affiliate: { url: "https://shopify.pxf.io/abc", program: "Shopify" },
+    });
+    const exported = buildAnatomyExport([article], BASE, "2026-07-17").articles[0];
+    expect(exported).not.toHaveProperty("affiliate");
+    expect(JSON.stringify(exported)).not.toContain("pxf.io");
+  });
+
   it("techStack は evidenceUrl の有無を保って書き出す", () => {
     const withUrl = {
       layer: "Frontend",

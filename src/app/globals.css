@@ -1267,6 +1267,42 @@ svg {
   color: inherit;
 }
 
+/* 提携リンク枠（PR）。LinkCard の直下。広告であることが一目で分かる余白と表記を優先する */
+.affiliate-card {
+  margin: 1rem 0 0;
+  padding: 1rem 1.3rem 1.1rem;
+  border: 1px dashed var(--rule-strong);
+  background: var(--paper-raised);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 0.9rem;
+}
+
+.affiliate-card-pr {
+  font-family: var(--display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--rule-strong);
+  color: var(--ink-soft);
+}
+
+.affiliate-card-cta {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.affiliate-card-note {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
 .link-card-body {
   display: flex;
   flex-direction: column;

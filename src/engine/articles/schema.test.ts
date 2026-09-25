@@ -26,6 +26,20 @@ describe("parseFrontmatter", () => {
     expect(parseFrontmatter(raw, "ctx").techStack[0].evidenceUrl).toBe("https://example.com/proof");
   });
 
+  it("affiliate 未指定なら undefined", () => {
+    expect(parseFrontmatter(makeRawFrontmatter(), "ctx").affiliate).toBeUndefined();
+  });
+
+  it("affiliate（提携リンク）を受理する", () => {
+    const raw = mutate((r) => {
+      r.affiliate = { url: "https://shopify.pxf.io/abc", program: "Shopify Affiliate Program（Impact）" };
+    });
+    expect(parseFrontmatter(raw, "ctx").affiliate).toEqual({
+      url: "https://shopify.pxf.io/abc",
+      program: "Shopify Affiliate Program（Impact）",
+    });
+  });
+
   it("revisions 未指定なら undefined", () => {
     expect(parseFrontmatter(makeRawFrontmatter(), "ctx").revisions).toBeUndefined();
   });
@@ -142,6 +156,21 @@ describe("parseFrontmatter", () => {
         ]
       ),
       /revisions\[0\]: scores\.product は 0〜5/,
+    ],
+    [
+      "affiliate がオブジェクトでない",
+      (r: Record<string, unknown>) => (r.affiliate = "https://shopify.pxf.io/abc"),
+      /affiliate はオブジェクト/,
+    ],
+    [
+      "affiliate.url が https でない",
+      (r: Record<string, unknown>) => (r.affiliate = { url: "http://shopify.pxf.io/abc", program: "p" }),
+      /affiliate: url は https:\/\//,
+    ],
+    [
+      "affiliate.program が欠落",
+      (r: Record<string, unknown>) => (r.affiliate = { url: "https://shopify.pxf.io/abc" }),
+      /affiliate: program は空でない文字列/,
     ],
     [
       "revisions[].note が欠落",

@@ -63,6 +63,30 @@ describe("localeParityIssues", () => {
     expect(localeParityIssues(differentUrl).join("\n")).toMatch(/sources\[0\]\.url/);
   });
 
+  it("affiliate.url が一致していれば問題なし", () => {
+    const affiliate = { url: "https://shopify.pxf.io/abc", program: "Shopify" };
+    expect(localeParityIssues(makeArticle("x", { affiliate }))).toEqual([]);
+  });
+
+  it("affiliate.url の不一致を検出する", () => {
+    const article = makeArticle(
+      "x",
+      { affiliate: { url: "https://shopify.pxf.io/abc", program: "Shopify" } },
+      { affiliate: { url: "https://shopify.pxf.io/xyz", program: "Shopify" } },
+    );
+    expect(localeParityIssues(article).join("\n")).toMatch(/affiliate\.url が ja\/en で一致しません/);
+  });
+
+  it("affiliate が片方だけにあれば不一致", () => {
+    const article = makeArticle("x", { affiliate: { url: "https://shopify.pxf.io/abc", program: "Shopify" } }, {});
+    expect(localeParityIssues(article).join("\n")).toMatch(/affiliate\.url が ja\/en で一致しません/);
+  });
+
+  it("affiliate が en 側だけにあっても不一致（ja=なし と表示する）", () => {
+    const article = makeArticle("x", {}, { affiliate: { url: "https://shopify.pxf.io/abc", program: "Shopify" } });
+    expect(localeParityIssues(article).join("\n")).toMatch(/affiliate\.url が ja\/en で一致しません（ja=なし/);
+  });
+
   it("revisions が両方未指定なら一致扱い", () => {
     expect(localeParityIssues(makeArticle("x"))).toEqual([]);
   });
