@@ -4,6 +4,7 @@ import { makeArticle, makeFrontmatter } from "@/engine/articles/__fixtures__/fac
 import { buildScoreTrend } from "@/engine/articles/revision-trend";
 import { renderMarkdown } from "@/engine/markdown/render";
 import { extractToc } from "@/engine/markdown/toc";
+import en from "@/i18n/dictionaries/en";
 import ja from "@/i18n/dictionaries/ja";
 import { techOverlap } from "@/engine/comparisons/diff";
 import { AffiliateCard } from "./affiliate-card";
@@ -115,7 +116,23 @@ describe("components smoke", () => {
     expect(anchor).toHaveAttribute("target", "_blank");
     expect(anchor).toHaveTextContent("Shopify を無料で試す");
     expect(screen.getByText("PR")).toBeInTheDocument();
-    expect(screen.getByText(/紹介料/)).toBeInTheDocument();
+    // Shopify のプログラム規約＝「Shopify Affiliate であること」と報酬の可能性を、共有のたびに開示する
+    const note = container.querySelector(".affiliate-card-note");
+    expect(note).toHaveTextContent("Shopify Affiliate Program に参加");
+    expect(note).toHaveTextContent("紹介料");
+  });
+
+  it("AffiliateCard の注記は英語辞書でもプログラム名を含む", () => {
+    const { container } = render(
+      <AffiliateCard
+        affiliate={{ url: "https://shopify.pxf.io/abc", program: "Shopify Affiliate Program" }}
+        service="Shopify"
+        dict={en}
+      />,
+    );
+    expect(container.querySelector(".affiliate-card-note")).toHaveTextContent(
+      "participate in the Shopify Affiliate Program",
+    );
   });
 
   it("LinkCard は OGP メタデータをリンクプレビューとして描画する", () => {

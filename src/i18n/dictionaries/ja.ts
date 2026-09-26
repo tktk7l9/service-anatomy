@@ -36,7 +36,7 @@ const ja = {
     affiliatePr: "PR",
     affiliateCta: "{service} を無料で試す",
     affiliateNote:
-      "PR：このリンク経由で申し込むと、運営者に紹介料が入ることがあります。紹介料の有無は解剖スコアや記事の内容に影響しません。",
+      "PR：運営者は {program} に参加しており、このリンク経由で申し込むと紹介料を受け取ることがあります。紹介料の有無は解剖スコアや記事の内容に影響しません。",
     vendor: "運営",
     origin: "発祥",
     tagsLabel: "タグ",

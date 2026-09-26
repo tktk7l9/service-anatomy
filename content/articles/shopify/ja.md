@@ -11,7 +11,7 @@ lastVerified: "2026-07-20"
 serviceUrl: "https://www.shopify.com/"
 affiliate:
   url: "https://shopify.pxf.io/YVmxNP"
-  program: "Shopify Affiliate Program (Impact)"
+  program: "Shopify Affiliate Program"
 vendor: "Shopify Inc."
 origin: "CA"
 heroTheme: "shopify"

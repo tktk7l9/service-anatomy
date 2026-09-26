@@ -34,7 +34,7 @@ const en: Dictionary = {
     affiliatePr: "PR",
     affiliateCta: "Try {service} for free",
     affiliateNote:
-      "PR: We may earn a commission if you sign up via this link. It never affects our scores or analysis.",
+      "PR: We participate in the {program} and may earn a commission if you sign up via this link. It never affects our scores or analysis.",
     vendor: "Operated by",
     origin: "Origin",
     tagsLabel: "Tags",
