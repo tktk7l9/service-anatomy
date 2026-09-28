@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          fetch-depth: 0 # gitleaks-action がコミット差分をスキャンするのに必要
+          fetch-depth: 0 # needed for gitleaks-action to scan the commit range
       - uses: actions/setup-node@v5
         with:
           node-version: 24
@@ -25,8 +25,8 @@ jobs:
       - name: npm audit
         run: npm audit --audit-level=low
       - run: npm run typecheck
-      # Next 16 の next build は lint を実行しない。このステップが無いと
-      # lint がどこでも走らない（acro-finder と同じ理由で追加）。
+      # Next 16's next build does not run lint. Without this step lint
+      # runs nowhere (added for the same reason as in acro-finder).
       - run: npm run lint
       - run: npm run coverage
       - run: npm run build

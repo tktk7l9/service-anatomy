@@ -1,7 +1,7 @@
 import type { Article } from "./load";
 
-// ja/en の frontmatter のうち言語中立であるべきフィールドの食い違いを検出する。
-// 翻訳漏れ・数値の不一致は content.test.ts がこの結果を CI で落とす。
+// Detects mismatches between ja/en frontmatter in fields that should be language-neutral.
+// content.test.ts fails CI on this result for missing translations and numeric mismatches.
 
 const NEUTRAL_KEYS = [
   "category",

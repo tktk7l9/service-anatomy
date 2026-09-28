@@ -1,8 +1,8 @@
 import { SCORE_AXES, type Scores } from "@/engine/articles/schema";
 import type { Dictionary } from "@/i18n/dictionaries";
 
-// 比較解剖の中核。2記事の scores を軸ごとに並べて表示する（記事の scorecard と
-// 同じ score-track/score-fill バーを2列分並べるだけで、既存 CSS をそのまま再利用する）。
+// Core of comparisons. Shows the scores of two articles side by side per axis (it just places two
+// columns of the same score-track/score-fill bars as the article scorecard, reusing the existing CSS).
 
 function overall(scores: Scores): number {
   return SCORE_AXES.reduce((sum, axis) => sum + scores[axis], 0) / SCORE_AXES.length;

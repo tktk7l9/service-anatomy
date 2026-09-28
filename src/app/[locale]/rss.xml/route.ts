@@ -4,12 +4,12 @@ import { BASE_URL } from "@/engine/site";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
-// ビルド時に ja/en 分を生成する（親 layout の generateStaticParams が locale を供給）。
-// 以前は force-dynamic だったが、Cloudflare Workers では実行時に content/ を読めない
-// ため動的では成立しない。記事はデプロイ単位でしか増えないので SSG で十分。
+// Generate the ja/en feeds at build time (the parent layout's generateStaticParams supplies locale).
+// It used to be force-dynamic, but on Cloudflare Workers content/ cannot be read at runtime,
+// so dynamic rendering cannot work. Articles only change per deploy, so SSG is enough.
 //
-// force-static は必須。Next 15 以降 GET の route handler は既定で動的なので、
-// force-dynamic を外すだけでは ƒ のままになる（ビルド表で実際に確認した）。
+// force-static is required. Since Next 15, GET route handlers are dynamic by default, so
+// just removing force-dynamic leaves it as ƒ (confirmed in the build table).
 export const dynamic = "force-static";
 
 export async function GET(

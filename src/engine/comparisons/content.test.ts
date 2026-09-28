@@ -5,7 +5,7 @@ import { locales } from "@/i18n/config";
 import { ALL_COMPARISONS } from "./index";
 import { localeParityIssues } from "./parity";
 
-// 実比較解剖（content/comparisons/**）の横断整合性検証。articles/content.test.ts と対をなす。
+// Cross-cutting consistency checks over real comparisons (content/comparisons/**). Counterpart of articles/content.test.ts.
 
 const cases = ALL_COMPARISONS.map((comparison) => [comparison.slug, comparison] as const);
 const todayIso = new Date().toISOString().slice(0, 10);

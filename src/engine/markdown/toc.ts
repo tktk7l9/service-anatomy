@@ -6,9 +6,9 @@ import remarkParse from "remark-parse";
 import { unified } from "unified";
 import { visit } from "unist-util-visit";
 
-// 記事本文から h2/h3 の目次を抽出する。id は rehype-slug（= github-slugger）と
-// 同一のアルゴリズムで計算する。カウンタの同期を保つため、目次に含めない深さの
-// 見出しも slugger には通す（rehype-slug は全見出しに id を振るため）。
+// Extracts an h2/h3 table of contents from the article body. ids are computed with the same
+// algorithm as rehype-slug (= github-slugger). To keep the counters in sync, headings at depths
+// not included in the TOC also go through the slugger (rehype-slug assigns an id to every heading).
 
 export interface TocEntry {
   id: string;

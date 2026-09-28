@@ -1,7 +1,7 @@
 import type { Article, ArticleFile } from "../load";
 import type { ArticleFrontmatter } from "../schema";
 
-// テスト用ファクトリ（coverage 対象外: vitest.config.ts の exclude 参照）。
+// Test factories (excluded from coverage: see the exclude in vitest.config.ts).
 
 export function makeRawFrontmatter(): Record<string, unknown> {
   return structuredClone({

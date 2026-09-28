@@ -1,7 +1,7 @@
 import type { Locale } from "@/i18n/config";
 
-// 本文の文字数/単語数からおおよその読了時間を見積もる。実測ではなく目安で
-// あることを踏まえ、表示は「約N分」に丸める（1分未満は1分とする）。
+// Estimates approximate reading time from the character/word count of the body. Since it is a rough
+// guide rather than a measurement, the display is rounded to "about N min" (under 1 minute counts as 1).
 
 const CHARS_PER_MINUTE_JA = 500;
 const WORDS_PER_MINUTE_EN = 220;

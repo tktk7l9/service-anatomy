@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-// ルート直下の 404（ロケール解決前でも出るため2言語併記）。
+// Root-level 404 (bilingual because it can render before the locale is resolved).
 export default function NotFound() {
   return (
     <div className="container not-found">

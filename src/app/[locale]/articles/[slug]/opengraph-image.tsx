@@ -4,9 +4,9 @@ import { SCORE_AXES } from "@/engine/articles/schema";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
-// content/ の Markdown はビルド時にだけ読む。ここを動的のままにすると、Cloudflare
-// Workers では実行時に process.cwd() 相対の readdirSync が走り、バンドルに含まれない
-// content/ を探しに行って記事が全滅する。dynamicParams=false で列挙外は 404。
+// content/ Markdown is read only at build time. If this stays dynamic, on Cloudflare
+// Workers a process.cwd()-relative readdirSync runs at request time, looks for content/,
+// which is not in the bundle, and every article breaks. dynamicParams=false makes unlisted paths 404.
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -23,10 +23,10 @@ const INK_SOFT = "#5c5546";
 const RULE = "#ddd4c3";
 const ACCENT = "#9c3b22";
 
-// 親が force-dynamic だった時代から、この OGP 画像は HTTP キャッシュを明示指定して
-// 効かせている（/api/anatomy.json と同じパターン）。nonce CSP を外した今も
-// 記事ページ自体は動的のままなので、この指定は引き続き効く。記事の解剖スコアが
-// 変わっても実害は小さいため、OGP 画像は積極的にキャッシュしてよい。
+// Since the days when the parent was force-dynamic, this OGP image has set HTTP caching explicitly
+// (same pattern as /api/anatomy.json). Even now that nonce CSP is gone, the article page
+// itself is still dynamic, so this setting still matters. Even if an article's anatomy scores
+// change the harm is small, so caching OGP images aggressively is fine.
 const IMAGE_CACHE_HEADERS = {
   "cache-control": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400",
 };

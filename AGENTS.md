@@ -3,100 +3,100 @@
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
-# service-anatomy 開発規約（AI/Claude向け）
+# service-anatomy development conventions (for AI/Claude)
 
-人気サービス（国内外・ジャンル横断）を解剖する分析ブログ。1記事=1サービスで
-①サービス解説 ②UX分析 ③技術構成 ④ビジネスモデル を扱う。ja/en完全バイリンガル・
-テック系エディトリアル（雑誌風）デザイン。
+An analysis blog that dissects popular services (Japanese and international, across genres). One article = one service, covering
+(1) service overview (2) UX analysis (3) tech stack (4) business model. Fully bilingual ja/en,
+tech editorial (magazine-style) design.
 
-## アーキテクチャの背骨
+## Architectural backbone
 
-- **CSP は next.config.ts の静的ヘッダー方式**（正本は `src/lib/csp.ts`）。
-  `script-src` は `'self' 'unsafe-inline'`。**`'strict-dynamic'` を足してはいけない** —
-  CSP Level 3 では strict-dynamic があると `'self'` も `'unsafe-inline'` も無視され、
-  nonce もハッシュも無い本構成では全スクリプトが停止する（`src/lib/csp.test.ts` が止める）。
-  2026-09-12 に per-request nonce 方式から移行した。理由は Next 16 の proxy が Node
-  ランタイム専用で、OpenNext (Cloudflare Workers) が Node middleware 非対応のため
-  Workers へ移行できなかったこと。代償としてインラインXSS防御と Observatory A+ を
-  失っている（意図した判断）。
-  記事末尾の公式リンクカード用の `img-src` は `content/og-image-hosts.json` を
-  `next.config.ts` が読み、`contentSecurityPolicy({ extraImgSrc })` に渡す。
-  ページは静的でよい。`headers()` を呼ぶと動的レンダリングが強制されるので、
-  キャッシュを効かせたいページでは呼ばないこと。
-  インライン `<script>` に nonce は不要（ld+json はデータブロックで script-src の対象外）。
-- **全ルートが SSG**（`generateStaticParams` + `dynamicParams = false`）。861ページを
-  ビルド時に生成する。`content/` の Markdown を読むのは**ビルド時だけ**にすること —
-  実行時に読むと Worker ランタイムでの `process.cwd()` 解決に依存する。
-  **route handler は `force-static` を明示する。** Next 15 以降 GET の route handler は
-  既定で動的なので、`force-dynamic` を外すだけでは `ƒ` のまま残る（`rss.xml` と
-  `api/anatomy.json` が該当）。ビルド表に `ƒ` が1つでも出たら直すこと。
-- **`open-next.config.ts` の `incrementalCache` を外してはいけない**
-  （`staticAssetsIncrementalCache`）。外すとプリレンダ成果物がどこからも読めず、
-  `dynamicParams = false` と重なって**記事・タグ・技術・カテゴリが全部 404 になる**。
-  しかも `/ja`・`/en`・`rss.xml`・`sitemap.xml` は素の静的ルートなので 200 を返し続け、
-  **サイトが生きているように見える**。デプロイ後の検証は必ず `sitemap.xml` から
-  実URLを拾って動的セグメントを叩くこと。トップの 200 は何の保証にもならない。
-- **i18n は `[locale]` セグメント + `Localized<T> = Record<"ja"|"en", T>`**。
-  middleware での locale 判定はしない。翻訳漏れは型エラーで検出される — `Partial` で逃げない。
-- **記事は `content/articles/<slug>/{ja.md, en.md}`**。slug はディレクトリ名が正（frontmatter に持たない）。
-  frontmatter の検証は `src/engine/articles/schema.ts`（手書きバリデータ）。日付は必ず引用符付き
-  文字列で書く（gray-matter の YAML Date 自動変換を schema.ts が不正として弾く）。
-- **本文 Markdown は `src/engine/markdown/render.ts`**（unified + remark-directive）でサーバー側 HTML 変換。
-  MDX 禁止。生 HTML は remark-rehype が既定で無視する（安全）— この性質を維持する。
-  `::scorecard` / `::techstack` は HTML コメントマーカー経由で React コンポーネントに差し替わる
-  （`split.ts` が純関数分割）。
-- 実行時 fs 読み込みのため next.config.ts の `outputFileTracingIncludes` で content/ を同梱。
-  デプロイ後は記事ページの実動作（500 にならないこと）を必ず確認する。
-- **全記事の構造化データを `/api/anatomy.json` で公開**（`src/engine/articles/export.ts`・CORS 全許可）。
-  frontmatter のスキーマを変えたら export も追随させること。
+- **CSP uses static headers in next.config.ts** (source of truth: `src/lib/csp.ts`).
+  `script-src` is `'self' 'unsafe-inline'`. **Never add `'strict-dynamic'`** —
+  in CSP Level 3, strict-dynamic makes both `'self'` and `'unsafe-inline'` be ignored, and
+  with no nonce and no hashes in this setup every script stops (`src/lib/csp.test.ts` blocks it).
+  Migrated from the per-request nonce approach on 2026-09-12. The reason: Next 16's proxy runs
+  only on the Node runtime and OpenNext (Cloudflare Workers) does not support Node middleware,
+  so the site could not move to Workers. The cost is losing inline XSS protection and Observatory A+
+  (an intentional decision).
+  For the `img-src` of the official link card at the end of articles, `next.config.ts` reads
+  `content/og-image-hosts.json` and passes it to `contentSecurityPolicy({ extraImgSrc })`.
+  Pages can be static. Calling `headers()` forces dynamic rendering, so do not call it
+  on pages that should be cached.
+  Inline `<script>` needs no nonce (ld+json is a data block and outside script-src).
+- **Every route is SSG** (`generateStaticParams` + `dynamicParams = false`). 861 pages are
+  generated at build time. Read the Markdown in `content/` **only at build time** —
+  reading it at runtime depends on how `process.cwd()` resolves in the Worker runtime.
+  **Route handlers must set `force-static` explicitly.** Since Next 15, GET route handlers are
+  dynamic by default, so just removing `force-dynamic` leaves them as `ƒ` (this applies to `rss.xml` and
+  `api/anatomy.json`). If even one `ƒ` shows up in the build table, fix it.
+- **Never remove `incrementalCache` from `open-next.config.ts`**
+  (`staticAssetsIncrementalCache`). Without it the prerendered output cannot be read from anywhere, and
+  combined with `dynamicParams = false` **every article, tag, tech and category page returns 404**.
+  Worse, `/ja`, `/en`, `rss.xml` and `sitemap.xml` are plain static routes and keep returning 200,
+  so **the site looks alive**. After deploying, always verify by picking real URLs from `sitemap.xml`
+  and hitting the dynamic segments. A 200 from the top page guarantees nothing.
+- **i18n uses a `[locale]` segment + `Localized<T> = Record<"ja"|"en", T>`**.
+  No locale detection in middleware. Missing translations are caught as type errors — do not escape with `Partial`.
+- **Articles live in `content/articles/<slug>/{ja.md, en.md}`**. The directory name is the authoritative slug (not in frontmatter).
+  Frontmatter is validated by `src/engine/articles/schema.ts` (a hand-written validator). Always write dates as quoted
+  strings (schema.ts rejects gray-matter's automatic YAML Date conversion as invalid).
+- **Body Markdown is converted to HTML server-side by `src/engine/markdown/render.ts`** (unified + remark-directive).
+  MDX is forbidden. remark-rehype ignores raw HTML by default (safe) — keep this property.
+  `::scorecard` / `::techstack` are swapped for React components via HTML comment markers
+  (`split.ts` splits them as a pure function).
+- Because content is read with fs at runtime, next.config.ts's `outputFileTracingIncludes` bundles content/.
+  After deploying, always check that article pages actually work (no 500s).
+- **Structured data for all articles is published at `/api/anatomy.json`** (`src/engine/articles/export.ts`, CORS fully open).
+  If you change the frontmatter schema, update export too.
 
-## テスト方針
+## Testing policy
 
-- `src/engine/**` と `src/i18n/**` は **カバレッジ 100%**（vitest.config.ts の thresholds がゲート。CI で強制）。
-- コンテンツ整合性は `content.test.ts` が横断検証（ja/en 両ファイル存在・言語中立フィールドの等価・
-  sources≥1・scores 範囲・confirmed には evidenceUrl 必須・h2 4本以上・`::techstack` 存在）。
-  記事追加時はテストが自動で対象に含める設計を保つこと。
-- React コンポーネントは presentation 層としてカバレッジ対象外（smoke テストは書く）。
+- `src/engine/**` and `src/i18n/**` are at **100% coverage** (the thresholds in vitest.config.ts are the gate, enforced in CI).
+- Content consistency is checked across the board by `content.test.ts` (both ja/en files exist, language-neutral fields are equal,
+  sources≥1, scores in range, confirmed requires evidenceUrl, at least 4 h2s, `::techstack` present).
+  Keep the design where tests automatically include newly added articles.
+- React components are the presentation layer and outside coverage (write smoke tests).
 
-## 記事執筆規約（法務・品質の掟）
+## Article writing rules (legal and quality ground rules)
 
-- **観測できた事実は `:::fact`** で出典（sources / evidenceUrl）必須。**推測は `:::guess`** で明示し、
-  断定語を使わない（「〜とみられる」「〜と推測される」）。
-- 技術構成（techStack）の confidence は confirmed（一次情報あり）/ likely（強い状況証拠）/
-  speculative（推測）の3段階。confirmed は evidenceUrl 必須（テストで強制）。
-- 企業・個人への否定的断定を避ける（名誉毀損リスク）。批評は事実ベース+代替解釈の提示で。
-- スクリーンショット・ロゴ画像は使わない（著作権・商標）。ビジュアルは自作 SVG 生成アートのみ。
-  **唯一の例外 = 記事末尾の公式リンクカード**: serviceUrl の OGP を「公式サイトへのリンクプレビュー」
-  として表示する（SNS のリンクカードと同じ慣行の範囲）。画像は自サーバーへ複製せず各社サーバーから
-  直接表示し、`img-src` は `content/og-image-hosts.json` のオリジンだけ許可する。
-  取得は `npm run og-cards`（scripts/fetch-og-cards.mjs）→ 生成物をコミット。記事追加時に再実行する。
-  サムネイル・ヒーロー等、リンクプレビュー以外の用途に OGP 画像を使わないこと。
-- 記述の鮮度: `lastVerified`（ISO日付）必須。執筆時に Web 検索・実観測（curl -sI 等）で必ず検証する
-  （LLM の学習知識を信用しない）。`npm run freshness` が lastVerified の 90 日超過を一覧する —
-  週次の棚卸しで実行し、超過記事は再検証して lastVerified を更新するか、定点観測（再解剖）の候補にする。
-- リンク切れ: `npm run check-links` が serviceUrl / sources[].url / techStack[].evidenceUrl / OGP画像URL
-  （content/og-cards.json）へ実際にリクエストして生死を確認する。週次の棚卸しで実行し、切れているものは
-  URL差し替え・削除、OGP画像なら `npm run og-cards` の再実行で直す。403/999 等は bot 対策による
-  誤検知の可能性があるため、ブラウザで目視確認してから判断する。
-- ja を先に書き、en は同一コミット内で同期する（片言語だけの変更を残さない）。
+- **Observed facts go in `:::fact`** with a required source (sources / evidenceUrl). **Guesses are marked explicitly with `:::guess`**
+  and must not use assertive wording (use phrasing like 「〜とみられる」「〜と推測される」 — "appears to", "is presumed to").
+- The confidence of tech stack entries (techStack) has three levels: confirmed (primary source exists) / likely (strong circumstantial evidence) /
+  speculative (guess). confirmed requires evidenceUrl (enforced by tests).
+- Avoid negative assertions about companies or individuals (defamation risk). Base critique on facts and offer alternative interpretations.
+- Do not use screenshots or logo images (copyright, trademark). Visuals are self-made generative SVG art only.
+  **The only exception = the official link card at the end of articles**: show the serviceUrl's OGP as a "link preview to the official site"
+  (within the same practice as link cards on social media). Images are not copied to our server but shown directly from each company's
+  server, and `img-src` allows only the origins in `content/og-image-hosts.json`.
+  Fetch with `npm run og-cards` (scripts/fetch-og-cards.mjs) → commit the output. Re-run it when adding articles.
+  Do not use OGP images for anything other than link previews, such as thumbnails or heroes.
+- Freshness: `lastVerified` (ISO date) is required. Always verify with web search and real observation (curl -sI etc.) when writing
+  (do not trust the LLM's training knowledge). `npm run freshness` lists articles whose lastVerified is over 90 days old —
+  run it in the weekly review, and re-verify overdue articles and update lastVerified, or make them candidates for periodic re-anatomy (定点観測).
+- Broken links: `npm run check-links` sends real requests to serviceUrl / sources[].url / techStack[].evidenceUrl / OGP image URLs
+  (content/og-cards.json) to check whether they are alive. Run it in the weekly review; fix broken ones by
+  replacing or removing the URL, or for OGP images by re-running `npm run og-cards`. 403/999 etc. may be false positives
+  caused by bot protection, so check in a browser before deciding.
+- Write ja first and sync en in the same commit (never leave a change in only one language).
 
-## 開発コマンド
+## Development commands
 
 - `npm run dev` / `npm run build` / `npm start`
-- `npm run typecheck` / `npm test` / `npm run coverage`（100%ゲート）
-- `npm run og-cards`（リンクカード再取得）/ `npm run freshness`（lastVerified 鮮度一覧）/ `npm run check-links`（外部リンク生死チェック）
+- `npm run typecheck` / `npm test` / `npm run coverage` (100% gate)
+- `npm run og-cards` (refetch link cards) / `npm run freshness` (lastVerified freshness list) / `npm run check-links` (external link liveness check)
 
-## コミット粒度
+## Commit granularity
 
-- 1コミット = 1つの完結した変更（記事1本、コンポーネント1つ等）。テスト green の状態でコミット。
+- 1 commit = 1 self-contained change (one article, one component, etc.). Commit with tests green.
 
-## 公開前
+## Before publishing
 
-- private 開始。公開は publish-check 経由のみ（gitleaks 0 / npm audit 全0 / PII なし）。
-  Observatory は **A+ から B（75・10/12）へ低下**した（2026-09-14 に Workers の本番URLで実測）。
-  落ちている2項目はどちらも受け入れた代償なので、このスコアは公開のブロッカーにしない —
-  `content-security-policy` −20 は CSP 移行の `'unsafe-inline'`、`subresource-integrity` −5 は
-  Cloudflare Web Analytics のビーコン。**ビーコンに SRI を足してはいけない**:
-  `beacon.min.js` はバージョンの付かない URL を Cloudflare が差し替える運用なので、
-  `integrity` を固定すると次の更新でビーコンだけ黙って止まる。
-- フッターと about に「非公式・公開情報ベースの分析」ディスクレーマーを常設（外さない）。
+- Starts private. Publish only via publish-check (gitleaks 0 / npm audit all 0 / no PII).
+  Observatory **dropped from A+ to B (75, 10/12)** (measured on the Workers production URL on 2026-09-14).
+  Both failing items are accepted trade-offs, so this score does not block publishing —
+  `content-security-policy` −20 is the `'unsafe-inline'` from the CSP migration, and `subresource-integrity` −5 is
+  the Cloudflare Web Analytics beacon. **Never add SRI to the beacon**:
+  Cloudflare swaps the content behind the unversioned `beacon.min.js` URL, so
+  pinning `integrity` silently stops just the beacon on the next update.
+- Keep the "unofficial, analysis based on public information" disclaimer in the footer and on about at all times (**never remove it**).

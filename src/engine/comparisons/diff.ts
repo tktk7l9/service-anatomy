@@ -1,9 +1,9 @@
 import { techRefs, type TechRef } from "@/engine/articles/tech";
 import type { TechStackEntry } from "@/engine/articles/schema";
 
-// 比較解剖の核 —— 2記事の techStack frontmatter から技術の重なりと違いを機械的に導く。
-// 記事側に構造化データがすでにあるため、比較記事は追加の手入力なしで「安く作れる」
-// （IDEAS.md の比較解剖フォーマット参照）。
+// Core of comparisons —— mechanically derives the overlap and differences in tech from two articles' techStack frontmatter.
+// Articles already carry structured data, so comparisons are "cheap to make" with no extra manual input
+// (see the comparison format in IDEAS.md).
 
 export interface TechDiff {
   shared: TechRef[];
@@ -27,7 +27,7 @@ function sortedRefs(refs: TechRef[]): TechRef[] {
   return [...refs].sort((a, b) => a.slug.localeCompare(b.slug));
 }
 
-/** 2記事の techStack を比較し、共有技術・A限定・B限定に分ける（slug 昇順）。 */
+/** Compares the techStack of two articles and splits it into shared / A only / B only (slug ascending). */
 export function techOverlap(techStackA: TechStackEntry[], techStackB: TechStackEntry[]): TechDiff {
   const refsA = collectRefs(techStackA);
   const refsB = collectRefs(techStackB);

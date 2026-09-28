@@ -59,11 +59,11 @@ describe("articles/relatedArticles", () => {
     });
     const pool = [
       base,
-      // 技術共有のみ (+1)
+      // shared tech only (+1)
       makeArticle("tech-only", { category: "saas", tags: ["ai"], techStack: techStack("React") }),
-      // カテゴリ一致のみ (+2)
+      // same category only (+2)
       makeArticle("same-category", { category: "game", tags: ["ai"], techStack: techStack("Vue") }),
-      // タグ共有のみ (+3)
+      // shared tag only (+3)
       makeArticle("shared-tag", { category: "saas", tags: ["steam"], techStack: techStack("Vue") }),
     ];
     expect(relatedArticles(pool, base).map((a) => a.slug)).toEqual([

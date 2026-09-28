@@ -1,8 +1,8 @@
 import { SCORE_AXES, type Scores } from "@/engine/articles/schema";
 import type { Dictionary } from "@/i18n/dictionaries";
 
-// frontmatter の scores を描画する（記事本文の ::scorecard 位置に差し込まれる）。
-// バー幅は 0.5 刻み 11 値の data-score 属性 + CSS で表現（インライン style 不使用）。
+// Renders the frontmatter scores (inserted at the ::scorecard position in the article body).
+// Bar width is expressed with a data-score attribute of 11 values in 0.5 steps + CSS (no inline style).
 
 export function Scorecard({ scores, dict }: { scores: Scores; dict: Dictionary }) {
   const overall = SCORE_AXES.reduce((sum, axis) => sum + scores[axis], 0) / SCORE_AXES.length;

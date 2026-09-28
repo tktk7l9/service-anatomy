@@ -1,35 +1,35 @@
 /* ============================================================
    Service Anatomy — editorial design system
-   雑誌風（テック系エディトリアル）: 大きめディスプレイサンズ見出し・
-   余白広め・hairline rule・small caps キッカー。light/dark 両対応・WCAG AA。
+   Magazine style (tech editorial): large display-sans headings,
+   generous whitespace, hairline rules, small-caps kickers. Light/dark, WCAG AA.
    ============================================================ */
 
 /* ---------- tokens ---------- */
 
 :root {
-  /* paper & ink（暖色系の紙 + 墨） */
+  /* paper & ink (warm paper + sumi ink) */
   --paper: #f7f3ec;
   --paper-raised: #fffdf8;
   --ink: #211d16;
   --ink-soft: #5c5546; /* on paper: 6.8:1 */
-  --ink-faint: #756c5b; /* on paper: 4.6:1（小サイズ注意） */
+  --ink-faint: #756c5b; /* on paper: 4.6:1 (careful at small sizes) */
   --rule: #ddd4c3;
   --rule-strong: #211d16;
 
-  /* accent（煉瓦色） */
+  /* accent (brick red) */
   --accent: #9c3b22; /* on paper: 6.2:1 */
   --accent-soft: rgba(156, 59, 34, 0.08);
 
-  /* callout: 事実 / 推測 */
+  /* callout: fact / guess */
   --fact: #2c624a; /* on paper: 6.0:1 */
   --fact-soft: rgba(44, 98, 74, 0.08);
   --guess: #8a5a10; /* on paper: 5.0:1 */
   --guess-soft: rgba(138, 90, 16, 0.09);
 
   /* type */
-  /* 見出し=Inter Tight(欧文のみWebフォント)+システム角ゴ太字。
-     日本語のWebフォント化はCSS約190KBのブロッキングになるため不採用（実測済み）。
-     明朝系見出しは可読性（特にダークモードの細線）の指摘で廃止した。 */
+  /* Headings = Inter Tight (web font for Latin only) + bold system kaku-gothic.
+     Japanese web fonts were rejected: ~190KB of render-blocking CSS (measured).
+     Mincho headings were dropped after readability feedback (thin strokes, especially in dark mode). */
   --display: var(--font-display), -apple-system, BlinkMacSystemFont,
     "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", sans-serif;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans",
@@ -148,7 +148,7 @@ svg {
   padding-inline: clamp(1.1rem, 4vw, 2rem);
 }
 
-/* small caps のキッカー（カテゴリ・日付などのメタ行） */
+/* Small-caps kicker (meta line such as category and date) */
 .kicker {
   display: flex;
   align-items: baseline;
@@ -224,11 +224,11 @@ svg {
   color: var(--accent);
 }
 
-/* .locale-switch は他のナビ項目と同じ見た目に揃える（.site-nav a / .mobile-nav-panel a の
-   スタイルをそのまま継承・独自の枠線/pill装飾は持たない） */
+/* .locale-switch looks the same as the other nav items (inherits the .site-nav a / .mobile-nav-panel a
+   styles as is; no border/pill decoration of its own) */
 
-/* ---------- ハンバーガーメニュー（狭幅） ---------- */
-/* 40rem 未満は .site-nav を隠して .mobile-nav（ボタン+ドロップダウン）を表示 */
+/* ---------- hamburger menu (narrow widths) ---------- */
+/* Below 40rem, hide .site-nav and show .mobile-nav (button + dropdown) */
 
 .mobile-nav {
   display: block;
@@ -396,7 +396,7 @@ svg {
   padding-block: 3rem;
 }
 
-/* 特集（最新1本） */
+/* Featured (latest one) */
 .card {
   display: block;
   text-decoration: none;
@@ -455,7 +455,7 @@ svg {
   color: var(--ink-faint);
 }
 
-/* 一覧グリッド */
+/* Listing grid */
 .article-grid {
   display: grid;
   gap: 2.4rem 2rem;
@@ -482,7 +482,7 @@ svg {
   overflow: hidden;
 }
 
-/* 一覧ページ（カテゴリ/タグ）の見出し */
+/* Heading of listing pages (category/tag) */
 .listing-header {
   padding-block: clamp(2rem, 5vw, 3.2rem) 0.4rem;
 }
@@ -554,7 +554,7 @@ svg {
   background: var(--paper-raised);
 }
 
-/* 本文 + 目次のレイアウト */
+/* Body + table-of-contents layout */
 .article-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -570,7 +570,7 @@ svg {
   }
 }
 
-/* 目次 */
+/* Table of contents */
 .toc {
   font-size: 0.85rem;
 }
@@ -639,7 +639,7 @@ svg {
   color: var(--ink-faint);
 }
 
-/* ---------- prose（記事本文） ---------- */
+/* ---------- prose (article body) ---------- */
 
 .article-body {
   counter-reset: section;
@@ -780,13 +780,13 @@ svg {
   font-weight: 700;
 }
 
-/* 英語本文は行間をやや詰める */
+/* Slightly tighter line height for English body text */
 [lang="en"] .prose,
 [lang="en"] body {
   line-height: 1.75;
 }
 
-/* ---------- pull quote（広幅ブレイクアウト） ---------- */
+/* ---------- pull quote (wide breakout) ---------- */
 
 .pull-quote {
   margin: 3rem 0;
@@ -812,7 +812,7 @@ svg {
   }
 }
 
-/* ---------- callout（事実 / 推測） ---------- */
+/* ---------- callout (fact / guess) ---------- */
 
 .callout {
   margin: 2rem 0;
@@ -856,7 +856,7 @@ svg {
   color: var(--guess);
 }
 
-/* ---------- anatomy blocks（scorecard / techstack） ---------- */
+/* ---------- anatomy blocks (scorecard / techstack) ---------- */
 
 .anatomy-block {
   margin: 2.8rem 0;
@@ -1043,12 +1043,12 @@ svg {
   color: var(--ink-faint);
 }
 
-/* テーブルの横スクロール保険 */
+/* Horizontal-scroll fallback for tables */
 .table-scroll {
   overflow-x: auto;
 }
 
-/* 定点観測（再解剖）のスコア推移 */
+/* Score trend of periodic re-anatomy */
 .trend-list {
   display: grid;
   gap: 1.4rem;
@@ -1136,7 +1136,7 @@ svg {
   color: var(--ink-soft);
 }
 
-/* ---------- 比較解剖（対決フォーマット） ---------- */
+/* ---------- comparison (head-to-head format) ---------- */
 
 .compare-header,
 .compare-score-row {
@@ -1242,7 +1242,7 @@ svg {
   font-size: 0.88rem;
 }
 
-/* ---------- link card（公式サイトへのリンクプレビュー） ---------- */
+/* ---------- link card (link preview to the official site) ---------- */
 
 .link-card {
   margin: 2.8rem 0 0;
@@ -1267,7 +1267,7 @@ svg {
   color: inherit;
 }
 
-/* 提携リンク枠（PR）。LinkCard の直下。広告であることが一目で分かる余白と表記を優先する */
+/* Affiliate link box (PR). Directly below LinkCard. Prioritizes spacing and labeling that make it obviously an ad */
 .affiliate-card {
   margin: 1rem 0 0;
   padding: 1rem 1.3rem 1.1rem;
@@ -1431,7 +1431,7 @@ svg {
   color: var(--accent);
 }
 
-/* 技術データベース索引 */
+/* Tech database index */
 .tech-index {
   margin-top: 2rem;
   padding-bottom: 2rem;

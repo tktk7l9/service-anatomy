@@ -3,8 +3,8 @@ import type { TechDiff } from "@/engine/comparisons/diff";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
-// techOverlap()（構造化データの機械比較）の結果を「共有 / A限定 / B限定」の
-// 3リストとして描画する。技術名は /tech/<slug> の横断ページへリンクする。
+// Renders the result of techOverlap() (machine comparison of structured data) as three lists:
+// "shared / A only / B only". Tech names link to the cross-cutting /tech/<slug> pages.
 
 function TechList({ label, items, locale }: { label: string; items: TechDiff["shared"]; locale: Locale }) {
   return (

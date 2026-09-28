@@ -13,8 +13,8 @@ import {
 } from "./index";
 import { CATEGORY_IDS } from "./taxonomy";
 
-// ALL_ARTICLES は実 content/articles を読む。記事0本の段階でも成立する
-// 汎用的な性質だけを検証する（記事固有の検証は content.test.ts）。
+// ALL_ARTICLES reads the real content/articles. Only generic properties that hold
+// even with zero articles are checked here (article-specific checks live in content.test.ts).
 
 describe("articles/index", () => {
   it("ALL_ARTICLES は公開日の新しい順", () => {

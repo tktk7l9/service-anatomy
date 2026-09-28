@@ -9,17 +9,17 @@ import { unified } from "unified";
 import { visit } from "unist-util-visit";
 import { ARTICLE_COMPONENTS, type ArticleComponent } from "./split";
 
-// 記事本文（リポジトリ内で著述された信頼済み Markdown）を HTML へ変換する。
-// remark-rehype は生 HTML を既定で無視するため、出力は Markdown 由来の要素のみ
-// （この性質は維持すること — allowDangerousHtml を有効にしない）。
-// サーバーコンポーネントで実行され、クライアントには静的 HTML だけが届く。
+// Converts the article body (trusted Markdown authored in this repository) to HTML.
+// remark-rehype ignores raw HTML by default, so the output contains only Markdown-derived elements
+// (keep this property — do not enable allowDangerousHtml).
+// Runs in a server component; only static HTML reaches the client.
 //
-// 独自ディレクティブ:
-//   :::pull            プルクオート（雑誌の抜き出し引用）
-//   :::fact / :::guess 観測事実 / 推測の明示カラウト（ラベルはロケール別に注入）
-//   ::scorecard        frontmatter の scores を描画する React コンポーネントの差し込み位置
-//   ::techstack        frontmatter の techStack を描画する React コンポーネントの差し込み位置
-// 未知のディレクティブは子ノードに展開される（黙って落とさない・素通しもしない）。
+// Custom directives:
+//   :::pull            pull quote (magazine-style excerpt)
+//   :::fact / :::guess explicit callout for observed fact / guess (labels injected per locale)
+//   ::scorecard        insertion point for the React component rendering frontmatter scores
+//   ::techstack        insertion point for the React component rendering frontmatter techStack
+// Unknown directives are unwrapped into their children (neither silently dropped nor passed through).
 
 export interface CalloutLabels {
   fact: string;
@@ -75,8 +75,8 @@ function remarkArticleDirectives(labels: CalloutLabels) {
         return;
       }
 
-      // 未知のディレクティブ: 子ノードへ展開する。
-      /* v8 ignore next -- visit がディレクティブへ到達する経路では parent/index は常に存在する */
+      // Unknown directive: unwrap into its children.
+      /* v8 ignore next -- on the paths where visit reaches a directive, parent/index always exist */
       if (!parent || index === undefined) return;
       parent.children.splice(index, 1, ...(node.children as never[]));
       return index;

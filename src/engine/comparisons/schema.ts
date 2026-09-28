@@ -8,10 +8,10 @@ import {
   type SourceRef,
 } from "@/engine/content/validators";
 
-// 比較解剖（対決記事）の frontmatter バリデータ。articles/schema.ts と同じ
-// 手書きスタイルで、共通プリミティブは engine/content/validators.ts を再利用する。
-// slugA/slugB が実在の記事を指しているかは engine 層では検証しない（記事コレクションへの
-// 依存を避けるため）— content.test.ts が ALL_ARTICLES と突き合わせて横断検証する。
+// Frontmatter validator for comparisons (head-to-head articles). Same hand-written style as
+// articles/schema.ts, reusing the shared primitives in engine/content/validators.ts.
+// Whether slugA/slugB point to real articles is not checked in the engine layer (to avoid depending on
+// the article collection) — content.test.ts cross-checks them against ALL_ARTICLES.
 
 export interface ComparisonFrontmatter {
   title: string;

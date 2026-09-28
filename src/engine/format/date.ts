@@ -1,7 +1,7 @@
 import type { Locale } from "@/i18n/config";
 
-// "YYYY-MM-DD" のロケール別表示。タイムゾーンの影響を受けないよう
-// Date を経由せず文字列から直接組み立てる。
+// Locale-specific display of "YYYY-MM-DD". Built directly from the string without going through
+// Date, so time zones cannot affect it.
 
 const MONTHS_EN = [
   "January",

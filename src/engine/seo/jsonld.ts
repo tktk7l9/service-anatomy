@@ -1,6 +1,6 @@
-// schema.org 構造化データの純関数ビルダー。描画は components/json-ld.tsx が行う
-// （ld+json はデータブロックで実行されないため CSP script-src の対象外で、nonce は不要）。
-// ビルダーを純関数に保つことでテスト可能にする。
+// Pure-function builders for schema.org structured data. Rendering is done by components/json-ld.tsx
+// (ld+json is a data block and is not executed, so it is outside CSP script-src and needs no nonce).
+// Keeping the builders pure makes them testable.
 
 export interface BreadcrumbItem {
   name: string;

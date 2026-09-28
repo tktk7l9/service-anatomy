@@ -7,8 +7,8 @@ import { ALL_ARTICLES } from "./index";
 import { loadOgCards } from "./og-cards";
 import { localeParityIssues } from "./parity";
 
-// 実記事（content/articles/**）の横断整合性検証。
-// 記事を追加すると自動的にここの検証対象に含まれる。
+// Cross-cutting consistency checks over real articles (content/articles/**).
+// Adding an article automatically includes it in these checks.
 
 const cases = ALL_ARTICLES.map((article) => [article.slug, article] as const);
 const todayIso = new Date().toISOString().slice(0, 10);
@@ -52,8 +52,8 @@ describe("記事コンテンツの横断整合性", () => {
     });
 
     it.each(locales)("%s: 強調(**)がCJK括弧の隣接で失敗していない", (locale) => {
-      // CommonMark は「」等の約物に隣接した ** を強調として解釈しないことがある。
-      // 失敗すると生の ** がHTMLに残るため、ここで検出する。
+      // CommonMark sometimes does not treat ** adjacent to punctuation such as 「」 as emphasis.
+      // When that happens raw ** remains in the HTML, so detect it here.
       const html = renderMarkdown(article[locale].body);
       expect(html).not.toContain("**");
     });
@@ -78,7 +78,7 @@ describe("記事コンテンツの横断整合性", () => {
     });
 
     it("リンクカード画像のオリジンが og-image-hosts.json（CSP img-src）に含まれる", () => {
-      // 含まれない画像は CSP に黙ってブロックされるため、ここで検出する。
+      // Images not included are silently blocked by the CSP, so detect it here.
       const image = ogCards[article.slug]?.image;
       if (image) {
         expect(ogImageHosts).toContain(new URL(image).origin);

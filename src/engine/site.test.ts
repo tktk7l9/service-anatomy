@@ -7,20 +7,20 @@ describe("BASE_URL", () => {
   });
 
   it("workers.dev を含まない", () => {
-    // 旧URLは next.config.ts の redirects で独自ドメインへ転送している。
-    // canonical が旧URLに戻ると、転送先と正規URLが食い違って検索エンジンが迷う。
+    // The old URL is redirected to the custom domain by the redirects in next.config.ts.
+    // If canonical reverts to the old URL, the redirect target and canonical URL disagree and search engines get confused.
     expect(BASE_URL).not.toContain("workers.dev");
   });
 
   it("vercel.app を含まない", () => {
-    // Vercel の Hobby アカウントは 2026-08-11 から停止していて配信されない。
-    // ここが vercel.app に戻ると canonical・sitemap・RSS・OGP が死んだURLを指す。
+    // The Vercel Hobby account has been suspended since 2026-08-11 and serves nothing.
+    // If this reverts to vercel.app, canonical, sitemap, RSS and OGP all point to a dead URL.
     expect(BASE_URL).not.toContain("vercel.app");
   });
 
   it("末尾スラッシュを持たない", () => {
-    // 各所で `${BASE_URL}/${locale}/...` のように連結するので、
-    // 末尾スラッシュがあると // になる。
+    // It is concatenated everywhere as `${BASE_URL}/${locale}/...`, so
+    // a trailing slash would produce //.
     expect(BASE_URL.endsWith("/")).toBe(false);
   });
 

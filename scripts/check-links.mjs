@@ -1,14 +1,14 @@
 #!/usr/bin/env node
-// 外部リンク切れチェック。記事・比較解剖の frontmatter が参照する URL
-// （serviceUrl / sources[].url / techStack[].evidenceUrl）と、
-// content/og-cards.json の OGP画像URL（記事末尾の公式リンクカードに直接表示される）
-// へ実際にリクエストを送り、生きているか確認する。
-// 週次の棚卸しで `npm run check-links` を実行し、切れているものは記事側の
-// URL差し替え・削除、または npm run og-cards の再実行で直す。
-// 使い方: npm run check-links [-- --ci]（--ci は切れているリンクがあれば exit 1）
+// External broken-link check. Sends real requests to the URLs referenced by the frontmatter
+// of articles and comparisons (serviceUrl / sources[].url / techStack[].evidenceUrl) and to
+// the OGP image URLs in content/og-cards.json (shown directly in the official link card at the
+// end of articles), and checks whether they are alive.
+// Run `npm run check-links` in the weekly review; fix broken ones by replacing or removing the
+// URL in the article, or by re-running npm run og-cards.
+// Usage: npm run check-links [-- --ci] (--ci exits 1 if any link is broken)
 //
-// 注意: 403/999 等は bot 対策でスクリプトからのアクセスだけ弾かれている誤検知の
-// 場合がある。ブラウザで目視確認してから判断すること。
+// Note: 403/999 etc. may be false positives where bot protection blocks only script access.
+// Check in a browser before deciding.
 import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
@@ -56,8 +56,8 @@ const ogCardRefs = Object.entries(ogCards)
 
 const allRefs = [...articleRefs, ...comparisonRefs, ...ogCardRefs];
 
-// 同一URLが複数箇所（serviceUrl と og-cards.json など）から参照されることがあるため、
-// URL単位でまとめてチェックし、結果を全参照元に配る。
+// The same URL can be referenced from several places (serviceUrl and og-cards.json, etc.),
+// so check once per URL and hand the result to every referrer.
 const byUrl = new Map();
 for (const r of allRefs) {
   if (!byUrl.has(r.url)) byUrl.set(r.url, []);

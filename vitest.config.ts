@@ -17,9 +17,9 @@ export default defineConfig({
       include: ["src/engine/**/*.ts", "src/i18n/**/*.ts", "src/lib/**/*.ts"],
       exclude: ["src/**/*.test.{ts,tsx}", "src/engine/**/__fixtures__/**"],
       reporter: ["text", "json-summary", "html"],
-      // 純ロジック層（engine: markdown / articles / seo / feed / format、
-      // i18n: config / dictionaries）は 100% を維持する。
-      // React コンポーネント層はテスト対象だが presentation として閾値ゲート対象外。
+      // The pure-logic layer (engine: markdown / articles / seo / feed / format,
+      // i18n: config / dictionaries) stays at 100%.
+      // The React component layer is tested but, as presentation, is outside the threshold gate.
       thresholds: {
         "src/engine/**/*.ts": {
           statements: 100,

@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { ALL_ARTICLES } from "@/engine/articles";
 import { ALL_COMPARISONS, comparisonBySlug, resolveComparison } from "./index";
 
-// ALL_COMPARISONS は実 content/comparisons を読む。
+// ALL_COMPARISONS reads the real content/comparisons.
 
 describe("comparisons/index", () => {
   it("comparisonBySlug は存在しない slug に undefined", () => {

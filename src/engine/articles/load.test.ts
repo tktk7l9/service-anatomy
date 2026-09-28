@@ -36,9 +36,9 @@ describe("loadArticles", () => {
   });
 
   it("既定の rootDir（content/articles）から実記事を読み切る", () => {
-    // Array.isArray では既定パスが壊れて [] を返しても通ってしまう。ALL_ARTICLES を
-    // 回すテスト群は空配列だと黙って全部通るので、「コンテンツが静かに消えた」を
-    // 捕まえるのはここだけ。実測 46 本（2026-09-12）。
+    // With Array.isArray this would pass even if the default path broke and returned []. The tests
+    // iterating ALL_ARTICLES all pass silently on an empty array, so this is the only place that
+    // catches "content silently disappeared". Measured: 46 articles (2026-09-12).
     expect(loadArticles().length).toBeGreaterThanOrEqual(40);
   });
 });

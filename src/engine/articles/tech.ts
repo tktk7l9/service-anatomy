@@ -1,10 +1,10 @@
 import type { Article } from "./load";
 
-// techStack frontmatter の name から「技術スタック横断ページ」(/tech/<slug>) を
-// 自動生成するための純関数群。name は "Next.js (App Router)" や
-// "Terraform / Argo CD / GitHub Actions" のような複合表記を許すため、
-// ①括弧注釈の除去 → ②" / " と " + " での分割 → ③"etc." の除去 で
-// 個別技術トークンに分解する。日本語等スラッグ化できないトークンは対象外。
+// Pure functions that auto-generate the "tech stack cross-cutting pages" (/tech/<slug>) from
+// the name in techStack frontmatter. Because name allows compound forms such as "Next.js (App Router)"
+// or "Terraform / Argo CD / GitHub Actions", it is split into individual tech tokens by
+// (1) removing parenthetical notes → (2) splitting on " / " and " + " → (3) removing "etc.".
+// Tokens that cannot be slugified, such as Japanese ones, are skipped.
 
 export interface TechRef {
   slug: string;
@@ -17,7 +17,7 @@ export interface TechIndexEntry {
   count: number;
 }
 
-/** 複合表記の name を個別技術トークンへ分解する。 */
+/** Splits a compound name into individual tech tokens. */
 export function techTokens(name: string): string[] {
   const stripped = name
     .replace(/[（(][^）)]*[）)]/g, " ")
@@ -28,7 +28,7 @@ export function techTokens(name: string): string[] {
     .filter((token) => token !== "");
 }
 
-/** 技術トークンを URL スラッグにする（スラッグ化できなければ空文字）。 */
+/** Turns a tech token into a URL slug (empty string if it cannot be slugified). */
 export function techSlug(token: string): string {
   return token
     .toLowerCase()
@@ -37,7 +37,7 @@ export function techSlug(token: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
-/** name に含まれる、横断ページを持つ技術参照の一覧。 */
+/** Tech references in name that have a cross-cutting page. */
 export function techRefs(name: string): TechRef[] {
   const refs: TechRef[] = [];
   for (const token of techTokens(name)) {
@@ -49,7 +49,7 @@ export function techRefs(name: string): TechRef[] {
   return refs;
 }
 
-/** 全記事の技術を集計する（記事数の多い順・同数はスラッグ昇順）。 */
+/** Aggregates the tech of all articles (most articles first; ties by slug ascending). */
 export function collectTech(articles: Article[]): TechIndexEntry[] {
   const bySlug = new Map<string, { name: string; count: number }>();
   for (const article of articles) {
@@ -72,7 +72,7 @@ export function collectTech(articles: Article[]): TechIndexEntry[] {
     .sort((a, b) => b.count - a.count || a.slug.localeCompare(b.slug));
 }
 
-/** 指定スラッグの技術を使う記事を絞り込む（元の記事順を保つ）。 */
+/** Filters the articles that use the tech with the given slug (keeps original article order). */
 export function filterByTech(articles: Article[], slug: string): Article[] {
   return articles.filter((article) =>
     article.ja.frontmatter.techStack.some((entry) =>

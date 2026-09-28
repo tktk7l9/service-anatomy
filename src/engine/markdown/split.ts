@@ -1,7 +1,7 @@
-// renderMarkdown が出力した HTML を、記事内コンポーネントの差し込み位置
-// （<div data-component="..."></div> — remark ディレクティブ由来の決定的な出力）で
-// 純関数的に分割する。article-body.tsx がこの結果を interleave 描画することで、
-// dangerouslySetInnerHTML の HTML 中に React コンポーネントを差し込む。
+// Splits the HTML output of renderMarkdown, as a pure function, at the insertion points of in-article
+// components (<div data-component="..."></div> — deterministic output from remark directives).
+// article-body.tsx renders the result interleaved, which inserts React components into the
+// dangerouslySetInnerHTML HTML.
 
 export const ARTICLE_COMPONENTS = ["scorecard", "techstack"] as const;
 

@@ -1,15 +1,15 @@
 import type { MetadataRoute } from "next";
 import { BASE_URL } from "@/engine/site";
 
-/** 学習データ収集・AI要約目的のクローラー。
+/** Crawlers collecting training data or producing AI summaries.
  *
- *  2026-09-12 に nonce CSP をやめたが、記事ページ (articles/[slug]) は
- *  generateStaticParams が無く動的のままなので、CDN キャッシュには乗らない。
- *  巡回の激しいクローラーを素通しにすると 1 リクエスト = 記事本文まるごとが
- *  そのまま転送量になるため、抑制は引き続き必要。
+ *  nonce CSP was dropped on 2026-09-12, but article pages (articles/[slug]) have no
+ *  generateStaticParams and remain dynamic, so they are not served from the CDN cache.
+ *  Letting aggressive crawlers through means every request costs a full article body
+ *  in transfer, so throttling them is still needed.
  *
- *  検索流入は維持したいので Googlebot / Bingbot は通す。
- *  Google-Extended は Gemini の学習利用のみを制御し、検索インデックスには影響しない。 */
+ *  Googlebot / Bingbot are allowed to keep search traffic.
+ *  Google-Extended only controls use for Gemini training and does not affect the search index. */
 const DISALLOWED_AI_CRAWLERS = [
   "AI2Bot",
   "Amazonbot",
