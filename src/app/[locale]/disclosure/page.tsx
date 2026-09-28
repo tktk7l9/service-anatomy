@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { DISCLOSURE_PATH } from "@/engine/articles/disclosure";
 import { formatDate } from "@/engine/format/date";
 import { languageAlternates } from "@/engine/seo/alternates";
-import { GITHUB_URL } from "@/engine/site";
+import { BASE_URL, GITHUB_URL } from "@/engine/site";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
@@ -26,6 +26,21 @@ export async function generateMetadata({
     alternates: {
       canonical: `/${rawLocale}${DISCLOSURE_PATH}`,
       languages: languageAlternates(DISCLOSURE_PATH),
+    },
+    // Without these the page inherits the layout's og:url/og:title and twitter:title, i.e.
+    // the home page's. Next replaces each object as a whole, so the layout's fields are restated.
+    openGraph: {
+      type: "website",
+      locale: rawLocale === "ja" ? "ja_JP" : "en_US",
+      url: `${BASE_URL}/${rawLocale}${DISCLOSURE_PATH}`,
+      siteName: dict.meta.siteName,
+      title: dict.disclosure.title,
+      description: dict.disclosure.lead,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dict.disclosure.title,
+      description: dict.disclosure.lead,
     },
   };
 }

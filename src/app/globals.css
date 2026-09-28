@@ -1296,9 +1296,6 @@ svg {
   padding: 0.15rem 0.5rem;
   border: 1px solid var(--rule-strong);
   color: var(--ink-soft);
-}
-
-.affiliate-card-pr {
   flex-shrink: 0;
 }
 
