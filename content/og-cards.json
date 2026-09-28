@@ -113,6 +113,14 @@
     "siteName": "Figma",
     "fetchedAt": "2026-08-06"
   },
+  "freee": {
+    "url": "https://www.freee.co.jp/",
+    "title": "クラウド会計ソフト｜freee",
+    "description": "freeeはすべてのスモールビジネスを支える統合型経営プラットフォームです。従来バラバラに存在していた業務やデータをフロントオフィスからバックオフィスまで一気通貫させ、誰もが自由に経営を行えること目指します。",
+    "image": "https://www.freee.co.jp/assets/image/img_freee_201908.png",
+    "siteName": "スモールビジネスを世界の主役に freee株式会社",
+    "fetchedAt": "2026-09-28"
+  },
   "gemini": {
     "url": "https://gemini.google.com/",
     "title": "‎Google Gemini",
