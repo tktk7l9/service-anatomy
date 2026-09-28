@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { ALL_ARTICLES, allTags, allTech, usedCategories } from "@/engine/articles";
+import { DISCLOSURE_PATH } from "@/engine/articles/disclosure";
 import { ALL_COMPARISONS } from "@/engine/comparisons";
 import { absoluteLanguageAlternates } from "@/engine/seo/alternates";
 import { BASE_URL } from "@/engine/site";
@@ -20,6 +21,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({
       url: `${BASE_URL}/${locale}/about`,
       alternates: { languages: alternates("/about") },
+    });
+    entries.push({
+      url: `${BASE_URL}/${locale}${DISCLOSURE_PATH}`,
+      alternates: { languages: alternates(DISCLOSURE_PATH) },
     });
     for (const article of ALL_ARTICLES) {
       entries.push({

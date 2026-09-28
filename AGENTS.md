@@ -100,3 +100,12 @@ tech editorial (magazine-style) design.
   Cloudflare swaps the content behind the unversioned `beacon.min.js` URL, so
   pinning `integrity` silently stops just the beacon on the next update.
 - Keep the "unofficial, analysis based on public information" disclaimer in the footer and on about at all times (**never remove it**).
+- **Advertising disclosure (Japan stealth-marketing rule, 2023-10-01).** Every affiliate
+  disclosure surface keys off `hasAffiliate()` / `affiliateOf()` in
+  `src/engine/articles/disclosure.ts`: the notice above the article body (`AffiliateNotice`),
+  the PR card after it (`AffiliateCard`), and the "PR" label on listing cards (`ArticleCard`).
+  Do not add a new affiliate surface with its own condition. The policy page is
+  `/[locale]/disclosure` (linked from the footer, about, and the notice); bump its
+  `POLICY_UPDATED_AT` when the policy text changes. Keep the notice above the body, at
+  body-like size and in regular ink — the CAA operational standards treat end-only,
+  small, or faint labels as unclear.

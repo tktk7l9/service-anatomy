@@ -449,6 +449,15 @@ svg {
   color: var(--accent);
 }
 
+/* "PR" label on listing cards of articles with affiliate links (text, not color only) */
+.kicker .kicker-pr {
+  padding: 0.05rem 0.4rem;
+  border: 1px solid var(--rule-strong);
+  color: var(--ink-soft);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
 .card-meta {
   margin: 0;
   font-size: 0.8rem;
@@ -1287,6 +1296,28 @@ svg {
   padding: 0.15rem 0.5rem;
   border: 1px solid var(--rule-strong);
   color: var(--ink-soft);
+  flex-shrink: 0;
+}
+
+/* Advertising notice above the article body (only on articles with an affiliate link).
+   Kept at body-like size in the regular ink color: the stealth-marketing guidance treats
+   small or faint disclosure text as unclear. */
+.affiliate-notice {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin: 1.1rem 0 0;
+  padding: 0.75rem 1rem;
+  border: 1px dashed var(--rule-strong);
+  background: var(--paper-raised);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+.affiliate-notice a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 .affiliate-card-cta {
@@ -1487,6 +1518,12 @@ svg {
 
 .static-page li {
   margin-bottom: 0.7em;
+}
+
+.static-page-updated {
+  margin-top: 2.8rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
 }
 
 /* ---------- 404 ---------- */
