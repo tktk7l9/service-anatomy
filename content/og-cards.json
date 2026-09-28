@@ -382,6 +382,13 @@
     "siteName": "TimeTree",
     "fetchedAt": "2026-08-06"
   },
+  "todoist": {
+    "url": "https://www.todoist.com/",
+    "title": "Todoist | A To-Do List to Organize Your Work & Life",
+    "description": "Trusted by 30 million people and teams. Todoist is the world's favorite task manager and to-do list app. Finally become focused, organized and calm.",
+    "image": "https://www.todoist.com/static/ogimages/en/og-image-home.png",
+    "fetchedAt": "2026-09-28"
+  },
   "vercel": {
     "url": "https://vercel.com/",
     "title": "Agentic Infrastructure - Vercel",
