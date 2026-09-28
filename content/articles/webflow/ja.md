@@ -1,8 +1,8 @@
 ---
 service: "Webflow"
 title: "顧客が使っていたライブラリを買い、無料にした — Webflowが「見た目で書くCSS」からCloudflare上のアプリ基盤へ広がるまで"
-description: "コードを書かずにCSSのレイアウトを組めるビジュアル開発ツールWebflow。評価額40億ドル・累計調達3.35億ドルの非上場企業が、自社サイトの10万件超で使われていたアニメーションライブラリGSAPを買って無料化し、Cloudflare Workersの上にフルスタックアプリの実行環境Webflow Cloudを載せた。独自のビジュアル言語WFDL、FlowからTypeScriptへの移行、サイト単位の料金表に並ぶD1・KV・R2までを、公式ブログ・料金ページ・プレスリリースと応答ヘッダーの実観測から解剖する。"
-lead: "2024年10月、Webflowはアニメーションライブラリの定番GSAPを開発元ごと買った。買収の発表によれば、Webflowで作られたサイトのうち10万件超が、すでに独自コードでGSAPを読み込んでいた。半年後、Webflowは有料プラグインを含むGSAPの全機能を、Webflowの顧客かどうかに関係なく無料にした。デザイナーが「見た目で書くCSS」として始まった道具が、いま何を買い、どこで動き、どう稼いでいるのかを解剖する。"
+description: "コードを書かずにCSSのレイアウトを組めるビジュアル開発ツールWebflow。2022年に評価額40億ドルをつけ、累計調達3.35億ドルの非上場企業が、Webflowで作られたサイトの10万件超で使われていたアニメーションライブラリGSAPを買って無料化し、Cloudflare Workersの上にフルスタックアプリの実行環境Webflow Cloudを載せた。独自のビジュアル言語WFDL、FlowからTypeScriptへの移行、サイト単位の料金表に並ぶD1・KV・R2までを、公式ブログ・料金ページ・プレスリリースと応答ヘッダーの実観測から解剖する。"
+lead: "2024年10月、Webflowはアニメーションライブラリの定番GSAPを、開発元GreenSockの事業ごと買った。買収の発表によれば、Webflowで作られたサイトのうち10万件超が、すでに独自コードでGSAPを読み込んでいた。半年後、Webflowは有料プラグインを含むGSAPの全機能を、Webflowの顧客かどうかに関係なく無料にした。デザイナーが「見た目で書くCSS」として始まった道具が、いま何を買い、どこで動き、どう稼いでいるのかを解剖する。"
 category: saas
 tags: [website-builder, no-code, design-tool, cloudflare, hosting]
 publishedAt: "2026-09-28"
@@ -41,12 +41,12 @@ techStack:
   - layer: "エディタのフロントエンド"
     name: "React / TypeScript"
     confidence: confirmed
-    evidence: "公式ブログ（エンジニアリング）に、コードベース全体をFlowからTypeScriptへ移行し、jscodeshiftのcodemodで2万行超を書き換えたと明記。別の公式ブログ記事には、フロントエンドチームの大半がDesignerをReact.jsで作り直していると書かれている"
+    evidence: "公式ブログ（エンジニアリング）に、コードベース全体をFlowからTypeScriptへ移行し、jscodeshiftのcodemodで2万行超を書き換えたと明記。2017年の公式ブログ記事には、フロントエンドチームの大半がDesignerをReact.jsで作り直している最中だと書かれている"
     evidenceUrl: "https://webflow.com/blog/codemods-and-large-scale-refactors-at-webflow"
   - layer: "ビジュアル言語"
     name: "WFDL (Webflow Design Language)"
     confidence: confirmed
-    evidence: "公式ブログ（エンジニアリング）に、ビジュアル操作を前提にした純粋な独自言語WFDLを作り、中間表現からReactコンポーネント（DevLink）やサイト内検索用のJSONを生成していると明記"
+    evidence: "公式ブログ（エンジニアリング）に、ビジュアル操作を前提にした純粋な独自言語WFDLを作り、WFDLをReactコンポーネントにコンパイルしてDevLinkを動かし、中間表現からサイト内検索用のJSONを作っていると明記"
     evidenceUrl: "https://webflow.com/blog/webflow-design-language"
   - layer: "拡張機能の実行"
     name: "iframe + postMessage (JSON-RPC)"
@@ -56,7 +56,7 @@ techStack:
   - layer: "アニメーション"
     name: "GSAP (GreenSock Animation Platform)"
     confidence: confirmed
-    evidence: "公式の料金ページに「Interactions with GSAP」として、最新のInteractionsエディタがGSAPで動くと明記。GSAPは2024年10月に開発元ごと買収"
+    evidence: "公式の料金ページに「Interactions with GSAP」として、最新のInteractionsエディタがGSAPで動くと明記。GSAPの開発元GreenSockの事業は2024年10月に買収"
     evidenceUrl: "https://webflow.com/pricing"
   - layer: "オリジン・アセット保管"
     name: "AWS (us-east-1 / Amazon S3)"
@@ -99,7 +99,7 @@ sources:
   - label: "Webflow公式ブログ（エンジニアリング）: Designer APIsの作り方 Part 1"
     url: "https://webflow.com/blog/designer-apis-part-1"
     accessedAt: "2026-09-28"
-  - label: "Webflow公式ブログ: What we've been working on（DesignerのReact化）"
+  - label: "Webflow公式ブログ: What we've been working on（DesignerのReact化・2017-05-31）"
     url: "https://webflow.com/blog/what-weve-been-working-on"
     accessedAt: "2026-09-28"
   - label: "Webflow公式ブログ: コードコンポーネント（Reactコンポーネントをキャンバスで使う）"
@@ -129,7 +129,7 @@ Webflowは、デザイナーやマーケターがビジュアル操作でWebサ�
 :::
 
 :::pull
-顧客の10万サイトが自前で読み込んでいたライブラリを、会社ごと買って、世界中に無料で配った。囲い込みの逆を行く買収が、Webflowのエディタの中身を決めている。
+顧客の10万サイトが自前で読み込んでいたライブラリを、開発元の事業ごと買って、世界中に無料で配った。囲い込みの逆を行く買収が、Webflowのエディタの中身を決めている。
 :::
 
 ::scorecard
@@ -148,7 +148,7 @@ WebflowのUXは「CSSを知っている人の手を速くする」ことに最�
 ::techstack
 
 :::fact
-公式ブログ（エンジニアリング）によれば、Webflowはフロントエンドのコードベース全体を型チェッカーのFlowからTypeScriptへ移した。Webflow Conf 2023で出した新しいUIでは、新旧のコンポーネントを機能フラグで切り替えるための仕組みを後から一掃する必要があり、jscodeshiftで書いたcodemodで2万行超を回帰なしに書き換えたという。別の記事では、ビジュアル操作を前提にした独自の純粋な言語WFDL（Webflow Design Language）を作ったと説明している。WFDLは副作用を持たないので部分的な再評価を効率よくでき、その中間表現から、ReactコンポーネントとしてデザインをDevLinkに書き出したり、サイト内検索用のJSONを作ったりしている。
+公式ブログ（エンジニアリング）によれば、Webflowはコードベース全体を型チェッカーのFlowからTypeScriptへ移した。Webflow Conf 2023で出した新しいUIでは、新旧のコンポーネントを機能フラグで切り替えるための仕組みを後から一掃する必要があり、jscodeshiftで書いたcodemodで2万行超を書き換え、目立った見た目の不具合（回帰）を出さずにリリースできたという。別の記事では、ビジュアル操作を前提にした独自の純粋な言語WFDL（Webflow Design Language）を作ったと説明している。WFDLは副作用を持たない純粋な言語なので部分的な再評価を効率よくできる。WFDLはReactコンポーネントにもコンパイルされてDevLinkを支え、評価結果の中間表現からはサイト内検索用のJSONも作られている。
 :::
 
 :::fact
@@ -164,11 +164,11 @@ WebflowのUXは「CSSを知っている人の手を速くする」ことに最�
 Webflowの収益は、公開するサイトごとのSite planと、チームや企業向けの契約の二層でできている。
 
 :::fact
-公式の料金ページによれば（2026-09-28時点・米ドル・年払いの月額換算）、Site planは無料のStarter、CMSを使わない簡単なサイト向けのBasicが月15ドル、CMSと大きな帯域を含むPremiumが月25ドル。組織向けには年契約が必須のTeamが月2,500ドル、個別見積のEnterpriseがある。Webflow Cloudのアプリは、Basicで月100万リクエストとCPU時間15分までが含まれ、超過分は100万リクエストあたり2ドル、CPU時間5時間あたり2ドルで課金される。
+公式の料金ページによれば（2026-09-28時点・米ドル・年払いの月額換算）、Site planは無料のStarter、CMSを使わない簡単なサイト向けのBasicが月15ドル、CMSと大きな帯域を含むPremiumが月25ドルから（選ぶ帯域に応じて上がる）。組織向けには年契約が必須のTeamが月2,500ドル、個別見積のEnterpriseがある。Webflow Cloudのアプリは、Basicで月100万リクエストとCPU時間15分までが含まれ、超過分は100万リクエストあたり2ドル、CPU時間5時間あたり2ドルで課金される。
 :::
 
 :::guess
-料金表には、個人向けの月15〜25ドルのプランと並んで、「New」の印がついた年契約・月2,500ドルのTeamと、個別見積のEnterpriseが置かれている。2022年の時点でエンタープライズ製品が1年で6倍に伸びていたこと、2024年に自らを「マーケター向けのWebsite Experience Platform」と名乗り直し、訪問者ごとの出し分け（Intellimize）やAI Optimizeを足してきたことを合わせると、Webflowの重心は「フリーランスが使う制作ツール」から「企業のマーケティング部門が年契約で払う基盤」へ移りつつあるとみられる。GSAPの無料化は、制作者のコミュニティという入口を広げ、その先の企業契約につなげるための投資と読める。
+料金表には、個人向けの月15〜25ドルのプランと並んで、「New」の印がついた年契約・月2,500ドルのTeamと、個別見積のEnterpriseが置かれている。2022年の時点でエンタープライズ製品が1年で6倍に伸びていたこと、2024年にマーケターを筆頭に掲げて自らを「Website Experience Platform」と名乗り直し、訪問者ごとの出し分け（Intellimize）やAI Optimizeを足してきたことを合わせると、Webflowの重心は「フリーランスが使う制作ツール」から「企業のマーケティング部門が年契約で払う基盤」へ移りつつあるとみられる。GSAPの無料化は、制作者のコミュニティという入口を広げ、その先の企業契約につなげるための投資と読める。
 :::
 
 :::fact

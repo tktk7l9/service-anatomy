@@ -1,8 +1,8 @@
 ---
 service: "Webflow"
 title: "It Bought the Library Its Customers Already Used — and Made It Free: How Webflow Grew from Visual CSS into an App Platform on Cloudflare"
-description: "Webflow lets you build real CSS layouts without writing code. The private company, valued at $4B with $335M raised, bought GSAP — an animation library already loaded by over 100,000 Webflow sites — made it free for everyone, and put a full-stack app runtime, Webflow Cloud, on top of Cloudflare Workers. We dissect its in-house visual language WFDL, the Flow-to-TypeScript migration, and the D1, KV and R2 line items on its per-site pricing table, from the official blog, pricing page, press releases and our own response-header observations."
-lead: "In October 2024, Webflow bought GSAP, the go-to JavaScript animation library, along with the company behind it. According to the announcement, more than 100,000 sites built on Webflow were already loading GSAP through custom code. Six months later, Webflow made every GSAP feature, including the formerly paid plugins, free for everyone, Webflow customer or not. We dissect what a tool that started as 'visual CSS for designers' is now buying, where it runs, and how it makes money."
+description: "Webflow lets you build real CSS layouts without writing code. The private company, valued at $4B in 2022 and with $335M raised in total, bought GSAP — an animation library already loaded by over 100,000 Webflow sites — made it free for everyone, and put a full-stack app runtime, Webflow Cloud, on top of Cloudflare Workers. We dissect its in-house visual language WFDL, the Flow-to-TypeScript migration, and the D1, KV and R2 line items on its per-site pricing table, from the official blog, pricing page, press releases and our own response-header observations."
+lead: "In October 2024, Webflow bought GSAP, the go-to JavaScript animation library, by acquiring the GreenSock business behind it. According to the announcement, more than 100,000 sites built on Webflow were already loading GSAP through custom code. Six months later, Webflow made every GSAP feature, including the formerly paid plugins, free for everyone, Webflow customer or not. We dissect what a tool that started as 'visual CSS for designers' is now buying, where it runs, and how it makes money."
 category: saas
 tags: [website-builder, no-code, design-tool, cloudflare, hosting]
 publishedAt: "2026-09-28"
@@ -41,12 +41,12 @@ techStack:
   - layer: "Editor front end"
     name: "React / TypeScript"
     confidence: confirmed
-    evidence: "The official engineering blog states that Webflow migrated its entire codebase from Flow to TypeScript and rewrote over 20,000 lines with jscodeshift codemods. Another official blog post says most of the front-end team was re-architecting the Designer to use React.js"
+    evidence: "The official engineering blog states that Webflow migrated its entire codebase from Flow to TypeScript and rewrote over 20,000 lines with jscodeshift codemods. A 2017 official blog post says most of the front-end team was then re-architecting the Designer to use React.js"
     evidenceUrl: "https://webflow.com/blog/codemods-and-large-scale-refactors-at-webflow"
   - layer: "Visual language"
     name: "WFDL (Webflow Design Language)"
     confidence: confirmed
-    evidence: "The official engineering blog describes WFDL, a pure, visual-first in-house language whose intermediate representation is compiled to React components (DevLink) and to JSON for site-search indexing"
+    evidence: "The official engineering blog describes WFDL, a pure, visual-first in-house language that is compiled to React components to power DevLink, and whose intermediate representation is turned into JSON for site-search indexing"
     evidenceUrl: "https://webflow.com/blog/webflow-design-language"
   - layer: "Extension sandbox"
     name: "iframe + postMessage (JSON-RPC)"
@@ -56,7 +56,7 @@ techStack:
   - layer: "Animation"
     name: "GSAP (GreenSock Animation Platform)"
     confidence: confirmed
-    evidence: "The official pricing page lists 'Interactions with GSAP', stating that the latest Interactions editor is powered by GSAP. Webflow acquired the GreenSock business in October 2024"
+    evidence: "The official pricing page lists 'Interactions with GSAP', stating that the latest Interactions editor is powered by GSAP. Webflow acquired the GreenSock business behind GSAP in October 2024"
     evidenceUrl: "https://webflow.com/pricing"
   - layer: "Origin and asset storage"
     name: "AWS (us-east-1 / Amazon S3)"
@@ -99,7 +99,7 @@ sources:
   - label: "Webflow official engineering blog: Powering Webflow Apps — How we built Designer APIs, Part 1"
     url: "https://webflow.com/blog/designer-apis-part-1"
     accessedAt: "2026-09-28"
-  - label: "Webflow official blog: What we've been working on (re-architecting the Designer in React)"
+  - label: "Webflow official blog: What we've been working on (re-architecting the Designer in React, 2017-05-31)"
     url: "https://webflow.com/blog/what-weve-been-working-on"
     accessedAt: "2026-09-28"
   - label: "Webflow official blog: How developers are building in Webflow with code components"
@@ -129,7 +129,7 @@ The official acquisition post says more than 100,000 Webflow sites were already 
 :::
 
 :::pull
-It bought, company and all, a library its customers were already loading on 100,000 sites by hand, and then gave it away to the whole web. An acquisition that runs opposite to lock-in now shapes what is inside Webflow's editor.
+It bought the business behind a library its customers were already loading on 100,000 sites by hand, and then gave it away to the whole web. An acquisition that runs opposite to lock-in now shapes what is inside Webflow's editor.
 :::
 
 ::scorecard
@@ -148,7 +148,7 @@ Webflow's UX is optimized to make people who already know CSS faster. It is not 
 ::techstack
 
 :::fact
-According to the official engineering blog, Webflow migrated its entire front-end codebase from the Flow type checker to TypeScript. After the new UI unveiled at Webflow Conf 2023, it had to remove the scaffolding used to switch between old and new components behind a feature flag, and used codemods written with jscodeshift to rewrite more than 20,000 lines without regressions. Another post explains that Webflow built WFDL (Webflow Design Language), a pure, visual-first in-house language. Because WFDL has no side effects, it supports efficient incremental re-evaluation, and its intermediate representation is compiled into React components for DevLink and into JSON for site-search indexing.
+According to the official engineering blog, Webflow migrated its entire codebase from the Flow type checker to TypeScript. After the new UI unveiled at Webflow Conf 2023, it had to remove the scaffolding used to switch between old and new components behind a feature flag, and used codemods written with jscodeshift to rewrite more than 20,000 lines and ship the change without any major visual regressions. Another post explains that Webflow built WFDL (Webflow Design Language), a pure, visual-first in-house language. Because WFDL is pure and has no side effects, it supports efficient incremental re-evaluation. WFDL is also compiled into React components to power DevLink, and its evaluated intermediate representation is turned into JSON for site-search indexing.
 :::
 
 :::fact
@@ -164,11 +164,11 @@ In our observation, a site published to webflow.io responded with server: cloudf
 Webflow's revenue comes in two layers: a Site plan for each published site, and contracts for teams and enterprises.
 
 :::fact
-According to the official pricing page (as of 2026-09-28, USD, billed yearly and shown per month), Site plans are the free Starter, Basic at $15/month for simple sites without a CMS, and Premium at $25/month with the CMS and larger bandwidth. For organizations there is Team at $2,500/month with an annual contract required, and custom-quoted Enterprise. Webflow Cloud apps on Basic include 1 million requests and 15 CPU minutes per month, with overages billed at $2 per million requests and $2 per 5 CPU hours.
+According to the official pricing page (as of 2026-09-28, USD, billed yearly and shown per month), Site plans are the free Starter, Basic at $15/month for simple sites without a CMS, and Premium from $25/month (rising with the bandwidth you choose) with the CMS and larger bandwidth. For organizations there is Team at $2,500/month with an annual contract required, and custom-quoted Enterprise. Webflow Cloud apps on Basic include 1 million requests and 15 CPU minutes per month, with overages billed at $2 per million requests and $2 per 5 CPU hours.
 :::
 
 :::guess
-The pricing table sets the $15–25 individual plans alongside Team, marked "New," at $2,500 a month on an annual contract, plus custom Enterprise. Put that together with the six-fold enterprise growth reported in 2022 and the 2024 rebrand as a "Website Experience Platform" for marketers, with visitor personalization (Intellimize) and AI Optimize bolted on, and Webflow's center of gravity appears to be shifting from "a build tool for freelancers" to "infrastructure that corporate marketing teams pay for on annual contracts." Making GSAP free reads as an investment that widens the creator-community funnel feeding those enterprise deals.
+The pricing table sets the $15–25 individual plans alongside Team, marked "New," at $2,500 a month on an annual contract, plus custom Enterprise. Put that together with the six-fold enterprise growth reported in 2022 and the 2024 rebrand as a "Website Experience Platform" with marketers listed first, with visitor personalization (Intellimize) and AI Optimize bolted on, and Webflow's center of gravity appears to be shifting from "a build tool for freelancers" to "infrastructure that corporate marketing teams pay for on annual contracts." Making GSAP free reads as an investment that widens the creator-community funnel feeding those enterprise deals.
 :::
 
 :::fact
