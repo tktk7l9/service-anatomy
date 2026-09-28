@@ -279,6 +279,14 @@
     "description": "毎日の歩数で、あなただけのデジタル植物が育つ。AIが生成するユニークなアートを、歩いて咲かせよう。",
     "fetchedAt": "2026-08-06"
   },
+  "proton": {
+    "url": "https://proton.me/",
+    "title": "Proton: Privacy by default",
+    "description": "Over 100 million people use Proton to stay private and secure online. Get a free Proton account and take back your privacy.",
+    "image": "https://proton.me/images/social/proton-og.png",
+    "siteName": "Proton",
+    "fetchedAt": "2026-09-28"
+  },
   "railway": {
     "url": "https://railway.com/",
     "title": "Railway | The all-in-one intelligent cloud provider",
