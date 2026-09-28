@@ -6,8 +6,8 @@ lead: "Most startups build an app first. Midjourney skipped that step — it tur
 category: ai-tool
 tags: [image-generation, ai, discord, bootstrapped, indie-dev]
 publishedAt: "2026-07-20"
-updatedAt: "2026-07-20"
-lastVerified: "2026-07-20"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://www.midjourney.com/"
 vendor: "Midjourney, Inc."
 origin: "US"
@@ -37,6 +37,11 @@ techStack:
     name: "Cloudflare"
     confidence: likely
     evidence: "Our HTTP header observation (server: cloudflare, 2026-07-20; a bot-mitigation challenge page was triggered); no official documentation found"
+  - layer: "Image generation model"
+    name: "Midjourney V8.1"
+    confidence: confirmed
+    evidence: "Official update (June 11, 2026) states V8.1 is now the default model, replacing V7. The V8 alpha shipped March 17, 2026 (official update)"
+    evidenceUrl: "https://updates.midjourney.com/v8-1-is-now-the-default-model/"
 sources:
   - label: "Forbes: interview with Midjourney founder David Holz (2022-09 — the 2M Discord figure)"
     url: "https://www.forbes.com/sites/robsalkowitz/2022/09/16/midjourney-founder-david-holz-on-the-impact-of-ai-on-art-imagination-and-the-creative-economy/"
@@ -47,6 +52,15 @@ sources:
   - label: "The Information: 'He Doesn't Need VC in His Life' — how Midjourney kept rejecting venture capital"
     url: "https://www.theinformation.com/articles/he-doesnt-need-vc-in-his-life-how-midjourneys-founder-built-an-ai-winner-while-rejecting-venture-capital"
     accessedAt: "2026-07-20"
+  - label: "Midjourney official updates: V8.1 is now the default model (2026-06-11)"
+    url: "https://updates.midjourney.com/v8-1-is-now-the-default-model/"
+    accessedAt: "2026-09-28"
+  - label: "Midjourney official updates: V8 Alpha (2026-03-17)"
+    url: "https://updates.midjourney.com/v8-alpha/"
+    accessedAt: "2026-09-28"
+  - label: "Wikipedia: Midjourney (model version history; lawsuits by Disney/Universal and Warner Bros. Discovery, aggregated)"
+    url: "https://en.wikipedia.org/wiki/Midjourney"
+    accessedAt: "2026-09-28"
 ---
 
 Most startups build an app first. Midjourney skipped that step — it rented a single [Discord](/en/articles/discord) server, turned one command, `/imagine`, into its entire product, and reached profitability without ever taking outside capital. Set next to Discord's own article, which covers infrastructure built to carry trillions of messages, Midjourney stands out for the opposite strategy: building entirely on top of someone else's platform.
@@ -79,7 +93,7 @@ Midjourney's UX is defined above all by being built atop a "borrowed UI" — Dis
 ::techstack
 
 :::fact
-Per the official Google Cloud press release (March 2023), Midjourney trained its fourth-generation model on Google Cloud TPUs (Tensor Processing Units), while rendering generated images (inference) on GPU VMs equipped with NVIDIA GPUs — a two-tier infrastructure. Distribution has centered on a Discord bot since founding, at a scale Holz himself has publicly confirmed. The company's own web interface reportedly moved from a late-2023 alpha to general availability in August 2024, per multiple outlets.
+Per the official Google Cloud press release (March 2023), Midjourney trained its fourth-generation model on Google Cloud TPUs (Tensor Processing Units), while rendering generated images (inference) on GPU VMs equipped with NVIDIA GPUs — a two-tier infrastructure. Distribution has centered on a Discord bot since founding, at a scale Holz himself has publicly confirmed. The company's own web interface reportedly moved from a late-2023 alpha to general availability in August 2024, per multiple outlets. The model has kept advancing: per official updates, the V8 alpha shipped on March 17, 2026 (roughly 5x faster generation, with an HD mode rendering natively at 2K), and V8.1 became the default model, replacing V7, on June 11, 2026.
 :::
 
 :::guess
@@ -91,7 +105,7 @@ Training on TPUs while running inference on GPUs looks like a rational split giv
 Midjourney's revenue structure is one of the more unusual in the AI industry — it has stayed profitable with zero outside capital.
 
 :::fact
-Per reporting from The Information and others, Midjourney has never raised venture capital since founding and reportedly became profitable within roughly a year. Paid plans are flat monthly subscriptions tiered by GPU time available for generation (Fast/Relax modes and similar). Companies with more than $1 million in annual revenue are officially required to hold a corporate license.
+Per reporting from The Information and others, Midjourney has never raised venture capital since founding and reportedly became profitable within roughly a year. Paid plans are flat monthly subscriptions tiered by GPU time available for generation (Fast/Relax modes and similar). Companies with more than $1 million in annual revenue are officially required to hold a corporate license. Meanwhile, per aggregated Wikipedia reporting, Disney and Universal sued Midjourney in June 2025, and Warner Bros. Discovery in September 2025, alleging copyright infringement. Per press reports, the cases were consolidated and remain ongoing.
 :::
 
 :::guess

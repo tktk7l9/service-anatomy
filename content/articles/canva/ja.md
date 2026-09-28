@@ -6,14 +6,19 @@ lead: "創業者Melanie Perkins氏は100社を超えるVCに断られた。そ�
 category: consumer-app
 tags: [design-tool, bootstrapped, saas, aws, ai]
 publishedAt: "2026-07-20"
-updatedAt: "2026-07-20"
-lastVerified: "2026-07-20"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://www.canva.com/"
 vendor: "Canva Pty Ltd"
 origin: "AU"
 heroTheme: "canva"
 scores: { product: 4.5, ux: 4.5, tech: 4.0, business: 4.5 }
 techStack:
+  - layer: "クラウド基盤"
+    name: "AWS"
+    confidence: confirmed
+    evidence: "AWS公式導入事例に、Canvaはグローバルなデザインプラットフォームを AWS 上で運用していると明記。Canva公式エンジニアリングブログにも「CanvaはAWSショップ」と明記"
+    evidenceUrl: "https://aws.amazon.com/solutions/case-studies/innovators/canva/"
   - layer: "コンテナオーケストレーション"
     name: "Amazon EKS (Kubernetes)"
     confidence: confirmed
@@ -37,17 +42,26 @@ techStack:
   - layer: "CDN"
     name: "Fastly"
     confidence: likely
-    evidence: "当サイトのHTTPヘッダー実観測（x-served-by: cache-*、Fastly特有のヘッダー形式、via: varnish、2026-07-20）。公式ドキュメントでの明言は見当たらない"
+    evidence: "当サイトのHTTPヘッダー実観測（x-served-by: cache-*、Fastly特有のヘッダー形式、via: varnish、2026-07-20。2026-09-28の再観測でも同じ）。公式ドキュメントでの明言は見当たらない"
 sources:
   - label: "Canva公式エンジニアリングブログ: GPU-accelerated ML with Kubernetes and Nix（2022-07）"
     url: "https://www.canva.dev/blog/engineering/supporting-gpu-accelerated-machine-learning-with-kubernetes-and-nix/"
-    accessedAt: "2026-07-20"
-  - label: "AWS公式導入事例: Canva on AWS（EKS/Bedrock/S3・週1,000億イベント処理）"
+    accessedAt: "2026-09-28"
+  - label: "AWS公式導入事例: Canva on AWS（Bedrock/S3/Kinesis・週1,000億イベント処理）"
     url: "https://aws.amazon.com/solutions/case-studies/innovators/canva/"
-    accessedAt: "2026-07-20"
+    accessedAt: "2026-09-28"
   - label: "Bloomberg: Canva Begins Share Sale at $42 Billion Valuation（2025-08・黒字8年連続の言及）"
     url: "https://www.bloomberg.com/news/articles/2025-08-20/canva-begins-share-sale-at-42-billion-valuation-in-road-to-ipo"
     accessedAt: "2026-07-20"
+  - label: "Canva公式ニュースルーム: A transformative year for Canva: 2025 in review（月間利用者2億6,000万人・収益35億ドル・Fortune 500の95%）"
+    url: "https://www.canva.com/newsroom/news/canva-2025-wrap/"
+    accessedAt: "2026-09-28"
+  - label: "The Next Web: Canva's backers cut $7.1bn from its valuation（2026-08-14・報道・AFRを引用）"
+    url: "https://thenextweb.com/news/canva-valuation-cut-ai-costs-blackbird-airtree"
+    accessedAt: "2026-09-28"
+  - label: "Startup Daily: Canva wipes $11 billion from its valuation（2026-08-17・報道）"
+    url: "https://www.startupdaily.net/advice/business-strategy/canva-wipes-10-billion-from-its-valuation-putting-ipo-plans-in-doubt/"
+    accessedAt: "2026-09-28"
 ---
 
 100社を超えるベンチャーキャピタルに断られた学生起業家が、外部資金への依存を最小限に抑えたまま、評価額420億ドルの企業を育て上げた。CanvaはFigmaやCursorのような大型調達を繰り返す成長物語とは対照的な、財務規律の効いた逆張り成長の実例だ。
@@ -57,7 +71,7 @@ sources:
 Canvaはブラウザで動くデザインツールで、プロのデザイナーでなくても資料・SNS投稿・動画などを作れることを掲げる。2013年、オーストラリアでMelanie Perkins氏とCliff Obrecht氏が創業した。
 
 :::fact
-Bloomberg（2025年8月）の報道によれば、Canvaは2025年8月の従業員株式売却で評価額420億ドルに達し（同年7月の370億ドルから上昇）、年換算収益（ARR）は2025年10月時点で35億ドル、8年連続で黒字を維持していると報じられている。月間アクティブ利用者は2億6,000万人超、有料会員は2,900万人超、Fortune 500企業の85%超が利用しているという。Perkins氏は創業前に100社を超える投資家から出資を断られた経験を持つ。
+Bloomberg（2025年8月）の報道によれば、Canvaは2025年8月の従業員株式売却で評価額420億ドルに達し（同年7月の370億ドルから上昇）、8年連続で黒字を維持していると報じられている。有料会員は2,900万人超とも報じられた。Canva公式ニュースルームの2025年の振り返りによれば、毎月の利用者は2億6,000万人、2025年の収益は35億ドルに達し、Fortune 500企業の95%が利用している。Perkins氏は創業前に100社を超える投資家から出資を断られた経験を持つ。
 :::
 
 :::pull
@@ -92,7 +106,11 @@ Nixという(比較的niche寄りの)ビルドツールをコンテナイメー�
 Canvaの収益は、無料プランを起点にしたフリーミアムのサブスクリプションだ。
 
 :::fact
-Bloombergの報道によれば、Canvaは2025年10月時点で年換算収益35億ドルに達し、8年連続で黒字を維持しているとされる。2025年8月の従業員株式売却では評価額420億ドルに達し、CFOに前ZoomのCFOだったKelly Steckelberg氏を起用するなど、IPOに向けた準備が進んでいると報じられている。
+Canva公式ニュースルームによれば2025年の収益は35億ドルに達し、Bloombergの報道によれば8年連続で黒字を維持しているとされる。2025年8月の従業員株式売却では評価額420億ドルに達し、CFOに前ZoomのCFOだったKelly Steckelberg氏を起用するなど、IPOに向けた準備が進んでいると報じられている。
+:::
+
+:::fact
+2026年8月の報道。The Next Web（2026年8月14日）とStartup Daily（同17日）は、Australian Financial Reviewの報道を引いて、Canvaに出資するベンチャーキャピタルのBlackbirdとAirtreeが、Canvaの評価額の見積もりを420億ドルから349億ドルへ約17%引き下げたと報じた。従業員向け株式の価格を決める独立評価も389億ドルから310億ドルに下がり、Canvaは収益成長率の見通しを30%から20%へ改めたとされる。同報道によれば、CEOのMelanie Perkins氏はAI機能の提供コストを下げるために展開を遅らせて基盤を作り直したと説明し、AIタスク1件あたりのコストは約90%下がったという。いずれも報道に基づく数字で、Canva自身が評価額を公式に発表したものではない。
 :::
 
 :::guess

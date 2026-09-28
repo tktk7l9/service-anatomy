@@ -6,8 +6,8 @@ lead: "Send a request to netflix.com and the via header lines up an AWS us-west-
 category: media
 tags: [streaming, video, aws, cdn, microservices]
 publishedAt: "2026-07-21"
-updatedAt: "2026-07-21"
-lastVerified: "2026-07-21"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://www.netflix.com/"
 vendor: "Netflix, Inc."
 origin: "US"
@@ -18,6 +18,11 @@ techStack:
     name: "AWS"
     confidence: confirmed
     evidence: "AWS official case study states Netflix operates across four AWS Regions with thousands of auto-scaling groups, using Aurora, EKS, EMR, and more"
+    evidenceUrl: "https://aws.amazon.com/solutions/case-studies/netflix/"
+  - layer: "AWS managed services"
+    name: "Amazon Aurora / Amazon EKS / Amazon EMR"
+    confidence: confirmed
+    evidence: "AWS official case study states Netflix consolidated its relational databases on Amazon Aurora, migrated to Amazon EKS, and processes massive-scale data workloads on Amazon EMR (checked 2026-09-28)"
     evidenceUrl: "https://aws.amazon.com/solutions/case-studies/netflix/"
   - layer: "Video delivery CDN"
     name: "Open Connect (自社CDNアプライアンス)"
@@ -32,11 +37,11 @@ techStack:
   - layer: "Edge proxy"
     name: "Envoy"
     confidence: likely
-    evidence: "Our own HTTP header observation (server: envoy, x-envoy-upstream-service-time; 2026-07-21)"
+    evidence: "Our own HTTP header observation (server: envoy, x-envoy-upstream-service-time; 2026-07-21, and the same on re-observation 2026-09-28). InfoQ's report (2023-09), citing a post on Netflix's official tech blog, describes the decision to centralize inter-service communication features in Envoy. We could not retrieve the official post itself, so this stays at likely"
   - layer: "Website delivery"
     name: "AWS + Open Connect"
     confidence: confirmed
-    evidence: "Our own HTTP header observation: the via header lists a us-west-2 EC2 instance ID alongside an nflxvideo.net host at a Tokyo IX (2026-07-21). Control plane on AWS, delivery edge on Open Connect — both layers visible in one line"
+    evidence: "Our own HTTP header observation: the via header lists a us-west-2 EC2 instance ID alongside an nflxvideo.net host at a Tokyo IX (2026-07-21; same layout on re-observation 2026-09-28). Control plane on AWS, delivery edge on Open Connect — both layers visible in one line"
     evidenceUrl: "https://www.netflix.com/"
 sources:
   - label: "SEC Form 10-K (Netflix, Inc., fiscal year 2025, filed 2026-01-23)"
@@ -44,13 +49,22 @@ sources:
     accessedAt: "2026-07-21"
   - label: "AWS official case study: Netflix on AWS (four Regions; Aurora / EKS / EMR)"
     url: "https://aws.amazon.com/solutions/case-studies/netflix/"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Netflix official: Open Connect (the ISP-facing in-house CDN program)"
     url: "https://openconnect.netflix.com/en/"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Netflix official tech blog: The Netflix Simian Army (the Chaos Monkey original, 2011)"
     url: "https://netflixtechblog.com/the-netflix-simian-army-16e57fbab116"
     accessedAt: "2026-07-21"
+  - label: "SEC Form 8-K exhibit: Netflix Q4 2025 shareholder letter (2026-01)"
+    url: "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000033/ex991_q425.htm"
+    accessedAt: "2026-09-28"
+  - label: "SEC Form 8-K exhibit: Netflix Q2 2026 shareholder letter (2026-07-16)"
+    url: "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000211/ex991_q226.htm"
+    accessedAt: "2026-09-28"
+  - label: "InfoQ (news report): Netflix's zero-configuration service mesh (2023-09 — adoption of Envoy)"
+    url: "https://www.infoq.com/news/2023/09/zero-config-service-mesh-netflix"
+    accessedAt: "2026-09-28"
 ---
 
 ## Service overview
@@ -58,7 +72,7 @@ sources:
 Netflix is a video streaming service operating in over 190 countries. It began in 1997 as DVD-by-mail rental, pivoted to streaming in 2007, and — through massive investment in originals and viewing-data-driven personalization — has replaced the television habit itself.
 
 :::fact
-According to the 10-K and the January 2026 earnings release, fiscal 2025 revenue was $45.2 billion, up 16% year over year, with operating income of $13.3 billion (a 29.5% operating margin) and net income of $11.0 billion. Paid memberships crossed 325 million in Q4, and advertising revenue exceeded $1.5 billion — 2.5 times the prior year. Guidance for 2026 is $50.7–51.7 billion in revenue, with ad revenue expected to roughly double again.
+According to the 10-K and the January 2026 earnings release, fiscal 2025 revenue was $45.2 billion, up 16% year over year, with operating income of $13.3 billion (a 29.5% operating margin) and net income of $11.0 billion. Paid memberships crossed 325 million in Q4, and advertising revenue exceeded $1.5 billion — 2.5 times the prior year. Revenue guidance for 2026 started at $50.7–51.7 billion and was narrowed to $51.0–51.4 billion with the Q2 results in July 2026. Q2 revenue was $12.6 billion (up 13% year over year) at a 33.4% operating margin. Ad revenue is expected to reach about $3 billion in 2026, roughly doubling.
 :::
 
 :::pull
@@ -93,7 +107,7 @@ Keeping the control plane on AWS while pulling delivery back in-house appears to
 Netflix's revenue centers on subscriptions, with advertising emerging as a second engine.
 
 :::fact
-Fiscal 2025 delivered $45.2 billion in revenue at a 29.5% operating margin, improved from 26.7% the prior year on the twin engines of pricing and advertising. Ad revenue exceeded $1.5 billion, 2.5x year over year, with another rough doubling expected in 2026. Free cash flow reached $9.5 billion.
+Fiscal 2025 delivered $45.2 billion in revenue at a 29.5% operating margin, improved from 26.7% the prior year on the twin engines of pricing and advertising. Ad revenue exceeded $1.5 billion, 2.5x year over year, and is expected to roughly double to about $3 billion in 2026 (reaffirmed with the Q2 results in July 2026). Free cash flow reached $9.5 billion.
 :::
 
 :::guess

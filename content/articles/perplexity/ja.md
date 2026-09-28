@@ -1,13 +1,13 @@
 ---
 service: "Perplexity"
 title: "モデルの利ざやでは稼がない、検索インフラの従量課金で稼ぐ — Perplexityの収益設計と出版社訴訟"
-description: "引用付きの回答を返すAI検索エンジンPerplexity。OpenAI・Anthropic・Google等のモデルを「マークアップなし」でルーティングし、収益は検索API・ツール呼び出しの従量課金に寄せる設計を取る。一方でBBC・New York Times・讀賣新聞・朝日新聞・日本経済新聞など複数の報道機関から著作権をめぐる訴えを受けている。公式情報からPerplexityの構造を解剖する。"
-lead: "Perplexityは、回答に使うAIモデルの利用料を「マークアップなしで」ユーザーに転嫁すると公式ドキュメントに明記している。モデル自体の利ざやでは稼がず、検索APIやツール呼び出しの従量課金で収益を立てる設計だ。だがその回答の元になっているのは報道機関のコンテンツで、BBC・New York Times・讀賣新聞・朝日新聞・日本経済新聞が相次いで著作権侵害を主張している。答えを売るが、答えの元は作らない会社の構造を解剖する。"
+description: "引用付きの回答を返すAI検索エンジンPerplexity。OpenAI・Anthropic・Google等のモデルを各モデルの公表料金のままルーティングし、収益は検索API・ツール呼び出しの従量課金に寄せる設計を取る。一方でBBC・New York Times・讀賣新聞・朝日新聞・日本経済新聞など複数の報道機関から著作権をめぐる訴えを受けている。公式情報からPerplexityの構造を解剖する。"
+lead: "Perplexityは、回答に使うサードパーティのAIモデルを「各モデルの公表料金」で課金すると公式ドキュメントに明記している。モデル自体の利ざやでは稼がず、検索APIやツール呼び出しの従量課金で収益を立てる設計だ。だがその回答の元になっているのは報道機関のコンテンツで、BBC・New York Times・讀賣新聞・朝日新聞・日本経済新聞が相次いで著作権侵害を主張している。答えを売るが、答えの元は作らない会社の構造を解剖する。"
 category: ai-tool
 tags: [ai-search, answer-engine, llm-routing, api, publisher-licensing]
 publishedAt: "2026-07-23"
-updatedAt: "2026-07-23"
-lastVerified: "2026-07-23"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://www.perplexity.ai/"
 vendor: "Perplexity AI, Inc."
 origin: "US"
@@ -17,13 +17,27 @@ techStack:
   - layer: "検索特化自社モデル"
     name: "Sonarモデルファミリー（Sonar / Sonar Pro / Sonar Reasoning Pro / Sonar Deep Research）"
     confidence: confirmed
-    evidence: "Perplexity公式APIドキュメントに、検索特化の軽量モデルSonarから、推論特化のSonar Reasoning Pro、深い調査向けのSonar Deep Researchまで、用途別のモデル群が掲載されていることを実確認"
+    evidence: "Perplexity公式APIドキュメントに、検索特化の軽量モデルSonarから、推論特化のSonar Reasoning Pro、深い調査向けのSonar Deep Researchまで、用途別のモデル群が掲載されていることを実確認（2026-09-28再確認）。同じページに、Sonar Chat CompletionsはAgent APIへ移り、Sonarのサポートは2026年9月27日までとする告知がある"
     evidenceUrl: "https://docs.perplexity.ai/getting-started/models"
   - layer: "サードパーティモデルルーティング"
-    name: "OpenAI / Anthropic / Google / xAI等のマルチLLMルーティング"
+    name: "OpenAI / Anthropic / Google / xAI（マルチLLMルーティング）"
     confidence: confirmed
-    evidence: "Perplexity公式APIドキュメントに、Agent APIがOpenAI・Anthropic・Google・xAI等のサードパーティモデルを「マークアップなし」でプロバイダー料金のまま提供すると明記"
+    evidence: "Perplexity公式APIドキュメントに、Agent APIがOpenAI・Anthropic・Google・xAI・Z.AI・Moonshot AI・NVIDIAのサードパーティモデルを、各モデルの公表料金による透明なトークン課金で提供すると明記（2026-09-28確認）"
     evidenceUrl: "https://docs.perplexity.ai/getting-started/pricing"
+  - layer: "ルーティング先モデル（Google製）"
+    name: "Gemini（3.1 Pro / 3.8 Flash 等）"
+    confidence: confirmed
+    evidence: "Perplexity公式APIドキュメントのAgent APIモデル一覧に、google/gemini-3.1-pro-preview・google/gemini-3.8-flashなどGoogleのGeminiモデル8種が単価つきで掲載されていることを実確認（2026-09-28）"
+    evidenceUrl: "https://docs.perplexity.ai/docs/agent-api/models"
+  - layer: "クラウド基盤"
+    name: "AWS (Amazon Bedrock / Amazon SageMaker)"
+    confidence: confirmed
+    evidence: "AWS公式の導入事例に、PerplexityをAWS上に構築し、自社モデルの学習と推論にAWSを選んだこと、Amazon Bedrock経由でClaudeを提供していること、学習にAmazon SageMaker HyperPodとAmazon EC2を使うことが記載されている"
+    evidenceUrl: "https://aws.amazon.com/solutions/case-studies/perplexity-bedrock-case-study/"
+  - layer: "クラウド基盤（追加契約）"
+    name: "Microsoft Azure"
+    confidence: likely
+    evidence: "Wikipediaの集約情報（報道ベース）によれば、2026年1月にMicrosoftと3年間・7億5,000万ドルの契約を結び、AzureとFoundryを使うとされる。主たるクラウドは引き続きAWSとされる。公式発表は確認できていないためlikely扱い"
   - layer: "自社ブラウザ"
     name: "Cometブラウザ（Chromiumベース）"
     confidence: likely
@@ -31,18 +45,27 @@ techStack:
   - layer: "API課金モデル"
     name: "Search API（$5.00/1,000リクエスト）+ ツール呼び出し従量課金"
     confidence: confirmed
-    evidence: "Perplexity公式APIドキュメントに、Search APIは1,000リクエストあたり5.00ドルのトークン非依存課金、Web検索・URL取得等の各ツール呼び出しは1回0.005ドルと明記"
+    evidence: "Perplexity公式APIドキュメントに、Search APIは1,000リクエストあたり5.00ドル（Fast Searchは1.00ドル）のトークン非依存課金、ツール呼び出しはweb_searchが1回0.0025ドル、fetch_urlが1回0.0005ドル、people_searchとfinance_searchが1回0.005ドルと明記（2026-09-28確認）"
     evidenceUrl: "https://docs.perplexity.ai/getting-started/pricing"
 sources:
   - label: "Perplexity公式APIドキュメント: Models（Sonarモデルファミリーの構成）"
     url: "https://docs.perplexity.ai/getting-started/models"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
   - label: "Perplexity公式APIドキュメント: Pricing（Agent API/Search API/ツール呼び出しの料金体系）"
     url: "https://docs.perplexity.ai/getting-started/pricing"
-    accessedAt: "2026-07-23"
-  - label: "Wikipedia: Perplexity AI（創業史・資金調達推移・Cometブラウザ・出版社との著作権紛争の集約）"
+    accessedAt: "2026-09-28"
+  - label: "Perplexity公式APIドキュメント: Agent API Models（ルーティング先モデルの一覧と単価）"
+    url: "https://docs.perplexity.ai/docs/agent-api/models"
+    accessedAt: "2026-09-28"
+  - label: "AWS公式の導入事例: Perplexity（AWS上に構築・Amazon Bedrock経由でClaudeを提供）"
+    url: "https://aws.amazon.com/solutions/case-studies/perplexity-bedrock-case-study/"
+    accessedAt: "2026-09-28"
+  - label: "Google公式: Gemini API料金表（Perplexity掲載単価との照合用）"
+    url: "https://ai.google.dev/gemini-api/docs/pricing"
+    accessedAt: "2026-09-28"
+  - label: "Wikipedia: Perplexity AI（創業史・資金調達推移・Cometブラウザ・Microsoftとのクラウド契約・出版社との著作権紛争の集約）"
     url: "https://en.wikipedia.org/wiki/Perplexity_AI"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
 ---
 
 ## サービス解説
@@ -50,7 +73,7 @@ sources:
 Perplexityは2022年8月、Aravind Srinivas氏ら4人が設立したAI検索エンジンだ。同年12月7日に検索サービスを公開した。従来の検索エンジンのようにリンク一覧を返すのではなく、出典を明示した要約回答をその場で生成する「answer engine（回答エンジン）」として位置づけられている。
 
 :::fact
-Wikipediaの集約情報によれば、資金調達は2023年4月のシリーズA（2,600万ドル）から始まり、2024年4月には評価額10億ドルを突破、2025年6月に140億ドル、同年9月に200億ドルへと急拡大し、2026年初頭には212.1億ドル（シリーズE-6）に達したとされる。主要投資家にはJeff Bezos氏・Nvidia・Databricks等が名を連ねる。Perplexity公式APIドキュメントによれば、検索特化の自社モデル「Sonar」ファミリー（軽量版のSonarから推論特化のSonar Reasoning Pro、深い調査向けのSonar Deep Researchまで）に加え、OpenAI・Anthropic・Google・xAI等のサードパーティモデルをAgent API経由で「マークアップなし」（プロバイダーの提供価格のまま）でルーティングしていると明記されている。
+Wikipediaの集約情報によれば、資金調達は2023年4月のシリーズA（2,600万ドル）から始まり、2024年4月には評価額10億ドルを突破、2025年6月に140億ドル、同年9月に200億ドルへと急拡大し、2026年初頭には212.1億ドル（シリーズE-6）に達したとされる。主要投資家にはJeff Bezos氏・Nvidia・Databricks等が名を連ねる。Perplexity公式APIドキュメントによれば、検索特化の自社モデル「Sonar」ファミリー（軽量版のSonarから推論特化のSonar Reasoning Pro、深い調査向けのSonar Deep Researchまで）に加え、OpenAI・Anthropic・Google・xAI・Z.AI・Moonshot AI・NVIDIAのサードパーティモデルを、Agent API経由で各モデルの公表料金による透明なトークン課金で提供すると明記されている（2026年9月28日確認。当サイトの初版では「マークアップなし」という表現で紹介していた）。
 :::
 
 :::pull
@@ -73,7 +96,7 @@ PerplexityのUXは、検索結果ではなく「出典付きの答え」を主�
 ::techstack
 
 :::fact
-Perplexity公式APIドキュメントによれば、自社開発の検索特化モデル「Sonar」ファミリーは、軽量な事実検索向けのSonar、複雑なクエリに対応するSonar Pro、思考の連鎖（Chain of Thought）による推論特化のSonar Reasoning Pro、網羅的な調査を行うSonar Deep Researchの4段階で構成される。これとは別に、Agent API経由でOpenAI・Anthropic・Google・xAI等のサードパーティモデルを「マークアップなし」でルーティングできると明記されている。課金体系は、Search APIが1,000リクエストあたり5.00ドルのトークン非依存課金、Web検索・URL取得等のツール呼び出しは1回0.005ドルとされる。
+Perplexity公式APIドキュメントによれば、自社開発の検索特化モデル「Sonar」ファミリーは、軽量な事実検索向けのSonar、複雑なクエリに対応するSonar Pro、思考の連鎖（Chain of Thought）による推論特化のSonar Reasoning Pro、網羅的な調査を行うSonar Deep Researchの4段階で構成される。同じドキュメントには、Sonar Chat CompletionsはAgent APIへ移り、Sonarのサポートは2026年9月27日までとする告知が掲載されている。Agent APIでは、OpenAI・Anthropic・Google・xAI・Z.AI・Moonshot AI・NVIDIAのサードパーティモデルを各モデルの公表料金で使えると明記されている。当サイトが2026年9月28日に照合したところ、掲載されているGemini 3.1 ProとGemini 3.8 Flashの単価は、Google公式のGemini API料金表と同額だった。課金体系は、Search APIが1,000リクエストあたり5.00ドルのトークン非依存課金、ツール呼び出しはWeb検索（web_search）が1回0.0025ドル、URL取得（fetch_url）が1回0.0005ドル、人物検索と金融検索が1回0.005ドルとされる。計算基盤については、AWS公式の導入事例に、PerplexityをAWS上に構築し、Amazon Bedrock経由でClaudeを提供していると記載されている。Wikipediaの集約情報（報道ベース）によれば、2026年1月にはMicrosoftと3年間・7億5,000万ドルの契約を結んでAzureも使い、主たるクラウドは引き続きAWSとされる。
 :::
 
 :::guess

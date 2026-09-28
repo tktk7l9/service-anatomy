@@ -6,8 +6,8 @@ lead: "Every agile practitioner has heard of 'the Spotify model.' But Spotify it
 category: media
 tags: [music-streaming, cloud-migration, engineering-culture, subscription, audio]
 publishedAt: "2026-07-20"
-updatedAt: "2026-07-20"
-lastVerified: "2026-07-20"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://open.spotify.com/"
 vendor: "Spotify Technology S.A."
 origin: "SE"
@@ -31,8 +31,9 @@ techStack:
     evidenceUrl: "https://engineering.atspotify.com/2023/04/spotifys-shift-to-a-fleet-first-mindset-part-1"
   - layer: "Edge / load balancing"
     name: "Envoy"
-    confidence: likely
-    evidence: "Our HTTP header observation (server: envoy / x-envoy-upstream-service-time, 2026-07-20); no official documentation found"
+    confidence: confirmed
+    evidence: "An incident report on the official engineering blog (2025-05-09) states that Spotify uses Envoy Proxy for its networking perimeter systems. This matches our HTTP header observation (server: envoy / x-envoy-upstream-service-time, 2026-07-20 and 2026-09-28)"
+    evidenceUrl: "https://engineering.atspotify.com/2025/05/incident-report-spotify-outage-on-april-16-2025"
 sources:
   - label: "Spotify official engineering blog: Fleet Management at Spotify Part 1 (2023-04)"
     url: "https://engineering.atspotify.com/2023/04/spotifys-shift-to-a-fleet-first-mindset-part-1"
@@ -43,12 +44,18 @@ sources:
   - label: "Spotify official engineering blog: Event Delivery – Life in the Cloud (2019-11 — Kafka to Pub/Sub)"
     url: "https://engineering.atspotify.com/2019/11/spotifys-event-delivery-life-in-the-cloud"
     accessedAt: "2026-07-20"
-  - label: "SEC Form 6-K (Spotify Technology S.A. — full-year 2025 results)"
-    url: "https://www.sec.gov/Archives/edgar/data/1639920/000114036125040271/ef20057592_ex99-1.htm"
-    accessedAt: "2026-07-20"
+  - label: "SEC Form 6-K (Spotify Technology S.A. — Q4 and full-year 2025 results, 2026-02-10)"
+    url: "https://www.sec.gov/Archives/edgar/data/1639920/000114036126004482/ef20065075_ex99-1.htm"
+    accessedAt: "2026-09-28"
   - label: "45 Degrees: The death of the 'Spotify Model'"
     url: "https://45degrees.be/the-death-of-the-spotify-model/"
     accessedAt: "2026-07-20"
+  - label: "SEC Form 6-K (Spotify Technology S.A. — Q2 2026 interim financial report)"
+    url: "https://www.sec.gov/Archives/edgar/data/0001639920/000162828026052543/spot-20260630x6xk.htm"
+    accessedAt: "2026-09-28"
+  - label: "Spotify official engineering blog: incident report on the April 16, 2025 outage (2025-05-09 — Envoy Proxy at the perimeter)"
+    url: "https://engineering.atspotify.com/2025/05/incident-report-spotify-outage-on-april-16-2025"
+    accessedAt: "2026-09-28"
 ---
 
 Squads, tribes, chapters, guilds — anyone in the agile world knows these four words. Companies everywhere have tried to copy this organizational model as "the Spotify model." But Spotify itself set the framework aside over a decade ago. Behind the legend, what's still actually running is quieter, and operates at a far larger scale.
@@ -58,7 +65,7 @@ Squads, tribes, chapters, guilds — anyone in the agile world knows these four 
 Spotify is a Swedish music, podcast, and audiobook streaming service, founded in 2006 and now listed on the NYSE via American Depositary Shares.
 
 :::fact
-Per its SEC filing (full-year 2025 results), Spotify's monthly active users (MAU) topped 750 million and Premium subscribers reached 290 million for full-year 2025, with annual revenue of €17.19 billion (up 9.7% year over year) — of which Premium subscriber revenue was €15.35 billion, 89.3% of total revenue. "The Spotify model" traces back to a 2012 paper, "Scaling Agile @ Spotify," by Henrik Kniberg and Anders Ivarsson, who have since repeatedly explained it was only a snapshot of that moment, never intended as a generic framework.
+Per its SEC filing (full-year 2025 results), Spotify ended 2025 with 751 million monthly active users (MAU) and 290 million Premium subscribers, with annual revenue of €17.19 billion (up 9.7% year over year) — of which Premium subscriber revenue was €15.35 billion, 89.3% of total revenue. By the end of June 2026, MAU had grown to 777 million and Premium subscribers to 300 million (Q2 2026 filing). "The Spotify model" traces back to a 2012 paper, "Scaling Agile @ Spotify," by Henrik Kniberg and Anders Ivarsson, who have since repeatedly explained it was only a snapshot of that moment, never intended as a generic framework.
 :::
 
 :::pull
@@ -81,7 +88,7 @@ Spotify's UX centers on machine-learning-driven curation, polished to minimize t
 ::techstack
 
 :::fact
-Per the official engineering blog, Spotify migrated to Google Cloud Platform in stages starting in 2016 and had retired all four of its self-operated data centers by 2018. Event delivery infrastructure originally depended on an older Kafka version paired with Hadoop, but migrated to Google Cloud Pub/Sub in 2016-2017, fully decommissioning the old system in February 2017. An official blog post from April 2023 describes a shift to "Fleet Management" — automatically applying changes across thousands of repositories at once rather than case by case — citing a Log4j vulnerability fix deployed to 80% of production within 9 hours. The same post notes a single Java runtime upgrade once took eight months and roughly 2,000 semi-automated pull requests.
+Per the official engineering blog, Spotify migrated to Google Cloud Platform in stages starting in 2016 and had retired all four of its self-operated data centers by 2018. Event delivery infrastructure originally depended on an older Kafka version paired with Hadoop, but migrated to Google Cloud Pub/Sub in 2016-2017, fully decommissioning the old system in February 2017. An official blog post from April 2023 describes a shift to "Fleet Management" — automatically applying changes across thousands of repositories at once rather than case by case — citing a Log4j vulnerability fix deployed to 80% of production within 9 hours. The same post notes a single Java runtime upgrade once took eight months and roughly 2,000 semi-automated pull requests. An official incident report from May 2025 states that Spotify uses Envoy Proxy for its networking perimeter, the first software to receive users' traffic.
 :::
 
 :::guess
@@ -93,7 +100,7 @@ Moving from Kafka to Google Cloud Pub/Sub looks like a response to a specific de
 Spotify's revenue structure leans almost entirely on Premium subscriptions.
 
 :::fact
-Per its SEC filing, of €17.19 billion in full-year 2025 revenue, Premium subscriber revenue was €15.35 billion (89.3%), with the Ad-Supported business — including advertising revenue — making up roughly the remaining tenth. Premium subscribers exceeded 290 million and MAU topped 750 million, with further growth guided for Q1 2026.
+Per its SEC filing, of €17.19 billion in full-year 2025 revenue, Premium subscriber revenue was €15.35 billion (89.3%), with the Ad-Supported business — including advertising revenue — making up roughly the remaining tenth. At the end of 2025, Premium subscribers stood at 290 million and MAU at 751 million. In Q2 2026, revenue was €4.777 billion, of which Premium was €4.331 billion (90.7%) and Ad-Supported €446 million; at the end of June, Premium subscribers were 300 million and MAU 777 million.
 :::
 
 :::guess
