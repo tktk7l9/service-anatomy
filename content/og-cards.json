@@ -159,6 +159,14 @@
     "image": "https://locker.klarna.com/transform/37024108-f4e3-4f28-9f94-41c80348c7a1/StockImagery2024_Web_Hero_Device_Backside_V4_16x9_Global",
     "fetchedAt": "2026-08-06"
   },
+  "lifull-homes": {
+    "url": "https://www.homes.co.jp/",
+    "title": "不動産売買・賃貸物件・住宅情報（マンション・一戸建て）ならLIFULL HOME",
+    "description": "日本最大級の不動産・住宅情報サイトLIFULL HOME",
+    "image": "https://www.homes.co.jp/search/assets/img/default/page/index/ogimg_lifullhomes_top.png",
+    "siteName": "不動産・賃貸・住宅情報（マンション・一戸建て）ならLIFULL HOME",
+    "fetchedAt": "2026-09-28"
+  },
   "linear": {
     "url": "https://linear.app/",
     "title": "Linear – The system for product development",
