@@ -33,12 +33,12 @@ techStack:
   - layer: "バックエンド"
     name: "Python (FastAPI)"
     confidence: confirmed
-    evidence: "公式の採用ページ（Growth Engineer）に、スタックとしてバックエンドはPython（FastAPI）と明記。当サイトの観測（2026-09-28）でもapi.elevenlabs.ioの応答ヘッダーに server: uvicorn（PythonのASGIサーバー）が返る"
+    evidence: "公式の採用ページ（音声図書アプリElevenReaderのGrowth Engineer）に、チームのスタックとしてバックエンドはPython（FastAPI）と明記。当サイトの観測（2026-09-28）でも、api.elevenlabs.ioが server: uvicorn（PythonのASGIサーバー）を返し、存在しないパスにはFastAPI既定の detail: Not Found 形式で応答し、/openapi.json も公開している"
     evidenceUrl: "https://elevenlabs.io/careers/bed47ac1-9c5c-44ae-8965-3a4312706328/growth-engineer"
   - layer: "Webサイト"
     name: "Next.js (React / TypeScript)"
     confidence: confirmed
-    evidence: "公式の採用ページ（Growth Engineer）に、フロントエンドはNext.js（React, TypeScript）と明記。当サイトの観測でもelevenlabs.ioが x-powered-by: Next.js を返す"
+    evidence: "当サイトの観測（2026-09-28）で、elevenlabs.ioが x-powered-by: Next.js を返す。公式の採用ページ（ElevenReaderのGrowth Engineer）も、チームのフロントエンドのスタックをNext.js（React, TypeScript）と明記"
     evidenceUrl: "https://elevenlabs.io/careers/bed47ac1-9c5c-44ae-8965-3a4312706328/growth-engineer"
   - layer: "リアルタイム音声API"
     name: "WebSocket (streamed text input + per-character alignment)"
@@ -123,6 +123,12 @@ sources:
   - label: "ElevenLabs公式ドキュメント: Payouts（Stripe Connect・週次支払い）"
     url: "https://elevenlabs.io/docs/eleven-creative/voices/payouts"
     accessedAt: "2026-09-28"
+  - label: "ElevenLabs公式ブログ: 声のクリエイターの報酬が2,200万ドルに（2026-05-22）"
+    url: "https://elevenlabs.io/blog/22-million-earned-by-voice-creators-on-elevenlabs"
+    accessedAt: "2026-09-28"
+  - label: "ElevenLabs公式ブログ: APIとエージェントの値下げと従量課金の導入（2026-05-07）"
+    url: "https://elevenlabs.io/blog/weve-lowered-api-agents-pricing-and-introduced-pay-as-you-go"
+    accessedAt: "2026-09-28"
   - label: "ElevenLabs公式: Safety"
     url: "https://elevenlabs.io/safety"
     accessedAt: "2026-09-28"
@@ -141,11 +147,11 @@ sources:
 ElevenLabsは、テキスト読み上げ（TTS）・文字起こし（STT）・吹き替え・効果音・音楽生成、そして電話やチャットで応対するAIエージェントを提供するAI音声の会社だ。製品は、企業向けの音声・チャットエージェント「ElevenAgents」、クリエイター向けの制作ツール「ElevenCreative」、開発者向けの「ElevenAPI」の3つに分かれている。
 
 :::fact
-Wikipediaによれば、ElevenLabsは2022年に、元Googleのエンジニアだったピョートル・ドンプコフスキと元Palantirのマティ・スタニシェフスキというポーランド出身の2人が創業した。出来の悪い吹き替えのアメリカ映画を見て育った体験が創業のきっかけになったと報じられている。公式のllms.txtは、2023年1月に「最初の人間らしいAI音声モデル」で公開したと書く。資金調達は、2025年1月30日のシリーズCが1億8,000万ドル（評価額33億ドル、a16zとICONIQ Growthが主導）、2026年2月4日のシリーズDが5億ドル（評価額110億ドル、Sequoia Capitalが主導）で、公式ブログによれば累計調達額は7億8,100万ドルになった。
+Wikipediaによれば、ElevenLabsは2022年に、元Googleのエンジニアだったピョートル・ドンプコフスキと元Palantirのマティ・スタニシェフスキというポーランド出身の2人が創業した。出来の悪い吹き替えのアメリカ映画を見て育った体験が創業のきっかけになったと報じられている。公式のllms.txtは、2023年1月に「最初の人間らしいAI音声モデル」で公開したと書く。資金調達は、2025年1月30日のシリーズCが1億8,000万ドル（評価額33億ドル、a16zとICONIQ Growthが主導）、2026年2月4日のシリーズDが5億ドル（評価額110億ドル、Sequoia Capitalが主導）で、シリーズDの公式発表時点で、累計調達額は創業以来5回の調達で7億8,100万ドルになった。
 :::
 
 :::fact
-シリーズDの公式発表は、2025年を「3億3,000万ドル超のARR」で終えたと書いた。2026年5月5日の公式ブログは2025年末のARRを3億5,000万ドルとし、2026年の最初の4か月でARR5億ドルを超えたと発表している。同じ記事によれば、従業員は50か国以上に530人で、成長を牽引したのはカスタマーサポート・営業・採用などに音声エージェントを導入する企業だという。投資家にはBlackRockなどの機関投資家のほか、NVIDIA・Salesforce・Deutsche Telekomといった事業会社、俳優のジェイミー・フォックスらが加わった。シリーズDの発表は顧客として、Deutsche Telekom・Revolut・Meta・Epic Games・Duolingo・NVIDIAなどの名前を挙げている。
+シリーズDの公式発表は、2025年を「3億3,000万ドル超のARR」で終えたと書いた。2026年5月5日の公式ブログは2025年末のARRを3億5,000万ドルとし、2026年の最初の4か月でARR5億ドルを超えたと発表している。同じ記事によれば、従業員は50か国以上に530人で、成長を牽引したのはカスタマーサポート・営業・採用などに音声エージェントを導入する企業だという。この記事はシリーズDの3回目のクローズにあたり、投資家にはBlackRockなどの機関投資家のほか、NVIDIA・Santander・Deutsche Telekomといった事業会社、俳優のジェイミー・フォックスらが加わった。シリーズDの発表は顧客として、Deutsche Telekom・Revolut・Meta・Epic Games・Duolingo・NVIDIAなどの名前を挙げている。
 :::
 
 :::pull
@@ -162,7 +168,7 @@ ElevenLabsのUXは、「開発者には速さ、クリエイターには選択�
 - **LLMの出力をそのまま流し込める**。WebSocketのエンドポイントは、テキストを少しずつ送りながら音声を受け取れ、文字ごとの開始時刻と長さ（alignment）も返す。LLMが文章を書き終えるのを待たずに読み上げ始め、字幕や口の動きを合わせる、という音声エージェントの定番の作りがAPIの形に組み込まれている。
 - **AIエージェントが読みやすい入口を用意する**。公式サイトはllms.txtを置き、`Accept: text/markdown` を付けて取得すると、ナビゲーションを除いたMarkdownを返す。OAuthで接続するホスト型のMCPサーバーもあり、Claude CodeやCursorなどから音声生成やエージェントの設定変更を呼べる。
 - **1つのクレジットを全製品で使い回す**。料金ページによれば、月額プランのクレジットは読み上げ・文字起こし・音楽・吹き替えなどで共有され、使わなかった分は最大2か月（月の割当の2倍まで）繰り越せる。ただしダウングレードや解約をすると未使用分は失われる。
-- **声のマーケットに「人間の確認」を挟む**。Voice Libraryには、人間が確認したProfessional Voice Clone（本人の録音から作る高精度な声の複製）だけを公開でき、Instant Voice Cloneや合成した声、他社AIで作った声は載せられない。声の持ち主は、公開を止めるときの予告期間を選べ、長い予告期間を選ぶほど報酬の率が上がる。
+- **声のマーケットに「人間の確認」を挟む**。Voice Libraryには、人間が確認したProfessional Voice Clone（本人の録音から作る高精度な声の複製）だけを公開でき、Instant Voice Cloneや合成した声、他社AIで作った声は載せられない。声の持ち主は、公開を止めるときの予告期間（最短30日・最長2年）を選べ、長い予告期間を選ぶほど報酬の率が上がる。
 
 :::fact
 公式のSafetyページによれば、ElevenLabsは有名人など悪用リスクの高い声の複製を止め、Professional Voice Cloningには技術的な本人確認を課し、音声がElevenLabs製かどうかを判定するAI Speech Classifierを公開している。コンテンツの来歴を示す標準C2PAにも対応する。Wikipediaによれば、2023年初めには掲示板で有名人の声のディープフェイクが作られ、2024年1月には米ニューハンプシャー州の予備選でバイデン大統領（当時）を装う偽の自動音声電話に同社の技術が使われたと報じられた。同社はこれに対し、悪用の防止に取り組むと表明していた。
@@ -173,7 +179,7 @@ ElevenLabsのUXは、「開発者には速さ、クリエイターには選択�
 ::techstack
 
 :::fact
-Google Cloudの公式発表（2026年2月26日）によれば、ElevenLabsはNVIDIA RTX PRO 6000 Blackwell GPUを積んだGoogle CloudのG4仮想マシンで音声モデルを学習・提供し、この契約でより大きなBlackwell GPUのクラスターを使えるようになった。あわせて、エージェント製品にGeminiモデルを、制作製品にGoogleの動画モデルVeoを組み込み、Google Cloud Marketplaceでも販売を始めた。公式の採用ページはWebサイトのスタックをNext.js（React, TypeScript）とPython（FastAPI）と明記し、別の職種では「GCP優先のクラウド基盤、Kubernetes、Docker」の経験を求めている。公式のPython SDKは、API定義からSDKを自動生成するFernで作られている。
+Google Cloudの公式発表（2026年2月26日）によれば、両社は複数年の提携延長を結び、ElevenLabsはNVIDIA RTX PRO 6000 Blackwell GPUを積んだGoogle CloudのG4仮想マシンで音声モデルを学習・提供するとした。この契約で、より大きなBlackwell GPUのクラスターを使えるようになるという。あわせて、エージェント製品にGeminiモデルを、制作製品にGoogleの動画モデルVeoを組み込み、Google Cloud Marketplaceでも販売を始めた。音声図書アプリElevenReaderのグロース職の公式採用ページは、チームのスタックをNext.js（React, TypeScript）とPython（FastAPI）と明記し、別の職種では「GCP優先のクラウド基盤、Kubernetes、Docker」の経験を求めている。公式のPython SDKは、API定義からSDKを自動生成するFernで作られている。
 :::
 
 :::guess
@@ -189,11 +195,11 @@ SDKをFernで自動生成し、llms.txtとMarkdown応答とMCPサーバーを用
 ElevenLabsの収益は、個人・チーム向けの月額サブスクリプション、開発者向けのAPIの従量課金、企業向けのエージェントの通話分単位の課金という3本の柱でできている。
 
 :::fact
-料金ページによれば、ElevenCreativeの月額プランは、Free（0ドル・1万クレジット）、Starter（6ドル・3万クレジット、商用ライセンスとInstant Voice Cloning付き）、Creator（22ドル・初月11ドル・12万1,000クレジット、Professional Voice Cloning付き）、Pro（99ドル・60万クレジット）、Scale（299ドル・180万クレジット・3席）、Business（990ドル・600万クレジット・10席）、Enterpriseは個別見積もり。APIの単価は、Eleven v3とMultilingual v2が1,000文字あたり0.08ドル、FlashとTurboが0.04ドル、文字起こしのScribe v2が1時間あたり0.22ドル。ElevenAgentsは共有クレジットではなく通話の分数で課金し、追加の通話は1分0.08ドル、同時通話数の上限を超えた分は2倍の1分0.16ドル、LLMの利用料は選んだモデルに応じて別にかかる。新規事業向けには、12か月無料・3,300万文字分のスタートアップ助成プログラムもある。
+料金ページによれば、ElevenCreativeの月額プランは、Free（0ドル・1万クレジット）、Starter（6ドル・3万クレジット、商用ライセンスとInstant Voice Cloning付き）、Creator（22ドル・初月11ドル・12万1,000クレジット、Professional Voice Cloning付き）、Pro（99ドル・60万クレジット）、Scale（299ドル・180万クレジット・3席）、Business（990ドル・600万クレジット・10席）、Enterpriseは個別見積もり。APIの単価は、Eleven v3とMultilingual v2が1,000文字あたり0.08ドル、Eleven v3 ConversationalとFlash・Turboが0.04ドル、文字起こしのScribe v2が1時間あたり0.22ドル。2026年5月7日の公式ブログによれば、セルフサーブの開発者向けに読み上げを最大55%、文字起こしを最大45%、エージェントを最大20%値下げし、APIとエージェントに従量課金（pay as you go）を導入した。ElevenAgentsは共有クレジットではなく通話の分数で課金し、追加の通話は1分0.08ドル、同時通話数の上限を超えた分は2倍の1分0.16ドル、LLMの利用料は選んだモデルに応じて別にかかる。新規事業向けには、12か月無料・3,300万文字分のスタートアップ助成プログラムもある。
 :::
 
 :::fact
-公式ドキュメントによれば、Voice Libraryで自分の声が有料ユーザーに使われると、声の持ち主はStripe Connect経由で現金の報酬を受け取れる。支払いはおおむね週1回で、最低額は多くの国で10ドル。シリーズCの公式発表時点（2025年1月）で報酬の累計は200万ドル超、TIMEは約5,000人の声のクリエイターに500万ドルを払ったと伝えている。アフィリエイトプログラムはPartnerStack上で運営され、紹介した新規の有料契約について、最初の12か月の支払い額の22%を上限なしで払うと公式ページに書かれている。
+公式ドキュメントによれば、Voice Libraryで自分の声が有料ユーザーに使われると、声の持ち主はStripe Connect経由で現金の報酬を受け取れる。支払いはおおむね週1回で、最低額は多くの国で10ドル。報酬の累計は、シリーズCの公式発表時点（2025年1月）で200万ドル超、TIMEの2025年の記事では約5,000人に500万ドルだった。2026年5月22日の公式ブログによれば、2025年11月に1,100万ドルだった累計は半年で2,200万ドルを超え、報酬を得ているクリエイターは1万400人以上になった。アフィリエイトプログラムはPartnerStack上で運営され、紹介した新規の有料契約について、最初の12か月の支払い額の22%を上限なしで払うと公式ページに書かれている。
 :::
 
 :::guess

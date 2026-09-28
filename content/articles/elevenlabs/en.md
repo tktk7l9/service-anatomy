@@ -33,12 +33,12 @@ techStack:
   - layer: "Backend"
     name: "Python (FastAPI)"
     confidence: confirmed
-    evidence: "The official careers page (Growth Engineer) lists Python (FastAPI) as the backend stack. Our own observation (2026-09-28) also found api.elevenlabs.io returning server: uvicorn (a Python ASGI server)"
+    evidence: "The official careers page (Growth Engineer for ElevenReader, its audiobook app) lists Python (FastAPI) as the team's backend stack. Our own observation (2026-09-28) also found api.elevenlabs.io returning server: uvicorn (a Python ASGI server), answering unknown paths with FastAPI's default detail: Not Found response, and serving /openapi.json"
     evidenceUrl: "https://elevenlabs.io/careers/bed47ac1-9c5c-44ae-8965-3a4312706328/growth-engineer"
   - layer: "Website"
     name: "Next.js (React / TypeScript)"
     confidence: confirmed
-    evidence: "The official careers page (Growth Engineer) lists Next.js (React, TypeScript) as the frontend stack. Our observation also found elevenlabs.io returning x-powered-by: Next.js"
+    evidence: "Our observation (2026-09-28) found elevenlabs.io returning x-powered-by: Next.js. The official careers page (Growth Engineer for ElevenReader) also lists Next.js (React, TypeScript) as the team's frontend stack"
     evidenceUrl: "https://elevenlabs.io/careers/bed47ac1-9c5c-44ae-8965-3a4312706328/growth-engineer"
   - layer: "Realtime voice API"
     name: "WebSocket (streamed text input + per-character alignment)"
@@ -123,6 +123,12 @@ sources:
   - label: "ElevenLabs official docs: Payouts (Stripe Connect, weekly payouts)"
     url: "https://elevenlabs.io/docs/eleven-creative/voices/payouts"
     accessedAt: "2026-09-28"
+  - label: "ElevenLabs official blog: $22 million earned by voice creators (2026-05-22)"
+    url: "https://elevenlabs.io/blog/22-million-earned-by-voice-creators-on-elevenlabs"
+    accessedAt: "2026-09-28"
+  - label: "ElevenLabs official blog: lower API and Agents pricing and pay as you go (2026-05-07)"
+    url: "https://elevenlabs.io/blog/weve-lowered-api-agents-pricing-and-introduced-pay-as-you-go"
+    accessedAt: "2026-09-28"
   - label: "ElevenLabs official: Safety"
     url: "https://elevenlabs.io/safety"
     accessedAt: "2026-09-28"
@@ -141,11 +147,11 @@ For a long time, synthetic speech meant a voice that sounded plausible but unmis
 ElevenLabs is an AI audio company offering text to speech (TTS), transcription (STT), dubbing, sound effects, music generation, and AI agents that handle calls and chats. Its products are split into three platforms: ElevenAgents, voice and chat agents for businesses; ElevenCreative, production tools for creators; and ElevenAPI, for developers.
 
 :::fact
-According to Wikipedia, ElevenLabs was founded in 2022 by two Poles: Piotr Dąbkowski, formerly an engineer at Google, and Mati Staniszewski, formerly at Palantir. Growing up watching poorly dubbed American films was reportedly the inspiration. The official llms.txt says the company launched in January 2023 with "the first human-like AI voice model." On funding, the Series C on January 30, 2025 raised $180 million at a $3.3 billion valuation (led by a16z and ICONIQ Growth), and the Series D on February 4, 2026 raised $500 million at an $11 billion valuation (led by Sequoia Capital), bringing total funding to $781 million according to the official blog.
+According to Wikipedia, ElevenLabs was founded in 2022 by two Poles: Piotr Dąbkowski, formerly an engineer at Google, and Mati Staniszewski, formerly at Palantir. Growing up watching poorly dubbed American films was reportedly the inspiration. The official llms.txt says the company launched in January 2023 with "the first human-like AI voice model." On funding, the Series C on January 30, 2025 raised $180 million at a $3.3 billion valuation (led by a16z and ICONIQ Growth), and the Series D on February 4, 2026 raised $500 million at an $11 billion valuation (led by Sequoia Capital), bringing total funding to $781 million across five rounds as of the official Series D announcement.
 :::
 
 :::fact
-The official Series D announcement said the company closed 2025 with "over $330 million in ARR." An official blog post on May 5, 2026 put year-end 2025 ARR at $350 million and announced that ARR passed $500 million within the first four months of 2026. The same post says the company has 530 people across more than 50 countries, and that growth was driven by enterprises deploying voice agents in customer support, sales, hiring, and more. New investors include institutions such as BlackRock, corporates such as NVIDIA, Salesforce, and Deutsche Telekom, and actors including Jamie Foxx. The Series D announcement names customers including Deutsche Telekom, Revolut, Meta, Epic Games, Duolingo, and NVIDIA.
+The official Series D announcement said the company closed 2025 with "over $330 million in ARR." An official blog post on May 5, 2026 put year-end 2025 ARR at $350 million and announced that ARR passed $500 million within the first four months of 2026. The same post says the company has 530 people across more than 50 countries, and that growth was driven by enterprises deploying voice agents in customer support, sales, hiring, and more. The post covers the third close of the Series D, and new investors include institutions such as BlackRock, corporates such as NVIDIA, Santander, and Deutsche Telekom, and actors including Jamie Foxx. The Series D announcement names customers including Deutsche Telekom, Revolut, Meta, Epic Games, Duolingo, and NVIDIA.
 :::
 
 :::pull
@@ -162,7 +168,7 @@ ElevenLabs's UX is designed in three directions: speed for developers, choice fo
 - **You can pour LLM output straight in.** The WebSocket endpoint lets you send text a little at a time while receiving audio, and it returns each character's start time and duration (alignment). Starting to speak before the LLM has finished writing, and syncing subtitles or mouth movements, is the standard design for voice agents, and it is built into the shape of the API.
 - **It builds a front door that AI agents can read.** The official site serves an llms.txt, and pages fetched with `Accept: text/markdown` come back as Markdown without the navigation. There is also a hosted MCP server connected via OAuth, so tools such as Claude Code and Cursor can generate speech or change agent settings.
 - **One pool of credits works across every product.** According to the pricing page, a monthly plan's credits are shared across speech, transcription, music, dubbing, and more, and unused credits roll over for up to two months (up to 2x the monthly quota). Downgrading or cancelling forfeits the unused balance.
-- **The voice marketplace puts a human check in the loop.** Only Professional Voice Clones (high-fidelity clones built from the owner's own recordings) that a human has verified can be published to the Voice Library; Instant Voice Clones, designed voices, and voices made with other AI tools cannot. Voice owners choose a notice period for pulling a voice, and a longer notice period earns a higher reward rate.
+- **The voice marketplace puts a human check in the loop.** Only Professional Voice Clones (high-fidelity clones built from the owner's own recordings) that a human has verified can be published to the Voice Library; Instant Voice Clones, designed voices, and voices made with other AI tools cannot. Voice owners choose a notice period (30 days to 2 years) for pulling a voice, and a longer notice period earns a higher reward rate.
 
 :::fact
 According to the official Safety page, ElevenLabs blocks cloning of celebrity and other high-risk voices, requires technological verification for Professional Voice Cloning, offers an AI Speech Classifier that detects whether a clip was made with ElevenLabs, and supports the C2PA provenance standard. According to Wikipedia, in early 2023 users of an online message board made deepfake audio of celebrities, and in January 2024 the company's technology was reportedly used in fraudulent robocalls impersonating then-President Biden ahead of the New Hampshire primary. The company responded that it was dedicated to preventing misuse of audio AI tools.
@@ -173,7 +179,7 @@ According to the official Safety page, ElevenLabs blocks cloning of celebrity an
 ::techstack
 
 :::fact
-According to Google Cloud's official announcement (February 26, 2026), ElevenLabs trains and serves its voice models on Google Cloud G4 virtual machines with NVIDIA RTX PRO 6000 Blackwell GPUs, and the deal gives it access to a significantly larger Blackwell GPU cluster. ElevenLabs also integrated Gemini models into its agents product and Google's Veo video model into its creative product, and began selling on Google Cloud Marketplace. The official careers page lists the website stack as Next.js (React, TypeScript) and Python (FastAPI), and another role asks for experience with "cloud infrastructure (GCP preferred), Kubernetes, Docker." The official Python SDK is built with Fern, which generates SDKs automatically from an API definition.
+According to Google Cloud's official announcement (February 26, 2026), the two companies signed a multi-year extension of their partnership under which ElevenLabs will train and serve its voice models on Google Cloud G4 virtual machines with NVIDIA RTX PRO 6000 Blackwell GPUs, and the deal gives it access to a significantly larger Blackwell GPU cluster. ElevenLabs also integrated Gemini models into its agents product and Google's Veo video model into its creative product, and began selling on Google Cloud Marketplace. The official careers page for a growth role on ElevenReader, its audiobook app, lists the team's stack as Next.js (React, TypeScript) and Python (FastAPI), and another role asks for experience with "cloud infrastructure (GCP preferred), Kubernetes, Docker." The official Python SDK is built with Fern, which generates SDKs automatically from an API definition.
 :::
 
 :::guess
@@ -189,11 +195,11 @@ Generating SDKs with Fern and offering llms.txt, Markdown responses, and an MCP 
 ElevenLabs's revenue rests on three pillars: monthly subscriptions for individuals and teams, usage-based API billing for developers, and per-call-minute billing for enterprise agents.
 
 :::fact
-According to the pricing page, ElevenCreative's monthly plans are Free ($0, 10,000 credits), Starter ($6, 30,000 credits, with a commercial license and Instant Voice Cloning), Creator ($22, $11 for the first month, 121,000 credits, with Professional Voice Cloning), Pro ($99, 600,000 credits), Scale ($299, 1.8 million credits, 3 seats), Business ($990, 6 million credits, 10 seats), and custom-priced Enterprise. API rates are $0.08 per 1,000 characters for Eleven v3 and Multilingual v2, $0.04 for Flash and Turbo, and $0.22 per hour for Scribe v2 transcription. ElevenAgents is billed by call minutes rather than shared credits: additional minutes are $0.08, minutes above the concurrency limit are billed at double, $0.16, and LLM usage is charged separately depending on the model chosen. For new ventures there is also a startup grants program worth 12 months free and 33 million characters.
+According to the pricing page, ElevenCreative's monthly plans are Free ($0, 10,000 credits), Starter ($6, 30,000 credits, with a commercial license and Instant Voice Cloning), Creator ($22, $11 for the first month, 121,000 credits, with Professional Voice Cloning), Pro ($99, 600,000 credits), Scale ($299, 1.8 million credits, 3 seats), Business ($990, 6 million credits, 10 seats), and custom-priced Enterprise. API rates are $0.08 per 1,000 characters for Eleven v3 and Multilingual v2, $0.04 for Eleven v3 Conversational, Flash, and Turbo, and $0.22 per hour for Scribe v2 transcription. According to an official blog post on May 7, 2026, the company cut self-serve developer prices by up to 55% for text to speech, up to 45% for transcription, and up to 20% for agents, and introduced pay as you go for the API and agents. ElevenAgents is billed by call minutes rather than shared credits: additional minutes are $0.08, minutes above the concurrency limit are billed at double, $0.16, and LLM usage is charged separately depending on the model chosen. For new ventures there is also a startup grants program worth 12 months free and 33 million characters.
 :::
 
 :::fact
-According to the official docs, when paid users generate audio with your voice in the Voice Library, you receive cash rewards through Stripe Connect. Payouts typically happen once a week, with a minimum of $10 in most countries. At the time of the official Series C announcement (January 2025) cumulative payouts exceeded $2 million, and TIME reports $5 million paid to roughly 5,000 voice creators. The affiliate program runs on PartnerStack, and the official page says it pays 22% of all payments for the first 12 months on every new paid subscriber you refer, with no limits.
+According to the official docs, when paid users generate audio with your voice in the Voice Library, you receive cash rewards through Stripe Connect. Payouts typically happen once a week, with a minimum of $10 in most countries. Cumulative payouts exceeded $2 million at the time of the official Series C announcement (January 2025), and a 2025 TIME profile put them at $5 million to roughly 5,000 creators. According to an official blog post on May 22, 2026, the total rose from $11 million in November 2025 to over $22 million six months later, with more than 10,400 creators earning. The affiliate program runs on PartnerStack, and the official page says it pays 22% of all payments for the first 12 months on every new paid subscriber you refer, with no limits.
 :::
 
 :::guess
