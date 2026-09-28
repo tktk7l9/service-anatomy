@@ -32,6 +32,8 @@ const en: Dictionary = {
     visitService: "Official site",
     affiliateAria: "Affiliate link (PR)",
     affiliatePr: "PR",
+    affiliateNotice: "This article contains affiliate links (advertising).",
+    affiliateNoticeLink: "Advertising & affiliate policy",
     affiliateCta: "Try {service} for free",
     affiliateNote:
       "PR: We participate in the {program} and may earn a commission if you sign up via this link. It never affects our scores or analysis.",
@@ -111,15 +113,56 @@ const en: Dictionary = {
     dataTitle: "Open data",
     dataBody:
       "The structured data behind every article (anatomy scores, tech stacks, sources) is published as JSON. Feel free to quote or aggregate it — please credit this site with a link.",
+    disclosureLink: "Read our advertising & affiliate policy",
     disclaimerTitle: "Disclaimer",
     disclaimerBody:
       "The content of this site is analysis and opinion based on public information at the time of writing, with no guarantee of accuracy or completeness. Scores are the editors' subjective ratings. All names and trademarks belong to their respective owners. Links marked \"PR\" in articles are affiliate links.",
+  },
+  disclosure: {
+    title: "Advertising & affiliates",
+    lead: "Some articles on Service Anatomy contain advertising in the form of affiliate links. This page explains which articles do, how we label them, and why commissions do not shape what we write.",
+    whatTitle: "What affiliate links are",
+    whatBody: [
+      "An affiliate link is a link from a partner (referral) program run by the company behind a service (the advertiser). If you sign up for the service through such a link, we may receive a commission.",
+      "We therefore treat any article that contains an affiliate link as an article that contains advertising, and label it so you can tell at a glance.",
+    ],
+    howTitle: "How we label it",
+    howItems: [
+      "At the top of the article, before the body, we show a “PR” label and the sentence “This article contains affiliate links (advertising).”",
+      "The affiliate box at the end of the article shows “PR”, the name of the program we participate in, and that we may earn a commission.",
+      "Article cards in listings also show “PR”.",
+      "Affiliate links carry the search-engine advertising marker (rel=\"sponsored\").",
+      "Articles without affiliate links show none of these labels. The “Official site” link and the official link card in each article are not affiliate links.",
+    ],
+    independenceTitle: "Editorial independence",
+    independenceItems: [
+      "Whether or not a commission is involved never affects the anatomy scores or the content of an article.",
+      "Articles are not reviewed or approved by the companies covered; they are written solely from public information.",
+      "Articles with affiliate links follow the same methodology as every other article: cited sources, facts separated from guesses, and confidence labels for tech stacks.",
+      "Scores are the editors' subjective ratings.",
+      "We currently carry no advertising other than affiliate links — no banner ads and no articles written at a company's request or for payment.",
+    ],
+    programsTitle: "Programs we may use",
+    programsBody: "The partner programs we join take one of these forms:",
+    programsItems: [
+      "Programs joined through an affiliate network or advertising network",
+      "Referral (affiliate) programs run directly by the company behind a service",
+    ],
+    programsNote: "The affiliate box at the end of each article names the specific program involved.",
+    cookiesTitle: "Cookies",
+    cookiesBody:
+      "When you click an affiliate link, the partner program (or its tracking service) may use cookies or similar technologies on its own site to attribute the sign-up. That is governed by each company's privacy policy. This site itself sets no cookies for affiliate links.",
+    contactTitle: "Contact",
+    contactBody: "Questions or concerns about how we label advertising are welcome as a GitHub issue.",
+    contactLink: "GitHub Issues",
+    updatedLabel: "Last updated",
   },
   footer: {
     disclaimer:
       "An unofficial analysis publication. Content reflects public information at the time of writing and includes speculation.",
     trademark: "All names and trademarks belong to their respective owners.",
     github: "GitHub",
+    disclosure: "Advertising & affiliates",
   },
   notFound: {
     title: "Page not found",

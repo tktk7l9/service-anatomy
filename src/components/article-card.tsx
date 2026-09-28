@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Article } from "@/engine/articles";
+import { hasAffiliate } from "@/engine/articles/disclosure";
 import { formatDate } from "@/engine/format/date";
 import { estimateReadingMinutes, formatReadingTime } from "@/engine/format/reading-time";
 import type { Locale } from "@/i18n/config";
@@ -30,6 +31,8 @@ export function ArticleCard({
       <div className="card-body">
         <p className="kicker">
           <span>{dict.categories[frontmatter.category]}</span>
+          {/* Articles with affiliate links say so in listings too (text label, not color only). */}
+          {hasAffiliate(frontmatter) && <span className="kicker-pr">{dict.article.affiliatePr}</span>}
           <time dateTime={frontmatter.publishedAt}>
             {formatDate(frontmatter.publishedAt, locale)}
           </time>

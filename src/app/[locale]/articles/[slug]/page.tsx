@@ -6,11 +6,13 @@ import { ArticleCard } from "@/components/article-card";
 import { HeroArt } from "@/components/hero-art";
 import { JsonLd } from "@/components/json-ld";
 import { AffiliateCard } from "@/components/affiliate-card";
+import { AffiliateNotice } from "@/components/affiliate-notice";
 import { LinkCard } from "@/components/link-card";
 import { ScoreTrend } from "@/components/score-trend";
 import { SourcesList } from "@/components/sources-list";
 import { Toc } from "@/components/toc";
 import { ALL_ARTICLES, articleBySlug, ogCardFor, relatedTo } from "@/engine/articles";
+import { affiliateOf } from "@/engine/articles/disclosure";
 import { buildScoreTrend } from "@/engine/articles/revision-trend";
 import { formatDate } from "@/engine/format/date";
 import { estimateReadingMinutes, formatReadingTime } from "@/engine/format/reading-time";
@@ -87,6 +89,8 @@ export default async function ArticlePage({
     : null;
   const url = `${BASE_URL}/${locale}/articles/${article.slug}`;
   const readingTime = formatReadingTime(estimateReadingMinutes(body, locale), locale);
+  // One condition drives both the notice above the body and the PR card after it.
+  const affiliate = affiliateOf(frontmatter);
 
   const blogPosting = buildBlogPosting({
     url,
@@ -153,6 +157,7 @@ export default async function ArticlePage({
             </a>
           </span>
         </div>
+        {affiliate && <AffiliateNotice locale={locale} dict={dict} />}
       </header>
 
       <div className="article-hero">
@@ -167,8 +172,8 @@ export default async function ArticlePage({
           {ogCard && (
             <LinkCard card={ogCard} service={frontmatter.service} label={dict.article.visitService} />
           )}
-          {frontmatter.affiliate && (
-            <AffiliateCard affiliate={frontmatter.affiliate} service={frontmatter.service} dict={dict} />
+          {affiliate && (
+            <AffiliateCard affiliate={affiliate} service={frontmatter.service} dict={dict} />
           )}
 
           <ul className="tag-list">

@@ -8,6 +8,7 @@ import en from "@/i18n/dictionaries/en";
 import ja from "@/i18n/dictionaries/ja";
 import { techOverlap } from "@/engine/comparisons/diff";
 import { AffiliateCard } from "./affiliate-card";
+import { AffiliateNotice } from "./affiliate-notice";
 import { ArticleBody } from "./article-body";
 import { ArticleCard } from "./article-card";
 import { ComparisonScorecard } from "./comparison-scorecard";
@@ -32,9 +33,15 @@ vi.mock("next/navigation", () => ({
 describe("components smoke", () => {
   it("Header / Footer", () => {
     render(<Header locale="ja" dict={ja} />);
-    render(<Footer dict={ja} />);
+    render(<Footer locale="ja" dict={ja} />);
     expect(screen.getAllByText("Service Anatomy").length).toBeGreaterThan(0);
     expect(screen.getByText("English")).toHaveAttribute("href", "/en/articles/x");
+    expect(screen.getByText("広告・アフィリエイトについて")).toHaveAttribute("href", "/ja/disclosure");
+  });
+
+  it("Footer links the ad/affiliate policy in English too", () => {
+    render(<Footer locale="en" dict={en} />);
+    expect(screen.getByText("Advertising & affiliates")).toHaveAttribute("href", "/en/disclosure");
   });
 
   it("HeroArt は同じ theme から決定的な SVG を生成する", () => {
@@ -49,6 +56,29 @@ describe("components smoke", () => {
     render(<ArticleCard article={makeArticle("alpha-service")} locale="ja" dict={ja} featured />);
     expect(screen.getByRole("link")).toHaveAttribute("href", "/ja/articles/alpha-service");
     expect(screen.getByText("Alpha の解剖")).toBeInTheDocument();
+    expect(screen.queryByText("PR")).toBeNull();
+  });
+
+  it("ArticleCard shows a text PR label only for articles with an affiliate link", () => {
+    const affiliate = { url: "https://shopify.pxf.io/abc", program: "Shopify Affiliate Program" };
+    const { container } = render(
+      <ArticleCard article={makeArticle("beta-service", { affiliate })} locale="ja" dict={ja} />,
+    );
+    expect(container.querySelector(".kicker-pr")).toHaveTextContent("PR");
+  });
+
+  it("AffiliateNotice states advertising in words and links the policy page", () => {
+    const { container, unmount } = render(<AffiliateNotice locale="ja" dict={ja} />);
+    const notice = container.querySelector(".affiliate-notice");
+    expect(notice).toHaveTextContent("PR");
+    expect(notice).toHaveTextContent("この記事には広告（アフィリエイトリンク）が含まれます。");
+    expect(screen.getByRole("link")).toHaveAttribute("href", "/ja/disclosure");
+    unmount();
+    render(<AffiliateNotice locale="en" dict={en} />);
+    expect(screen.getByRole("link", { name: "Advertising & affiliate policy" })).toHaveAttribute(
+      "href",
+      "/en/disclosure",
+    );
   });
 
   it("Scorecard は総合値と各軸を表示する", () => {

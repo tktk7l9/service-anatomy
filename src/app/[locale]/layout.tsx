@@ -64,7 +64,7 @@ export default async function LocaleLayout({
     <div lang={locale}>
       <Header locale={locale} dict={dict} />
       <main className="container">{children}</main>
-      <Footer dict={dict} />
+      <Footer locale={locale} dict={dict} />
     </div>
   );
 }

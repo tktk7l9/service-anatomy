@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import { DISCLOSURE_PATH } from "@/engine/articles/disclosure";
 import { languageAlternates } from "@/engine/seo/alternates";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -50,6 +52,9 @@ export default async function AboutPage({
       </p>
       <h2>{dict.about.disclaimerTitle}</h2>
       <p>{dict.about.disclaimerBody}</p>
+      <p>
+        <Link href={`/${rawLocale}${DISCLOSURE_PATH}`}>{dict.about.disclosureLink}</Link>
+      </p>
     </div>
   );
 }

@@ -60,4 +60,15 @@ describe("i18n/dictionaries", () => {
       expect(dictionary.categories[id]).toBeTruthy();
     }
   });
+
+  // Consumer Affairs Agency operational standards, section 3-2(1)a: wording such as
+  // "広告" / "PR" makes the advertiser's display clear. Keep those words in the labels.
+  it.each([
+    ["ja", ja, "広告"],
+    ["en", en, "advertising"],
+  ] as const)("%s: the ad notice names advertising explicitly and the badge says PR", (_l, dictionary, word) => {
+    expect(dictionary.article.affiliateNotice).toContain(word);
+    expect(dictionary.article.affiliatePr).toBe("PR");
+    expect(dictionary.disclosure.howItems.join(" ")).toContain("PR");
+  });
 });
