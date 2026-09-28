@@ -6,8 +6,8 @@ lead: "Up to 12 friends. A notification arrives once an hour, and you have that 
 category: consumer-app
 tags: [video, social, closed-sns, bereal, gen-z]
 publishedAt: "2026-07-17"
-updatedAt: "2026-07-17"
-lastVerified: "2026-07-17"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://apps.apple.com/jp/app/setlog/id6587576438"
 vendor: "New Chat Inc."
 origin: "KR"
@@ -22,27 +22,38 @@ techStack:
   - layer: "CDN"
     name: "Fastly"
     confidence: likely
-    evidence: "Our HTTP header observation (x-served-by: cache-nrt-*, a signature Fastly header format, 2026-07-17); no official documentation found"
+    evidence: "Our HTTP header observation (x-served-by: cache-nrt-*, x-timer and other signature Fastly header formats, 2026-09-28); no official documentation found"
+  - layer: "Official site hosting"
+    name: "Firebase Hosting"
+    confidence: likely
+    evidence: "Our observation (2026-09-28): setlog.kr / newchat.kr return Firebase Hosting's signature vary: x-fh-requested-host, and their A records point to 199.36.158.100. No official documentation found; the app's own backend may be separate"
 sources:
   - label: "setlog official App Store (Japan) listing"
     url: "https://apps.apple.com/jp/app/setlog/id6587576438"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
   - label: "Business Insider Japan: after BeReal comes this — the K-pop-ignited Gen Z app 'Setlog'"
     url: "https://www.businessinsider.jp/article/2606-setlog-kpop-popular-app-vlog-friends-glimpse-real-life/"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
   - label: "Impress Watch: BeReal's runner-up 'setlog' is a hit — the unstoppable shift to closed social"
     url: "https://www.watch.impress.co.jp/docs/news/2116019.html"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
   - label: "Security Measures Lab: explaining setlog's risks and overview"
     url: "https://rocket-boys.co.jp/security-measures-lab/setlog-sns-privacy-threats/"
     accessedAt: "2026-07-17"
+  - label: "DG Daiwa Ventures: investment in New Chat Inc.'s seed round (PR TIMES, 2026-09-09)"
+    url: "https://prtimes.jp/main/html/rd/p/000000130.000076641.html"
+    accessedAt: "2026-09-28"
 ---
 
-Around the time BeReal started exhausting Gen Z with the anxiety of "post within two minutes or get caught being late," a small Korean app turned that exact fatigue into a product. setlog made a lighter social network by shooting fewer moments and removing the freedom to edit them.
+Around the time BeReal started exhausting Gen Z with the anxiety of "post within two minutes or get caught being late," a small app that first caught fire in Korea turned that exact fatigue into a product. setlog made a lighter social network by shooting fewer moments and removing the freedom to edit them.
 
 ## What the service is
 
-setlog is a video social app for recording daily life within friend groups of up to 12 people. It's operated by New Chat Inc., a Korean-founded startup with a presence in Seoul and New York.
+setlog is a video social app for recording daily life within friend groups of up to 12 people. It's operated by New Chat Inc., and it spread after becoming a hit in Korea.
+
+:::fact
+According to a press release issued on September 9, 2026 by investor DG Daiwa Ventures, New Chat Inc. was founded in 2024, is headquartered in New York, and is led by CEO Devin Doty, who has experience at Tumblr and Snapchat. The company received seed funding from DG Daiwa Ventures (amount undisclosed). Impress Watch (June 2026) reported the company as based in New York and Seoul.
+:::
 
 :::fact
 Per Impress Watch (June 2026), setlog sends a notification once an hour and users must shoot a roughly two-second clip in that moment — uploading previously recorded footage isn't possible. At day's end, every participant's clips are stitched together chronologically into an automatically generated mini vlog. Business Insider Japan (June 2026) reported that virality ignited after K-pop group SEVENTEEN and aespa's Karina posted videos made with the app on Instagram, with downloads exceeding 2 million in May 2026 alone; setlog also topped Japan's free App Store chart during the same period.
@@ -51,6 +62,8 @@ Per Impress Watch (June 2026), setlog sends a notification once an hour and user
 :::pull
 The promise of "you don't have to try hard" can't be built by adding features. setlog delivered it instead by taking away the option to filter, edit, or repost.
 :::
+
+Correction (September 28, 2026). The first version of this article described the operator as "a Korean-founded startup with a presence in Seoul and New York," which was wrong. The investor's press release gives New Chat Inc.'s headquarters as New York and its CEO as Devin Doty, who has experience at Tumblr and Snapchat. Korea is the market where setlog first took off, and the Seoul base is based on press reporting (Impress Watch).
 
 ::scorecard
 
@@ -68,11 +81,11 @@ setlog's UX reads as a precise prescription for the fatigue BeReal itself create
 ::techstack
 
 :::fact
-setlog ships as a native app on both the Japan App Store and Google Play. Our own observation on July 17, 2026 found the official site (setlog.kr / newchat.kr) served with a signature Fastly header (x-served-by: cache-nrt-*).
+setlog ships as a native app on both the Japan App Store and Google Play. Our own observation on September 28, 2026 found the official site (setlog.kr / newchat.kr) served with a signature Fastly header (x-served-by: cache-nrt-*) and Firebase Hosting's signature vary: x-fh-requested-host, with both domains' A records pointing to 199.36.158.100.
 :::
 
 :::guess
-New Chat Inc. appears to be a small startup with no public engineering blog or conference talks, and no primary source corroborating its backend (language, database, video-processing pipeline) could be found. Delivering an hourly notification pulse and stitching every participant's clips into chronological order chronologically is not a trivial workload — the very absence of published implementation detail likely reflects a fast-growing small team prioritizing feature velocity over public infrastructure communication.
+The official site appears to be served statically from Firebase Hosting (with Fastly as its delivery network), but whether the app's own backend also runs on Google's services is unknown. New Chat Inc. appears to be a small startup with no public engineering blog or conference talks, and no primary source corroborating its backend (language, database, video-processing pipeline) could be found. Delivering an hourly notification pulse and stitching every participant's clips together in chronological order is not a trivial workload — the very absence of published implementation detail likely reflects a fast-growing small team prioritizing feature velocity over public infrastructure communication.
 :::
 
 ## Business model
@@ -80,7 +93,7 @@ New Chat Inc. appears to be a small startup with no public engineering blog or c
 The business model is the part of this dissection with the least material to work with.
 
 :::fact
-The app is offered for free, and no ads or subscription tier could be confirmed from official sources. Security Measures Lab (June 2026) notes that while the developer claims group-only encryption, no third-party security audit has been published.
+The app is offered for free; its Japan App Store listing as of September 28, 2026 shows no in-app purchases, and no ads or subscription tier could be confirmed from official sources. The September 2026 funding announcement discloses no monetization plans either; it states that since its official launch the app gained millions of daily active users in a short time without major marketing spend (a claim from the investor's announcement, not independently verified). Security Measures Lab (June 2026) notes that while the developer claims group-only encryption, no third-party security audit has been published.
 :::
 
 :::guess

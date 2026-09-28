@@ -1,13 +1,13 @@
 ---
 service: "Shopify"
 title: "Rejuvenating 'Aged' Technology Yourself — How Rails-Founded Shopify Carries $378B a Year"
-description: "Shopify, the e-commerce platform giant, dissected: its two-decade bet on Ruby on Rails since 2004, building its own JIT compiler (YJIT) to push past Rails' performance ceiling, and the operational discipline behind handling trillions of database queries in a single Black Friday — from the official engineering blog and SEC filings."
+description: "Shopify, the e-commerce platform giant, dissected: its two-decade bet on Ruby on Rails since 2004, building its own JIT compiler (YJIT) to push past Rails' performance ceiling, and the operational discipline behind handling 10.5 trillion database queries over the 2024 BFCM weekend — from the official engineering blog and SEC filings."
 lead: "'Rails doesn't scale' has been conventional wisdom for years. Shopify has spent two decades disproving it head-on — not by leaving Rails, but by reaching into Rails and Ruby itself to rejuvenate them. We dissect the technical strategy that keeps $378 billion a year in merchandise volume flowing through the same framework the company was founded on."
 category: saas
 tags: [e-commerce, ruby-on-rails, saas, google-cloud, open-source]
 publishedAt: "2026-07-20"
-updatedAt: "2026-07-20"
-lastVerified: "2026-07-20"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://www.shopify.com/"
 affiliate:
   url: "https://shopify.pxf.io/YVmxNP"
@@ -27,10 +27,15 @@ techStack:
     confidence: confirmed
     evidence: "Official engineering blog: Shopify built YJIT, a JIT compiler built into the Ruby interpreter"
     evidenceUrl: "https://shopify.engineering/shopify-open-source-philosophy"
+  - layer: "Ruby runtime (next generation, experimental)"
+    name: "ZJIT"
+    confidence: confirmed
+    evidence: "Shopify's official Rails at Scale blog (2025-12-24) states ZJIT, a new JIT compiler built by the same Shopify team behind YJIT, ships in Ruby 4.0 (not enabled by default; the team advises holding off on production use)"
+    evidenceUrl: "https://railsatscale.com/2025-12-24-launch-zjit/"
   - layer: "Alternative Ruby implementation research"
     name: "TruffleRuby (joint research with Oracle)"
     confidence: confirmed
-    evidence: "Official engineering blog: Shopify collaborates with Oracle on TruffleRuby, a high-performance alternative Ruby implementation"
+    evidence: "Official engineering blog (2022-07): Shopify collaborates with Oracle on TruffleRuby, a high-performance alternative Ruby implementation"
     evidenceUrl: "https://shopify.engineering/shopify-open-source-philosophy"
   - layer: "Cloud platform"
     name: "Google Cloud (multi-region)"
@@ -40,17 +45,23 @@ techStack:
   - layer: "CDN"
     name: "Cloudflare"
     confidence: likely
-    evidence: "Our HTTP header observation (server: cloudflare, 2026-07-20). This covers the marketing site (shopify.com), separate from the app itself; no official documentation found"
+    evidence: "Our HTTP header observation (server: cloudflare, cf-ray; 2026-09-28). This covers the marketing site (shopify.com), separate from the app itself; no official documentation found"
 sources:
   - label: "Shopify official engineering blog: Shopify and Open Source (Rails, YJIT, TruffleRuby)"
     url: "https://shopify.engineering/shopify-open-source-philosophy"
-    accessedAt: "2026-07-20"
+    accessedAt: "2026-09-28"
   - label: "Shopify official engineering blog: How we prepare Shopify for BFCM (2025-11 — measured traffic figures)"
     url: "https://shopify.engineering/bfcm-readiness-2025"
-    accessedAt: "2026-07-20"
-  - label: "SEC Form 8-K (Shopify Inc. — full-year 2025 earnings press release)"
+    accessedAt: "2026-09-28"
+  - label: "SEC Form 10-K (Shopify Inc. — annual report for fiscal 2025)"
     url: "https://www.sec.gov/Archives/edgar/data/1594805/000159480526000007/shop-20251231.htm"
-    accessedAt: "2026-07-20"
+    accessedAt: "2026-09-28"
+  - label: "Shopify official: transfer of U.S. listing from the NYSE to Nasdaq; no change to TSX listing (2025-03-18)"
+    url: "https://www.shopify.com/news/shopify-to-transfer-u-s-stock-exchange-listing-to-nasdaq-no-change-to-tsx-listing"
+    accessedAt: "2026-09-28"
+  - label: "Rails at Scale (Shopify official blog): ZJIT is now available in Ruby 4.0 (2025-12-24)"
+    url: "https://railsatscale.com/2025-12-24-launch-zjit/"
+    accessedAt: "2026-09-28"
   - label: "Ruby on Rails Foundation: on Shopify"
     url: "https://rubyonrails.org/foundation/shopify"
     accessedAt: "2026-07-20"
@@ -60,11 +71,17 @@ sources:
 
 ## What the service is
 
-Shopify is an e-commerce platform integrating online store building, payments, and inventory management. Founded in Ottawa, Canada in 2004, it is now listed on the NYSE.
+Shopify is an e-commerce platform integrating online store building, payments, and inventory management. Founded in Ottawa, Canada in 2004, it is now listed on Nasdaq in the US and on the Toronto Stock Exchange (TSX).
 
 :::fact
 Per its SEC filing (full-year 2025 results), platform gross merchandise volume (GMV) reached $378.4 billion in 2025, up 29% year over year, with total revenue of $11.6 billion, up 30%. Merchant Solutions revenue (payment processing fees, lending, referrals, advertising, and more) grew 35%, from $6.5 billion to $8.8 billion. Per the official engineering blog, Shopify has run on Ruby on Rails since its 2004 founding, and CEO Tobi Lütke was one of Rails' early Core team members.
 :::
+
+:::fact
+Per Shopify's official announcement (March 18, 2025), the company voluntarily transferred its US listing from the NYSE to Nasdaq, beginning to trade on Nasdaq on March 31, 2025. Its Toronto Stock Exchange listing is unchanged, and the ticker is "SHOP" on both.
+:::
+
+Correction (September 28, 2026). The first version said Shopify "is now listed on the NYSE," which was incorrect. Shopify moved its US listing to Nasdaq on March 31, 2025; it is currently listed on Nasdaq and the Toronto Stock Exchange.
 
 :::pull
 Most companies flee technical debt by migrating to a new framework. Shopify chose not to flee — it invested in the debt itself and rejuvenated it.
@@ -78,20 +95,24 @@ Shopify's UX is designed around the merchant — a non-engineer decision-maker �
 
 - **Theme and app ecosystems lower the barrier to entry.** Thousands of themes and apps extend functionality without writing code, letting solo entrepreneurs and large enterprises operate from the same admin panel.
 - **Technical investment concentrates on checkout optimization.** Payment abandonment maps directly to e-commerce revenue, so Shopify treats the checkout experience itself as core competitive advantage.
-- **BFCM (Black Friday/Cyber Monday) — an annual stress test — builds UX trust.** Per the official blog, 2024's BFCM processed 57.3 petabytes of data, peaking at 284 million requests per minute at the edge, with 12 terabytes per minute flowing on Black Friday alone. Absorbing that scale without buckling is itself the biggest reassurance for merchants.
+- **BFCM (Black Friday/Cyber Monday) — an annual stress test — builds UX trust.** Per the official blog, 2024's BFCM processed 57.3 petabytes of data and 10.5 trillion database queries, peaking at 284 million requests per minute at the edge, with 12 terabytes per minute flowing on Black Friday alone. Absorbing that scale without buckling is itself the biggest reassurance for merchants.
 - **Admin complexity is a trade-off with scale.** As features accumulate, smaller merchants sometimes find the interface over-equipped for their needs — balancing simplicity with extensibility remains an ongoing challenge.
+
+Correction (September 28, 2026). The first version's article description said Shopify handles "trillions of database queries in a single Black Friday," which was incorrect. The official blog's 10.5 trillion queries covers the entire 2024 BFCM period; the figure it gives for Black Friday alone is 12 terabytes of data per minute.
 
 ## Tech stack
 
 ::techstack
 
 :::fact
-Per the official engineering blog, Shopify has run on Ruby on Rails since founding, and with a CEO who was himself a Rails Core member, the company keeps investing in Ruby/Rails performance research with a stated "100-year company" horizon. The centerpiece is YJIT, a self-built JIT compiler embedded in the Ruby interpreter to raise execution speed, alongside joint research with Oracle on TruffleRuby, a faster alternative Ruby implementation. Infrastructure runs multi-region on Google Cloud, and a November 2025 official post describes eight months (March through the BFCM window) of chaos engineering ("Game Days") and staged load testing to prepare.
+Per the official engineering blog, Shopify has run on Ruby on Rails since founding, and with a CEO who was himself a Rails Core member, the company keeps investing in Ruby/Rails performance research with a stated "100-year company" horizon. The centerpiece is YJIT, a self-built JIT compiler embedded in the Ruby interpreter to raise execution speed; the same 2022 post also says Shopify collaborates with Oracle on TruffleRuby, a faster alternative Ruby implementation. Ruby 4.0, released in December 2025, ships ZJIT, a new JIT compiler built by the same Shopify team behind YJIT (experimental and not enabled by default; the official blog advises holding off on production use). Infrastructure runs multi-region on Google Cloud, and a November 2025 official post describes nine months of preparation starting in March, with chaos engineering ("Game Days") and staged load testing ahead of BFCM.
 :::
 
 :::guess
 Not switching frameworks reads as a rational call to preserve two decades of accumulated domain knowledge and codebase, but it's likely also a long-term strategic investment in the Rails/Ruby community as a whole. Funding YJIT and TruffleRuby doesn't just solve Shopify's own performance problems — it raises the Rails/Ruby ecosystem's overall reputation for handling scale, which in turn likely makes it easier to hire Rails talent. Pushing your own technology choice toward becoming the industry standard is a plausible way to thin your own fixed costs over the long run.
 :::
+
+Correction (September 28, 2026). The first version said preparation for BFCM took "eight months" starting in March, which was incorrect. The official blog describes the preparation period as "nine months."
 
 ## Business model
 

@@ -6,8 +6,8 @@ lead: "個人開発者が作った技術記事プラットフォームが、公�
 category: media
 tags: [tech-blog, markdown, nextjs, google-cloud, indie-dev]
 publishedAt: "2026-07-17"
-updatedAt: "2026-07-17"
-lastVerified: "2026-07-17"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://zenn.dev/"
 vendor: "クラスメソッド"
 origin: "JP"
@@ -44,26 +44,41 @@ techStack:
     confidence: confirmed
     evidence: "クラスメソッドのGoogle Cloud導入事例（2023-03）にTerraform管理・BigQueryログ集計・Looker Studio活用と明記"
     evidenceUrl: "https://classmethod.jp/cases/zenn/"
+  - layer: "ロードバランサ"
+    name: "Cloud Load Balancing"
+    confidence: confirmed
+    evidence: "Zenn公式チームのCloud Run移行記事に、ロードバランサのバックエンドサービスをServerless NEG経由でCloud Runへ切り替えて無停止移行したと明記。当サイトの観測（via: 1.1 google、2026-09-28）とも整合"
+    evidenceUrl: "https://zenn.dev/team_zenn/articles/migrate-appengine-to-cloudrun"
+  - layer: "CSP違反レポート受信"
+    name: "Cloud Functions"
+    confidence: likely
+    evidence: "当サイトのHTTPヘッダー実観測（CSPのreport-uriがasia-northeast1のcloudfunctions.netを指す、2026-09-28）。公式ドキュメントでの明言は見当たらない"
   - layer: "CDN"
     name: "Cloudflare"
     confidence: likely
-    evidence: "当サイトのHTTPヘッダー実観測（server: cloudflare / cf-ray / cf-cache-status: HIT、2026-07-17）。公式ドキュメントでの明言は見当たらない"
+    evidence: "当サイトのHTTPヘッダー実観測（server: cloudflare / cf-ray / cf-cache-status: HIT、2026-09-28）。公式ドキュメントでの明言は見当たらない"
 sources:
   - label: "Zenn About（公式・機能と対価の仕組み）"
     url: "https://zenn.dev/about"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
   - label: "クラスメソッド: Zenn買収に関するプレスリリース（2021-02-01）"
     url: "https://classmethod.jp/news/20210201-zenn/"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
   - label: "team_zenn: ZennのバックエンドをApp EngineからCloud Runへ移行（2022-03）"
     url: "https://zenn.dev/team_zenn/articles/migrate-appengine-to-cloudrun"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
   - label: "クラスメソッド: ZennのGoogle Cloud導入事例（2023-03）"
     url: "https://classmethod.jp/cases/zenn/"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
   - label: "ITmedia: 技術情報コミュニティ「Zenn」クラスメソッドが買収（2021-02）"
     url: "https://www.itmedia.co.jp/news/articles/2102/01/news092.html"
     accessedAt: "2026-07-17"
+  - label: "What's New in Zenn: Publication機能が正式リリース＆Proプラン提供開始（2024-01-22）"
+    url: "https://info.zenn.dev/2024-01-22-publication-pro-release"
+    accessedAt: "2026-09-28"
+  - label: "What's New in Zenn: Publication Proが100件を突破（2026-07）"
+    url: "https://info.zenn.dev/2026-07-22-publication-pro-100"
+    accessedAt: "2026-09-28"
 ---
 
 日本のエンジニアが技術記事を書く場所は、長らくQiitaがほぼ唯一の答えだった。2020年9月、そこに個人開発のサービスが現れ、数年で「とりあえずZennに書く」という新しい既定値を作ってしまう。当サイトで取り上げた[Nani翻訳](/ja/articles/nani-translation)と[しずかなインターネット](/ja/articles/sizu-me)の開発者・catnose氏の原点であり、いまも最大のプロダクトであるZennを解剖する。
@@ -96,7 +111,7 @@ Zennの強さは、読む側ではなく「書く側」の体験に振り切っ�
 ::techstack
 
 :::fact
-Zenn公式チームの技術記事（2022年3月）によれば、構成はNext.jsとRails（APIモード）の2種のアプリケーションサーバーで、いずれもGoogle Cloud Run上で動く。もともとApp Engineで動いていたが、記事がバズった際のスケール遅延（起動に数分）を契機に無停止でCloud Runへ移行し、スパイク時の増強をおよそ10秒まで短縮した。インフラはTerraformで管理され、ログはBigQueryに集約してLooker Studioで可視化される。当サイトの2026年7月17日の観測でも、x-powered-by: Next.jsとGoogleのロードバランサ（via: 1.1 google）、CSP違反レポートの送信先としてasia-northeast1のCloud Functionsが確認できた。
+Zenn公式チームの技術記事（2022年3月）によれば、構成はNext.jsとRails（APIモード）の2種のアプリケーションサーバーで、いずれもGoogle Cloud Run上で動く。もともとApp Engineで動いていたが、記事がバズった際のスケール遅延（起動に数分）を契機に無停止でCloud Runへ移行し、スパイク時の増強をおよそ10秒まで短縮した。移行はCloud Load Balancingのバックエンドサービスを切り替える形で行われた。インフラはTerraformで管理され、ログはBigQueryに集約してLooker Studioで可視化される。当サイトの2026年9月28日の観測でも、x-powered-by: Next.jsとGoogleのロードバランサ（via: 1.1 google）、CSP違反レポートの送信先としてasia-northeast1のCloud Functionsが確認できた。
 :::
 
 :::guess
@@ -108,11 +123,13 @@ Zenn公式チームの技術記事（2022年3月）によれば、構成はNext.
 Zennの収益構造は、広告ではなくC2Cの手数料と親会社の戦略価値でできている。
 
 :::fact
-サービス内に広告は表示されない。収益化の仕組みは本の販売（0〜5,000円）と読者からのバッジ贈付で、いずれも書き手に対価が渡るC2C取引だ。運営はAWS支援事業などを手がけるクラスメソッドで、同社は買収時のプレスリリースで、自社技術ブログDevelopers.IOとは独立してZennを運営すると表明している。
+当サイトの確認では、サービス内に一般的な広告枠は見当たらない。個人向けの収益化の仕組みは本の販売（0〜5,000円）と読者からのバッジ贈付で、いずれも書き手に対価が渡るC2C取引だ。これとは別に、企業・組織向けの有料プラン「Publication Pro」が2024年1月22日に提供開始された。統計ダッシュボード、レビュー機能、組織の目的に合わせたバナー設置などを備え、2026年7月22日時点で利用Publicationは100を超えた（Publication全体では1,800超）。運営はAWS支援事業などを手がけるクラスメソッドで、同社は買収時のプレスリリースで、自社技術ブログDevelopers.IOとは独立してZennを運営すると表明している。
 :::
 
 :::guess
-本とバッジの手数料だけでこの規模のプラットフォームを賄えているかは公開されておらず、単体の収益性は限定的とみられる。むしろクラスメソッドにとってのZennは、国内エンジニアコミュニティの中心を押さえるブランド資産であり、採用・認知への波及効果を含めた投資と解釈するのが自然だ。catnose氏自身が譲渡理由として語った「個人がC2Cの金銭を預かる重さ」は、逆に言えば企業が持つことで初めて安定するモデルであり、個人開発の出口戦略としても教科書的な事例になっている。
+本・バッジの手数料とPublication Proの売上でこの規模のプラットフォームを賄えているかは公開されておらず、単体の収益性は限定的とみられる。むしろクラスメソッドにとってのZennは、国内エンジニアコミュニティの中心を押さえるブランド資産であり、採用・認知への波及効果を含めた投資と解釈するのが自然だ。catnose氏自身が譲渡理由として語った「個人がC2Cの金銭を預かる重さ」は、逆に言えば企業が持つことで初めて安定するモデルであり、個人開発の出口戦略としても教科書的な事例になっている。
 :::
 
 個人が4ヶ月半で作った文化が、企業の資本で持続可能になり、いまも開発者本人の思想（書き味・対価・データの持ち運びやすさ）を保ったまま動き続けている。Zennは「個人開発の成功」と「事業譲渡の成功」が両立した、日本ではまだ数少ない実例だ。
+
+訂正（2026年9月28日）。初版ではZennの収益化の仕組みを「本の販売と読者からのバッジ贈付」のみと書いていたが、誤りだった。2024年1月22日から企業・組織向けの有料プラン「Publication Pro」が提供されており、その記述を加えた。あわせて「サービス内に広告は表示されない」との記述を、当サイトの確認範囲に限った表現に改めた。

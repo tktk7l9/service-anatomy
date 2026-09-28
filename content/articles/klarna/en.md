@@ -6,8 +6,8 @@ lead: "A year after proudly announcing AI could handle the work of 700 customer 
 category: saas
 tags: [fintech, bnpl, ai, customer-service, ipo]
 publishedAt: "2026-07-20"
-updatedAt: "2026-07-20"
-lastVerified: "2026-07-20"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://www.klarna.com/"
 vendor: "Klarna Group plc"
 origin: "SE"
@@ -20,20 +20,26 @@ techStack:
     evidence: "Both Klarna's official press release (2024-02-27) and OpenAI's own official page state the AI assistant was built through a partnership with OpenAI"
     evidenceUrl: "https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/"
   - layer: "Delivery infrastructure"
-    name: "Amazon S3 + CloudFront"
+    name: "Amazon CloudFront + Envoy"
     confidence: confirmed
-    evidence: "Our own HTTP header observation (server: AmazonS3 / via: CloudFront, 2026-07-20) confirmed delivery of the corporate site"
+    evidence: "Our own HTTP header observation (via: CloudFront, x-amz-cf-pop / server: envoy; 2026-09-28) confirmed delivery of the corporate site. The 2026-07-20 observation showed server: AmazonS3; this time Envoy answered behind CloudFront"
     evidenceUrl: "https://www.klarna.com/"
 sources:
   - label: "Klarna official press release: AI assistant handles the work of 700 employees in one month (2024-02-27)"
     url: "https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/"
-    accessedAt: "2026-07-20"
+    accessedAt: "2026-09-28"
   - label: "OpenAI official: Klarna's AI assistant does the work of 700 full-time agents"
     url: "https://openai.com/index/klarna/"
     accessedAt: "2026-07-20"
   - label: "Klarna Group plc IR: full-year 2025 results (2026-02-26)"
     url: "https://investors.klarna.com/News--Events/news/news-details/2026/Klarna-Group-plc-Publishes-Full-Year-2025-Results/default.aspx"
-    accessedAt: "2026-07-20"
+    accessedAt: "2026-09-28"
+  - label: "Klarna Group plc IR: second-quarter 2026 results (2026-08-18)"
+    url: "https://investors.klarna.com/News--Events/news/news-details/2026/Klarna-Reports-Second-Quarter-2026-Results/default.aspx"
+    accessedAt: "2026-09-28"
+  - label: "CX Dive: Klarna changes its AI tune and again recruits humans for customer service (2025-05-09 — comments from a Klarna spokesperson)"
+    url: "https://www.customerexperiencedive.com/news/klarna-reinvests-human-talent-customer-service-AI-chatbot/747586/"
+    accessedAt: "2026-09-28"
   - label: "Forbes: Klarna Reverses AI Push, Says Customers Prefer Human Support (2025-05 — quoting the CEO's Bloomberg remarks)"
     url: "https://www.forbes.com/sites/quickerbettertech/2025/05/18/business-tech-news-klarna-reverses-on-ai-says-customers-like-talking-to-people/"
     accessedAt: "2026-07-20"
@@ -62,7 +68,9 @@ Klarna's UX sits at the intersection of two stories: BNPL's core strength of red
 - **Split-pay at checkout is the core invention.** Presenting a "buy now, pay later" option in a single click completes a credit decision without the heavy process of a credit card application. This shaped UX standards across the entire BNPL industry.
 - **The AI assistant overwhelmed on speed.** Per the official press release (February 2024), resolution time dropped from 11 minutes to under 2, with customer satisfaction reported on par with human agents. The initial numbers showing speed and satisfaction together were real, measured results.
 - **And still, the company chose to bring humans back.** CEO Sebastian Siemiatkowski told Bloomberg, "We focused too much on cost. The result was lower quality," and gradually reintroduced human operators through 2025. He effectively proved himself that numerical efficiency and the experience quality customers actually want don't necessarily align.
-- **Redesigned into an "Uber-style" hybrid.** Reporting describes a shift to flexible, part-time human operators (students, parents) supported by AI on every conversation — redefining AI as an assist rather than a replacement.
+- **Redesigned into an "Uber-style" hybrid.** The CEO said Klarna would test an "Uber-type of setup" letting people work remotely and flexibly, and a Klarna spokesperson reportedly described the recruits as "highly educated students, professionals and entrepreneurs" (CX Dive, May 2025). Human operators are now paired with AI — redefining AI as an assist rather than a replacement.
+
+Correction (September 28, 2026). The first version described the rehired human operators as "students, parents," which was incorrect. The Klarna spokesperson's description we could confirm in reporting was "highly educated students, professionals and entrepreneurs," with no mention of parents.
 
 ## Tech stack
 
@@ -82,6 +90,10 @@ Klarna's revenue combines merchant payment processing fees with consumer financi
 
 :::fact
 Per its official IR release (February 2026), full-year 2025 revenue was $3.5 billion (up 25% year over year), but adjusted operating profit was only $65 million, for an adjusted operating margin of just 1.9%. The company listed on the NYSE in September 2025.
+:::
+
+:::fact
+Per its later official IR release (August 18, 2026), second-quarter 2026 (three months) revenue was $1.042 billion (up 27% year over year), adjusted operating income was $91 million (up 214%), and IFRS net income was $9 million (versus a $53 million loss a year earlier). Adjusted operating income for the first half of 2026 was $159 million, already above the $65 million for all of 2025. At the same time, the company guided third-quarter 2026 adjusted operating income to $5–15 million, calling Q3 its "investment quarter."
 :::
 
 :::guess
