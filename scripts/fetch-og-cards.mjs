@@ -24,12 +24,14 @@ function decodeEntities(value) {
 
 function extractMeta(html, key) {
   const patterns = [
-    new RegExp(`<meta[^>]+(?:property|name)=["']${key}["'][^>]+content=["']([^"']+)["']`, "i"),
-    new RegExp(`<meta[^>]+content=["']([^"']+)["'][^>]+(?:property|name)=["']${key}["']`, "i"),
+    // Read double- and single-quoted values separately so an apostrophe inside a
+    // double-quoted value (e.g. "LIFULL HOME'S") does not cut the value short.
+    new RegExp(`<meta[^>]+(?:property|name)=["']${key}["'][^>]+content=(?:"([^"]+)"|'([^']+)')`, "i"),
+    new RegExp(`<meta[^>]+content=(?:"([^"]+)"|'([^']+)')[^>]+(?:property|name)=["']${key}["']`, "i"),
   ];
   for (const pattern of patterns) {
     const match = html.match(pattern);
-    if (match) return decodeEntities(match[1].trim());
+    if (match) return decodeEntities((match[1] ?? match[2]).trim());
   }
   return undefined;
 }
