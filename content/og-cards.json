@@ -343,6 +343,13 @@
     "siteName": "Vercel",
     "fetchedAt": "2026-08-06"
   },
+  "webflow": {
+    "url": "https://webflow.com/",
+    "title": "Webflow: The agentic web platform for modern businesses",
+    "description": "Design, build, optimize, and rank in AI search — all in Webflow. Enterprise-grade security, CMS, hosting, and AEO built in. Trusted by over 300k teams.",
+    "image": "https://cdn.prod.website-files.com/686294e263eb7e215bd232f7/6a048234cec10a58c38e1758_webflow-og.jpg",
+    "fetchedAt": "2026-09-28"
+  },
   "whatnot": {
     "url": "https://www.whatnot.com/",
     "title": "Whatnot: Shop, Sell, Connect",
