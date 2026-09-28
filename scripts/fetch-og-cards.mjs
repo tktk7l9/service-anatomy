@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-// 各記事の serviceUrl から OGP メタデータを取得し、
+// Fetches OGP metadata from each article's serviceUrl and generates
 //   content/og-cards.json      … slug → { title, description, image, siteName, fetchedAt }
-//   content/og-image-hosts.json … og:image のオリジン一覧（next.config.ts が読んで CSP の img-src に渡す）
-// を生成する。記事の追加・更新時に `npm run og-cards` で手動実行してコミットする。
-// next.config.ts がビルド時に読むので、ホストを追加したら再ビルドしないと CSP に反映されない。
-// 画像そのものは保存しない（リンクカードとして各社サーバーから直接表示 = 複製を避ける）。
+//   content/og-image-hosts.json … list of og:image origins (next.config.ts reads it and passes it to the CSP img-src)
+// Run manually with `npm run og-cards` when adding/updating articles, and commit the result.
+// next.config.ts reads it at build time, so newly added hosts reach the CSP only after a rebuild.
+// Images themselves are not stored (shown directly from each company's server as a link card = no copying).
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 

@@ -3,9 +3,9 @@ import type { Article } from "./load";
 import type { Confidence, Scores } from "./schema";
 import type { CategoryId } from "./taxonomy";
 
-// 全記事の構造化データを JSON 公開（/api/anatomy.json）するための純関数。
-// 言語中立フィールド（parity.ts の NEUTRAL_KEYS + name/confidence/evidenceUrl 等）は
-// ja 側を正とし、ローカライズされるフィールドは Localized<string> で両言語を含める。
+// Pure functions to publish the structured data of all articles as JSON (/api/anatomy.json).
+// Language-neutral fields (NEUTRAL_KEYS in parity.ts + name/confidence/evidenceUrl etc.)
+// take the ja side as authoritative; localized fields include both languages as Localized<string>.
 
 export interface AnatomyTechEntry {
   layer: Localized<string>;
@@ -88,7 +88,7 @@ function exportArticle(article: Article, baseUrl: string): AnatomyArticle {
   };
 }
 
-/** 全記事を機械可読な公開データセットに変換する。 */
+/** Converts all articles into a machine-readable public dataset. */
 export function buildAnatomyExport(
   articles: Article[],
   baseUrl: string,

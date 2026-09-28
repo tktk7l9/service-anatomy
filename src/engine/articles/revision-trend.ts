@@ -1,7 +1,7 @@
 import { SCORE_AXES, type RevisionEntry, type Scores } from "./schema";
 
-// 定点観測（再解剖）の履歴を、直前チェックポイントとの軸別デルタ付きで
-// 時系列に並べる純関数。revisions（過去）+ 現行 scores（最新）を1本の列にする。
+// Pure function that lays out the periodic re-anatomy history chronologically, with per-axis
+// deltas against the previous checkpoint. Joins revisions (past) + current scores (latest) into one series.
 
 export type ScoreDelta = "up" | "down" | "same";
 
@@ -10,7 +10,7 @@ export interface ScoreTrendCheckpoint {
   scores: Scores;
   note?: string;
   isCurrent: boolean;
-  /** 直前チェックポイントとの軸別差分。列の先頭（最古）は比較対象がないため undefined。 */
+  /** Per-axis delta against the previous checkpoint. undefined for the first (oldest) entry, which has nothing to compare against. */
   deltas?: Record<(typeof SCORE_AXES)[number], ScoreDelta>;
 }
 
@@ -22,7 +22,7 @@ function diffScores(current: Scores, previous: Scores): Record<(typeof SCORE_AXE
   return deltas;
 }
 
-/** revisions（時系列順・古い→新しい）+ 現行 scores を1本のチェックポイント列にする。 */
+/** Turns revisions (chronological, old→new) + current scores into one checkpoint series. */
 export function buildScoreTrend(
   revisions: RevisionEntry[],
   currentScores: Scores,

@@ -1,5 +1,5 @@
-// 記事カテゴリの正規リスト。表示名は i18n 辞書（categories）が
-// Record<CategoryId, string> で同形を強制される。
+// Canonical list of article categories. The i18n dictionary (categories) is forced into the same
+// shape as Record<CategoryId, string> for display names.
 export const CATEGORY_IDS = [
   "game",
   "ai-tool",

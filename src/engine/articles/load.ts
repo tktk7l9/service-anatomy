@@ -2,9 +2,9 @@ import path from "node:path";
 import { scanContentDirectory, type ContentEntry, type ContentFile } from "@/engine/content/scan";
 import { parseFrontmatter, type ArticleFrontmatter } from "./schema";
 
-// content/articles/<slug>/{ja.md, en.md} を読み込む。slug はディレクトリ名が正。
-// rootDir はテストから fixture ディレクトリを注入できるよう引数化してある。
-// ディレクトリスキャン自体は engine/content/scan.ts（比較解剖等と共通）。
+// Loads content/articles/<slug>/{ja.md, en.md}. The directory name is the authoritative slug.
+// rootDir is a parameter so tests can inject a fixture directory.
+// The directory scan itself is engine/content/scan.ts (shared with comparisons etc.).
 
 export type ArticleFile = ContentFile<ArticleFrontmatter>;
 export type Article = ContentEntry<ArticleFrontmatter>;
@@ -13,7 +13,7 @@ function defaultRootDir(): string {
   return path.join(process.cwd(), "content", "articles");
 }
 
-/** 全記事を読み込み、公開日の新しい順（同日は slug 昇順）で返す。 */
+/** Loads all articles and returns them newest first by publish date (same day: slug ascending). */
 export function loadArticles(rootDir: string = defaultRootDir()): Article[] {
   const articles = scanContentDirectory(rootDir, parseFrontmatter);
   return articles.sort(

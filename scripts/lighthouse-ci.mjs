@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-// CI での性能リグレッションガード。閾値は本番実測より保守的に設定している —
-// GitHub Actions の共有ランナーはスループットが変動しやすく、実測値に近い
-// 閾値だとフレーキーに失敗するため。さらに単発計測はランナー混雑で20点近く
-// 振れることがある（実測: 同一コードで94→72）ため、3回計測の中央値で判定する。
+// Performance regression guard for CI. Thresholds are set more conservatively than production
+// measurements — GitHub Actions shared runners have volatile throughput, and thresholds close to
+// the measured values fail flakily. On top of that a single run can swing by nearly 20 points on a
+// busy runner (observed: 94→72 on identical code), so we judge by the median of 3 runs.
 import { execFileSync } from "node:child_process";
 import { readFileSync, unlinkSync } from "node:fs";
 
@@ -10,10 +10,10 @@ const URL = process.argv[2] ?? "http://localhost:3000/ja";
 const OUT = "/tmp/lighthouse-ci-report.json";
 const THRESHOLDS = { performance: 80, accessibility: 95, "best-practices": 90, seo: 95 };
 const RUNS = 3;
-// 1回の計測が起動失敗したときに試す回数（フレーク対策。本物の異常なら全部落ちる）
+// Attempts per measurement when a run fails to start (flake mitigation; a real failure fails them all)
 const ATTEMPTS_PER_RUN = 3;
 
-// 1回だけ計測する。lighthouse の起動自体が失敗すると execFileSync が例外を投げる。
+// Measure once. If lighthouse itself fails to start, execFileSync throws.
 function measureOnce() {
   execFileSync(
     "npx",
@@ -35,25 +35,25 @@ function measureOnce() {
   );
 }
 
-// 計測1回ぶんをリトライ付きで取る。
+// Take one measurement, with retries.
 //
-// **これが無いと 3回計測の中央値という設計が意味をなさない。** execFileSync は
-// 非ゼロ終了で例外を投げ、それが Array.from を素通りしてジョブ全体を落とすので、
-// 共有ランナー由来の1回きりのフレーク（NO_NAVSTART 等、Chrome の起動失敗）が
-// そのまま CI 失敗になっていた。2026-09-14 に service-anatomy で実際に発生し、
-// コード変更ゼロの再実行で通ることを確認している。
+// **Without this, the median-of-3 design is meaningless.** execFileSync throws on a
+// non-zero exit, which went straight through Array.from and failed the whole job, so a
+// one-off flake from the shared runner (NO_NAVSTART etc., Chrome failing to start) turned
+// directly into a CI failure. It actually happened in service-anatomy on 2026-09-14, and a
+// re-run with zero code changes was confirmed to pass.
 //
-// サーバーが落ちている等の本物の異常なら全試行が失敗するので、見逃しにはならない。
+// A real failure, such as the server being down, fails every attempt, so nothing slips through.
 function measure(runIndex) {
   for (let attempt = 1; attempt <= ATTEMPTS_PER_RUN; attempt += 1) {
     try {
       return measureOnce();
     } catch (err) {
-      // 途中で死ぬと古いレポートが残り、次の試行がそれを読んでしまうため消す。
+      // If a run dies midway a stale report remains and the next attempt would read it, so delete it.
       try {
         unlinkSync(OUT);
       } catch {
-        // 元々無ければ何もしなくてよい
+        // Nothing to do if it did not exist
       }
       if (attempt === ATTEMPTS_PER_RUN) throw err;
       const first = String(err.message).split("\n")[0];

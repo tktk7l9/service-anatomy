@@ -5,11 +5,11 @@ import { techRefs } from "@/engine/articles/tech";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
-// frontmatter の techStack を描画する（記事本文の ::techstack 位置に差し込まれる）。
-// confidence は3段階バッジ。confirmed は evidenceUrl（一次情報）へのリンク必須。
-// 技術名は /tech/<slug> の横断ページ（同じ技術を使うサービス一覧）へリンクする。
+// Renders the frontmatter techStack (inserted at the ::techstack position in the article body).
+// confidence is a 3-level badge. confirmed must link to its evidenceUrl (primary source).
+// Tech names link to the cross-cutting /tech/<slug> page (list of services using the same tech).
 
-/** name 中の技術トークン部分だけを横断ページへのリンクに置き換える。 */
+/** Replaces only the tech-token parts of name with links to the cross-cutting pages. */
 function linkifyTechName(name: string, locale: Locale): ReactNode[] {
   const refs = techRefs(name);
   const nodes: ReactNode[] = [];
@@ -17,7 +17,7 @@ function linkifyTechName(name: string, locale: Locale): ReactNode[] {
   let key = 0;
   for (const ref of refs) {
     const at = rest.indexOf(ref.name);
-    /* v8 ignore next -- techRefs のトークンは常に name 由来なので見つからない経路はない */
+    /* v8 ignore next -- techRefs tokens always come from name, so there is no not-found path */
     if (at === -1) continue;
     if (at > 0) {
       nodes.push(rest.slice(0, at));

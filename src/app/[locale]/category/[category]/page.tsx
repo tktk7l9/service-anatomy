@@ -10,9 +10,9 @@ import { BASE_URL } from "@/engine/site";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
-// content/ の Markdown はビルド時にだけ読む。ここを動的のままにすると、Cloudflare
-// Workers では実行時に process.cwd() 相対の readdirSync が走り、バンドルに含まれない
-// content/ を探しに行って記事が全滅する。dynamicParams=false で列挙外は 404。
+// content/ Markdown is read only at build time. If this stays dynamic, on Cloudflare
+// Workers a process.cwd()-relative readdirSync runs at request time, looks for content/,
+// which is not in the bundle, and every article breaks. dynamicParams=false makes unlisted paths 404.
 export const dynamicParams = false;
 
 export function generateStaticParams() {

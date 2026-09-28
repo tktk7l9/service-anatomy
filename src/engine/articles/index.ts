@@ -11,7 +11,7 @@ import {
 import { collectTech, filterByTech, type TechIndexEntry } from "./tech";
 import { CATEGORY_IDS, type CategoryId } from "./taxonomy";
 
-// モジュール読み込み時に全記事を一度だけ読む（サーバー専用）。
+// Read all articles once at module load (server only).
 export const ALL_ARTICLES: Article[] = loadArticles();
 const OG_CARDS = loadOgCards();
 

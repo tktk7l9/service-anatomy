@@ -5,9 +5,9 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import { Scorecard } from "./scorecard";
 import { TechStackTable } from "./tech-stack-table";
 
-// renderMarkdown 済みの HTML をコンポーネントマーカーで分割し、
-// scorecard / techstack を React コンポーネントとして interleave 描画する。
-// HTML はリポジトリ内で著述された信頼済み Markdown 由来（render.ts 参照）。
+// Splits the renderMarkdown HTML at component markers and renders
+// scorecard / techstack interleaved as React components.
+// The HTML comes from trusted Markdown authored in this repository (see render.ts).
 
 export function ArticleBody({
   html,

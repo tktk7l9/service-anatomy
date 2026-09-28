@@ -1,7 +1,7 @@
 import type { ComparisonFile, ComparisonItem } from "../load";
 import type { ComparisonFrontmatter } from "../schema";
 
-// テスト用ファクトリ（coverage 対象外: vitest.config.ts の exclude 参照）。
+// Test factories (excluded from coverage: see the exclude in vitest.config.ts).
 
 export function makeRawComparisonFrontmatter(): Record<string, unknown> {
   return structuredClone({

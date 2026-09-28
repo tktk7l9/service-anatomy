@@ -4,8 +4,8 @@ import { formatDate } from "@/engine/format/date";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
-// 定点観測（再解剖）のスコア推移。revisions（過去）+ 現行 scores を
-// 時系列のチェックポイント列として描画する（記事末尾・関連記事の直前）。
+// Score trend of periodic re-anatomy. Renders revisions (past) + current scores as a
+// chronological series of checkpoints (at the end of the article, just before related articles).
 
 const DELTA_GLYPH = { up: "▲", down: "▼", same: "―" } as const;
 

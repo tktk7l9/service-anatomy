@@ -2,7 +2,7 @@ import type { Article } from "./load";
 import type { CategoryId } from "./taxonomy";
 import { techRefs } from "./tech";
 
-// 記事コレクションに対する純関数クエリ。index.ts が ALL_ARTICLES に束縛する。
+// Pure-function queries over an article collection. index.ts binds them to ALL_ARTICLES.
 
 export function findBySlug(articles: Article[], slug: string): Article | undefined {
   return articles.find((article) => article.slug === slug);
@@ -16,7 +16,7 @@ export function filterByTag(articles: Article[], tag: string): Article[] {
   return articles.filter((article) => article.ja.frontmatter.tags.includes(tag));
 }
 
-/** 全記事のタグを重複なし・昇順で集める。 */
+/** Collects the tags of all articles, deduplicated and sorted ascending. */
 export function collectTags(articles: Article[]): string[] {
   const tags = new Set<string>();
   for (const article of articles) {
@@ -27,7 +27,7 @@ export function collectTags(articles: Article[]): string[] {
   return [...tags].sort();
 }
 
-/** 記事が実際に使っているカテゴリを、定義順を保って集める。 */
+/** Collects the categories actually used by articles, keeping definition order. */
 export function collectCategories(articles: Article[], categoryIds: readonly CategoryId[]): CategoryId[] {
   const used = new Set(articles.map((article) => article.ja.frontmatter.category));
   return categoryIds.filter((id) => used.has(id));
@@ -44,9 +44,9 @@ function techSlugSet(article: Article): Set<string> {
 }
 
 /**
- * 関連記事。タグ共有（各+3）> カテゴリ一致（+2）> 技術共有（各+1）の重みで
- * スコアリングし、高い順に最大 limit 件返す。スコア 0 は関連なしとして除外し、
- * 同点は元の記事順（新しい順）を保つ。
+ * Related articles. Scored with weights shared tag (+3 each) > same category (+2) > shared tech
+ * (+1 each), returning at most limit items, highest first. A score of 0 counts as unrelated and
+ * is excluded; ties keep the original article order (newest first).
  */
 export function relatedArticles(articles: Article[], base: Article, limit = 3): Article[] {
   const baseTags = new Set(base.ja.frontmatter.tags);

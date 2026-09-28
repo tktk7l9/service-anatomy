@@ -1,11 +1,12 @@
 import type { AffiliateLink } from "@/engine/articles/schema";
 import type { Dictionary } from "@/i18n/dictionaries";
 
-// 記事末尾の提携（アフィリエイト）リンク枠。frontmatter に affiliate がある記事だけ出る。
-// 景品表示法のステルスマーケティング規制（2023-10〜）に合わせ、リンクの近くに「PR」と
-// 紹介料が入る旨を読者が容易に認識できる形で明示する。rel="sponsored" は検索エンジン向けの
-// 同じ意味の宣言。公式リンクカード（LinkCard）の直下に置き、記事本文より前には出さない。
-// 注記には frontmatter の program 名を埋め込む（Shopify の規約＝「Shopify Affiliate である」ことの開示）。
+// Affiliate link box at the end of articles. Shown only for articles with affiliate in their frontmatter.
+// To comply with the stealth-marketing rules under the Act against Unjustifiable Premiums and Misleading
+// Representations (景品表示法, from 2023-10), "PR" and the fact that a referral fee is paid are shown near
+// the link in a way readers easily notice. rel="sponsored" is the same declaration for search engines.
+// Placed directly below the official link card (LinkCard), never before the article body.
+// The note embeds the program name from frontmatter (Shopify's terms = disclosing "I am a Shopify Affiliate").
 
 export function AffiliateCard({
   affiliate,

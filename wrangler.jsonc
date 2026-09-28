@@ -1,25 +1,25 @@
 /**
- * service-anatomy — Cloudflare Workers 設定
+ * service-anatomy — Cloudflare Workers config
  * https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/
  *
- * Next.js を @opennextjs/cloudflare でビルドして Workers で動かす。
- * 2026-08-11 から Vercel の Hobby アカウントが停止しているため移行した。
+ * Builds Next.js with @opennextjs/cloudflare and runs it on Workers.
+ * Migrated because the Vercel Hobby account has been suspended since 2026-08-11.
  */
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "service-anatomy",
   "main": ".open-next/worker.js",
-  // この日付はUTCで検証される。JST基準の「今日」を入れるとUTCがまだ前日で
-  // 「in the future」エラーになることがある（ai-primer で実際に踏んだ）。
+  // This date is validated in UTC. Putting in "today" in JST can raise an "in the future"
+  // error while UTC is still on the previous day (actually hit this in ai-primer).
   "compatibility_date": "2026-09-14",
-  // Next.js の実行に必須。日付は 2024-09-23 以降であること。
+  // Required to run Next.js. The date must be 2024-09-23 or later.
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS",
   },
-  // 2026-09-23 独自ドメインへ移行。routes を置くと workers_dev の既定が false になり
-  // 旧URLが消えるので明示的に true にする（旧URLは next.config.ts の redirects で転送する）。
+  // Moved to the custom domain on 2026-09-23. Adding routes flips the workers_dev default to false
+  // and the old URL disappears, so set it to true explicitly (the old URL is redirected by the redirects in next.config.ts).
   "routes": [
     { "pattern": "serviceanatomy.com", "custom_domain": true },
     { "pattern": "www.serviceanatomy.com", "custom_domain": true },

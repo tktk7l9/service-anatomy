@@ -8,9 +8,9 @@ import { BASE_URL } from "@/engine/site";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
-// 「人気サービスを、解剖する。」のような読点区切りの見出しは、SPで読点の直後ではなく
-// 読点の前の語の途中(例: 「解剖」の「解」と「剖」の間)で改行されることがある。
-// 読点以降を改行不可のまとまりにして、折り返しが必ず読点の直後で起きるようにする。
+// Headings split by a Japanese comma (読点, "、"), such as 「人気サービスを、解剖する。」, can wrap on
+// small screens in the middle of the word before the comma (e.g. between 「解」 and 「剖」 of 「解剖」)
+// instead of right after it. Make everything after the comma unbreakable so wrapping always happens right after it.
 function renderTagline(tagline: string) {
   const breakPoint = tagline.indexOf("、");
   if (breakPoint === -1) {

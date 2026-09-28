@@ -4,7 +4,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import { LocaleSwitcher } from "./locale-switcher";
 import { MobileNav } from "./mobile-nav";
 
-/** レティクル（照準・解剖図）モチーフのブランドマーク。 */
+/** Brand mark with a reticle (crosshair / anatomical chart) motif. */
 function BrandMark() {
   return (
     <svg className="brand-mark" viewBox="0 0 32 32" width="20" height="20" aria-hidden="true">

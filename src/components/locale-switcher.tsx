@@ -6,7 +6,7 @@ import type { Locale } from "@/i18n/config";
 
 const LOCALE_SEGMENT = /^\/(ja|en)(?=\/|$)/;
 
-/** 現在のパスを保ったままロケールセグメントだけ差し替える。 */
+/** Replaces only the locale segment while keeping the current path. */
 export function LocaleSwitcher({ locale, label }: { locale: Locale; label: string }) {
   const pathname = usePathname();
   const next: Locale = locale === "ja" ? "en" : "ja";

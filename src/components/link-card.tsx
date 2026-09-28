@@ -1,9 +1,9 @@
 import type { OgCard } from "@/engine/articles/og-cards";
 
-// 記事末尾の「公式リンクカード」。対象サービスの OGP メタデータ
-// （content/og-cards.json・scripts/fetch-og-cards.mjs で取得）を、
-// 公式サイトへのリンクプレビューとして表示する。SNS等のリンクカードと
-// 同じ慣行に沿い、画像は各社サーバーから直接表示する（自サーバーに複製しない）。
+// The "official link card" at the end of articles. Shows the target service's OGP metadata
+// (content/og-cards.json, fetched by scripts/fetch-og-cards.mjs) as a link preview to the
+// official site. Following the same practice as link cards on social media, the image is shown
+// directly from each company's server (not copied to our server).
 
 export function LinkCard({
   card,
@@ -24,7 +24,7 @@ export function LinkCard({
         <span className="link-card-host">{host} ↗</span>
       </span>
       {card.image && (
-        // eslint-disable-next-line @next/next/no-img-element -- 外部OGP画像（寸法不定・最適化プロキシ経由にしない）
+        // eslint-disable-next-line @next/next/no-img-element -- external OGP image (unknown dimensions; not routed through the optimization proxy)
         <img
           className="link-card-image"
           src={card.image}

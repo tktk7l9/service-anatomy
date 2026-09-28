@@ -12,8 +12,8 @@ import {
 } from "@/engine/content/validators";
 import { isCategoryId, type CategoryId } from "./taxonomy";
 
-// 記事 frontmatter の手書きバリデータ。共通プリミティブは engine/content/validators.ts
-// （比較解剖など他コンテンツ種別と共用）。scores/techStack/revisions は記事固有。
+// Hand-written validator for article frontmatter. Shared primitives live in engine/content/validators.ts
+// (shared with other content types such as comparisons). scores/techStack/revisions are article-specific.
 
 export { ISO_DATE, KEBAB_CASE, parseSources, type SourceRef };
 
@@ -32,14 +32,14 @@ export interface TechStackEntry {
   evidenceUrl?: string;
 }
 
-/** 定点観測（再解剖）の1チェックポイント。過去のスコアと発見をnoteに残す。 */
+/** One checkpoint of periodic re-anatomy. Keeps past scores and findings in note. */
 export interface RevisionEntry {
   date: string;
   scores: Scores;
   note: string;
 }
 
-/** 提携（アフィリエイト）リンク。ja/en で同じ URL を持つ（parity.ts が検証）。公開 JSON には出さない。 */
+/** Affiliate link. ja/en carry the same URL (verified by parity.ts). Not included in the public JSON. */
 export interface AffiliateLink {
   url: string;
   program: string;
@@ -62,9 +62,9 @@ export interface ArticleFrontmatter {
   scores: Scores;
   techStack: TechStackEntry[];
   sources: SourceRef[];
-  /** 定点観測（再解剖）の履歴。時系列順（古い→新しい）。scores は現行の frontmatter.scores が最新値。 */
+  /** Periodic re-anatomy history. Chronological (old→new). The current frontmatter.scores holds the latest values. */
   revisions?: RevisionEntry[];
-  /** 提携リンク（任意）。ある記事だけ末尾に「PR」枠を出す。 */
+  /** Affiliate link (optional). Only articles with one get the "PR" box at the end. */
   affiliate?: AffiliateLink;
 }
 

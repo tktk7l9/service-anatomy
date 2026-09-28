@@ -4,8 +4,8 @@ import { getDictionary } from "./dictionaries";
 import en from "./dictionaries/en";
 import ja from "./dictionaries/ja";
 
-// 値のネスト構造（キー形状）を再帰的に取り出す。ja/en の同形は TS でも
-// 強制されるが、実行時にも検証しておく（型抜けの回帰ガード）。
+// Recursively extracts the nested shape (key structure) of the values. The same shape for ja/en is
+// enforced by TS too, but it is also checked at runtime (regression guard against type gaps).
 function keyShape(value: unknown): unknown {
   if (Array.isArray(value)) {
     return "array";

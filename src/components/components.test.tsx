@@ -27,7 +27,7 @@ vi.mock("next/navigation", () => ({
   usePathname: () => "/ja/articles/x",
 }));
 
-// presentation 層の smoke テスト（カバレッジゲート対象外）。
+// Smoke tests for the presentation layer (outside the coverage gate).
 
 describe("components smoke", () => {
   it("Header / Footer", () => {
@@ -116,7 +116,7 @@ describe("components smoke", () => {
     expect(anchor).toHaveAttribute("target", "_blank");
     expect(anchor).toHaveTextContent("Shopify を無料で試す");
     expect(screen.getByText("PR")).toBeInTheDocument();
-    // Shopify のプログラム規約＝「Shopify Affiliate であること」と報酬の可能性を、共有のたびに開示する
+    // Shopify's program terms = disclose "being a Shopify Affiliate" and possible compensation every time it is shared
     const note = container.querySelector(".affiliate-card-note");
     expect(note).toHaveTextContent("Shopify Affiliate Program に参加");
     expect(note).toHaveTextContent("紹介料");

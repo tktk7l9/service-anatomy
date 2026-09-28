@@ -6,9 +6,9 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { LocaleSwitcher } from "./locale-switcher";
 
-// 狭幅ではヘッダーの6項目（記事一覧/技術DB/比較解剖/About/RSS/言語切替）を
-// ハンバーガーメニューに折りたたむ。デスクトップ用 .site-nav とは
-// CSS のブレークポイントで排他表示（両方 DOM には常に存在する）。
+// On narrow widths, collapse the header's six items (articles / tech DB / comparisons / About / RSS / language)
+// into a hamburger menu. Shown mutually exclusively with the desktop .site-nav via
+// a CSS breakpoint (both are always in the DOM).
 
 export function MobileNav({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const [open, setOpen] = useState(false);

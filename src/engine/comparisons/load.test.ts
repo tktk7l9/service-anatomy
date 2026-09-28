@@ -28,7 +28,7 @@ describe("loadComparisons", () => {
   });
 
   it("既定の rootDir（content/comparisons）から実比較解剖を読み切る", () => {
-    // articles/load.test.ts と同じ理由（Array.isArray では [] を見逃す）。実測 12 本（2026-09-12）。
+    // Same reason as articles/load.test.ts (Array.isArray misses []). Measured: 12 comparisons (2026-09-12).
     expect(loadComparisons().length).toBeGreaterThanOrEqual(10);
   });
 });

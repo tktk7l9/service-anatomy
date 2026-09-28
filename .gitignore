@@ -40,6 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# @opennextjs/cloudflare のビルド生成物 / wrangler のローカル状態
+# @opennextjs/cloudflare build output / wrangler local state
 .open-next/
 .wrangler/

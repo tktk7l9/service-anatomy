@@ -1,11 +1,11 @@
-// RSS 2.0 フィードの純関数生成。route handler（app/[locale]/rss.xml/route.ts）は
-// この結果を返すだけの薄い層に保つ。
+// Pure-function generation of the RSS 2.0 feed. The route handler (app/[locale]/rss.xml/route.ts)
+// is kept a thin layer that just returns this result.
 
 export interface RssItem {
   title: string;
   url: string;
   description: string;
-  /** "YYYY-MM-DD" （frontmatter の publishedAt） */
+  /** "YYYY-MM-DD" (publishedAt in frontmatter) */
   publishedAt: string;
   categories: string[];
 }
@@ -31,7 +31,7 @@ export function escapeXml(value: string): string {
   return value.replace(/[&<>"']/g, (char) => XML_ESCAPES[char]);
 }
 
-/** "YYYY-MM-DD" を RFC 1123 形式（UTC 00:00）の pubDate にする。 */
+/** Turns "YYYY-MM-DD" into an RFC 1123 pubDate (UTC 00:00). */
 export function toPubDate(isoDate: string): string {
   return new Date(`${isoDate}T00:00:00Z`).toUTCString();
 }

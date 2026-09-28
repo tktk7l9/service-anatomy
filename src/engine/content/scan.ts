@@ -4,9 +4,9 @@ import matter from "gray-matter";
 import { KEBAB_CASE } from "@/engine/content/validators";
 import { locales, type Locale } from "@/i18n/config";
 
-// content/<collection>/<slug>/{ja.md, en.md} という共通レイアウトを持つ
-// コンテンツ種別（記事・比較解剖など）を横断して使うディレクトリスキャナ。
-// 記事固有の並び順（publishedAt 降順）は呼び出し側が付与する。
+// Directory scanner shared across content types (articles, comparisons, etc.) that use the
+// common layout content/<collection>/<slug>/{ja.md, en.md}.
+// Article-specific ordering (publishedAt descending) is applied by the caller.
 
 export interface ContentFile<F> {
   frontmatter: F;
@@ -39,7 +39,7 @@ function loadEntry<F>(
   return { slug, ...files };
 }
 
-/** rootDir 直下のディレクトリ1つを1エントリとして、frontmatter/本文を読み込む（順序は保証しない）。 */
+/** Reads frontmatter/body, treating each directory directly under rootDir as one entry (order not guaranteed). */
 export function scanContentDirectory<F>(
   rootDir: string,
   parseFrontmatter: (data: unknown, context: string) => F,

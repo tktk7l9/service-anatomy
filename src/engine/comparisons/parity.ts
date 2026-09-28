@@ -1,7 +1,7 @@
 import type { ComparisonItem } from "./load";
 
-// ja/en の frontmatter のうち言語中立であるべきフィールドの食い違いを検出する。
-// articles/parity.ts と同じ役割（比較解剖版）。
+// Detects mismatches between ja/en frontmatter in fields that should be language-neutral.
+// Same role as articles/parity.ts (comparison version).
 
 const NEUTRAL_KEYS = ["slugA", "slugB", "publishedAt", "updatedAt", "lastVerified"] as const;
 

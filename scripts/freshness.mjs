@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-// 記事の鮮度チェック。lastVerified が閾値（既定90日）を超えた記事を古い順に一覧する。
-// 週次の棚卸しで `npm run freshness` を実行し、超過記事は再検証・定点観測（再解剖）の候補にする。
-// 使い方: npm run freshness [-- --days N] [-- --ci]（--ci は超過があれば exit 1）
+// Article freshness check. Lists articles whose lastVerified exceeds the threshold (default 90 days), oldest first.
+// Run `npm run freshness` in the weekly review; overdue articles become candidates for re-verification or periodic re-anatomy.
+// Usage: npm run freshness [-- --days N] [-- --ci] (--ci exits 1 if any article is overdue)
 import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 
@@ -18,7 +18,7 @@ if (!Number.isFinite(maxAgeDays) || maxAgeDays < 0) {
   process.exit(2);
 }
 
-// 日付は AGENTS.md の規約どおり引用符付き "YYYY-MM-DD"（UTC基準）で書かれている前提。
+// Assumes dates are written as quoted "YYYY-MM-DD" (UTC-based), per the AGENTS.md convention.
 const today = new Date().toISOString().slice(0, 10);
 const rows = readdirSync(ROOT, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
