@@ -27,7 +27,7 @@ techStack:
   - layer: "Data warehouse"
     name: "Snowflake"
     confidence: confirmed
-    evidence: "GA technologies official news (2026-09-02): the Data Division, which started work in 2024, adopted a DWH as its analytics platform and began introducing Snowflake that year. For businesses such as RENOSY, customer feedback scattered across consultations, calls, chats and emails is gathered in Snowflake and analyzed with LLMs, embedding models and Streamlit in Snowflake"
+    evidence: "GA technologies official news (2026-09-02): the Data Division, which started work in 2024, adopted a DWH as its analytics platform and began introducing technologies including Snowflake that year. A session abstract describes a \"company-wide VoC analytics platform\" that gathers customer feedback scattered across consultations, calls, chats and emails in Snowflake and analyzes it with LLMs, embedding models and Streamlit in Snowflake"
     evidenceUrl: "https://www.ga-tech.co.jp/news/5vc1yoh7r4p0c37/"
   - layer: "Data pipeline"
     name: "Dagster + dbt + Apache Iceberg (AWS Glue Catalog) on Amazon ECS Fargate"
@@ -37,12 +37,12 @@ techStack:
   - layer: "Machine-learning pipeline"
     name: "Amazon SageMaker Pipelines"
     confidence: confirmed
-    evidence: "Official developer blog (Zenn, 2026-06-24): an ML pipeline built around SageMaker Pipelines uses data accumulated across real-estate tech services starting with RENOSY; inference data in Snowflake is handed over via S3, and monitoring uses CloudWatch only"
+    evidence: "Official developer blog (Zenn, 2026-06-24): an ML pipeline built around SageMaker Pipelines uses data accumulated across real-estate tech services starting with RENOSY; inference data in Snowflake is handed over via S3, and monitoring uses AWS-native features centered on CloudWatch, with no third-party tools added"
     evidenceUrl: "https://zenn.dev/gatechnologies/articles/sagemaker-ml-pipeline"
   - layer: "Web application"
     name: "Ruby on Rails"
     confidence: likely
-    evidence: "Our own observation (2026-09-28): the HTML of www.renosy.com carries a csrf-token meta tag and responses return x-runtime and x-request-id headers (matching Rails defaults). RENOSY Magazine issues a Rails-style session cookie named _renosy_magazine_cms_session. The official developer blog (2026-04) describes moving an in-house product's tests to RSpec while upgrading to Rails 8.0, without naming the product. The company exhibited at RubyKaigi 2026 and is a gold sponsor of Kaigi on Rails 2026"
+    evidence: "Our own observation (2026-09-28): the HTML of www.renosy.com carries a csrf-token meta tag and responses return x-runtime and x-request-id headers (matching Rails defaults). RENOSY Magazine issues a Rails-style session cookie named _renosy_magazine_cms_session. The official developer blog (2026-04) describes moving an in-house product's tests to RSpec while upgrading to Rails 8.0, without naming the product. According to the official developer blog (2026-05), the company exhibited at RubyKaigi 2026 as a Platinum sponsor, and according to official news it is a gold sponsor of Kaigi on Rails 2026"
   - layer: "CDN"
     name: "Amazon CloudFront + nginx"
     confidence: likely
@@ -112,6 +112,9 @@ sources:
   - label: "GA technologies developer blog (Zenn): Migrating 900 test files to RSpec in two months (2026-04-22, Japanese)"
     url: "https://zenn.dev/gatechnologies/articles/3694b4daf9ea6e"
     accessedAt: "2026-09-28"
+  - label: "GA technologies developer blog (Zenn): GA technologies' first booth at RubyKaigi 2026 (2026-05-01, Japanese)"
+    url: "https://zenn.dev/gatechnologies/articles/3ac3995ada18cc"
+    accessedAt: "2026-09-28"
   - label: "GA technologies developer blog (Zenn): Measuring the post-login experience with Datadog RUM (2025-12-22, Japanese)"
     url: "https://zenn.dev/gatechnologies/articles/147acc3197651f"
     accessedAt: "2026-09-28"
@@ -145,14 +148,14 @@ RENOSY's UX aims to break the purchase of an investment condo — a purchase of 
 - **Contracts move through My Page and an online loan flow.** Applications are made online, the sales contract proceeds on the RENOSY My Page, and the bank loan can be handled through "MORTGAGE GATEWAY by RENOSY," provided by group company RENOSY X (some lenders do not support it). The official site says a customer can become an owner "in as little as one week," depending on timing and loan screening, and that management information appears in the app and My Page on the first day of the month after the contract.
 - **After purchase, the app stays the front door.** My Page covers consultation schedules, contract procedures, management of the purchased property, and even tax-return support. For selling, the site says owners "can set their own price and list the property from their smartphone."
 - **Reviews are put up front.** The top page shows an overall review rating of 4.3 (7,242 responses as of September 2026) and lists each review with the reviewer's age bracket, gender, income band and employer.
-- **The customer is "an employee who already invests."** According to the customer trend report in official news (2026-08-05), 80% of customers who closed a deal in April–June 2026 had investment experience, the first quarter above 80%. By age, 40% were in their 40s and 26% in their 30s. By income, 26% earned ¥10–15 million and 27% ¥15–30 million. The earnings presentation says owners earning more than ¥10 million make up 50% of buyers over the past year.
+- **Eight in ten buyers already invest.** According to the customer trend report in official news (2026-08-05), 80% of customers who closed a deal in April–June 2026 had investment experience, the first quarter above 80%. By age, 40% were in their 40s and 26% in their 30s. By income, 26% earned ¥10–15 million and 27% ¥15–30 million. The earnings presentation says owners earning more than ¥10 million make up 50% of buyers over the past year.
 
 ## Tech stack
 
 ::techstack
 
 :::fact
-According to GA technologies official news (2026-09-02), its Data Division started in 2024 as a cross-company team, adopted a DWH as the analytics platform, and began introducing Snowflake that year. For businesses such as RENOSY, customer feedback scattered across consultations, calls, chats and emails is gathered in Snowflake and extracted through to visualization with LLMs, embedding models and Streamlit in Snowflake. The official developer blog (2026-06) describes the data flow as "external services and in-house products -> S3 -> Snowflake -> BI tool," with Dagster as the orchestrator (on Amazon ECS on Fargate), dbt for transformation, and Apache Iceberg as the data-lake table format (catalogued in AWS Glue). Machine learning centers on SageMaker Pipelines, with inference data in Snowflake handed over through S3.
+According to GA technologies official news (2026-09-02), its Data Division started in 2024 as a cross-company team, adopted a DWH as the analytics platform, and began introducing technologies including Snowflake that year. As a practical example drawn from businesses such as RENOSY, it cites a company-wide VoC analytics platform that gathers customer feedback scattered across consultations, calls, chats and emails in Snowflake and handles everything from extraction to visualization with LLMs, embedding models and Streamlit in Snowflake. The official developer blog (2026-06) describes the data flow as "external services and in-house products -> S3 -> Snowflake -> BI tool," with Dagster as the orchestrator (on Amazon ECS on Fargate), dbt for transformation, and Apache Iceberg as the data-lake table format (catalogued in AWS Glue). Machine learning centers on SageMaker Pipelines, with inference data in Snowflake handed over through S3 and monitoring built around CloudWatch without additional tools.
 :::
 
 :::fact
@@ -176,11 +179,11 @@ According to the earnings presentation, in the third quarter alone (May–July 2
 :::
 
 :::fact
-Meanwhile, the statement of financial position in the earnings report shows inventories rising from ¥11.68 billion at the end of October 2025 to ¥25.19 billion at the end of July 2026, and current bonds and borrowings from ¥12.49 billion to ¥25.81 billion. In between, at the end of June 2026, the company made SPC Securities (a financial instruments business) and SPC Asset Management wholly owned subsidiaries; official news (2026-06-30) says this lets it offer products other than physical property, such as fractional real-estate products, and turn RENOSY into an "asset-building platform."
+Meanwhile, the statement of financial position in the earnings report shows inventories rising from ¥11.68 billion at the end of October 2025 to ¥25.19 billion at the end of July 2026, and current bonds and borrowings from ¥12.49 billion to ¥25.81 billion. In between, on June 30, 2026, the company completed making SPC Securities (a financial instruments business, among others) a wholly owned subsidiary, which also brought in its subsidiary SPC Asset Management, an asset-management business. Official news (2026-06-30) says this lets it offer products other than physical property, such as fractional real-estate products, and turn RENOSY into an "asset-building platform." The earnings presentation calls the roughly ¥9.7 billion year-on-year rise in inventories "a strategic and temporary increase" for this year's fourth quarter and for accelerating the fractional-ownership business after integrating the SPC Securities group, and expects it to subside from next year. The same page puts the CCC at the end of the third quarter at 26.3 days, about two days longer than 24.2 days a year earlier.
 :::
 
 :::guess
-A company with more than ¥200 billion in sales puts "net revenue" in the headline presumably to bridge the gap between buy-and-sell accounting, which books the full property price as revenue, and its claim to be seen as a place where deals happen. The argument is that most of a property's price flows straight through, and that what reflects the business's strength is gross profit and the speed of turnover. From this viewpoint, the doubling of inventory at the quarter-end can be read either as a temporary build-up from several factors, such as a wider product line and newly consolidated companies, or as strain on the fast-turnover story. The materials do not contain enough to decide, and the CCC disclosed in the coming quarters is presumably where the answer will show. One more point: spending on consultation gifts and TV commercials to grow the membership looks in some ways closer to a sales company that closes deals in human consultations than to a marketplace brokered by AI. The company's work on consultation-support AI and AI-assisted property selection appears to be an investment in folding this "people sell" part into the speed of turnover.
+A company with more than ¥200 billion in sales puts "net revenue" in the headline presumably to bridge the gap between buy-and-sell accounting, which books the full property price as revenue, and its claim to be seen as a place where deals happen. The argument is that most of a property's price flows straight through, and that what reflects the business's strength is gross profit and the speed of turnover. From this viewpoint, the question is how to read the doubling of inventory at the quarter-end. If it is, as the company says, a "strategic and temporary" build-up that subsides from next year, the fast-turnover story holds. If holding properties to structure fractional products becomes a lasting phase, it can also be read as a challenge for a model built on turning inventory quickly. The third-quarter CCC has lengthened by only about two days year on year, and the CCC disclosed in the coming quarters is presumably where the answer will show. One more point: spending on consultation gifts and TV commercials to grow the membership looks in some ways closer to a sales company that closes deals in human consultations than to a marketplace brokered by AI. The company's work on consultation-support AI and AI-assisted property selection appears to be an investment in folding this "people sell" part into the speed of turnover.
 :::
 
-RENOSY sits between a company that "sells" property and a place that "connects" buyers and sellers. Its revenue swells with the size of its buy-and-sell business, while the company describes itself by gross profit and a 16-day turnover. Whether that claim holds up in the numbers will become clearer in the second half of this fiscal year, as inventory and borrowings have grown — by where the CCC lands.
+RENOSY sits between a company that "sells" property and a place that "connects" buyers and sellers. Its revenue swells with the size of its buy-and-sell business, while the company describes itself by gross profit and a 16-day turnover. Whether that claim holds up in the numbers will become clearer as the inventory build-up the company calls "temporary" does or does not subside from next year — and by where the CCC, 26.3 days at the end of the third quarter, lands.
