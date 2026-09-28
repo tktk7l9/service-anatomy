@@ -135,6 +135,9 @@ sources:
   - label: "ElevenLabs公式: Affiliate program"
     url: "https://elevenlabs.io/affiliates"
     accessedAt: "2026-09-28"
+  - label: "ElevenLabs公式: Affiliate Program Terms（2026-06-10更新）"
+    url: "https://elevenlabs.io/affiliates-terms"
+    accessedAt: "2026-09-28"
   - label: "ElevenLabs公式: 利用規約（EEA域外・契約主体 Eleven Labs Inc.）"
     url: "https://elevenlabs.io/terms-of-use"
     accessedAt: "2026-09-28"
@@ -199,7 +202,7 @@ ElevenLabsの収益は、個人・チーム向けの月額サブスクリプシ�
 :::
 
 :::fact
-公式ドキュメントによれば、Voice Libraryで自分の声が有料ユーザーに使われると、声の持ち主はStripe Connect経由で現金の報酬を受け取れる。支払いはおおむね週1回で、最低額は多くの国で10ドル。報酬の累計は、シリーズCの公式発表時点（2025年1月）で200万ドル超、TIMEの2025年の記事では約5,000人に500万ドルだった。2026年5月22日の公式ブログによれば、2025年11月に1,100万ドルだった累計は半年で2,200万ドルを超え、報酬を得ているクリエイターは1万400人以上になった。アフィリエイトプログラムはPartnerStack上で運営され、紹介した新規の有料契約について、最初の12か月の支払い額の22%を上限なしで払うと公式ページに書かれている。
+公式ドキュメントによれば、Voice Libraryで自分の声が有料ユーザーに使われると、声の持ち主はStripe Connect経由で現金の報酬を受け取れる。支払いはおおむね週1回で、最低額は多くの国で10ドル。報酬の累計は、シリーズCの公式発表時点（2025年1月）で200万ドル超、TIMEの2025年の記事では約5,000人に500万ドルだった。2026年5月22日の公式ブログによれば、2025年11月に1,100万ドルだった累計は半年で2,200万ドルを超え、報酬を得ているクリエイターは1万400人以上になった。アフィリエイトプログラムはPartnerStack上で運営され、紹介した新規の有料契約について、最初の12か月の支払い額の22%を上限なしで払うと公式ページに書かれている。ただしアフィリエイト規約では22%はStarter・Creator・Pro・Scaleプランの紹介に限られ、Businessプランは11%、Enterprise契約は対象外とされている。
 :::
 
 :::guess
