@@ -2,7 +2,7 @@
 service: "Railway"
 title: "Leaving Google Cloud for Its Own Racks — How Railway, a 35-Person PaaS, Took Back Its Cost of Goods to Carry 3 Million Users"
 description: "Railway is a developer cloud where connecting a repository is enough to bring up apps and databases. In 2023 it declared a break with Google Cloud, in 2024 it moved onto its own racks (Railway Metal), and in 2026 it even built its own CDN, Hikari. A dissection — from the official blog, pricing page, incident report, and a founder interview — of how 35 people support 3 million users, per-second usage pricing, and a 15%-for-12-months affiliate program."
-lead: "\"Google isn't the place for reliable cloud compute\" — in December 2023 the PaaS Railway wrote that on its own blog and announced it would move to its own servers. A year later its first own site was live and three more regions were being lit up, and in January 2026 it raised $100M. Then in May 2026 an automated action suspended the Google Cloud account it still relied on, and the whole platform went down for about eight hours. This is a dissection of how a company stepping off rented cloud to own its costs — and its fate — is built and makes money."
+lead: "\"Google isn't the place for reliable cloud compute\" — in December 2023 the PaaS Railway wrote that on its own blog and announced it would move to its own servers. Within a year its first own site was live and three more regions were being lit up, and in January 2026 it raised $100M. Then in May 2026 an automated action suspended the Google Cloud account it still relied on, and the whole platform went down for about eight hours. This is a dissection of how a company stepping off rented cloud to own its costs — and its fate — is built and makes money."
 category: dev-tool
 tags: [paas, hosting, bare-metal, rust, indie-dev]
 publishedAt: "2026-09-28"
@@ -39,12 +39,12 @@ techStack:
   - layer: "Logging infrastructure"
     name: "ClickHouse"
     confidence: confirmed
-    evidence: "The official careers page lists \"Rebuild logging infrastructure to support 1B logs/day, from configuring ClickHouse to developing a brand new observability UI\""
+    evidence: "The official careers page lists, among past projects for the role, \"Rebuild logging infrastructure to support 1B logs/day, from configuring ClickHouse to developing a brand new observability UI\""
     evidenceUrl: "https://railway.com/careers/full-stack"
   - layer: "Builds (container image generation)"
     name: "Railpack (Go / BuildKit)"
     confidence: confirmed
-    evidence: "The public GitHub repository (MIT license, primary language Go) states in its README that Railpack is the successor to Nixpacks and builds images from source using BuildKit. Official docs say Railway uses it to build and deploy with zero configuration"
+    evidence: "The public GitHub repository (MIT license, primary language Go) states in its README that Railpack is the successor to Nixpacks and builds images from source, with setup steps that rely on BuildKit. Official docs say Railway uses it to build and deploy with zero configuration"
     evidenceUrl: "https://github.com/railwayapp/railpack"
   - layer: "Compute"
     name: "Railway Metal (owned servers in caged colocation)"
@@ -54,7 +54,7 @@ techStack:
   - layer: "Burst and backup cloud"
     name: "AWS / Google Cloud"
     confidence: confirmed
-    evidence: "The official incident report (2026-05) describes Railway Metal, AWS burst-cloud environments, and Google Cloud-hosted infrastructure running side by side, and commits to keeping Google Cloud only for secondary/failover use"
+    evidence: "The official incident report (2026-05) describes Railway Metal, AWS burst-cloud environments, and Google Cloud-hosted infrastructure running side by side, and says Railway is planning to take Google Cloud off the data plane's hot path and keep it only for secondary/failover use"
     evidenceUrl: "https://blog.railway.com/p/incident-report-may-19-2026-gcp-account-outage"
   - layer: "Edge and CDN"
     name: "Hikari (Rust / WebAssembly on wasmtime)"
@@ -156,17 +156,17 @@ Railway's UX goes all-in on two ideas: never make you write configuration files,
 
 - **It figures out the build from your language.** According to the official docs, builds are handled by Railpack, which detects Node, Python, Go, PHP, Java, Ruby, Deno, Rust, Elixir, and more, and sets up everything from dependency installation to start commands with zero configuration. Whether you can't write a Dockerfile or just don't want to, handing over the repository is enough.
 - **The architecture diagram is the control panel.** According to the official docs, a project's default view is the canvas, where you manage services and environments and select a service to open its configuration. You can grasp an app made of several services without drawing a separate diagram.
-- **Changing regions is one setting.** According to the official docs, a service can run in one of four regions — US West, US East, Europe, and Southeast Asia — and can be moved at any time without touching domains or private networking.
+- **Changing regions is one setting.** According to the official docs, a service can run in one of four regions — US West, US East, Europe, and Southeast Asia — and can be moved at any time without touching domains or private networking (a service with an attached volume is down while the volume migrates).
 - **It welcomes AI agents as customers alongside humans.** With the official MCP server, an AI assistant can create projects, deploy templates, pull environment variables, redeploy, and investigate failed deployments. Even the Series B announcement addresses "you, or your agents."
 
-The convenience comes with dependence, though. In the May 2026 outage, the dashboard and API returned 503s and login was unavailable, so users lost even the means to see what was happening. A UX that concentrates everything in one screen is inseparable from how few escape routes remain when that screen goes down.
+The convenience comes with dependence, though. In the May 2026 outage, the dashboard and API returned 503s and login was unavailable, so users were locked out of the very screen they would use to check on their services. A UX that concentrates everything in one screen is inseparable from how few escape routes remain when that screen goes down.
 
 ## Tech stack
 
 ::techstack
 
 :::fact
-According to the official careers page, the dashboard is backed by TypeScript and GraphQL APIs, and work that spans microservices is orchestrated as workflows with Temporal. The same page lists rebuilding logging infrastructure on ClickHouse to support "1B logs/day." In the Latent Space interview, Cooper said the company limits itself to TypeScript, Rust, and Go internally, with a little C for BPF. Railpack, which handles builds, is MIT-licensed open-source software written in Go; its README says it is the successor to the Rust-based Nixpacks, which ran in production for several years, and it assembles images with BuildKit.
+According to the official careers page, the dashboard is backed by TypeScript and GraphQL APIs, and work that spans microservices is orchestrated as workflows with Temporal. The same page lists, as a past project for the role, rebuilding logging infrastructure on ClickHouse to support "1B logs/day." In the Latent Space interview, Cooper said the company limits itself to TypeScript, Rust, and Go internally, with a little C for BPF. Railpack, which handles builds, is MIT-licensed open-source software written in Go; its README says it is the successor to Nixpacks, which Railway ran in production for several years, and its setup steps rely on BuildKit.
 :::
 
 :::fact
@@ -178,7 +178,7 @@ According to a June 4, 2026 official blog post, Railway spent 30 days building i
 :::
 
 :::fact
-According to the official incident report, API failures began around 22:10 UTC on May 19, 2026, and the cause was that Google Cloud had incorrectly suspended Railway's production account as part of an automated action. The dashboard, API, control plane, databases, and Google Cloud-hosted compute went down. Workloads on Railway Metal and AWS burst-cloud environments kept running, but because the edge proxies populated their routing tables from a Google Cloud-hosted control plane API, once the cache expired they started returning 404s across all regions. The incident was fully resolved at 07:58 UTC on May 20. To prevent a recurrence, Railway committed to removing the hard Google Cloud dependency from its network control plane, extending database shards across AWS and Metal, and keeping Google Cloud only for secondary/failover use.
+According to the official incident report, monitoring detected API health-check failures at 22:10 UTC on May 19, 2026, and the cause was that Google Cloud had incorrectly suspended Railway's production account as part of an automated action. The dashboard, API, control plane, databases, and Google Cloud-hosted compute went down. Workloads on Railway Metal and AWS burst-cloud environments kept running, but because the edge proxies populated their routing tables from a Google Cloud-hosted control plane API, once the cache expired they started returning 404s across all regions. The incident was fully resolved at 07:58 UTC on May 20. To prevent a recurrence, Railway said it is immediately removing the hard Google Cloud dependency from its network control plane and will extend database shards across AWS and Metal, and that it is planning to take Google Cloud off the data plane's hot path and keep it only for secondary/failover use.
 :::
 
 :::guess
@@ -190,7 +190,7 @@ The outage appears to show that the middle of a move off the cloud is the most f
 Railway earns revenue two ways: a monthly minimum fee and per-second usage billing for the compute actually consumed.
 
 :::fact
-According to the pricing page, after a free trial with a one-time $5 credit for 30 days, there is a Free plan ($1 of usage per month), Hobby ($5 per month including $5 of usage), Pro ($20 per month including $20 of usage), and custom-priced Enterprise. Usage rates are $0.00000772 per vCPU-second (about $20 per vCPU per month), $0.00000386 per GB-second of memory (about $10 per GB per month), about $0.15 per GB per month for volumes, and $0.05 per GB of egress.
+According to the pricing page, after a free trial with a one-time $5 credit for 30 days, there is a Free plan ($1 of usage per month), Hobby ($5 per month including $5 of usage), Pro ($20 per month including $20 of usage), and custom-priced Enterprise. Usage rates are $0.00000772 per vCPU-second (about $20 per vCPU over a 30-day month), $0.00000386 per GB-second of memory (about $10 per GB over 30 days), $0.00000006 per GB-second for volumes (about $0.15 per GB over 30 days), and $0.05 per GB of egress.
 :::
 
 :::fact
