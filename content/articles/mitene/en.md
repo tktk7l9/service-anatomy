@@ -1,13 +1,13 @@
 ---
 service: "FamilyAlbum (mitene)"
 title: "The Infrastructure Used by 65% of Japanese Parents — How FamilyAlbum Built Trust over 11 Years"
-description: "MIXI's FamilyAlbum has reached 30 million users across 175 countries. We dissect its free-unlimited-upload commitment, the mature Rails + EKS platform, and a business that spans photo goods to GPS hardware."
+description: "MIXI's FamilyAlbum has reached 30 million users across 175 countries and regions. We dissect its free-unlimited-upload commitment, the mature Rails + EKS platform, and a business that spans photo goods to GPS hardware."
 lead: "Your children's photos, shared only with invited family, free and unlimited. Born in 2015, FamilyAlbum (known as 'mitene' in Japan) became family infrastructure used by roughly 65% of Japanese parents and 30 million people worldwide by 2026. We dissect the 11 years of design and engineering behind its deliberately unflashy features."
 category: consumer-app
 tags: [family, photo-sharing, rails, aws, subscription]
 publishedAt: "2026-07-16"
-updatedAt: "2026-07-16"
-lastVerified: "2026-07-16"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://mitene.us/"
 vendor: "MIXI, Inc."
 origin: "JP"
@@ -24,6 +24,21 @@ techStack:
     confidence: confirmed
     evidence: "Stated in the same deck and in the 'FamilyAlbum release-flow on EKS' deck"
     evidenceUrl: "https://speakerdeck.com/isaoshimizu/overview-of-operation-management-and-observability-in-familyalbum"
+  - layer: "Container orchestration"
+    name: "Kubernetes"
+    confidence: confirmed
+    evidence: "The SRE deck states that all server applications run on Kubernetes"
+    evidenceUrl: "https://speakerdeck.com/isaoshimizu/overview-of-operation-management-and-observability-in-familyalbum"
+  - layer: "Event-driven autoscaling"
+    name: "KEDA"
+    confidence: confirmed
+    evidence: "The SRE deck describes KEDA-based scaling on external metrics such as SQS"
+    evidenceUrl: "https://speakerdeck.com/isaoshimizu/overview-of-operation-management-and-observability-in-familyalbum"
+  - layer: "Cost optimization"
+    name: "Amazon EC2 Spot Instances"
+    confidence: confirmed
+    evidence: "An official AWS case-study deck (2021) describes the EKS migration and spot instance usage"
+    evidenceUrl: "https://pages.awscloud.com/rs/112-TZM-766/images/20210826-Cloud-Container-Optimization-mixi-mitene.pdf"
   - layer: "Database"
     name: "Amazon Aurora MySQL"
     confidence: confirmed
@@ -32,17 +47,17 @@ techStack:
   - layer: "CDN"
     name: "Amazon CloudFront"
     confidence: confirmed
-    evidence: "Our own HTTP header observation (via: cloudfront.net; 2026-07-16) and an official AWS case-study deck"
+    evidence: "Our own HTTP header observation (via: cloudfront.net; first on 2026-07-16, re-observed on 2026-09-28) and an official AWS case-study deck"
     evidenceUrl: "https://pages.awscloud.com/rs/112-TZM-766/images/20210826-Cloud-Container-Optimization-mixi-mitene.pdf"
   - layer: "IaC / CD"
-    name: "Terraform / Argo CD / GitHub Actions"
+    name: "Terraform / Argo CD / GitHub Actions / CircleCI"
     confidence: confirmed
-    evidence: "Stated in the SRE deck"
+    evidence: "Stated in the SRE deck (CircleCI is also listed for CI/CD)"
     evidenceUrl: "https://speakerdeck.com/isaoshimizu/overview-of-operation-management-and-observability-in-familyalbum"
   - layer: "Monitoring / observability"
-    name: "New Relic / Prometheus / Grafana"
+    name: "New Relic / Prometheus / Grafana / PagerDuty"
     confidence: confirmed
-    evidence: "Stated in the SRE deck and in New Relic's official customer story"
+    evidence: "Stated in the SRE deck and in New Relic's official customer story (PagerDuty is listed for on-call)"
     evidenceUrl: "https://speakerdeck.com/isaoshimizu/overview-of-operation-management-and-observability-in-familyalbum"
   - layer: "Media processing / ML"
     name: "FFmpeg / TensorFlow etc."
@@ -51,25 +66,25 @@ techStack:
 sources:
   - label: "MIXI news release: 30 million users worldwide (2026-05-07)"
     url: "https://mixi.co.jp/news/2026/0507/51754/"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "Speaker Deck: Operation management & observability in FamilyAlbum (Isao Shimizu, MIXI, 2024)"
     url: "https://speakerdeck.com/isaoshimizu/overview-of-operation-management-and-observability-in-familyalbum"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "Speaker Deck: FamilyAlbum release-flow on EKS (MIXI)"
     url: "https://speakerdeck.com/kohbis/familyalbum-release-flow-on-eks"
     accessedAt: "2026-07-16"
   - label: "AWS case-study deck: spot instance optimization at FamilyAlbum (2021)"
     url: "https://pages.awscloud.com/rs/112-TZM-766/images/20210826-Cloud-Container-Optimization-mixi-mitene.pdf"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "New Relic customer story: powering FamilyAlbum's global growth"
     url: "https://newrelic.com/jp/customers/mixi"
     accessedAt: "2026-07-16"
   - label: "FamilyAlbum official site"
     url: "https://mitene.us/"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "Mitene Mimamori GPS official site"
     url: "https://family-album.com/gps"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
 ---
 
 No viral moments, no referral campaigns, no advertising blitz that anyone remembers. And yet, somehow, it is on the phone of nearly every Japanese household with a newborn. FamilyAlbum — "mitene" in Japan — spread in that quiet way, which makes it a rare specimen. This is an 11-year story of the company that created mixi, Japan's original social network, building its next pillar on the exact opposite of social: closed sharing.
@@ -79,7 +94,7 @@ No viral moments, no referral campaigns, no advertising blitz that anyone rememb
 FamilyAlbum is an app for sharing children's photos and videos with invited family members only. Grandparents included, the whole family can browse a child's growth in chronological order from their own phones and leave comments.
 
 :::fact
-According to MIXI's news release, the service launched in April 2015 and passed 30 million cumulative users worldwide in May 2026. In Japan, roughly 65% or more of moms and dads use it; it is available in 7 languages across more than 175 countries and regions. Overseas users now exceed 40% of the total (North America alone is about 20%), and overseas signups are growing faster than domestic ones.
+According to MIXI's news release, the service launched in April 2015 and passed 30 million cumulative users worldwide in May 2026. In Japan, roughly 65% or more of moms and dads use it; it is available in 7 languages across 175 countries and regions. Overseas users now exceed 40% of the total, North American users account for about 20%, and the number of new families overseas is growing faster than in Japan.
 :::
 
 The core features are resolutely plain: free unlimited photo/video uploads, a family timeline, auto-generated one-second-per-day digest videos, and physical goods such as photo books. That plainness, as we'll see, is the strategy itself.
@@ -89,6 +104,8 @@ Showing your child's photos to your family is the exact inverse of social media.
 :::
 
 ::scorecard
+
+Correction (September 28, 2026). Our first version said the service was available in "more than 175 countries and regions," which was wrong. MIXI's news release says "175 countries and regions." We also changed "overseas signups" to "new families overseas" to match the wording of the release.
 
 ## UX Analysis
 
@@ -103,7 +120,7 @@ Because acquisition is tied to the life event of childbirth, word of mouth suffi
 
 ## Tech Stack
 
-FamilyAlbum's platform is continuously documented by MIXI engineers in conference decks and blog posts, making it one of Japan's best "textbook" large-scale infrastructures to study. We also observed the website's response headers on July 16, 2026 and confirmed delivery via CloudFront.
+FamilyAlbum's platform is continuously documented by MIXI engineers in conference decks and blog posts, making it one of Japan's best "textbook" large-scale infrastructures to study. We also observed the website's response headers on July 16, 2026 and confirmed delivery via CloudFront (unchanged when re-observed on September 28, 2026).
 
 ::techstack
 

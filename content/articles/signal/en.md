@@ -1,13 +1,13 @@
 ---
 service: "Signal"
 title: "Two Dates Is All a Subpoena Gets — Signal's Thorough Design of Not Having"
-description: "Signal, the end-to-end encrypted messenger. A dissection of the design that pared data retention down until a government request can only yield a registration date and a last-connection date, the early migration to post-quantum PQXDH, and the economics of a nonprofit run by ~50 people on ~$50 million a year — from official blogs and public records."
+description: "Signal, the end-to-end encrypted messenger. A dissection of the design that pared data retention down until a government request can only yield a registration date and a last-connection date, the early migration to post-quantum PQXDH, and the economics of a nonprofit run by ~50 people (as of 2023) that projects needing ~$50 million a year by 2025 — from official blogs and public records."
 lead: "What Signal can hand a court subpoena is an account registration date and a last connection date — two dates. Not because it refuses, but because by design it has nothing else. This is a dissection of the nonprofit messenger run by about 50 people on donations, which moved its cryptography ahead of the quantum era before almost anyone else."
 category: consumer-app
 tags: [messaging, encryption, privacy, nonprofit, open-source]
 publishedAt: "2026-07-21"
-updatedAt: "2026-07-21"
-lastVerified: "2026-07-21"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://signal.org/"
 vendor: "Signal Technology Foundation"
 origin: "US"
@@ -24,34 +24,42 @@ techStack:
     confidence: confirmed
     evidence: "Official blog states the combination defends against Harvest Now, Decrypt Later attacks (collecting ciphertext today to decrypt with future quantum computers)"
     evidenceUrl: "https://signal.org/blog/pqxdh/"
-  - layer: "Core library"
-    name: "libsignal (Rust)"
+  - layer: "Post-quantum ratchet"
+    name: "SPQR + ML-KEM"
     confidence: confirmed
-    evidence: "Verified on the official GitHub repository (signalapp/libsignal) that the primary language is Rust (2026-07-21) — the cryptographic core shared across clients"
+    evidence: "Official blog (2025-10-02) states Signal introduced the Sparse Post-Quantum Ratchet (SPQR), running alongside the existing Double Ratchet and mixing both keys into a \"Triple Ratchet\"; key encapsulation uses ML-KEM 768"
+    evidenceUrl: "https://signal.org/blog/spqr/"
+  - layer: "Core library"
+    name: "libsignal + Rust"
+    confidence: confirmed
+    evidence: "Verified on the official GitHub repository (signalapp/libsignal) that the primary language is Rust (2026-09-28) — the cryptographic core shared across clients"
     evidenceUrl: "https://github.com/signalapp/libsignal"
   - layer: "Server"
-    name: "Signal-Server (Java)"
+    name: "Signal-Server + Java"
     confidence: confirmed
-    evidence: "The official GitHub repository (signalapp/Signal-Server) is public; verified its primary language is Java (2026-07-21)"
+    evidence: "The official GitHub repository (signalapp/Signal-Server) is public; verified its primary language is Java (2026-09-28)"
     evidenceUrl: "https://github.com/signalapp/Signal-Server"
   - layer: "Website delivery"
     name: "Cloudflare"
     confidence: confirmed
-    evidence: "Our own HTTP header observation (server: cloudflare, cf-cache-status; 2026-07-21)"
+    evidence: "Our own HTTP header observation (server: cloudflare, cf-cache-status, cf-ray; observed 2026-07-21 and unchanged on re-observation 2026-09-28)"
     evidenceUrl: "https://signal.org/"
 sources:
   - label: "Signal official blog: Signal is expensive (cost breakdown, ~$50M/year, 2023-11-16)"
     url: "https://signal.org/blog/signal-is-expensive/"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Signal official blog: PQXDH — migrating to quantum-resistant key agreement (2023-09-19)"
     url: "https://signal.org/blog/pqxdh/"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Signal official: Government Requests (full subpoena responses published — only registration date and last connection date available)"
     url: "https://signal.org/bigbrother/"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Signal official blog: phone number privacy and usernames"
     url: "https://signal.org/blog/phone-number-privacy-usernames/"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
+  - label: "Signal official blog: Signal Protocol and Post-Quantum Ratchets (SPQR, Triple Ratchet, 2025-10-02)"
+    url: "https://signal.org/blog/spqr/"
+    accessedAt: "2026-09-28"
 ---
 
 ## Service overview
@@ -59,12 +67,14 @@ sources:
 Signal is a messenger with end-to-end encryption as the default. It is operated by the Signal Technology Foundation, a 501(c)(3) nonprofit with no advertising and no investors, funded by donations. Messages, calls, profiles, group data, contacts — the design goal is that the operator itself can access none of it.
 
 :::fact
-Signal's official government-requests page publishes the subpoenas and search warrants it has received, with its responses, in full — from the first documented case in 2016 to a 2026 grand jury subpoena. It states that due to end-to-end encryption and data minimization, all Signal can provide under legal compulsion is the date and time an account registered and the last date it connected. Operating costs are also disclosed: roughly $50 million a year by 2025 — $1.3M storage, $2.9M servers, $2.8M bandwidth, $6M SMS registration, and about $19M in labor for roughly 50 full-time staff — strikingly lean beside messengers run by thousands.
+Signal's official government-requests page publishes the subpoenas and search warrants it has received, with its responses, in full — from the first documented case in 2016 to a 2026 grand jury subpoena. It states that due to end-to-end encryption and data minimization, all Signal can provide under legal compulsion is the date and time an account registered and the last date it connected. Operating costs are also disclosed on the official blog (November 2023). As of 2023, annual costs were $1.3M for storage, $2.9M for servers, $2.8M for bandwidth and about $6M for SMS registration — about $14M for infrastructure in total — plus about $19M in labor for roughly 50 full-time staff. On top of that, the blog projects Signal will need roughly $50 million a year to operate by 2025.
 :::
 
 :::pull
 Not "won't hand it over" — "doesn't have it." That a subpoena response shrinks to two dates is not a policy; it is a consequence of the architecture.
 :::
+
+Correction (September 28, 2026). The first version presented the storage, server, bandwidth, SMS and labor figures as the breakdown of "roughly $50 million a year by 2025," which was wrong. The blog's breakdown is annual cost as of 2023, and roughly $50 million is the projection for 2025 (the breakdown does not add up to $50 million). We also removed a comparison with other companies' headcount that we could not source.
 
 ::scorecard
 
@@ -82,7 +92,7 @@ Signal's UX aims to make security something you never have to think about. Encry
 ::techstack
 
 :::fact
-In September 2023, Signal upgraded its key agreement to PQXDH, layering post-quantum CRYSTALS-Kyber over the existing X25519 curve so that an attacker must defeat both to compute keys — a preemptive move against Harvest Now, Decrypt Later attacks that collect ciphertext today for future quantum decryption. The implementations are public: libsignal, the cryptographic core shared across clients, is written in Rust, and Signal-Server in Java, both verifiable on the official GitHub.
+In September 2023, Signal upgraded its key agreement to PQXDH, layering post-quantum CRYSTALS-Kyber over the existing X25519 curve so that an attacker must defeat both to compute keys — a preemptive move against Harvest Now, Decrypt Later attacks that collect ciphertext today for future quantum decryption. In October 2025 the official blog went further, announcing a gradual rollout of the "Triple Ratchet," which runs a post-quantum Sparse Post-Quantum Ratchet (SPQR, using ML-KEM 768 for key encapsulation) alongside the existing Double Ratchet and mixes both keys — extending quantum resistance from the initial key agreement to the keys that keep updating throughout a conversation. The implementations are public: libsignal, the cryptographic core shared across clients, is written in Rust, and Signal-Server in Java, both verifiable on the official GitHub.
 :::
 
 :::guess
@@ -94,7 +104,7 @@ Being among the first major messengers to move to post-quantum cryptography sugg
 Signal's revenue model is donations. No ads, no data sales, no paid tier.
 
 :::fact
-The official blog (November 2023) published a full cost breakdown, projecting roughly $50 million a year by 2025. SMS verification alone runs $6 million a year — far exceeding storage ($1.3M) or bandwidth ($2.8M). The organization runs on about 50 full-time staff, with labor costs around $19 million a year.
+The official blog (November 2023) published a full cost breakdown, projecting roughly $50 million a year by 2025. In the 2023 breakdown, SMS verification alone runs about $6 million a year — far exceeding storage ($1.3M) or bandwidth ($2.8M). The organization runs on about 50 full-time staff, with labor costs around $19 million a year (both as of 2023).
 :::
 
 :::guess

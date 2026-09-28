@@ -6,8 +6,8 @@ lead: "看板機能のSpacesを日常的に使うユーザーは5.52%、Live Fol
 category: consumer-app
 tags: [browser, ai, chromium, swift, acquisition]
 publishedAt: "2026-07-21"
-updatedAt: "2026-07-21"
-lastVerified: "2026-07-21"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://thebrowser.company/"
 vendor: "The Browser Company of New York"
 origin: "US"
@@ -27,39 +27,47 @@ techStack:
   - layer: "クライアント言語"
     name: "Swift"
     confidence: confirmed
-    evidence: "公式GitHub（thebrowsercompany/swift-winrt）にWindowsアプリをSwiftで開発するためのWinRT相互運用ライブラリを公開（スター840・2026-07-21実確認）。macOSに加えWindows版もSwiftで書く体制"
+    evidence: "公式GitHub（thebrowsercompany/swift-winrt）にWindowsアプリをSwiftで開発するためのWinRT相互運用ライブラリを公開（スター854・2026-09-28実確認）。macOSに加えWindows版もSwiftで書く体制"
     evidenceUrl: "https://github.com/thebrowsercompany/swift-winrt"
   - layer: "公式サイト配信"
     name: "Vercel + Cloudflare"
     confidence: confirmed
-    evidence: "当サイトのHTTPヘッダー実観測（x-vercel-id: hnd1::…とserver: cloudflareが併存、2026-07-21）。Vercelの前段にCloudflareを重ねた構成"
+    evidence: "当サイトのHTTPヘッダー実観測（2026-09-28再観測）。thebrowser.companyはserver: cloudflareとx-vercel-id: hnd1::…が併存し、www.thebrowser.companyへ307でリダイレクト。www側はserver: Vercel・x-vercel-cacheを返し、Vercelから直接配信される"
     evidenceUrl: "https://thebrowser.company/"
 sources:
   - label: "The Browser Company公式書簡: Letter to Arc members 2025（CEO Josh Miller・使用率データと凍結判断・2025-05-26）"
     url: "https://browsercompany.substack.com/p/letter-to-arc-members-2025"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Atlassian公式ブログ: The Browser Company買収発表（2025-09-04）"
     url: "https://www.atlassian.com/blog/announcements/atlassian-acquires-the-browser-company"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "CNBC: Atlassianが6.1億ドル現金でThe Browser Company買収に合意（2025-09-04）"
     url: "https://www.cnbc.com/2025/09/04/atlassian-the-browser-company-deal.html"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
+  - label: "Atlassianプレスリリース: Atlassian Completes Acquisition of The Browser Company of New York（2025-10-21・Business Wire配信の転載）"
+    url: "https://finance.yahoo.com/news/atlassian-completes-acquisition-browser-company-120500937.html"
+    accessedAt: "2026-09-28"
+  - label: "9to5Mac: Arcが1.0に到達し待機リストを撤廃（2023-07-25）"
+    url: "https://9to5mac.com/2023/07/25/arc-browser-no-waitlist/"
+    accessedAt: "2026-09-28"
   - label: "The Browser Company公式GitHub: swift-winrt（Windows向けSwift開発基盤）"
     url: "https://github.com/thebrowsercompany/swift-winrt"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
 ---
 
 ## サービス解説
 
-The Browser Company of New Yorkは、ブラウザを作るスタートアップだ。2022年に一般公開したArcは、サイドバー中心のタブ管理やSpaces（作業空間の切り替え）といった大胆な再設計で熱狂的な支持者を獲得した。だが2025年5月、同社はArcの新機能開発を止め、AIブラウザDiaへ軸足を移すことを発表。同年9月にはAtlassianによる買収が発表された。
+The Browser Company of New Yorkは、ブラウザを作るスタートアップだ。2023年7月に待機リストを撤廃して一般公開したArcは、サイドバー中心のタブ管理やSpaces（作業空間の切り替え）といった大胆な再設計で熱狂的な支持者を獲得した。だが2025年5月、同社はArcの新機能開発を止め、AIブラウザDiaへ軸足を移すことを発表。同年9月にはAtlassianによる買収が発表され、10月21日に完了した。
 
 :::fact
-CEOのJosh Miller氏は公開書簡（2025年5月26日）で、Arcの機能別使用率を自ら開示した。複数のSpacesを日常的に使うデイリーアクティブユーザーは5.52%、Live Foldersは4.17%、Calendar Preview on Hoverは0.4%。同氏はこれを「新しさの税金（novelty tax）」と呼び、「ほとんどの人にとってArcは違いすぎた。学ぶことが多すぎ、見返りが少なすぎた」と総括した。一方、開発中のDiaでは「タブとのチャット」を40%、パーソナライズ機能を37%のDAUが使っているとされる。2025年9月4日、Atlassianは同社の買収を発表し、CNBCによれば買収額は約6.1億ドルの現金だった。
+CEOのJosh Miller氏は公開書簡（2025年5月26日）で、Arcの機能別使用率を自ら開示した。複数のSpacesを日常的に使うデイリーアクティブユーザーは5.52%、Live Foldersは4.17%、Calendar Preview on Hoverは0.4%。同氏はこれを「新しさの税金（novelty tax）」と呼び、「ほとんどの人にとってArcは違いすぎた。学ぶことが多すぎ、見返りが少なすぎた」と総括した。一方、開発中のDiaでは「タブとのチャット」を40%、パーソナライズ機能を37%のDAUが使っているとされる。2025年9月4日、Atlassianは同社の買収を発表し、CNBCによれば買収額は約6.1億ドルの現金だった。Atlassianのプレスリリースによれば、買収は2025年10月21日に完了している。
 :::
 
 :::pull
 「愛されている」と「使われている」は別の指標だった。CEOが自社製品の使用率を晒したこの書簡は、プロダクト供養の書式として異例なほど誠実だ。
 :::
+
+訂正（2026年9月28日）。初版ではArcの一般公開を「2022年」と書いていたが、誤りだった。9to5Macの報道によれば、Arcはそれまで待機リスト制で提供されており、バージョン1.0に達して待機リストを撤廃し、誰でも使えるようになったのは2023年7月25日である。
 
 ::scorecard
 
@@ -89,7 +97,7 @@ ArcとDiaはいずれもChromiumベースで、公開書簡にはArcの保守を
 The Browser Companyは買収までの間、収益化を本格的に始めていなかった。VC資金で製品開発を続け、出口はAtlassianへの売却となった。
 
 :::fact
-Atlassianは公式ブログ（2025年9月4日）で買収を発表し、CEOのMike Cannon-Brookes氏は「今日のブラウザは仕事のために作られていない。閲覧のために作られている」と述べた。Diaを「ナレッジワーカーのブラウザ」として、SaaSアプリへの最適化・仕事の文脈を記憶するAI・企業向けセキュリティの3点で発展させる計画が示されている。CNBCによれば買収額は約6.1億ドルで、Atlassianの手元資金から現金で支払われる。
+Atlassianは公式ブログ（2025年9月4日）で買収を発表し、CEOのMike Cannon-Brookes氏は「今日のブラウザは仕事のために作られていない。閲覧のために作られている」と述べた。Diaを「ナレッジワーカーのブラウザ」として、SaaSアプリへの最適化・仕事の文脈を記憶するAI・企業向けセキュリティの3点で発展させる計画が示されている。CNBCによれば買収額は約6.1億ドルで、Atlassianの手元資金から現金で支払われる。買収は2025年10月21日に完了した。
 :::
 
 :::guess

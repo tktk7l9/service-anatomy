@@ -1,13 +1,13 @@
 ---
 service: "PixelPot"
 title: "Steps Become Flowers — PixelPot and the Design of Making Invisible Effort Visible"
-description: "PixelPot is a pedometer app where daily steps grow AI-generated plants. We dissect how a solo-built app earned a 4.8 rating across 8,000+ reviews — its pedometer × collection-game × generative-AI design and its seed-purchase + subscription revenue structure."
-lead: "A pedometer's number resets to zero every midnight, no matter how far you walked. PixelPot replaces that thanklessness with plants that grow as you walk and never bloom the same way twice. We dissect the motivation design and the use of generative AI behind a solo-developed health app with over 8,000 reviews at 4.8 stars."
+description: "PixelPot is a pedometer app where daily steps grow AI-generated plants. We dissect how a solo-built app earned a 4.8 rating across 10,000+ reviews — its pedometer × collection-game × generative-AI design and its seed-purchase + subscription revenue structure."
+lead: "A pedometer's number resets to zero every midnight, no matter how far you walked. PixelPot replaces that thanklessness with plants that grow as you walk and never bloom the same way twice. We dissect the motivation design and the use of generative AI behind a solo-developed health app with over 10,000 reviews at 4.8 stars."
 category: consumer-app
 tags: [ios, android, health, generative-ai, indie-dev]
 publishedAt: "2026-07-16"
-updatedAt: "2026-07-16"
-lastVerified: "2026-07-16"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://pixelpot.smak.works/"
 vendor: "Akihito Shimizu (independent developer)"
 origin: "JP"
@@ -17,22 +17,31 @@ techStack:
   - layer: "Health data"
     name: "HealthKit"
     confidence: confirmed
-    evidence: "Official site feature description (HealthKit counts steps automatically)"
+    evidence: "The App Store description states it 'counts steps automatically in connection with Apple HealthKit' (the official site FAQ also says iOS reads steps from Apple Health)"
+    evidenceUrl: "https://apps.apple.com/jp/app/id6758675804"
+  - layer: "Health data (Android)"
+    name: "Health Connect"
+    confidence: confirmed
+    evidence: "The official site FAQ states that on Android steps are read from Health Connect"
     evidenceUrl: "https://pixelpot.smak.works/"
+  - layer: "iOS widgets"
+    name: "WidgetKit"
+    confidence: likely
+    evidence: "Inferred from the home-screen widget described on the App Store (WidgetKit is effectively the only way to build them on iOS)"
   - layer: "Plant art generation"
     name: "Generative image AI"
     confidence: confirmed
-    evidence: "Official description: 'one-of-a-kind art drawn by AI' (model and pipeline undisclosed)"
+    evidence: "The official site FAQ states that for silver and gold seeds, AI generates a different image for each plant every time one is planted (model and pipeline undisclosed)"
     evidenceUrl: "https://pixelpot.smak.works/"
   - layer: "Official site"
     name: "Next.js"
     confidence: confirmed
-    evidence: "Our own HTML observation (_next/static; 2026-07-16)"
+    evidence: "Our own HTML observation (_next/static; first on 2026-07-16, re-observed on 2026-09-28)"
     evidenceUrl: "https://pixelpot.smak.works/"
   - layer: "Official site hosting"
     name: "Vercel"
     confidence: confirmed
-    evidence: "Our own HTTP header observation (server: Vercel, x-vercel-id=hnd1 [Tokyo]; 2026-07-16)"
+    evidence: "Our own HTTP header observation (server: Vercel, x-vercel-id=hnd1 [Tokyo]; first on 2026-07-16, re-observed on 2026-09-28)"
     evidenceUrl: "https://pixelpot.smak.works/"
   - layer: "App implementation"
     name: "Cross-platform framework"
@@ -46,10 +55,10 @@ techStack:
 sources:
   - label: "PixelPot official site"
     url: "https://pixelpot.smak.works/"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "App Store: PixelPot (pricing, IAP, ratings)"
     url: "https://apps.apple.com/jp/app/id6758675804"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "Google Play: PixelPot"
     url: "https://play.google.com/store/apps/details?id=com.smak0412.pixelpot"
     accessedAt: "2026-07-16"
@@ -58,14 +67,14 @@ sources:
     accessedAt: "2026-07-16"
 ---
 
-The greatest enemy of health apps is neither laziness nor lack of exercise — it is the evaporation of accomplishment. The satisfaction of today's 10,000 steps resets to zero the moment the date changes. PixelPot turns that reset on its head, converting steps into plants that accumulate, grow, and remain once they bloom. This is a dissection of a solo-developed pedometer app with more than 8,000 reviews.
+The greatest enemy of health apps is neither laziness nor lack of exercise — it is the evaporation of accomplishment. The satisfaction of today's 10,000 steps resets to zero the moment the date changes. PixelPot turns that reset on its head, converting steps into plants that accumulate, grow, and remain once they bloom. This is a dissection of a solo-developed pedometer app with more than 10,000 reviews.
 
 ## Service Overview
 
 PixelPot is an iOS/Android app where your daily steps grow a plant. The more you walk, the more the plant in your pot grows; fully bloomed plants are preserved in a collection.
 
 :::fact
-The developer is independent developer Akihito Shimizu. Steps are counted automatically via HealthKit, and the plant illustrations are officially described as "one-of-a-kind art drawn by AI." Seeds come in three tiers — normal, silver, and gold — with silver and gold seeds generating a unique AI illustration per plant. As of July 16, 2026, the App Store rating is 4.8 (8,099 reviews) in the Health & Fitness category. The app is free, with consumable purchases such as silver seeds (¥200) and gold seeds (¥400), plus monthly plans: Silver at ¥480 and Gold at ¥980.
+The developer is independent developer Akihito Shimizu. Steps are read automatically from HealthKit (Apple Health) on iOS and from Health Connect on Android, and growth can also be checked in a home-screen widget (per the official site and the App Store description). Seeds come in three tiers — normal, silver, and gold. According to the official FAQ, silver and gold seeds have AI generate a different image for each plant every time, while normal seeds are picked at random from a set of prepared plants. As of September 28, 2026, the App Store rating is 4.8 (10,250 reviews), up from 8,099 when we first wrote this on July 16, 2026; the app is in the Health & Fitness category. The app is free, with consumable purchases such as silver seeds (¥200) and gold seeds (¥400), plus monthly plans: Silver at ¥480 and Gold at ¥980.
 :::
 
 :::pull
@@ -83,18 +92,18 @@ PixelPot's design is a **textbook combination of variable rewards and loss avers
 - **The reset, redesigned.** Daily steps reset, but the plant carries growth forward without withering. The most churn-inducing experience in health apps — losing to yesterday's self — is structurally removed.
 - **Collection as the long-term motive.** Bloomed plants accumulate in an encyclopedia, turning consecutive days into a visible asset.
 
-Against step-based gamification rivals — location games like Pokémon GO, or points-for-steps apps — PixelPot chose the "quiet, just for me" lane, catching users tired of social competition.
+Against step-based gamification rivals — location games like Pokémon GO, or points-for-steps apps — PixelPot chose the "quiet, just for me" lane, catching users tired of social competition. As of September 28, 2026, the official site also introduces a friends feature: create a group to see the pots your members are growing and send them items — sociality added as showing, not competing.
 
 ## Tech Stack
 
 ::techstack
 
 :::fact
-The confirmed technical elements: automatic step retrieval via HealthKit (official description), AI-generated plant illustrations (official description, model undisclosed), and an official site served by Next.js on Vercel (Tokyo region) per our observation on July 16, 2026. The app's implementation framework is not disclosed.
+The confirmed technical elements: automatic step retrieval via HealthKit on iOS and Health Connect on Android (App Store and official site), a home-screen widget, AI-generated illustrations for silver and gold seeds alongside random picks from prepared plants for normal seeds (official FAQ, model undisclosed), and an official site served by Next.js on Vercel (Tokyo region) per our observation on July 16, 2026, unchanged when re-observed on September 28, 2026. The app's implementation framework is not disclosed.
 :::
 
 :::guess
-The pricing design hints at the cost structure of generation. Normal seeds are free while only silver/gold seeds cost money — which suggests normal seeds use template images (near-zero cost) and only AI-generated seeds carry metered image-generation API costs. At ¥200–400 per seed — plausibly dozens of times the generation cost — the pricing covers margin while manufacturing a sense of specialness. Since step input is processed on-device, generation is likely the dominant server cost: a right-sized architecture that a solo developer can operate sustainably.
+The pricing design hints at the cost structure of generation. Normal seeds draw from prepared plants (per the official FAQ) and are free, while only the AI-generated silver/gold seeds cost money — which suggests free play is carried by seeds with no generation cost, and charges are layered only onto seeds that incur metered image-generation API costs. At ¥200–400 per seed — plausibly dozens of times the generation cost — the pricing covers margin while manufacturing a sense of specialness. Since step input is processed on-device, generation is likely the dominant server cost: a right-sized architecture that a solo developer can operate sustainably.
 :::
 
 ## Business Model
@@ -102,11 +111,11 @@ The pricing design hints at the cost structure of generation. Normal seeds are f
 It starts as a free pedometer, with revenue building through a staircase of small purchases.
 
 :::fact
-App Store purchase items include silver seeds (¥200) and gold seeds (¥400) as consumables, Silver (¥480/month) and Gold (¥980/month) plans, film packs (¥120–480), a dashboard unlock (¥980), and tip-style support purchases (¥100, ¥500). The privacy label lists data collection for third-party advertising (device ID, usage data, not linked to the user), indicating a hybrid of ads and in-app purchases.
+As of September 28, 2026, the App Store lists purchase items including silver seeds (¥200) and gold seeds (¥400) as consumables, Silver (¥480/month) and Gold (¥980/month) plans, an extra group slot (¥200), growth items (tasty water and super fertilizer, ¥120 each), a one-film pack (¥120), a dashboard unlock (¥980), and a tip-style support purchase (¥100). The App Store shows only the main items, so the larger film packs (up to ¥480) and the ¥500 support purchase listed in our first version do not appear in the current list. The privacy label lists data collection for third-party advertising (device ID, usage data, not linked to the user), indicating a hybrid of ads and in-app purchases.
 :::
 
 :::guess
-The cleverness of this menu is that every item ties to affection for the plants. It is not pay-to-win (walk faster) but pay-to-love (bloom a more special flower), so free users' experience stays intact and the rating stays high while monetizing. Over 8,000 reviews is an exceptional scale for a solo-built health app; the "quiet cultivation" positioning plausibly powered ad-free, word-of-mouth growth.
+The cleverness of this menu is that every item ties to affection for the plants. It is not pay-to-win (walk faster) but pay-to-love (bloom a more special flower), so free users' experience stays intact and the rating stays high while monetizing. Over 10,000 reviews is an exceptional scale for a solo-built health app; the "quiet cultivation" positioning plausibly powered ad-free, word-of-mouth growth.
 :::
 
 Turning invisible effort into flowers that never fade: PixelPot proves, in the most commoditized genre imaginable — the pedometer — that generative AI's best use is not only efficiency, but the manufacture of one-of-a-kind attachment.

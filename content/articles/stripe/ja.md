@@ -6,8 +6,8 @@ lead: "Stripeの製品を「見た」ことがある人は少ない。開発者�
 category: saas
 tags: [payments, fintech, api, ruby, developer-experience]
 publishedAt: "2026-07-21"
-updatedAt: "2026-07-21"
-lastVerified: "2026-07-21"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://stripe.com/"
 vendor: "Stripe, Inc."
 origin: "US"
@@ -24,6 +24,11 @@ techStack:
     confidence: confirmed
     evidence: "公式エンジニアリングブログに、MongoDB Community上に構築した自社データベース基盤DocDBで2,000超のシャード・秒間500万クエリを99.999%稼働率で処理し、無停止データ移行を実現と明記"
     evidenceUrl: "https://stripe.dev/blog/how-stripes-document-databases-supported-99.999-uptime-with-zero-downtime-data-migrations"
+  - layer: "データベースエンジン"
+    name: "MongoDB"
+    confidence: confirmed
+    evidence: "公式エンジニアリングブログ（2024-06）に、DocDBはMongoDB Communityの拡張で、MongoDB Atlasが存在しなかった2011年からクラウド上に自社運用のMongoDBクラスタを構築してきたと明記"
+    evidenceUrl: "https://stripe.dev/blog/how-stripes-document-databases-supported-99.999-uptime-with-zero-downtime-data-migrations"
   - layer: "不正検知ML"
     name: "Stripe Radar (DNN)"
     confidence: confirmed
@@ -32,24 +37,24 @@ techStack:
   - layer: "ストレージ"
     name: "Amazon S3"
     confidence: likely
-    evidence: "当サイトのHTTPヘッダー実観測で、stripe.comのCSPにstripe-images.s3.us-west-1.amazonaws.comが含まれる（2026-07-21）。画像配信用途の観測でありアプリ本体の構成とは別"
+    evidence: "当サイトのHTTPヘッダー実観測で、stripe.comのCSP（connect-src）にstripe-images.s3.us-west-1.amazonaws.comが含まれる（2026-09-28）。画像配信用途の観測でありアプリ本体の構成とは別"
   - layer: "公式サイト配信"
     name: "nginx / Contentful"
     confidence: likely
-    evidence: "当サイトのHTTPヘッダー実観測（server: nginx・x-stripe-proxy-response・CSPにassets.ctfassets.net=Contentful、2026-07-21）。マーケティングサイトについての観測"
+    evidence: "当サイトのHTTPヘッダー実観測（server: nginx・x-stripe-proxy-response・CSPにassets.ctfassets.net=Contentful、2026-09-28）。マーケティングサイトについての観測"
 sources:
   - label: "Stripe公式ニュースルーム: 2025年アニュアルレター（TPV1.9兆ドル・世界GDP約1.6%・評価額1,590億ドルのテンダーオファー・2026-02）"
     url: "https://stripe.com/newsroom/news/stripe-2025-update"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Stripe公式ブログ: Sorbet — Stripeの型チェッカーをOSS化（1,500万行・15万ファイル）"
     url: "https://stripe.dev/blog/sorbet-stripes-type-checker-for-ruby"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Stripe公式ブログ: DocDB — 99.999%稼働率と無停止データ移行を支える自社ドキュメントDB"
     url: "https://stripe.dev/blog/how-stripes-document-databases-supported-99.999-uptime-with-zero-downtime-data-migrations"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Stripe公式ブログ: How we built it — Stripe Radar（DNN単独モデルへの移行）"
     url: "https://stripe.dev/blog/how-we-built-it-stripe-radar"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
 ---
 
 ## サービス解説
@@ -80,11 +85,11 @@ StripeのUXを語ることは、開発者体験（DX）を語ることと同義�
 ::techstack
 
 :::fact
-Stripeの中核は今もRubyの巨大なコードベースで、公式エンジニアリングブログによれば15万ファイル・1,500万行超に達する。この規模を支えるために型チェッカーSorbetをC++で自作し（2017年11月開発開始）、2019年6月にOSSとして公開。95%超のファイルが型検査対象になっている。データベースはMongoDB Communityの上に自社のDBaaS「DocDB」を構築し、2,000超のシャードで秒間500万クエリを99.999%の稼働率で処理、シャード間の無停止データ移行を実現していると明記されている。不正検知のRadarは、XGBoostとDNNのアンサンブルから2022年半ばにDNN単独モデルへ移行した。
+Stripeの中核は今もRubyの巨大なコードベースで、公式エンジニアリングブログによれば15万ファイル・1,500万行超に達する。この規模を支えるために型チェッカーSorbetをC++で自作し（2017年11月開発開始）、2019年6月にOSSとして公開。95%超のファイルが型検査対象になっている。データベースはMongoDB Communityの上に自社のDBaaS「DocDB」を構築し（MongoDB Atlasがまだ存在しなかった2011年から、クラウド上で自社運用のMongoDBクラスタを動かしてきた）、2,000超のシャードで秒間500万クエリを99.999%の稼働率で処理、シャード間の無停止データ移行を実現していると明記されている。不正検知のRadarは、XGBoostとDNNのアンサンブルから2022年半ばにDNN単独モデルへ移行した。
 :::
 
 :::guess
-Rubyを捨てずに型チェッカーごと自作するという判断は、書き換えの機会費用を冷静に見た結果とみられる。決済という互換性が命の領域では、言語移行の危険より「言語に道具を足す」方が安い——Sorbetはその工学的判断の産物であり、ShopifyがRuby本体のJITに投資した構図とも重なる。DocDBをマネージドDBでなくMongoDB Community上に自作した点も、秒間500万クエリ規模では既製サービスの制約（シャード管理・移行の自由度）が先に限界になるためと推測される。1,500万行のRubyと自作DBという組み合わせは、派手さより「止めないこと」に最適化された保守的な技術戦略の表れとみられる。
+Rubyを捨てずに型チェッカーごと自作するという判断は、書き換えの機会費用を冷静に見た結果とみられる。決済という互換性が命の領域では、言語移行の危険より「言語に道具を足す」方が安い——Sorbetはその工学的判断の産物であり、ShopifyがRuby本体のJITに投資した構図とも重なる。DocDBをMongoDB Community上に自作した直接の理由は、公式ブログによれば2011年当時マネージドのMongoDB Atlasが存在しなかったことだが、その後も既製サービスへ移らず自社運用を続けている点は、秒間500万クエリ規模では既製サービスの制約（シャード管理・移行の自由度）が先に限界になるためと推測される。1,500万行のRubyと自作DBという組み合わせは、派手さより「止めないこと」に最適化された保守的な技術戦略の表れとみられる。
 :::
 
 ## ビジネスモデル
