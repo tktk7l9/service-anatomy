@@ -192,6 +192,14 @@
     "siteName": "家族アルバム みてね",
     "fetchedAt": "2026-08-06"
   },
+  "moneyforward-cloud": {
+    "url": "https://biz.moneyforward.com/tax_return/",
+    "title": "確定申告ソフト - 個人事業主向け会計ソフト マネーフォワード クラウド",
+    "description": "確定申告ソフトならマネーフォワードの「マネーフォワード クラウド確定申告」。無料で始められてMacにも対応のクラウド型確定申告ソフトです。青色申告や白色申告に対応。確定申告書や青色申告決算書、収支内訳書など確定申告必要書類の自動作成が可能です。",
+    "image": "https://biz.moneyforward.com/portal/images/ogp/ca_web/img_tax_return.png",
+    "siteName": "バックオフィスの業務効率化なら「マネーフォワード クラウド」",
+    "fetchedAt": "2026-09-28"
+  },
   "nani-translation": {
     "url": "https://nani.now/ja",
     "title": "Nani翻訳: AIが解説付きで高速に翻訳",
