@@ -2,7 +2,7 @@
 service: "Todoist"
 title: "Say It and It Becomes a Task — How Todoist Grew From a Student's Hobby to a 50-Million-User To-Do App Without Venture Capital, on Delta-Only Sync and Voice Input"
 description: "Todoist is the task manager that began in 2007 as a student's hobby project and, without venture capital, grew into an app used by more than 50 million people, run by a fully remote team of 108 spread across 38 countries. A dissection — from its engineering blog, API documentation, pricing page, and press release — of a sync protocol built on sync_token and temp_id that only exchanges what changed, an API answered by gunicorn in front of MySQL on Amazon Aurora, an iOS local database moved from Realm to GRDB, filter queries written by GPT-4 and Ramble turning speech into tasks with Gemini 2.5 Flash Live, and an affiliate program paying up to 25%."
-lead: "Type a task name into Todoist together with \"every other Tuesday\", \"#Work\", and \"p1\", and a single line becomes a task with a recurring schedule, a project, and a priority. Since 2025 you can just say it out loud instead. In to-do lists — a tool anyone can build and anyone can switch away from — Todoist has spent 18 years gathering more than 50 million users while running without venture capital. This is a dissection of how it is built and how it makes money."
+lead: "Type a task name into Todoist together with \"every other Tuesday\", \"#Work\", and \"p1\", and a single line becomes a task with a recurring schedule, a project, and a priority. Since 2025 you can just say it out loud instead. In to-do lists — a tool anyone can build and anyone can switch away from — Todoist has spent nearly two decades gathering more than 50 million users while running without venture capital. This is a dissection of how it is built and how it makes money."
 category: productivity
 tags: [task-management, productivity, sync-engine, python, voice-ai]
 publishedAt: "2026-09-28"
@@ -33,12 +33,12 @@ techStack:
   - layer: "API server"
     name: "Python (gunicorn)"
     confidence: likely
-    evidence: "In this site's HTTP header observation (2026-09-28), api.todoist.com/api/v1/sync returned server: gunicorn, a Python WSGI server. The official post \"AWS ECS-based Ephemeral consoles\" (2023-12-20) also says developers use a Python/iPython console to investigate production. No public job posting or page naming the server language was available to confirm it at the time of writing"
+    evidence: "In this site's HTTP header observation (2026-09-28), api.todoist.com/api/v1/sync returned server: gunicorn, a Python WSGI server. The official post \"AWS ECS-based Ephemeral consoles\" (2023-12-20) also says developers have long investigated production by opening a Python/iPython console over SSH. No public job posting or page naming the server language was available to confirm it at the time of writing"
     evidenceUrl: "https://www.doist.dev/ephemeral-consoles"
   - layer: "Operations and debugging"
     name: "AWS ECS on Fargate + Tailscale (ephemeral consoles)"
     confidence: confirmed
-    evidence: "The same official post explains that consoles for troubleshooting production are launched on demand as time-limited Fargate tasks on AWS ECS, reached over SSH through Tailscale, with mandatory session recording. The bootstrap that manages them is written in Go"
+    evidence: "The same official post says production code runs on AWS Fargate, and explains that consoles for troubleshooting production are launched on demand as Fargate tasks on ECS for a lifetime chosen up front, reached over SSH through Tailscale, with mandatory session recording. The bootstrap that manages them is written in Go"
     evidenceUrl: "https://www.doist.dev/ephemeral-consoles"
   - layer: "Web client"
     name: "TypeScript / React / Redux"
@@ -58,7 +58,7 @@ techStack:
   - layer: "Voice input (Ramble)"
     name: "Gemini 2.5 Flash Live via Google Vertex AI"
     confidence: confirmed
-    evidence: "The official press release (2026-01-21) states that Ramble uses Google's Gemini 2.5 Flash Live model via Vertex AI, streaming audio to Doist's backend where the model transcribes speech and parses intent in real time. Audio is never stored or used for training"
+    evidence: "The official press release (2026-01-21) states that Ramble uses Google's Gemini 2.5 Flash Live model via Vertex AI, streaming audio to Doist's backend, where the model transcribes the speech, the system parses intent and entities such as projects and dates, and the model issues structured tool calls to create, update, or remove tasks. Audio is never stored or used for training"
     evidenceUrl: "https://www.prnewswire.com/news-releases/introducing-todoist-ramble-ai-that-turns-natural-speech-into-structured-tasks-302666143.html"
   - layer: "AI filter generation"
     name: "FastAPI + OpenAI GPT-4 (Filter Assist)"
@@ -68,7 +68,7 @@ techStack:
   - layer: "Product analytics"
     name: "bitmapist + bitmapist-server (Redis bitmaps / Go)"
     confidence: confirmed
-    evidence: "The official post \"Bitmapist\" (2025-07-29, written by CEO Amir Salihefendic) describes the in-house cohort analytics library built on Redis bitmaps, and the Go-based bitmapist-server that cut memory use for the same data from nearly 130GB to 300MB"
+    evidence: "The official post \"Bitmapist\" (2025-07-29, written by CEO Amir Salihefendic) describes the in-house cohort analytics library built on Redis bitmaps, and a standalone bitmapist-server without Redis that cut memory use for the same data from nearly 130GB to 300MB (a 443x reduction). The official GitHub repository Doist/bitmapist-server is written in Go"
     evidenceUrl: "https://www.doist.dev/bitmapist"
   - layer: "AI agent integration"
     name: "Todoist MCP server (TypeScript, hosted at ai.todoist.net/mcp)"
@@ -78,7 +78,7 @@ techStack:
   - layer: "CI/CD"
     name: "GitHub Actions (Ubicloud runners) / Fastlane / Gradle plugins"
     confidence: confirmed
-    evidence: "Official posts describe GitHub Actions on Ubicloud runners with Jest, Playwright, and Datadog for the web (\"Speeding up Todoist Web's CI\", 2026-09-18), Fastlane with daily internal TestFlight builds for iOS (\"Continuous Deployment for iOS\", 2022-02-15), and daily releases wrapped in Gradle plugins for Android (\"We release our Android apps every day\", 2021-10-13)"
+    evidence: "Official posts describe GitHub Actions on Ubicloud runners with Jest, Playwright, and Datadog for the web (\"Speeding up Todoist Web's CI\", 2026-09-18), GitHub Actions and Fastlane with daily internal TestFlight builds for iOS (\"Continuous Deployment for iOS\", 2022-02-15), and internal releases on every merge to main plus weekly public releases wrapped in a Gradle plugin for Android (\"We release our Android apps every day\", 2021-10-13)"
     evidenceUrl: "https://www.doist.dev/taming-ci-times"
   - layer: "Delivery and marketing site"
     name: "Amazon CloudFront / Astro"
@@ -148,6 +148,9 @@ sources:
   - label: "GitHub: Doist/typist (Tiptap-based rich-text editor)"
     url: "https://github.com/Doist/typist"
     accessedAt: "2026-09-28"
+  - label: "GitHub: Doist/bitmapist-server (bitmapist server written in Go)"
+    url: "https://github.com/Doist/bitmapist-server"
+    accessedAt: "2026-09-28"
   - label: "GitHub: Doist/todoist-mcp (official MCP server)"
     url: "https://github.com/Doist/todoist-mcp"
     accessedAt: "2026-09-28"
@@ -163,7 +166,7 @@ A to-do app is one of the easiest pieces of software to build and one of the eas
 Todoist is a task manager that organizes tasks by project, section, label, and priority, with due dates, reminders, and recurrence. It offers a free plan for individuals, a paid Pro plan, and Business for teams, and works on the same data across the web, Windows, macOS, Linux, iOS, Android, Apple Watch, and Wear OS. Its maker, Doist, also builds the team messaging app Twist.
 
 :::fact
-According to Wikipedia, Todoist was created in 2007 by Amir Salihefendic as a hobby project without formal funding. The official About us page says it began as a tool a stressed computer science student built to manage a demanding life and study schedule; Salihefendic is still CEO. The same page lists a team of 108 people of 43 nationalities in 94 cities across 38 countries, working remote and async "since 2011, before the pandemic normalized it." The official Channel Partners page says the company grew organically without VC funding, and cites more than 1 million Pro users, more than 30 million app downloads, and more than 2 billion completed tasks.
+According to Wikipedia, Todoist was created in 2007 by Amir Salihefendic as a hobby project without formal funding. The official About us page says it began as a tool a stressed computer science student built to manage a demanding life and study schedule; Salihefendic is still CEO. The same page lists a team of 108 people of 43 nationalities in 94 cities across 38 countries, working remote and async "since 2011, before the pandemic normalized it." The official Channel Partners page says the company has grown organically since day one without any VC funds or investors, and cites more than 1 million Pro users, more than 30 million app downloads, and more than 2 billion completed tasks.
 :::
 
 :::fact
@@ -181,12 +184,12 @@ Write "every other Tuesday" and it recurs; write "p1" and it jumps to the top. T
 Todoist's UX is designed to push the cost of input as close to zero as possible, and let the machine help with the organizing afterwards.
 
 - **Decide everything in one line.** The Quick Add field reads dates and recurrence written like "tomorrow at 4 PM" or "every other Tuesday starting March 3", projects (#), labels (%, with the old @ being retired by the end of 2026), and priorities (p1–p3) out of the sentence itself. There are no form fields to fill in one by one; you type in whatever order the thought arrives. A word mistakenly read as a date — "monthly" in "Create monthly report" — can be clicked to turn it back into plain text.
-- **Say it and it becomes a task.** Ramble, the voice input that entered public beta in November 2025 and became generally available in January 2026, splits a stream of free-form speech into several tasks with projects, dates, deadlines, priorities, and durations. Say "Actually, make that Thursday" mid-sentence and the task is rewritten on the spot. According to the press release it supports 38 languages; the free plan has a monthly session limit, while Pro and Business are unlimited.
+- **Say it and it becomes a task.** Ramble, the voice input that entered public beta in November 2025 and became generally available in January 2026, splits a stream of free-form speech into several tasks with projects, dates, deadlines, priorities, and durations. Say "Actually, make that Thursday" mid-sentence and the task is rewritten on the spot. It supported 38 languages at launch according to the press release, and 40 according to the current official page; the free plan has a monthly session limit, while Pro and Business are unlimited.
 - **No query language required.** Todoist filters use their own query syntax, like `(today | tomorrow) & @work`, which only a minority mastered. Filter Assist (2024) lets you ask in plain language and has AI write the query and a title.
 - **A free plan you can live on.** The free Beginner plan includes 5 personal projects, Smart Quick Add, reminders, list and board layouts, and 3 filter views. Features for managing work at scale — the calendar layout, task durations, 150 filter views, full activity history — are reserved for Pro.
 
 :::fact
-According to Doist's press release (January 21, 2026), 76,000 users completed about 290,000 Ramble sessions during the November–December 2025 beta. End-to-end task creation success rose from about 40% in October 2025 to about 62% in December. Among new free users who tried Ramble, upgrade rates were about five times the baseline. The official engineering post "Filter Assist" (March 14, 2024) cites the fact that only a small percentage of users were adding filters as the reason for building the feature.
+According to Doist's press release (January 21, 2026), 76,000 users completed about 290,000 Ramble sessions within three weeks of the public beta opening on November 19, 2025. End-to-end task creation success rose from about 40% in October 2025 to about 62% in December. Among new users on the free Beginner plan who used Ramble in their first week, upgrade rates were about five times the baseline. The official engineering post "Filter Assist" (March 14, 2024) cites the fact that only a small percentage of users were adding filters as the reason for building the feature.
 :::
 
 ## Tech stack
@@ -198,15 +201,15 @@ According to the official API documentation, Todoist clients and servers exchang
 :::
 
 :::fact
-According to the official engineering blog, the server-side database is MySQL 8.0 on Amazon Aurora ("When IN(…) is Not Enough," June 2025), and consoles for investigating production are launched as time-limited Fargate tasks on AWS ECS and reached through Tailscale (December 2023). The web app is written in TypeScript and Redux (January 2022), and rich-text editing uses Typist, built in house on top of Tiptap. In summer 2025 the iOS app moved its local database from Realm to the SQLite-based GRDB (January 2026). "Choosing a Multiplatform Stack" (April 2022) compared JavaScript, Go, Rust, and Kotlin Multiplatform for sharing logic across Android, Apple platforms, the web, and Windows, and concluded that Kotlin Multiplatform — whose interop with Swift showed no significant performance loss — was "the only technology worth exploring." An earlier post that January, on compiling the Filterist query parser from Kotlin to JavaScript, concluded that Kotlin/JS was "not quite production-ready for Filterist."
+According to the official engineering blog, the server-side database is MySQL 8.0 on Amazon Aurora ("When IN(…) is Not Enough," June 2025), production code runs on AWS Fargate, and consoles for investigating production are also launched as Fargate tasks with a set lifetime and reached through Tailscale (December 2023). The web app is written in TypeScript and Redux (January 2022), and rich-text editing uses Typist, built in house on top of Tiptap. In summer 2025 the iOS app moved its local database from Realm to the SQLite-based GRDB (January 2026). "Choosing a Multiplatform Stack" (April 2022) compared JavaScript, Go, Rust, and Kotlin Multiplatform for sharing logic across Android, Apple platforms, the web, and Windows, and, after testing performance and interoperability on Apple platforms, concluded that Kotlin Multiplatform — faster than the native Swift implementation on some tests — was "the only technology worth exploring." An earlier post that January, on compiling the Filterist query parser from Kotlin to JavaScript, concluded that Kotlin/JS was "not quite production-ready for Filterist."
 :::
 
 :::guess
-In this site's observation (2026-09-28), the sync endpoint on api.todoist.com returned `server: gunicorn`. Gunicorn serves Python web applications, so the API itself appears to be written in Python. The use of FastAPI for the AI backend and of Python consoles for debugging also suggests Python sits at the center of the server. The sync design rests on three ideas — send only the changes, bundle writes into one request, and create things first under a temporary ID — which appears aimed at letting a phone create tasks locally in a subway or on a plane and send them all the moment it reconnects. With that approach, perceived speed on the device can stay high without an elaborate server.
+In this site's observation (2026-09-28), the sync endpoint on api.todoist.com returned `server: gunicorn`. Gunicorn serves Python web applications, so the API itself appears to be written in Python. The choice of FastAPI for the AI backend, on the grounds that "a Python backend would satisfy our requirements," and of Python consoles for debugging also suggests Python sits at the center of the server. The sync design rests on three ideas — send only the changes, bundle writes into one request, and create things first under a temporary ID — which appears aimed at letting a phone create tasks locally in a subway or on a plane and send them all the moment it reconnects. With that approach, perceived speed on the device can stay high without an elaborate server.
 :::
 
 :::guess
-Ramble's audio goes through Doist's backend to Gemini 2.5 Flash Live rather than straight from the device to Google. The likely reason is to pass the user's project names and labels in as context, and to turn the model's output into the existing sync commands. Promising never to store audio while still improving accuracy means tuning on outcomes — whether a task was successfully created end to end — rather than on recordings, and the press release publishing that success rate over time appears to reflect exactly that.
+Ramble's audio goes through Doist's backend to Gemini 2.5 Flash Live rather than straight from the device to Google. The likely reason is to pass the user's project names and labels in as context, and to feed the model's tool calls into the existing task operations. The press release says audio is never stored, and the official Ramble page says only that usage data may be kept temporarily on Doist's own servers for debugging and improvement. Improving accuracy without a pile of recordings means tuning on outcomes — whether a task was successfully created end to end — and the press release publishing that success rate over time appears to reflect exactly that.
 :::
 
 ## Business model
@@ -218,15 +221,15 @@ According to the official pricing page (viewed from Japan on September 28, 2026)
 :::
 
 :::fact
-According to the official Channel Partners page and help center, Todoist's affiliate program runs on PartnerStack and pays up to 25% depending on partner tier. For yearly plans the reward is paid once, on the first payment; for monthly plans it applies to up to 12 payments. A sale counts if the referred person becomes a paid user on the web within 90 days of clicking; App Store and Google Play purchases are excluded. Rewards can be redeemed after the 30-day refund period, and all payments are in US dollars. Applicants are expected to have a sizeable existing audience.
+According to the official Channel Partners page and help center, Todoist's affiliate program runs on PartnerStack and pays up to 25% depending on partner tier. For yearly plans the reward is paid once, on the first payment; for monthly plans it applies to up to 12 payments. A sale counts if the referred person becomes a paid user within 90 days of clicking; only purchases made through todoist.com are tracked, so App Store and Google Play purchases are excluded. Rewards can be redeemed after the 30-day refund period, and all payments are in US dollars. Applicants are expected to have a sizeable existing audience.
 :::
 
 :::guess
-Compared with 1Password's "$2 per signup plus 25% of the first payment," Todoist's terms leave more with the referrer when the customer pays monthly, since it pays on up to 12 months. Mobile app-store purchases, however, are excluded. Where the store already takes a cut there is little room left for a referral fee as well, which suggests an intent to steer users toward paying on the web. The press release's figure — free users who tried Ramble upgraded at about five times the baseline — indicates that AI features are working as a "free to try, paid once you rely on it" funnel, and Todoist is likely to keep using AI both as a hook in the free plan and as the differentiator of the paid ones.
+Compared with 1Password's "$2 per signup plus 25% of the first payment," Todoist's terms leave more with the referrer when the customer pays monthly, since it pays on up to 12 months. Mobile app-store purchases, however, are excluded. The official explanation is simply that only todoist.com purchases are tracked, but where the store already takes a cut there is little room left for a referral fee as well, so the rule likely also serves to steer users toward paying on the web. The press release's figure — free users who tried Ramble upgraded at about five times the baseline — indicates that AI features are working as a "free to try, paid once you rely on it" funnel, and Todoist is likely to keep using AI both as a hook in the free plan and as the differentiator of the paid ones.
 :::
 
 :::guess
-The absence of venture capital appears to shape the engineering as well. Supporting more than 50 million users with a team of 108 requires systems that run with few hands. Shipping Android and iOS builds internally every day, cutting web CI times by roughly half by "stopping doing work that didn't need to happen," shrinking an analytics store to about 1/400th of its memory — many of the topics on the engineering blog aim at saving cost and people as much as at speed, which is presumably the other side of running a business that cannot cover losses with outside money.
+The absence of venture capital appears to shape the engineering as well. Supporting more than 50 million users with a team of 108 requires systems that run with few hands. Shipping Android and iOS development builds internally every day, cutting web CI time by 40% and deploy time by 50% "mostly by deleting work that didn't need to happen," shrinking an analytics store to 1/443rd of its memory — many of the topics on the engineering blog aim at saving cost and people as much as at speed, which is presumably the other side of running a business that cannot cover losses with outside money.
 :::
 
-What Todoist sells is not a screen that lists tasks. It is the state in which whatever crosses your mind, the moment you type or say it, can be pulled up in the same structure on any device. Sync that exchanges only the changes, writes that create first under a temporary ID, and input that turns sentences and speech into structure — together they have made a to-do app, the kind anyone can build and anyone can leave, into an independent business now 18 years old. Even as AI agents begin writing tasks through MCP, the value of a design that keeps the way in fast and the contents the same everywhere is not going away.
+What Todoist sells is not a screen that lists tasks. It is the state in which whatever crosses your mind, the moment you type or say it, can be pulled up in the same structure on any device. Sync that exchanges only the changes, writes that create first under a temporary ID, and input that turns sentences and speech into structure — together they have made a to-do app, the kind anyone can build and anyone can leave, into an independent business now nearly two decades old. Even as AI agents begin writing tasks through MCP, the value of a design that keeps the way in fast and the contents the same everywhere is not going away.
