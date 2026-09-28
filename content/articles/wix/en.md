@@ -1,8 +1,8 @@
 ---
 service: "Wix"
 title: "The No-Code Veteran Bought Vibe Coding — Why Wix Paid $80M for Six-Month-Old Base44"
-description: "Wix, the no-code website builder with 300M+ registered users and roughly $2B in annual revenue, bought Base44 — a six-month-old AI app builder — and launched the AI site builder Wix Harmony. We dissect its 4,000+ microservices, multi-cloud delivery, and the agency and freelancer revenue behind it, from SEC filings and the official engineering blog."
-lead: "In June 2025, Wix — long a byword for no-code — bought Base44, a six-month-old startup founded by a single developer, for about $80 million. Nine months later, its earnings release says, Base44 had reached $100 million in ARR. We dissect how a company that spent almost two decades winning with drag-and-drop is rebuilding itself for an era where you build by talking."
+description: "Wix, the no-code website builder with 300M+ registered users and roughly $2B in annual revenue, bought Base44 — a six-month-old AI app builder — and launched the AI site builder Wix Harmony. We dissect its 4,000+ microservices, multi-cloud delivery, and the agency and reseller revenue behind it, from SEC filings and the official engineering blog."
+lead: "In June 2025, Wix — long a byword for no-code — bought Base44, a six-month-old startup owned by its solo founder, for about $80 million. Nine months later, its earnings release says, Base44 had reached $100 million in ARR. We dissect how a company that spent almost two decades winning with drag-and-drop is rebuilding itself for an era where you build by talking."
 category: saas
 tags: [website-builder, no-code, e-commerce, ai, kafka]
 publishedAt: "2026-09-28"
@@ -58,6 +58,9 @@ sources:
   - label: "SEC Form 6-K (Wix.com Ltd. — Q4 and full-year 2025 results, 2026-03-04)"
     url: "https://www.sec.gov/Archives/edgar/data/1576789/000162828026014406/fourthquarterandfullyear20.htm"
     accessedAt: "2026-09-28"
+  - label: "TechCrunch: 6-month-old, solo-owned vibe coder Base44 sells to Wix for $80M (2025-06-18)"
+    url: "https://techcrunch.com/2025/06/18/6-month-old-solo-owned-vibe-coder-base44-sells-to-wix-for-80m-cash/"
+    accessedAt: "2026-09-28"
   - label: "Wix press room: acquisition of Base44 (2025-06-18)"
     url: "https://www.wix.com/press-room/home/post/wix-further-expands-into-vibe-coding-with-acquisition-of-base44-a-hyper-growth-startup-that-simplif"
     accessedAt: "2026-09-28"
@@ -101,7 +104,7 @@ According to its official site, Wix was founded in 2006 and is headquartered in 
 :::
 
 :::fact
-According to the official press room, Wix acquired the AI app builder Base44 on June 18, 2025 for initial consideration of approximately $80 million, plus performance-based earn-out payments through 2029; Base44 continues to operate as a distinct product and business. On January 21, 2026, Wix announced Wix Harmony, an AI site builder that combines Aria, an AI agent directed in natural language, with Wix's existing visual editor. The full-year 2025 earnings release states that Base44 reached $100 million in ARR nine months after the acquisition.
+According to the official press room, Wix acquired the AI app builder Base44 on June 18, 2025 for initial consideration of approximately $80 million, plus performance-based earn-out payments through 2029; Base44 continues to operate as a distinct product and business. TechCrunch reported Base44 as a six-month-old company solely owned by its founder, Maor Shlomo. On January 21, 2026, Wix announced Wix Harmony, an AI site builder that combines Aria, an AI agent directed in natural language, with Wix's existing visual editor. The full-year 2025 earnings release states that Base44 reached $100 million in ARR nine months after the acquisition.
 :::
 
 :::pull
@@ -132,7 +135,7 @@ Other posts on the same blog report that, at the database layer, Wix moved about
 :::
 
 :::guess
-In our observation, wix.com's response headers showed server: Pepyaka alongside values indicating a Varnish cache hit and delivery via Fastly. This suggests Fastly and a Varnish cache layered in front of Wix's own delivery tier. For Wix, which serves hundreds of millions of sites through largely the same templated machinery, cache hit rate translates directly into cost of delivery. The steady stream of posts about shaving 30% off Kafka or 15% off MySQL compute likely reflects a business where trimming infrastructure costs — which grow with scale — a percent at a time materially moves margins.
+In our observation, wix.com's response headers showed server: Pepyaka alongside values indicating a Varnish cache hit and delivery via Fastly. This suggests a Fastly cache (Fastly is itself built on Varnish) placed in front of Wix's own delivery tier. For Wix, which serves hundreds of millions of sites through largely the same templated machinery, cache hit rate translates directly into cost of delivery. The steady stream of posts about shaving 30% off Kafka or 15% off MySQL compute likely reflects a business where trimming infrastructure costs — which grow with scale — by even a few percent materially moves margins.
 :::
 
 ## Business model
@@ -140,15 +143,15 @@ In our observation, wix.com's response headers showed server: Pepyaka alongside 
 Wix earns revenue from two pillars: paid site plans (Creative Subscriptions) and business features such as payments, e-commerce and shipping (Business Solutions).
 
 :::fact
-According to the SEC filing, of 2025 revenue of $1.99 billion, Creative Subscriptions contributed $1.41 billion (up 11%) and Business Solutions $583.3 million (up 18%). Within Business Solutions, transaction revenue — primarily from Wix Payments — was $255.0 million (up 19%). Revenue through agencies and freelancers who build sites for others (Partners revenue) was $750.3 million, up 23% — faster than the company overall. Free cash flow was $573.0 million, or 30% of revenue excluding acquisition-related costs. For 2026, Wix expects both bookings and revenue to grow at a mid-teens percentage.
+According to the SEC filing, of 2025 revenue of $1.99 billion, Creative Subscriptions contributed $1.41 billion (up 11%) and Business Solutions $583.3 million (up 18%). Within Business Solutions, transaction revenue — primarily from Wix Payments — was $255.0 million (up 19%). Revenue through agencies and freelancers who build sites or apps for others, plus B2B resellers such as LegalZoom and Vistaprint (Partners revenue), was $750.3 million, up 23% — faster than the company overall. Free cash flow was $573.0 million; excluding acquisition-related costs it would have been $605.1 million, or 30% of revenue. For 2026, Wix expects both bookings and revenue to grow at a mid-teens percentage.
 :::
 
 :::guess
-Line the growth rates up and payments (up 19%) and agency-driven revenue (up 23%) outpace site subscriptions (up 11%). Wix's center of gravity appears to be shifting from "a tool for one person to build their own site" toward "people who build other people's businesses, and the rails those businesses run on." Base44 and Harmony read as investments that widen the entrance to that flow: the more people build sites and apps with AI, the more of the downstream payments, hosting and recurring billing lands on Wix's platform.
+Line the growth rates up and payments (up 19%) and partner revenue driven by agencies and others (up 23%) outpace site subscriptions (up 11%). Wix's center of gravity appears to be shifting from "a tool for one person to build their own site" toward "people who build other people's businesses, and the rails those businesses run on." Base44 and Harmony read as investments that widen the entrance to that flow: the more people build sites and apps with AI, the more of the downstream payments, hosting and recurring billing lands on Wix's platform.
 :::
 
 :::fact
 According to its official site, Wix runs an affiliate program (the Wix Affiliate Program) that pays affiliates when a referred new user converts to a Premium subscription, with applications accepted through Impact.
 :::
 
-A drag-and-drop veteran bolting AI onto its core skill without abandoning it, and earning from payments and the agency economy. Wix's 2025 was the year it went shopping for what comes after no-code — and a year of trimming its infrastructure bill a percent at a time to pay for it.
+A drag-and-drop veteran bolting AI onto its core skill without abandoning it, and earning from payments and the agency economy. Wix's 2025 was the year it went shopping for what comes after no-code. Behind it, the unglamorous work of trimming its infrastructure bill bit by bit goes on.
