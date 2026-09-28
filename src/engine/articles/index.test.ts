@@ -17,22 +17,22 @@ import { CATEGORY_IDS } from "./taxonomy";
 // even with zero articles are checked here (article-specific checks live in content.test.ts).
 
 describe("articles/index", () => {
-  it("ALL_ARTICLES は公開日の新しい順", () => {
+  it("ALL_ARTICLES is newest publishedAt first", () => {
     const dates = ALL_ARTICLES.map((article) => article.ja.frontmatter.publishedAt);
     expect([...dates].sort().reverse()).toEqual(dates);
   });
 
-  it("articleBySlug は存在しない slug に undefined", () => {
+  it("articleBySlug returns undefined for an unknown slug", () => {
     expect(articleBySlug("no-such-slug")).toBeUndefined();
   });
 
-  it("articleBySlug は全記事を引ける", () => {
+  it("articleBySlug finds every article", () => {
     for (const article of ALL_ARTICLES) {
       expect(articleBySlug(article.slug)).toBe(article);
     }
   });
 
-  it("articlesByCategory は ALL_ARTICLES の部分集合", () => {
+  it("articlesByCategory is a subset of ALL_ARTICLES", () => {
     for (const id of CATEGORY_IDS) {
       for (const article of articlesByCategory(id)) {
         expect(ALL_ARTICLES).toContain(article);
@@ -41,11 +41,11 @@ describe("articles/index", () => {
     }
   });
 
-  it("articlesByTag は存在しないタグに空配列", () => {
+  it("articlesByTag returns an empty array for an unknown tag", () => {
     expect(articlesByTag("no-such-tag")).toEqual([]);
   });
 
-  it("allTags は全記事のタグを網羅する", () => {
+  it("allTags covers the tags of every article", () => {
     const tags = allTags();
     for (const article of ALL_ARTICLES) {
       for (const tag of article.ja.frontmatter.tags) {
@@ -54,19 +54,19 @@ describe("articles/index", () => {
     }
   });
 
-  it("usedCategories は定義済みカテゴリの部分列", () => {
+  it("usedCategories is a subsequence of the defined categories", () => {
     const used = usedCategories();
     expect(CATEGORY_IDS.filter((id) => used.includes(id))).toEqual(used);
   });
 
-  it("allTech の各エントリは articlesByTech で count と同数の記事を引ける", () => {
+  it("each allTech entry finds as many articles via articlesByTech as its count", () => {
     for (const entry of allTech()) {
       expect(articlesByTech(entry.slug)).toHaveLength(entry.count);
     }
     expect(articlesByTech("no-such-tech")).toEqual([]);
   });
 
-  it("relatedTo は自身を含まない ALL_ARTICLES の部分集合を最大3件返す", () => {
+  it("relatedTo returns up to 3 articles from ALL_ARTICLES, excluding itself", () => {
     for (const article of ALL_ARTICLES) {
       const related = relatedTo(article);
       expect(related.length).toBeLessThanOrEqual(3);
@@ -77,7 +77,7 @@ describe("articles/index", () => {
     }
   });
 
-  it("ogCardFor は存在しない slug に undefined、既知の slug には url 付きカードを返す", () => {
+  it("ogCardFor returns undefined for an unknown slug and a card with url for a known slug", () => {
     expect(ogCardFor("no-such-slug")).toBeUndefined();
     for (const article of ALL_ARTICLES) {
       const card = ogCardFor(article.slug);

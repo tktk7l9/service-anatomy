@@ -4,11 +4,11 @@ import { contentSecurityPolicy } from "./csp";
 describe("contentSecurityPolicy", () => {
   const prod = contentSecurityPolicy();
 
-  it("nonce を含まない（middleware を廃止したので発行元が無い）", () => {
+  it("does not include a nonce (middleware was removed, so nothing issues one)", () => {
     expect(prod).not.toContain("nonce-");
   });
 
-  it("'strict-dynamic' を含まない", () => {
+  it("does not include 'strict-dynamic'", () => {
     // In CSP Level 3, 'strict-dynamic' makes the allowlist and 'self' / 'unsafe-inline' be
     // ignored. Adding it in this setup, which has neither nonces nor hashes, removes the root of trust
     // and stops every script on the page. If you add it, provide nonces or hashes at the same time.
@@ -17,7 +17,7 @@ describe("contentSecurityPolicy", () => {
     expect(contentSecurityPolicy({ dev: true })).not.toContain("strict-dynamic");
   });
 
-  it("インラインを許すことを script-src に明示している", () => {
+  it("script-src explicitly allows inline", () => {
     // Pin it including the trailing ;. Otherwise it would still pass if a loose value were appended,
     // like "'unsafe-inline' https: *".
     expect(prod).toContain(
@@ -25,30 +25,30 @@ describe("contentSecurityPolicy", () => {
     );
   });
 
-  it("本番では 'unsafe-eval' を出さない", () => {
+  it("does not emit 'unsafe-eval' in production", () => {
     expect(prod).not.toContain("unsafe-eval");
   });
 
-  it("dev では Next のオーバーレイ用に 'unsafe-eval' を足す", () => {
+  it("adds 'unsafe-eval' in dev for the Next overlay", () => {
     expect(contentSecurityPolicy({ dev: true })).toContain("'unsafe-eval'");
   });
 
-  it("既定では img-src は self と data: だけ", () => {
+  it("img-src is only self and data: by default", () => {
     expect(prod).toContain("img-src 'self' data:;");
   });
 
-  it("extraImgSrc で公式リンクカードの OGP ホストを足せる", () => {
+  it("extraImgSrc can add OGP hosts for official link cards", () => {
     const csp = contentSecurityPolicy({
       extraImgSrc: ["https://cdn.example.com", "https://img.example.org"],
     });
     expect(csp).toContain("img-src 'self' data: https://cdn.example.com https://img.example.org;");
   });
 
-  it("extraImgSrc が空配列でも img-src の形が壊れない", () => {
+  it("img-src keeps its shape when extraImgSrc is an empty array", () => {
     expect(contentSecurityPolicy({ extraImgSrc: [] })).toContain("img-src 'self' data:;");
   });
 
-  it("Cloudflare Web Analytics のビーコンに必要な2オリジンを許可している", () => {
+  it("allows the two origins needed by the Cloudflare Web Analytics beacon", () => {
     // The beacon is loaded from static.cloudflareinsights.com and POSTs measurements to
     // cloudflareinsights.com. **If either is missing the page still looks fine while only the
     // beacon is silently blocked** (only a CSP violation appears in the console), so both are
@@ -57,7 +57,7 @@ describe("contentSecurityPolicy", () => {
     expect(prod).toContain("connect-src 'self' https://cloudflareinsights.com;");
   });
 
-  it("締めるべきディレクティブが揃っている", () => {
+  it("includes all directives that should be locked down", () => {
     for (const directive of [
       "default-src 'self'",
       "style-src 'self' 'unsafe-inline'",
@@ -74,7 +74,7 @@ describe("contentSecurityPolicy", () => {
     }
   });
 
-  it("ディレクティブは ; 区切りで、末尾に余分な ; を付けない", () => {
+  it("directives are separated by ; with no trailing ;", () => {
     expect(prod.endsWith(";")).toBe(false);
     expect(prod).not.toContain(";;");
   });

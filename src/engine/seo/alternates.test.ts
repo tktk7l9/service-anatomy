@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { absoluteLanguageAlternates, languageAlternates } from "./alternates";
 
 describe("seo/alternates", () => {
-  it("languageAlternates は全ロケール + x-default を返す", () => {
+  it("languageAlternates returns every locale + x-default", () => {
     expect(languageAlternates("/articles/alpha")).toEqual({
       ja: "/ja/articles/alpha",
       en: "/en/articles/alpha",
@@ -10,7 +10,7 @@ describe("seo/alternates", () => {
     });
   });
 
-  it("languageAlternates はパス省略時にロケールルートを返す", () => {
+  it("languageAlternates returns locale roots when the path is omitted", () => {
     expect(languageAlternates()).toEqual({
       ja: "/ja",
       en: "/en",
@@ -18,7 +18,7 @@ describe("seo/alternates", () => {
     });
   });
 
-  it("absoluteLanguageAlternates は baseUrl を前置する", () => {
+  it("absoluteLanguageAlternates prefixes baseUrl", () => {
     expect(absoluteLanguageAlternates("https://example.test", "/tech")).toEqual({
       ja: "https://example.test/ja/tech",
       en: "https://example.test/en/tech",

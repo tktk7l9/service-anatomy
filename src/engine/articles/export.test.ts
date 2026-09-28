@@ -5,7 +5,7 @@ import { buildAnatomyExport } from "./export";
 const BASE = "https://example.test";
 
 describe("articles/export", () => {
-  it("トップレベルに site / terms / generatedAt / count を持つ", () => {
+  it("has site / terms / generatedAt / count at the top level", () => {
     const data = buildAnatomyExport([], BASE, "2026-07-17");
     expect(data.site).toBe(BASE);
     expect(data.generatedAt).toBe("2026-07-17");
@@ -15,7 +15,7 @@ describe("articles/export", () => {
     expect(data.terms.en).toContain(BASE);
   });
 
-  it("言語中立フィールドは ja を正とし、ローカライズ項目は両言語を含む", () => {
+  it("language-neutral fields take ja as canonical; localized fields include both languages", () => {
     const article = makeArticle("alpha", { title: "Alpha の解剖" }, { title: "Anatomy of Alpha" });
     const data = buildAnatomyExport([article], BASE, "2026-07-17");
     expect(data.count).toBe(1);
@@ -37,7 +37,7 @@ describe("articles/export", () => {
     ]);
   });
 
-  it("affiliate（提携リンク）は公開 JSON に出さない", () => {
+  it("affiliate (affiliate link) is not included in the public JSON", () => {
     const article = makeArticle("alpha", {
       affiliate: { url: "https://shopify.pxf.io/abc", program: "Shopify" },
     });
@@ -46,7 +46,7 @@ describe("articles/export", () => {
     expect(JSON.stringify(exported)).not.toContain("pxf.io");
   });
 
-  it("techStack は evidenceUrl の有無を保って書き出す", () => {
+  it("techStack is written out preserving whether evidenceUrl is present", () => {
     const withUrl = {
       layer: "Frontend",
       name: "React",

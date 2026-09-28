@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 import { BASE_URL, GITHUB_URL, SITE_NAME } from "../site";
 import { buildBlogPosting, buildBreadcrumbList, buildItemList, buildWebSite } from "./jsonld";
 
-describe("site 定数", () => {
-  it("URL は https", () => {
+describe("site constants", () => {
+  it("URL is https", () => {
     expect(BASE_URL).toMatch(/^https:\/\//);
     expect(GITHUB_URL).toMatch(/^https:\/\//);
     expect(SITE_NAME).toBe("Service Anatomy");
@@ -41,7 +41,7 @@ describe("seo/jsonld", () => {
     expect(data.keywords).toBe("a,b");
   });
 
-  it("buildBreadcrumbList は position を 1 始まりで振る", () => {
+  it("buildBreadcrumbList numbers position from 1", () => {
     const data = buildBreadcrumbList([
       { name: "Home", url: `${BASE_URL}/ja` },
       { name: "記事", url: `${BASE_URL}/ja/articles/x` },

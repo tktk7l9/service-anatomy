@@ -21,18 +21,18 @@ function loadEntry<F>(
   parseFrontmatter: (data: unknown, context: string) => F,
 ): ContentEntry<F> {
   if (!KEBAB_CASE.test(slug)) {
-    throw new Error(`ディレクトリ名 "${slug}" は kebab-case である必要があります`);
+    throw new Error(`directory name "${slug}" must be kebab-case`);
   }
   const files = {} as Record<Locale, ContentFile<F>>;
   for (const locale of locales) {
     const filePath = path.join(rootDir, slug, `${locale}.md`);
     if (!fs.existsSync(filePath)) {
-      throw new Error(`${slug}: ${locale}.md がありません（ja/en は必ず対で置く）`);
+      throw new Error(`${slug}: ${locale}.md is missing (ja/en must always come as a pair)`);
     }
     const { data, content } = matter(fs.readFileSync(filePath, "utf8"));
     const body = content.trim();
     if (body === "") {
-      throw new Error(`${slug}/${locale}.md: 本文が空です`);
+      throw new Error(`${slug}/${locale}.md: body is empty`);
     }
     files[locale] = { frontmatter: parseFrontmatter(data, `${slug}/${locale}.md`), body };
   }

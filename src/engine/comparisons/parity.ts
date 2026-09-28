@@ -12,15 +12,15 @@ export function localeParityIssues(comparison: ComparisonItem): string[] {
 
   for (const key of NEUTRAL_KEYS) {
     if (ja[key] !== en[key]) {
-      issues.push(`${key} が ja/en で一致しません（ja=${ja[key]} / en=${en[key]}）`);
+      issues.push(`${key} differs between ja/en (ja=${ja[key]} / en=${en[key]})`);
     }
   }
   if (ja.sources.length !== en.sources.length) {
-    issues.push(`sources の件数が ja/en で一致しません（ja=${ja.sources.length} / en=${en.sources.length}）`);
+    issues.push(`sources count differs between ja/en (ja=${ja.sources.length} / en=${en.sources.length})`);
   } else {
     ja.sources.forEach((source, i) => {
       if (source.url !== en.sources[i].url) {
-        issues.push(`sources[${i}].url が ja/en で一致しません`);
+        issues.push(`sources[${i}].url differs between ja/en`);
       }
     });
   }

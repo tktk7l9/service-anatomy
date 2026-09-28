@@ -11,8 +11,8 @@ const cases = ALL_COMPARISONS.map((comparison) => [comparison.slug, comparison] 
 const todayIso = new Date().toISOString().slice(0, 10);
 const articleSlugs = new Set(ALL_ARTICLES.map((article) => article.slug));
 
-describe("比較解剖コンテンツの横断整合性", () => {
-  it("slug が一意", () => {
+describe("cross-cutting consistency of comparison content", () => {
+  it("slugs are unique", () => {
     const slugs = ALL_COMPARISONS.map((comparison) => comparison.slug);
     expect(new Set(slugs).size).toBe(slugs.length);
   });
@@ -20,16 +20,16 @@ describe("比較解剖コンテンツの横断整合性", () => {
   describe.each(cases)("%s", (_slug, comparison) => {
     const { slugA, slugB } = comparison.ja.frontmatter;
 
-    it("slugA/slugB が実在の記事を指す", () => {
+    it("slugA/slugB point to existing articles", () => {
       expect(articleSlugs.has(slugA)).toBe(true);
       expect(articleSlugs.has(slugB)).toBe(true);
     });
 
-    it("ja/en の言語中立フィールドが一致する", () => {
+    it("ja/en language-neutral fields match", () => {
       expect(localeParityIssues(comparison)).toEqual([]);
     });
 
-    it("lastVerified / publishedAt が未来日でない", () => {
+    it("lastVerified / publishedAt are not in the future", () => {
       expect(comparison.ja.frontmatter.lastVerified <= todayIso).toBe(true);
       expect(comparison.ja.frontmatter.publishedAt <= todayIso).toBe(true);
     });
@@ -38,13 +38,13 @@ describe("比較解剖コンテンツの横断整合性", () => {
       expect(comparison.ja.frontmatter.publishedAt <= comparison.ja.frontmatter.updatedAt).toBe(true);
     });
 
-    it.each(locales)("%s: renderMarkdown が変換でき、script を含まない", (locale) => {
+    it.each(locales)("%s: renderMarkdown converts it and it contains no script", (locale) => {
       const html = renderMarkdown(comparison[locale].body);
       expect(html.length).toBeGreaterThan(0);
       expect(html).not.toContain("<script");
     });
 
-    it.each(locales)("%s: 強調(**)がCJK括弧の隣接で失敗していない", (locale) => {
+    it.each(locales)("%s: emphasis (**) does not break next to CJK brackets", (locale) => {
       const html = renderMarkdown(comparison[locale].body);
       expect(html).not.toContain("**");
     });

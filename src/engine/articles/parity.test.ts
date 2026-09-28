@@ -3,31 +3,31 @@ import { makeArticle, makeArticleFile } from "./__fixtures__/factories";
 import { localeParityIssues } from "./parity";
 
 describe("localeParityIssues", () => {
-  it("完全に一致していれば空", () => {
+  it("empty when everything matches", () => {
     expect(localeParityIssues(makeArticle("ok"))).toEqual([]);
   });
 
-  it("言語中立フィールドの不一致を検出する", () => {
+  it("detects mismatched language-neutral fields", () => {
     const article = makeArticle("x");
     article.en = makeArticleFile({ publishedAt: "2026-07-02", origin: "US" });
     const issues = localeParityIssues(article);
-    expect(issues.join("\n")).toMatch(/publishedAt が ja\/en で一致しません/);
-    expect(issues.join("\n")).toMatch(/origin が ja\/en で一致しません/);
+    expect(issues.join("\n")).toMatch(/publishedAt differs between ja\/en/);
+    expect(issues.join("\n")).toMatch(/origin differs between ja\/en/);
   });
 
-  it("tags の不一致を検出する", () => {
+  it("detects mismatched tags", () => {
     const article = makeArticle("x");
     article.en = makeArticleFile({ tags: ["other-tag"] });
-    expect(localeParityIssues(article).join("\n")).toMatch(/tags が ja\/en で一致しません/);
+    expect(localeParityIssues(article).join("\n")).toMatch(/tags differs between ja\/en/);
   });
 
-  it("scores の不一致を検出する", () => {
+  it("detects mismatched scores", () => {
     const article = makeArticle("x");
     article.en = makeArticleFile({ scores: { product: 4, ux: 3.5, tech: 3, business: 5 } });
-    expect(localeParityIssues(article).join("\n")).toMatch(/scores\.business が ja\/en で一致しません/);
+    expect(localeParityIssues(article).join("\n")).toMatch(/scores\.business differs between ja\/en/);
   });
 
-  it("techStack の件数不一致を検出する", () => {
+  it("detects a mismatched techStack count", () => {
     const article = makeArticle("x");
     article.en = makeArticleFile({
       techStack: [
@@ -35,10 +35,10 @@ describe("localeParityIssues", () => {
         { layer: "B", name: "Rails", confidence: "likely", evidence: "t" },
       ],
     });
-    expect(localeParityIssues(article).join("\n")).toMatch(/techStack の件数/);
+    expect(localeParityIssues(article).join("\n")).toMatch(/techStack count/);
   });
 
-  it("techStack の内容不一致（name/confidence/evidenceUrl）を検出する", () => {
+  it("detects mismatched techStack content (name/confidence/evidenceUrl)", () => {
     const article = makeArticle("x");
     article.en = makeArticleFile({
       techStack: [{ layer: "Frontend", name: "Vue", confidence: "likely", evidence: "t" }],
@@ -46,7 +46,7 @@ describe("localeParityIssues", () => {
     expect(localeParityIssues(article).join("\n")).toMatch(/techStack\[0\]/);
   });
 
-  it("sources の件数・url 不一致を検出する", () => {
+  it("detects mismatched sources count and url", () => {
     const fewer = makeArticle("x");
     fewer.en = makeArticleFile({
       sources: [
@@ -54,7 +54,7 @@ describe("localeParityIssues", () => {
         { label: "b", url: "https://example.org", accessedAt: "2026-07-01" },
       ],
     });
-    expect(localeParityIssues(fewer).join("\n")).toMatch(/sources の件数/);
+    expect(localeParityIssues(fewer).join("\n")).toMatch(/sources count/);
 
     const differentUrl = makeArticle("x");
     differentUrl.en = makeArticleFile({
@@ -63,43 +63,43 @@ describe("localeParityIssues", () => {
     expect(localeParityIssues(differentUrl).join("\n")).toMatch(/sources\[0\]\.url/);
   });
 
-  it("affiliate.url が一致していれば問題なし", () => {
+  it("no issue when affiliate.url matches", () => {
     const affiliate = { url: "https://shopify.pxf.io/abc", program: "Shopify" };
     expect(localeParityIssues(makeArticle("x", { affiliate }))).toEqual([]);
   });
 
-  it("affiliate.url の不一致を検出する", () => {
+  it("detects a mismatched affiliate.url", () => {
     const article = makeArticle(
       "x",
       { affiliate: { url: "https://shopify.pxf.io/abc", program: "Shopify" } },
       { affiliate: { url: "https://shopify.pxf.io/xyz", program: "Shopify" } },
     );
-    expect(localeParityIssues(article).join("\n")).toMatch(/affiliate\.url が ja\/en で一致しません/);
+    expect(localeParityIssues(article).join("\n")).toMatch(/affiliate\.url differs between ja\/en/);
   });
 
-  it("affiliate が片方だけにあれば不一致", () => {
+  it("mismatch when affiliate exists on only one side", () => {
     const article = makeArticle("x", { affiliate: { url: "https://shopify.pxf.io/abc", program: "Shopify" } }, {});
-    expect(localeParityIssues(article).join("\n")).toMatch(/affiliate\.url が ja\/en で一致しません/);
+    expect(localeParityIssues(article).join("\n")).toMatch(/affiliate\.url differs between ja\/en/);
   });
 
-  it("affiliate が en 側だけにあっても不一致（ja=なし と表示する）", () => {
+  it("mismatch even when affiliate exists only on en (shows ja=none)", () => {
     const article = makeArticle("x", {}, { affiliate: { url: "https://shopify.pxf.io/abc", program: "Shopify" } });
-    expect(localeParityIssues(article).join("\n")).toMatch(/affiliate\.url が ja\/en で一致しません（ja=なし/);
+    expect(localeParityIssues(article).join("\n")).toMatch(/affiliate\.url differs between ja\/en \(ja=none/);
   });
 
-  it("revisions が両方未指定なら一致扱い", () => {
+  it("treated as matching when neither side sets revisions", () => {
     expect(localeParityIssues(makeArticle("x"))).toEqual([]);
   });
 
-  it("revisions の件数不一致を検出する", () => {
+  it("detects a mismatched revisions count", () => {
     const article = makeArticle("x", {
       revisions: [{ date: "2026-07-01", scores: { product: 4, ux: 3.5, tech: 3, business: 4.5 }, note: "ja note" }],
     });
     article.en = makeArticleFile({ revisions: undefined });
-    expect(localeParityIssues(article).join("\n")).toMatch(/revisions の件数が ja\/en で一致しません/);
+    expect(localeParityIssues(article).join("\n")).toMatch(/revisions count differs between ja\/en/);
   });
 
-  it("revisions[].date / scores の不一致を検出し、note の違いは無視する", () => {
+  it("detects mismatched revisions[].date / scores and ignores note differences", () => {
     const article = makeArticle(
       "x",
       {
@@ -114,12 +114,12 @@ describe("localeParityIssues", () => {
       },
     );
     const issues = localeParityIssues(article).join("\n");
-    expect(issues).toMatch(/revisions\[0\]\.date が ja\/en で一致しません/);
-    expect(issues).toMatch(/revisions\[0\]\.scores\.business が ja\/en で一致しません/);
+    expect(issues).toMatch(/revisions\[0\]\.date differs between ja\/en/);
+    expect(issues).toMatch(/revisions\[0\]\.scores\.business differs between ja\/en/);
     expect(issues).not.toMatch(/note/);
   });
 
-  it("revisions が完全一致（note のみ違う）なら issue なし", () => {
+  it("no issue when revisions match exactly (only note differs)", () => {
     const article = makeArticle(
       "x",
       { revisions: [{ date: "2026-07-01", scores: { product: 4, ux: 3.5, tech: 3, business: 4.5 }, note: "ja" }] },

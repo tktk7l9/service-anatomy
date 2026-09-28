@@ -3,17 +3,17 @@ import { makeComparisonFile, makeComparisonItem } from "./__fixtures__/factories
 import { localeParityIssues } from "./parity";
 
 describe("comparisons/localeParityIssues", () => {
-  it("完全に一致していれば空", () => {
+  it("empty when everything matches", () => {
     expect(localeParityIssues(makeComparisonItem("ok"))).toEqual([]);
   });
 
-  it("言語中立フィールドの不一致を検出する", () => {
+  it("detects mismatched language-neutral fields", () => {
     const comparison = makeComparisonItem("x");
     comparison.en = makeComparisonFile({ publishedAt: "2026-07-19" });
-    expect(localeParityIssues(comparison).join("\n")).toMatch(/publishedAt が ja\/en で一致しません/);
+    expect(localeParityIssues(comparison).join("\n")).toMatch(/publishedAt differs between ja\/en/);
   });
 
-  it("sources の件数・url 不一致を検出する", () => {
+  it("detects mismatched sources count and url", () => {
     const fewer = makeComparisonItem("x");
     fewer.en = makeComparisonFile({
       sources: [
@@ -21,7 +21,7 @@ describe("comparisons/localeParityIssues", () => {
         { label: "b", url: "https://example.org", accessedAt: "2026-07-18" },
       ],
     });
-    expect(localeParityIssues(fewer).join("\n")).toMatch(/sources の件数/);
+    expect(localeParityIssues(fewer).join("\n")).toMatch(/sources count/);
 
     const differentUrl = makeComparisonItem("x");
     differentUrl.en = makeComparisonFile({

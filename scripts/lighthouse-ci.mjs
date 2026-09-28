@@ -57,7 +57,7 @@ function measure(runIndex) {
       }
       if (attempt === ATTEMPTS_PER_RUN) throw err;
       const first = String(err.message).split("\n")[0];
-      console.warn(`run ${runIndex}: 試行 ${attempt}/${ATTEMPTS_PER_RUN} が失敗。再試行する — ${first}`);
+      console.warn(`run ${runIndex}: attempt ${attempt}/${ATTEMPTS_PER_RUN} failed, retrying — ${first}`);
     }
   }
 }
@@ -82,6 +82,6 @@ for (const [key, min] of Object.entries(THRESHOLDS)) {
 }
 
 if (!ok) {
-  console.error("Lighthouse スコアが閾値を下回りました。");
+  console.error("Lighthouse scores fell below the threshold.");
   process.exit(1);
 }

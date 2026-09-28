@@ -31,7 +31,7 @@ describe("techSlug", () => {
 });
 
 describe("techRefs", () => {
-  it("スラッグ化できないトークンと重複を除外する", () => {
+  it("excludes tokens that cannot be slugified and duplicates", () => {
     expect(techRefs("React / 日本語 / React")).toEqual([{ slug: "react", name: "React" }]);
   });
 });
@@ -56,7 +56,7 @@ const articles = [
 ];
 
 describe("collectTech", () => {
-  it("記事数で集計し、記事内の重複は1回だけ数える", () => {
+  it("counts by article, counting duplicates within an article once", () => {
     expect(collectTech(articles)).toEqual([
       { slug: "vercel", name: "Vercel", count: 3 },
       { slug: "next-js", name: "Next.js", count: 2 },
@@ -64,13 +64,13 @@ describe("collectTech", () => {
     ]);
   });
 
-  it("空配列なら空", () => {
+  it("empty for an empty array", () => {
     expect(collectTech([])).toEqual([]);
   });
 });
 
 describe("filterByTech", () => {
-  it("該当技術を使う記事だけを元の順で返す", () => {
+  it("returns only articles using the tech, in original order", () => {
     expect(filterByTech(articles, "next-js").map((a) => a.slug)).toEqual(["a", "c"]);
     expect(filterByTech(articles, "no-such")).toEqual([]);
   });

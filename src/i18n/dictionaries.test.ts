@@ -34,19 +34,19 @@ function collectLeafStrings(value: unknown): string[] {
 }
 
 describe("i18n/dictionaries", () => {
-  it("getDictionary は各ロケールの辞書を返す", async () => {
+  it("getDictionary returns the dictionary for each locale", async () => {
     await expect(getDictionary("ja")).resolves.toBe(ja);
     await expect(getDictionary("en")).resolves.toBe(en);
   });
 
-  it("ja/en の辞書は同じキー形状を持つ", () => {
+  it("ja/en dictionaries have the same key shape", () => {
     expect(keyShape(en)).toEqual(keyShape(ja));
   });
 
   it.each([
     ["ja", ja],
     ["en", en],
-  ] as const)("%s: 全文言が空でない", (_locale, dictionary) => {
+  ] as const)("%s: no string is empty", (_locale, dictionary) => {
     for (const leaf of collectLeafStrings(dictionary)) {
       expect(leaf.trim()).not.toBe("");
     }
@@ -55,7 +55,7 @@ describe("i18n/dictionaries", () => {
   it.each([
     ["ja", ja],
     ["en", en],
-  ] as const)("%s: 全カテゴリの表示名がある", (_locale, dictionary) => {
+  ] as const)("%s: every category has a display name", (_locale, dictionary) => {
     for (const id of CATEGORY_IDS) {
       expect(dictionary.categories[id]).toBeTruthy();
     }

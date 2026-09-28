@@ -71,7 +71,7 @@ export interface ArticleFrontmatter {
 function parseCategory(obj: Record<string, unknown>, context: string): CategoryId {
   const value = requireString(obj, "category", context);
   if (!isCategoryId(value)) {
-    fail(context, `category "${value}" は定義されていません（taxonomy.ts を参照）`);
+    fail(context, `category "${value}" is not defined (see taxonomy.ts)`);
   }
   return value;
 }
@@ -80,7 +80,7 @@ function parseTags(obj: Record<string, unknown>, context: string): string[] {
   const values = requireArray(obj, "tags", context);
   return values.map((tag, i) => {
     if (typeof tag !== "string" || !KEBAB_CASE.test(tag)) {
-      fail(context, `tags[${i}] は kebab-case の文字列である必要があります`);
+      fail(context, `tags[${i}] must be a kebab-case string`);
     }
     return tag;
   });
@@ -92,7 +92,7 @@ function parseScoresValue(value: unknown, context: string, label: string): Score
   for (const axis of SCORE_AXES) {
     const v = record[axis];
     if (typeof v !== "number" || v < 0 || v > 5 || (v * 2) % 1 !== 0) {
-      fail(context, `scores.${axis} は 0〜5 の 0.5 刻みの数値である必要があります`);
+      fail(context, `scores.${axis} must be a number from 0 to 5 in steps of 0.5`);
     }
     scores[axis] = v;
   }
@@ -110,7 +110,7 @@ function parseRevisions(obj: Record<string, unknown>, context: string): Revision
   const values = requireArray(obj, "revisions", context);
   return values.map((raw, i) => {
     const entryContext = `${context}: revisions[${i}]`;
-    const record = asRecord(raw, entryContext, "要素");
+    const record = asRecord(raw, entryContext, "element");
     return {
       date: requireIsoDate(record, "date", entryContext),
       scores: parseScoresValue(record.scores, entryContext, "scores"),
@@ -123,10 +123,10 @@ function parseTechStack(obj: Record<string, unknown>, context: string): TechStac
   const values = requireArray(obj, "techStack", context);
   return values.map((raw, i) => {
     const entryContext = `${context}: techStack[${i}]`;
-    const record = asRecord(raw, entryContext, "要素");
+    const record = asRecord(raw, entryContext, "element");
     const confidence = requireString(record, "confidence", entryContext);
     if (!(CONFIDENCE_LEVELS as readonly string[]).includes(confidence)) {
-      fail(entryContext, `confidence は ${CONFIDENCE_LEVELS.join(" | ")} のいずれかである必要があります`);
+      fail(entryContext, `confidence must be one of ${CONFIDENCE_LEVELS.join(" | ")}`);
     }
     const entry: TechStackEntry = {
       layer: requireString(record, "layer", entryContext),
@@ -138,7 +138,7 @@ function parseTechStack(obj: Record<string, unknown>, context: string): TechStac
       entry.evidenceUrl = requireHttpsUrl(record, "evidenceUrl", entryContext);
     }
     if (entry.confidence === "confirmed" && entry.evidenceUrl === undefined) {
-      fail(entryContext, `confidence が confirmed の場合は evidenceUrl（一次情報）が必須です`);
+      fail(entryContext, `evidenceUrl (primary source) is required when confidence is confirmed`);
     }
     return entry;
   });

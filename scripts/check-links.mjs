@@ -37,10 +37,10 @@ function ref(slug, field, label, url) {
 }
 
 const articleRefs = collectFromCollection(path.join(ROOT, "content", "articles"), (slug, data) => {
-  const refs = [ref(slug, "serviceUrl", "公式サイト", data.serviceUrl)];
+  const refs = [ref(slug, "serviceUrl", "official site", data.serviceUrl)];
   (data.sources ?? []).forEach((s, i) => refs.push(ref(slug, `sources[${i}]`, s.label, s.url)));
   (data.techStack ?? []).forEach((t, i) => {
-    if (t.evidenceUrl) refs.push(ref(slug, `techStack[${i}]`, `${t.name}（根拠）`, t.evidenceUrl));
+    if (t.evidenceUrl) refs.push(ref(slug, `techStack[${i}]`, `${t.name} (evidence)`, t.evidenceUrl));
   });
   return refs;
 });
@@ -52,7 +52,7 @@ const comparisonRefs = collectFromCollection(path.join(ROOT, "content", "compari
 const ogCards = JSON.parse(readFileSync(path.join(ROOT, "content", "og-cards.json"), "utf8"));
 const ogCardRefs = Object.entries(ogCards)
   .filter(([, card]) => card.image)
-  .map(([slug, card]) => ref(slug, "ogCard.image", "OGP画像（リンクカード表示用）", card.image));
+  .map(([slug, card]) => ref(slug, "ogCard.image", "OGP image (for the link card)", card.image));
 
 const allRefs = [...articleRefs, ...comparisonRefs, ...ogCardRefs];
 
@@ -94,7 +94,7 @@ async function runWithConcurrency(items, limit, worker) {
   return results;
 }
 
-console.log(`外部リンク ${urls.length} 件（重複除去後）をチェック中…\n`);
+console.log(`Checking ${urls.length} external links (after deduplication)...\n`);
 
 const results = await runWithConcurrency(urls, CONCURRENCY, async (url) => {
   const result = await checkUrl(url);
@@ -107,18 +107,18 @@ for (const r of results) {
 }
 
 if (broken.length === 0) {
-  console.log(`✓ 全 ${urls.length} 件のリンクが生きています。`);
+  console.log(`✓ All ${urls.length} links are alive.`);
 } else {
-  console.log(`⚠ ${broken.length}/${urls.length} 件のリンクが切れています:\n`);
+  console.log(`⚠ ${broken.length}/${urls.length} links are broken:\n`);
   for (const b of broken) {
-    const label = b.status ? `HTTP ${b.status}` : `エラー: ${b.error}`;
+    const label = b.status ? `HTTP ${b.status}` : `error: ${b.error}`;
     console.log(`  ${label}\n    ${b.url}`);
     for (const r of byUrl.get(b.url)) {
-      console.log(`      ← ${r.slug} / ${r.field}（${r.label}）`);
+      console.log(`      ← ${r.slug} / ${r.field} (${r.label})`);
     }
   }
   console.log(
-    "\n403/999 等は bot 対策で弾かれているだけの可能性があるため、ブラウザで目視確認のうえ判断してください。",
+    "\n403/999 and similar may just be bot protection rejecting the request; check them in a browser before deciding.",
   );
 }
 
