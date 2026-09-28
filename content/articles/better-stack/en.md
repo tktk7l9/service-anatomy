@@ -69,13 +69,13 @@ techStack:
     confidence: likely
     evidence: "Our observation (2026-09-28) found Backblaze B2 buckets for organization logos and user avatars allowed in betterstack.com's Content-Security-Policy. No explicit official statement found"
 sources:
-  - label: "Better Stack official homepage (30x cheaper than Datadog, 7,000+ customers, 60-day money-back guarantee)"
+  - label: "Better Stack official homepage (30x cheaper than Datadog, 7,000+ customers, 60-day money-back guarantee, covering the rest of a switcher's contract)"
     url: "https://betterstack.com/"
     accessedAt: "2026-09-28"
   - label: "Better Stack press release: infrastructure monitoring launch, profitability, and a $10M raise (2024-01-22)"
     url: "https://betterstack.com/press/raises-10m/"
     accessedAt: "2026-09-28"
-  - label: "TechCrunch: Better Stack secures $10M, $28.6M raised in total (2024-01-25)"
+  - label: "TechCrunch: Better Stack secures $10M, $28.6M raised in total, 28 employees (2024-01-25)"
     url: "https://techcrunch.com/2024/01/25/observability-platform-better-stack-secures-10m-cash-infusion/"
     accessedAt: "2026-09-28"
   - label: "Silicon Canals: Prague-based Better Stack raises $18.6M led by Creandum (2022-07)"
@@ -90,7 +90,7 @@ sources:
   - label: "Better Stack official: engineering careers"
     url: "https://betterstack.com/careers/engineering"
     accessedAt: "2026-09-28"
-  - label: "Better Stack official: pricing"
+  - label: "Better Stack official: pricing (Responder seats, regional rates, ingestion via AWS Direct Connect)"
     url: "https://betterstack.com/pricing"
     accessedAt: "2026-09-28"
   - label: "Better Stack docs: Better Stack collector"
@@ -110,18 +110,18 @@ sources:
     accessedAt: "2026-09-28"
 ---
 
-The monitoring market used to belong to large vendors like Datadog and PagerDuty selling all-in-one suites at premium prices. Then a small company born in Prague in 2021 walked in and wrote, in plain words, that it does the same thing for a thirtieth of the price. Better Stack is an unusual SaaS: it puts price itself at the center of the product.
+The monitoring market is crowded with large vendors like Datadog, New Relic, and PagerDuty. Into it, a small company born in Prague in 2021 walked in and wrote, in plain words, that it does the same thing for a thirtieth of the price. Better Stack is an unusual SaaS: it puts price itself at the center of the product.
 
 ## Service Overview
 
 Better Stack is an observability platform that combines uptime monitoring, logs, metrics, traces, error tracking, session replay, on-call (phone and Slack alerts to whoever is on duty), and status pages in one place. It started as two separate products — Better Uptime for uptime monitoring and Logtail for log management — which were later merged under the Better Stack name.
 
 :::fact
-According to an official press release, Better Uptime and Logtail were rebranded as Uptime and Logs on the Better Stack platform, with functionality and pricing unchanged and a single account for both. According to Silicon Canals, Better Stack is a Prague company founded in 2021 by Juraj Masar and Veronika Kolejak, and in July 2022 it raised an $18.6M Series A led by Creandum. In an official press release dated January 22, 2024, it announced an additional $10M from existing investor KAYA ($28.6M in total, per TechCrunch) and said it had become "unintentionally" profitable in 2023. At that time it served 200,000+ developers and 4,000+ customers; as of September 2026, the official homepage description says 7,000+ customers and the careers page says 300,000+ developers.
+According to an official press release, Better Uptime and Logtail were rebranded as Uptime and Logs on the Better Stack platform, with functionality and pricing unchanged and a single account for both. According to Silicon Canals, Better Stack is a Prague company founded in 2021 by Juraj Masar and Veronika Kolejak, and in July 2022 it raised an $18.6M Series A led by Creandum. In an official press release dated January 22, 2024, it announced an additional $10M from existing investor KAYA ($28.6M in total, per TechCrunch) and said it had become "unintentionally" profitable in 2023. According to TechCrunch, it had 28 employees at the time and planned to grow to 50 by the end of the year. At that time it served 200,000+ developers and 4,000+ customers; as of September 2026, the official homepage description says 7,000+ customers and the careers page says 300,000+ developers.
 :::
 
 :::fact
-The official homepage headline is "30x cheaper than Datadog." Comparing against an approximate Datadog bill for 1 TB each of logs, traces, and metrics per month, it claims you can ingest up to 80x more data on the same budget or cut costs by up to 98%.
+The official homepage headline is "30x cheaper than Datadog." Comparing against an approximate Datadog bill for 1 TB each of logs, traces, and metrics per month, it claims you can ingest up to 80x more data on the same budget or cut costs by up to 98% (an estimate assuming annual payment, European data location, and one responder with a Tera bundle: roughly $55,574/month for Datadog versus $687/month for Better Stack). The same page also pitches switching directly: "Datadog bill too high? Migrate today, the rest of your contract is on us."
 :::
 
 :::pull
@@ -137,22 +137,22 @@ Better Stack's UX aims at two things: driving the cost of switching as close to 
 - **It accepts the SDKs you already have.** For error tracking, the official docs say you can keep the code you wrote for Sentry and just change where the data goes. Traces and logs arrive over OpenTelemetry, the industry standard. The design goes after the biggest obstacle to migration: re-instrumenting your code.
 - **Automatic collection without code changes.** The official collector uses eBPF to gather logs, metrics, and traces from Kubernetes or Docker clusters, and configuration changes can be applied remotely from the UI without redeploying. In exchange, with eBPF tracing enabled it asks you to keep 4 GiB of memory and 4 vCPUs free per host. Setup is light, but the observed machines need real headroom.
 - **One flow from detection to paging.** Uptime monitoring detects an outage, on-call alerts the person on duty by phone or Slack, and a status page informs users. Wiring that would otherwise span several SaaS products happens inside one vendor.
-- **A free tier that goes as far as "try it for real."** According to the pricing page, the free plan includes 10 monitors, 1 status page, 100,000 exceptions per month, and 3 GB of logs retained for 3 days. The homepage also promotes a 60-day money-back guarantee. It allows the order indie developers prefer: try it in production first, pay later.
+- **A free tier that goes as far as "try it for real."** According to the pricing page, the free plan includes 10 monitors, 1 status page, 100,000 exceptions per month, and 3 GB of logs retained for 3 days. The top of the pricing page and the homepage description also promote a 60-day money-back guarantee. It allows the order indie developers prefer: try it in production first, pay later.
 
 ## Tech Stack
 
 ::techstack
 
 :::fact
-According to the official careers pages, Better Stack's stack is Ruby on Rails, PostgreSQL, Redis, ClickHouse, Redpanda, JavaScript, Vue.js, Tailwind, and Docker, with Turbo on the frontend. One job description says engineers work with the CTO, CEO, and designer to deliver features end to end, from backend to frontend, "within a single day." The January 2024 press release explains that ClickHouse lets it keep data in hot (immediately searchable) storage for longer and lets users query observability data with SQL.
+According to the official careers pages, Better Stack's stack is Ruby on Rails, PostgreSQL, Redis, ClickHouse, Redpanda, JavaScript, Vue.js, Tailwind, and Docker, with Turbo on the frontend. One job description says engineers work with the CTO, CEO, and designer to deliver features end to end, from backend to frontend, "within a single day." The January 2024 press release highlights that ClickHouse lets customers keep data in hot (immediately searchable) storage for longer, and that querying uses SQL.
 :::
 
 :::fact
-According to the official security page, data is stored by default in EU regions in DIN ISO/IEC 27001-certified data centers, and the company is SOC 2 Type 2 compliant (it states it is not HIPAA compliant). The careers page describes an operations role that will "help to operate our data centers." On the pricing page, ingestion of logs and traces costs $0.10 per GB in Europe, $0.15 in the US, and $0.35 in Singapore.
+According to the official security page, data is stored by default in EU regions in DIN ISO/IEC 27001-certified data centers, and the company is SOC 2 Type 2 compliant (it states it is not HIPAA compliant). The careers page describes an operations role that will "help to operate our data centers." On the pricing page, ingestion of logs and traces is priced by region: $0.10 per GB in Germany (EU), $0.15 in the US, and $0.35 in Singapore. The same page offers "Ingestion via AWS Direct Connect," explaining that ingestion endpoints hosted within AWS (eu-central-1) let AWS-hosted systems avoid paying AWS $0.09/GB for egress, and that the company has set up AWS Direct Connect itself.
 :::
 
 :::guess
-In our observation, betterstack.com's response headers returned server: cloudflare with a cache hit, along with the x-runtime header that Rails' Rack middleware adds. The marketing site itself appears to be the Rails app sitting behind Cloudflare. The destination for browser security-policy violation reports (the reporting-endpoints header) is the company's own log ingestion endpoint (in.logs.betterstack.com), which reads as dogfooding — using its own product to monitor itself. Combining the fact that European ingestion is the cheapest with EU as the default storage location, we infer that the company runs inexpensive compute it operates itself in Europe, and that this funds the "30x cheaper" claim. However, nothing official says it avoids hyperscalers; this remains an inference from circumstantial evidence.
+In our observation, betterstack.com's response headers returned server: cloudflare with a cache hit, along with the x-runtime header that Rails' Rack middleware adds. The marketing site itself appears to be the Rails app sitting behind Cloudflare. The destination for browser security-policy violation reports (the reporting-endpoints header) is the company's own log ingestion endpoint (in.logs.betterstack.com), which reads as dogfooding — using its own product to monitor itself. AWS Direct Connect is a service for linking facilities outside AWS to AWS over a dedicated connection. That reads as ingestion endpoints inside AWS feeding the company's own infrastructure over Direct Connect, which suggests the main processing platform sits outside AWS — in the "data centers" the careers page mentions. Combining this with the fact that ingestion in Germany (EU) is the cheapest and EU is the default storage location, we infer that the company runs inexpensive compute it operates itself in Europe, and that this funds the "30x cheaper" claim. However, nothing official says it avoids hyperscalers; this remains an inference from circumstantial evidence.
 :::
 
 :::guess
@@ -164,7 +164,7 @@ The cost of goods for a monitoring SaaS is mostly the cost of storing and search
 Better Stack earns money two ways: per-seat pricing for on-call responders, and usage-based pricing on the volume of data ingested.
 
 :::fact
-According to the pricing page, members who only view telemetry are free, while a Responder — who gets uptime and telemetry access and takes on-call duty — costs $34/month ($29/month billed annually). Telemetry is sold in four bundles (Nano, Micro, Mega, Tera) or per GB, and the bundles include 30-day log retention. The official careers page publishes a full-stack engineer range of $60K–$300K/year plus equity, alongside a separate "Hardcore mode" range: work 1.5x the hours, earn 2x the compensation.
+According to the pricing page, members who only view telemetry are free, while a Responder — the on-call person, with access to uptime monitoring, incident management, on-call scheduling, and status pages, plus unlimited phone and SMS alerts — costs $34/month ($29/month billed annually). Telemetry is sold in four bundles (Nano, Micro, Mega, Tera) or per GB, and the bundles include 30-day log retention. The official careers page publishes a full-stack engineer range of $60K–$300K/year plus equity, alongside a separate "Hardcore mode" range: work 1.5x the hours, earn 2x the compensation.
 :::
 
 :::fact
@@ -172,7 +172,7 @@ According to the official site, Better Stack runs an affiliate program that pays
 :::
 
 :::guess
-Charging per seat only for the people who carry the pager, while viewers are free, looks designed so that rolling the tool out across a company does not inflate the bill. We infer the aim is to attract teams frustrated with pricing that grows per user or per host, as with Datadog, through the very shape of the price list. The careers page also says: "We can't buy an F1 sponsorship or a Super Bowl ad, but we can sponsor a tech blogger to start their side hustle." Acquiring customers through developer-facing creators and affiliates rather than big ad budgets appears to sit at the center of how a small team grows while staying profitable.
+Charging per seat only for the people who carry the pager, while viewers are free, looks designed so that rolling the tool out across a company does not inflate the bill. We infer the aim is to attract teams frustrated with pricing that grows per host and the like, as with Datadog, through the very shape of the price list. The careers page also says: "We can't buy an F1 sponsorship or a Super Bowl ad, but we can sponsor a tech blogger to start their side hustle." Acquiring customers through developer-facing creators and affiliates rather than big ad budgets appears to sit at the center of how a small team grows while staying profitable.
 :::
 
 "30x cheaper than Datadog" reads like a provocation, but it is also the invoice that results from choosing ClickHouse for storage, writing the app in Rails with a small team, and aligning the front door with other companies' standards. Selling the giants' features on a different cost structure — Better Stack offers one answer to where a late-arriving developer SaaS can compete.
