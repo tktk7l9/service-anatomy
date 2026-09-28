@@ -6,8 +6,8 @@ lead: "Anthropic's official presence is now split across two domains: anthropic.
 category: ai-tool
 tags: [ai-assistant, llm, api, developer-tools, mcp]
 publishedAt: "2026-07-23"
-updatedAt: "2026-07-23"
-lastVerified: "2026-07-23"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://claude.com/"
 vendor: "Anthropic, PBC"
 origin: "US"
@@ -15,19 +15,24 @@ heroTheme: "claude"
 scores: { product: 4.5, ux: 4.0, tech: 4.5, business: 4.0 }
 techStack:
   - layer: "Foundation models"
-    name: "Claudeモデルファミリー（最新はClaude Sonnet 5）"
+    name: "Claudeモデルファミリー（最新はClaude Opus 5.5）"
     confidence: confirmed
-    evidence: "Verified on Anthropic's official newsroom that Claude Sonnet 5, described as delivering frontier performance across coding, agents, and professional work, shipped on 2026-06-30"
+    evidence: "Verified on Anthropic's official newsroom that Claude Opus 5.5 (2026-09-22) and Claude Fable 5.1 / Claude Mythos 5.1 (2026-09-01) are listed as announced"
     evidenceUrl: "https://www.anthropic.com/news"
   - layer: "Compute (primary contract)"
     name: "AWS Trainium / Inferentia（Amazon）"
     confidence: confirmed
-    evidence: "Official announcement states AWS is Anthropic's primary cloud provider for mission-critical workloads, using Amazon's own Trainium and Inferentia chips for training and serving. Amazon committed up to $4 billion in investment"
+    evidence: "Official announcement states AWS is Anthropic's primary cloud provider for mission-critical workloads, using Amazon's own Trainium and Inferentia chips for training and serving. Its investment is reported at a cumulative $8 billion after an additional round in November 2024 (aggregated Wikipedia reporting)"
     evidenceUrl: "https://www.anthropic.com/news/anthropic-amazon"
   - layer: "Compute (supplementary contract)"
     name: "Google Cloud TPU"
     confidence: likely
-    evidence: "Beyond the AWS relationship, multiple outlets report Google also invests in and supplies TPU capacity to Anthropic (a $500M investment and $2B combined commitment announced October 2023, with reports of expanded TPU supply in 2025). We could not confirm technical specifics on Anthropic's own site, hence \"likely\""
+    evidence: "Beyond the AWS relationship, multiple outlets report Google also invests in and supplies TPU capacity to Anthropic (a $500M investment and $2B combined commitment announced October 2023, with a further $1B investment and expanded TPU supply reported in 2025). We could not confirm technical specifics on Anthropic's own site, hence \"likely\""
+  - layer: "Compute (additional contract)"
+    name: "Microsoft Azure"
+    confidence: confirmed
+    evidence: "Official announcement (2025-11-18) states Anthropic committed to purchase $30 billion of Azure compute capacity and is scaling Claude on Microsoft Azure. Microsoft and NVIDIA committed to invest up to $5 billion and up to $10 billion respectively"
+    evidenceUrl: "https://www.anthropic.com/news/microsoft-nvidia-anthropic-announce-strategic-partnerships"
   - layer: "Agent interoperability protocol"
     name: "Model Context Protocol (MCP)"
     confidence: confirmed
@@ -45,18 +50,21 @@ sources:
   - label: "Anthropic official: Amazon partnership announcement (investment amount, role of AWS Trainium/Inferentia)"
     url: "https://www.anthropic.com/news/anthropic-amazon"
     accessedAt: "2026-07-23"
+  - label: "Anthropic official: Microsoft and NVIDIA partnership announcement (2025-11-18, $30 billion of Azure compute)"
+    url: "https://www.anthropic.com/news/microsoft-nvidia-anthropic-announce-strategic-partnerships"
+    accessedAt: "2026-09-28"
   - label: "Anthropic official: Model Context Protocol announcement (2024-11-25, open standardization)"
     url: "https://www.anthropic.com/news/model-context-protocol"
     accessedAt: "2026-07-23"
   - label: "Claude official: Pricing (Free/Pro/Max/Team/Enterprise fee structure)"
     url: "https://claude.com/pricing"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
   - label: "Claude official: Claude Code product page (distribution channels, features)"
     url: "https://claude.com/product/claude-code"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
   - label: "Wikipedia: Anthropic (founding history, funding history, valuation trajectory, IPO reporting aggregated)"
     url: "https://en.wikipedia.org/wiki/Anthropic"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
 ---
 
 ## Service overview
@@ -64,7 +72,7 @@ sources:
 Anthropic was founded on January 26, 2021, by seven researchers who had left OpenAI, including siblings Dario Amodei and Daniela Amodei. The mission was AI safety research paired with a conversational AI product built on that research: Claude. The company chose the Public Benefit Corporation (PBC) legal structure, and its official site states its charter purpose as "the responsible development and maintenance of advanced AI for the long-term benefit of humanity."
 
 :::fact
-Anthropic's official presence today is split across two domains — anthropic.com for research and safety messaging, and claude.com for the product (verified directly at the time of writing). On scale: headcount is reported at roughly 2,500 as of 2026. Funding began with a $124 million seed round in May 2021, followed by Amazon's investment (up to $4 billion) and Google's (a combined $2 billion) in 2023, culminating in a $65 billion round in May 2026 that brought the valuation to $965 billion, per aggregated reporting (Wikipedia). The company reportedly filed confidentially for an IPO the same June, targeting a fall debut.
+Anthropic's official presence today is split across two domains — anthropic.com for research and safety messaging, and claude.com for the product (verified directly at the time of writing). On scale: headcount is reported at roughly 2,500 as of 2026. Funding began with a $124 million seed round in May 2021, followed by Amazon's investment starting in 2023 (a cumulative $8 billion after an additional round in November 2024) and Google's (roughly $3 billion combined) in 2023, culminating in a $65 billion round in May 2026 that brought the valuation to $965 billion, per aggregated reporting (Wikipedia). The company reportedly filed confidentially for an IPO the same June, targeting a fall debut.
 :::
 
 :::pull
@@ -78,7 +86,7 @@ A company born as "an AI safety lab" became, in five years, a $965 billion compa
 Claude's UX deliberately spreads across multiple entry points rather than converging on a single chat window.
 
 - **Company and product live on separate domains.** Research and safety messaging stays on anthropic.com; the actual product lives on claude.com. The company's public posture (safety) and the product's posture (usefulness) are not blended on the same site.
-- **An unusually large number of developer entry points.** Claude Code is reachable from the terminal, VS Code/JetBrains extensions, the browser (claude.ai/code), iOS/Android apps, Slack, and a desktop app — six channels for the same idea of "put AI next to the codebase," rather than betting on one channel.
+- **An unusually large number of developer entry points.** Claude Code is reachable from the terminal, the web, VS Code, JetBrains, a desktop app, mobile (iOS/Android), GitHub, and Slack — eight channels for the same idea of "put AI next to the codebase," rather than betting on one channel.
 - **Five pricing tiers from Free through Enterprise.** Individual use ($0–$20/month), heavy use via Max (from $100/month), Team (per-seat), and Enterprise (usage-based plus seats, or custom contracts) segment by usage intensity rather than a single flat plan.
 - **API billing is separate.** Subscriptions cover chat/agent usage; API usage is billed separately on a usage basis. Developers effectively choose between "using it as a product" and "embedding it as infrastructure," with different payment models for each.
 
@@ -87,7 +95,7 @@ Claude's UX deliberately spreads across multiple entry points rather than conver
 ::techstack
 
 :::fact
-Anthropic spreads its compute sourcing across three companies — Amazon, Google, and Microsoft. Per its official announcement, AWS is its "primary cloud provider for mission-critical workloads," using Amazon's own Trainium and Inferentia chips for training and serving. Separately, its partnership with Google (a combined $2 billion in investment) is reported to include TPU access. In November 2024, Anthropic open-sourced the Model Context Protocol (MCP), an open standard for securely connecting AI to data sources, releasing the spec, SDKs, and a library of server implementations for major platforms at no cost.
+Anthropic spreads its compute sourcing across three companies — Amazon, Google, and Microsoft. Per its official announcement, AWS is its "primary cloud provider for mission-critical workloads," using Amazon's own Trainium and Inferentia chips for training and serving. Separately, its partnership with Google (roughly $3 billion in combined investment) is reported to include TPU access. In November 2025 it announced partnerships with Microsoft and NVIDIA, committing to purchase $30 billion of Azure compute capacity. In November 2024, Anthropic open-sourced the Model Context Protocol (MCP), an open standard for securely connecting AI to data sources, releasing the spec, SDKs, and a library of server implementations for major platforms at no cost.
 :::
 
 :::guess
@@ -99,7 +107,7 @@ Spreading compute across three major clouds (AWS, Google Cloud, Microsoft Azure)
 Anthropic's revenue rests on two pillars: individual/team subscriptions and usage-based API billing for developers.
 
 :::fact
-Per the official pricing page, Claude's individual plans run Free (no cost), Pro ($17–$20/month), Max (from $100/month, at 5x or 20x the usage), Team (per-seat, $20–$125/month), and Enterprise (self-serve per-seat plus API usage, or a custom contract). API usage is billed separately, scaling with model and task. On the funding side, the company moved from a $124 million seed in 2021 through investment and partnership deals with Amazon (up to $4 billion), Google (a combined $2 billion), and Microsoft (a roughly $30 billion Azure compute deal in November 2025) to a reported $965 billion valuation in May 2026, followed by a confidential IPO filing that June.
+Per the official pricing page, Claude's individual plans run Free (no cost), Pro ($17–$20/month), Max (from $100/month, at 5x or 20x the usage), Team (per-seat, $20–$125/month), and Enterprise (self-serve per-seat plus API usage, or a custom contract). API usage is billed separately, scaling with model and task. On the funding side, the company moved from a $124 million seed in 2021 through investment and partnership deals with Amazon (a cumulative $8 billion), Google (roughly $3 billion combined), and Microsoft (a roughly $30 billion Azure compute deal in November 2025) to a reported $965 billion valuation in May 2026, followed by a confidential IPO filing that June.
 :::
 
 :::guess

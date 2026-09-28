@@ -1,13 +1,13 @@
 ---
 service: "ChatGPT"
 title: "From Nonprofit Lab to a For-Profit Company With 900 Million Weekly Users — OpenAI's 2025 Restructuring"
-description: "Founded in 2015 as a nonprofit research lab, OpenAI grew in a decade into a company behind ChatGPT's 900 million weekly active users and the GPT-5.6 model family, completing a restructuring in October 2025 into a two-tier structure where a nonprofit foundation holds 26%. Combined with hundred-billion-dollar compute deals with Oracle, Microsoft, and Nvidia, this is a dissection of ChatGPT and OpenAI from public information."
+description: "Founded in 2015 as a nonprofit research lab, OpenAI grew in a decade into a company behind ChatGPT's 900 million weekly active users and the GPT-6 model family, completing a restructuring in October 2025 into a two-tier structure where a nonprofit foundation holds 26%. Combined with hundred-billion-dollar compute deals with Oracle, Microsoft, and Nvidia, this is a dissection of ChatGPT and OpenAI from public information."
 lead: "On November 30, 2022, ChatGPT launched — and hit one million users within five days. By February 2026, weekly active users reached 900 million. Behind that growth, OpenAI — which began as a nonprofit lab dedicated to developing AI safely for humanity — completed a restructuring on October 28, 2025, into a two-tier structure: the nonprofit \"OpenAI Foundation\" (holding 26%) and the for-profit \"OpenAI Group PBC.\" This is a dissection of a company that kept its nonprofit banner while signing a $300 billion compute deal with Oracle alone."
 category: ai-tool
 tags: [ai-assistant, llm, api, chatbot, coding-agent]
 publishedAt: "2026-07-23"
-updatedAt: "2026-07-23"
-lastVerified: "2026-07-23"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://chatgpt.com/"
 vendor: "OpenAI Group PBC"
 origin: "US"
@@ -15,9 +15,9 @@ heroTheme: "chatgpt"
 scores: { product: 4.5, ux: 4.0, tech: 4.5, business: 4.0 }
 techStack:
   - layer: "Foundation models"
-    name: "GPT-5.6ファミリー（Sol / Terra / Luna）"
+    name: "GPT-6ファミリー（Astra / Sol / Luna）"
     confidence: confirmed
-    evidence: "Verified on OpenAI's official developer pricing documentation that per-token pricing is published for a model lineup including gpt-5.6-sol, gpt-5.6-terra, and gpt-5.6-luna"
+    evidence: "Verified on OpenAI's official developer pricing documentation that per-token pricing is published for gpt-6-astra, gpt-6-sol, and gpt-6-luna as the latest models, with the gpt-5.6 line still offered alongside"
     evidenceUrl: "https://developers.openai.com/api/docs/pricing"
   - layer: "Coding agent"
     name: "Codex"
@@ -38,18 +38,24 @@ techStack:
     confidence: likely
     evidence: "Per aggregated Wikipedia reporting, OpenAI signed a five-year, $300 billion compute deal with Oracle in September 2025, and in January 2025 announced the Stargate project with Oracle, SoftBank, and MGX — a roughly $500 billion data center buildout. Not confirmed via a primary source, hence \"likely\""
 sources:
-  - label: "OpenAI Developers official: API Pricing (per-token rates for the GPT-5.6 family)"
+  - label: "Forbes: OpenAI reportedly weighing a new round at up to a $1.5 trillion valuation (2026-09-16)"
+    url: "https://www.forbes.com/sites/siladityaray/2026/09/16/openai-is-reportedly-weighing-new-funding-round-at-15-trillion-valuation/"
+    accessedAt: "2026-09-28"
+  - label: "CloudZero: ChatGPT pricing roundup (third-party secondary source; Go at $8, Pro at $100 and $200)"
+    url: "https://www.cloudzero.com/blog/how-much-does-chatgpt-cost/"
+    accessedAt: "2026-09-28"
+  - label: "OpenAI Developers official: API Pricing (per-token rates for the GPT-6 family)"
     url: "https://developers.openai.com/api/docs/pricing"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
   - label: "OpenAI Developers official: homepage (Codex, Apps SDK, and API Platform product lineup)"
     url: "https://developers.openai.com"
     accessedAt: "2026-07-23"
   - label: "Wikipedia: OpenAI (2025 restructuring, ownership structure, funding history, compute deals aggregated)"
     url: "https://en.wikipedia.org/wiki/OpenAI"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
   - label: "Wikipedia: ChatGPT (launch date, weekly active user trajectory, pricing tiers, feature history aggregated)"
     url: "https://en.wikipedia.org/wiki/ChatGPT"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
 ---
 
 ## Service overview
@@ -72,7 +78,7 @@ ChatGPT's UX keeps expanding from a single chatbot into a family of agent produc
 
 - **From one chat window to a product family.** Rather than a single-purpose tool, OpenAI runs a lineup under the ChatGPT umbrella: the coding agent Codex, the document-focused ChatGPT Work, and browser-operating agents like Operator/ChatGPT Atlas.
 - **Flexible enough to ride a rival's standard.** The Apps SDK, used to extend ChatGPT with third-party apps, is built on the Model Context Protocol — an open standard authored by rival Anthropic. In the fight over agent-interoperability standards, OpenAI chose to follow the standard that gained adoption rather than push its own.
-- **Pricing tiers span individual to emerging-market.** Beyond the free tier, there's Plus ($20/month) and a premium Pro tier ($200/month), plus a lower-priced "ChatGPT Go" plan for markets like India.
+- **Pricing tiers span individual to emerging-market.** Beyond the free tier, there's a lower-priced "ChatGPT Go" plan ($8/month), Plus ($20/month), and Pro in two steps ($100 and $200/month), slicing the price range finely.
 - **Rapid feature accretion is testing experiential coherence.** Memory, voice, image generation (GPT Image), and search integration have all stacked up in a short span — the product is mid-transition from chatbot to personal AI agent, and that shows.
 
 ## Tech stack
@@ -80,7 +86,7 @@ ChatGPT's UX keeps expanding from a single chatbot into a family of agent produc
 ::techstack
 
 :::fact
-Per OpenAI's official developer site, the API platform centers on the GPT-5.6 family (three grades: Sol, Terra, and Luna), alongside earlier GPT-5.5 and GPT-5.4 lines still offered. The same site lists the coding agent Codex and the Apps SDK, used to extend ChatGPT with apps, as flagship products — and states that the Apps SDK is built on the Model Context Protocol, the open standard published by rival Anthropic.
+Per OpenAI's official developer site, the latest models on the API platform are the GPT-6 family (three grades: Astra, Sol, and Luna), alongside the GPT-5.6, GPT-5.5, and GPT-5.4 lines still offered. The same site lists the coding agent Codex and the Apps SDK, used to extend ChatGPT with apps, as flagship products — and states that the Apps SDK is built on the Model Context Protocol, the open standard published by rival Anthropic.
 :::
 
 :::guess
@@ -92,7 +98,7 @@ Building ChatGPT's own app-extension mechanism on a rival's open standard sugges
 OpenAI's revenue rests on two pillars: ChatGPT subscriptions for individuals and businesses, and usage-based API billing for developers.
 
 :::fact
-ChatGPT's pricing includes a free tier plus Plus ($20/month, launched February 2023), Pro ($200/month, launched December 2024), and a lower-cost "ChatGPT Go" plan in some markets (₹399/month in India). Team, Business, and Enterprise plans exist for organizations. On funding, following the October 2025 restructuring, the company was reported at an $852 billion valuation as of April 2026, with Microsoft's cumulative investment reported to exceed $13 billion. At the same time, compute commitments have stacked up at an extraordinary scale: a five-year, $300 billion deal with Oracle, and the roughly $500 billion Stargate buildout with Oracle, SoftBank, and MGX.
+ChatGPT's pricing includes a free tier plus Plus ($20/month, launched February 2023), and Pro ($200/month, launched December 2024). Per third-party pricing roundups, the lower-cost "ChatGPT Go" plan expanded from select markets (₹399/month in India) to a global $8/month plan in January 2026, and a $100/month Pro step was added (the official pricing page blocks automated access, so we could not confirm this from a primary source). Team, Business, and Enterprise plans exist for organizations. On funding, following the October 2025 restructuring, the company was reported at an $852 billion valuation as of April 2026, with Microsoft's cumulative investment reported to exceed $13 billion. In September 2026 it was reported to be weighing a new funding round at a valuation of up to $1.5 trillion (Forbes; unconfirmed). On going public, it confirmed an IPO filing in June 2026, and a delay to 2027 was reported that September (aggregated Wikipedia reporting). At the same time, compute commitments have stacked up at an extraordinary scale: a five-year, $300 billion deal with Oracle, and the roughly $500 billion Stargate buildout with Oracle, SoftBank, and MGX.
 :::
 
 :::guess
