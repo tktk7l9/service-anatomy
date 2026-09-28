@@ -1,4 +1,11 @@
 {
+  "1password": {
+    "url": "https://1password.com/",
+    "title": "Password Manager, Secrets, and Access Management | 1Password",
+    "description": "Protect passwords and secrets, manage app access, and secure AI tools with 1Password. Easy to adopt from growing teams to enterprise.",
+    "image": "https://images.ctfassets.net/2h488pz7kgfv/4JAm44Htcrinu0sTomaEGi/1f7be85af3138e1d38bb31fe5ad6425b/open-graph-1password-business.jpg",
+    "fetchedAt": "2026-09-28"
+  },
   "base": {
     "url": "https://thebase.com/",
     "title": "BASE (ベイス) -無料で簡単なネットショップ作成サービス",
