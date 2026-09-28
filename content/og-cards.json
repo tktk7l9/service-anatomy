@@ -321,6 +321,14 @@
     "siteName": "Whatnot",
     "fetchedAt": "2026-08-06"
   },
+  "wix": {
+    "url": "https://www.wix.com/",
+    "title": "Website Builder - Create a Free Website In Minutes | Wix.com",
+    "description": "Get everything you need to build a website your way. Wix’s free, easy-to-use website builder offers 2,000+ templates, built-in AI tools and a custom domain.",
+    "image": "https://static.wixstatic.com/media/343a2a_383f6393fabd4a0fa7f4732b1dd7cdb4~mv2.jpg/v1/fill/w_1200,h_630,al_c/343a2a_383f6393fabd4a0fa7f4732b1dd7cdb4~mv2.jpg",
+    "siteName": "wix.com",
+    "fetchedAt": "2026-09-28"
+  },
   "x": {
     "url": "https://x.com/",
     "title": "X. It’s what’s happening",
