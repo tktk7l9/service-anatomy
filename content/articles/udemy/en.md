@@ -23,8 +23,8 @@ techStack:
   - layer: "Core web application"
     name: "Django (Python) monolith"
     confidence: confirmed
-    evidence: "The official tech blog (January 2024) states that the marketplace, consumer subscription, and business applications live in a single monolithic codebase, that data is passed implicitly through Django templates, and that strings are extracted and translated through the Django monolith's pipeline"
-    evidenceUrl: "https://medium.com/udemy-engineering/transforming-frontend-architecture-a-journey-from-monolith-to-micro-frontends-at-udemy-part-2-c9bd7ede5f1c"
+    evidence: "Part 1 of the micro-frontend series (2024-01-02) states that the marketplace, consumer subscription, and business applications live in a single monolithic codebase. Part 3 (2024-01-16) states that this monolith passes data implicitly through Django templates and that strings are extracted and translated through the Django monolith's translation process"
+    evidenceUrl: "https://medium.com/udemy-engineering/transforming-frontend-architecture-a-journey-from-monolith-to-micro-frontends-at-udemy-part-3-2dfdd74ff913"
   - layer: "Frontend"
     name: "Next.js + TypeScript (micro frontends, SSG/SSR)"
     confidence: confirmed
@@ -42,8 +42,8 @@ techStack:
     evidenceUrl: "https://medium.com/udemy-engineering/migrating-udemys-homepage-to-micro-frontends-78bbd2e64925"
   - layer: "Deployment"
     name: "Kubernetes + Argo CD"
-    confidence: confirmed
-    evidence: "Part 2 of the micro-frontend series states that Argo CD handles declarative, automated deployment to the Kubernetes environment"
+    confidence: likely
+    evidence: "Part 2 of the micro-frontend series lists Argo CD, for declarative, automated deployment to the Kubernetes environment, as part of the architecture built at the 2021 hackathon. It does not say whether production still uses the same setup"
     evidenceUrl: "https://medium.com/udemy-engineering/transforming-frontend-architecture-a-journey-from-monolith-to-micro-frontends-at-udemy-part-2-c9bd7ede5f1c"
   - layer: "Monitoring"
     name: "Datadog / Sentry"
@@ -51,9 +51,9 @@ techStack:
     evidence: "Part 3 of the micro-frontend series (2024-01-16) states that the dashboard tracking migration progress and performance is built on Datadog and Sentry"
     evidenceUrl: "https://medium.com/udemy-engineering/transforming-frontend-architecture-a-journey-from-monolith-to-micro-frontends-at-udemy-part-3-2dfdd74ff913"
   - layer: "AI Assistant"
-    name: "OpenAI gpt-4.1-nano (fallback) + NeMo Guardrails embeddings"
+    name: "OpenAI gpt-4.1-nano (fallback) + embedding similarity"
     confidence: confirmed
-    evidence: "The official tech blog (2025-05-28) states that learner intent is first classified by embedding similarity using NVIDIA's NeMo Guardrails, and only when similarity falls below 0.85 is gpt-4.1-nano asked to classify it. It estimates that about 32.5% of all learner messages reach the LLM"
+    evidence: "The official tech blog (2025-05-28) states that learner intent was first classified purely by embedding similarity using NVIDIA's NeMo Guardrails and all-MiniLM-L6-v2, later with multilingual-e5-base, and that the final design asks gpt-4.1-nano to classify only when similarity does not exceed an optimal threshold of 0.85. It estimates that about 32.5% of all learner messages reach the LLM"
     evidenceUrl: "https://medium.com/udemy-engineering/evolution-of-the-udemy-ai-assistant-intent-understanding-system-ec3ee0039364"
   - layer: "Data and ML platform"
     name: "Databricks (Delta Lake / Unity Catalog)"
@@ -148,7 +148,7 @@ On December 17, 2025, Udemy agreed to combine with Coursera. According to Course
 :::
 
 :::fact
-In Japan, Benesse Corporation has been Udemy's exclusive business partner since 2015. According to Benesse's official page, Udemy provides the platform and courses while Benesse supports university students and working adults and proposes learning opportunities. Benesse invested $50 million in February 2020, and a September 2025 press release says learners in Japan passed 2.2 million at the end of June 2025. Udemy's 10-K says 66% of Udemy Business revenue in the Asia Pacific region came through the Benesse partnership.
+In Japan, Benesse Corporation has been Udemy's exclusive business partner since 2015. According to Benesse's official page, Udemy provides the platform and courses while Benesse runs initiatives that help university students and working adults build skills and advance their careers through learning. Benesse invested $50 million in February 2020, and a September 2025 press release says learners in Japan passed 2.2 million at the end of June 2025. Udemy's 10-K says 66% of Udemy Business revenue in the Asia Pacific region came through the Benesse partnership.
 :::
 
 :::pull
@@ -162,12 +162,12 @@ The course-by-course marketplace is now less than 30% of revenue. Udemy's core b
 Udemy's UX is designed to house two experiences under one roof: a marketplace where you buy to own, and a library you subscribe to.
 
 - **Two ways to pay, side by side.** According to Benesse's official page, the Japanese Personal Plan costs ¥3,000 a month or ¥27,500 a year (about ¥2,292 a month), unlocks more than 29,000 eligible courses, and can be canceled at any time. Courses outside the plan, among the more than 250,000 in the full catalog, are still bought one by one. A purchased course has no time limit; subscription access lasts only while you subscribe.
-- **Enterprise pricing steps down with headcount.** According to Benesse's Udemy Business pricing page, the Team Plan for 5–20 people costs ¥38,000 per ID per year for about 17,000 courses, and the Enterprise Plan for 21 or more starts at ¥18,100 per ID per year for over 30,000 courses. The more seats, the lower the per-seat price and the larger the catalog.
-- **An AI companion inside the course.** The AI Assistant, which learners can question while watching, handles lecture summaries, in-course search, and comprehension checks. The 10-K also lists "AI Role Play," which lets learners practice sales, customer-service, and leadership conversations against an AI.
+- **Enterprise pricing steps down with headcount.** According to Benesse's Udemy Business pricing page (all prices excluding tax), the Team Plan for 5–20 people starts at ¥38,000 per ID per year for about 17,000 courses, and the Enterprise Plan for 21 or more starts at ¥36,300 per ID per year for over 30,000 courses, falling to as low as ¥18,100 per ID per year for 5,000 or more people. The more seats, the lower the per-seat price and the larger the catalog.
+- **An AI companion inside the course.** According to the official tech blog (May 2025), the AI Assistant, which learners can question while watching, handles clarifying doubts, lecture summaries, in-course search, and comprehension checks. The 10-K also lists "AI Role Play," which lets learners practice sales, customer-service, and leadership conversations against an AI.
 - **Rebuilding the logged-out homepage.** According to the official tech blog (May 2024), the logged-out homepage is the second most visited destination after course landing pages, and it was redesigned to foreground professional skills development. Above-the-fold modules were A/B tested against the old page, and the new page launched first in the US and India.
 
 :::fact
-According to Benesse's official page, Benesse receives personal information about Udemy users in Japan from Udemy — name, email address, profile, learning history, and more — and uses it for Udemy information and support, Benesse's own service development, advertising and marketing analysis, and introducing services from group companies and partners. From a Japanese user's point of view, Udemy delivers the courses while Benesse handles learning suggestions and enterprise sales.
+According to Benesse's official page, Benesse receives personal information about Udemy users in Japan from Udemy — name, email address, profile, learning history, browsing history, and more — and uses it for course recommendations, campaign and coupon notices, course-completion reminders, surveys, service improvement and new-business planning, recommendations based on analysis of interests and learning progress, and introducing services from group companies and partners. From a Japanese user's point of view, Udemy provides the platform and courses while Benesse handles learning outreach.
 :::
 
 ## Tech Stack
@@ -179,11 +179,11 @@ According to the official tech-blog series "A Journey from Monolith to Micro fro
 :::
 
 :::fact
-The answer was a move to micro frontends that began at a 2021 internal hackathon. Pages are carved out of the monolith with Next.js and TypeScript, data is fetched through GraphQL, and deployment flows through Argo CD into Kubernetes. Pages that can be static are generated at build time and placed on the CDN; only what cannot be cached goes back to the Next.js apps in the US. Part 3 of the series reports that on migrated pages, 75th-percentile First Contentful Paint improved by about 35% and Time to First Byte by about 320%, while Largest Contentful Paint was marginally better on the monolith — disclosing the metric that did not improve as well. According to the May 2024 post, Cloudflare Workers read a route configuration to decide which app receives each request, and the logged-out and logged-in homepages are split by whether an access-token cookie is present.
+The answer was a move to micro frontends that began at a 2021 internal hackathon. Pages are carved out of the monolith with Next.js and TypeScript, data is fetched through GraphQL, and in the hackathon architecture deployment flowed through Argo CD into Kubernetes. Pages that can be static are generated at build time and placed on the CDN; only what cannot be cached goes back to the Next.js apps in the US. Part 3 of the series reports that on the migrated topic pages, 75th-percentile First Contentful Paint improved by about 35% and Time to First Byte by about 320%, while Largest Contentful Paint was marginally better on the monolith — disclosing the metric that did not improve as well. According to the May 2024 post, Cloudflare Workers read a route configuration to decide which app receives each request, and the logged-out and logged-in homepages are split by whether an access-token cookie is present.
 :::
 
 :::fact
-On the AI Assistant's intent classification, the official tech blog (May 2025) describes three stages of refinement. At first, intent was decided purely by similarity to pre-registered example utterances, using NVIDIA's NeMo Guardrails and a small embedding model (all-MiniLM-L6-v2). Handing the task to an LLM raised accuracy but added round-trip latency, so the team settled on a hybrid: if similarity is 0.85 or higher, the embedding decides; otherwise gpt-4.1-nano classifies. gpt-4.1 was 3% more accurate than nano but cost 20 times more; about 32.5% of learner messages go to nano, and average end-to-end latency rises by about 10%. According to a September 2025 post, localization of the AI Assistant and the Skills Mapping feature started with Japanese, combining multilingual embeddings with prompt engineering in Japanese, and reached production in under three months. Spanish and Portuguese followed even faster, and adding a new language now takes less than 25% of the initial development effort.
+On the AI Assistant's intent classification, the official tech blog (May 2025) describes how it was refined step by step. At first, intent was decided purely by similarity to pre-registered example utterances, using NVIDIA's NeMo Guardrails and a small embedding model (all-MiniLM-L6-v2). When misclassifications grew with new features, the team switched to a larger multilingual embedding model (multilingual-e5-base), but the gain faded as more intents were added. Handing the task to an LLM raised accuracy but added round-trip latency, so the team settled on a hybrid: if similarity exceeds a threshold of 0.85, the embedding decides; otherwise gpt-4.1-nano classifies. gpt-4.1 was 3% more accurate than nano but cost 20 times more; about 32.5% of learner messages go to nano, and average end-to-end latency rises by about 10%. According to a September 2025 post, the AI Assistant and the Skills Mapping feature went from concept to production for the Japanese market in under three months, combining multilingual embeddings with prompt engineering in Japanese. After the platform was validated, Spanish and Portuguese followed even faster, and adding a new language now takes less than 25% of the initial development effort.
 :::
 
 :::guess
@@ -199,7 +199,7 @@ No official document found names the cloud hosting the core application. But sin
 Udemy's revenue has three legs: Udemy Business for companies, courses bought one at a time by individuals, and the consumer subscription. Courses are made by outside instructors, who receive a share of the revenue.
 
 :::fact
-According to the Q4 and full-year 2025 results release, 2025 revenue was $789.8 million. The Enterprise segment brought in $524.1 million, up 6% year over year, and the Consumer segment $265.8 million, down 9%. Within Consumer, subscription revenue grew 44% to $44.5 million, and paid consumer subscribers roughly doubled to 343,000. Subscription revenue made up 72% of the total. Udemy Business ARR was $540.0 million (up 4%), with 17,029 enterprise customers. Full-year net income was $3.8 million; according to Wikipedia, 2024 had a net loss of $85 million. AI content on Udemy grew 120% year over year in 2025.
+According to the Q4 and full-year 2025 results release, 2025 revenue was $789.8 million. The Enterprise segment brought in $524.1 million, up 6% year over year, and the Consumer segment $265.8 million, down 9%. Within Consumer, subscription revenue grew 44% to $44.5 million, and paid consumer subscribers roughly doubled to 343,000. Subscription revenue made up 72% of the total. Udemy Business ARR was $540.0 million (up 4%), with 17,029 enterprise customers. Full-year net income was $3.8 million; according to Wikipedia, 2024 had a net loss of $85 million. Enrollments in AI content on Udemy grew 120% year over year in 2025.
 :::
 
 :::fact
