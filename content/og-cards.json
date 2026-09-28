@@ -1,4 +1,12 @@
 {
+  "base": {
+    "url": "https://thebase.com/",
+    "title": "BASE (ベイス) -無料で簡単なネットショップ作成サービス",
+    "description": "ネットショップの作成・開設が無料でかんたんに。個人・法人問わず、どなたでもすぐに開業できます。今までECサイトを作りたくても時間・お金・技術さまざまな理由で始められなかった、そんな全ての方の悩みを解消するサービスです。",
+    "image": "https://thebase.com/static-asset/ogp_01.png",
+    "siteName": "BASE (ベイス) | ネットショップを無料で簡単に作成",
+    "fetchedAt": "2026-09-28"
+  },
   "better-stack": {
     "url": "https://betterstack.com/",
     "title": "Better Stack - 30x cheaper than Datadog, Exceptional support",
