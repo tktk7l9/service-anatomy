@@ -135,6 +135,9 @@ sources:
   - label: "ElevenLabs official: Affiliate program"
     url: "https://elevenlabs.io/affiliates"
     accessedAt: "2026-09-28"
+  - label: "ElevenLabs official: Affiliate Program Terms (updated 2026-06-10)"
+    url: "https://elevenlabs.io/affiliates-terms"
+    accessedAt: "2026-09-28"
   - label: "ElevenLabs official: Terms of Service (non-EEA; contracting entity Eleven Labs Inc.)"
     url: "https://elevenlabs.io/terms-of-use"
     accessedAt: "2026-09-28"
@@ -199,7 +202,7 @@ According to the pricing page, ElevenCreative's monthly plans are Free ($0, 10,0
 :::
 
 :::fact
-According to the official docs, when paid users generate audio with your voice in the Voice Library, you receive cash rewards through Stripe Connect. Payouts typically happen once a week, with a minimum of $10 in most countries. Cumulative payouts exceeded $2 million at the time of the official Series C announcement (January 2025), and a 2025 TIME profile put them at $5 million to roughly 5,000 creators. According to an official blog post on May 22, 2026, the total rose from $11 million in November 2025 to over $22 million six months later, with more than 10,400 creators earning. The affiliate program runs on PartnerStack, and the official page says it pays 22% of all payments for the first 12 months on every new paid subscriber you refer, with no limits.
+According to the official docs, when paid users generate audio with your voice in the Voice Library, you receive cash rewards through Stripe Connect. Payouts typically happen once a week, with a minimum of $10 in most countries. Cumulative payouts exceeded $2 million at the time of the official Series C announcement (January 2025), and a 2025 TIME profile put them at $5 million to roughly 5,000 creators. According to an official blog post on May 22, 2026, the total rose from $11 million in November 2025 to over $22 million six months later, with more than 10,400 creators earning. The affiliate program runs on PartnerStack, and the official page says it pays 22% of all payments for the first 12 months on every new paid subscriber you refer, with no limits. The affiliate terms narrow that: 22% applies to Starter, Creator, Pro, and Scale referrals, Business plan referrals earn 11%, and enterprise purchases earn nothing.
 :::
 
 :::guess
