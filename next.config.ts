@@ -40,13 +40,16 @@ const nextConfig: NextConfig = {
   },
   // Permanently redirect the old URL (workers.dev) and www to the canonical domain.
   // Moved to the custom domain on 2026-09-23. Keep in sync with BASE_URL (src/engine/site.ts).
+  // The root needs its own rule: with an empty path, OpenNext left ":path*" unreplaced
+  // and redirected "/" to the literal "https://serviceanatomy.com/:path*" (404).
   async redirects() {
-    return ["service-anatomy.saitotakuya0719.workers.dev", "www.serviceanatomy.com"].map((host) => ({
-      source: "/:path*",
-      has: [{ type: "host" as const, value: host }],
-      destination: "https://serviceanatomy.com/:path*",
-      permanent: true,
-    }));
+    return ["service-anatomy.saitotakuya0719.workers.dev", "www.serviceanatomy.com"].flatMap((host) => {
+      const has = [{ type: "host" as const, value: host }];
+      return [
+        { source: "/", has, destination: "https://serviceanatomy.com/", permanent: true },
+        { source: "/:path+", has, destination: "https://serviceanatomy.com/:path+", permanent: true },
+      ];
+    });
   },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
