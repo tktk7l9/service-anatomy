@@ -4,18 +4,18 @@ import { buildScoreTrend } from "./revision-trend";
 const base = { product: 4, ux: 3.5, tech: 3, business: 4.5 };
 
 describe("buildScoreTrend", () => {
-  it("revisions が空でも現行チェックポイントだけを返す（deltas なし）", () => {
+  it("returns only the current checkpoint when revisions is empty (no deltas)", () => {
     const trend = buildScoreTrend([], base, "2026-07-17");
     expect(trend).toEqual([{ date: "2026-07-17", scores: base, note: undefined, isCurrent: true, deltas: undefined }]);
   });
 
-  it("先頭チェックポイントは deltas を持たない", () => {
+  it("the first checkpoint has no deltas", () => {
     const trend = buildScoreTrend([{ date: "2026-07-01", scores: base, note: "初回" }], base, "2026-07-17");
     expect(trend[0].deltas).toBeUndefined();
     expect(trend[0].isCurrent).toBe(false);
   });
 
-  it("up / down / same を軸ごとに正しく判定する", () => {
+  it("classifies up / down / same per axis", () => {
     const previous = { product: 4, ux: 3.5, tech: 3, business: 4.5 };
     const current = { product: 4.5, ux: 3, tech: 3, business: 4.5 };
     const trend = buildScoreTrend([{ date: "2026-07-01", scores: previous, note: "初回" }], current, "2026-07-17");
@@ -24,7 +24,7 @@ describe("buildScoreTrend", () => {
     expect(trend[1].note).toBeUndefined();
   });
 
-  it("複数 revisions を時系列順に並べ、各段でデルタを計算する", () => {
+  it("orders multiple revisions chronologically and computes deltas at each step", () => {
     const r1 = { product: 3, ux: 3, tech: 3, business: 3 };
     const r2 = { product: 3.5, ux: 3, tech: 3, business: 3 };
     const current = { product: 3.5, ux: 3.5, tech: 3, business: 2.5 };

@@ -9,7 +9,7 @@ function mutate(fn: (raw: Record<string, unknown>) => void): Record<string, unkn
 }
 
 describe("parseComparisonFrontmatter", () => {
-  it("正しい frontmatter をパースする", () => {
+  it("parses valid frontmatter", () => {
     const parsed = parseComparisonFrontmatter(makeRawComparisonFrontmatter(), "ctx");
     expect(parsed.title).toBe("Alpha vs Beta");
     expect(parsed.slugA).toBe("alpha-service");
@@ -18,29 +18,29 @@ describe("parseComparisonFrontmatter", () => {
   });
 
   it.each([
-    ["frontmatter が文字列", () => "not-object" as unknown, /frontmatter はオブジェクト/],
-  ])("%s なら失敗", (_name, make, pattern) => {
+    ["frontmatter is a string", () => "not-object" as unknown, /frontmatter must be an object/],
+  ])("fails when %s", (_name, make, pattern) => {
     expect(() => parseComparisonFrontmatter(make(), "ctx")).toThrow(pattern);
   });
 
   it.each([
-    ["title 欠落", (r: Record<string, unknown>) => delete r.title, /title は空でない文字列/],
-    ["slugA が kebab-case でない", (r: Record<string, unknown>) => (r.slugA = "Alpha Service"), /slugA は kebab-case/],
-    ["slugB が kebab-case でない", (r: Record<string, unknown>) => (r.slugB = "Beta_Service"), /slugB は kebab-case/],
+    ["title is missing", (r: Record<string, unknown>) => delete r.title, /title must be a non-empty string/],
+    ["slugA is not kebab-case", (r: Record<string, unknown>) => (r.slugA = "Alpha Service"), /slugA must be a kebab-case/],
+    ["slugB is not kebab-case", (r: Record<string, unknown>) => (r.slugB = "Beta_Service"), /slugB must be a kebab-case/],
     [
-      "slugA と slugB が同じ",
+      "slugA and slugB are the same",
       (r: Record<string, unknown>) => (r.slugB = r.slugA),
-      /slugA と slugB は異なる記事を指す必要があります/,
+      /slugA and slugB must point to different articles/,
     ],
-    ["publishedAt が形式外", (r: Record<string, unknown>) => (r.publishedAt = "2026/07/18"), /publishedAt は "YYYY-MM-DD"/],
-    ["sources が空", (r: Record<string, unknown>) => (r.sources = []), /sources は1件以上の配列/],
-  ])("%s なら失敗", (_name, mutator, pattern) => {
+    ["publishedAt has an invalid format", (r: Record<string, unknown>) => (r.publishedAt = "2026/07/18"), /publishedAt must be a quoted string in "YYYY-MM-DD"/],
+    ["sources is empty", (r: Record<string, unknown>) => (r.sources = []), /sources must be an array with at least one item/],
+  ])("fails when %s", (_name, mutator, pattern) => {
     expect(() => parseComparisonFrontmatter(mutate(mutator as (r: Record<string, unknown>) => void), "ctx")).toThrow(
       pattern,
     );
   });
 
-  it("エラーメッセージにコンテキスト（ファイル名）が入る", () => {
+  it("error messages include the context (file name)", () => {
     const raw = mutate((r) => delete r.title);
     expect(() => parseComparisonFrontmatter(raw, "deepl-vs-nani/ja.md")).toThrow(/^deepl-vs-nani\/ja\.md: /);
   });

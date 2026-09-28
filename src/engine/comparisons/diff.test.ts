@@ -7,7 +7,7 @@ function entry(name: string): TechStackEntry {
 }
 
 describe("techOverlap", () => {
-  it("共有技術・A限定・B限定を slug 昇順で分ける", () => {
+  it("splits shared / A-only / B-only tech in ascending slug order", () => {
     const diff = techOverlap(
       [entry("Next.js"), entry("Vercel")],
       [entry("Next.js"), entry("Cloudflare")],
@@ -17,30 +17,30 @@ describe("techOverlap", () => {
     expect(diff.onlyB.map((r) => r.slug)).toEqual(["cloudflare"]);
   });
 
-  it("共有技術が1つもなければ shared は空", () => {
+  it("shared is empty when no tech is shared", () => {
     const diff = techOverlap([entry("React")], [entry("Vue")]);
     expect(diff.shared).toEqual([]);
     expect(diff.onlyA.map((r) => r.slug)).toEqual(["react"]);
     expect(diff.onlyB.map((r) => r.slug)).toEqual(["vue"]);
   });
 
-  it("複合表記（A / B）も個別技術トークンに分解して比較する", () => {
+  it("splits compound names (A / B) into individual tech tokens before comparing", () => {
     const diff = techOverlap([entry("Next.js / Vercel")], [entry("Vercel")]);
     expect(diff.shared.map((r) => r.slug)).toEqual(["vercel"]);
     expect(diff.onlyA.map((r) => r.slug)).toEqual(["next-js"]);
     expect(diff.onlyB).toEqual([]);
   });
 
-  it("同じ技術が複数エントリに重複しても shared には1回だけ現れる", () => {
+  it("the same tech appears only once in shared even if duplicated across entries", () => {
     const diff = techOverlap([entry("Next.js"), entry("Next.js (App Router)")], [entry("Next.js")]);
     expect(diff.shared.map((r) => r.slug)).toEqual(["next-js"]);
   });
 
-  it("空配列同士は全カテゴリ空", () => {
+  it("two empty arrays give empty categories", () => {
     expect(techOverlap([], [])).toEqual({ shared: [], onlyA: [], onlyB: [] });
   });
 
-  it("2件以上のカテゴリは slug 昇順にソートされる（sort比較関数の実行を含む）", () => {
+  it("categories with two or more items are sorted by slug (exercises the sort comparator)", () => {
     const diff = techOverlap(
       [entry("Vue"), entry("React"), entry("Svelte")],
       [entry("Vue"), entry("React"), entry("Angular")],

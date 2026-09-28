@@ -15,7 +15,7 @@ const FIXTURE = path.join(
 describe("loadOgCards", () => {
   const cards = loadOgCards(FIXTURE);
 
-  it("完全なカードを読み込む（fetchedAt は捨てる）", () => {
+  it("loads a complete card (drops fetchedAt)", () => {
     expect(cards["full-card"]).toEqual({
       url: "https://example.com/",
       title: "Example Service",
@@ -25,28 +25,28 @@ describe("loadOgCards", () => {
     });
   });
 
-  it("url だけの最小カードも有効", () => {
+  it("a minimal card with only url is valid", () => {
     expect(cards["minimal-card"]).toEqual({ url: "https://example.org/" });
   });
 
-  it("https でない画像は捨てる（カード自体は残す）", () => {
+  it("drops non-https images (keeps the card)", () => {
     expect(cards["http-image"]).toEqual({ url: "https://example.net/", title: "No Https Image" });
   });
 
-  it("空白のみの文字列フィールドは捨てる", () => {
+  it("drops whitespace-only string fields", () => {
     expect(cards["empty-title"]).toEqual({ url: "https://example.dev/" });
   });
 
-  it("https でない url・オブジェクトでないエントリは除外する", () => {
+  it("excludes non-https urls and non-object entries", () => {
     expect(cards["bad-url"]).toBeUndefined();
     expect(cards["not-object"]).toBeUndefined();
   });
 
-  it("ファイルがなければ空", () => {
+  it("empty when the file does not exist", () => {
     expect(loadOgCards("/no/such/file.json")).toEqual({});
   });
 
-  it("既定パス（content/og-cards.json）でも例外なく読める", () => {
+  it("reads the default path (content/og-cards.json) without throwing", () => {
     expect(typeof loadOgCards()).toBe("object");
   });
 });

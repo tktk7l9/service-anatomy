@@ -14,7 +14,7 @@ const maxAgeDays = daysArg === -1 ? 90 : Number(args[daysArg + 1]);
 const ci = args.includes("--ci");
 
 if (!Number.isFinite(maxAgeDays) || maxAgeDays < 0) {
-  console.error("--days には 0 以上の数値を指定してください");
+  console.error("--days must be a number >= 0");
   process.exit(2);
 }
 
@@ -28,22 +28,22 @@ const rows = readdirSync(ROOT, { withFileTypes: true })
     const age = lastVerified
       ? Math.floor((Date.parse(today) - Date.parse(lastVerified)) / MS_PER_DAY)
       : Number.POSITIVE_INFINITY;
-    return { slug: entry.name, lastVerified: lastVerified ?? "(不明)", age };
+    return { slug: entry.name, lastVerified: lastVerified ?? "(unknown)", age };
   })
   .sort((a, b) => b.age - a.age || a.slug.localeCompare(b.slug));
 
 const stale = rows.filter((row) => row.age > maxAgeDays);
 
-console.log(`記事の鮮度（lastVerified 基準・閾値 ${maxAgeDays} 日・今日 ${today}）\n`);
+console.log(`Article freshness (based on lastVerified, threshold ${maxAgeDays} days, today ${today})\n`);
 for (const row of rows) {
   const mark = row.age > maxAgeDays ? "⚠" : " ";
-  const days = Number.isFinite(row.age) ? `${String(row.age).padStart(4)}日前` : "  不明  ";
+  const days = Number.isFinite(row.age) ? `${String(row.age).padStart(4)}d ago` : " unknown ";
   console.log(`${mark} ${days}  ${row.lastVerified}  ${row.slug}`);
 }
 console.log(
   stale.length === 0
-    ? `\n全 ${rows.length} 記事が閾値内です。`
-    : `\n⚠ ${stale.length}/${rows.length} 記事が ${maxAgeDays} 日を超えています。再検証（Web検索・実観測）のうえ lastVerified を更新するか、定点観測（再解剖）の候補にしてください。`,
+    ? `\nAll ${rows.length} articles are within the threshold.`
+    : `\n⚠ ${stale.length}/${rows.length} articles are older than ${maxAgeDays} days. Re-verify them (web search, direct observation) and update lastVerified, or mark them as candidates for a revision (re-anatomy).`,
 );
 
 if (ci && stale.length > 0) process.exit(1);

@@ -3,7 +3,7 @@ import { renderMarkdown } from "./render";
 import { extractToc } from "./toc";
 
 describe("extractToc", () => {
-  it("h2/h3 のみを depth 付きで抽出する", () => {
+  it("extracts only h2/h3 with depth", () => {
     const toc = extractToc("# h1\n\n## 概要\n\n### 詳細\n\n#### h4");
     expect(toc).toEqual([
       { id: "概要", depth: 2, text: "概要" },
@@ -11,12 +11,12 @@ describe("extractToc", () => {
     ]);
   });
 
-  it("重複する見出しは -1 サフィックスで区別される", () => {
+  it("duplicate headings get a -1 suffix", () => {
     const toc = extractToc("## 概要\n\n## 概要");
     expect(toc.map((entry) => entry.id)).toEqual(["概要", "概要-1"]);
   });
 
-  it("h1 と重複しても rehype-slug とカウンタが同期する", () => {
+  it("stays in sync with rehype-slug counters even when duplicating h1", () => {
     const markdown = "# 概要\n\n## 概要\n\n## まとめ";
     const toc = extractToc(markdown);
     const html = renderMarkdown(markdown);
@@ -26,7 +26,7 @@ describe("extractToc", () => {
     expect(toc.map((entry) => entry.id)).toEqual(["概要-1", "まとめ"]);
   });
 
-  it("インラインコード・強調・画像を含む見出しのテキストを組み立てる", () => {
+  it("builds heading text containing inline code, emphasis, and images", () => {
     const markdown = "## `npm` と **強調** と ![代替](https://example.com/x.png) の話";
     const toc = extractToc(markdown);
     expect(toc[0].text).toBe("npm と 強調 と  の話");
@@ -34,7 +34,7 @@ describe("extractToc", () => {
     expect(html).toContain(`id="${toc[0].id}"`);
   });
 
-  it("見出しがなければ空配列", () => {
+  it("empty array when there are no headings", () => {
     expect(extractToc("本文だけ。")).toEqual([]);
   });
 });

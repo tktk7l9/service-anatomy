@@ -37,7 +37,7 @@ describe("components smoke", () => {
     expect(screen.getByText("English")).toHaveAttribute("href", "/en/articles/x");
   });
 
-  it("HeroArt は同じ theme から決定的な SVG を生成する", () => {
+  it("HeroArt generates a deterministic SVG from the same theme", () => {
     const { container: a } = render(<HeroArt theme="alpha" />);
     const { container: b } = render(<HeroArt theme="alpha" />);
     const { container: c } = render(<HeroArt theme="beta" />);
@@ -51,13 +51,13 @@ describe("components smoke", () => {
     expect(screen.getByText("Alpha の解剖")).toBeInTheDocument();
   });
 
-  it("Scorecard は総合値と各軸を表示する", () => {
+  it("Scorecard shows the overall value and each axis", () => {
     render(<Scorecard scores={{ product: 4, ux: 3.5, tech: 3, business: 4.5 }} dict={ja} />);
     expect(screen.getByText("3.8")).toBeInTheDocument();
     expect(screen.getByText("プロダクト")).toBeInTheDocument();
   });
 
-  it("TechStackTable は confidence バッジ・根拠リンク・技術横断リンクを表示する", () => {
+  it("TechStackTable shows confidence badges, evidence links, and cross-tech links", () => {
     render(
       <TechStackTable
         entries={[
@@ -82,7 +82,7 @@ describe("components smoke", () => {
     expect(screen.getByText(/App Router/)).toBeInTheDocument();
   });
 
-  it("SourcesList はホスト名と閲覧日を表示する", () => {
+  it("SourcesList shows the host name and access date", () => {
     render(
       <SourcesList
         sources={[{ label: "公式", url: "https://example.com/x", accessedAt: "2026-07-01" }]}
@@ -94,7 +94,7 @@ describe("components smoke", () => {
     expect(screen.getByText(/example\.com/)).toBeInTheDocument();
   });
 
-  it("Toc は h2/h3 を並べ、空なら描画しない", () => {
+  it("Toc lists h2/h3 and renders nothing when empty", () => {
     const entries = extractToc("## 概要\n\n### 詳細");
     const { container } = render(<Toc entries={entries} label="目次" />);
     expect(container.querySelectorAll("li")).toHaveLength(2);
@@ -102,7 +102,7 @@ describe("components smoke", () => {
     expect(empty.innerHTML).toBe("");
   });
 
-  it("AffiliateCard は PR 表記付きの sponsored リンクを描画する", () => {
+  it("AffiliateCard renders a sponsored link with a PR label", () => {
     const { container } = render(
       <AffiliateCard
         affiliate={{ url: "https://shopify.pxf.io/abc", program: "Shopify Affiliate Program" }}
@@ -122,7 +122,7 @@ describe("components smoke", () => {
     expect(note).toHaveTextContent("紹介料");
   });
 
-  it("AffiliateCard の注記は英語辞書でもプログラム名を含む", () => {
+  it("AffiliateCard note includes the program name with the English dictionary too", () => {
     const { container } = render(
       <AffiliateCard
         affiliate={{ url: "https://shopify.pxf.io/abc", program: "Shopify Affiliate Program" }}
@@ -135,7 +135,7 @@ describe("components smoke", () => {
     );
   });
 
-  it("LinkCard は OGP メタデータをリンクプレビューとして描画する", () => {
+  it("LinkCard renders OGP metadata as a link preview", () => {
     const { container } = render(
       <LinkCard
         card={{
@@ -158,7 +158,7 @@ describe("components smoke", () => {
     expect(screen.getByText(/example\.com ↗/)).toBeInTheDocument();
   });
 
-  it("LinkCard は画像なしでもテキストカードとして成立する", () => {
+  it("LinkCard works as a text card without an image", () => {
     const { container } = render(
       <LinkCard card={{ url: "https://example.org/" }} service="Example" label="Official site" />,
     );
@@ -166,7 +166,7 @@ describe("components smoke", () => {
     expect(container.querySelector("img")).toBeNull();
   });
 
-  it("MobileNav はボタンで開閉し、リンククリックとEscapeで閉じる", () => {
+  it("MobileNav toggles with the button and closes on link click and Escape", () => {
     render(<MobileNav locale="ja" dict={ja} />);
     const button = screen.getByRole("button", { name: ja.nav.menu });
     expect(button).toHaveAttribute("aria-expanded", "false");
@@ -186,7 +186,7 @@ describe("components smoke", () => {
     expect(screen.queryByRole("navigation")).toBeNull();
   });
 
-  it("ScoreTrend は各チェックポイントのスコアとデルタ・note を描画する", () => {
+  it("ScoreTrend renders each checkpoint's scores, deltas, and note", () => {
     const trend = buildScoreTrend(
       [{ date: "2026-07-01", scores: { product: 4, ux: 3.5, tech: 3, business: 4.5 }, note: "初回のnote" }],
       { product: 4.5, ux: 3.5, tech: 3, business: 4.5 },
@@ -198,7 +198,7 @@ describe("components smoke", () => {
     expect(screen.getAllByText("4.5").length).toBeGreaterThan(0);
   });
 
-  it("ComparisonScorecard は2サービスのスコアを並べて表示する", () => {
+  it("ComparisonScorecard shows the scores of two services side by side", () => {
     render(
       <ComparisonScorecard
         serviceA="Alpha"
@@ -213,7 +213,7 @@ describe("components smoke", () => {
     expect(screen.getAllByText("4.5").length).toBeGreaterThan(0);
   });
 
-  it("ComparisonTechStack は共有/A限定/B限定を分けて表示する", () => {
+  it("ComparisonTechStack shows shared / A-only / B-only separately", () => {
     const diff = techOverlap(
       [{ layer: "L", name: "Next.js", confidence: "likely", evidence: "t" }],
       [
@@ -228,7 +228,7 @@ describe("components smoke", () => {
     expect(screen.getByText("Rails")).toHaveAttribute("href", "/ja/tech/rails");
   });
 
-  it("ArticleBody は html と scorecard/techstack を interleave する", () => {
+  it("ArticleBody interleaves html with scorecard/techstack", () => {
     const markdown = "## 序\n\n本文。\n\n::scorecard\n\n## 技術\n\n::techstack\n\n結び。";
     const html = renderMarkdown(markdown, ja.article.callouts);
     const { container } = render(

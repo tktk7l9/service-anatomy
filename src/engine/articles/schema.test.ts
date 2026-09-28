@@ -9,7 +9,7 @@ function mutate(fn: (raw: Record<string, unknown>) => void): Record<string, unkn
 }
 
 describe("parseFrontmatter", () => {
-  it("正しい frontmatter をパースする", () => {
+  it("parses valid frontmatter", () => {
     const parsed = parseFrontmatter(makeRawFrontmatter(), "ctx");
     expect(parsed.service).toBe("Alpha");
     expect(parsed.category).toBe("game");
@@ -18,7 +18,7 @@ describe("parseFrontmatter", () => {
     expect(parsed.sources).toHaveLength(1);
   });
 
-  it("evidenceUrl 付きの confirmed を受理する", () => {
+  it("accepts confirmed with an evidenceUrl", () => {
     const raw = mutate((r) => {
       (r.techStack as Record<string, unknown>[])[0].confidence = "confirmed";
       (r.techStack as Record<string, unknown>[])[0].evidenceUrl = "https://example.com/proof";
@@ -26,11 +26,11 @@ describe("parseFrontmatter", () => {
     expect(parseFrontmatter(raw, "ctx").techStack[0].evidenceUrl).toBe("https://example.com/proof");
   });
 
-  it("affiliate 未指定なら undefined", () => {
+  it("undefined when affiliate is not set", () => {
     expect(parseFrontmatter(makeRawFrontmatter(), "ctx").affiliate).toBeUndefined();
   });
 
-  it("affiliate（提携リンク）を受理する", () => {
+  it("accepts affiliate (affiliate link)", () => {
     const raw = mutate((r) => {
       r.affiliate = { url: "https://shopify.pxf.io/abc", program: "Shopify Affiliate Program（Impact）" };
     });
@@ -40,11 +40,11 @@ describe("parseFrontmatter", () => {
     });
   });
 
-  it("revisions 未指定なら undefined", () => {
+  it("undefined when revisions is not set", () => {
     expect(parseFrontmatter(makeRawFrontmatter(), "ctx").revisions).toBeUndefined();
   });
 
-  it("revisions（定点観測）を受理する", () => {
+  it("accepts revisions (periodic re-anatomy)", () => {
     const raw = mutate((r) => {
       r.revisions = [
         { date: "2026-07-01", scores: { product: 4, ux: 3.5, tech: 3, business: 4.5 }, note: "初回" },
@@ -56,132 +56,132 @@ describe("parseFrontmatter", () => {
   });
 
   it.each([
-    ["frontmatter が文字列", () => "not-object" as unknown, /frontmatter はオブジェクト/],
-    ["frontmatter が null", () => null as unknown, /frontmatter はオブジェクト/],
-    ["frontmatter が配列", () => [] as unknown, /frontmatter はオブジェクト/],
-  ])("%s なら失敗", (_name, make, pattern) => {
+    ["frontmatter is a string", () => "not-object" as unknown, /frontmatter must be an object/],
+    ["frontmatter is null", () => null as unknown, /frontmatter must be an object/],
+    ["frontmatter is an array", () => [] as unknown, /frontmatter must be an object/],
+  ])("fails when %s", (_name, make, pattern) => {
     expect(() => parseFrontmatter(make(), "ctx")).toThrow(pattern);
   });
 
   it.each([
-    ["service 欠落", (r: Record<string, unknown>) => delete r.service, /service は空でない文字列/],
-    ["service が非文字列", (r: Record<string, unknown>) => (r.service = 1), /service は空でない文字列/],
-    ["title が空白のみ", (r: Record<string, unknown>) => (r.title = "  "), /title は空でない文字列/],
-    ["category が未定義値", (r: Record<string, unknown>) => (r.category = "sports"), /category "sports" は定義されていません/],
-    ["tags が配列でない", (r: Record<string, unknown>) => (r.tags = "steam"), /tags は1件以上の配列/],
-    ["tags が空配列", (r: Record<string, unknown>) => (r.tags = []), /tags は1件以上の配列/],
-    ["tags に非文字列", (r: Record<string, unknown>) => (r.tags = [1]), /tags\[0\] は kebab-case/],
-    ["tags に kebab-case でない値", (r: Record<string, unknown>) => (r.tags = ["Steam Deck"]), /tags\[0\] は kebab-case/],
-    ["publishedAt が形式外", (r: Record<string, unknown>) => (r.publishedAt = "2026/07/01"), /publishedAt は "YYYY-MM-DD"/],
+    ["service is missing", (r: Record<string, unknown>) => delete r.service, /service must be a non-empty string/],
+    ["service is not a string", (r: Record<string, unknown>) => (r.service = 1), /service must be a non-empty string/],
+    ["title is whitespace only", (r: Record<string, unknown>) => (r.title = "  "), /title must be a non-empty string/],
+    ["category is an undefined value", (r: Record<string, unknown>) => (r.category = "sports"), /category "sports" is not defined/],
+    ["tags is not an array", (r: Record<string, unknown>) => (r.tags = "steam"), /tags must be an array with at least one item/],
+    ["tags is an empty array", (r: Record<string, unknown>) => (r.tags = []), /tags must be an array with at least one item/],
+    ["tags contains a non-string", (r: Record<string, unknown>) => (r.tags = [1]), /tags\[0\] must be a kebab-case/],
+    ["tags contains a non-kebab-case value", (r: Record<string, unknown>) => (r.tags = ["Steam Deck"]), /tags\[0\] must be a kebab-case/],
+    ["publishedAt has an invalid format", (r: Record<string, unknown>) => (r.publishedAt = "2026/07/01"), /publishedAt must be a quoted string in "YYYY-MM-DD"/],
     [
-      "publishedAt が YAML Date（裸日付）",
+      "publishedAt is a YAML Date (bare date)",
       (r: Record<string, unknown>) => (r.publishedAt = new Date("2026-07-01")),
-      /publishedAt は空でない文字列/,
+      /publishedAt must be a non-empty string/,
     ],
-    ["serviceUrl が http", (r: Record<string, unknown>) => (r.serviceUrl = "http://example.com"), /serviceUrl は https:\/\//],
-    ["scores がオブジェクトでない", (r: Record<string, unknown>) => (r.scores = 5), /scores はオブジェクト/],
+    ["serviceUrl is http", (r: Record<string, unknown>) => (r.serviceUrl = "http://example.com"), /serviceUrl must be a URL starting with https:\/\//],
+    ["scores is not an object", (r: Record<string, unknown>) => (r.scores = 5), /scores must be an object/],
     [
-      "scores の軸欠落",
+      "scores is missing an axis",
       (r: Record<string, unknown>) => delete (r.scores as Record<string, unknown>).ux,
-      /scores\.ux は 0〜5/,
+      /scores\.ux must be a number from 0 to 5/,
     ],
     [
-      "scores が範囲外（負）",
+      "scores is out of range (negative)",
       (r: Record<string, unknown>) => ((r.scores as Record<string, unknown>).tech = -0.5),
-      /scores\.tech は 0〜5/,
+      /scores\.tech must be a number from 0 to 5/,
     ],
     [
-      "scores が範囲外（5超）",
+      "scores is out of range (above 5)",
       (r: Record<string, unknown>) => ((r.scores as Record<string, unknown>).product = 5.5),
-      /scores\.product は 0〜5/,
+      /scores\.product must be a number from 0 to 5/,
     ],
     [
-      "scores が 0.5 刻みでない",
+      "scores is not in steps of 0.5",
       (r: Record<string, unknown>) => ((r.scores as Record<string, unknown>).business = 4.2),
-      /scores\.business は 0〜5/,
+      /scores\.business must be a number from 0 to 5/,
     ],
-    ["techStack が空", (r: Record<string, unknown>) => (r.techStack = []), /techStack は1件以上の配列/],
+    ["techStack is empty", (r: Record<string, unknown>) => (r.techStack = []), /techStack must be an array with at least one item/],
     [
-      "techStack 要素がオブジェクトでない",
+      "techStack element is not an object",
       (r: Record<string, unknown>) => (r.techStack = ["React"]),
-      /techStack\[0\]: 要素 はオブジェクト/,
+      /techStack\[0\]: element must be an object/,
     ],
     [
-      "confidence が未定義値",
+      "confidence is an undefined value",
       (r: Record<string, unknown>) => ((r.techStack as Record<string, unknown>[])[0].confidence = "certain"),
-      /confidence は confirmed \| likely \| speculative/,
+      /confidence must be one of confirmed \| likely \| speculative/,
     ],
     [
-      "evidenceUrl が http",
+      "evidenceUrl is http",
       (r: Record<string, unknown>) => ((r.techStack as Record<string, unknown>[])[0].evidenceUrl = "http://x.com"),
-      /evidenceUrl は https:\/\//,
+      /evidenceUrl must be a URL starting with https:\/\//,
     ],
     [
-      "confirmed なのに evidenceUrl なし",
+      "confirmed without evidenceUrl",
       (r: Record<string, unknown>) => ((r.techStack as Record<string, unknown>[])[0].confidence = "confirmed"),
-      /confirmed の場合は evidenceUrl/,
+      /evidenceUrl \(primary source\) is required when confidence is confirmed/,
     ],
-    ["sources が空", (r: Record<string, unknown>) => (r.sources = []), /sources は1件以上の配列/],
+    ["sources is empty", (r: Record<string, unknown>) => (r.sources = []), /sources must be an array with at least one item/],
     [
-      "sources 要素がオブジェクトでない",
+      "sources element is not an object",
       (r: Record<string, unknown>) => (r.sources = ["https://example.com"]),
-      /sources\[0\]: 要素 はオブジェクト/,
+      /sources\[0\]: element must be an object/,
     ],
     [
-      "sources.url が https でない",
+      "sources.url is not https",
       (r: Record<string, unknown>) => ((r.sources as Record<string, unknown>[])[0].url = "ftp://x"),
-      /sources\[0\]: url は https:\/\//,
+      /sources\[0\]: url must be a URL starting with https:\/\//,
     ],
     [
-      "sources.accessedAt が形式外",
+      "sources.accessedAt has an invalid format",
       (r: Record<string, unknown>) => ((r.sources as Record<string, unknown>[])[0].accessedAt = "July 1"),
-      /sources\[0\]: accessedAt は "YYYY-MM-DD"/,
+      /sources\[0\]: accessedAt must be a quoted string in "YYYY-MM-DD"/,
     ],
-    ["revisions が空配列", (r: Record<string, unknown>) => (r.revisions = []), /revisions は1件以上の配列/],
+    ["revisions is an empty array", (r: Record<string, unknown>) => (r.revisions = []), /revisions must be an array with at least one item/],
     [
-      "revisions 要素がオブジェクトでない",
+      "revisions element is not an object",
       (r: Record<string, unknown>) => (r.revisions = ["2026-07-01"]),
-      /revisions\[0\]: 要素 はオブジェクト/,
+      /revisions\[0\]: element must be an object/,
     ],
     [
-      "revisions[].date が形式外",
+      "revisions[].date has an invalid format",
       (r: Record<string, unknown>) => (r.revisions = [{ date: "July 1", scores: (r.scores as unknown), note: "n" }]),
-      /revisions\[0\]: date は "YYYY-MM-DD"/,
+      /revisions\[0\]: date must be a quoted string in "YYYY-MM-DD"/,
     ],
     [
-      "revisions[].scores の軸が範囲外",
+      "revisions[].scores axis is out of range",
       (r: Record<string, unknown>) => (
         r.revisions = [
           { date: "2026-07-01", scores: { product: 9, ux: 3.5, tech: 3, business: 4.5 }, note: "n" },
         ]
       ),
-      /revisions\[0\]: scores\.product は 0〜5/,
+      /revisions\[0\]: scores\.product must be a number from 0 to 5/,
     ],
     [
-      "affiliate がオブジェクトでない",
+      "affiliate is not an object",
       (r: Record<string, unknown>) => (r.affiliate = "https://shopify.pxf.io/abc"),
-      /affiliate はオブジェクト/,
+      /affiliate must be an object/,
     ],
     [
-      "affiliate.url が https でない",
+      "affiliate.url is not https",
       (r: Record<string, unknown>) => (r.affiliate = { url: "http://shopify.pxf.io/abc", program: "p" }),
-      /affiliate: url は https:\/\//,
+      /affiliate: url must be a URL starting with https:\/\//,
     ],
     [
-      "affiliate.program が欠落",
+      "affiliate.program is missing",
       (r: Record<string, unknown>) => (r.affiliate = { url: "https://shopify.pxf.io/abc" }),
-      /affiliate: program は空でない文字列/,
+      /affiliate: program must be a non-empty string/,
     ],
     [
-      "revisions[].note が欠落",
+      "revisions[].note is missing",
       (r: Record<string, unknown>) => (r.revisions = [{ date: "2026-07-01", scores: (r.scores as unknown) }]),
-      /revisions\[0\]: note は空でない文字列/,
+      /revisions\[0\]: note must be a non-empty string/,
     ],
-  ])("%s なら失敗", (_name, mutator, pattern) => {
+  ])("fails when %s", (_name, mutator, pattern) => {
     expect(() => parseFrontmatter(mutate(mutator as (r: Record<string, unknown>) => void), "ctx")).toThrow(pattern);
   });
 
-  it("エラーメッセージにコンテキスト（ファイル名）が入る", () => {
+  it("error messages include the context (file name)", () => {
     const raw = mutate((r) => delete r.title);
     expect(() => parseFrontmatter(raw, "my-service/ja.md")).toThrow(/^my-service\/ja\.md: /);
   });

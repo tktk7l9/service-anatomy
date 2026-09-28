@@ -17,26 +17,26 @@ const articles = [
 ];
 
 describe("articles/query", () => {
-  it("findBySlug は一致する記事を返す", () => {
+  it("findBySlug returns the matching article", () => {
     expect(findBySlug(articles, "beta")?.slug).toBe("beta");
     expect(findBySlug(articles, "nope")).toBeUndefined();
   });
 
-  it("filterByCategory はカテゴリで絞る", () => {
+  it("filterByCategory filters by category", () => {
     expect(filterByCategory(articles, "game").map((a) => a.slug)).toEqual(["alpha", "gamma"]);
     expect(filterByCategory(articles, "saas")).toEqual([]);
   });
 
-  it("filterByTag はタグで絞る", () => {
+  it("filterByTag filters by tag", () => {
     expect(filterByTag(articles, "steam").map((a) => a.slug)).toEqual(["alpha", "beta"]);
     expect(filterByTag(articles, "nope")).toEqual([]);
   });
 
-  it("collectTags は重複なし・昇順", () => {
+  it("collectTags is deduplicated and ascending", () => {
     expect(collectTags(articles)).toEqual(["ai", "indie", "multiplayer", "steam"]);
   });
 
-  it("collectCategories は使用中のカテゴリを定義順で返す", () => {
+  it("collectCategories returns used categories in definition order", () => {
     expect(collectCategories(articles, CATEGORY_IDS)).toEqual(["game", "ai-tool"]);
     expect(collectCategories([], CATEGORY_IDS)).toEqual([]);
   });
@@ -51,7 +51,7 @@ describe("articles/relatedArticles", () => {
       evidence: "テスト",
     }));
 
-  it("自身を除外し、タグ共有 > カテゴリ一致 > 技術共有 の重みで並べる", () => {
+  it("excludes itself and ranks by shared tags > same category > shared tech", () => {
     const base = makeArticle("base", {
       category: "game",
       tags: ["steam", "indie"],
@@ -73,7 +73,7 @@ describe("articles/relatedArticles", () => {
     ]);
   });
 
-  it("スコア 0 の記事は含めない", () => {
+  it("excludes articles with score 0", () => {
     const base = makeArticle("base", { category: "game", tags: ["steam"], techStack: techStack("React") });
     const unrelated = makeArticle("unrelated", {
       category: "saas",
@@ -83,7 +83,7 @@ describe("articles/relatedArticles", () => {
     expect(relatedArticles([base, unrelated], base)).toEqual([]);
   });
 
-  it("複合表記の技術名（A / B）でも共有を検出する", () => {
+  it("detects shared tech even with compound names (A / B)", () => {
     const base = makeArticle("base", { category: "game", tags: ["a"], techStack: techStack("Next.js") });
     const composite = makeArticle("composite", {
       category: "saas",
@@ -93,7 +93,7 @@ describe("articles/relatedArticles", () => {
     expect(relatedArticles([base, composite], base).map((a) => a.slug)).toEqual(["composite"]);
   });
 
-  it("limit 件で打ち切り、同点は元の記事順を保つ", () => {
+  it("cuts off at limit and keeps original order on ties", () => {
     const base = makeArticle("base", { category: "game", tags: ["steam"], techStack: techStack("React") });
     const pool = [
       base,

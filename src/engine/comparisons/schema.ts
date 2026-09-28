@@ -28,7 +28,7 @@ export interface ComparisonFrontmatter {
 function parseComparisonSlug(obj: Record<string, unknown>, key: string, context: string): string {
   const value = requireString(obj, key, context);
   if (!KEBAB_CASE.test(value)) {
-    fail(context, `${key} は kebab-case の文字列である必要があります`);
+    fail(context, `${key} must be a kebab-case string`);
   }
   return value;
 }
@@ -38,7 +38,7 @@ export function parseComparisonFrontmatter(data: unknown, context: string): Comp
   const slugA = parseComparisonSlug(obj, "slugA", context);
   const slugB = parseComparisonSlug(obj, "slugB", context);
   if (slugA === slugB) {
-    fail(context, `slugA と slugB は異なる記事を指す必要があります`);
+    fail(context, `slugA and slugB must point to different articles`);
   }
   return {
     title: requireString(obj, "title", context),

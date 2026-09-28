@@ -64,15 +64,15 @@ for (const slug of slugs) {
   const frontmatter = readFileSync(path.join(ROOT, slug, "ja.md"), "utf8");
   const serviceUrl = frontmatter.match(/^serviceUrl: "(.+)"$/m)?.[1];
   if (!serviceUrl) {
-    console.warn(`skip ${slug}: serviceUrl なし`);
+    console.warn(`skip ${slug}: no serviceUrl`);
     continue;
   }
   try {
     const card = await fetchCard(serviceUrl);
     cards[slug] = { url: serviceUrl, ...card };
-    console.log(`ok   ${slug}: image=${card.image ? "あり" : "なし"} title=${card.title?.slice(0, 40)}`);
+    console.log(`ok   ${slug}: image=${card.image ? "yes" : "no"} title=${card.title?.slice(0, 40)}`);
   } catch (error) {
-    console.warn(`fail ${slug}: ${error.message}（テキストのみのカードにフォールバックします）`);
+    console.warn(`fail ${slug}: ${error.message} (falling back to a text-only card)`);
     cards[slug] = { url: serviceUrl, fetchedAt: new Date().toISOString().slice(0, 10) };
   }
 }

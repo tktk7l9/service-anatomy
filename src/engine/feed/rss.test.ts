@@ -2,17 +2,17 @@ import { describe, expect, it } from "vitest";
 import { buildRssFeed, escapeXml, toPubDate } from "./rss";
 
 describe("escapeXml", () => {
-  it("XML 特殊文字5種をエスケープする", () => {
+  it("escapes the five XML special characters", () => {
     expect(escapeXml(`&<>"'`)).toBe("&amp;&lt;&gt;&quot;&apos;");
   });
 
-  it("通常の文字列はそのまま", () => {
+  it("leaves plain strings unchanged", () => {
     expect(escapeXml("日本語 English 123")).toBe("日本語 English 123");
   });
 });
 
 describe("toPubDate", () => {
-  it("RFC 1123 (UTC) にする", () => {
+  it("formats as RFC 1123 (UTC)", () => {
     expect(toPubDate("2026-07-01")).toBe("Wed, 01 Jul 2026 00:00:00 GMT");
   });
 });
@@ -26,7 +26,7 @@ describe("buildRssFeed", () => {
     language: "ja",
   };
 
-  it("整形式の XML を生成する（jsdom DOMParser で検証）", () => {
+  it("generates well-formed XML (verified with jsdom DOMParser)", () => {
     const xml = buildRssFeed({
       ...base,
       items: [
@@ -50,7 +50,7 @@ describe("buildRssFeed", () => {
     expect(item?.querySelector("guid")?.getAttribute("isPermaLink")).toBe("true");
   });
 
-  it("categories が空の item は category 行を出さない", () => {
+  it("items with empty categories emit no category line", () => {
     const xml = buildRssFeed({
       ...base,
       items: [
@@ -66,7 +66,7 @@ describe("buildRssFeed", () => {
     expect(xml).not.toContain("<category>");
   });
 
-  it("items が空でもチャンネルは整形式", () => {
+  it("the channel is well-formed even with no items", () => {
     const xml = buildRssFeed({ ...base, items: [] });
     const doc = new DOMParser().parseFromString(xml, "text/xml");
     expect(doc.querySelector("parsererror")).toBeNull();

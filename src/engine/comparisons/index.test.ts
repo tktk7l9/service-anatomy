@@ -5,17 +5,17 @@ import { ALL_COMPARISONS, comparisonBySlug, resolveComparison } from "./index";
 // ALL_COMPARISONS reads the real content/comparisons.
 
 describe("comparisons/index", () => {
-  it("comparisonBySlug は存在しない slug に undefined", () => {
+  it("comparisonBySlug returns undefined for an unknown slug", () => {
     expect(comparisonBySlug("no-such-comparison")).toBeUndefined();
   });
 
-  it("comparisonBySlug は全比較解剖を引ける", () => {
+  it("comparisonBySlug finds every comparison", () => {
     for (const comparison of ALL_COMPARISONS) {
       expect(comparisonBySlug(comparison.slug)).toBe(comparison);
     }
   });
 
-  it("resolveComparison は slugA/slugB を実記事に解決する", () => {
+  it("resolveComparison resolves slugA/slugB to real articles", () => {
     for (const comparison of ALL_COMPARISONS) {
       const resolved = resolveComparison(comparison);
       expect(resolved).toBeDefined();
@@ -41,7 +41,7 @@ describe("comparisons/index", () => {
     return { slug: "fake", ja: { frontmatter, body: "b" }, en: { frontmatter, body: "b" } };
   }
 
-  it("resolveComparison は slugA/slugB のどちらが未解決でも undefined", () => {
+  it("resolveComparison returns undefined if either slugA or slugB is unresolved", () => {
     expect(resolveComparison(makeFakeComparison("no-such-a", "no-such-b"))).toBeUndefined();
     expect(resolveComparison(makeFakeComparison(ALL_ARTICLES[0].slug, "no-such-b"))).toBeUndefined();
   });
