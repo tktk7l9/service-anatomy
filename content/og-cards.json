@@ -287,6 +287,14 @@
     "siteName": "Railway",
     "fetchedAt": "2026-09-28"
   },
+  "renosy": {
+    "url": "https://www.renosy.com/",
+    "title": "【RENOSY(リノシー) 】AI不動産投資 | 売上実績No.1",
+    "description": "不動産投資の売上実績 No.1。マンション、アパート、戸建て、海外不動産など豊富なラインナップで、お客様一人ひとりにあわせて最適な不動産での資産形成をご提案します。安心・簡単・最適なRENOSY不動産投資の公式ウェブサイトです。不動産の購入・管理・売却・相続まで、すべてをワンストップでサポートします。",
+    "image": "https://assets.renosy.com/asset/images/top/ogimage-DXTTsTJ1.png",
+    "siteName": "RENOSY（リノシー）",
+    "fetchedAt": "2026-09-28"
+  },
   "setlog": {
     "url": "https://apps.apple.com/jp/app/setlog/id6587576438",
     "title": "setlogアプリ - App Store",
