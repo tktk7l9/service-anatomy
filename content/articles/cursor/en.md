@@ -24,15 +24,30 @@ techStack:
     confidence: confirmed
     evidence: "The official blog of inference partner Fireworks AI (2024-06-23) states Cursor served a fine-tuned Llama-3-70B via a speculative decoding API, reaching roughly 1,000 tokens/sec — about a 13x speedup over standard inference. This is the 2024 setup; official sources do not confirm whether it is still the current one"
     evidenceUrl: "https://fireworks.ai/blog/cursor"
+  - layer: "Inference infrastructure (as of 2024)"
+    name: "Fireworks AI"
+    confidence: confirmed
+    evidence: "Fireworks AI's official blog (2024-06-23) states it serves Cursor's Fast Apply model through its speculative decoding API. This is as of June 2024; official sources do not confirm current usage"
+    evidenceUrl: "https://fireworks.ai/blog/cursor"
   - layer: "In-house coding model"
     name: "Composer 2.5"
     confidence: confirmed
     evidence: "The official Models & Pricing docs list Composer 2.5 as an in-house model in the 'Cursor Models' pool (checked 2026-10-02). The original Composer was described on the official blog (2025-10-29) as '4x faster than similarly intelligent models'"
     evidenceUrl: "https://cursor.com/docs/models-and-pricing"
+  - layer: "Base model under Composer"
+    name: "Kimi K2.5 (Moonshot AI)"
+    confidence: confirmed
+    evidence: "The official Composer 2.5 post (2026-05-18) states it is built on the same open-source checkpoint as Composer 2, Moonshot's Kimi K2.5 (re-checked 2026-10-02)"
+    evidenceUrl: "https://cursor.com/blog/composer-2-5"
   - layer: "Group frontier models"
-    name: "Grok 4.7 / 4.6 / 4.5"
+    name: "Grok (4.7 / 4.6 / 4.5)"
     confidence: confirmed
     evidence: "The official docs place Grok 4.7, 4.6 and 4.5 in the same 'Cursor Models' pool as Composer 2.5 and call Grok and Composer 'first-party Cursor models' (checked 2026-10-02). The official blog (2026-08-12) describes Grok 4.6 as released together with SpaceXAI"
+    evidenceUrl: "https://cursor.com/docs/models-and-pricing"
+  - layer: "Third-party models (Other Models pool)"
+    name: "Anthropic / OpenAI / Google"
+    confidence: confirmed
+    evidence: "The official Models & Pricing docs state Cursor supports frontier models from OpenAI, Anthropic, Google, SpaceXAI, and more (checked 2026-10-02). OpenAI is reported to be ending its access on 2026-11-12"
     evidenceUrl: "https://cursor.com/docs/models-and-pricing"
   - layer: "Delivery infrastructure"
     name: "Vercel + Next.js"
@@ -74,6 +89,9 @@ sources:
     accessedAt: "2026-10-02"
   - label: "Cursor official blog: Introducing Cursor 2.0 and Composer (2025-10-29)"
     url: "https://cursor.com/blog/2-0"
+    accessedAt: "2026-10-02"
+  - label: "Cursor official blog: Introducing Composer 2.5 (2026-05-18 — built on Kimi K2.5)"
+    url: "https://cursor.com/blog/composer-2-5"
     accessedAt: "2026-10-02"
   - label: "Cursor official docs: Cloud Agents (formerly Background Agents)"
     url: "https://cursor.com/docs/cloud-agent"

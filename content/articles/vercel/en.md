@@ -1,13 +1,13 @@
 ---
 service: "Vercel"
-title: "Give the Framework Away, Sell the Land It Runs Best On — Dissecting Vercel, Which Hosts This Very Site"
-description: "Vercel distributes Next.js as free open source and sells its optimal hosting. A dissection of the funnel behind a framework that topped 500 million downloads in twelve months, Fluid compute's bid to move past serverless, and the $9.3B pivot to an AI cloud — from official blogs and docs. Full disclosure: this article is served from Vercel."
-lead: "The page you are reading right now is delivered from Vercel's servers — this site is written in Next.js and deployed on Vercel. Give the framework away for free, sell the place where it runs best: we dissect the business model from inside it, one step removed."
+title: "Give the Framework Away, Sell the Land It Runs Best On — Dissecting Vercel, Which Used to Host This Very Site"
+description: "Vercel distributes Next.js as free open source and sells its optimal hosting. A dissection of the funnel behind a framework that topped 500 million downloads in twelve months, Fluid compute's bid to move past serverless, and the $9.3B pivot to an AI cloud — from official blogs and docs. Full disclosure: this site was served from Vercel until September 12, 2026 (it now runs on Cloudflare Workers)."
+lead: "Until September 12, 2026, the pages of this site were delivered from Vercel's servers — this site is written in Next.js and was deployed on Vercel (it is still Next.js, now served from Cloudflare Workers). Give the framework away for free, sell the place where it runs best: we dissect a business model we were inside of as a customer, one step removed."
 category: dev-tool
 tags: [hosting, nextjs, serverless, rust, ai]
 publishedAt: "2026-07-21"
-updatedAt: "2026-07-21"
-lastVerified: "2026-07-21"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://vercel.com/"
 vendor: "Vercel Inc."
 origin: "US"
@@ -32,30 +32,38 @@ techStack:
   - layer: "Underlying cloud"
     name: "AWS"
     confidence: likely
-    evidence: "Verified (2026-07-21) that the internal names of the 20 compute regions in the official regions doc (eu-north-1, ap-northeast-1, etc.) match AWS region identifiers"
+    evidence: "Verified (re-checked 2026-09-28) that the internal names of the 19 compute regions in the official regions doc (eu-north-1, ap-northeast-1, etc.) match AWS region identifiers"
+  - layer: "Implementation language"
+    name: "Rust"
+    confidence: confirmed
+    evidence: "Next.js official docs state Turbopack is an incremental bundler written in Rust. The official Fluid compute announcement (2025-02-04) also mentions a Rust-based runtime"
+    evidenceUrl: "https://nextjs.org/docs/app/api-reference/turbopack"
   - layer: "Website delivery"
     name: "Vercel"
     confidence: confirmed
-    evidence: "Our own HTTP header observation (server: Vercel; 2026-07-21). The company serves its own site on its own product"
+    evidence: "HTTP header observation of vercel.com (server: Vercel; re-checked 2026-09-28). The company serves its own site on its own product"
     evidenceUrl: "https://vercel.com/"
 sources:
   - label: "Vercel official blog: Towards the AI Cloud — Series F ($300M at a $9.3B valuation, 2025-09-30)"
     url: "https://vercel.com/blog/series-f"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Vercel official blog: Introducing Fluid compute (2025-02-04)"
     url: "https://vercel.com/blog/introducing-fluid-compute"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Next.js official docs: Turbopack (Rust-based, default bundler since Next.js 16)"
     url: "https://nextjs.org/docs/app/api-reference/turbopack"
-    accessedAt: "2026-07-21"
-  - label: "Vercel official docs: Global network and regions (126 PoPs, 20 regions)"
+    accessedAt: "2026-09-28"
+  - label: "Vercel official docs: Global network and regions (126 PoPs, 19 regions)"
     url: "https://vercel.com/docs/regions"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
+  - label: "Vercel official blog: Fluid compute takes any shape (2026-09-01, a trillion requests a month)"
+    url: "https://vercel.com/blog/fluid-compute-takes-any-shape"
+    accessedAt: "2026-09-28"
 ---
 
 ## Service overview
 
-Vercel is a hosting platform for web applications. It sells an experience where a git push covers build, deploy, and global delivery — and as the entrance to that experience, it develops and gives away [Next.js](https://nextjs.org/), the de facto React framework, as free open source. This site itself is written in Next.js and served from Vercel — this article is an attempt to dissect the ground under our own feet.
+Vercel is a hosting platform for web applications. It sells an experience where a git push covers build, deploy, and global delivery — and as the entrance to that experience, it develops and gives away [Next.js](https://nextjs.org/), the de facto React framework, as free open source. This site itself is written in Next.js and was served from Vercel until September 12, 2026 (it now runs on Cloudflare Workers) — this article is an attempt to dissect the ground under our own feet.
 
 :::fact
 Per the official Series F announcement (September 30, 2025), Vercel raised $300 million co-led by Accel and GIC at a $9.3 billion valuation, alongside a roughly $300 million tender offer for employees and early investors. Next.js downloads exceeded 500 million in the past twelve months — described as more than from 2016 through 2024 combined. Weekly downloads of the AI SDK grew from 446,000 to 3.2 million in a year, and the post notes that the frontends of Grok, Claude, and Cursor run on Next.js.
@@ -74,14 +82,14 @@ Vercel's UX aims to make deployment disappear as a concept. Its audience is deve
 - **A git push becomes a deploy.** Push a branch and a preview URL sprouts; merge to main and it ships to production. The product absorbs the entire concept of building CI/CD, giving individual developers the same delivery pipeline as large companies.
 - **Preview URLs became the unit of collaboration.** A unique, globally served URL per change collapsed the friction of review, design checks, and sharing — an invention every rival host now imitates.
 - **Zero-config has a cage of optimization inside it.** New Next.js features are designed to run most smoothly on Vercel; elsewhere they may need custom setup or arrive with gaps. The price of ease is a de facto lock-in that works quietly.
-- **The dashboard doubles as an observatory.** Analytics, Speed Insights, and logs share one screen, laying a measure-and-fix path by default rather than deploy-and-forget. This site's own web analytics runs on that machinery.
+- **The dashboard doubles as an observatory.** Analytics, Speed Insights, and logs share one screen, laying a measure-and-fix path by default rather than deploy-and-forget. This site's own web analytics ran on that machinery while it was served from Vercel.
 
 ## Tech stack
 
 ::techstack
 
 :::fact
-Vercel's infrastructure consists of 126 PoPs and 20 compute regions, and the internal names in the official region list match AWS region identifiers. The execution platform is Fluid compute, announced February 2025: in place of single-invocation serverless billing, one instance handles many requests concurrently — a "mini-server" model the company says cuts compute costs by up to 85%. On the build side, Rust-based Turbopack became the default bundler with Next.js 16.
+Vercel's infrastructure consists of 126 PoPs and 19 compute regions (official docs, checked September 28, 2026; the figure when this article first ran in July 2026 was 20), and the internal names in the official region list match AWS region identifiers. The execution platform is Fluid compute, announced February 2025: in place of single-invocation serverless billing, one instance handles many requests concurrently — a "mini-server" model the company says cuts compute costs by up to 85%. Per the official blog (September 1, 2026), Fluid compute now runs over 15 million builds a day, 25 million sandboxes a week, and a trillion requests a month. On the build side, Rust-based Turbopack became the default bundler with Next.js 16.
 :::
 
 :::guess
@@ -100,4 +108,4 @@ The Series F post names the uses of the new capital: scaling v0 (UI generation f
 Next.js, the free OSS, functions as a device that drives the acquisition cost of the paid product toward zero. A developer learning the framework naturally picks Vercel for their first deploy, and prospects flow in worldwide without a sales motion. The same structure permanently carries a tension — steward of the OSS versus seller of its hosting — and whether Next.js runs truly equally outside Vercel will remain a point the community keeps watching. The $9.3 billion valuation is aggressive against estimated revenue, and looks like a price paid in advance for the AI-cloud transition — for whether v0 and the AI SDK can become the second Next.js.
 :::
 
-A framework given away for free was downloaded five hundred million times in twelve months, and its makers' cloud is where it lands. This site is one of those five hundred million, and this article is being served from inside the structure it describes. The completed form of the OSS-as-funnel strategy, and the conflict-of-interest homework that comes with it — Vercel's dissection is a textbook of the modern developer business.
+A framework given away for free was downloaded five hundred million times in twelve months, and its makers' cloud is where it lands. This site is one of those five hundred million, and until September 12, 2026 this article was served from inside the structure it describes. It is still Next.js, now moved to Cloudflare Workers. The completed form of the OSS-as-funnel strategy, and the conflict-of-interest homework that comes with it — Vercel's dissection is a textbook of the modern developer business.

@@ -6,8 +6,8 @@ lead: "「Spotifyモデル」という組織論を知らないアジャイル実
 category: media
 tags: [music-streaming, cloud-migration, engineering-culture, subscription, audio]
 publishedAt: "2026-07-20"
-updatedAt: "2026-07-20"
-lastVerified: "2026-07-20"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://open.spotify.com/"
 vendor: "Spotify Technology S.A."
 origin: "SE"
@@ -31,8 +31,9 @@ techStack:
     evidenceUrl: "https://engineering.atspotify.com/2023/04/spotifys-shift-to-a-fleet-first-mindset-part-1"
   - layer: "エッジ/ロードバランサ"
     name: "Envoy"
-    confidence: likely
-    evidence: "当サイトのHTTPヘッダー実観測（server: envoy / x-envoy-upstream-service-time、2026-07-20）。公式ドキュメントでの明言は見当たらない"
+    confidence: confirmed
+    evidence: "公式エンジニアリングブログのインシデント報告（2025-05-09）に、ネットワーク境界のシステムにEnvoy Proxyを使っていると明記。当サイトのHTTPヘッダー実観測（server: envoy / x-envoy-upstream-service-time、2026-07-20・2026-09-28）とも一致する"
+    evidenceUrl: "https://engineering.atspotify.com/2025/05/incident-report-spotify-outage-on-april-16-2025"
 sources:
   - label: "Spotify公式エンジニアリングブログ: Fleet Management at Spotify Part 1（2023-04）"
     url: "https://engineering.atspotify.com/2023/04/spotifys-shift-to-a-fleet-first-mindset-part-1"
@@ -43,12 +44,18 @@ sources:
   - label: "Spotify公式エンジニアリングブログ: Event Delivery – Life in the Cloud（2019-11・Kafka→Pub/Sub移行）"
     url: "https://engineering.atspotify.com/2019/11/spotifys-event-delivery-life-in-the-cloud"
     accessedAt: "2026-07-20"
-  - label: "SEC Form 6-K（Spotify Technology S.A.・2025年通期決算）"
-    url: "https://www.sec.gov/Archives/edgar/data/1639920/000114036125040271/ef20057592_ex99-1.htm"
-    accessedAt: "2026-07-20"
+  - label: "SEC Form 6-K（Spotify Technology S.A.・2025年第4四半期および通期決算・2026-02-10）"
+    url: "https://www.sec.gov/Archives/edgar/data/1639920/000114036126004482/ef20065075_ex99-1.htm"
+    accessedAt: "2026-09-28"
   - label: "45 Degrees: The death of the 'Spotify Model'"
     url: "https://45degrees.be/the-death-of-the-spotify-model/"
     accessedAt: "2026-07-20"
+  - label: "SEC Form 6-K（Spotify Technology S.A.・2026年第2四半期 中間財務報告）"
+    url: "https://www.sec.gov/Archives/edgar/data/0001639920/000162828026052543/spot-20260630x6xk.htm"
+    accessedAt: "2026-09-28"
+  - label: "Spotify公式エンジニアリングブログ: 2025年4月16日の障害のインシデント報告（2025-05-09・境界でEnvoy Proxyを使用）"
+    url: "https://engineering.atspotify.com/2025/05/incident-report-spotify-outage-on-april-16-2025"
+    accessedAt: "2026-09-28"
 ---
 
 「スクワッド」「トライブ」「チャプター」「ギルド」——アジャイル業界でこの4つの単語を知らない人はいないだろう。「Spotifyモデル」として世界中の企業がコピーしようとした組織論だ。だが当のSpotifyは、この型を10年以上前に手放している。伝説の裏側で今も現役なのは、もっと地味で、もっと規模の大きい仕組みだった。
@@ -58,7 +65,7 @@ sources:
 Spotifyはスウェーデン発の音楽・ポッドキャスト・オーディオブックのストリーミングサービスだ。2006年創業、現在は米国預託証券としてNYSE上場している。
 
 :::fact
-SEC提出書類（2025年通期決算）によれば、2025年通期の月間アクティブユーザー（MAU）は7億5,000万人超、有料会員（Premium）は2億9,000万人に達し、年間売上は171.9億ユーロ（前年比9.7%増）、うちPremium会員収益が153.5億ユーロと全社売上の89.3%を占める。「Spotifyモデル」という組織論は、開発者Henrik Kniberg氏とAnders Ivarsson氏が2012年に発表した論文『Scaling Agile @ Spotify』が起源で、両氏自身が後に「当時のスナップショットに過ぎず、汎用フレームワークとして意図したものではない」と繰り返し説明している。
+SEC提出書類（2025年通期決算）によれば、2025年末の月間アクティブユーザー（MAU）は7億5,100万人、有料会員（Premium）は2億9,000万人に達し、年間売上は171.9億ユーロ（前年比9.7%増）、うちPremium会員収益が153.5億ユーロと全社売上の89.3%を占める。2026年6月末にはMAUが7億7,700万人、有料会員が3億人に増えた（2026年第2四半期の提出書類）。「Spotifyモデル」という組織論は、開発者Henrik Kniberg氏とAnders Ivarsson氏が2012年に発表した論文『Scaling Agile @ Spotify』が起源で、両氏自身が後に「当時のスナップショットに過ぎず、汎用フレームワークとして意図したものではない」と繰り返し説明している。
 :::
 
 :::pull
@@ -81,7 +88,7 @@ SpotifyのUXは「機械学習によるキュレーション」を核に据え�
 ::techstack
 
 :::fact
-公式エンジニアリングブログによれば、Spotifyは2016年から段階的にGoogle Cloud Platformへ移行し、2018年までに自社運用してきた4つのデータセンターすべてを退役させた。イベント配信基盤はもともと旧バージョンのKafkaとHadoopに依存していたが、2016〜2017年にGoogle Cloud Pub/Subへ移行し、2017年2月に旧システムを完全停止した。2023年4月の公式ブログでは、数千に及ぶリポジトリを個別対応ではなく自動的に一斉変更する「Fleet Management」への転換を報告しており、Log4j脆弱性の修正を9時間で本番環境の80%に展開できた事例を紹介している。あるJavaランタイムの一斉アップグレードには8ヶ月・約2,000件の半自動プルリクエストを要したとも記されている。
+公式エンジニアリングブログによれば、Spotifyは2016年から段階的にGoogle Cloud Platformへ移行し、2018年までに自社運用してきた4つのデータセンターすべてを退役させた。イベント配信基盤はもともと旧バージョンのKafkaとHadoopに依存していたが、2016〜2017年にGoogle Cloud Pub/Subへ移行し、2017年2月に旧システムを完全停止した。2023年4月の公式ブログでは、数千に及ぶリポジトリを個別対応ではなく自動的に一斉変更する「Fleet Management」への転換を報告しており、Log4j脆弱性の修正を9時間で本番環境の80%に展開できた事例を紹介している。あるJavaランタイムの一斉アップグレードには8ヶ月・約2,000件の半自動プルリクエストを要したとも記されている。利用者の通信を最初に受けるネットワーク境界にはEnvoy Proxyを使っていると、2025年5月の公式インシデント報告が明記している。
 :::
 
 :::guess
@@ -93,7 +100,7 @@ KafkaからGoogle Cloud Pub/Subへの移行は、当時のKafkaバージョン�
 Spotifyの収益は、Premium会員のサブスクリプションが9割近くを占める構造だ。
 
 :::fact
-SEC提出書類によれば、2025年通期売上171.9億ユーロのうちPremium会員収益は153.5億ユーロ（89.3%）、広告収益を含むAd-Supported事業は残り約1割にとどまる。有料会員は2億9,000万人、MAUは7億5,000万人を超え、2026年第1四半期はさらなる増加が見込まれている。
+SEC提出書類によれば、2025年通期売上171.9億ユーロのうちPremium会員収益は153.5億ユーロ（89.3%）、広告収益を含むAd-Supported事業は残り約1割にとどまる。2025年末の有料会員は2億9,000万人、MAUは7億5,100万人。2026年第2四半期は売上47.77億ユーロのうちPremiumが43.31億ユーロ（90.7%）、Ad-Supportedが4.46億ユーロで、6月末の有料会員は3億人、MAUは7億7,700万人だった。
 :::
 
 :::guess

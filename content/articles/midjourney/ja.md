@@ -6,8 +6,8 @@ lead: "普通のスタートアップは自社アプリを作る。Midjourneyは
 category: ai-tool
 tags: [image-generation, ai, discord, bootstrapped, indie-dev]
 publishedAt: "2026-07-20"
-updatedAt: "2026-07-20"
-lastVerified: "2026-07-20"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://www.midjourney.com/"
 vendor: "Midjourney, Inc."
 origin: "US"
@@ -37,8 +37,13 @@ techStack:
     name: "Cloudflare"
     confidence: likely
     evidence: "当サイトのHTTPヘッダー実観測（server: cloudflare、2026-07-20。bot対策のchallengeページを検出）。公式ドキュメントでの明言は見当たらない"
+  - layer: "画像生成モデル"
+    name: "Midjourney V8.1"
+    confidence: confirmed
+    evidence: "公式アップデート（2026年6月11日）に、V8.1がV7に代わる既定モデルになったと明記。V8のアルファ版は2026年3月17日公開（公式アップデート）"
+    evidenceUrl: "https://updates.midjourney.com/v8-1-is-now-the-default-model/"
 sources:
-  - label: "Forbes: Midjourney創業者David Holz氏インタビュー（2022-09・Discord2万人発言）"
+  - label: "Forbes: Midjourney創業者David Holz氏インタビュー（2022-09・Discord200万人発言）"
     url: "https://www.forbes.com/sites/robsalkowitz/2022/09/16/midjourney-founder-david-holz-on-the-impact-of-ai-on-art-imagination-and-the-creative-economy/"
     accessedAt: "2026-07-20"
   - label: "Google Cloud公式プレスリリース: MidjourneyがGoogle Cloudを採用（2023-03-14・TPU/GPU明記）"
@@ -47,6 +52,15 @@ sources:
   - label: "The Information: 'He Doesn't Need VC in His Life' — MidjourneyがVCを拒み続けてきた経緯"
     url: "https://www.theinformation.com/articles/he-doesnt-need-vc-in-his-life-how-midjourneys-founder-built-an-ai-winner-while-rejecting-venture-capital"
     accessedAt: "2026-07-20"
+  - label: "Midjourney公式アップデート: V8.1 is now the default model（2026-06-11）"
+    url: "https://updates.midjourney.com/v8-1-is-now-the-default-model/"
+    accessedAt: "2026-09-28"
+  - label: "Midjourney公式アップデート: V8 Alpha（2026-03-17）"
+    url: "https://updates.midjourney.com/v8-alpha/"
+    accessedAt: "2026-09-28"
+  - label: "Wikipedia: Midjourney（モデルの版の履歴・Disney/Universal・Warner Bros. Discoveryによる提訴の集約）"
+    url: "https://en.wikipedia.org/wiki/Midjourney"
+    accessedAt: "2026-09-28"
 ---
 
 普通のスタートアップは、まずアプリを作る。Midjourneyはそれを省略した——[Discord](/ja/articles/discord)のサーバーを1つ借り、`/imagine`というコマンド1つを製品にして、外部資金を一度も受けずに黒字化した。数兆メッセージを支えるインフラを自社で構築したDiscordの記事と並べると、Midjourneyは「他社のプラットフォームに全面的に乗る」という対極の戦略を取った企業として際立つ。
@@ -79,7 +93,7 @@ MidjourneyのUXは、Discordという「借り物のUI」の上に成立して�
 ::techstack
 
 :::fact
-Google Cloud公式プレスリリース（2023年3月）によれば、Midjourneyは第4世代モデルの学習にGoogle CloudのTPU（Tensor Processing Unit）を採用し、生成画像のレンダリング（推論）はNVIDIA GPU搭載のGPU VMで行う二段構えのインフラだ。配信は創業以来Discordボットが中心で、Holz氏自身がその規模の大きさを公言している。自社Webインターフェースは2023年末のアルファ版を経て2024年8月に一般開放されたと複数メディアが報じている。
+Google Cloud公式プレスリリース（2023年3月）によれば、Midjourneyは第4世代モデルの学習にGoogle CloudのTPU（Tensor Processing Unit）を採用し、生成画像のレンダリング（推論）はNVIDIA GPU搭載のGPU VMで行う二段構えのインフラだ。配信は創業以来Discordボットが中心で、Holz氏自身がその規模の大きさを公言している。自社Webインターフェースは2023年末のアルファ版を経て2024年8月に一般開放されたと複数メディアが報じている。モデルは世代を重ねており、公式アップデートによれば2026年3月17日にV8のアルファ版（生成が約5倍速く、2K解像度で描くHDモードを持つ）を公開し、同年6月11日にV8.1をV7に代わる既定モデルにした。
 :::
 
 :::guess
@@ -91,7 +105,7 @@ TPUでの学習とGPUでの推論という組み合わせは、学習と推論�
 Midjourneyの収益構造は、AI業界で最も異質な部類に入る——外部資金ゼロで黒字を出し続けている。
 
 :::fact
-The Information等の報道によれば、Midjourneyは創業以来ベンチャーキャピタルからの資金調達を一切行っておらず、創業から1年ほどで黒字化したと伝えられている。有料プランは月額固定のサブスクリプションで、生成に使えるGPU時間（Fast/Relax等のモード）で階層化されている。年商100万ドルを超える企業には法人ライセンスが必須と公式に案内されている。
+The Information等の報道によれば、Midjourneyは創業以来ベンチャーキャピタルからの資金調達を一切行っておらず、創業から1年ほどで黒字化したと伝えられている。有料プランは月額固定のサブスクリプションで、生成に使えるGPU時間（Fast/Relax等のモード）で階層化されている。年商100万ドルを超える企業には法人ライセンスが必須と公式に案内されている。一方でWikipediaの集約情報によれば、2025年6月にDisneyとUniversalが、同年9月にWarner Bros. Discoveryが、著作権侵害を主張してMidjourneyを提訴した。報道によれば両訴訟は併合され、審理が続いている。
 :::
 
 :::guess

@@ -1,25 +1,28 @@
 ---
 title: "検索を壊しにいく側が、壊す相手のモデルも売っている — PerplexityとGeminiの共犯関係"
-description: "Google検索に挑むAI答えエンジンPerplexityと、Google自身のAI Gemini。対立関係に見えて、実はPerplexityのAgent APIはGoogleのGeminiを含む複数モデルを「マークアップなしで」ルーティング先に加えている。配信網をゼロから作ろうとするPerplexity(Cometブラウザ)と、Search・Android・Workspaceという配信網をすでに持つGemini——2社の非対称な戦いを解剖する。"
+description: "Google検索に挑むAI答えエンジンPerplexityと、Google自身のAI Gemini。対立関係に見えて、実はPerplexityのAgent APIはGoogleのGeminiを含む複数モデルを、各モデルの公表料金のままルーティング先に加えている。配信網をゼロから作ろうとするPerplexity(Cometブラウザ)と、Search・Android・Workspaceという配信網をすでに持つGemini——2社の非対称な戦いを解剖する。"
 lead: "PerplexityはGoogle検索の存在意義そのものに挑む「答えエンジン」だ。それなのに、Perplexity自身のAPIドキュメントには、ルーティング先の1つとしてGoogleの名前が並ぶ。壊しにいく相手のモデルを、自社製品の一部として売っている。配信網をChromiumベースの自社ブラウザCometでゼロから作ろうとするPerplexityと、Search・Android・Workspaceという世界最大級の配信網をすでに持つGemini——机上の対立関係と、実際の依存関係が食い違う2社を解剖する。"
 slugA: "perplexity"
 slugB: "gemini"
 publishedAt: "2026-07-23"
-updatedAt: "2026-07-23"
-lastVerified: "2026-07-23"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 sources:
-  - label: "Perplexity公式APIドキュメント: Pricing（Agent APIがGoogle等をマークアップなしでルーティング）"
+  - label: "Perplexity公式APIドキュメント: Pricing（Agent APIがGoogle等のモデルを各モデルの公表料金で提供）"
     url: "https://docs.perplexity.ai/getting-started/pricing"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
+  - label: "Perplexity公式APIドキュメント: Agent API Models（Geminiモデル8種の掲載）"
+    url: "https://docs.perplexity.ai/docs/agent-api/models"
+    accessedAt: "2026-09-28"
   - label: "Google DeepMind公式: Geminiモデルページ"
     url: "https://deepmind.google/models/gemini/"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
   - label: "Google One公式: AI Plans（Google AI Plus/Pro/Ultra）"
     url: "https://one.google.com/about/google-ai-plans/"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
   - label: "Wikipedia: Perplexity AI（Cometブラウザ・資金調達推移の集約）"
     url: "https://en.wikipedia.org/wiki/Perplexity_AI"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
 ---
 
 [Perplexity](/ja/articles/perplexity)は、リンク一覧ではなく引用付きの回答を返す「答えエンジン」として、Google検索という巨人の存在意義そのものに挑んでいる。それなのに、Perplexity自身のAPIドキュメントを読むと、ルーティング先の1つとして挑んでいる相手——Google——の名前が並ぶ。
@@ -27,7 +30,7 @@ sources:
 ## 壊しにいく相手のモデルを、自社製品として売る
 
 :::fact
-[Perplexity](/ja/articles/perplexity)の記事によれば、公式APIドキュメントにはAgent APIがOpenAI・Anthropic・Google・xAI等のサードパーティモデルを「マークアップなし」（プロバイダーの提供価格のまま）でルーティングできると明記されている。[Gemini](/ja/articles/gemini)の記事によれば、GoogleはGemini 3.6 Flash・Gemini 3.1 Pro等の自社モデル群を、Google DeepMindの公式ページで公開している。
+[Perplexity](/ja/articles/perplexity)の記事によれば、公式APIドキュメントにはAgent APIがOpenAI・Anthropic・Google・xAI等のサードパーティモデルを、各モデルの公表料金で提供すると明記されている。モデル一覧には、Gemini 3.1 ProやGemini 3.8 FlashなどGoogleのモデル8種が並ぶ（2026年9月28日確認）。[Gemini](/ja/articles/gemini)の記事によれば、GoogleはGemini 3.8 Flash・Gemini 3.1 Pro等の自社モデル群を、Google DeepMindの公式ページで公開している。
 :::
 
 Perplexityのユーザーは、Google検索を経由せずに情報へたどり着くためにPerplexityを使う。それでいて、その回答生成の裏側では、Googleが作ったモデル自体を選んで使うことができる。競合関係と依存関係が、同じ製品の中で同居している。
@@ -52,4 +55,6 @@ Perplexityのユーザーは、Google検索を経由せずに情報へたどり�
 Perplexityがブラウザという入り口をゼロから作らなければならないのは、検索エンジンでもOSでもデバイスでも配信網を持たない独立系企業だからだと考えられる。Cometは、Googleがすでに持っている「ユーザーが最初に開く画面」という資産を、後発が獲得するための唯一の現実的な手段とみられる。対してGeminiは、[Geminiの記事](/ja/articles/gemini)で見た「チップも配信網も自社所有」という構造の一部として、新しいアプリを作る必要すらなく既存製品への機能追加だけで数十億人に届く。Perplexityが評価額212億ドル(2026年初頭)という独立企業としての資金調達を積み重ねてこの差を埋めようとしているのに対し、GeminiはAlphabetという親会社の既存の配信網と資本を前提にできる——同じAI競争の中で、必要な投資の性質がまったく異なっている。
 :::
 
-Perplexityは、壊しにいく相手のモデルを自社製品の一部として使いながら、その相手が既に持っている配信網だけは自力で作らなければならない。機械比較の共有技術がゼロなのは偶然ではなく、両社が同じ市場で、モデル・配信網という異なるレイヤーに異なる立ち位置で臨んでいるからだ。PerplexityとGeminiの解剖から見えるのは、AI企業同士の競合が、技術的な協力と体験層での対立を同時に抱えながら進む、単純な敵対関係には収まらない構図である。
+Perplexityは、壊しにいく相手のモデルを自社製品の一部として使いながら、その相手が既に持っている配信網だけは自力で作らなければならない。機械比較で重なるのは、Perplexityがルーティング先として扱うGeminiモデルの1件だけで、チップ・配信網・課金基盤といった残りの層は重ならない。両社が同じ市場で、モデル・配信網という異なるレイヤーに異なる立ち位置で臨んでいるからだ。PerplexityとGeminiの解剖から見えるのは、AI企業同士の競合が、技術的な協力と体験層での対立を同時に抱えながら進む、単純な敵対関係には収まらない構図である。
+
+訂正（2026年9月28日）。初版では「機械比較の共有技術がゼロ」と書いていたが、誤りだった。Perplexityの記事のtechStackに、本文で述べていたルーティング先のGeminiモデルと、クラウド基盤（AWS、Microsoft Azure）が入っていなかった。項目を足して照合し直すと、共有技術はGeminiの1件になる。

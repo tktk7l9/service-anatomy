@@ -6,8 +6,8 @@ lead: "かつて「Google翻訳より自然」という口コミだけで世界�
 category: ai-tool
 tags: [translation, ai, llm, nvidia, b2b]
 publishedAt: "2026-07-17"
-updatedAt: "2026-07-17"
-lastVerified: "2026-07-17"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://www.deepl.com/ja/translator"
 vendor: "DeepL SE"
 origin: "DE"
@@ -27,8 +27,13 @@ techStack:
   - layer: "学習インフラ"
     name: "NVIDIA DGX SuperPOD (DGX GB200)"
     confidence: confirmed
-    evidence: "公式プレスリリース（2024-10）にDGX GB200搭載SuperPODを欧州で商用初導入・自社3基目・2025年中頃スウェーデンで稼働予定と明記"
-    evidenceUrl: "https://prtimes.jp/main/html/rd/p/000000027.000112534.html"
+    evidence: "公式プレスリリース（2025-06-11）に、DGX GB200搭載SuperPODがスウェーデンのEcoDataCenterで稼働を始めた・自社3基目と明記。導入の発表は2024-10"
+    evidenceUrl: "https://www.deepl.com/en/press-release/deepl-first-to-deploy-nvidia-dgx-superpod-with-dgx-gb200-systems-in-europe-advancing-language-ai-with-powerful-generative-features-and-enhanced-user-experience"
+  - layer: "クラウド（サブプロセッサ）"
+    name: "AWS"
+    confidence: confirmed
+    evidence: "公式ブログ（2026-04-23）に、世界規模の拡張と性能のためにAWSをサブプロセッサに加え、データ処理を欧州内に限定しなくなると明記。AWSへ移す処理の種類とリージョンは書かれていない"
+    evidenceUrl: "https://www.deepl.com/en/blog/expanding-deepl-data-infrastructure"
   - layer: "API"
     name: "DeepL API (REST)"
     confidence: confirmed
@@ -37,21 +42,30 @@ techStack:
   - layer: "CDN"
     name: "Cloudflare"
     confidence: likely
-    evidence: "当サイトのHTTPヘッダー実観測（server: cloudflare / cf-cache-status: HIT、2026-07-17）。公式ドキュメントでの明言は見当たらない"
+    evidence: "当サイトのHTTPヘッダー実観測（server: cloudflare / cf-cache-status: HIT、2026-07-17。2026-09-28の再観測でもserver: cloudflare）。公式ドキュメントでの明言は見当たらない"
   - layer: "エッジ/ロードバランサ"
     name: "自社L7ロードバランサ層"
     confidence: speculative
-    evidence: "server-timingヘッダーのl7_lb_*計測値とx-deepl-ingress-typeという独自ヘッダーの実観測（2026-07-17）からの推測"
+    evidence: "server-timingヘッダーのl7_lb_*計測値とx-deepl-ingress-typeという独自ヘッダーの実観測（2026-07-17、2026-09-28に再観測）からの推測"
 sources:
   - label: "DeepL公式ブログ: 次世代言語モデル発表（2024-07）"
     url: "https://www.deepl.com/en/blog/next-gen-language-model"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
   - label: "DeepL公式プレスリリース: $300M調達・評価額$2B（2024-05）"
     url: "https://www.deepl.com/en/press-release/deepl-announces-300-million-investment-at-2-billion-valuation-fueled-by-global-demand-for-ai-language-solutions"
     accessedAt: "2026-07-17"
   - label: "DeepL公式プレスリリース: NVIDIA DGX SuperPOD（DGX GB200）欧州初導入（2024-10）"
     url: "https://prtimes.jp/main/html/rd/p/000000027.000112534.html"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
+  - label: "DeepL公式プレスリリース: DGX GB200搭載SuperPODがスウェーデンで稼働（2025-06-11）"
+    url: "https://www.deepl.com/en/press-release/deepl-first-to-deploy-nvidia-dgx-superpod-with-dgx-gb200-systems-in-europe-advancing-language-ai-with-powerful-generative-features-and-enhanced-user-experience"
+    accessedAt: "2026-09-28"
+  - label: "DeepL公式ブログ: データ基盤の拡張・AWSをサブプロセッサに追加（2026-04-23）"
+    url: "https://www.deepl.com/en/blog/expanding-deepl-data-infrastructure"
+    accessedAt: "2026-09-28"
+  - label: "DeepL公式プレスリリース: Voice API提供開始（2026-02-02・法人顧客20万超/228市場）"
+    url: "https://www.deepl.com/en/press-release/deepl_launches_voice_api_for_real_time_speech_transcription_and_translation"
+    accessedAt: "2026-09-28"
   - label: "AWS Startupブログ: DeepL CTO Talks（2023-07・有料ユーザー50万超/登録2万社超）"
     url: "https://aws.amazon.com/jp/blogs/startup/event-report-ctotalks-deepl-2023/"
     accessedAt: "2026-07-17"
@@ -67,7 +81,7 @@ sources:
 DeepLはニューラル機械翻訳サービスだ。Webとアプリの翻訳ツールに加え、法人向けのPro、開発者向けAPI、文章推敲のDeepL Writeを提供する。
 
 :::fact
-会社の前身は2009年にケルンで創業した対訳検索エンジンLingueeで、その対訳データ資産を土台に2017年8月にDeepL翻訳が公開された。2023年のAWS主催イベント時点で有料ユーザー50万超・登録2万社超。2024年5月には3億ドルを調達し評価額20億ドルに到達、2024年7月の公式発表では顧客組織は10万を超えFortune 500の半数を含むとされる。
+会社の前身は2009年にケルンで創業した対訳検索エンジンLingueeで、その対訳データ資産を土台に2017年8月にDeepL翻訳が公開された。2023年のAWS主催イベント時点で有料ユーザー50万超・登録2万社超。2024年5月には3億ドルを調達し評価額20億ドルに到達、2024年7月の公式発表では顧客組織は10万を超えFortune 500の半数を含むとされる。2026年2月の公式プレスリリースでは、法人顧客は20万を超え、228の市場で使われているとしている。
 :::
 
 :::pull
@@ -90,11 +104,11 @@ DeepLのUXは「翻訳の道具」として徹底的に実務側に振れてい�
 ::techstack
 
 :::fact
-公式ブログ（2024年7月）によれば、DeepLは翻訳・編集に特化した次世代LLMを完全自社開発し、自社インフラ上で学習させている。7年以上蓄積した独自データを使い、ブラインドテストでは言語専門家がGoogle翻訳の1.3倍、ChatGPT-4の1.7倍の頻度でDeepLの訳を選好したとする。学習基盤としては、DGX GB200を搭載したNVIDIA DGX SuperPODを欧州で商用初導入すると2024年10月に発表しており、これは同社3基目のSuperPODで、スウェーデンのデータセンターで2025年中頃の稼働を予定するとしていた。
+公式ブログ（2024年7月）によれば、DeepLは翻訳・編集に特化した次世代LLMを完全自社開発し、自社インフラ上で学習させている。7年以上蓄積した独自データを使い、ブラインドテストでは言語専門家がGoogle翻訳の1.3倍、ChatGPT-4の1.7倍の頻度でDeepLの訳を選好したとする。学習基盤としては、DGX GB200を搭載したNVIDIA DGX SuperPODを欧州で商用初導入すると2024年10月に発表しており、これは同社3基目のSuperPODで、スウェーデンのデータセンターで2025年中頃の稼働を予定するとしていた。2025年6月の公式発表では、このSuperPODがスウェーデンのEcoDataCenterで稼働を始め、インターネット全体の翻訳にかかる時間が194日から18日あまりに縮むと説明している。一方で2026年4月の公式ブログでは、世界規模の拡張と低遅延のためにAWSをサブプロセッサに加え、データ処理を欧州内に限定しなくなると告知した。AWSが顧客データを利用できる形で管理・閲覧することはなく、データの所在に要件がある顧客には欧州内にとどめる構成を用意するとしている。
 :::
 
 :::guess
-配信面では、当サイトの観測でCloudflare（server: cloudflare、キャッシュHIT）と、l7_lbというserver-timing計測値・x-deepl-ingress-typeという独自ヘッダーが確認できた。CDNの背後に自社運用のL7ロードバランサ層を持つ構成とみられる。GPUを自社導入し推論も自社インフラで抱える構造は、クラウドGPU全借りの生成AI企業と比べて固定費が重い代わりに、翻訳という推論量が読みやすいワークロードでは単位コストを大きく下げられる——「専業ゆえに需要予測が立つ」ことをインフラ戦略に変換していると推測される。
+配信面では、当サイトの観測でCloudflare（server: cloudflare、キャッシュHIT）と、l7_lbというserver-timing計測値・x-deepl-ingress-typeという独自ヘッダーが確認できた。CDNの背後に自社運用のL7ロードバランサ層を持つ構成とみられる。GPUを自社導入し学習の基盤を自社で持つ構造は、クラウドGPU全借りの生成AI企業と比べて固定費が重い代わりに、翻訳という推論量が読みやすいワークロードでは単位コストを大きく下げられる——「専業ゆえに需要予測が立つ」ことをインフラ戦略に変換していると推測される。2026年4月にAWSを加えたのは、音声翻訳のように低遅延が要る用途で、需要の山を自社設備だけでは受けない選択をしたものとみられる。
 :::
 
 ## ビジネスモデル

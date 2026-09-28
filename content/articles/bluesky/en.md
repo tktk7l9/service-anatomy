@@ -6,8 +6,8 @@ lead: "Every complaint about social media shares one root: your account and your
 category: media
 tags: [social-media, decentralized, at-protocol, open-source, community]
 publishedAt: "2026-07-17"
-updatedAt: "2026-07-17"
-lastVerified: "2026-07-17"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://bsky.app/"
 vendor: "Bluesky Social, PBC"
 origin: "US"
@@ -32,7 +32,7 @@ techStack:
   - layer: "Reference implementation"
     name: "TypeScript (公式OSSモノレポ)"
     confidence: confirmed
-    evidence: "Primary language of the official bluesky-social/atproto repository (checked via GitHub API, 2026-07-17)"
+    evidence: "Primary language of the official bluesky-social/atproto repository (checked via GitHub API, 2026-09-28)"
     evidenceUrl: "https://github.com/bluesky-social/atproto"
   - layer: "Self-hosting"
     name: "PDS公式コンテナ配布"
@@ -47,10 +47,10 @@ techStack:
 sources:
   - label: "Bluesky official docs: federation architecture (PDS / Relay / AppView)"
     url: "https://docs.bsky.app/docs/advanced-guides/federation-architecture"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
   - label: "Bluesky official docs: The AT Protocol"
     url: "https://docs.bsky.app/docs/advanced-guides/atproto"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
   - label: "Bluesky official blog: disclosing the $100M Series B (2026-03 — 43M users, ~20B public records)"
     url: "https://bsky.social/about/blog/03-19-2026-series-b"
     accessedAt: "2026-07-17"
@@ -60,6 +60,12 @@ sources:
   - label: "TechCrunch: Bluesky announces $100M Series B after CEO transition (2026-03)"
     url: "https://techcrunch.com/2026/03/19/bluesky-announces-100m-series-b-after-ceo-transition/"
     accessedAt: "2026-07-17"
+  - label: "Bluesky official blog: Bluesky names Toni Schneider CEO (2026-07-10)"
+    url: "https://bsky.social/about/blog/07-10-2026-toni-schneider-ceo"
+    accessedAt: "2026-09-28"
+  - label: "Wikipedia (aggregated): Bluesky (registered users as of 2026-08-16)"
+    url: "https://en.wikipedia.org/wiki/Bluesky"
+    accessedAt: "2026-09-28"
 ---
 
 As Twitter turned into X, the world was reminded of an unspoken default: a social network belongs to its operator, and users are tenants. Bluesky is the technical rebuttal. It implements the separation of accounts, data, and follow graphs from the operator — not as an ideal but as protocol specification — and is now validating it under the real traffic of 43 million users.
@@ -69,7 +75,7 @@ As Twitter turned into X, the world was reminded of an unspoken default: a socia
 At first glance, Bluesky is a microblogging network that looks a lot like vintage Twitter. But the real product is the AT Protocol (atproto) beneath it; the Bluesky app is officially just one application on the protocol.
 
 :::fact
-Per the official blog (March 2026), Bluesky raised a $100 million Series B led by Bain Capital Crypto in April 2025 (over $120 million raised in total). Users grew from 13 million at the October 2024 Series A to more than 43 million; the network holds roughly 20 billion public records (posts, likes, and so on); over 1,000 atproto apps are used weekly and SDKs are downloaded 400,000+ times monthly. The operator is a public benefit corporation, and founding CEO Jay Graber moved to the role of Chief Innovation Officer.
+Per the official blog (March 2026), Bluesky raised a $100 million Series B led by Bain Capital Crypto in April 2025 (over $120 million raised in total). Users grew from 13 million at the October 2024 Series A to more than 43 million; the network holds roughly 20 billion public records (posts, likes, and so on); over 1,000 atproto apps are used weekly and SDKs are downloaded 400,000+ times monthly. The operator is a public benefit corporation, and founding CEO Jay Graber moved to the role of Chief Innovation Officer. Toni Schneider, interim CEO since March 2026, was named CEO in an official blog post on July 10, 2026. The official user figure remains "more than 43 million," while Wikipedia's aggregated figure puts registered users at over 46 million as of August 16, 2026.
 :::
 
 :::pull

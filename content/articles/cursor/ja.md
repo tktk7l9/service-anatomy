@@ -24,15 +24,30 @@ techStack:
     confidence: confirmed
     evidence: "推論インフラ提携先Fireworks AIの公式ブログ（2024-06-23）に、Cursorがファインチューニングした Llama-3-70B を投機的デコードAPIで配信し、約1,000トークン/秒（通常推論比約13倍）を達成と明記。2024年時点の構成で、現在も同じ構成かは公式情報では確認できない"
     evidenceUrl: "https://fireworks.ai/blog/cursor"
+  - layer: "推論インフラ（2024年時点）"
+    name: "Fireworks AI"
+    confidence: confirmed
+    evidence: "Fireworks AI公式ブログ（2024-06-23）に、CursorのFast Applyモデルを同社の投機的デコードAPIで配信していると明記。2024年6月時点の情報で、現在の利用状況は公式情報では確認できない"
+    evidenceUrl: "https://fireworks.ai/blog/cursor"
   - layer: "自社コーディングモデル"
     name: "Composer 2.5"
     confidence: confirmed
     evidence: "公式ドキュメントのModels & Pricingが、Composer 2.5を「Cursor Models」枠の自社モデルとして掲載（2026-10-02確認）。初代Composerは公式ブログ（2025-10-29）で「同等の知能を持つモデルの4倍速い」と説明されている"
     evidenceUrl: "https://cursor.com/docs/models-and-pricing"
+  - layer: "Composerの土台モデル"
+    name: "Kimi K2.5 (Moonshot AI)"
+    confidence: confirmed
+    evidence: "Composer 2.5の公式ブログ（2026-05-18）に、Composer 2と同じオープンソースのチェックポイントであるMoonshotのKimi K2.5の上に構築したと明記（2026-10-02再確認）"
+    evidenceUrl: "https://cursor.com/blog/composer-2-5"
   - layer: "グループのフロンティアモデル"
-    name: "Grok 4.7 / 4.6 / 4.5"
+    name: "Grok (4.7 / 4.6 / 4.5)"
     confidence: confirmed
     evidence: "公式ドキュメントが、Grok 4.7・4.6・4.5をComposer 2.5と同じ「Cursor Models」枠に置き、GrokとComposerを「first-party Cursor models」と呼んでいる（2026-10-02確認）。Grok 4.6は公式ブログ（2026-08-12）でSpaceXAIと共同でのリリースと説明されている"
+    evidenceUrl: "https://cursor.com/docs/models-and-pricing"
+  - layer: "他社モデル（Other Models枠）"
+    name: "Anthropic / OpenAI / Google"
+    confidence: confirmed
+    evidence: "公式ドキュメントのModels & Pricingに、OpenAI・Anthropic・Google・SpaceXAIなどのフロンティアモデルに対応すると明記（2026-10-02確認）。OpenAIは2026年11月12日に提供を終える予定と報じられている"
     evidenceUrl: "https://cursor.com/docs/models-and-pricing"
   - layer: "配信基盤"
     name: "Vercel + Next.js"
@@ -74,6 +89,9 @@ sources:
     accessedAt: "2026-10-02"
   - label: "Cursor公式ブログ: Introducing Cursor 2.0 and Composer（2025-10-29）"
     url: "https://cursor.com/blog/2-0"
+    accessedAt: "2026-10-02"
+  - label: "Cursor公式ブログ: Introducing Composer 2.5（2026-05-18・Kimi K2.5が土台）"
+    url: "https://cursor.com/blog/composer-2-5"
     accessedAt: "2026-10-02"
   - label: "Cursor公式ドキュメント: Cloud Agents（旧Background Agents）"
     url: "https://cursor.com/docs/cloud-agent"

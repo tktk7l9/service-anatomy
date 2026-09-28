@@ -5,15 +5,18 @@ lead: "What do you trust when you buy something from a stranger online? Temu and
 slugA: "temu"
 slugB: "whatnot"
 publishedAt: "2026-07-23"
-updatedAt: "2026-07-23"
-lastVerified: "2026-07-23"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 sources:
   - label: "Wikipedia: Temu (direct-consignment model, user growth trajectory aggregated)"
     url: "https://en.wikipedia.org/wiki/Temu"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
   - label: "Wikipedia: Whatnot (livestream auction model, gross merchandise value trajectory aggregated)"
     url: "https://en.wikipedia.org/wiki/Whatnot"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
+  - label: "European Commission, Taxation and Customs Union: guidance and legal text on the temporary flat duty on low-value imports (€3 per item from July 1, 2026)"
+    url: "https://taxation-customs.ec.europa.eu/news/guidance-and-legal-text-temporary-flat-fee-low-value-imports-which-will-apply-until-1-july-2028-2026-06-08_en"
+    accessedAt: "2026-09-28"
 ---
 
 [Temu](/en/articles/temu) and [Whatnot](/en/articles/whatnot) both tackle the oldest problem in online commerce: buying something from a stranger. And yet their answers are close to opposites.
@@ -37,7 +40,7 @@ This difference likely traces back to what kind of goods each platform sells. Th
 Both companies are trying to extend their original winning pattern into new territory. But what's driving that extension couldn't be more different.
 
 :::fact
-Per the [Temu](/en/articles/temu) dissection, in May 2025, following a change in US tariff policy (a revision to the low-value-import duty exemption), Temu was forced to drop direct shipping from China in favor of a model where locally based sellers hold inventory and ship within the US. Per the [Whatnot](/en/articles/whatnot) dissection, Whatnot expanded on its own initiative beyond collectibles — into shelf-stable food in summer 2025 and fresh food in April 2026.
+Per the [Temu](/en/articles/temu) dissection, in May 2025, following a change in US tariff policy (a revision to the low-value-import duty exemption), Temu was forced to drop direct shipping from China in favor of a model where locally based sellers hold inventory and ship within the US. Per the European Commission, the EU has also ended its duty exemption for low-value imports of €150 or less, applying a flat duty of €3 per item since July 1, 2026. Per the [Whatnot](/en/articles/whatnot) dissection, Whatnot expanded on its own initiative beyond collectibles — into shelf-stable food in summer 2025 and fresh food in April 2026.
 :::
 
 :::guess

@@ -2,12 +2,12 @@
 service: "Gemini"
 title: "チップも作る、配信網も持っている — Geminiが唯一「何も借りずに」戦える理由"
 description: "Google DeepMindが開発する対話AI Gemini。前身Bardからのブランド統合、自社設計チップTPUでのモデル学習、Search・Android・Workspaceという既存の配信網——競合が計算資源を複数社から調達し続けるなか、チップから配信まで自社で完結させる垂直統合の構造を公式情報から解剖する。"
-lead: "ChatGPTもClaudeも、モデルを動かす計算資源を他社から買っている。Geminiだけが、自社設計のチップ（TPU）でモデルを学習し、Search・Android・Chrome・Workspaceという世界最大級の配信網に無償で乗せて何十億人に届けている。2023年に「Bard」から改称してから3年弱で、唯一「何も借りずに」AI競争を戦えるプレイヤーになった会社の設計を解剖する。"
+lead: "ChatGPTもClaudeも、モデルを動かす計算資源を他社から買っている。Geminiだけが、自社設計のチップ（TPU）でモデルを学習し、Search・Android・Chrome・Workspaceという世界最大級の配信網に無償で乗せて何十億人に届けている。2024年に「Bard」から改称してから2年半あまりで、唯一「何も借りずに」AI競争を戦えるプレイヤーになった会社の設計を解剖する。"
 category: ai-tool
 tags: [ai-assistant, llm, multimodal, tpu, google]
 publishedAt: "2026-07-23"
-updatedAt: "2026-07-23"
-lastVerified: "2026-07-23"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://gemini.google.com/"
 vendor: "Google LLC"
 origin: "US"
@@ -15,9 +15,9 @@ heroTheme: "gemini"
 scores: { product: 4.5, ux: 3.5, tech: 4.5, business: 4.0 }
 techStack:
   - layer: "モデル基盤"
-    name: "Geminiモデルファミリー（3.6 Flash / 3.1 Pro / 3.1 Deep Think 等）"
+    name: "Geminiモデルファミリー（3.8 Flash / 3.1 Pro / 3.1 Deep Think 等）"
     confidence: confirmed
-    evidence: "開発元Google DeepMindの公式モデルページに、用途別に分かれた複数バージョン（3.6 Flash・3.5 Flash-Lite・3.1 Pro・3.1 Deep Think・Omni等）が掲載されていることを実確認"
+    evidence: "開発元Google DeepMindの公式モデルページに、用途別に分かれた複数バージョン（3.8 Flash・3.5 Flash-Lite・3.1 Pro・3.1 Deep Think・Omni等）が掲載されていることを実確認（2026-09-28）"
     evidenceUrl: "https://deepmind.google/models/gemini/"
   - layer: "研究開発体制"
     name: "Google DeepMind"
@@ -30,9 +30,9 @@ techStack:
     evidence: "Google公式ブログ（2023-12-06）に、Gemini 1.0を自社設計チップTPU v4・v5eで学習したと明記。同時に次世代のTPU v5pも発表された"
     evidenceUrl: "https://blog.google/technology/ai/google-gemini-ai/"
   - layer: "サブスクリプション基盤"
-    name: "Google One AI Premium（Google AI Pro / Ultra）"
+    name: "Google One（Google AI Plus / Pro / Ultra）"
     confidence: confirmed
-    evidence: "Google公式サイトに、Google AI Plus・Pro・Ultraの3段階プランがGoogle Oneのストレージと統合されて提供されていると明記"
+    evidence: "Google公式サイトに、Google AI Plus・Pro・Ultraの3段階プランがGoogle Oneのストレージと統合されて提供されていると明記。同ページのFAQに、Google AI プレミアム プランはGoogle AI Plusに名称が変わったと記載（2026-09-28確認）"
     evidenceUrl: "https://one.google.com/about/google-ai-plans/"
   - layer: "配信統合"
     name: "Android（Pixel / Galaxy 標準アシスタント）"
@@ -41,16 +41,16 @@ techStack:
 sources:
   - label: "Google DeepMind公式: Geminiモデルページ（モデルファミリー・バージョン一覧）"
     url: "https://deepmind.google/models/gemini/"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
   - label: "Google公式ブログ: Gemini発表（2023-12-06・TPU v4/v5eでの学習・Bard/Duet AI統合の経緯）"
     url: "https://blog.google/technology/ai/google-gemini-ai/"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
   - label: "Google One公式: AI Plans（Plus/Pro/Ultraの3段階プラン）"
     url: "https://one.google.com/about/google-ai-plans/"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
   - label: "Wikipedia: Gemini (chatbot)（Bardからの改称史・モデルバージョン史・Android統合の集約）"
     url: "https://en.wikipedia.org/wiki/Gemini_(chatbot)"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
 ---
 
 ## サービス解説
@@ -58,7 +58,7 @@ sources:
 Geminiは、Google DeepMindが開発する対話型AIだ。前身は2023年3月公開の「Bard」で、2024年2月にBardと生産性ツール向けAI「Duet AI」がGeminiブランドへ統合された。開発元のGoogle DeepMindは、旧Google BrainとDeepMindが統合してできた研究組織で、モデルの研究開発を担う。
 
 :::fact
-Google公式ブログ（2023年12月6日）によれば、初代Gemini 1.0はUltra・Pro・Nanoの3サイズで構成され、自社設計チップのTPU v4・v5eで学習されたと明記されている。同時に次世代のCloud TPU v5pも発表された。Google DeepMind公式のモデルページでは、2026年時点でGemini 3.6 Flash・Gemini 3.1 Pro・Gemini 3.1 Deep Think・マルチモーダル特化のGemini Omniなど、用途別に細分化された複数バージョンが公開されていることを確認した。
+Google公式ブログ（2023年12月6日）によれば、初代Gemini 1.0はUltra・Pro・Nanoの3サイズで構成され、自社設計チップのTPU v4・v5eで学習されたと明記されている。同時に次世代のCloud TPU v5pも発表された。Google DeepMind公式のモデルページでは、2026年9月28日時点でGemini 3.8 Flash・Gemini 3.1 Pro・Gemini 3.1 Deep Think・マルチモーダル特化のGemini Omniなど、用途別に細分化された複数バージョンが公開されていることを確認した。
 :::
 
 :::pull
@@ -81,7 +81,7 @@ GeminiのUXは、単体アプリとしての磨き込みより、Google製品群
 ::techstack
 
 :::fact
-Google公式ブログによれば、Geminiは自社設計のTPU（Tensor Processing Unit）で学習されている。初代Gemini 1.0はTPU v4・v5eで学習され、以降のTPU v5pなど後継世代も投入されている。開発元のGoogle DeepMindは、旧Google BrainとDeepMindの統合組織で、2026年時点ではGemini 3.6 Flash（トークン効率重視）・Gemini 3.1 Pro（複雑タスク向け）・Gemini 3.1 Deep Think（科学・研究向け）・Gemini Omni（マルチモーダル）など、用途別に細分化されたモデル群を公開している。
+Google公式ブログによれば、Geminiは自社設計のTPU（Tensor Processing Unit）で学習されている。初代Gemini 1.0はTPU v4・v5eで学習され、以降のTPU v5pなど後継世代も投入されている。開発元のGoogle DeepMindは、旧Google BrainとDeepMindの統合組織で、2026年9月時点ではGemini 3.8 Flash（大規模なエージェントタスク向け）・Gemini 3.1 Pro（複雑タスク向け）・Gemini 3.1 Deep Think（科学・研究向け）・Gemini Omni（マルチモーダル）など、用途別に細分化されたモデル群を公開している。
 :::
 
 :::guess
@@ -93,7 +93,7 @@ Google公式ブログによれば、Geminiは自社設計のTPU（Tensor Process
 Geminiの収益モデルは、単体のサブスクリプションというより、Google全体のエコシステムへの組み込みが中心だ。
 
 :::fact
-公式サイトによれば、個人向けにはGoogle One AI Premiumとして、Google AI Plus・Pro・Ultraの3段階プランが提供されている。各プランはGmail・Google Drive・Google PhotosのストレージとGeminiの利用上限がセットになっており、Ultraでは最上位モデルへの優先アクセスも含まれる。加えて、Vertex AI経由での企業向けAPI提供、Google Workspace各製品への組み込み、Android端末での標準アシスタント採用など、単体課金以外の複数の経路で収益・利用機会を確保している。
+公式サイトによれば、個人向けにはGoogle AI Plus・Pro・Ultraの3段階プランが提供されている（旧称のGoogle AI プレミアム プランは、Google AI Plusに名称が変わったと公式FAQに記載されている）。各プランはGmail・Google Drive・Google PhotosのストレージとGeminiの利用上限がセットになっており、UltraではGemini 3.1 Proの使用量上限が広がり、Deep Thinkも使える。加えて、Vertex AI経由での企業向けAPI提供、Google Workspace各製品への組み込み、Android端末での標準アシスタント採用など、単体課金以外の複数の経路で収益・利用機会を確保している。
 :::
 
 :::guess

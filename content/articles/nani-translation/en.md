@@ -6,8 +6,8 @@ lead: "Instead of a machine that returns a translation and nothing else, it repr
 category: ai-tool
 tags: [ai, translation, electron, nextjs, indie-dev]
 publishedAt: "2026-07-16"
-updatedAt: "2026-07-16"
-lastVerified: "2026-07-16"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://nani.now/ja"
 vendor: "Kioku LLC"
 origin: "JP"
@@ -17,12 +17,12 @@ techStack:
   - layer: "Web / backend"
     name: "Next.js (App Router)"
     confidence: confirmed
-    evidence: "Our own HTTP header observation (x-powered-by: Next.js, rsc vary headers; 2026-07-16) plus the developer's own tech write-up"
+    evidence: "Our own HTTP header observation (x-powered-by: Next.js, rsc vary headers; 2026-07-16, and x-powered-by: Next.js again when re-observed 2026-09-28) plus the developer's own tech write-up"
     evidenceUrl: "https://zenn.dev/catnose99/articles/nani-translate"
   - layer: "Hosting"
     name: "Vercel"
     confidence: confirmed
-    evidence: "HTTP header observation (server: Vercel, x-vercel-id=hnd1 [Tokyo]; 2026-07-16)"
+    evidence: "HTTP header observation (server: Vercel, x-vercel-id=hnd1 [Tokyo]; 2026-07-16, same result when re-observed 2026-09-28)"
     evidenceUrl: "https://zenn.dev/catnose99/articles/nani-translate"
   - layer: "Desktop app"
     name: "Electron"
@@ -54,16 +54,21 @@ techStack:
     confidence: confirmed
     evidence: "Developer's tech write-up"
     evidenceUrl: "https://zenn.dev/catnose99/articles/nani-translate"
+  - layer: "App distribution storage"
+    name: "Cloudflare (R2)"
+    confidence: confirmed
+    evidence: "Developer's tech write-up (2025-10): the macOS .dmg, the update .zip, and latest-mac.yml are uploaded from GitHub Actions to Cloudflare R2 for distribution"
+    evidenceUrl: "https://zenn.dev/catnose99/articles/nani-translate"
 sources:
   - label: "Nani Translate official site (features)"
     url: "https://nani.now/ja/about"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "Nani Translate pricing page (Free / PRO)"
     url: "https://nani.now/ja/pricing"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "Zenn: the tech behind Nani Translate (by developer catnose)"
     url: "https://zenn.dev/catnose99/articles/nani-translate"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "PR TIMES: Kioku LLC launches AI translation tool 'Nani !?'"
     url: "https://prtimes.jp/main/html/rd/p/000000004.000170738.html"
     accessedAt: "2026-07-16"
@@ -100,12 +105,12 @@ Against heavyweight competition — DeepL, Google Translate, and raw ChatGPT —
 
 ## Tech Stack
 
-The architecture is unusually well-documented because the developer published a detailed write-up on Zenn. We also observed the HTTP response headers ourselves on July 16, 2026, confirming the web version runs on Next.js (App Router) hosted on Vercel (Tokyo region).
+The architecture is unusually well-documented because the developer published a detailed write-up on Zenn. We also observed the HTTP response headers ourselves on July 16, 2026, confirming the web version runs on Next.js (App Router) hosted on Vercel (Tokyo region); re-observing on September 28, 2026 gave the same result.
 
 ::techstack
 
 :::fact
-Per the developer's write-up: the desktop app was first prototyped in Tauri but shipped on Electron (Electron Vite + Electron Builder), partly for startup speed. The UI is shared with the web version via TypeScript / React / Tailwind CSS in a pnpm + Turborepo monorepo. LLM providers — Google, OpenAI, Groq — are switched based on TTFT, with Google/Groq preferred for basic translation.
+Per the developer's write-up: the desktop app was first prototyped in Tauri but shipped on Electron (Electron Vite + Electron Builder), partly for startup speed. The UI is shared with the web version via TypeScript / React / Tailwind CSS in a pnpm + Turborepo monorepo. LLM providers — Google, OpenAI, Groq — are switched based on TTFT, with Google/Groq preferred for basic translation. Desktop builds and distribution run on GitHub Actions, and the macOS .dmg and update files are stored on Cloudflare R2.
 :::
 
 :::guess
