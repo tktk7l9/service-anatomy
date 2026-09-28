@@ -397,6 +397,14 @@
     "siteName": "X (formerly Twitter)",
     "fetchedAt": "2026-08-06"
   },
+  "xserver": {
+    "url": "https://www.xserver.ne.jp/",
+    "title": "レンタルサーバー 高速・高機能・高安定性の【エックスサーバー】",
+    "description": "高速かつ高い安定性を誇る高性能レンタルサーバー【エックスサーバー】稼働率99.99％以上の高い安定性で、業界トップクラスの高コストパフォーマンスを誇る高品質レンタルサーバーです。月額990円(税込)から利用可能。まずは無料お試し10日間。",
+    "image": "https://www.xserver.ne.jp/img/common/ogp.png?date=240930",
+    "siteName": "レンタルサーバー 高速・高機能・高安定性の【エックスサーバー】",
+    "fetchedAt": "2026-09-28"
+  },
   "zenn": {
     "url": "https://zenn.dev/",
     "title": "Zenn｜エンジニアのための情報共有コミュニティ",
