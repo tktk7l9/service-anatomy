@@ -1,7 +1,7 @@
 ---
 service: "freee"
 title: "How a Tax-Filing App Became \"the SaaS Easiest for AI to Use\" — Why freee Is Betting on 380 APIs and MCP"
-description: "freee is Japan's cloud accounting and HR software for sole proprietors and small businesses. We dissect its 690K paying customers and ¥43.5B ARR — from a 14-year-old Rails monolith and a Kubernetes (EKS) platform to its official MCP server, freee-mcp — using its earnings materials and official developer blog, and read the sole-proprietor numbers that swell and shrink with tax season."
+description: "freee is Japan's cloud accounting and HR software for sole proprietors and small businesses. We dissect its 690K paying customers and ¥43.6B ARR — from a 14-year-old Rails monolith and a Kubernetes (EKS) platform to its official MCP server, freee-mcp — using its earnings materials and official developer blog, and read the sole-proprietor numbers that swell and shrink with tax season."
 lead: "Every March, freee's paying sole-proprietor base jumps, and by June it has dropped by tens of thousands. The business rides a once-a-year deadline: Japan's income tax return. Now the same company calls itself \"the SaaS easiest for AI to use\" and puts 380+ public APIs and an MCP server front and center. We dissect why an accounting app has started aiming to be chosen not by people, but by AI agents."
 category: saas
 tags: [accounting, small-business, fintech, ruby-on-rails, mcp]
@@ -43,7 +43,7 @@ techStack:
   - layer: "Database"
     name: "Amazon Aurora (MySQL-compatible)"
     confidence: likely
-    evidence: "Official developer blog (2024-09): freee HR's payroll logic adopted Local Write Forwarding, available from Aurora 3.04. That feature and version line belong to Aurora MySQL, though the post never names the engine outright"
+    evidence: "Official developer blog (2024-09): freee HR's payroll logic adopted Local Write Forwarding, available from Aurora 3.04. The post links to the Aurora MySQL documentation, and that feature and version line belong to Aurora MySQL, though the post never names the engine outright"
     evidenceUrl: "https://developers.freee.co.jp/entry/introduce-local-write-forwarding"
   - layer: "Frontend"
     name: "React / TanStack Query"
@@ -58,12 +58,12 @@ techStack:
   - layer: "Internal AI platform"
     name: "LiteLLM on AWS"
     confidence: confirmed
-    evidence: "Official developer blog (2025-11): freee published, on AWS Builders Flash, the architecture of a secure AI agent platform built with AWS and LiteLLM"
+    evidence: "Official developer blog (2025-11): freee published, on AWS Builders Flash, the architecture of a secure AI agent platform built with AWS and LiteLLM. The Builders Flash article describes a proxy platform for company-wide AI agent use, in which an app on EKS routes requests through LiteLLM to Amazon Bedrock and other LLM providers"
     evidenceUrl: "https://developers.freee.co.jp/entry/aws-builders-flash-202511"
   - layer: "Corporate site delivery"
-    name: "Amazon CloudFront + S3"
+    name: "Akamai + Amazon CloudFront / S3"
     confidence: likely
-    evidence: "Our own HTTP header observation (www.freee.co.jp, 2026-09-28) returned x-amz-cf-pop (NRT) and x-amz-server-side-encryption. The product itself (secure.freee.co.jp) may be served differently"
+    evidence: "Our own observation (www.freee.co.jp, 2026-09-28): DNS is a CNAME to Akamai's edgekey.net and an akamai-grn header is returned, alongside x-amz-cf-pop (NRT) and x-amz-server-side-encryption. This suggests Akamai in front, serving S3 content via CloudFront. The product itself (secure.freee.co.jp) may be served differently"
 sources:
   - label: "freee K.K.: FY2026.6 earnings presentation (Japanese, 2026-08-13)"
     url: "https://contents.xj-storage.jp/xcontents/AS08692/97bc7144/e317/47ab/926b/998554b4c0e4/20260814105745837s.pdf"
@@ -83,10 +83,10 @@ sources:
   - label: "freee Developers Hub: Adopting Local Write Forwarding in freee HR's payroll logic (2024-09)"
     url: "https://developers.freee.co.jp/entry/introduce-local-write-forwarding"
     accessedAt: "2026-09-28"
-  - label: "freee Developers Hub: Rebuilding the freee Sales frontend (2026-09)"
+  - label: "freee Developers Hub: Moving to a new frontend screen by screen while swapping out a whole SPA (freee Sales, Japanese, 2026-09)"
     url: "https://developers.freee.co.jp/entry/spa_react_upgrade"
     accessedAt: "2026-09-28"
-  - label: "freee Developers Hub: An AI agent platform built with AWS and LiteLLM (2025-11)"
+  - label: "freee Developers Hub: Published on Builders Flash — the architecture of a secure, flexible AI agent platform built with AWS and LiteLLM (Japanese, 2025-11)"
     url: "https://developers.freee.co.jp/entry/aws-builders-flash-202511"
     accessedAt: "2026-09-28"
   - label: "GitHub: freee/freee-mcp (official MCP server)"
@@ -126,7 +126,7 @@ freee's UX has been optimized so that someone who doesn't know bookkeeping can r
 
 - **Questions instead of journal entries.** The pricing page describes creating a tax return by answering yes/no questions. Keeping debits and credits out of sight and asking in everyday language lowers the anxiety of first-time filers.
 - **Automatic transaction import to cut input.** freee says it pulls transactions from more than 1,000 banks and services. The less typing, the easier it is for people who touch the app once a year to keep going.
-- **Treating AI agents as "another user."** The official MCP server, freee-mcp, offers a Remote MCP endpoint that AI tools such as Claude can connect to by registering a single URL. Its README even warns users not to enter any URL other than freee's official one — a thoughtful nod to impersonation risk from a company holding accounting data.
+- **Treating AI agents as "another user."** The official MCP server, freee-mcp, offers a Remote MCP endpoint that needs no local setup; in Claude, you connect by adding it as a custom connector with a name and URL. Its README even warns users not to enter any URL other than freee's official one — a thoughtful caution against fake endpoints from a company holding accounting data.
 - **The plan boundary can be hard to read.** Whether Starter is enough, or Standard is needed for consumption tax filing, depends on tax knowledge: are you a taxable business? A flow that recommends a plan from the user's situation — say, "registered for invoices, so choose Standard" — would reduce the guesswork further.
 
 ## Tech stack
@@ -138,11 +138,11 @@ According to the official developer blog (2026-04), freee Accounting's backend i
 :::
 
 :::fact
-According to other posts on the same blog, freee's standard infrastructure is Amazon EKS (Kubernetes); freee Sign, its e-signature product, moved from ECS to EKS in May 2025 so that the company's SREs could support it on the same footing (2025-12). On the frontend, freee Sales runs two SPAs side by side in one product — the old one (React 17, SWR) and the new one (React 18 with React Compiler, TanStack Query) — and migrates screen by screen, with the server choosing which HTML to return based on the request path (2026-09).
+According to other posts on the same blog, freee's standard infrastructure is Amazon EKS (Kubernetes); freee Sign, its e-signature product, moved from ECS to EKS in May 2025 so that the company's SREs could support it on the same footing (2025-12). On the frontend, freee Sales runs two SPAs side by side in one product — the old one (React 17, SWR) and the new one (React 18 with React Compiler, TanStack Query) — and migrates screen by screen, with the server (Rails) choosing which HTML to return based on the requested URL and a feature flag (2026-09).
 :::
 
 :::fact
-According to the official GitHub repository, freee-mcp is open source under Apache-2.0, written in TypeScript, and exposes 515 operations across 12 freee APIs — accounting, HR, invoicing, time tracking, sales and more — plus e-signature to AI agents. It works in two layers: the MCP server handles OAuth 2.0 + PKCE authentication and validates requests against OpenAPI schemas, while Agent Skills inject only the API references and operation recipes the AI needs into its context. According to the growth potential document, the number of businesses that have used freee-mcp grew from about 5,000 in March 2026 to about 18,000 in June, and freee's public APIs number more than 380.
+According to the official GitHub repository, freee-mcp is open source under Apache-2.0, written in TypeScript, and exposes 515 operations across 12 freee APIs — accounting, HR, invoicing, time tracking, sales and more — plus e-signature to AI agents. It works in two layers: the MCP server handles OAuth 2.0 + PKCE authentication and validates requests against OpenAPI schemas, while Agent Skills inject only the API references and operation recipes the AI needs into its context. According to the growth potential document, the cumulative number of businesses that have used freee-mcp grew from about 5,000 in March 2026 to about 18,000 in June, and freee's public APIs number more than 380.
 :::
 
 :::guess
@@ -154,7 +154,7 @@ Keeping a 14-year-old Rails monolith and laying MCP over it as a thin new layer 
 freee's revenue rests on monthly and annual subscriptions, plus fee-based revenue that scales with transactions, such as corporate cards.
 
 :::fact
-According to the financial results (2026-08-13), revenue for the fiscal year ended June 2026 was ¥42.44B (up 27.6%), operating income was ¥1.09B (up 78.6%), and adjusted operating income excluding stock compensation and similar items was ¥2.66B (up 41.3%). According to the earnings presentation, of ¥43.6B in ARR, corporations accounted for ¥34.8B and sole proprietors for ¥8.8B, and fee-based transaction ARR grew 65.4% on the expansion of the corporate credit card business. For the fiscal year ending June 2027, freee targets revenue of ¥52.2B (up 23.0%) and an adjusted operating margin of 11%.
+According to the financial results (2026-08-13), revenue for the fiscal year ended June 2026 was ¥42.44B (up 27.6%), operating income was ¥1.09B (up 78.6%), and adjusted operating income excluding stock compensation and similar items was ¥2.66B (up 41.3%). According to the earnings presentation, of ¥43.6B in ARR, corporations accounted for ¥34.8B and sole proprietors for ¥8.8B, and fee-based transaction ARR grew 65.4% on the expansion of the corporate credit card business. For the fiscal year ending June 2027, freee targets revenue of ¥52.2B (up 23.0% on FY2026 platform-business revenue) and an adjusted operating margin of 11%.
 :::
 
 :::fact
@@ -166,7 +166,7 @@ The average for sole proprietors (about ¥21,000) sits between the annual price 
 :::
 
 :::fact
-According to its official site, freee runs an affiliate program that pays referral fees to partners who introduce it on blogs and elsewhere. freee's cloud accounting software is available through A8.net and Moshimo Affiliate, while payroll and My Number management are available through Moshimo Affiliate only.
+According to its official site, freee runs an affiliate program that pays referral fees to partners who introduce it on blogs and elsewhere. It points prospective partners to A8.net and Moshimo Affiliate, and notes that for payroll and My Number management, Moshimo Affiliate is the only supported network.
 :::
 
 Sole-proprietor numbers that swell and shrink with tax season, and corporate numbers compounding at over 20% a year: freee carries both while getting ahead of a future where the one keeping the books shifts from people to AI, in the form of APIs and MCP. One more front door, built for AI, on top of 14 years of Rails — that is freee's bet in 2026.

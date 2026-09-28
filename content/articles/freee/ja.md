@@ -1,7 +1,7 @@
 ---
 service: "freee"
 title: "確定申告ソフトが「AIから最も使いやすいSaaS」を名乗るまで — freeeが380本のAPIとMCPに賭ける理由"
-description: "個人事業主と中小企業向けのクラウド会計・人事労務ソフトfreee。有料課金69万社・ARR435億円の規模を、14年もののRailsモノリス、Kubernetes（EKS）基盤、公式MCPサーバーfreee-mcpまで、決算説明資料と公式開発者ブログから解剖する。確定申告の季節に膨らんでしぼむ個人事業主の数字も読む。"
+description: "個人事業主と中小企業向けのクラウド会計・人事労務ソフトfreee。有料課金69万社・ARR436億円の規模を、14年もののRailsモノリス、Kubernetes（EKS）基盤、公式MCPサーバーfreee-mcpまで、決算説明資料と公式開発者ブログから解剖する。確定申告の季節に膨らんでしぼむ個人事業主の数字も読む。"
 lead: "毎年3月、freeeの個人事業主ユーザーは一気に増え、6月には数万件減る。確定申告という年1回の締め切りに乗った事業だからだ。その会社がいま、自社を「AIから最も使いやすいSaaS」と呼び、380本超の公開APIとMCPサーバーを前面に出している。会計ソフトが、人ではなくAIエージェントに選ばれることを狙い始めた理由を解剖する。"
 category: saas
 tags: [accounting, small-business, fintech, ruby-on-rails, mcp]
@@ -43,7 +43,7 @@ techStack:
   - layer: "データベース"
     name: "Amazon Aurora (MySQL-compatible)"
     confidence: likely
-    evidence: "公式開発者ブログ（2024-09）に、freee人事労務の給与計算ロジックへAurora 3.04以降で使えるLocal Write Forwardingを導入したとある。この機能とバージョン番号はAurora MySQL互換版のものだが、記事内でエンジン名の明言は無い"
+    evidence: "公式開発者ブログ（2024-09）に、freee人事労務の給与計算ロジックへAurora 3.04以降で使えるLocal Write Forwardingを導入したとある。記事が参照先として挙げるのはAurora MySQLの公式ドキュメントで、この機能とバージョン番号もAurora MySQLのもの。ただし記事内でエンジン名の明言は無い"
     evidenceUrl: "https://developers.freee.co.jp/entry/introduce-local-write-forwarding"
   - layer: "フロントエンド"
     name: "React / TanStack Query"
@@ -58,12 +58,12 @@ techStack:
   - layer: "社内AI基盤"
     name: "LiteLLM on AWS"
     confidence: confirmed
-    evidence: "公式開発者ブログ（2025-11）に、AWSとLiteLLMで作るセキュアなAIエージェント基盤のアーキテクチャをAWSのBuilders Flashで公開したと明記"
+    evidence: "公式開発者ブログ（2025-11）に、AWSとLiteLLMで作るセキュアなAIエージェント基盤のアーキテクチャをAWSのBuilders Flashで公開したと明記。寄稿先の記事では、AIエージェントの全社活用を支えるプロキシ基盤としてEKS上のアプリからLiteLLM経由でAmazon Bedrock等へ振り分ける構成を説明している"
     evidenceUrl: "https://developers.freee.co.jp/entry/aws-builders-flash-202511"
   - layer: "コーポレートサイト配信"
-    name: "Amazon CloudFront + S3"
+    name: "Akamai + Amazon CloudFront / S3"
     confidence: likely
-    evidence: "当サイトのHTTPヘッダー実観測（www.freee.co.jp・2026-09-28）で x-amz-cf-pop（NRT）と x-amz-server-side-encryption が返る。製品本体（secure.freee.co.jp）の配信構成とは別物の可能性がある"
+    evidence: "当サイトの実観測（www.freee.co.jp・2026-09-28）で、DNSはAkamaiのedgekey.netへのCNAMEで akamai-grn ヘッダーが返り、同時に x-amz-cf-pop（NRT）と x-amz-server-side-encryption も返る。Akamaiを前段に、CloudFront経由でS3のコンテンツを配信している構成とみられる。製品本体（secure.freee.co.jp）の配信構成とは別物の可能性がある"
 sources:
   - label: "フリー株式会社: 2026年6月期 決算説明資料（2026-08-13）"
     url: "https://contents.xj-storage.jp/xcontents/AS08692/97bc7144/e317/47ab/926b/998554b4c0e4/20260814105745837s.pdf"
@@ -83,10 +83,10 @@ sources:
   - label: "freee Developers Hub: freee人事労務の給与計算ロジックにLocal Write Forwardingを導入した話（2024-09）"
     url: "https://developers.freee.co.jp/entry/introduce-local-write-forwarding"
     accessedAt: "2026-09-28"
-  - label: "freee Developers Hub: freee販売のフロントエンド刷新（2026-09）"
+  - label: "freee Developers Hub: SPAを丸ごと差し替えながら、画面単位で新基盤へ引っ越した話（freee販売・2026-09）"
     url: "https://developers.freee.co.jp/entry/spa_react_upgrade"
     accessedAt: "2026-09-28"
-  - label: "freee Developers Hub: AWSとLiteLLMで実現するAIエージェント基盤（2025-11）"
+  - label: "freee Developers Hub: Builders Flashにて「AWS と LiteLLM で実現する、セキュアで柔軟な AI エージェント基盤のアーキテクチャ」を公開しました（2025-11）"
     url: "https://developers.freee.co.jp/entry/aws-builders-flash-202511"
     accessedAt: "2026-09-28"
   - label: "GitHub: freee/freee-mcp（公式MCPサーバー）"
@@ -126,7 +126,7 @@ freeeのUXは「簿記を知らない人が、経理を意識せずに申告ま�
 
 - **仕訳ではなく質問で進める**。料金ページは「○×の質問に答えて確定申告書を作成」と説明する。借方・貸方という会計の言葉を前面に出さず、日常の言葉で答えさせる設計は、初めて申告する個人事業主の不安を減らす。
 - **明細の自動取得で入力を減らす**。1,000以上の口座・サービスから明細を自動で取り込むと公式はうたう。入力の手間が減るほど、年1回しか触らない人でも続けやすい。
-- **AIエージェントを「もう一人の利用者」として扱う**。公式MCPサーバーfreee-mcpは、Claude等のAIツールにURLを1つ登録するだけでfreeeを操作できるRemote MCPを用意している。READMEには「freee公式以外のURLを入力しないように」という注意書きもあり、会計データを預かる側としてなりすましへの警戒を明示している点は丁寧だ。
+- **AIエージェントを「もう一人の利用者」として扱う**。公式MCPサーバーfreee-mcpは、ローカルでのセットアップが要らないRemote MCPを用意しており、Claudeならカスタムコネクタとして名前とURLを登録すれば接続できる。READMEには「freee公式以外のURLを入力しないように」という注意書きもあり、会計データを預かる側として偽の接続先への注意を促している点は丁寧だ。
 - **プランの境目がわかりにくい面もある**。スターターで足りるのか、消費税申告のためにスタンダードが要るのかは、課税事業者かどうかという税務の知識に依存する。「インボイス登録をしたらスタンダード」のように、事業者の状況からプランを案内する導線があればさらに迷いにくいだろう。
 
 ## 技術構成
@@ -138,11 +138,11 @@ freeeのUXは「簿記を知らない人が、経理を意識せずに申告ま�
 :::
 
 :::fact
-同ブログの別記事によれば、freeeの標準的なインフラはAmazon EKS（Kubernetes）で、ECSで動いていた電子契約のfreeeサインも2025年5月にEKSへ移し、全社のSREが同じ前提で支援できるようにした（2025-12）。フロントエンドでは、freee販売が旧（React 17・SWR）と新（React 18とReact Compiler・TanStack Query）の二つのSPAを同じプロダクト内で共存させ、サーバーがリクエストのパスを見て返すHTMLを切り替えながら画面単位で移行している（2026-09）。
+同ブログの別記事によれば、freeeの標準的なインフラはAmazon EKS（Kubernetes）で、ECSで動いていた電子契約のfreeeサインも2025年5月にEKSへ移し、全社のSREが同じ前提で支援できるようにした（2025-12）。フロントエンドでは、freee販売が旧（React 17・SWR）と新（React 18とReact Compiler・TanStack Query）の二つのSPAを同じプロダクト内で共存させ、サーバー（Rails）がリクエストされたURLとフラグを見て返すHTMLを切り替えながら画面単位で移行している（2026-09）。
 :::
 
 :::fact
-公式のGitHubリポジトリによれば、freee-mcpはTypeScriptで書かれたApache-2.0のオープンソースで、freee会計・人事労務・請求書・工数管理・販売など12のAPIと電子契約の、合計515操作をAIエージェントから呼び出せる。MCPサーバーがOAuth 2.0 + PKCEでの認証とOpenAPIスキーマによるリクエスト検証を受け持ち、Agent SkillsがAPIリファレンスと操作レシピを必要な分だけAIのコンテキストに注入する二段構えになっている。成長可能性資料によれば、freee-mcpの利用実績がある事業所数は、2026年3月の約0.5万社から6月には約1.8万社に増え、公開APIは380本を超える。
+公式のGitHubリポジトリによれば、freee-mcpはTypeScriptで書かれたApache-2.0のオープンソースで、freee会計・人事労務・請求書・工数管理・販売など12のAPIと電子契約の、合計515操作をAIエージェントから呼び出せる。MCPサーバーがOAuth 2.0 + PKCEでの認証とOpenAPIスキーマによるリクエスト検証を受け持ち、Agent SkillsがAPIリファレンスと操作レシピを必要な分だけAIのコンテキストに注入する二段構えになっている。成長可能性資料によれば、freee-mcpの利用実績がある事業所数（累計）は、2026年3月の約0.5万社から6月には約1.8万社に増え、公開APIは380本を超える。
 :::
 
 :::guess
@@ -154,7 +154,7 @@ freeeのUXは「簿記を知らない人が、経理を意識せずに申告ま�
 freeeの収益の柱は、月額・年額のサブスクリプションと、法人カードなど取引量に比例する手数料型の収益だ。
 
 :::fact
-決算短信（2026-08-13）によれば、2026年6月期の売上高は424.4億円（前期比27.6%増）、営業利益は10.9億円（同78.6%増）、株式報酬などを除いた調整後営業利益は26.6億円（同41.3%増）。決算説明資料によれば、ARR約436億円のうち法人が347.8億円、個人事業主が88.2億円で、手数料型のトランザクションARRは法人向けクレジットカード事業の拡大で前年比65.4%増えた。2027年6月期は売上高522億円（同23.0%増）、調整後営業利益率11%を目指すとしている。
+決算短信（2026-08-13）によれば、2026年6月期の売上高は424.4億円（前期比27.6%増）、営業利益は10.9億円（同78.6%増）、株式報酬などを除いた調整後営業利益は26.6億円（同41.3%増）。決算説明資料によれば、ARR約436億円のうち法人が347.8億円、個人事業主が88.2億円で、手数料型のトランザクションARRは法人向けクレジットカード事業の拡大で前年比65.4%増えた。2027年6月期は売上高522億円（2026年6月期のプラットフォーム事業売上高比23.0%増）、調整後営業利益率11%を目指すとしている。
 :::
 
 :::fact
@@ -166,7 +166,7 @@ freeeの収益の柱は、月額・年額のサブスクリプションと、法
 :::
 
 :::fact
-公式サイトによれば、freeeはブログなどで紹介して報酬を受け取るアフィリエイトプログラムを運営している。クラウド会計ソフトfreeeはA8.netともしもアフィリエイトで、給与計算とマイナンバー管理はもしもアフィリエイトのみで提携できる。
+公式サイトによれば、freeeはブログなどで紹介して報酬を受け取るアフィリエイトプログラムを運営している。参加窓口としてA8.netともしもアフィリエイトを案内し、対象製品のうち給与計算とマイナンバー管理は対応ASPがもしもアフィリエイトのみと注記している。
 :::
 
 確定申告の季節に膨らんでしぼむ個人事業主の数字と、年率2割超で積み上がる法人の数字。freeeはその両方を抱えたまま、帳簿をつける主体が人からAIへ移る未来に、APIとMCPという形で先回りしている。14年分のRailsの上に、AI向けの入口を一枚足す。それが2026年のfreeeの賭けだ。
