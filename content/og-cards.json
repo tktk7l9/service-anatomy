@@ -319,6 +319,14 @@
     "siteName": "RENOSY（リノシー）",
     "fetchedAt": "2026-09-28"
   },
+  "replit": {
+    "url": "https://replit.com/",
+    "title": "AI App and Website Builder",
+    "description": "Describe what you want. Replit builds it. Get a working app or website in minutes. No coding required.",
+    "image": "https://replit.com/public/images/opengraph_rebrand.jpg",
+    "siteName": "replit",
+    "fetchedAt": "2026-09-29"
+  },
   "sbi-securities": {
     "url": "https://www.sbisec.co.jp/",
     "title": "SBI証券｜株・FX・投資信託・確定拠出年金・NISA",
