@@ -303,6 +303,14 @@
     "siteName": "Railway",
     "fetchedAt": "2026-09-28"
   },
+  "rakuten-travel": {
+    "url": "https://travel.rakuten.co.jp/",
+    "title": "楽天トラベル",
+    "description": "国内・海外旅行なら日本最大級の宿泊予約サイト「楽天トラベル」。ホテル・ツアー予約や航空券・レンタカー・高速バス予約、観光情報も満載！ホテルの口コミ数は1,000万件以上で日本最大級！楽天ポイント貯まる・使える！",
+    "image": "https://img.travel.rakuten.co.jp/share/common/images/bnr_ogp_logo.gif",
+    "siteName": "楽天トラベル",
+    "fetchedAt": "2026-09-29"
+  },
   "renosy": {
     "url": "https://www.renosy.com/",
     "title": "【RENOSY(リノシー) 】AI不動産投資 | 売上実績No.1",
