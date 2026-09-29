@@ -36,6 +36,21 @@ function extractMeta(html, key) {
   return undefined;
 }
 
+// res.text() always decodes as UTF-8, which garbles pages served in Shift_JIS
+// (e.g. SBI Securities returns Windows-31J). Honor the declared charset instead.
+function decodeHtml(bytes, contentType) {
+  const head = new TextDecoder("latin1").decode(bytes.subarray(0, 4096));
+  const charset =
+    contentType?.match(/charset=["']?([\w-]+)/i)?.[1] ??
+    head.match(/<meta[^>]+charset=["']?([\w-]+)/i)?.[1] ??
+    "utf-8";
+  try {
+    return new TextDecoder(charset).decode(bytes);
+  } catch {
+    return new TextDecoder("utf-8").decode(bytes);
+  }
+}
+
 async function fetchCard(url) {
   const res = await fetch(url, {
     headers: { "user-agent": UA, accept: "text/html" },
@@ -43,7 +58,7 @@ async function fetchCard(url) {
     signal: AbortSignal.timeout(15000),
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const html = await res.text();
+  const html = decodeHtml(new Uint8Array(await res.arrayBuffer()), res.headers.get("content-type"));
   const image = extractMeta(html, "og:image") ?? extractMeta(html, "twitter:image");
   return {
     title: extractMeta(html, "og:title") ?? html.match(/<title[^>]*>([^<]*)<\/title>/i)?.[1]?.trim(),
