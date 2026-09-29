@@ -62,8 +62,12 @@ export default async function LocaleLayout({
 
   return (
     <div lang={locale}>
+      {/* Lets keyboard users jump past the header links (WCAG 2.4.1, SHIG 59). */}
+      <a href="#main" className="skip-link">
+        {dict.nav.skipToContent}
+      </a>
       <Header locale={locale} dict={dict} />
-      <main className="container">{children}</main>
+      <main id="main" tabIndex={-1} className="container">{children}</main>
       <Footer locale={locale} dict={dict} />
     </div>
   );
