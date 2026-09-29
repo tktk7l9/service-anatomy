@@ -9,13 +9,9 @@ publishedAt: "2026-09-28"
 updatedAt: "2026-09-28"
 lastVerified: "2026-09-28"
 serviceUrl: "https://biz.moneyforward.com/tax_return/"
-# Affiliate link placeholder: the owner must join the Money Forward Cloud affiliate program
-# via an ASP (A8.net runs it since June 2020; see https://www.a8.net/ec/casestudy/12/.
-# Third-party listings also show it on Moshimo Affiliate) before enabling this block.
-# Keep the url identical in ja.md and en.md (parity.ts checks it).
-# affiliate:
-#   url: "https://<moneyforward-cloud-affiliate-tracking-link>"
-#   program: "Money Forward Cloud Affiliate Program (A8.net)"
+affiliate:
+  url: "https://af.moshimo.com/af/c/click?a_id=5824839&p_id=888&pc_id=1087&pl_id=38622"
+  program: "Money Forward Cloud Affiliate Program (Moshimo Affiliate)"
 vendor: "Money Forward, Inc."
 origin: "JP"
 heroTheme: "moneyforward-cloud"
