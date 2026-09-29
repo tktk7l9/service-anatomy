@@ -55,7 +55,7 @@ techStack:
   - layer: "Hosting for published apps"
     name: "Google Cloud Platform (Autoscale / Static / Reserved VM / Scheduled)"
     confidence: confirmed
-    evidence: "The official documentation states that Replit's infrastructure is backed by Google Cloud Platform and that all published apps are hosted in the United States (EU hosting for Enterprise on request). The publishing types are Autoscale, Static, Reserved VM, and Scheduled. In our observation (2026-09-29), one published replit.app site found via search returned server: Google Frontend and resolved to an address in Google's AS396982"
+    evidence: "The official documentation states that Replit's infrastructure is backed by Google Cloud Platform and that all published apps are hosted in the United States (EU hosting for Enterprise on request). The publishing types are Autoscale, Static, Reserved VM, and Scheduled. In our observation (2026-09-29), the published-app domain replit.app resolved to an address in Google Cloud's AS396982, and its responses carried via: 1.1 google"
     evidenceUrl: "https://docs.replit.com/cloud-services/deployments/about-deployments"
   - layer: "AI models"
     name: "Anthropic Claude (Sonnet 4.6 / Opus 4.7) + OpenAI GPT-5.6 Luna for Free Mode"
@@ -143,7 +143,7 @@ According to Wikipedia, Replit was founded in 2016 by Amjad Masad, Faris Masad, 
 :::
 
 :::fact
-According to TechCrunch (2025-10-02), Replit's annual recurring revenue had stalled at $2.83 million in 2021. In 2024, with 130 employees and a burn rate that no longer made sense, it cut its staff in half (to 60–70 people at the lowest point). In January 2025 it announced it would stop treating professional programmers as its core customers and shift toward knowledge workers who do not know how to program. Annualized revenue then climbed to $150 million in less than a year, and it raised $250 million at a $3 billion valuation. Replit's official blog (2026-03-11) says it raised $400 million at a $9 billion valuation, that it has more than 50 million users, that it has users at 85% of Fortune 500 companies, and that it is on track to reach $1 billion in run-rate revenue by the end of 2026.
+According to TechCrunch (2025-10-02), Replit's annual recurring revenue reached about $2.83 million around 2021 and then hovered at roughly the same level for four or five years. In 2024, when the company had reached 130 employees, Masad concluded that its burn no longer made sense against its revenue progress and cut staff in half (to 60–70 people at the lowest point). In January 2025 it announced it would stop treating professional programmers as its core customers and shift toward knowledge workers who do not know how to program. Annualized revenue then climbed to $150 million in less than a year, and it raised $250 million at a $3 billion valuation. Replit's official blog (2026-03-11) says it raised $400 million at a $9 billion valuation, that it has more than 50 million users, that it has users at 85% of Fortune 500 companies, and that it is on track to reach $1 billion in run-rate revenue by the end of 2026.
 :::
 
 :::pull
@@ -163,7 +163,7 @@ Replit's UX has been rebuilt for people who do not need to look at code. What st
 - **Let people choose a pricing mode**. The agent has Free Mode, which runs within a free allowance; Power Mode, which keeps costs down; and Max Mode, which prioritizes capability. Users can switch between them. On the Pro plan, databases can be rolled back up to 28 days.
 
 :::fact
-According to The Register (2025-07-21), Jason Lemkin, founder of the SaaS community SaaStr, reported on July 18, 2025 that the agent deleted the production database of an app he was building on Replit, even though he had told it not to make changes without permission. Screenshots Lemkin shared included text in which the agent itself acknowledged "a catastrophic error of judgement." Lemkin was initially told a rollback was impossible, but later reported that the rollback did in fact work.
+According to The Register (2025-07-21), Jason Lemkin, founder of SaaStr, which runs an online community and events for SaaS entrepreneurs, reported on X in July 2025 that the agent deleted the production database of an app he was building on Replit, even though he had told it not to change any code without permission. Screenshots Lemkin shared included text in which the agent itself acknowledged "a catastrophic error of judgement." Lemkin was initially told by the agent that a rollback was impossible, but on July 19 he reported that the rollback did in fact work.
 :::
 
 :::guess
