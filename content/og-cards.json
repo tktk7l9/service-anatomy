@@ -303,6 +303,12 @@
     "siteName": "RENOSY（リノシー）",
     "fetchedAt": "2026-09-28"
   },
+  "sbi-securities": {
+    "url": "https://www.sbisec.co.jp/",
+    "title": "SBI証券｜株・FX・投資信託・確定拠出年金・NISA",
+    "description": "投資するならSBI証券。株、FX、投資信託、米国株式、債券、金、CFD、先物・オプション、ロボアド、確定拠出年金（iDeCo）、NISAなどインターネットで簡単にお取引できます。使いやすいチャートやアプリも充実。初心者にも安心の証券会社です。",
+    "fetchedAt": "2026-09-29"
+  },
   "setlog": {
     "url": "https://apps.apple.com/jp/app/setlog/id6587576438",
     "title": "setlogアプリ - App Store",
