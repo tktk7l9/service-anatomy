@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { LocaleSwitcher } from "./locale-switcher";
@@ -12,11 +12,15 @@ import { LocaleSwitcher } from "./locale-switcher";
 
 export function MobileNav({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const [open, setOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!open) return;
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key !== "Escape") return;
+      setOpen(false);
+      // The panel unmounts, so hand focus back to the toggle instead of dropping it to <body>.
+      toggleRef.current?.focus();
     }
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
@@ -27,6 +31,7 @@ export function MobileNav({ locale, dict }: { locale: Locale; dict: Dictionary }
   return (
     <div className="mobile-nav">
       <button
+        ref={toggleRef}
         type="button"
         className="mobile-nav-toggle"
         aria-expanded={open}
