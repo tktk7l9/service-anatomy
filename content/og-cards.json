@@ -405,6 +405,14 @@
     "image": "https://www.todoist.com/static/ogimages/en/og-image-home.png",
     "fetchedAt": "2026-09-28"
   },
+  "udemy": {
+    "url": "https://www.udemy.com/",
+    "title": "Udemy: Online Courses for Skills, Careers & AI",
+    "description": "Learn in-demand skills with online courses, get professional certificates that advance your career, and explore courses in AI, coding, business and more.",
+    "image": "https://s.udemycdn.com/meta/default-meta-image-v2.png",
+    "siteName": "Udemy",
+    "fetchedAt": "2026-09-28"
+  },
   "vercel": {
     "url": "https://vercel.com/",
     "title": "Agentic Infrastructure - Vercel",
