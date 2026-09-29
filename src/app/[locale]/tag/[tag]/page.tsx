@@ -78,7 +78,13 @@ export default async function TagPage({
       </header>
       <div className="article-grid">
         {articles.map((article) => (
-          <ArticleCard key={article.slug} article={article} locale={locale} dict={dict} />
+          <ArticleCard
+            key={article.slug}
+            article={article}
+            locale={locale}
+            dict={dict}
+            headingLevel={2}
+          />
         ))}
       </div>
     </>
