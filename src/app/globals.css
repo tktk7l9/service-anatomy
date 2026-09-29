@@ -116,6 +116,26 @@ svg {
   color: var(--paper);
 }
 
+.skip-link {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 30;
+  padding: 0.6rem 1rem;
+  background: var(--paper-raised);
+  color: var(--ink);
+  border: 1px solid var(--rule-strong);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+main:focus {
+  outline: none;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -274,11 +294,12 @@ svg {
   transform: translateY(-5.5px) rotate(-45deg);
 }
 
+/* The open panel sits in the header's flow (pushes the page down) instead of overlaying it,
+   so no link on the page is left half-covered and too small to tap (WCAG 2.5.8, SHIG 78). */
 .mobile-nav-panel {
-  position: absolute;
-  inset-inline: 0;
-  top: 100%;
-  z-index: 20;
+  flex: 0 0 calc(100% + 2 * clamp(1.1rem, 4vw, 2rem));
+  margin-inline: calc(-1 * clamp(1.1rem, 4vw, 2rem));
+  margin-bottom: -0.9rem;
   display: flex;
   flex-direction: column;
   border-top: 1px solid var(--rule);
@@ -313,8 +334,8 @@ svg {
     display: none;
   }
 
-  .site-header {
-    position: relative;
+  .mobile-nav {
+    display: contents;
   }
 }
 

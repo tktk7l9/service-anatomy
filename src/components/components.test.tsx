@@ -210,6 +210,7 @@ describe("components smoke", () => {
 
     fireEvent.keyDown(document, { key: "Escape" });
     expect(screen.queryByRole("navigation")).toBeNull();
+    expect(button).toHaveFocus();
 
     fireEvent.click(button);
     fireEvent.click(screen.getByText(ja.nav.tech));

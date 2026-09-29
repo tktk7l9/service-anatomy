@@ -12,15 +12,18 @@ export function ArticleCard({
   locale,
   dict,
   featured = false,
+  headingLevel,
 }: {
   article: Article;
   locale: Locale;
   dict: Dictionary;
   featured?: boolean;
+  /** Override the title level so listings without an h2 keep a valid heading order. */
+  headingLevel?: 2 | 3;
 }) {
   const { frontmatter, body } = article[locale];
   const readingTime = formatReadingTime(estimateReadingMinutes(body, locale), locale);
-  const Title = featured ? "h2" : "h3";
+  const Title = headingLevel ? (`h${headingLevel}` as const) : featured ? "h2" : "h3";
 
   return (
     <Link
