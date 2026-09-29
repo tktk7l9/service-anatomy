@@ -25,7 +25,7 @@ techStack:
   - layer: "Published site runtime"
     name: "React (server-side rendering + hydration)"
     confidence: confirmed
-    evidence: "The official engineering blog (2025-10-22) states that Framer sites are \"React-based JavaScript applications\" that use server-side rendering for optimization. The 2024-03-26 post \"Why Framer uses React to build sites\" explains the choice of React. In our observation (2026-09-29), the HTML of www.framer.com loaded react.*.mjs from framerusercontent.com/sites/"
+    evidence: "The official engineering blog (2025-10-22) states that Framer sites are \"JavaScript apps built with React that render in the browser,\" and that Framer pre-renders pages on its servers (server-side rendering) for speed and SEO. The 2024-03-26 post \"Why Framer uses React to build sites\" explains the choice of React. In our observation (2026-09-29), the HTML of www.framer.com loaded react.*.mjs from framerusercontent.com/sites/"
     evidenceUrl: "https://www.framer.com/blog/dynamic-optimization/"
   - layer: "Page pre-rendering"
     name: "Traffic-aware Pre-Rendering (render on first visit, cache until next publish)"
@@ -35,7 +35,7 @@ techStack:
   - layer: "Site bundler"
     name: "Rolldown + oxc-minify (migrated from esbuild)"
     confidence: confirmed
-    evidence: "The official engineering blog (2025-11-20) states that Framer moved from esbuild to Rolldown, with the rollout starting in September 2025. Median JavaScript size fell 36%, p90 LCP across all sites improved 11%, and LCP on very large sites (over 2MB of JS) improved 41%. In our observation (2026-09-29), published sites' HTML also loaded rolldown-runtime.*.mjs"
+    evidence: "The official engineering blog (2025-11-20) states that Framer moved from esbuild to Rolldown, with the rollout starting in September 2025. Median JavaScript size fell 36%, p90 LCP across all sites improved 11%, and LCP on very large sites (over 2MB of JS) improved 41% on average. In our observation (2026-09-29), published sites' HTML also loaded rolldown-runtime.*.mjs"
     evidenceUrl: "https://www.framer.com/blog/framer-rolldown/"
   - layer: "Animation"
     name: "Motion (formerly Framer Motion)"
@@ -55,7 +55,7 @@ techStack:
   - layer: "Hosting"
     name: "Framer's own edge servers on AWS (server: Framer/<version>)"
     confidence: likely
-    evidence: "In our observation (2026-09-29), both www.framer.com and a user site (*.framer.website) returned server: Framer/26fa766, with a server-timing header carrying region=ap-northeast-1, cache status, ssg-status and A/B test assignments. Both hostnames resolved to addresses in AS16509 (Amazon). Framer's own site appears to be served from the same hosting as its users' sites"
+    evidence: "In our observation (2026-09-29), both www.framer.com and a user site (*.framer.website) returned server: Framer/26fa766, with a server-timing header carrying region=ap-northeast-1, cache status and ssg-status, plus A/B test assignments on www.framer.com. Both hostnames resolved to addresses in AS16509 (Amazon). Framer's own site appears to be served from the same hosting as its users' sites"
   - layer: "Image and script delivery"
     name: "Amazon CloudFront (framerusercontent.com)"
     confidence: likely
@@ -112,6 +112,9 @@ sources:
   - label: "Webflow: Webflow Affiliate Program (for comparison)"
     url: "https://webflow.com/solutions/affiliates"
     accessedAt: "2026-09-29"
+  - label: "Webflow official blog: Webflow makes GSAP 100% free (for comparison)"
+    url: "https://webflow.com/blog/gsap-becomes-free"
+    accessedAt: "2026-09-29"
 ---
 
 Most design tools finish their job at the handoff. Screen mockups get rebuilt by engineers, and clickable prototypes never become production code. For years Framer was a tool for the stage before that handoff. When its growth stalled, it rebuilt itself into a tool that skips the handoff and publishes directly. Elements laid out on the canvas become a production site running on React. What sets Framer apart is that it takes on that conversion out of the designer's sight, and folds hosting and AI into the same product.
@@ -121,7 +124,7 @@ Most design tools finish their job at the handoff. Screen mockups get rebuilt by
 Framer lets you lay out a page on a canvas and publish it as a website on Framer's own hosting. It has a built-in CMS, analytics, A/B testing, localization and SEO settings, and lately it leads with an AI design agent that rebuilds pages on the canvas from chat instructions. The headline of its own site reads "AI design agent."
 
 :::fact
-According to The Next Web, co-founders Koen Bok and Jorn van Dijk worked as product designers at Facebook after Facebook bought their software company Sofa, and both left in July 2013. According to Foundation Capital's write-up of its SXSW conversation with Jorn van Dijk (published 2026-04-01), Sofa was acquired in 2011, and Foundation Capital invested in Framer's seed round in 2014. Framer spread as a prototyping tool for designers, but after revenue reached $5M, sales were flat for about a year. After about a year of debate and nine months of building, they launched the new Framer in May 2022. He says revenue went from zero to $1M in the first eight months, to $10M the year after, then to $30M, and that "this year, we're crossing 100."
+According to The Next Web, co-founders Koen Bok and Jorn van Dijk worked as product designers at Facebook after Facebook bought Sofa, the Dutch software company Koen Bok founded and where Jorn van Dijk was art director, and both left in July 2013. According to Foundation Capital's write-up of its SXSW conversation with Jorn van Dijk (published 2026-04-01), Sofa was acquired in 2011, and Foundation Capital invested in Framer's seed round in 2014. Framer spread as a prototyping tool for designers, but after revenue reached $5M, sales were flat for about a year. After about a year of debate and nine months of building, they launched the new Framer in May 2022. He says revenue went from zero to $1M in the first eight months, to $10M the year after, then to $30M, and that "this year, we're crossing 100."
 :::
 
 :::fact
@@ -139,13 +142,13 @@ From a tool for handing work off to a tool for putting it out into the world. Fr
 Framer's UX concentrates on one thing: removing every step between design and publishing while keeping the feel of a design tool.
 
 - **Publish for free**. According to the pricing page, even the free plan can publish a site on a Framer domain and comes with 500 AI credits. Bandwidth is capped at 1GB, and custom domains start with paid plans. You can get as far as sharing a live URL without paying.
-- **Price by the size of the site**. With yearly billing shown, Basic is $10 a month for 30 pages and 50GB of bandwidth, and Pro is $30 a month for 150 pages and 100GB, with a staging environment and branch previews. Pro lets you choose monthly AI credits in tiers from 3,000 to 50,000. Extra designers cost $20 a month each, content-only editors $10, and viewers are free. Localization costs $20 a month per locale, and Convert, the A/B testing add-on, costs $50 per 500,000 events.
+- **Price by the size of the site**. With yearly billing shown, Basic is $10 a month for 30 pages and 50GB of bandwidth, and Pro is $30 a month for 150 pages and 100GB, with a staging environment and branch previews. Pro lets you choose monthly AI credits in tiers from 3,000 to 100,000. Extra designers cost $20 a month each, content-only editors $10, and viewers are free. Localization costs $20 a month per locale, and Convert, the A/B testing add-on, costs $50 per 500,000 events.
 - **Remove the wait to publish**. According to the official engineering blog, Framer used to pre-generate every page on each publish, and optimization could take up to a minute on large sites. Since October 2025 it optimizes each page on its first visit and caches it, cutting that wait to a second or less.
 - **Let AI do the work, but keep it editable on the canvas**. The AI design agent rewrites canvas elements directly rather than code. According to the official blog, the agent works while receiving layout positions and checks for accessibility, contrast and typography, and every change stays editable on the canvas.
 - **Start from a template**. In the official marketplace, community creators offer templates, plugins, components and vector sets, and creators keep 100% of the revenue from paid templates.
 
 :::fact
-According to the official engineering blog (2026-06-16), the AI agent takes roughly 40 to 100 seconds to generate a full page. With GPT-5.5, the token cost is about $3 for a full page and about $0.50 for a medium edit, and some users spent up to $300 building a complete site. A 2026-07-21 post reports cutting average session cost by 40-48%, among other things by bringing avoidable cache misses from 10-20% down to zero and reducing unnecessary tool calls.
+According to the official engineering blog (2026-06-16), the AI agent takes roughly 40 to 100 seconds to generate a full page. With GPT-5.5, the token cost is about $3 for a full page and about $0.50 for a medium edit, and some early testers spent up to $300 building a complete site they were happy to ship. A 2026-07-21 post reports cutting average session cost by 40-48%, among other things by bringing avoidable cache misses down to zero, dropping steps that only did bookkeeping, and shrinking diagnostic payloads by 30-45%.
 :::
 
 ## Tech stack
@@ -168,12 +171,16 @@ According to Motion's official blog (2024-11-12), Framer Motion was a React libr
 Framer's own site being served from the same servers, on the same version of the delivery stack, as its users' sites appears to reflect thorough dogfooding. Exposing A/B test assignments and cache status in server-timing likewise suggests that Framer's marketing team runs its site day to day with the same analytics and A/B testing features its users get. When your own site is the first to suffer if delivery is slow, that structure is likely what pushes delivery-side work such as the Rolldown migration and Traffic-aware Pre-Rendering.
 :::
 
-:::guess
-Letting Framer Motion go independent looks like the opposite of what competitor Webflow did when it bought the animation library GSAP along with its business and made it free. Yet both share one aim: keeping the library that powers site animations widely used by developers outside the company. Framer chose to stop owning it and stay involved as a sponsor, presumably letting Motion fund its development independently while Framer's product keeps using the results.
+:::fact
+For comparison, according to Webflow's official blog, competitor Webflow acquired the business behind the animation library GSAP in fall 2024, and later made GSAP 100% free for all users.
 :::
 
 :::guess
-Having the AI agent use a compact tree language and patch commands is likely because generative AI cost goes straight into cost of goods. At $3 a page and $300 for a whole site, wasted tokens eat directly into margin. The report of cutting average cost by more than 40% suggests that AI is not a free extra but a product sold as credits.
+Letting Framer Motion go independent looks like the opposite of that move by Webflow. Yet both share one aim: keeping the library that powers site animations widely used by developers outside the company. Framer chose to stop owning it and stay involved as a sponsor, presumably letting Motion fund its development independently while Framer's product keeps using the results.
+:::
+
+:::guess
+Having the AI agent use a compact tree language and patch commands is likely because generative AI cost goes straight into cost of goods. At $3 a page and up to $300 for a whole site, wasted tokens eat directly into margin. The report of cutting average cost by more than 40% suggests that AI is not a free extra but a product sold as credits.
 :::
 
 ## Business model
@@ -181,7 +188,7 @@ Having the AI agent use a compact tree language and patch commands is likely bec
 Framer's revenue comes from paid plans per site, editor seats, add-ons such as localization and A/B testing, and Enterprise contracts for large companies. The free plan lets people experience everything up to publishing, and charges begin as custom domains, page counts, bandwidth and editors grow.
 
 :::fact
-According to the pricing page (with yearly billing shown), paid plans are Basic at $10 a month (1,000 AI credits a month) and Pro at $30 a month (from 3,000 credits), with Enterprise priced by quote. Enterprise includes credits with volume discounts, custom limits, unlimited editors, SSO, SCIM and an uptime guarantee. Add-ons include localization at $20 a month per locale (up to 20 on Basic and Pro), Convert A/B testing at $50 per 500,000 events, and Advanced Hosting, which puts multiple sites under one domain, at $200.
+According to the pricing page (with yearly billing shown), paid plans are Basic at $10 a month (from 1,000 AI credits a month) and Pro at $30 a month (from 3,000 credits), with Enterprise priced by quote. Enterprise includes credits with volume discounts, custom limits, unlimited editors, SSO, SCIM and an uptime guarantee. Add-ons include localization at $20 a month per locale (up to 20 on Basic and Pro), Convert A/B testing at $50 per 500,000 events, and Advanced Hosting, which puts multiple sites under one domain, at $200.
 :::
 
 :::fact
