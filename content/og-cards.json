@@ -143,6 +143,14 @@
     "siteName": "Figma",
     "fetchedAt": "2026-08-06"
   },
+  "framer": {
+    "url": "https://www.framer.com/",
+    "title": "Framer: AI design agent",
+    "description": "Go from idea to launch with an agent that designs and builds on the canvas. Keep each change editable, with hosting, security, analytics, CMS, and SEO built in.",
+    "image": "https://framerusercontent.com/images/vt65Mbfi3w8ymfTyRfbmgM4Tyo.png",
+    "siteName": "Framer",
+    "fetchedAt": "2026-09-29"
+  },
   "freee": {
     "url": "https://www.freee.co.jp/",
     "title": "クラウド会計ソフト｜freee",
