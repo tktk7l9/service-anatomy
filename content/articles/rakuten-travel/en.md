@@ -12,7 +12,7 @@ serviceUrl: "https://travel.rakuten.co.jp/"
 # Affiliate link placeholder: the owner must join Rakuten Affiliate (https://affiliate.rakuten.co.jp/)
 # and create a Rakuten Travel link before enabling this block. Per the official guide
 # (https://travel.rakuten.co.jp/affiliate/guide/): 1% of the booking for lodging, packages,
-# overseas hotels/tours/flights and highway buses, 2% for rental cars and activities; paid in
+# overseas hotels/tours/flights and highway buses, 2% for rental cars and sightseeing experiences; paid in
 # Rakuten Cash (not cash); only the first booking after the click counts; the stay must be
 # completed by the end of the month after next. The ¥1,000-per-item cap of Rakuten Ichiba
 # does not apply to Travel.
@@ -28,7 +28,7 @@ techStack:
   - layer: "Public API"
     name: "Rakuten Web Service Travel API (VacantHotelSearch etc.)"
     confidence: confirmed
-    evidence: "The official Rakuten Web Service documentation lists the request URL (openapi.rakuten.co.jp/engine/api/Travel/VacantHotelSearch/20170426) and JSON/XML output formats of the \"Rakuten Travel Vacant Hotel Search API\" (version 2017-04-26). Adding an affiliateId to a request turns the returned booking URLs into Rakuten Affiliate commission links, and the page warns that heavy access in a short time can temporarily block use (HTTP 429)"
+    evidence: "The official Rakuten Web Service documentation lists the request URL (openapi.rakuten.co.jp/engine/api/Travel/VacantHotelSearch/20170426) and JSON/XML output formats of the \"Rakuten Travel Vacant Hotel Search API\" (version 2017-04-26). Adding an affiliateId to a request turns the returned booking URLs into Rakuten Affiliate commission links, and the page says exceeding the allowed number of requests returns HTTP 429 and asks callers to retry after a while"
     evidenceUrl: "https://webservice.rakuten.co.jp/documentation/vacant-hotel-search"
   - layer: "AI agent"
     name: "Rakuten AI (for Rakuten Travel)"
@@ -94,9 +94,6 @@ sources:
   - label: "Rakuten Group, Inc.: Rakuten Travel introduces a voice-analysis AI service into its consulting for properties (2026-02-26, Japanese)"
     url: "https://corp.rakuten.co.jp/news/press/2026/0226_03.html"
     accessedAt: "2026-09-29"
-  - label: "Rakuten Group, Inc.: Rakuten Travel announces the Rakuten Travel Award 2025 (2026-02-10, Japanese)"
-    url: "https://corp.rakuten.co.jp/news/press/2026/0210_01.html"
-    accessedAt: "2026-09-29"
   - label: "Rakuten Web Service: Rakuten Travel Vacant Hotel Search API (version 2017-04-26)"
     url: "https://webservice.rakuten.co.jp/documentation/vacant-hotel-search"
     accessedAt: "2026-09-29"
@@ -105,7 +102,7 @@ sources:
     accessedAt: "2026-09-29"
 ---
 
-Book the hotel for a family trip on Rakuten Travel, and your points on that month's Rakuten Ichiba shopping go up by one multiplier. Stay often enough, and certain hotels get cheaper still. From the traveler's side, the perks stack up layer on layer. So whose wallet pays for those points and discounts, for the top spots in search results, and for the rewards on referral links pasted into travel blogs? Read the official terms closely and a large part of the answer turns out to sit with the hotels.
+Book the hotel for a family trip on Rakuten Travel, and your points on that month's Rakuten Ichiba shopping go up by one multiplier. Stay often enough, and certain hotels get cheaper still. From the traveler's side, the perks stack up layer on layer. So whose wallet pays for those points and discounts, for the top spots in search results, and for the rewards on referral links pasted into travel blogs? Read the official terms and past reporting closely and a large part of the answer appears to sit with the hotels.
 
 ## Service overview
 
@@ -116,11 +113,11 @@ According to the aggregated information on Wikipedia, "Hotel no Madoguchi" was o
 :::
 
 :::fact
-Rakuten Group does not disclose revenue or gross transaction value for Rakuten Travel on its own. In the supplementary materials for Q2 FY2026, Rakuten Travel sits in the "core business" of domestic e-commerce alongside Rakuten Ichiba, Rakuten Rebates and Rakuten GORA. Domestic e-commerce gross transaction value (which counts lodging for Travel) was ¥1,532.2 billion (up 5.3% year on year), of which core business was ¥1,386.3 billion (up 5.6%), and the materials say "the travel business drove the growth in gross transaction value by capturing both domestic travel and inbound demand." Non-GAAP operating income for domestic e-commerce was ¥29.7 billion (up 30.8%), and the company credits "profit growth in the travel business" for part of the core business's gain. Across the group, monthly active users in Japan were 46.42 million (June 2026), and 77.0% of users used two or more services on which Rakuten points can be earned.
+Rakuten Group does not disclose revenue or gross transaction value for Rakuten Travel on its own. In the supplementary materials for Q2 FY2026, Rakuten Travel sits in the "core business" of domestic e-commerce alongside Rakuten Ichiba, Rakuten Rebates and Rakuten GORA. Domestic e-commerce gross transaction value (which counts lodging for Travel) was ¥1,532.2 billion (up 5.3% year on year), of which core business was ¥1,386.3 billion (up 5.6%), and the materials say "the travel business drove the growth in gross transaction value by capturing both domestic travel and inbound demand." Non-GAAP operating income for domestic e-commerce was ¥29.7 billion (up 30.8%), and the company credits "profit growth in the travel business" for part of the core business's gain. Across the group, monthly active users in Japan were 46.42 million (June 2026), and 77.0% of users of services that earn Rakuten points used two or more of them over the past 12 months (end of June 2026). The results highlights for the same quarter also say that AI-driven search-linked ads and targeted display ads on Rakuten Ichiba and Rakuten Travel contributed to revenue growth in the advertising business.
 :::
 
 :::pull
-Much of the value travelers receive rests on fees the hotels pay Rakuten Travel. And the structure is written into the fine print of the terms.
+Part of the value travelers receive is tied to an additional fee the hotels pay Rakuten Travel. And that is written into the fine print of the terms.
 :::
 
 ::scorecard
@@ -139,7 +136,7 @@ Rakuten Travel's UX is stronger at layering the rewards of staying a Rakuten mem
 ::techstack
 
 :::fact
-The official Rakuten Web Service documentation opens Rakuten Travel's hotel search and vacancy search to outside developers through public APIs. The "Rakuten Travel Vacant Hotel Search API" (version 2017-04-26) returns JSON or XML, and adding an affiliateId to the request turns the returned booking URLs straight into Rakuten Affiliate commission links. The page also notes that sending many requests in a short time can temporarily block use (HTTP 429). On the hotel side, Rakuten assigns dedicated staff to registered properties nationwide for consulting, and in February 2026 it introduced RevComm's voice-analysis AI "MiiTel" to analyze those conversations (press release, 2026-02-26).
+The official Rakuten Web Service documentation opens Rakuten Travel's hotel search and vacancy search to outside developers through public APIs. The "Rakuten Travel Vacant Hotel Search API" (version 2017-04-26) returns JSON or XML, and adding an affiliateId to the request turns the returned booking URLs straight into Rakuten Affiliate commission links. The page also says that exceeding the allowed number of requests returns HTTP 429 and asks callers to retry after a while. On the hotel side, Rakuten assigns dedicated staff to registered properties nationwide for consulting, and in February 2026 it introduced RevComm's voice-analysis AI "MiiTel" to analyze those conversations (press release, 2026-02-26).
 :::
 
 :::guess
@@ -148,10 +145,10 @@ In our own observation, the desktop top page is answered by Apache behind Akamai
 
 ## Business model
 
-Rakuten Travel is a marketplace that collects booking-based fees from properties. Its page for new partner properties promotes more than "100 million" Rakuten members in Japan and free use of a management console, booking notifications and regional data analytics, but describes the commission only as "reasonable" and gives no concrete rate.
+Rakuten Travel is a marketplace that collects fees from properties. Its page for new partner properties promotes more than "100 million" Rakuten members in Japan, free promotional tools such as a photo gallery and a customizable page, and support from an assigned consultant, but describes the commission only as "reasonable" and gives no concrete rate.
 
 :::fact
-The Kanko Keizai Shimbun (2013-09-28) reported the changed terms Rakuten Travel had notified its contracted properties of at the time. According to the article, base commission rates were 7% for an A contract, 8% for B and 9% for C, and under every contract the property also bore 1% to fund Rakuten Super Points. From January 2014, properties would additionally bear a 1% performance-based advertising fee plus a 0.3% system fee — 1.3% in total — on bookings via Rakuten Affiliate, and the article estimated a total of 9.3% on such bookings for an A-contract property. This is a report from 13 years ago; we could not find an official primary source showing the current rates.
+The Kanko Keizai Shimbun (2013-09-28) reported the changed terms Rakuten Travel had notified its contracted properties of at the time. According to the article, base commission rates were 7% for an A contract, 8% for B and 9% for C, and under every contract the property also bore 1% to fund Rakuten Super Points. From January 2014, properties would additionally bear a 1% performance-based advertising fee plus a 0.3% system fee — 1.3% in total — on bookings via Rakuten Affiliate, and the article estimated a total of 9.3% on such bookings for an A-contract property. Until then, Rakuten Travel itself had borne the performance-based advertising fee, and bookings via affiliates averaged about 20%. This is a report from 13 years ago; we could not find an official primary source showing the current rates.
 :::
 
 :::fact
@@ -159,11 +156,11 @@ On October 25, 2019, the Japan Fair Trade Commission approved a commitment plan 
 :::
 
 :::fact
-What referrers earn is public. According to Rakuten Travel's official guide, Rakuten Affiliate pays 1% of the booking amount for domestic lodging, packages, overseas hotels and flights, and highway buses, and 2% for rental cars and activities. The "¥1,000 per item" cap that applies to Rakuten Ichiba products does not apply to Travel. Rewards are paid in Rakuten Cash, only the first booking after a link click counts, and the stay must be completed by the end of the month after next from the booking date.
+What referrers earn is public. According to Rakuten Travel's official guide, Rakuten Affiliate pays 1% of the booking amount for domestic lodging, flight-and-hotel packages, overseas hotels, tours and flights, and highway buses, and 2% for rental cars and sightseeing experiences (JR Rakupack Akai Fusen is excluded). The "¥1,000 per item" cap that applies to Rakuten Ichiba products does not apply to Travel. Rewards are paid in Rakuten Cash, only the first booking after a link click counts, and the stay must be completed by the end of the month after next from the booking date.
 :::
 
 :::guess
-Laid side by side, Rakuten Travel's "value" appears to come in layers: the funding for the Rakuten points travelers earn, the additional fee a property pays to join the bonus program and be shown higher, and the reward paid to referring sites. As of the 2013 report, at least the point funding and the affiliate reward were borne by properties. Current rates are not public, but if the fee structure for properties has continued in a similar shape, much of the discount and points travelers receive is presumably built on fees paid by hotels. For Rakuten Group, the advantage of this design appears to be that tying travel bookings into Rakuten Ichiba's SPU links lodging — something people buy a few times a year — to the multiplier on everyday monthly shopping, making it an entry point that supports group-wide cross-use (77.0% of users use two or more services). On the other hand, once the 2019 commitment ended the practice of asking hotels for "rates more favorable than other channels," Rakuten Travel's means of staying ahead on price itself became limited, and one reading is that its weight shifted to "differences other than price": points, member ranks and top placement. The bonus program's switch from point rewards to discounts at booking may be an adjustment to compete with other channels on how the price looks on the booking screen, but the company has not explained the reason.
+Laid side by side, Rakuten Travel's "value" appears to come in layers: the funding for the Rakuten points travelers earn, the additional fee a property pays to join the bonus program and be shown higher, and the reward paid to referring sites. As of the 2013 report, at least the point funding and the affiliate reward were borne by properties. Current rates are not public, but if the fee structure for properties has continued in a similar shape, much of the discount and points travelers receive is presumably built on fees paid by hotels. For Rakuten Group, the advantage of this design appears to be that tying travel bookings into Rakuten Ichiba's SPU links lodging — something people buy a few times a year — to the multiplier on everyday monthly shopping, making it an entry point that supports group-wide cross-use (77.0% of users use two or more services). On the other hand, once the 2019 commitment ended the terms requiring hotels to make rates and room inventory "equal to or more favorable than" other channels, Rakuten Travel's means of staying ahead on price itself became limited, and one reading is that its weight shifted to "differences other than price": points, member ranks and top placement. The bonus program's switch from point rewards to discounts at booking may be an adjustment to compete with other channels on how the price looks on the booking screen, but the company has not explained the reason.
 :::
 
-Rakuten Travel is a place to find a hotel, and at the same time a device that adds one more reason each month to stay a Rakuten member. Behind the multipliers and discounts travelers receive are the fees hotels pay, and a disclosure that writes this into a note about search ranking. When you decide where to book the next family trip, reading that note changes what the order of the list means.
+Rakuten Travel is a place to find a hotel, and at the same time a device that adds one more reason each month to stay a Rakuten member. Behind some of the discounts travelers receive is an additional fee hotels pay, and a disclosure that writes this into a note about search ranking. When you decide where to book the next family trip, reading that note changes what the order of the list means.
