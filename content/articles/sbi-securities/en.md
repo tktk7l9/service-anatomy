@@ -1,8 +1,8 @@
 ---
 service: "SBI Securities"
-title: "Record Profits After Dropping Trading Fees to Zero — SBI Securities Moved the Trading of 16 Million Accounts to AWS and Earns From Margin Interest and a Web of Point Partnerships"
-description: "Two and a half years after its \"Zero Revolution\" made online Japanese stock trading commissions permanently free in September 2023, SBI Securities became the first Japanese broker to pass 16 million accounts and posted a record ¥284.6 billion in operating revenue for the fiscal year ended March 2026. A dissection — from its earnings presentation, press releases, and our own observation — of how commissions shrank to just over a tenth of revenue, how its trading system handling over ¥2 trillion a day moved to AWS and is run with AWS CDK and AWS FIS, the partner network it built on five selectable point programs and credit card investing, and an affiliate program that pays ¥286 per account application."
-lead: "In August 2023, SBI Securities announced what it called the \"Zero Revolution\": online commissions on Japanese stocks would become permanently free, regardless of trade size, for both cash and margin trades. If a broker throws away the fee that used to be its signboard, what does it earn from instead? It moved the front door of trading to the cloud, connected to other companies' customer bases through points and cards, and leads Japan in account numbers. This is a dissection of how a full-line online broker for individual investors is built and how it makes money."
+title: "Record Profits After Dropping Trading Fees to Zero — SBI Securities, With 16 Million Accounts, Moved Its Japanese Stock Trading System to AWS and Earns From Margin Interest and a Web of Point Partnerships"
+description: "Two and a half years after its \"Zero Revolution\" made online Japanese stock trading commissions permanently free in September 2023, SBI Securities became the first Japanese online broker to pass 16 million accounts and posted a record ¥284.6 billion in operating revenue for the fiscal year ended March 2026. A dissection — from its earnings presentation, press releases, and our own observation — of how commissions make up just over a tenth of revenue, how its trading system handling over ¥2 trillion a day moved to AWS and is run with AWS CDK and AWS FIS, the partner network it built on five selectable point programs and credit card investing, and an affiliate program that pays ¥286 per account application."
+lead: "In August 2023, SBI Securities announced what it called the \"Zero Revolution\": online commissions on Japanese stocks would become permanently free, regardless of trade size, for both cash and margin trades. If a broker throws away the fee that used to be its signboard, what does it earn from instead? It moved the front door of trading to the cloud, connected to other companies' customer bases through points and cards, and leads Japan's online brokers in account numbers. This is a dissection of how a full-line online broker for individual investors is built and how it makes money."
 category: consumer-app
 tags: [fintech, securities, investing, nisa, aws, points]
 publishedAt: "2026-09-29"
@@ -40,12 +40,12 @@ techStack:
   - layer: "Service connectivity"
     name: "AWS PrivateLink"
     confidence: confirmed
-    evidence: "The press release states that connections between the VPC and AWS services are established with AWS PrivateLink"
+    evidence: "The press release states that AWS PrivateLink, which connects the VPC to AWS services, is used to establish secure private connections with companies inside and outside the SBI Group, such as SBI Shinsei Bank and Osaka Digital Exchange"
     evidenceUrl: "https://prtimes.jp/main/html/rd/p/000001838.000004612.html"
   - layer: "Engineering organization"
-    name: "SBI Simplex Solutions (in-house engineering, about 600 engineers)"
+    name: "SBI Simplex Solutions (in-house engineering joint venture)"
     confidence: confirmed
-    evidence: "According to a Cloud Watch report (2024-05-16), the migration was led by SBI Simplex Solutions with an engineering team of about 600 people, and moved just under 1,000 servers, the front-end portion of the online trading system for Japanese stocks, in about one year and four months"
+    evidence: "According to a Cloud Watch report (2024-05-16), the migration was led by SBI Simplex Solutions with an engineering team of about 600 people, and moved just under 1,000 servers, the front-end portion of the online trading system for Japanese stocks called Genesis, in about one year and four months from the project announcement. The company is a joint venture of SBI Securities and Simplex Holdings"
     evidenceUrl: "https://cloud.watch.impress.co.jp/docs/case/1591461.html"
   - layer: "Web delivery"
     name: "Amazon CloudFront + Application Load Balancer"
@@ -91,7 +91,7 @@ For a long time, a brokerage made its money by taking a fee on every trade. Onli
 
 ## Service overview
 
-SBI Securities is a full-line online broker for individual investors, offering Japanese and US stocks, mutual funds, bonds, FX, futures and options, iDeCo (Japan's individual defined-contribution pension), and more through the web and apps. It is a subsidiary of SBI Holdings and also underwrites initial public offerings (IPOs).
+SBI Securities is a full-line online broker for individual investors, offering Japanese and US stocks, mutual funds, bonds, FX, futures and options, iDeCo (Japan's individual defined-contribution pension), and more through the web and apps. It is part of the SBI Holdings group and also underwrites initial public offerings (IPOs).
 
 :::fact
 According to Wikipedia, SBI Securities traces back to Osawa Securities, founded in March 1944. It was renamed E\*Trade Securities in April 1999 and began online trading that year, became SBI E\*Trade Securities in July 2006, and took its current name, SBI SECURITIES Co., Ltd., on July 1, 2008. According to its earnings presentation (2026-05-01), its securities accounts passed 15 million in November 2025, a first for a Japanese online broker, and 16 million in May 2026. Customer assets at the end of March 2026 were about ¥66 trillion, up 41% year on year. For the fiscal year ended March 2026, operating revenue was ¥284.6 billion and operating income ¥86.8 billion, both record highs.
@@ -112,8 +112,8 @@ Dropping the commission to zero did not remove the ways to make money. SBI made 
 SBI Securities' UX is built on not making customers pay the first yen, and on letting them bring the points and cards of other companies with them. At the same time, the sheer number of services it has accumulated over the years shows up directly in how its screens and apps are split.
 
 - **Remove commissions from the reasons to compare.** By making Japanese stock commissions permanently free with one condition, it removed the need to check what a trade will cost. Because that condition is electronic delivery, it also nudges customers away from paper documents.
-- **Let customers pick the points of their own daily life.** According to the official points page, the main point program can be chosen from five: V Point, Ponta Points, d Points, PayPay Points, and JAL miles. Points are earned through the "mutual fund mileage" program based on average fund holdings, and through Japanese stock trading. V Point and Ponta Points can be used to invest, buying mutual funds from 100 points, including in NISA (Japan's tax-free investment account).
-- **Put regular investing on the credit card.** The same page says credit card mutual fund investing earns up to 4% in points on the amount invested. It turns the monthly contribution into something that feels like an ordinary card payment.
+- **Let customers pick the points of their own daily life.** According to the official points page, the main point program can be chosen from five: V Point, Ponta Points, d Points, PayPay Points, and JAL miles. Points are earned through the "mutual fund mileage" program based on average fund holdings, and through Japanese stock trading. Two of them, V Point and Ponta Points, can be used to invest: mutual funds from 100 points and Japanese stocks from a few hundred points, including in NISA (Japan's tax-free investment account).
+- **Put regular investing on the credit card.** The same page says credit card mutual fund investing earns up to 4% in points on the amount invested (the 4% applies to the Sumitomo Mitsui Card Visa Infinite when certain conditions are met). It turns the monthly contribution into something that feels like an ordinary card payment.
 - **Split apps by purpose.** According to the earnings presentation, the company redesigned its "Kantan Tsumitate" (easy regular investing) app in November 2025, launched the PC FX trading tool HYPER SBI FX the same month, and launched the asset management app "SBI Securities Plus" in February 2026. In January and February 2026 it also renewed its foreign stock and gold, silver, and platinum trading sites.
 
 :::guess
@@ -129,15 +129,15 @@ According to the AWS press release of April 23, 2024, SBI Securities moved its o
 :::
 
 :::fact
-According to a Cloud Watch report (2024-05-16), what was moved was the front-end portion of the online trading system for Japanese stocks: just under 1,000 servers, over about one year and four months. The project was led by SBI Simplex Solutions, a company formed by SBI Securities and Simplex Holdings, with an engineering team of about 600 people. An Availability Zone switchover now takes about eight minutes.
+According to a Cloud Watch report (2024-05-16), what was moved was the front-end portion of the online trading system for Japanese stocks, called Genesis: just under 1,000 servers, in about one year and four months from the project announcement. The migration was basically a lift from on-premises to EC2 instances, and the applications that ran on premises were built with almost no changes and run on EC2. The project was led by SBI Simplex Solutions, a joint venture of SBI Securities and Simplex Holdings, with an engineering team of about 600 people. Availability Zone switchovers during failures are also done with AWS CDK and now take about eight minutes.
 :::
 
 :::fact
-In our observation (2026-09-29), responses from www.sbisec.co.jp passed through CloudFront and set AWSALB, a cookie used by AWS load balancers. At the same time, the top page redirected to a path called /ETGate/, set JSESSIONID, the session cookie of Java servlet containers, and served HTML in Windows-31J, a Shift_JIS variant. Static JavaScript was delivered from Akamai at sbisec.akamaized.net, and the script of the on-site engagement tool KARTE was loaded as well.
+In our observation (2026-09-29), responses from www.sbisec.co.jp passed through CloudFront and set AWSALB, a cookie used by AWS load balancers. At the same time, the top page redirected to a path called /ETGate/, set JSESSIONID, the session cookie of Java servlet containers, and served HTML in Windows-31J, a Shift_JIS variant. Much of the layout JavaScript, CSS, and images was delivered from Akamai at sbisec.akamaized.net, and the script of the on-site engagement tool KARTE was loaded as well.
 :::
 
 :::guess
-That Windows-31J HTML and long-standing URLs such as /ETGate/ remain in front of the new cloud platform suggests the migration started as a "move" rather than a "rebuild." To move a system handling over ¥2 trillion of trades a day without stopping it, swapping only the platform underneath while leaving screens and URLs unchanged keeps the impact on customers and the risk small. Putting infrastructure as code and deliberate failure testing in place first is likely the groundwork for repeating the same process when the screens and business systems are rebuilt later.
+That Windows-31J HTML and long-standing URLs such as /ETGate/ remain in front of the new cloud platform suggests the migration started as a "move" rather than a "rebuild." That fits the Cloud Watch report that the applications were moved to EC2 almost unchanged. To move a system handling over ¥2 trillion of trades a day without stopping it, swapping only the platform underneath while leaving screens and URLs unchanged keeps the impact on customers and the risk small. Putting infrastructure as code and deliberate failure testing in place first is likely the groundwork for repeating the same process when the screens and business systems are rebuilt later.
 :::
 
 ## Business model
@@ -145,11 +145,11 @@ That Windows-31J HTML and long-standing URLs such as /ETGate/ remain in front of
 SBI Securities' revenue rests on several pillars beyond trading commissions: financial revenue such as margin interest, trading gains on bonds and foreign exchange, IPO underwriting, and trust fees on mutual funds.
 
 :::fact
-According to the earnings presentation, the revenue mix for the fiscal year ended March 2026 was 11.5% commissions, 42.4% financial revenue, 5.0% underwriting and selling fees, 19.9% trading gains, and 21.3% other. Financial revenue rose 40.2% year on year to ¥120.5 billion, of which ¥63.0 billion came from margin trading. Margin accounts numbered about 1.95 million. Commissions, including futures, options, and foreign stocks, were ¥32.7 billion, and brokerage trading value in Japanese stocks rose 47.4% to ¥534 trillion. In IPOs, it took part in underwriting 52 of the 54 listings in the period, a participation rate of 96.3%.
+According to the earnings presentation, the revenue mix for the fiscal year ended March 2026 was 11.5% commissions, 42.4% financial revenue, 5.0% underwriting and selling fees, 19.9% trading gains, and 21.3% other. Financial revenue rose 40.2% year on year to ¥120.5 billion, of which ¥63.0 billion came from margin trading. Margin accounts numbered about 1.95 million. Commissions, including futures, options, and foreign stocks, rose 9.6% to ¥32.7 billion, and brokerage trading value in Japanese stocks rose 47.4% to ¥534 trillion. In IPOs, it took part in underwriting 52 of the 54 listings in the period, a participation rate of 96.3%.
 :::
 
 :::fact
-The same presentation puts customer assets at about ¥66 trillion, accounts with regular mutual fund investing at about 3.87 million, and NISA purchases at ¥2.41 trillion for January to March 2026 (up 27.2% year on year). Its highlights for the fiscal year ended March 2026 include a business alliance with SMBC Group for asset management services on Olive, a retail alliance with au Financial Group, and "SBI Hyper Deposit," an automatic sweep of cash balances with SBI Shinsei Bank, which passed ¥1 trillion in January 2026. The Zero Revolution release calls these tie-ups its "open alliance" strategy, and its support for many points and cards its "multi-point" and "multi-card" strategies.
+The same presentation puts customer assets at about ¥66 trillion, accounts with regular mutual fund investing at about 3.87 million, and NISA purchases at ¥2.41 trillion for January to March 2026 (up 27.2% year on year). Its highlights for the fiscal year ended March 2026 include a business alliance with SMBC Group for asset management services on Olive, a retail alliance with au Financial Group, and "SBI Hyper Deposit," an automatic sweep of cash balances with SBI Shinsei Bank, which passed ¥1 trillion in January 2026. The 2023 Zero Revolution release calls its partnerships with companies across many industries an "open alliance" strategy, under which it has pursued "multi-point" and "multi-card" strategies supporting many points and cards.
 :::
 
 :::fact
