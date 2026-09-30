@@ -1,6 +1,6 @@
 ---
 service: "Yayoi Blue Return Online (Yayoi)"
-title: "Free for Year One, Half the Rivals' Price After — Yayoi Prices by Phone Support, Not Features, and Keeps Half of Japan's Cloud Tax Filers"
+title: "Free for Year One, ¥11,800 a Year After — Yayoi Prices by Phone Support, Not Features, and Keeps Half of Japan's Cloud Tax Filers"
 description: "Yayoi has led Japan's cloud accounting software for sole proprietors for 11 straight years. Its cheapest plan that can file consumption-tax returns costs ¥11,800 a year before tax — about half of freee, or of Money Forward from December 2026 — and nothing in the first year. We dissect a price list that splits three plans only by how much support you get, the January 2026 price revision, and the customer base carried over from packaged software under KKR ownership, using the MM Research Institute survey, the official site, press releases and the official developer blog. We also read the generations in its stack: a filing app that appears to run on ASP.NET and Azure, newer services built with Next.js and GraphQL, and the sibling product Misoca running in containers on AWS."
 lead: "More than half of the sole proprietors who file their taxes with cloud software in Japan use Yayoi. MM Research Institute's survey as of March 2026 puts it at 54.0%, first place for 11 years running since the survey began. Its cheapest plan that also handles consumption-tax returns is ¥11,800 a year before tax, and the first year is free. At freee, the plan that can file consumption tax costs over ¥20,000 a year, and Money Forward's rises above ¥20,000 for renewals from December 2026. So how does Yayoi stay on top at half the price? We dissect it from how the price list is cut, and from what the filing app reveals about itself."
 category: saas
@@ -9,13 +9,9 @@ publishedAt: "2026-09-29"
 updatedAt: "2026-09-29"
 lastVerified: "2026-09-29"
 serviceUrl: "https://www.yayoi-kk.co.jp/shinkoku/aoiroshinkoku/"
-# Affiliate link placeholder: Yayoi's program is available on Moshimo Affiliate
-# without review. The owner must get the tracking link from the Moshimo
-# dashboard before enabling this block.
-# Keep the url identical in ja.md and en.md (parity.ts checks it).
-# affiliate:
-#   url: "https://af.moshimo.com/af/c/click?a_id=<a_id>&p_id=<p_id>&pc_id=<pc_id>&pl_id=<pl_id>"
-#   program: "Yayoi Affiliate Program (Moshimo Affiliate)"
+affiliate:
+  url: "https://af.moshimo.com/af/c/click?a_id=5825559&p_id=914&pc_id=1138&pl_id=38628"
+  program: "Yayoi Affiliate Program (Moshimo Affiliate)"
 vendor: "Yayoi Co., Ltd."
 origin: "JP"
 heroTheme: "yayoi"

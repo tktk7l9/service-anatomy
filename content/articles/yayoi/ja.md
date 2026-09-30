@@ -1,6 +1,6 @@
 ---
 service: "やよいの青色申告 オンライン（弥生）"
-title: "1年目は0円、2年目も他社の半額 — 弥生は機能ではなく電話サポートで値段を分け、クラウド申告の半分を握り続ける"
+title: "1年目は0円、2年目からも年11,800円（税抜） — 弥生は機能ではなく電話サポートで値段を分け、クラウド申告の半分を握り続ける"
 description: "個人事業主向けクラウド会計ソフトで11年連続シェア首位の弥生。消費税申告までできる最安プランの年額は11,800円（税抜）で、freeeや12月以降のマネーフォワードの約半分、しかも初年度は0円だ。3つのプランを機能ではなくサポートの厚さだけで分ける値段の組み立て、2026年1月の料金改定、インストール型から続く顧客基盤とKKR傘下での投資を、MM総研の調査、公式サイト、プレスリリース、公式開発者ブログから解剖する。ASP.NETとAzureで動くとみられる申告アプリと、Next.jsとGraphQLで作る新しいサービス、AWSのコンテナで動く姉妹製品Misocaという世代の違いも読む。"
 lead: "クラウドで確定申告をする個人事業主の半分以上が、弥生を使っている。MM総研の2026年3月末の調査で54.0%、調査開始から11年続けて首位だ。消費税申告までできる一番安いプランは年11,800円（税抜）で、しかも1年目は0円。freeeで消費税申告ができるプランは年2万円台で、マネーフォワードも2026年12月以降の更新から2万円台に上がる。弥生はなぜ、その半分の値段で首位にいられるのか。料金表の分け方と、申告アプリの中身から解剖する。"
 category: saas
@@ -9,13 +9,9 @@ publishedAt: "2026-09-29"
 updatedAt: "2026-09-29"
 lastVerified: "2026-09-29"
 serviceUrl: "https://www.yayoi-kk.co.jp/shinkoku/aoiroshinkoku/"
-# Affiliate link placeholder: Yayoi's program is available on Moshimo Affiliate
-# without review. The owner must get the tracking link from the Moshimo
-# dashboard before enabling this block.
-# Keep the url identical in ja.md and en.md (parity.ts checks it).
-# affiliate:
-#   url: "https://af.moshimo.com/af/c/click?a_id=<a_id>&p_id=<p_id>&pc_id=<pc_id>&pl_id=<pl_id>"
-#   program: "Yayoi Affiliate Program (Moshimo Affiliate)"
+affiliate:
+  url: "https://af.moshimo.com/af/c/click?a_id=5825559&p_id=914&pc_id=1138&pl_id=38628"
+  program: "Yayoi Affiliate Program (Moshimo Affiliate)"
 vendor: "Yayoi Co., Ltd."
 origin: "JP"
 heroTheme: "yayoi"
