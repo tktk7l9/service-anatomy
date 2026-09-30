@@ -397,6 +397,14 @@
     "siteName": "Spotify",
     "fetchedAt": "2026-08-06"
   },
+  "square": {
+    "url": "https://squareup.com/jp/ja",
+    "title": "Square（スクエア）| 初期費用無料のキャッシュレス決済、POSレジ",
+    "description": "初期費用・月額固定費0円のSquare。クレジットカード・QRコード・電子マネー決済に対応、決済手数料2.5%〜。POSレジ・ネットショップ・顧客管理・予約管理までひとつのアカウントで。最短当日から利用開始。",
+    "image": "https://images.ctfassets.net/2d5q1td6cyxq/jrWlRHtzUuN9qPX7CEGuY/2c5ece49c697c5da6242ff00b86c3263/PD05450_-_USEN_hp_social_share.png?w=1200&h=630&fit=thumb&fm=jpg&q=90",
+    "siteName": "Square",
+    "fetchedAt": "2026-09-30"
+  },
   "stripe": {
     "url": "https://stripe.com/",
     "title": "Stripe | 収益向上のための金融インフラ",
