@@ -2,14 +2,16 @@
 // Performance regression guard for CI. Thresholds are set more conservatively than production
 // measurements — GitHub Actions shared runners have volatile throughput, and thresholds close to
 // the measured values fail flakily. On top of that a single run can swing by nearly 20 points on a
-// busy runner (observed: 94→72 on identical code), so we judge by the median of 3 runs.
+// busy runner (observed: 94→72 on identical code), so we judge by the median of several runs.
+// Production measures ~88 on mobile; CI medians of 3 runs on unchanged code ranged 76–89 over
+// 2026-09-28/29 and failed the old 80 threshold three times, so it is now 75 with 5 runs.
 import { execFileSync } from "node:child_process";
 import { readFileSync, unlinkSync } from "node:fs";
 
 const URL = process.argv[2] ?? "http://localhost:3000/ja";
 const OUT = "/tmp/lighthouse-ci-report.json";
-const THRESHOLDS = { performance: 80, accessibility: 95, "best-practices": 90, seo: 95 };
-const RUNS = 3;
+const THRESHOLDS = { performance: 75, accessibility: 95, "best-practices": 90, seo: 95 };
+const RUNS = 5;
 // Attempts per measurement when a run fails to start (flake mitigation; a real failure fails them all)
 const ATTEMPTS_PER_RUN = 3;
 
