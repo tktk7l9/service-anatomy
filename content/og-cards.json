@@ -84,6 +84,14 @@
     "siteName": "カラーミーショップ | ECサイト構築サービス",
     "fetchedAt": "2026-09-29"
   },
+  "conoha-wing": {
+    "url": "https://www.conoha.jp/wing/",
+    "title": "レンタルサーバーConoHa WING｜国内最速・稼働率99.99%以上・独自ドメイン2個無料",
+    "description": "レンタルサーバーはConoHa WING。稼働率99.99%以上、国内最速処理速度、独自ドメイン無料2個つきの圧倒的コスパ。WordPressかんたんセットアップで最短10分開設。",
+    "image": "https://www.conoha.jp/wing_59681/common/images/og.jpg",
+    "siteName": "ConoHa",
+    "fetchedAt": "2026-09-30"
+  },
   "cursor": {
     "url": "https://cursor.com/",
     "title": "Cursor: AI coding agent",
@@ -397,6 +405,14 @@
     "siteName": "Spotify",
     "fetchedAt": "2026-08-06"
   },
+  "square": {
+    "url": "https://squareup.com/jp/ja",
+    "title": "Square（スクエア）| 初期費用無料のキャッシュレス決済、POSレジ",
+    "description": "初期費用・月額固定費0円のSquare。クレジットカード・QRコード・電子マネー決済に対応、決済手数料2.5%〜。POSレジ・ネットショップ・顧客管理・予約管理までひとつのアカウントで。最短当日から利用開始。",
+    "image": "https://images.ctfassets.net/2d5q1td6cyxq/jrWlRHtzUuN9qPX7CEGuY/2c5ece49c697c5da6242ff00b86c3263/PD05450_-_USEN_hp_social_share.png?w=1200&h=630&fit=thumb&fm=jpg&q=90",
+    "siteName": "Square",
+    "fetchedAt": "2026-09-30"
+  },
   "stripe": {
     "url": "https://stripe.com/",
     "title": "Stripe | 収益向上のための金融インフラ",
@@ -419,6 +435,13 @@
     "image": "https://supabase.com/images/og/supabase-og.png",
     "siteName": "Supabase",
     "fetchedAt": "2026-08-06"
+  },
+  "techacademy": {
+    "url": "https://techacademy.jp/",
+    "title": "TechAcademy [テックアカデミー]",
+    "description": "大切なのは、誰から学ぶか。選抜された現役エンジニアから学ぶならテックアカデミー。",
+    "image": "https://techacademy.jp/_nuxt/ogp/og-image.jpg",
+    "fetchedAt": "2026-09-30"
   },
   "temu": {
     "url": "https://www.temu.com/",
