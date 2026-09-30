@@ -84,6 +84,14 @@
     "siteName": "カラーミーショップ | ECサイト構築サービス",
     "fetchedAt": "2026-09-29"
   },
+  "conoha-wing": {
+    "url": "https://www.conoha.jp/wing/",
+    "title": "レンタルサーバーConoHa WING｜国内最速・稼働率99.99%以上・独自ドメイン2個無料",
+    "description": "レンタルサーバーはConoHa WING。稼働率99.99%以上、国内最速処理速度、独自ドメイン無料2個つきの圧倒的コスパ。WordPressかんたんセットアップで最短10分開設。",
+    "image": "https://www.conoha.jp/wing_59681/common/images/og.jpg",
+    "siteName": "ConoHa",
+    "fetchedAt": "2026-09-30"
+  },
   "cursor": {
     "url": "https://cursor.com/",
     "title": "Cursor: AI coding agent",
