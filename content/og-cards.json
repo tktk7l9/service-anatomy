@@ -191,6 +191,14 @@
     "siteName": "Ghost - The Professional Publishing Platform",
     "fetchedAt": "2026-08-06"
   },
+  "hostinger": {
+    "url": "https://www.hostinger.com/",
+    "title": "Hostinger - Bring Your Idea Online With a Website",
+    "description": "Choose Hostinger and make the perfect site. From Shared Hosting and Domains to VPS and Cloud plans. We have all you need for online success.",
+    "image": "https://www.hostinger.com/og-image.png",
+    "siteName": "Hostinger",
+    "fetchedAt": "2026-09-30"
+  },
   "klarna": {
     "url": "https://www.klarna.com/",
     "title": "Klarnaをビジネスに | Klarna Japan",
