@@ -1,0 +1,184 @@
+---
+service: "カラーミーショップ"
+title: "値上げの理由は「サーバー機器」— 自前のクラウドで21年続くカラーミーショップの採算"
+description: "GMOペパボが2005年から提供するネットショップ作成サービス「カラーミーショップ」。契約件数は4.7万件へじわじわ減り、売上はほぼ横ばいなのに、営業利益率は4割を超えた。2026年11月にレギュラー・ラージプランを値上げする理由として挙げた「サーバー機器の調達・運用コスト」を手がかりに、決算説明資料、公式の料金ページと告知、公式技術ブログから、OpenStackの自社クラウドとAmazon RDSを組み合わせた基盤と、リモートMCPサーバーへの対応を解剖する。"
+lead: "2026年9月9日、カラーミーショップは料金改定を告知した。11月1日以降の契約更新から、レギュラープランは月額4,950円が5,940円に、ラージプランは9,595円が11,000円になる。理由は「サーバー機器の調達・運用をはじめとするインフラコスト」の増加だという。多くのSaaSがパブリッククラウドの上で動くなか、なぜサーバー機器の値段が効いてくるのか。GMOペパボの決算資料と、自社クラウドの上で動く基盤の作りから解剖する。"
+category: saas
+tags: [e-commerce, small-business, php, mysql, mcp]
+publishedAt: "2026-09-29"
+updatedAt: "2026-09-29"
+lastVerified: "2026-09-29"
+serviceUrl: "https://shop-pro.jp/"
+# Affiliate link placeholder: the owner must join the ColorMe Shop promotion on Moshimo Affiliate
+# before enabling this block. A third-party ASP index
+# (https://media-analytics.jp/affisearch/promotions/color-me-shop) lists it on Moshimo at ¥800 per
+# new sign-up; confirm the current terms on the Moshimo dashboard, then paste the click URL here.
+# Keep the url identical in ja.md and en.md (parity.ts checks it).
+# affiliate:
+#   url: "https://af.moshimo.com/af/c/click?a_id=<a_id>&p_id=<p_id>&pc_id=<pc_id>&pl_id=<pl_id>"
+#   program: "ColorMe Shop Affiliate Program (Moshimo Affiliate)"
+vendor: "GMO Pepabo, Inc."
+origin: "JP"
+heroTheme: "colorme-shop"
+scores: { product: 3.5, ux: 3.5, tech: 3.5, business: 3.5 }
+techStack:
+  - layer: "Webアプリケーション"
+    name: "PHP"
+    confidence: confirmed
+    evidence: "公式技術ブログ（2021-04）に、カラーミーショップのサーバーサイドエンジニアが「PHPアプリケーション」をKubernetesへ移設するために学んだことが書かれ、ユーザーが直接触るロールで初めてメルマガ機能をKubernetes化したと明記。当サイトの実観測（2026-09-29）でも、管理画面 admin.shop-pro.jp はPHPのセッションCookie（PHPSESSID）を返す"
+    evidenceUrl: "https://tech.pepabo.com/2021/04/01/learn-kubernetes/"
+  - layer: "インフラ（自社クラウド）"
+    name: "OpenStack / Kubernetes (private cloud Nyah)"
+    confidence: confirmed
+    evidence: "公式技術ブログ（2024-05）に、OpenStackを使ったプライベートクラウド「Nyah」の上にアプリケーションを動かすVMとKubernetes Nodeを構築しており、これによってパブリッククラウドよりも運用コストを大幅に抑えられていると明記。当サイトの実観測（2026-09-29）では、api.shop-pro.jp の解決先IPアドレスのwhois上のネットワーク名が PEPABO-NYAH だった。一方、管理画面 admin.shop-pro.jp はAWS東京リージョンのIPアドレス3つに解決された"
+    evidenceUrl: "https://tech.pepabo.com/2024/05/13/colrome-db-upgrade/"
+  - layer: "データベース"
+    name: "Amazon RDS for MySQL + AWS Direct Connect"
+    confidence: confirmed
+    evidence: "同じ公式技術ブログ（2024-05）に、マスターDBはAmazon RDS for MySQLにあり、RDSのリードレプリカ4台とNyah上のDB 3台を持つハイブリッドクラウド構成で、AWSとNyahはAWS Direct Connectでつないでいると明記。MySQL 5.7.44から8.0.35へのアップグレードは午前0〜6時のサービス停止メンテナンスで行い、プライマリDBは1時間程度で上がったとも書かれている。2020年7月の記事の時点では、DBはNyah上のVMで動いていた"
+    evidenceUrl: "https://tech.pepabo.com/2024/05/13/colrome-db-upgrade/"
+  - layer: "管理画面フロントエンド"
+    name: "Vue 3 + Vite"
+    confidence: confirmed
+    evidence: "公式技術ブログ（2025-07）に、管理画面をVue 3へ移行中であること、DOM APIを直接使う手続き的なUIを、Vue.jsとViteで作ったCustom Elementに少しずつ置き換えていること、Nuxtなどへの全面移行は現時点では難しいと判断したことが明記"
+    evidenceUrl: "https://tech.pepabo.com/2025/07/07/progressive-frontend-update/"
+  - layer: "公開API"
+    name: "REST API (OAuth 2.0 / OpenAPI)"
+    confidence: confirmed
+    evidence: "公式技術ブログ（2024-01）に、カラーミーショップAPIはOAuth 2.0で認可し（api.shop-pro.jp/oauth/authorize）、OpenAPIの仕様書（api.shop-pro.jp/v1/spec/open_api.json）を公開しており、これをOpenAIのGPTsに読み込ませてショップ運営アシスタントを作ったと明記"
+    evidenceUrl: "https://tech.pepabo.com/2024/01/11/colormeshop-and-openai-gpts/"
+  - layer: "AIエージェント連携"
+    name: "Remote MCP server (AI Connector)"
+    confidence: confirmed
+    evidence: "GMOペパボのプレスリリース（2026-03-09）に、アプリストアの「AIコネクター」を入れると外部のAIアプリとリモートMCPサーバーでつながり、対話で商品管理・受注管理などを行えると明記。同社調べ（2026-03-05時点・国内提供の総合・汎用ASPカート7社比較）で国内ECカート構築サービス初としている"
+    evidenceUrl: "https://pepabo.com/news/press/202603091300/"
+  - layer: "API層のフレームワーク"
+    name: "Ruby on Rails"
+    confidence: likely
+    evidence: "当サイトの実観測（2026-09-29）で、api.shop-pro.jp の応答に、Railsが既定で付ける X-Runtime・X-Request-Id・X-Download-Options・X-Permitted-Cross-Domain-Policies のヘッダーがそろって付いていた（secure.shop-pro.jp も X-Runtime・X-Request-Id・X-Permitted-Cross-Domain-Policies を返す）。PHPの管理画面とは別に、API側はRailsで動いているとみられる"
+  - layer: "サービスサイト配信"
+    name: "Amazon CloudFront + Amazon S3"
+    confidence: likely
+    evidence: "当サイトの実観測（2026-09-29）で、紹介サイト shop-pro.jp の応答に via（CloudFront）・x-amz-cf-pop（NRT）・x-cache: Hit from cloudfront・x-amz-server-side-encryption が付いていた"
+  - layer: "アプリストア"
+    name: "Heroku"
+    confidence: likely
+    evidence: "当サイトの実観測（2026-09-29）で、アプリストア app.shop-pro.jp は herokudns.com へのCNAMEで、server: Heroku と x-powered-by: Express を返した"
+sources:
+  - label: "GMOペパボ株式会社: 2026年12月期 第2四半期 決算説明資料（2026-08-13）"
+    url: "https://www.nikkei.com/markets/ir/irftp/data/tdnr/tdnetg3/20260813/g2rw0w/140120260813519264.pdf"
+    accessedAt: "2026-09-29"
+  - label: "GMOペパボ株式会社: 2023年12月期 第3四半期 決算説明資料（2023-11-13）"
+    url: "https://pdf.pepabo.com/presentation/20231113p.pdf"
+    accessedAt: "2026-09-29"
+  - label: "カラーミーショップ公式: プラン・料金一覧"
+    url: "https://shop-pro.jp/plans/"
+    accessedAt: "2026-09-29"
+  - label: "カラーミーショップ公式: フリープラン"
+    url: "https://shop-pro.jp/plans/free/"
+    accessedAt: "2026-09-29"
+  - label: "カラーミーショップ公式: 【重要】レギュラー／ラージプランご利用料金の改定に関するご案内（2026-09-09）"
+    url: "https://shop-pro.jp/news/202611-pricing-notice"
+    accessedAt: "2026-09-29"
+  - label: "カラーミーショップ デベロッパー: カラーミーショップの月額料金が2022年4月5日以降変更されます（2022-01-21）"
+    url: "https://developer.shop-pro.jp/news/releases/renewal_colorme_plans"
+    accessedAt: "2026-09-29"
+  - label: "カラーミーショップ デベロッパー: トップ（アプリストア）"
+    url: "https://developer.shop-pro.jp/"
+    accessedAt: "2026-09-29"
+  - label: "カラーミーショップ アプリストア: カラーミーショップ AIコネクター"
+    url: "https://app.shop-pro.jp/apps/956"
+    accessedAt: "2026-09-29"
+  - label: "GMOペパボ: 国内ECカート構築サービス初、「カラーミーショップ byGMOペパボ」が「AIコネクター」（リモートMCPサーバー）を提供開始（2026-03-09）"
+    url: "https://pepabo.com/news/press/202603091300/"
+    accessedAt: "2026-09-29"
+  - label: "Pepabo Tech Portal: ポストコロナの商売を支えるカラーミーショップのアーキテクチャ（2020-07）"
+    url: "https://tech.pepabo.com/2020/07/02/colorme-shop-re-architecting-2020/"
+    accessedAt: "2026-09-29"
+  - label: "Pepabo Tech Portal: サーバーサイドエンジニアがPHPアプリケーションをKubernetesに移設するために学習したこと（2021-04）"
+    url: "https://tech.pepabo.com/2021/04/01/learn-kubernetes/"
+    accessedAt: "2026-09-29"
+  - label: "Pepabo Tech Portal: ハイブリッドクラウドで動くカラーミーショップのマスターDBをMySQL 8.0にアップグレードした話（2024-05）"
+    url: "https://tech.pepabo.com/2024/05/13/colrome-db-upgrade/"
+    accessedAt: "2026-09-29"
+  - label: "Pepabo Tech Portal: AI時代のECサイト運営体験: カラーミーショップとOpenAI GPTsでつくる、ショップ運営アシスタント（2024-01）"
+    url: "https://tech.pepabo.com/2024/01/11/colormeshop-and-openai-gpts/"
+    accessedAt: "2026-09-29"
+  - label: "Pepabo Tech Portal: Vue.jsとViteを活用したフロントエンドアプリケーションの漸進的な改善（2025-07）"
+    url: "https://tech.pepabo.com/2025/07/07/progressive-frontend-update/"
+    accessedAt: "2026-09-29"
+  - label: "BASE公式: 料金プラン・手数料（比較用）"
+    url: "https://thebase.com/price"
+    accessedAt: "2026-09-29"
+---
+
+カラーミーショップは、日本のネットショップ作成サービスの中でも古参にあたる。2005年に始まり、21年が過ぎた。契約件数はここ2年で約5.0万件から約4.7万件へ少しずつ減り、売上はほぼ横ばいだ。それでも利益は伸びている。2026年9月、その値段がまた上がることになった。理由として挙げられたのは、クラウドの利用料ではなく「サーバー機器」だった。
+
+## サービス解説
+
+カラーミーショップは、GMOペパボが提供するネットショップ作成サービスだ。テンプレートを選んで商品を登録すれば、カート・決済・受注管理を備えた自分のショップを開ける。[BASE](/ja/articles/base)や[Shopify](/ja/articles/shopify)と同じく「モール」ではなく独自ドメインのショップを作る道具で、HTMLとCSSの編集、アプリストアでの機能追加、公開APIまでそろえる。
+
+:::fact
+GMOペパボの決算説明資料（2026-08-13）によれば、カラーミーショップの提供開始は2005年2月で、契約件数は2026年6月末時点で4.7万件。2026年12月期上期（1〜6月）の売上高は10.90億円（前年同期比0.9%増）、営業利益は4.47億円（同7.1%増）で、資料は増益の理由を「利益率の高い上位プランの件数増加」と説明している。データシートでは、契約件数は2024年6月末の50,388件から2026年6月末の47,075件へ減り、月額プランだけで計算した顧客単価は同じ期間に5,791円から7,472円へ上がった。同じ資料によれば、同社は7月1日にスマートフォン向けEC構築サービスのSmartEC（現GMO SmartEC）の株式の70%を1.63億円で取得し、子会社にした。
+:::
+
+:::fact
+公式の料金ページ（2026-09-29時点・税込）によれば、プランは4つ。フリープランは初期費用・月額費用とも0円で、決済手数料は6.6%+30円から。レギュラープランは月額4,950円・初期費用3,300円でクレジットカード決済手数料3.4%から、ラージプランは月額9,595円で3.19%から、プレミアムプランは月額35,640円から・初期費用22,000円で2.99%から。カード決済の料率は、決済サービス「カラーミーペイメント」を契約した場合の目安とされている。レギュラーとラージには30日間の無料体験があり、プレミアムの欄は無料体験ではなく資料のダウンロードへ案内している。
+:::
+
+:::pull
+2026年11月1日以降の契約更新から、レギュラープランは月額4,950円が5,940円に、ラージプランは9,595円が11,000円になる。プレミアムプランは据え置き。理由は「サーバー機器の調達・運用をはじめとするインフラコスト」の増加だ。
+:::
+
+::scorecard
+
+## UX分析
+
+カラーミーショップのUXは、「無料で始めて、売れたら上のプランへ移る」一方通行の階段として作られている。そして2026年、その階段の上のほうにAIの入口を置いた。
+
+- **無料の入口と、戻れない階段**。フリープランのページは、フリープランを「月商10万円以下」の人に向くと書き、成長に合わせて上位プランへ切り替えられると案内する。一方で同じページのよくある質問は、レギュラー・ラージ・プレミアムからフリープランへは変更できず、もう一度フリーを使うにはアカウントを作り直すよう求めている。上がるのは簡単で、下りる道は用意されていない。
+- **手数料の表記に揺れがある**。フリープランのページは、プラン比較の表で決済手数料を「6.6% + 30円 ～」と書く一方、よくある質問では「決済金額の6.6％＋33円」と書いている。30円に1.1を掛けると33円になるので税抜きと税込みの差にも見えるが、表には「価格表記はすべて税込です」と注記があり、どちらが正しいのかはページからは分からない。1件あたりの費用を比べたい人には、一言あると迷わない。
+- **ショップのデータにAIから話しかけられる**。アプリストアの「AIコネクター」を入れると、Claude DesktopなどのAIツールからリモートMCPサーバー経由でショップにつながる。公式のアプリページによれば、認証はカラーミーショップのOAuthで、受注の検索・更新・キャンセルや確認メールの送信、商品の登録・更新、顧客のポイント付与、クーポンの作成までを対話で頼める。このMCP連携の部分は無料だ。
+- **管理画面の中のAIはプレミアム限定**。同じアプリページによれば、管理画面のサイドパネルでAIに話しかける「AIエージェント」はプレミアムプラン限定のベータ版で、いまは参照系の操作（情報の取得・確認）だけに対応している。AIの便利さも、上のプランへ移る理由の一つとして置かれている。
+
+## 技術構成
+
+::techstack
+
+:::fact
+公式技術ブログ（2020-07）によれば、当時カラーミーショップのデータベースはGMOペパボのプライベートクラウド基盤「Nyah」の上にVMとして立つMySQLで、総データ量はディスク容量で700GB、書き込み用が1台と読み込み用が複数台あり、ピーク時の1分間に書き込み2万クエリ、読み込みは1台あたり約90万クエリが発行されていた。記事は、この半年ほどの間に障害でショップ運営が一時的にできなくなる事態が何度かあったと書き、データベースの耐障害性と可用性を上げるためのパブリッククラウドを使ったハイブリッドクラウド構成と、拡張性を上げるためのKubernetesによるコンテナ化を挙げている。
+:::
+
+:::fact
+2024年5月の公式技術ブログによれば、その後マスターDBはAmazon RDS for MySQLへ移り、RDSのリードレプリカ4台とNyah上のDB 3台の合計7台のハイブリッドクラウド構成になった。平常時のアプリケーションからの読み込みはNyah上のDBへ向け、RDSからNyahへの通信で料金がかかるのを最小限に抑えている。RDS側には、Nyah上のDBが使えなくなったときの予備も用意している。アプリケーションを動かすVMとKubernetes NodeはNyahの上に置き、記事はこれによって「パブリッククラウドよりも運用コストを大幅に抑えることができています」と書く。データベースのように高い信頼性と性能が求められるところだけをパブリッククラウドに置く分担で、AWSとNyahはAWS Direct Connectでつないでいる。同じ記事は、ショップ数を約4.5万店舗、年間流通額を約2,070億円（いずれも2021年末時点）としている。
+:::
+
+:::fact
+公開APIは、公式技術ブログ（2024-01）によればOAuth 2.0で認可し、OpenAPIの仕様書を公開している。記事は、この仕様書をそのままOpenAIのGPTsに読み込ませ、商品の取得や編集を対話で行うショップ運営アシスタントを作った例を紹介している。2026年3月のAIコネクターについて、公式のアプリページは、カラーミーショップのOAuth認証で接続し、アプリのMCP設定画面に表示されるサーバーURLをClaude DesktopなどのAIツールに追加して使うと説明する。同じページは、APIの拡充を続けており今後は操作できる範囲が広がる予定だと書き、MCPで操作できる範囲を公開APIの広がりと結びつけている。
+:::
+
+:::guess
+料金改定の告知が理由に挙げた「サーバー機器の調達・運用」は、この構成と整合する。告知そのものも、背景に物価高騰と円安の進行を挙げている。アプリケーションの計算資源の多くを自社のOpenStackに載せているなら、クラウドの利用料より先に、物理サーバーの購入価格と円安が原価に響くと推測される。もっとも当サイトの実観測では管理画面の入口はAWSのIPアドレスに解決されており、どこまでがNyahの上にあるのかは外からは分からない。パブリッククラウドより安く運用できるという自前クラウドの利点は、機器の価格が上がる局面では、その上昇を自分で抱える形でも返ってくる。また、マスターDBのRDSはドル建ての料金で請求されるとみられ、値上げの内訳がどちらにどれだけ由来するのかは公開情報からは分からない。
+:::
+
+## ビジネスモデル
+
+収益の柱は、ショップから受け取る月額利用料だ。フリープランは月額0円で、決済手数料だけがかかる。有料プランの月額と、アプリストアの有料アプリ、決済や制作代行のオプションが重なる。
+
+:::fact
+2023年11月の決算説明資料のデータシートによれば、カラーミーショップの契約件数は2021年3月末の41,191件から2022年12月末の50,663件まで増え、2023年9月末は50,264件だった。月額プランだけで計算した顧客単価は、2021年3月末の3,436円から2023年9月末の5,233円へ上がっている。公式デベロッパーサイトの告知（2022-01-21）によれば、2022年4月5日以降、フリープランとプラチナプランを除く各プランの料金が改定され、有料プランに主要なオプション機能が含まれるようになった。2026年8月の資料では、契約件数は4.7万件（2026年6月末）。
+:::
+
+:::fact
+2026年8月の決算説明資料のデータシートによれば、カラーミーショップの四半期売上高は2024年4〜6月期の5.46億円に対し、2026年4〜6月期は5.44億円。同じ期間に営業利益は2.08億円から2.27億円へ増えた。GMOペパボ全体では、ストック型の売上高比率が78.1%（2026年12月期上期）で、資料はカラーミーショップの月額料金をストック収益に数えている。
+:::
+
+:::guess
+データシートの数字で割ると、カラーミーショップの四半期の営業利益率は2024年4〜6月期の約38%から2026年4〜6月期の約42%へ上がった計算になる。店舗の数を増やすのではなく、少しずつ減っていく店舗に上のプランを選んでもらい、1店舗あたりの単価を上げる形で利益を積んできたとみられる。今回の改定も上位プランの側を据え置き、レギュラー（約20%増）とラージ（約15%増）だけを上げたため、ラージとプレミアムの差が縮まり、上へ移る後押しにもなると推測される。
+:::
+
+:::guess
+フリープランとレギュラープランの損益分岐も動く。1件30円（または33円）の固定分と初期費用を無視し、カード決済の料率の差（6.6%と3.4%の差の3.2%）だけで月額を割ると、改定前は月商約15.5万円、改定後は約18.6万円を超えたあたりからレギュラーのほうが安くなる計算だ。比べると[BASE](/ja/articles/base)は、公式の料金ページによれば月額0円のスタンダードプランで決済手数料3.6%+40円とサービス利用料3%を取り、月額16,580円（年払い）のグロースプランで決済手数料を2.9%に下げ、サービス利用料をなくす。売れた分から取るBASEに対し、カラーミーショップは早めに月額を払ってもらう側に寄せた設計といえる。
+:::
+
+店舗の数は少しずつ減っている。それでもカラーミーショップは、上のプランへの階段と、自前のクラウドで抑えた原価で、4割を超える利益率に届いた。2026年、その原価の側から値上げの理由がやってきた。AIの入口を階段の上のほうに置いたのは、値上げのあとも店舗に上を選んでもらうための次の一段とみられる。
