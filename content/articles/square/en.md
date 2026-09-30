@@ -86,6 +86,9 @@ sources:
   - label: "Square: About Square (history)"
     url: "https://squareup.com/jp/ja/about"
     accessedAt: "2026-09-30"
+  - label: "Square: Press release archive"
+    url: "https://squareup.com/jp/ja/press/archive"
+    accessedAt: "2026-09-30"
   - label: "Square: Affiliate program"
     url: "https://squareup.com/jp/ja/affiliate"
     accessedAt: "2026-09-30"
@@ -110,7 +113,7 @@ For a long time, accepting cards meant a merchant-account review, a fixed termin
 Square is a payments and operations platform for small and mid-sized businesses that provides card, e-money and QR code acceptance, point of sale, online stores, invoices, appointment booking and funding under a single account. It is operated by Block, Inc. (formerly Square, Inc.) in the United States and by Square K.K. in Japan.
 
 :::fact
-According to Square's press release of May 23, 2013, Square, Inc. launched its service in Japan on that day, its first market outside North America. Sumitomo Mitsui Card had invested in Square in September 2012 as the only non-US investor and had been discussing the Japanese rollout not only as acquirer but as a strategic partner. At launch the fee was 3.25% per transaction, the Square Register app and the Square Reader were free, and payouts to partner banks normally arrived the next business day. According to the company's history page, it then launched a new reader and Square Stand in Japan in 2019, online store features and e-money acceptance in 2020, Square Terminal in 2021, PayPay acceptance and appointments in 2022, Tap to Pay on Android and a restaurant POS in 2023, and Square Handheld in 2025.
+According to Square's press release of May 23, 2013, Square, Inc. launched its service in Japan on that day, its first market outside North America. Sumitomo Mitsui Card had invested in Square in September 2012 as the only non-US investor and had been discussing the Japanese rollout not only as acquirer but as a strategic partner. At launch the fee was 3.25% per transaction, the Square Register app and the Square Reader were free, and payouts to partner banks normally arrived the next business day. According to the company's history page and press archive, it then launched a new reader and Square Stand in Japan in 2019, online store features and e-money acceptance in 2020, Square Terminal in 2021, PayPay acceptance and appointments in 2022, Tap to Pay on Android and a restaurant POS in 2023, and Square Handheld in 2025.
 :::
 
 :::fact
@@ -118,7 +121,7 @@ According to the official pricing page (viewed 2026-09-30), there are no setup o
 :::
 
 :::fact
-According to the official hardware page (viewed 2026-09-30), the line-up consists of six devices, tax included: Square Reader (2nd generation) at ¥4,980, Square Stand at ¥29,980, Square Kiosk at ¥29,980, Square Terminal at ¥39,980, Square Handheld at ¥44,980 and Square Register (2nd generation) at ¥99,980. All but the reader can be paid in 12 or 24 monthly installments. According to the press release of March 31, 2026, the second-generation Register is up to 40% faster than the original, carries an IP54 dust and splash rating, and in the United States 62% of food and beverage sellers with more than $500,000 in annual volume use Square Register.
+According to the official hardware page (viewed 2026-09-30), the line-up consists of six devices, tax included: Square Reader (2nd generation) at ¥4,980, Square Stand at ¥29,980, Square Kiosk at ¥29,980, Square Terminal at ¥39,980, Square Handheld at ¥44,980 and Square Register (2nd generation) at ¥99,980. All but the reader can be paid in 12 or 24 monthly installments. According to the press release of March 31, 2026, the second-generation Register processes up to 40% faster thanks to a higher-performance processor and expanded memory, carries an IP54 dust and splash rating, and in 2025 62% of US food and beverage sellers with more than $500,000 in annual volume were using Square Register.
 :::
 
 :::pull
@@ -173,7 +176,7 @@ According to Block, Inc.'s Form 10-K, the Square segment posted revenue of $8,45
 :::
 
 :::fact
-According to Block, Inc.'s Form 10-Q for the second quarter of 2026, Square segment revenue for the quarter was $2,503.6 million (up 16% year over year) and gross profit was $1,160.2 million (up 13%), with Square GPV up 13%, driven primarily by food and beverage sellers. In February 2026 the company announced a restructuring plan to reduce its workforce by more than 40%, described as aligning its organizational structure with its operating model and strategic priorities; restructuring charges for the first half of 2026 were $495.0 million. As of December 31, 2025, the company had 10,205 full-time employees worldwide, 2,472 of them outside the United States.
+According to Block, Inc.'s Form 10-Q for the second quarter of 2026, Square segment revenue for the quarter was $2,503.6 million (up 16% year over year) and gross profit was $1,160.2 million (up 13%), with Square GPV up 13%, driven primarily by food and beverage sellers. In February 2026 the company announced a restructuring plan to reduce its workforce by more than 40%, described as aligning its organizational structure with its operating model and strategic priorities; restructuring charges for the first half of 2026 were $495.0 million. For reference, the Form 10-K states that before the reduction, as of December 31, 2025, the company had 10,205 full-time employees worldwide, 2,472 of them outside the United States.
 :::
 
 :::fact
@@ -181,7 +184,7 @@ According to the press release of January 24, 2024, Square Funding is a mechanis
 :::
 
 :::fact
-According to Square's affiliate page, Square's affiliate program is currently available only through Moshimo Affiliate, and a commission is earned when a visitor creates a new account via the designated link. Tracking is done by Partnerize with cookies, and commissions are paid on the 15th of the month after they are earned. Square reviews accounts created through the program every month and may freeze or suspend accounts that operate businesses against its terms or were created for fraud, in which case no commission is paid. According to Affisearch, a third-party site that aggregates ASP listings (viewed 2026-09-30), the Moshimo commission is ¥8,000 (tax included) per account created, with an additional ¥6,500 if a Square Terminal or Handheld purchase is confirmed and ¥13,000 for a Square Register purchase, and self-referral has been excluded since November 1, 2022.
+According to Square's affiliate page, Square's affiliate program is currently available only through Moshimo Affiliate, and a commission is earned when a visitor creates a new account via the designated link. Tracking is done by Partnerize with cookies, and commissions are paid on the 15th of the month after they are earned. Square reviews accounts created through the program every month and may freeze or suspend accounts that operate businesses against its terms or were created for fraud, in which case no commission is paid. According to Affisearch, a third-party site that aggregates ASP listings (viewed 2026-09-30), the listing's description puts the Moshimo commission at ¥8,000 (tax included) per account created (the listing headline shows ¥9,000), with an additional ¥6,500 if a Square Terminal or Handheld purchase is confirmed and ¥13,000 for a Square Register purchase, and self-referral has been excluded since November 1, 2022.
 :::
 
 :::guess
