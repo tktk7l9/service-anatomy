@@ -412,6 +412,13 @@
     "siteName": "Supabase",
     "fetchedAt": "2026-08-06"
   },
+  "techacademy": {
+    "url": "https://techacademy.jp/",
+    "title": "TechAcademy [テックアカデミー]",
+    "description": "大切なのは、誰から学ぶか。選抜された現役エンジニアから学ぶならテックアカデミー。",
+    "image": "https://techacademy.jp/_nuxt/ogp/og-image.jpg",
+    "fetchedAt": "2026-09-30"
+  },
   "temu": {
     "url": "https://www.temu.com/",
     "fetchedAt": "2026-08-06"
