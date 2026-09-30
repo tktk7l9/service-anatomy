@@ -9,14 +9,9 @@ publishedAt: "2026-09-29"
 updatedAt: "2026-09-29"
 lastVerified: "2026-09-29"
 serviceUrl: "https://shop-pro.jp/"
-# Affiliate link placeholder: the owner must join the ColorMe Shop promotion on Moshimo Affiliate
-# before enabling this block. A third-party ASP index
-# (https://media-analytics.jp/affisearch/promotions/color-me-shop) lists it on Moshimo at ¥800 per
-# new sign-up; confirm the current terms on the Moshimo dashboard, then paste the click URL here.
-# Keep the url identical in ja.md and en.md (parity.ts checks it).
-# affiliate:
-#   url: "https://af.moshimo.com/af/c/click?a_id=<a_id>&p_id=<p_id>&pc_id=<pc_id>&pl_id=<pl_id>"
-#   program: "ColorMe Shop Affiliate Program (Moshimo Affiliate)"
+affiliate:
+  url: "https://af.moshimo.com/af/c/click?a_id=5825557&p_id=2563&pc_id=5685&pl_id=39485"
+  program: "ColorMe Shop Affiliate Program (Moshimo Affiliate)"
 vendor: "GMO Pepabo, Inc."
 origin: "JP"
 heroTheme: "colorme-shop"
