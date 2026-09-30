@@ -1,8 +1,8 @@
 ---
 service: "Hostinger"
 title: "¥299 a Month Means 48 Months Up Front, Renewal at 4.3x, and 40% to the Referrer — The Collect-Cash-First Design Behind Hostinger's Four Straight Years of 50% Growth"
-description: "Hostinger, a web hosting company from Lithuania, grew to €275.4 million in revenue (up 51%) and 4.6 million customers in 2025. Its Japanese pricing starts at ¥299 a month, but that is the unit price when you pay 48 months at once; on renewal it becomes ¥1,299 a month. How it keeps growing while handing 40% or more of each sale to affiliates is dissected from the official pricing pages, the affiliate agreement, the annual results blog, the official API documentation, public GitHub repositories, and this site's own observations. It also covers the AI Builder's in-house backend, the API opened to outside AI through MCP, and the AI agent that resolves 91% of support conversations."
-lead: "Under the large \"¥299/mo\" on the pricing page, a smaller line reads: 48 months for ¥14,352 instead of the regular ¥71,952, renewing at ¥1,299 a month. That one sentence holds the skeleton of Hostinger's business. Collect four years up front, then renew at more than four times the price. On top of that, hand 40% or more of the first sale to an affiliate. This article dissects how a company that started in Kaunas, Lithuania in 2004 came to grow revenue by more than 50% for four consecutive years and to let an AI agent handle nine in ten support conversations."
+description: "Hostinger, a web hosting company from Lithuania, grew to €275.4 million in revenue (up 51%) and 4.6 million customers in 2025. Its Japanese pricing starts at ¥299 a month, but that is the unit price when you pay 48 months at once; on renewal it becomes ¥1,299 a month. How it keeps growing while handing up to 40% of each sale (up to 60% for AI Builder) to affiliates is dissected from the official pricing pages, the affiliate agreement, the annual results blog, the official API documentation, public GitHub repositories, and this site's own observations. It also covers the AI Builder's in-house backend, the API opened to outside AI through MCP, and the AI agent that resolves 91% of support conversations."
+lead: "Under the large \"¥299/mo\" on the pricing page, a smaller line reads: 48 months for ¥14,352 instead of the regular ¥71,952, renewing at ¥1,299 a month. That one sentence holds the skeleton of Hostinger's business. Collect four years up front, then renew at more than four times the price. On top of that, hand up to 40% of the first sale to an affiliate. This article dissects how a company that started in Kaunas, Lithuania in 2004 came to grow revenue by more than 50% for four consecutive years and to let an AI agent handle nine in ten support conversations."
 category: dev-tool
 tags: [hosting, website-builder, ai, mcp, small-business, vibe-coding]
 publishedAt: "2026-09-30"
@@ -11,7 +11,7 @@ lastVerified: "2026-09-30"
 serviceUrl: "https://www.hostinger.com/"
 # Affiliate link placeholder: Hostinger runs its own public affiliate program
 # (https://www.hostinger.com/affiliates, tracked on affiliates.hostinger.com;
-# 40%+ commission, 30-day cookie, US$100 PayPal minimum). The owner must sign up,
+# up to 40% commission, 30-day cookie, US$100 PayPal minimum). The owner must sign up,
 # get approved, and paste the tracking link here before enabling this block.
 # Keep the url identical in ja.md and en.md (parity.ts checks it).
 # affiliate:
@@ -33,9 +33,9 @@ techStack:
     evidence: "The official API documentation states that the API spans hosting, domains, DNS, email, VPS, WordPress, ecommerce, and billing, that a token generated in hPanel is sent as a Bearer header, and that the limit is 90 requests per minute. The same page says the @hostinger/mcp npm package exposes the API as 372 Model Context Protocol tools, and lists official SDKs for PHP, Python, and TypeScript, a Terraform provider, an Ansible collection, an n8n node, a WHMCS module, and a Postman collection"
     evidenceUrl: "https://docs.hostinger.com/api-reference/overview"
   - layer: "AI Builder generation model"
-    name: "Google Gemini 3"
+    name: "Google Gemini 3 + Anthropic Claude Sonnet 4.5 (mixed per task)"
     confidence: confirmed
-    evidence: "The November entry of the official blog's 2025 product updates roundup states that Google's new large language model Gemini 3 is already powering Hostinger AI Builder"
+    evidence: "The November entry of the official blog's 2025 product updates roundup states that Google's new large language model Gemini 3 is already powering Hostinger AI Builder. The same post's 2025 recap says AI Builder runs on a balanced mix of the latest models, including Gemini 3 and Claude Sonnet 4.5, each matched to the right task"
     evidenceUrl: "https://www.hostinger.com/blog/product-updates-2025/"
   - layer: "AI Builder backend"
     name: "Built-in database / auth / file storage / email (Hostinger-native)"
@@ -151,8 +151,8 @@ The Hostinger experience is built around "start cheap, let the AI do it, and lea
 
 - **Big numbers, small footnotes.** The pricing page prints "¥299/mo" large and the 48-month total and renewal price small. The monthly and one-year unit prices are hard to see on the same screen, so anyone who wants to compare has to hunt for the term switcher. The money-back guarantee is 30 days, so after paying for four years, a change of heart is covered for only one month.
 - **AI Builder "credits" are one-off.** According to the Japanese AI Builder pricing page, Premium comes with 5 and Unlimited and Cloud Startup with 15 AI credits as a "one-time gift." Cloud Startup also includes 20 credits for Hostinger Agent. Anyone who keeps building apps through conversation is expected to buy more credits after that.
-- **The front door to support is an AI.** According to the official blog post of 2026-09-02, Hostinger Agent independently resolves 91% of roughly 1.5 million monthly support conversations, and about one in ten is handed to a human specialist. Since June, the resolution rate with a specialist involved rose from 41% to 72%, with a median time to resolution of 3 minutes. Talking to a person is further away, but the wait is shorter.
-- **Outside AIs can reach in.** The official blog post of August 2026 says Hostinger Connector is free on all plans and lets external AI assistants such as Claude Code and Cursor deploy projects, manage domains, and update inventory. The bottom of the pricing page also says you can connect Cursor, Claude, or any MCP client to your hosting, with setup in two minutes.
+- **The front door to support is an AI.** According to the official blog post of 2026-09-02, Hostinger Agent (formerly Kodee) independently resolves 91% of roughly 1.5 million monthly support conversations, and about one in ten is handed to a human specialist. Since June, the resolution rate with a specialist involved rose from 41% to 72%, with a median time to resolution of 3 minutes. Talking to a person is further away, but the wait is shorter.
+- **Outside AIs can reach in.** The official blog post of August 2026 says Hostinger Connector is included free with every plan and lets external AI assistants such as Claude Code and Cursor deploy projects, manage domains, and update inventory. The bottom of the pricing page also says you can connect Cursor, Claude, or any MCP client to your hosting, with setup in two minutes.
 
 ## Tech stack
 
@@ -163,11 +163,11 @@ According to the official API documentation (as of 2026-09-30), the Hostinger AP
 :::
 
 :::fact
-The inside of AI Builder can be traced through the official blog's product update roundups. It started as Hostinger Horizons in February 2025, and in November Google's Gemini 3 took over generation. In February 2026 it gained a built-in database, authentication, file storage, and email sending, and in March it became usable from inside ChatGPT. According to the official blog post of June 15, the subscriptions feature processes payments through Stripe, supports Visa, Mastercard, Apple Pay, and Google Pay, and charges 0% platform fees. The official blog post of August 18 says Website Builder and AI Builder were merged into one, with an Agentic mode where the AI leads and a Manual mode where you control the layout yourself. The same post says nearly 20% of projects on the platform are SaaS products, internal tools, or learning platforms, a fivefold increase from under 4% a year earlier.
+The inside of AI Builder can be traced through the official blog's product update roundups. It started as Hostinger Horizons in February 2025, and in November Google's Gemini 3 took over generation; the same post's year-end recap says several models, including Gemini 3 and Claude Sonnet 4.5, are matched to different tasks. In February 2026 it gained a built-in database, authentication, file storage, and email sending, and in March it became usable from inside ChatGPT. According to the official blog post of June 15, the subscriptions feature processes payments through Stripe, supports Visa, Mastercard, Apple Pay, and Google Pay, and charges 0% platform fees. The official blog post of August 18 says Website Builder and AI Builder were merged into one, with an Agentic mode where the AI leads and a Manual mode where you control the layout yourself. The same post says nearly 20% of projects on the platform are SaaS products, internal tools, or learning platforms, a fivefold increase from under 4% a year earlier.
 :::
 
 :::fact
-The support AI has also moved in stages. In May 2025, Kodee for VPS began handling server tasks through MCP, and in August it changed from "guiding you" to "doing the actual work for you." According to the annual results blog post of 2026-02-23, Kodee handles more than 350 admin-level actions, resolved 81% of support interactions (up from 50% at the start of the year), and saved €9 million through support automation. On 2026-09-02, the official blog announced that Kodee was replaced by Hostinger Agent.
+The support AI has also moved in stages. In May 2025, Kodee for VPS began handling server tasks through MCP, and in August it changed from "guiding you" to "doing the actual work for you." According to the annual results blog post of 2026-02-23, Kodee handles more than 350 admin-level actions, resolved 81% of support interactions (up from 50% at the start of the year), and saved €9 million through support automation. According to the official blog post of 2026-09-02, Hostinger Agent has been replacing Kodee since mid-August; support and account management stay free of additional charge, while specialized agentic work is sold as a tiered subscription.
 :::
 
 :::fact
@@ -187,7 +187,7 @@ According to the official annual results blog post of 2026-02-23, revenue went f
 :::
 
 :::fact
-According to the affiliate program agreement (last revised 2026-08-19) and the FAQs, the commission is up to 40% on shared hosting, cloud hosting, VPS, and yearly domain and email plans, and up to 60% on specific AI Builder offers, with a maximum commission of $300 per sale. Cookies are stored for 30 days. No commission is granted for one-month hosting plans, renewals, or upgrades. The minimum payout is $100 by PayPal and $500 by bank transfer, each requiring at least three approved conversions. Buying through your own link, bidding on search ads for the Hostinger trademark, and videos whose primary purpose is to promote price-saving methods are prohibited. There is also a separate referral program: the referrer receives 20% of each eligible sale, the referred friend gets 20% off, and rewards are confirmed after 45 days, which is the 30-day money-back guarantee plus 15 days of administrative processing.
+According to the affiliate program agreement (last revised 2026-08-19) and the FAQs, the commission is up to 40% on shared hosting, cloud hosting, VPS, Hostinger Reach, and yearly domain and email plans during special offers only (the Japanese program page says it "starts at 40% and increases with sales volume"), and up to 60% on specific AI Builder offers, with a maximum commission of $300 per sale. Cookies are stored for 30 days. No commission is granted for one-month hosting plans, renewals, or upgrades. The minimum payout is $100 by PayPal and $500 by bank transfer, each requiring at least three approved conversions. Buying through your own link, bidding on search ads for the Hostinger trademark, and videos whose primary purpose is to promote price-saving methods are prohibited. There is also a separate referral program: the referrer receives 20% of each eligible sale, the referred friend gets 20% off, and affiliate commissions are not credited if the purchase is canceled or refunded within 45 days, with only commissions older than 45 days being paid out.
 :::
 
 :::guess
