@@ -229,6 +229,10 @@
     "siteName": "Lovable",
     "fetchedAt": "2026-08-06"
   },
+  "make": {
+    "url": "https://www.make.com/en",
+    "fetchedAt": "2026-09-30"
+  },
   "meccha-chameleon": {
     "url": "https://store.steampowered.com/app/4704690/MECCHA_CHAMELEON/",
     "title": "MECCHA CHAMELEON on Steam",
