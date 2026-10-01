@@ -493,6 +493,13 @@
     "image": "https://www.todoist.com/static/ogimages/en/og-image-home.png",
     "fetchedAt": "2026-09-28"
   },
+  "typesafe-ai": {
+    "url": "https://typesafe.ai/",
+    "title": "Home - TypeSafe AI",
+    "description": "TypeSafe AI is an AI lab building machine-native intelligence infrastructure for automation, designed to make decisions within software. Try our first System One Model, Jev, in early access.",
+    "image": "https://framerusercontent.com/images/RtIGTDwO43jR4ZDilesXiR5znc.jpg",
+    "fetchedAt": "2026-10-01"
+  },
   "udemy": {
     "url": "https://www.udemy.com/",
     "title": "Udemy: Online Courses for Skills, Careers & AI",
