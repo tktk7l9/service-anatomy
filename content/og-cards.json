@@ -327,6 +327,13 @@
     "siteName": "Railway",
     "fetchedAt": "2026-09-28"
   },
+  "rakuten-mobile": {
+    "url": "https://network.mobile.rakuten.co.jp/",
+    "title": "楽天モバイル",
+    "description": "楽天モバイル公式サイト。料金プランは選べる2プラン。使わなければ勝手に安くなる「Rakuten最強プラン」、ギガ無制限で映画もアニメも楽しめる「Rakuten最強U-NEXT」。スマートフォン（iPhone、Androidスマホ）、キャンペーン、つながるエリア、お客様サポート情報をご案内します。※ギガ無制限：混雑時等公平なサービス提供のため速度制御する場合有。通話料等別",
+    "image": "https://network.mobile.rakuten.co.jp/assets/img/common/ogp.png",
+    "fetchedAt": "2026-10-01"
+  },
   "rakuten-travel": {
     "url": "https://travel.rakuten.co.jp/",
     "title": "楽天トラベル",
