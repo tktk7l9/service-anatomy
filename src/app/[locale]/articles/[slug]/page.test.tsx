@@ -45,6 +45,14 @@ describe("article page advertising disclosure", () => {
     expect(pixels[0].closest(".affiliate-card")).not.toBeNull();
   });
 
+  it.each(["ja", "en"] as const)("%s: freenance shows the A8.net material text verbatim", async (locale) => {
+    const container = await renderArticle(locale, "freenance");
+    const anchor = container.querySelector(".affiliate-card a[rel~='sponsored']")!;
+    expect(anchor.textContent).toBe("フリーランスの請求書を即日払い【FREENANCE】");
+    expect(anchor.getAttribute("lang")).toBe(locale === "en" ? "ja" : null);
+    expect(anchor.nextElementSibling).toHaveClass("affiliate-card-pixel");
+  });
+
   it.each(["ja", "en"] as const)("%s: an affiliate link without impressionUrl loads no pixel", async (locale) => {
     const article = ALL_ARTICLES.find(
       (a) => a.ja.frontmatter.affiliate && !a.ja.frontmatter.affiliate.impressionUrl,

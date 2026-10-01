@@ -62,6 +62,32 @@ describe("parseFrontmatter", () => {
     expect(parseFrontmatter(raw, "ctx").affiliate).not.toHaveProperty("impressionUrl");
   });
 
+  it("accepts affiliate.label (the ASP material's text) verbatim, trimming only the edges", () => {
+    const raw = mutate((r) => {
+      r.affiliate = {
+        url: "https://px.example.net/click?id=1",
+        program: "Example (ASP)",
+        label: "  請求書を即日払い【EXAMPLE】 ",
+      };
+    });
+    expect(parseFrontmatter(raw, "ctx").affiliate?.label).toBe("請求書を即日払い【EXAMPLE】");
+  });
+
+  it("accepts an affiliate.label of exactly 120 characters", () => {
+    const label = "あ".repeat(120);
+    const raw = mutate((r) => {
+      r.affiliate = { url: "https://a.example/c", program: "p", label };
+    });
+    expect(parseFrontmatter(raw, "ctx").affiliate?.label).toBe(label);
+  });
+
+  it("leaves label off the object when it is not set", () => {
+    const raw = mutate((r) => {
+      r.affiliate = { url: "https://shopify.pxf.io/abc", program: "Shopify" };
+    });
+    expect(parseFrontmatter(raw, "ctx").affiliate).not.toHaveProperty("label");
+  });
+
   it("undefined when revisions is not set", () => {
     expect(parseFrontmatter(makeRawFrontmatter(), "ctx").revisions).toBeUndefined();
   });
@@ -235,6 +261,33 @@ describe("parseFrontmatter", () => {
       "affiliate.impressionUrl is empty",
       (r: Record<string, unknown>) => (r.affiliate = { url: "https://a.example/c", program: "p", impressionUrl: "" }),
       /affiliate: impressionUrl must be a non-empty string/,
+    ],
+    [
+      "affiliate.label is empty",
+      (r: Record<string, unknown>) => (r.affiliate = { url: "https://a.example/c", program: "p", label: "" }),
+      /affiliate: label must be a non-empty string/,
+    ],
+    [
+      "affiliate.label is only whitespace",
+      (r: Record<string, unknown>) => (r.affiliate = { url: "https://a.example/c", program: "p", label: "   " }),
+      /affiliate: label must be a non-empty string/,
+    ],
+    [
+      "affiliate.label is not a string",
+      (r: Record<string, unknown>) => (r.affiliate = { url: "https://a.example/c", program: "p", label: 42 }),
+      /affiliate: label must be a non-empty string/,
+    ],
+    [
+      "affiliate.label spans several lines",
+      (r: Record<string, unknown>) =>
+        (r.affiliate = { url: "https://a.example/c", program: "p", label: "line one\nline two" }),
+      /affiliate: label must be a single line/,
+    ],
+    [
+      "affiliate.label is longer than 120 characters",
+      (r: Record<string, unknown>) =>
+        (r.affiliate = { url: "https://a.example/c", program: "p", label: "あ".repeat(121) }),
+      /affiliate: label must be at most 120 characters/,
     ],
     [
       "affiliate.program is missing",

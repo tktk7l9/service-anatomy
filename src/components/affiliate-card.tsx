@@ -1,4 +1,6 @@
+import { useId } from "react";
 import type { AffiliateLink } from "@/engine/articles/schema";
+import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
 // Affiliate link box at the end of articles. Shown only for articles with affiliate in their frontmatter.
@@ -18,40 +20,80 @@ import type { Dictionary } from "@/i18n/dictionaries";
 //   alt="" keeps it out of the accessibility tree, the CSS class takes it out of the layout, and
 //   its origin reaches the CSP img-src through src/lib/impression-origins.ts.
 
+//
+// The text of a text ad is part of that code too (A8.net forbids rewording it or using only the
+// link part). When affiliate.label is set, the <a> contains exactly that string and nothing else:
+// - The "opens in a new tab" cue that other external links carry inside their text (the arrow)
+//   moves out of the link: an arrow plus a visually hidden sentence, placed after the pixel and
+//   tied to the link with aria-describedby, so the ad text itself stays untouched.
+// - The label is Japanese ad copy shown on both locales, so the English page marks it lang="ja".
+// Without a label (programs that are not ASP text ads) the site's own CTA is used, as before.
+
+// Kana or CJK ideographs: enough to tell Japanese ad copy from an English one.
+const JAPANESE_TEXT = /[\u3040-\u30ff\u3400-\u9fff]/;
+
 export function AffiliateCard({
   affiliate,
   service,
+  locale,
   dict,
 }: {
   affiliate: AffiliateLink;
   service: string;
+  locale: Locale;
   dict: Dictionary;
 }) {
+  const cueId = useId();
+  const { label } = affiliate;
+  const pixel = affiliate.impressionUrl ? (
+    // A tracking pixel, not content: next/image would proxy it and break the count.
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      className="affiliate-card-pixel"
+      src={affiliate.impressionUrl}
+      width={1}
+      height={1}
+      alt=""
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+    />
+  ) : null;
   return (
     <aside className="affiliate-card" aria-label={dict.article.affiliateAria}>
       <span className="affiliate-card-pr">{dict.article.affiliatePr}</span>
-      <a
-        className="affiliate-card-cta"
-        href={affiliate.url}
-        target="_blank"
-        rel="sponsored nofollow noopener"
-        referrerPolicy="no-referrer-when-downgrade"
-      >
-        {dict.article.affiliateCta.replace("{service}", service)} ↗
-      </a>
-      {affiliate.impressionUrl ? (
-        // A tracking pixel, not content: next/image would proxy it and break the count.
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          className="affiliate-card-pixel"
-          src={affiliate.impressionUrl}
-          width={1}
-          height={1}
-          alt=""
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
-      ) : null}
+      {label ? (
+        <span className="affiliate-card-link">
+          <a
+            className="affiliate-card-cta"
+            href={affiliate.url}
+            target="_blank"
+            rel="sponsored nofollow noopener"
+            referrerPolicy="no-referrer-when-downgrade"
+            lang={locale !== "ja" && JAPANESE_TEXT.test(label) ? "ja" : undefined}
+            aria-describedby={cueId}
+          >
+            {label}
+          </a>
+          {pixel}
+          <span className="affiliate-card-newtab" id={cueId}>
+            <span aria-hidden="true">↗</span>
+            <span className="visually-hidden">{dict.article.affiliateNewTab}</span>
+          </span>
+        </span>
+      ) : (
+        <>
+          <a
+            className="affiliate-card-cta"
+            href={affiliate.url}
+            target="_blank"
+            rel="sponsored nofollow noopener"
+            referrerPolicy="no-referrer-when-downgrade"
+          >
+            {dict.article.affiliateCta.replace("{service}", service)} ↗
+          </a>
+          {pixel}
+        </>
+      )}
       <p className="affiliate-card-note">
         {dict.article.affiliateNote.replace("{program}", affiliate.program)}
       </p>

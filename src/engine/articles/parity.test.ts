@@ -128,6 +128,37 @@ describe("localeParityIssues", () => {
     expect(localeParityIssues(article).join("\n")).toMatch(/affiliate\.impressionUrl differs between ja\/en \(ja=none/);
   });
 
+  it("no issue when affiliate.label matches", () => {
+    const affiliate = { url: "https://px.example.net/c?id=1", program: "Example", label: "即日払い【EXAMPLE】" };
+    expect(localeParityIssues(makeArticle("x", { affiliate }))).toEqual([]);
+  });
+
+  it("detects a mismatched affiliate.label (the ASP text is one fixed string for both locales)", () => {
+    const base = { url: "https://px.example.net/c?id=1", program: "Example" };
+    const article = makeArticle(
+      "x",
+      { affiliate: { ...base, label: "即日払い【EXAMPLE】" } },
+      { affiliate: { ...base, label: "Same-day payout [EXAMPLE]" } },
+    );
+    expect(localeParityIssues(article)).toEqual([
+      "affiliate.label differs between ja/en (ja=即日払い【EXAMPLE】 / en=Same-day payout [EXAMPLE])",
+    ]);
+  });
+
+  it("mismatch when label exists only on ja (shows en=none)", () => {
+    const base = { url: "https://px.example.net/c?id=1", program: "Example" };
+    const article = makeArticle("x", { affiliate: { ...base, label: "即日払い【EXAMPLE】" } }, { affiliate: base });
+    expect(localeParityIssues(article)).toEqual([
+      "affiliate.label differs between ja/en (ja=即日払い【EXAMPLE】 / en=none)",
+    ]);
+  });
+
+  it("mismatch when label exists only on en (shows ja=none)", () => {
+    const base = { url: "https://px.example.net/c?id=1", program: "Example" };
+    const article = makeArticle("x", { affiliate: base }, { affiliate: { ...base, label: "即日払い【EXAMPLE】" } });
+    expect(localeParityIssues(article).join("\n")).toMatch(/affiliate\.label differs between ja\/en \(ja=none/);
+  });
+
   it("treated as matching when neither side sets revisions", () => {
     expect(localeParityIssues(makeArticle("x"))).toEqual([]);
   });

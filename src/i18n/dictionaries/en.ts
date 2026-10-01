@@ -36,6 +36,7 @@ const en: Dictionary = {
     affiliateNotice: "This article contains affiliate links (advertising).",
     affiliateNoticeLink: "Advertising & affiliate policy",
     affiliateCta: "Try {service} for free",
+    affiliateNewTab: "Opens in a new tab",
     affiliateNote:
       "PR: We participate in the {program} and may earn a commission if you sign up via this link. It never affects our scores or analysis.",
     vendor: "Operated by",

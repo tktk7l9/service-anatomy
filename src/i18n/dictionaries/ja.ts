@@ -38,6 +38,7 @@ const ja = {
     affiliateNotice: "この記事には広告（アフィリエイトリンク）が含まれます。",
     affiliateNoticeLink: "広告・アフィリエイトについて",
     affiliateCta: "{service} を無料で試す",
+    affiliateNewTab: "新しいタブで開きます",
     affiliateNote:
       "PR：運営者は {program} に参加しており、このリンク経由で申し込むと紹介料を受け取ることがあります。紹介料の有無は解剖スコアや記事の内容に影響しません。",
     vendor: "運営",

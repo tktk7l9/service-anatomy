@@ -1367,6 +1367,25 @@ main:focus {
   text-underline-offset: 0.2em;
 }
 
+/* Link with the network's own ad text (affiliate.label). The text can be long, so the group takes
+   the rest of the row and wraps; the new-tab cue flows inline right after the link. */
+.affiliate-card-link {
+  flex: 1 1 0;
+  min-width: 0;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+/* Inline padding enlarges the hit area (7mm) without changing the line layout. */
+.affiliate-card-link .affiliate-card-cta {
+  padding-block: 0.3rem;
+}
+
+.affiliate-card-newtab {
+  margin-inline-start: 0.35em;
+  font-weight: 700;
+}
+
 .affiliate-card-note {
   flex-basis: 100%;
   margin: 0;

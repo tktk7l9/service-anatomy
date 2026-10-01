@@ -110,6 +110,14 @@ tech editorial (magazine-style) design.
   `affiliate.url` and the `<img src>` to the optional `affiliate.impressionUrl` (https only;
   rewrite Moshimo's protocol-relative `//i.moshimo.com/...` to `https://`; ja/en must match,
   parity.ts checks it). Networks without a pixel (e.g. Shopify via Impact) leave it unset.
+  **The ad text is part of the code**: A8.net forbids rewording a text ad or using only its link
+  part. For every ASP link, copy the material's text verbatim into `affiliate.label` (one line,
+  max 120 chars, identical in ja/en — parity.ts checks it; keep brackets like 【】, do not
+  translate or shorten). `AffiliateCard` then shows exactly that string as the link text, with
+  `lang="ja"` on the English page; the "opens in a new tab" cue (↗) sits outside the `<a>`.
+  **If you do not know the material's text, ask the owner — never invent a label.** Without
+  `label` the card falls back to the site's own CTA from the dictionary (fine for non-ASP
+  programs such as Shopify via Impact).
   `AffiliateCard` renders the pixel after the link and gives the link
   `rel="sponsored nofollow noopener"` + `referrerPolicy="no-referrer-when-downgrade"` —
   **no `noreferrer`**, because the networks' code sends the Referer. Other external links keep
