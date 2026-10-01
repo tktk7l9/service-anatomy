@@ -9,18 +9,9 @@ publishedAt: "2026-10-01"
 updatedAt: "2026-10-01"
 lastVerified: "2026-10-01"
 serviceUrl: "https://freenance.net/"
-# Affiliate link placeholder: the task brief names an official FREENANCE program on A8.net
-# (reward for a new account opening, 3,000 yen). A8.net program pages are behind a login, so
-# this could not be verified here. The site also loads Moshimo's maftag.js on the login page
-# and Link-AG's tag on the top page, so the service appears to run programs on several ASPs;
-# the owner must check which one they can join and paste that tracking link before enabling
-# this block. Do not use the member "friend invite" code (freenance.net/affiliate): it is a
-# per-member referral scheme whose reward only triggers on a corporate deposit into the
-# friend's account, not an ASP program. Keep the url identical in ja.md and en.md
-# (parity.ts checks it).
-# affiliate:
-#   url: "https://<freenance-a8-tracking-link>"
-#   program: "FREENANCE Affiliate Program (A8.net)"
+affiliate:
+  url: "https://px.a8.net/svt/ejp?a8mat=4BE68S+9U8XPU+47L8+614CY"
+  program: "FREENANCE Affiliate Program (A8.net)"
 vendor: "freee K.K."
 origin: "JP"
 heroTheme: "freenance"
