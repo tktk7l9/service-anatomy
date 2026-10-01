@@ -1,6 +1,9 @@
 // Deterministic "anatomical specimen plate"-style SVG art generated from a heroTheme key.
 // No external images (zero copyright risk, keeps CSP `img-src 'self' data:`, light LCP).
 // Colors reference CSS variables, so it follows light/dark automatically.
+// The service name sits on a plate in the middle so a thumbnail says which article it is.
+
+import { LABEL_VIEW_HEIGHT, LABEL_VIEW_WIDTH, fitLabel } from "@/engine/format/label-fit";
 
 function hashString(value: string): number {
   let hash = 0x811c9dc5;
@@ -22,10 +25,20 @@ function mulberry32(seed: number): () => number {
   };
 }
 
-const VIEW_W = 1200;
-const VIEW_H = 630;
+const VIEW_W = LABEL_VIEW_WIDTH;
+const VIEW_H = LABEL_VIEW_HEIGHT;
 
-export function HeroArt({ theme, className }: { theme: string; className?: string }) {
+export function HeroArt({
+  theme,
+  label,
+  className,
+}: {
+  theme: string;
+  /** Service name drawn on the centre plate (the article's `frontmatter.service`). */
+  label: string;
+  className?: string;
+}) {
+  const plate = fitLabel(label);
   const rand = mulberry32(hashString(theme));
   const between = (min: number, max: number) => min + rand() * (max - min);
 
@@ -119,6 +132,36 @@ export function HeroArt({ theme, className }: { theme: string; className?: strin
           return <line key={i} x1={x} y1={VIEW_H * 0.82} x2={x} y2={VIEW_H * 0.82 - h} />;
         })}
       </g>
+
+      {/* Service name on an opaque plate: the art behind it never lowers the contrast.
+          The whole SVG stays aria-hidden — the name is already in the text next to it. */}
+      {plate && (
+        <g className="hero-art-label">
+          <rect
+            x={plate.plate.x}
+            y={plate.plate.y}
+            width={plate.plate.width}
+            height={plate.plate.height}
+            fill="var(--paper)"
+            stroke="var(--ink)"
+            strokeWidth="3"
+          />
+          {plate.lines.map((line) => (
+            <text
+              key={line.y}
+              x={VIEW_W / 2}
+              y={line.y}
+              textAnchor="middle"
+              fontSize={plate.fontSize}
+              fill="var(--ink)"
+              textLength={line.textLength}
+              lengthAdjust={line.textLength ? "spacingAndGlyphs" : undefined}
+            >
+              {line.text}
+            </text>
+          ))}
+        </g>
+      )}
     </svg>
   );
 }
