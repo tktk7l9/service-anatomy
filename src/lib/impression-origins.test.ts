@@ -1,4 +1,6 @@
-import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
+// @vitest-environment node
+// (next.config.ts resolves its files with file: URLs, which jsdom replaces.)
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
@@ -66,6 +68,11 @@ describe("readImpressionOrigins", () => {
     expect(readImpressionOrigins(dir)).toEqual(["https://i.example.com", "https://www12.example.net"]);
   });
 
+  it("reads en.md as well as ja.md", () => {
+    const dir = makeDir({ "alpha/en.md": withPixel("https://en-only.example.org/0.gif") });
+    expect(readImpressionOrigins(dir)).toEqual(["https://en-only.example.org"]);
+  });
+
   it("does not pick up a commented-out affiliate block", () => {
     const dir = makeDir({
       "alpha/ja.md": `---\n# affiliate:\n#   impressionUrl: "https://i.example.com/p"\nservice: "A"\n---\nbody\n`,
@@ -121,5 +128,31 @@ describe("real content: CSP img-src and impression pixels", () => {
       expect(directive).not.toContain("moshimo.com");
       expect(directive).not.toContain("a8.net");
     }
+  });
+});
+
+describe("wiring: next.config.ts and globals.css", () => {
+  it("next.config.ts serves a CSP whose img-src carries the pixel origins", async () => {
+    const { default: nextConfig } = await import("../../next.config");
+    const rules = await nextConfig.headers!();
+    const csp = rules.flatMap((rule) => rule.headers).find((h) => h.key === "Content-Security-Policy")!.value;
+    const imgSrc = csp.split("; ").find((directive) => directive.startsWith("img-src"))!.split(" ");
+    for (const origin of readImpressionOrigins(REAL_ARTICLES_DIR)) {
+      expect(imgSrc).toContain(origin);
+    }
+    expect(imgSrc.filter((source) => /a8\.net|moshimo\.com/.test(source))).toEqual([
+      "https://i.moshimo.com",
+      "https://www12.a8.net",
+    ]);
+  });
+
+  it("the pixel is out of flow and still rendered (a hidden lazy image is never requested)", () => {
+    const css = readFileSync(path.join(process.cwd(), "src", "app", "globals.css"), "utf8");
+    const rule = css.match(/\.affiliate-card-pixel\s*\{([^}]*)\}/)![1];
+    expect(rule).toMatch(/position:\s*absolute/);
+    expect(rule).toMatch(/width:\s*1px/);
+    expect(rule).toMatch(/height:\s*1px/);
+    expect(rule).not.toMatch(/display:\s*none|visibility:\s*hidden/);
+    expect(css.match(/\.affiliate-card\s*\{([^}]*)\}/)![1]).toMatch(/position:\s*relative/);
   });
 });

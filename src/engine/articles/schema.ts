@@ -149,6 +149,17 @@ function parseTechStack(obj: Record<string, unknown>, context: string): TechStac
   });
 }
 
+// The impression pixel's origin goes into the CSP img-src, so it must be a concrete https origin:
+// parseable, no wildcard host, no credentials, no whitespace.
+function requireImpressionUrl(record: Record<string, unknown>, context: string): string {
+  const value = requireHttpsUrl(record, "impressionUrl", context);
+  const url = URL.canParse(value) ? new URL(value) : undefined;
+  if (!url || /\s/.test(value) || url.hostname.includes("*") || url.username !== "" || url.password !== "") {
+    fail(context, `impressionUrl must be a plain https URL with a concrete host (no wildcard, credentials or spaces)`);
+  }
+  return value;
+}
+
 function parseAffiliate(obj: Record<string, unknown>, context: string): AffiliateLink | undefined {
   if (obj.affiliate === undefined) {
     return undefined;
@@ -160,7 +171,7 @@ function parseAffiliate(obj: Record<string, unknown>, context: string): Affiliat
     program: requireString(record, "program", entryContext),
   };
   if (record.impressionUrl !== undefined) {
-    affiliate.impressionUrl = requireHttpsUrl(record, "impressionUrl", entryContext);
+    affiliate.impressionUrl = requireImpressionUrl(record, entryContext);
   }
   return affiliate;
 }

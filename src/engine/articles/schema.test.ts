@@ -196,6 +196,42 @@ describe("parseFrontmatter", () => {
       /affiliate: impressionUrl must be a URL starting with https:\/\//,
     ],
     [
+      "affiliate.impressionUrl has a wildcard host",
+      (r: Record<string, unknown>) =>
+        (r.affiliate = { url: "https://a.example/c", program: "p", impressionUrl: "https://*.example.net/0.gif" }),
+      /affiliate: impressionUrl must be a plain https URL with a concrete host/,
+    ],
+    [
+      "affiliate.impressionUrl carries credentials",
+      (r: Record<string, unknown>) =>
+        (r.affiliate = { url: "https://a.example/c", program: "p", impressionUrl: "https://user:pw@i.example/0.gif" }),
+      /affiliate: impressionUrl must be a plain https URL with a concrete host/,
+    ],
+    [
+      "affiliate.impressionUrl carries a user name",
+      (r: Record<string, unknown>) =>
+        (r.affiliate = { url: "https://a.example/c", program: "p", impressionUrl: "https://user@i.example/0.gif" }),
+      /affiliate: impressionUrl must be a plain https URL with a concrete host/,
+    ],
+    [
+      "affiliate.impressionUrl carries only a password",
+      (r: Record<string, unknown>) =>
+        (r.affiliate = { url: "https://a.example/c", program: "p", impressionUrl: "https://:pw@i.example/0.gif" }),
+      /affiliate: impressionUrl must be a plain https URL with a concrete host/,
+    ],
+    [
+      "affiliate.impressionUrl contains whitespace",
+      (r: Record<string, unknown>) =>
+        (r.affiliate = { url: "https://a.example/c", program: "p", impressionUrl: "https://i.example/0.gif 'unsafe-inline'" }),
+      /affiliate: impressionUrl must be a plain https URL with a concrete host/,
+    ],
+    [
+      "affiliate.impressionUrl does not parse",
+      (r: Record<string, unknown>) =>
+        (r.affiliate = { url: "https://a.example/c", program: "p", impressionUrl: "https://" }),
+      /affiliate: impressionUrl must be a plain https URL with a concrete host/,
+    ],
+    [
       "affiliate.impressionUrl is empty",
       (r: Record<string, unknown>) => (r.affiliate = { url: "https://a.example/c", program: "p", impressionUrl: "" }),
       /affiliate: impressionUrl must be a non-empty string/,
