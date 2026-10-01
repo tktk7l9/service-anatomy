@@ -434,6 +434,13 @@ main:focus {
   background: var(--paper-raised);
 }
 
+/* Service name on the plate in the middle of the generated art (hero-art.tsx).
+   Ink on paper: 15.2:1 light, 14.3:1 dark. Size and position are SVG attributes. */
+.hero-art-label text {
+  font-family: var(--display);
+  font-weight: 700;
+}
+
 .card-featured {
   display: grid;
   gap: 1.6rem;

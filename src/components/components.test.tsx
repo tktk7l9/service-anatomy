@@ -45,11 +45,62 @@ describe("components smoke", () => {
   });
 
   it("HeroArt generates a deterministic SVG from the same theme", () => {
-    const { container: a } = render(<HeroArt theme="alpha" />);
-    const { container: b } = render(<HeroArt theme="alpha" />);
-    const { container: c } = render(<HeroArt theme="beta" />);
+    const { container: a } = render(<HeroArt theme="alpha" label="Alpha" />);
+    const { container: b } = render(<HeroArt theme="alpha" label="Alpha" />);
+    const { container: c } = render(<HeroArt theme="beta" label="Alpha" />);
     expect(a.innerHTML).toBe(b.innerHTML);
     expect(a.innerHTML).not.toBe(c.innerHTML);
+  });
+
+  it("HeroArt draws the service name on a centred plate and stays hidden from assistive tech", () => {
+    const { container } = render(<HeroArt theme="alpha" label="Shopify" />);
+    const svg = container.querySelector("svg");
+    expect(svg).toHaveAttribute("aria-hidden", "true");
+    expect(svg).toHaveAttribute("viewBox", "0 0 1200 630");
+    expect(svg?.querySelector("title")).toBeNull();
+    const texts = container.querySelectorAll(".hero-art-label text");
+    expect(texts).toHaveLength(1);
+    expect(texts[0]).toHaveTextContent("Shopify");
+    expect(texts[0]).toHaveAttribute("x", "600");
+    expect(texts[0]).toHaveAttribute("text-anchor", "middle");
+    expect(texts[0]).not.toHaveAttribute("textLength");
+    const rect = container.querySelector(".hero-art-label rect");
+    expect(Number(rect?.getAttribute("x")) + Number(rect?.getAttribute("width")) / 2).toBeCloseTo(600);
+    expect(Number(rect?.getAttribute("y")) + Number(rect?.getAttribute("height")) / 2).toBeCloseTo(315);
+    // CSP-friendly: presentation attributes and a class, no inline style.
+    expect(container.querySelector("[style]")).toBeNull();
+  });
+
+  it("HeroArt wraps a long service name onto two lines", () => {
+    const { container } = render(
+      <HeroArt theme="alpha" label="やよいの青色申告 オンライン（弥生）" />,
+    );
+    const texts = [...container.querySelectorAll(".hero-art-label text")];
+    expect(texts.map((text) => text.textContent)).toEqual(["やよいの青色申告 オンライン", "（弥生）"]);
+  });
+
+  it("HeroArt squeezes a name that cannot wrap and draws no plate without a name", () => {
+    const { container } = render(<HeroArt theme="alpha" label={"あ".repeat(24)} />);
+    expect(container.querySelector(".hero-art-label text")).toHaveAttribute("textLength", "960");
+    const { container: empty } = render(<HeroArt theme="alpha" label="" />);
+    expect(empty.querySelector(".hero-art-label")).toBeNull();
+  });
+
+  it("the art behind the plate is unchanged by the label", () => {
+    const strip = (html: string) => html.replace(/<g class="hero-art-label">.*<\/g>/u, "");
+    const { container: a } = render(<HeroArt theme="alpha" label="Alpha" />);
+    const { container: b } = render(<HeroArt theme="alpha" label="" />);
+    expect(strip(a.innerHTML)).toBe(b.innerHTML);
+  });
+
+  it("ArticleCard puts the service name on its thumbnail", () => {
+    const { container } = render(
+      <ArticleCard article={makeArticle("alpha-service")} locale="ja" dict={ja} />,
+    );
+    const article = makeArticle("alpha-service");
+    expect(container.querySelector(".hero-art-label text")).toHaveTextContent(
+      article.ja.frontmatter.service,
+    );
   });
 
   it("ArticleCard", () => {

@@ -1,7 +1,8 @@
 import { ImageResponse } from "next/og";
 import { ALL_ARTICLES, articleBySlug } from "@/engine/articles";
 import { SCORE_AXES } from "@/engine/articles/schema";
-import { isLocale, type Locale } from "@/i18n/config";
+import { estimateTextWidth } from "@/engine/format/label-fit";
+import { isLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
 // content/ Markdown is read only at build time. If this stays dynamic, on Cloudflare
@@ -9,8 +10,10 @@ import { getDictionary } from "@/i18n/dictionaries";
 // which is not in the bundle, and every article breaks. dynamicParams=false makes unlisted paths 404.
 export const dynamicParams = false;
 
+// Both segments are listed here: with only `slug`, nothing was prerendered for this route and,
+// because dynamicParams is false, every article's OGP image answered 404.
 export function generateStaticParams() {
-  return ALL_ARTICLES.map((article) => ({ slug: article.slug }));
+  return locales.flatMap((locale) => ALL_ARTICLES.map((article) => ({ locale, slug: article.slug })));
 }
 
 export const size = { width: 1200, height: 630 };
@@ -22,6 +25,7 @@ const INK = "#211d16";
 const INK_SOFT = "#5c5546";
 const RULE = "#ddd4c3";
 const ACCENT = "#9c3b22";
+const PAPER_RAISED = "#fffdf8";
 
 // Since the days when the parent was force-dynamic, this OGP image has set HTTP caching explicitly
 // (same pattern as /api/anatomy.json). Even now that nonce CSP is gone, the article page
@@ -49,6 +53,11 @@ export default async function OpengraphImage({
   const { frontmatter } = article[locale];
   const overall =
     SCORE_AXES.reduce((sum, axis) => sum + frontmatter.scores[axis], 0) / SCORE_AXES.length;
+  // The plate must stay on one line next to the date (about 830px), and the title under it
+  // must fit in the remaining height, so both step down with length (estimateTextWidth is in em).
+  const serviceFontSize = Math.min(46, Math.floor(780 / estimateTextWidth(frontmatter.service)));
+  const titleWidth = estimateTextWidth(frontmatter.title);
+  const titleFontSize = titleWidth > 56 ? 42 : titleWidth > 36 ? 50 : 60;
 
   return new ImageResponse(
     (
@@ -95,20 +104,37 @@ export default async function OpengraphImage({
           </div>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
+          {/* Service name on a plate, like the thumbnail (HeroArt): says which service at a glance. */}
+          <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
+            <div
+              style={{
+                display: "flex",
+                fontSize: serviceFontSize,
+                fontWeight: 700,
+                lineHeight: 1.2,
+                color: INK,
+                background: PAPER_RAISED,
+                border: `3px solid ${INK}`,
+                padding: "8px 26px",
+              }}
+            >
+              {frontmatter.service}
+            </div>
+            <div style={{ display: "flex", fontSize: 24, color: INK_SOFT }}>
+              {frontmatter.publishedAt}
+            </div>
+          </div>
           <div
             style={{
               display: "flex",
-              fontSize: frontmatter.title.length > 32 ? 56 : 66,
+              fontSize: titleFontSize,
               fontWeight: 700,
-              lineHeight: 1.35,
+              lineHeight: 1.3,
               letterSpacing: -0.5,
             }}
           >
             {frontmatter.title}
-          </div>
-          <div style={{ display: "flex", fontSize: 26, color: INK_SOFT }}>
-            {frontmatter.service} · {frontmatter.publishedAt}
           </div>
         </div>
 
@@ -130,7 +156,7 @@ export default async function OpengraphImage({
                   gap: 10,
                   alignItems: "center",
                   border: `1px solid ${RULE}`,
-                  background: "#fffdf8",
+                  background: PAPER_RAISED,
                   padding: "10px 20px",
                   borderRadius: 6,
                   fontSize: 21,
