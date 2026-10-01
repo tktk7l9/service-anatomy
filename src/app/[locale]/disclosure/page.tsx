@@ -10,7 +10,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 // Advertising & affiliate policy. Linked from the footer, from the about page's disclaimer
 // and from the notice above every article that has an affiliate link.
 // Bump this date whenever the policy text in the dictionaries changes.
-const POLICY_UPDATED_AT = "2026-09-28";
+const POLICY_UPDATED_AT = "2026-10-01";
 
 export async function generateMetadata({
   params,
@@ -91,6 +91,7 @@ export default async function DisclosurePage({
 
       <h2>{d.cookiesTitle}</h2>
       <p>{d.cookiesBody}</p>
+      <p>{d.pixelBody}</p>
 
       <h2>{d.contactTitle}</h2>
       <p>{d.contactBody}</p>

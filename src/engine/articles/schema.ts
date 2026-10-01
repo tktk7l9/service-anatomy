@@ -39,10 +39,15 @@ export interface RevisionEntry {
   note: string;
 }
 
-/** Affiliate link. ja/en carry the same URL (verified by parity.ts). Not included in the public JSON. */
+/**
+ * Affiliate link. ja/en carry the same URLs (verified by parity.ts). Not included in the public JSON.
+ * impressionUrl is the 1x1 impression-tracking image that an affiliate network (ASP) ships next to
+ * the link in its ad code. Set it whenever the network's code has one, so the code is used as provided.
+ */
 export interface AffiliateLink {
   url: string;
   program: string;
+  impressionUrl?: string;
 }
 
 export interface ArticleFrontmatter {
@@ -150,10 +155,14 @@ function parseAffiliate(obj: Record<string, unknown>, context: string): Affiliat
   }
   const record = asRecord(obj.affiliate, context, "affiliate");
   const entryContext = `${context}: affiliate`;
-  return {
+  const affiliate: AffiliateLink = {
     url: requireHttpsUrl(record, "url", entryContext),
     program: requireString(record, "program", entryContext),
   };
+  if (record.impressionUrl !== undefined) {
+    affiliate.impressionUrl = requireHttpsUrl(record, "impressionUrl", entryContext);
+  }
+  return affiliate;
 }
 
 export function parseFrontmatter(data: unknown, context: string): ArticleFrontmatter {
