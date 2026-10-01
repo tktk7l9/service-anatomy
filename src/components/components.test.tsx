@@ -137,6 +137,7 @@ describe("components smoke", () => {
       <AffiliateCard
         affiliate={{ url: "https://shopify.pxf.io/abc", program: "Shopify Affiliate Program" }}
         service="Shopify"
+        locale="ja"
         dict={ja}
       />,
     );
@@ -165,6 +166,7 @@ describe("components smoke", () => {
           impressionUrl: "https://www12.example.net/0.gif?id=1",
         }}
         service="Example"
+        locale="ja"
         dict={ja}
       />,
     );
@@ -184,11 +186,99 @@ describe("components smoke", () => {
     expect(container.querySelectorAll("img")).toHaveLength(1);
   });
 
+  it("AffiliateCard without a label keeps the dictionary CTA in English", () => {
+    const { container } = render(
+      <AffiliateCard
+        affiliate={{ url: "https://shopify.pxf.io/abc", program: "Shopify Affiliate Program" }}
+        service="Shopify"
+        locale="en"
+        dict={en}
+      />,
+    );
+    const anchor = container.querySelector("a.affiliate-card-cta");
+    expect(anchor?.textContent).toBe("Try Shopify for free ↗");
+    expect(anchor).not.toHaveAttribute("lang");
+    expect(anchor).not.toHaveAttribute("aria-describedby");
+    expect(container.querySelector(".affiliate-card-newtab")).toBeNull();
+  });
+
+  it("AffiliateCard uses the ASP material's text verbatim as the link text", () => {
+    const label = "フリーランスの請求書を即日払い【EXAMPLE】";
+    const { container } = render(
+      <AffiliateCard
+        affiliate={{
+          url: "https://px.example.net/c?id=1",
+          program: "Example Program (ASP)",
+          impressionUrl: "https://www12.example.net/0.gif?id=1",
+          label,
+        }}
+        service="Example"
+        locale="ja"
+        dict={ja}
+      />,
+    );
+    const anchor = container.querySelector("a.affiliate-card-cta")!;
+    // Exactly the ad text: no arrow, no template, no child elements.
+    expect(anchor.textContent).toBe(label);
+    expect(anchor.childElementCount).toBe(0);
+    expect(anchor).toHaveAttribute("href", "https://px.example.net/c?id=1");
+    expect(anchor).toHaveAttribute("rel", "sponsored nofollow noopener");
+    expect(anchor).toHaveAttribute("target", "_blank");
+    // Same language as the page: no lang override.
+    expect(anchor).not.toHaveAttribute("lang");
+    // The pixel still follows the link directly, as in the network's code.
+    const pixel = container.querySelector("img.affiliate-card-pixel");
+    expect(pixel?.previousElementSibling).toBe(anchor);
+    // The new-tab cue lives outside the link and is tied to it for assistive tech.
+    const cue = container.querySelector(".affiliate-card-newtab")!;
+    expect(anchor.contains(cue)).toBe(false);
+    expect(pixel?.nextElementSibling).toBe(cue);
+    expect(cue).toHaveTextContent("↗");
+    expect(cue).toHaveTextContent("新しいタブで開きます");
+    expect(cue.querySelector("[aria-hidden='true']")).toHaveTextContent("↗");
+    expect(anchor).toHaveAttribute("aria-describedby", cue.id);
+    expect(anchor).toHaveAccessibleName(label);
+    expect(anchor).toHaveAccessibleDescription("新しいタブで開きます");
+  });
+
+  it("AffiliateCard marks a Japanese label as lang=ja on the English page", () => {
+    const label = "フリーランスの請求書を即日払い【EXAMPLE】";
+    const { container } = render(
+      <AffiliateCard
+        affiliate={{ url: "https://px.example.net/c?id=1", program: "Example Program (ASP)", label }}
+        service="Example"
+        locale="en"
+        dict={en}
+      />,
+    );
+    const anchor = container.querySelector("a.affiliate-card-cta")!;
+    expect(anchor.textContent).toBe(label);
+    expect(anchor).toHaveAttribute("lang", "ja");
+    expect(anchor).toHaveAccessibleDescription("Opens in a new tab");
+    // No pixel configured: the cue follows the link.
+    expect(anchor.nextElementSibling).toHaveClass("affiliate-card-newtab");
+  });
+
+  it("AffiliateCard leaves a non-Japanese label without a lang override on the English page", () => {
+    const { container } = render(
+      <AffiliateCard
+        affiliate={{ url: "https://px.example.net/c?id=1", program: "Example Program (ASP)", label: "Get paid today [EXAMPLE]" }}
+        service="Example"
+        locale="en"
+        dict={en}
+      />,
+    );
+    const anchor = container.querySelector("a.affiliate-card-cta")!;
+    expect(anchor.textContent).toBe("Get paid today [EXAMPLE]");
+    expect(anchor).not.toHaveAttribute("lang");
+  });
+
   it("AffiliateCard note includes the program name with the English dictionary too", () => {
     const { container } = render(
       <AffiliateCard
         affiliate={{ url: "https://shopify.pxf.io/abc", program: "Shopify Affiliate Program" }}
         service="Shopify"
+        locale="en"
         dict={en}
       />,
     );

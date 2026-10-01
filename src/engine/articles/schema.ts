@@ -43,11 +43,14 @@ export interface RevisionEntry {
  * Affiliate link. ja/en carry the same URLs (verified by parity.ts). Not included in the public JSON.
  * impressionUrl is the 1x1 impression-tracking image that an affiliate network (ASP) ships next to
  * the link in its ad code. Set it whenever the network's code has one, so the code is used as provided.
+ * label is the text of the network's text ad, copied verbatim: networks forbid rewording it, so when
+ * it is set the link shows exactly this string in every locale. Without it the site's own CTA is used.
  */
 export interface AffiliateLink {
   url: string;
   program: string;
   impressionUrl?: string;
+  label?: string;
 }
 
 export interface ArticleFrontmatter {
@@ -160,6 +163,20 @@ function requireImpressionUrl(record: Record<string, unknown>, context: string):
   return value;
 }
 
+export const AFFILIATE_LABEL_MAX_LENGTH = 120;
+
+// The network's ad text: one line, shown as-is. Only the surrounding whitespace is dropped.
+function requireAffiliateLabel(record: Record<string, unknown>, context: string): string {
+  const value = requireString(record, "label", context).trim();
+  if (/[\r\n\u2028\u2029]/.test(value)) {
+    fail(context, `label must be a single line`);
+  }
+  if ([...value].length > AFFILIATE_LABEL_MAX_LENGTH) {
+    fail(context, `label must be at most ${AFFILIATE_LABEL_MAX_LENGTH} characters`);
+  }
+  return value;
+}
+
 function parseAffiliate(obj: Record<string, unknown>, context: string): AffiliateLink | undefined {
   if (obj.affiliate === undefined) {
     return undefined;
@@ -172,6 +189,9 @@ function parseAffiliate(obj: Record<string, unknown>, context: string): Affiliat
   };
   if (record.impressionUrl !== undefined) {
     affiliate.impressionUrl = requireImpressionUrl(record, entryContext);
+  }
+  if (record.label !== undefined) {
+    affiliate.label = requireAffiliateLabel(record, entryContext);
   }
   return affiliate;
 }

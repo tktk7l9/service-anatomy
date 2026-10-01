@@ -77,5 +77,10 @@ export function localeParityIssues(article: Article): string[] {
       `affiliate.impressionUrl differs between ja/en (ja=${ja.affiliate?.impressionUrl ?? "none"} / en=${en.affiliate?.impressionUrl ?? "none"})`,
     );
   }
+  if (ja.affiliate?.label !== en.affiliate?.label) {
+    issues.push(
+      `affiliate.label differs between ja/en (ja=${ja.affiliate?.label ?? "none"} / en=${en.affiliate?.label ?? "none"})`,
+    );
+  }
   return issues;
 }

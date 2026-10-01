@@ -13,6 +13,7 @@ affiliate:
   url: "https://px.a8.net/svt/ejp?a8mat=4BE68S+9U8XPU+47L8+614CY"
   program: "FREENANCE Affiliate Program (A8.net)"
   impressionUrl: "https://www12.a8.net/0.gif?a8mat=4BE68S+9U8XPU+47L8+614CY"
+  label: "フリーランスの請求書を即日払い【FREENANCE】"
 vendor: "freee K.K."
 origin: "JP"
 heroTheme: "freenance"

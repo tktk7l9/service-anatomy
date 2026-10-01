@@ -173,7 +173,7 @@ export default async function ArticlePage({
             <LinkCard card={ogCard} service={frontmatter.service} label={dict.article.visitService} />
           )}
           {affiliate && (
-            <AffiliateCard affiliate={affiliate} service={frontmatter.service} dict={dict} />
+            <AffiliateCard affiliate={affiliate} service={frontmatter.service} locale={locale} dict={dict} />
           )}
 
           <ul className="tag-list">
