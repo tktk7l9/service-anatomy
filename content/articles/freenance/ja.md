@@ -1,0 +1,236 @@
+---
+service: "FREENANCE（フリーナンス）"
+title: "無料の口座と保険で集め、即日払いの3〜10%で稼ぐ — 売上4.5億円・債務超過13.8億円のフリーナンスをfreeeが11億円で買った理由"
+description: "フリーランス・個人事業主向けの「お金と保険」のサービスFREENANCE（フリーナンス）。2018年10月にGMOクリエイターズネットワークが始め、2025年9月にfreeeの完全子会社になった。無料の収納代行口座と損害賠償保険を入口に、請求書を買い取る即日払い（ファクタリング）の手数料3〜10%で稼ぐ設計を、公式サイト、利用規約、料金ページ、GMOペパボの適時開示、freeeとGMOの発表、特許公報、当サイトの実観測から解剖する。売上4.5億円・純資産マイナス13.8億円の会社に付いた11億円の値段と、25億円の借入の行き先も読む。"
+lead: "口座はただ、保険もただ。フリーナンスの入口には値札がない。値札が付くのは、請求書を待たずに現金に換えるときだ。請求書の額面から3〜10%を引いて、最短でその日のうちに振り込む。GMOグループで7年続いたこのサービスは、2025年9月、11億円でfreeeの手に渡った。売上4.5億円、純資産はマイナス13.8億円、直前に25億円の借入を親会社側へ移してから。確定申告ソフトの会社が、フリーランスの「お金の入口」に払った値段の中身を解剖する。"
+category: saas
+tags: [fintech, factoring, insurance, freelance, small-business, subscription]
+publishedAt: "2026-10-01"
+updatedAt: "2026-10-01"
+lastVerified: "2026-10-01"
+serviceUrl: "https://freenance.net/"
+# Affiliate link placeholder: the task brief names an official FREENANCE program on A8.net
+# (reward for a new account opening, 3,000 yen). A8.net program pages are behind a login, so
+# this could not be verified here. The site also loads Moshimo's maftag.js on the login page
+# and Link-AG's tag on the top page, so the service appears to run programs on several ASPs;
+# the owner must check which one they can join and paste that tracking link before enabling
+# this block. Do not use the member "friend invite" code (freenance.net/affiliate): it is a
+# per-member referral scheme whose reward only triggers on a corporate deposit into the
+# friend's account, not an ASP program. Keep the url identical in ja.md and en.md
+# (parity.ts checks it).
+# affiliate:
+#   url: "https://<freenance-a8-tracking-link>"
+#   program: "FREENANCE Affiliate Program (A8.net)"
+vendor: "freee K.K."
+origin: "JP"
+heroTheme: "freenance"
+scores: { product: 3.5, ux: 3.5, tech: 3.0, business: 3.0 }
+techStack:
+  - layer: "フリーナンス口座（収納代行用のバーチャル口座）"
+    name: "GMO Aozora Net Bank virtual accounts"
+    confidence: confirmed
+    evidence: "利用規約（最終更新日2025-10-01）の第6条に「フリーナンス口座を提供するGMOあおぞらネット銀行から口座の利用を停止又は制限された場合」と明記し、定義ではフリーナンス口座を「会員ごとに割り当てたバーチャル口座」と呼ぶ。公式のフリーナンス口座ページは、口座は本人名義で開設され、2026年3月26日以降に登録した会員は口座名義の末尾に「/ﾌﾘｰﾕｰｻﾞｰ」が付くこと、メインバンクがGMOあおぞらネット銀行なら平日毎日振り替えられることを書いている"
+    evidenceUrl: "https://freenance.net/terms-of-service"
+  - layer: "与信スコア（即日払いの手数料を決める仕組み）"
+    name: "In-house credit score (account deposit history + Moneytree MT LINK)"
+    confidence: confirmed
+    evidence: "公式FAQ「与信スコアはどうやったら上がりますか？」に、フリーナンス振込専用口座に入金があることが一番スコアに影響し、Moneytree社のMT LINKとの連携でも上げられ、各種クラウド会計との連携は今後提供予定と明記。別のFAQは、スコアが上がると即日払いの手数料が下がると書く"
+    evidenceUrl: "https://freenance.net/archives/faq/140/"
+  - layer: "ファクタリングの仕組み（特許）"
+    name: "JP Patents 6816062 / 7178521 (filed by GMO Creators Network)"
+    confidence: confirmed
+    evidence: "Google Patentsに掲載の特許第6816062号（2018年6月8日出願・2021年1月20日登録・出願人GMOクリエイターズネットワーク）の請求項1は、利用者ごとに個別の「買取口座」を記憶し、請求書の入金先がその口座かどうかを判定し、そうであれば請求額に応じた買取額を利用者の金融口座へ送金する装置。明細書は、この買取口座をいわゆるバーチャル口座と説明し、利用者と取引先それぞれの与信スコア・格付け・取引限度のテーブルを実施形態として書いている。第7178521号（2022年2月28日出願・同年11月25日登録）は、会計ソフトとの連携設定を受け付け、会計ソフト側から取得した請求書の一覧から選んだ請求書の買取を申し込む仕組み。公式の「特許と商標」ページは、この2件と第7033644号の3件の特許と、「FREENANCE」「Factoring API」「即日払いAPI」の商標登録を挙げている"
+    evidenceUrl: "https://patents.google.com/patent/JP6816062B2/ja"
+  - layer: "債権管理・督促"
+    name: "Lecto Platform"
+    confidence: confirmed
+    evidence: "PR TIMESに掲載されたLecto株式会社の発表（2026-07-30）に、freeeが展開するFREENANCE by freeeが債権管理基盤の強化のためLectoプラットフォームを導入し、メール・SMS・IVRによる督促アプローチの自動化、債務者グループごとのコミュニケーション設計、債権データと交渉記録の一元管理、ダッシュボードでの進捗可視化を使うと明記"
+    evidenceUrl: "https://prtimes.jp/main/html/rd/p/000000062.000074780.html"
+  - layer: "保険の引受"
+    name: "Sompo Japan (liability) / Aioi Nissay Dowa (income protection)"
+    confidence: confirmed
+    evidence: "公式のあんしん補償ページに「引受保険会社：損害保険ジャパン株式会社」と明記し、2025年10月15日保険始期からの内容だと注記している（10月14日までの事故は別ページ案内）。所得補償「あんしん補償プラス」のページは、引受があいおいニッセイ同和損害保険で、一般社団法人フリーランスAWS協会の団体契約として個人加入より44%安いと書く"
+    evidenceUrl: "https://freenance.net/anshin"
+  - layer: "会員向けアプリ（my.freenance.net）のホスティング"
+    name: "Google Cloud (Google Front End)"
+    confidence: likely
+    evidence: "当サイトの実観測（2026-10-01）で、my.freenance.net の応答ヘッダーに server: Google Frontend と via: 1.1 google が付き、HTTP/3のalt-svcを返した。解決先IPアドレスは34.110.174.128（Google Cloudのグローバル負荷分散の範囲）。未ログインの /plans は /login へ、/ は /login へリダイレクトし、Cookieは HttpOnly; Secure; SameSite=None の SID だった"
+  - layer: "会員向けアプリのフロントエンド"
+    name: "React + Vue.js 2.5.17 + jQuery UI 1.11.4 (webpack bundles)"
+    confidence: likely
+    evidence: "当サイトの実観測（2026-10-01）で、ログインページが /bundle.js（約2.4MB。Vue.js v2.5.17、jQuery、webpackの文字列を含む）と /bundle-v2.js（約420KB。ReactとAxiosの文字列を含む）の2本を読み込み、jQuery UI 1.11.4のCSS、Google reCAPTCHA、Google Tag Manager（GTM-W3H38KV）を読み込んでいた。ログインはメール・LINE・Facebook・Googleの4種"
+  - layer: "マーケティングサイト（freenance.net）"
+    name: "WordPress (custom theme + All in One SEO 4.3.1.1) on Apache, GMO Internet Group IP space"
+    confidence: likely
+    evidence: "当サイトの実観測（2026-10-01）で、freenance.net のHTMLに wp-content/themes/freenance へのパスが20件以上、generator: All in One SEO (AIOSEO) 4.3.1.1 のmetaが含まれ、応答ヘッダーは server: Apache と x-cache。Aレコードは157.7.44.184で、whoisのnetnameはinterQ、descrはGMO Internet Group, Inc.。freeeの子会社になった後も、フッターは cache.img.gmo.jp のスクリプトを読み込み、GMOグループの関連サービスへリンクしていた"
+  - layer: "計測・広告タグ"
+    name: "GTM + GA4 + Microsoft Clarity + LINE Tag + Meta Pixel + Pinterest / LinkedIn / Yahoo! Ads tags + b→dash + AdMatrix + IM-UID + User Insight"
+    confidence: likely
+    evidence: "当サイトの実観測（2026-10-01）で、会員プラン選択ページ（my.freenance.net/signup/registPlan）の読み込み時に、Google広告（googleadservices.com・doubleclick.net）、GA4（analytics.google.com）、clarity.ms、LINE Tag、connect.facebook.net、ct.pinterest.com、px.ads.linkedin.com、apm.yahoo.co.jp、bat.bing.com、s.adroll.com、smart-bdash.com、admatrix.jp、im-apps.net、nakanohito.jp、microad.jp などへの通信が発生した。ログインページは r.moshimo.com の maftag.js（もしもアフィリエイトの成果計測タグ）、トップページは link-ag.net と smaad.net のタグも読み込む"
+sources:
+  - label: "FREENANCE公式: トップページ"
+    url: "https://freenance.net/"
+    accessedAt: "2026-10-01"
+  - label: "FREENANCE公式: 即日払い"
+    url: "https://freenance.net/sokujitsu"
+    accessedAt: "2026-10-01"
+  - label: "FREENANCE公式: あんしん補償"
+    url: "https://freenance.net/anshin"
+    accessedAt: "2026-10-01"
+  - label: "FREENANCE公式: あんしん補償Basic"
+    url: "https://freenance.net/anshin-basic"
+    accessedAt: "2026-10-01"
+  - label: "FREENANCE公式: あんしん補償プラス（所得補償）"
+    url: "https://freenance.net/shotoku"
+    accessedAt: "2026-10-01"
+  - label: "FREENANCE公式: フリーナンス口座"
+    url: "https://freenance.net/bankaccount"
+    accessedAt: "2026-10-01"
+  - label: "FREENANCE公式: 決済リンク"
+    url: "https://freenance.net/payment-link"
+    accessedAt: "2026-10-01"
+  - label: "FREENANCE公式: バーチャルオフィス"
+    url: "https://freenance.net/virtual-office"
+    accessedAt: "2026-10-01"
+  - label: "FREENANCE公式: ビジネスモデル"
+    url: "https://freenance.net/business-model"
+    accessedAt: "2026-10-01"
+  - label: "FREENANCE公式: 企業の方へ"
+    url: "https://freenance.net/for-employer"
+    accessedAt: "2026-10-01"
+  - label: "FREENANCE公式: すごい！友達招待プログラム"
+    url: "https://freenance.net/affiliate"
+    accessedAt: "2026-10-01"
+  - label: "FREENANCE公式: 特許と商標"
+    url: "https://freenance.net/ip"
+    accessedAt: "2026-10-01"
+  - label: "FREENANCE公式: フリーナンス利用規約（最終更新日 2025-10-01）"
+    url: "https://freenance.net/terms-of-service"
+    accessedAt: "2026-10-01"
+  - label: "FREENANCE公式: 会員プラン選択（料金）"
+    url: "https://my.freenance.net/signup/registPlan"
+    accessedAt: "2026-10-01"
+  - label: "FREENANCE公式 FAQ: 即日払いに上限額はありますか？"
+    url: "https://freenance.net/archives/faq/3850/"
+    accessedAt: "2026-10-01"
+  - label: "FREENANCE公式 FAQ: 与信スコアはどうやったら上がりますか？"
+    url: "https://freenance.net/archives/faq/140/"
+    accessedAt: "2026-10-01"
+  - label: "FREENANCE公式 FAQ: 与信スコアがあがるとどんな良いことがありますか？"
+    url: "https://freenance.net/archives/faq/138/"
+    accessedAt: "2026-10-01"
+  - label: "FREENANCE公式 お知らせ: フリーナンス利用規約改定のお知らせ（2026-09-04）"
+    url: "https://freenance.net/archives/news/5401/"
+    accessedAt: "2026-10-01"
+  - label: "FREENANCE公式 お知らせ: freee、エクストリームと業務提携を開始（2026-09-10）"
+    url: "https://freenance.net/archives/news/5411/"
+    accessedAt: "2026-10-01"
+  - label: "FREENANCE公式 お知らせ: レンタルスペース割引クーポンの提供開始（2025-10-01）"
+    url: "https://freenance.net/archives/news/5055/"
+    accessedAt: "2026-10-01"
+  - label: "PR TIMES（フリー株式会社）: GMOクリエイターズネットワーク株式会社がfreeeの完全子会社としてグループジョイン（2025-07-22）"
+    url: "https://prtimes.jp/main/html/rd/p/000001840.000006428.html"
+    accessedAt: "2026-10-01"
+  - label: "GMOペパボ株式会社: 連結子会社の異動（株式譲渡）に関するお知らせ（2025-07-22）"
+    url: "https://ssl4.eir-parts.net/doc/3633/tdnet/2657970/00.pdf"
+    accessedAt: "2026-10-01"
+  - label: "GMOペパボ株式会社: （開示事項の経過）連結子会社の異動（株式譲渡）の完了に関するお知らせ（2025-09-01）"
+    url: "https://ssl4.eir-parts.net/doc/3633/tdnet/2683086/00.pdf"
+    accessedAt: "2026-10-01"
+  - label: "PR TIMES（GMOインターネットグループ）: 『FREENANCE 即日払い』累計申し込み件数30万件を突破（2024-05-30）"
+    url: "https://prtimes.jp/main/html/rd/p/000004422.000000136.html"
+    accessedAt: "2026-10-01"
+  - label: "PR TIMES（GMOインターネットグループ）: 「FREENANCE byGMO」のファクタリングサービス 累計申し込み件数50,000件を突破（2022-01-26）"
+    url: "https://prtimes.jp/main/html/rd/p/000003459.000000136.html"
+    accessedAt: "2026-10-01"
+  - label: "PR TIMES（GMOインターネットグループ）: 「FREENANCE byGMO」、本日3月5日よりLINEとの連携を開始（2025-03-05）"
+    url: "https://prtimes.jp/main/html/rd/p/000004753.000000136.html"
+    accessedAt: "2026-10-01"
+  - label: "PR TIMES（Lecto株式会社）: 「FREENANCE by freee」が債権管理基盤の強化に向けて「Lectoプラットフォーム」を導入（2026-07-30）"
+    url: "https://prtimes.jp/main/html/rd/p/000000062.000074780.html"
+    accessedAt: "2026-10-01"
+  - label: "PR TIMES（フリー株式会社）: freeeがフリーランスを対象に資金繰りに関する調査を実施（2025-12-12）"
+    url: "https://prtimes.jp/main/html/rd/p/000001963.000006428.html"
+    accessedAt: "2026-10-01"
+  - label: "Google Patents: 特許第6816062号 情報処理装置、情報処理方法及びプログラム"
+    url: "https://patents.google.com/patent/JP6816062B2/ja"
+    accessedAt: "2026-10-01"
+  - label: "Google Patents: 特許第7178521号 情報処理方法、プログラム及び情報処理装置"
+    url: "https://patents.google.com/patent/JP7178521B2/ja"
+    accessedAt: "2026-10-01"
+  - label: "フリー株式会社: 2026年6月期 決算説明資料（2026-08-13）"
+    url: "https://contents.xj-storage.jp/xcontents/AS08692/97bc7144/e317/47ab/926b/998554b4c0e4/20260814105745837s.pdf"
+    accessedAt: "2026-10-01"
+---
+
+フリーランスの請求書は、書いてから振り込まれるまでに1〜2ヶ月空く。フリーナンスは、その空白に値段を付けた会社だ。請求書の振込先を自分名義の専用口座に変えるだけで、無料の損害賠償保険が付き、請求書を額面の3〜10%引きでその日のうちに現金にできる。2018年にGMOグループで始まり、2025年秋に[freee](/ja/articles/freee)のものになった。口座も保険も無料にして、どこで稼ぎ、いくらの値段が付いたのかを読む。
+
+## サービス解説
+
+FREENANCE（フリーナンス）は、フリーランス・個人事業主向けの「お金と保険」のサービスだ。柱は3つある。請求書の振込先にする収納代行用の「フリーナンス口座」、会員に無料で付く損害賠償保険「あんしん補償」、そして請求書（売掛債権）を買い取って最短即日で振り込む「即日払い」。周辺に、所得補償保険、請求書にカード決済を付ける決済リンク、銀座・福岡のバーチャルオフィスが並ぶ。
+
+:::fact
+GMOインターネットグループの発表（2022-01-26）によれば、FREENANCEは2018年10月にサービスを始めた。GMOペパボの適時開示（2025-07-22）によれば、運営会社のGMOクリエイターズネットワーク株式会社は2002年4月30日設立、資本金1億円、本社は渋谷区桜丘町のセルリアンタワーで、GMOペパボの連結子会社CN株式会社が100%の株式を持っていた。2025年7月22日に全株式（3,833株）をフリー株式会社へ譲渡する契約を結び、GMOペパボの発表（2025-09-01）によれば譲渡は同日に完了した。利用規約（最終更新日2025-10-01）は、サービスの提供者を「フリー株式会社」と定め、公式サイトは「FREENANCE by freee」を名乗る。
+:::
+
+:::fact
+公式の会員プラン選択ページ（2026-10-01時点・税込）によれば、プランは3つ。フリーは月0円で、本人名義または屋号での事業用口座の開設、即日払い、業務遂行中の事故の補償（最高5,000万円）、レンタルスペース10%割引が付く。レギュラーは月払いで月590円（年7,080円）、年払いで月490円相当（年5,880円）。プレミアムは月払いで月1,200円（年14,400円）、年払いで月980円相当（年11,760円）。有料2プランは30日間無料で、業務過誤の補償（最高500万円。情報漏洩・著作権侵害・納品物の損壊・納期遅延など）、所得補償への即時加入、請求書へのカード決済追加（決済リンクの手数料はレギュラー3.93%、プレミアム3.43%）、レンタルスペース20%割引が付く。プレミアムはさらにバーチャルオフィスのライトプランが使える。ページには「フリーナンスの会費は経費にできます」とある。
+:::
+
+:::fact
+公式の即日払いページと利用規約によれば、即日払いは会員がクライアントに発行した入金前の請求書（売掛債権）の全部または一部をフリーナンスが買い取り、原則として即日、買取代金を支払うサービスだ。手数料は請求書額面の3%〜10%で、フリーナンス口座を使うほど下がる。16時半までに承認されれば当日中に振り込まれ、それ以降は翌営業日になる。対象は法人からの請求書に限られ、個人間取引は使えない。公式FAQによれば、初回でも1万円から上限額なしで申し込め、回数の上限もなく、請求書の一部だけを申し込んで残りを後から申し込むこともできる。ただし全件に審査があり、申込額どおりに承認されるとは限らない。
+:::
+
+:::pull
+入口はただ、値札が付くのは請求書を現金に換えるときだけ。額面の3〜10%を引いて、その日のうちに振り込む。
+:::
+
+::scorecard
+
+## UX分析
+
+フリーナンスの体験は、「請求書の振込先を変える」という一手に集約されている。振込先を専用口座にすれば、保険も、即日払いの審査も、手数料の割引も、その口座を通る入金実績に付いてくる。
+
+- **登録の初手が「口座を変える」**。公式のフリーナンス口座ページによれば、口座は本人名義で維持手数料は無料、屋号やペンネームも使えるが開業届の写しが要る。振り込まれた報酬は毎週1回（金曜）と月末・月初、毎月15日の営業日に自分のメインバンクへ振り替えられ、メインバンクがGMOあおぞらネット銀行なら平日毎日になる。振込手数料は運営側の負担だ。裏を返せば、口座を変えない限りフリーナンスの良さはほとんど使えず、報酬が手元に届くまでのタイムラグを自分で受け入れる必要がある。
+- **与信は「入金の履歴」で積み上がる**。公式FAQによれば、与信スコアに一番効くのはフリーナンス口座への入金で、Moneytreeの「MT LINK」との連携でも上がる。スコアが上がると即日払いの手数料が下がる。GMOの発表（2025-03-05）によれば、LINEアカウントとの連携でもスコアが上がる。信用情報機関ではなく、自分の口座に流れるお金で信用を作る設計だ。
+- **クライアントには見えない、ただし規約は例外を持つ**。即日払いページは「取引先に請求書の売却が知られることもありません」と書く。一方で利用規約の第8条は、支払の遅延や拒絶、表明保証が事実でない場合などに、運営が会員に代わってクライアントへ債権譲渡の事実を通知し、直接支払を請求できる権限を会員が付与すると定めている。2026年9月10日には第8条の2（即日払いの特則）の3〜6項と第14条2項が改定された。
+- **本人確認は厳しめ**。企業向けページによれば、登録時に顔写真付き身分証と、それを手に持ったセルフィーの提出を求め、反社会的勢力データベースへの照会も行う。審査を通った会員は、QRコードやURLで「会員ページ」を発注企業に見せられる。即日払いページによれば、登録の本人確認は通常120分以内に終わり、即日払いの審査結果は登録したメールアドレスに届く。
+- **保険は「付いている」が、範囲は読む必要がある**。あんしん補償Basicのページによれば、無料で付く補償は業務遂行中の事故と仕事の結果（PL）が最高5,000万円、受託財物が最高100万円で、業務遂行中の補償には自己負担20万円がある。情報漏洩や著作権侵害、納期遅延といった「自分のミス」は有料プランのあんしん補償で最高500万円まで。無料の範囲と有料の範囲の線は、事故の種類で引かれている。
+
+## 技術構成
+
+::techstack
+
+:::fact
+Google Patentsに掲載の特許第6816062号（2018年6月8日出願、2021年1月20日登録、出願人GMOクリエイターズネットワーク、発明者は次松武大）は、フリーナンスの骨組みそのものを請求項にしている。請求項1は、利用者ごとに個別の「買取口座」を記憶し、請求書で指定された入金先がその口座かどうかを判定し、そうであれば請求額に応じた買取額を利用者の金融口座へ送金する。請求項2は、取引先からその口座に入った請求額を運営側の口座へ振り替えて回収する流れ、請求項4は、買取額を送る前に支払期限を過ぎても入金がない場合に所定の保証額を送る流れだ。明細書は買取口座を「所謂バーチャル口座」と説明し、利用者と取引先それぞれの与信スコア・格付け・取引限度を持つテーブルを実施形態として書いている。第7178521号（2022年2月28日出願、同年11月25日登録）は、会計ソフトとの連携設定を受け付け、会計ソフト側から取得した請求書の一覧を表示し、選んだ請求書の請求額に応じた買取を申し込む仕組みで、従属請求項には利用者ごとの取引上限額から残りの買取可能額を表示すること、取引先の法人番号の入力を受け付けることが含まれる。明細書は目的を、法人間の取引が中心だったファクタリングを個人でも使えるようにすることと書く。公式の「特許と商標」ページは、これらを含む3件の特許と、「FREENANCE」「Factoring API」「即日払いAPI」の商標登録を挙げている。
+:::
+
+:::fact
+当サイトの実観測（2026-10-01）では、会員向けアプリ my.freenance.net は server: Google Frontend と via: 1.1 google を返し、マーケティングサイト freenance.net はGMOインターネットグループのIPアドレス（whoisのnetnameはinterQ）上のApacheで、HTMLはWordPressのテーマ「freenance」とAll in One SEO 4.3.1.1を含んでいた。ログインページは Vue.js 2.5.17・jQuery・webpackの文字列を含む /bundle.js と、ReactとAxiosを含む /bundle-v2.js の2本を読み込む。PR TIMESに掲載されたLecto株式会社の発表（2026-07-30）によれば、債権管理にはLectoプラットフォームを入れ、メール・SMS・IVRでの督促の自動化と、債権データ・交渉記録の一元管理、ダッシュボードでの可視化を使う。あんしん補償の引受は損害保険ジャパン（2025年10月15日保険始期から）、所得補償はあいおいニッセイ同和損害保険で、一般社団法人フリーランスAWS協会の団体契約として個人加入より44%安い。
+:::
+
+:::guess
+特許の請求項と実際の画面を並べると、フリーナンスの技術の芯は「振込先の口座を信用の観測点にする」一点にあるとみられる。信用情報機関の照会ではなく、自分の口座に入る法人からの入金を見て手数料を決めるので、口座を使い続ける会員ほど安くなり、会員は口座を離れにくくなる。アプリ側でVue 2.5とReactが同居しているのは、2018年開始のフロントエンドを新しいバンドル（bundle-v2）へ段階的に書き換えている途中と推測される。譲渡から1年たってもマーケティングサイトがGMOのインフラに残り、アプリはGoogle Cloudにある構成は、freeeの基盤（同社の記事で触れたAWS上のKubernetes）へ寄せる作業がまだ先だと読める。Lectoの導入は、買い取った債権の回収を人手の督促から仕組みに移す動きで、freeeの下で買取の件数を増やす準備とみられる。
+:::
+
+## ビジネスモデル
+
+収益の柱は即日払いの手数料だ。公式の「ビジネスモデル」ページは、それを「現時点でのFREENANCEの収益の柱」と書き、有料会員プラン、将来の振替回数や手数料、匿名化した属性への広告、本人同意のうえでの金融機関へのデータ提供（融資や住宅ローンの審査）を並べている。口座と基本の保険を無料にして会員を集め、資金繰りに困ったときの手数料で回収する設計だ。
+
+:::fact
+GMOインターネットグループの発表によれば、即日払いの累計申し込み件数は2022年1月に5万件、2022年7月に10万件、2024年4月に30万件を超えた。GMOペパボの適時開示（2025-07-22）に載ったGMOクリエイターズネットワークの直近3期の業績は、2022年12月期が売上高5億9,383万円・営業損失1億3,630万円・当期純損失1億4,717万円、2023年12月期が売上高6億5,579万円・営業損失11億7,188万円・当期純損失11億9,138万円、2024年12月期が売上高4億5,298万円・営業損失1億2,457万円・当期純損失1億4,209万円。純資産は2024年12月末でマイナス13億8,188万円（総資産12億1,296万円）の債務超過だったが、同開示は、2025年4月1日付で同社の借入金25億円の全額がCN株式会社へ債務移転されたことで債務超過は既に解消されていると注記している。譲渡価格は概算で11億円。GMOペパボは譲渡の理由を「事業ポートフォリオの見直しと経営資源の最適化、ならびに事業の選択と集中」と説明し、freeeの発表（2025-07-22）は、顧客の多くを占める個人事業主に向けたラインナップの拡充と、FREENANCEとfreeeの各プロダクトの連携強化を挙げた。
+:::
+
+:::fact
+freeeの2026年6月期決算説明資料（2026-08-13）によれば、GMOクリエイターズネットワークは2026年6月期第1四半期（2025年7〜9月）からfreeeの売上高とプラットフォームARRの集計対象に入った。同資料は調整後フリー・キャッシュ・フローの定義に「ファクタリング事業で発生する買取債権の増減」の調整を加えている。2026年6月末のfreeeの有料課金ユーザー企業は694,586件で、うち個人事業主は419,957件（前年比12.2%増）、個人事業主のサブスクリプションARRは87.3億円、1ユーザーあたりの年間ARPUは20,995円だった。freeeがフリーランス342人に行った調査（2025-11-20〜27）によれば、86%が物価高の影響を受け、59.3%が年末年始の資金繰りに悩んだことがあり、そのうち62.6%が資金調達を検討し、検討した方法は融資、ファクタリング、補助金・助成金の順だった。
+:::
+
+:::fact
+公式サイトの「すごい！友達招待プログラム」によれば、会員が招待コードで友達を招くと、友達のフリーナンス口座に法人からの報酬振込があった時点で成果が発生し、招待した側に1〜10人目は2,000円、11〜50人目は2,500円、51人目からは3,000円、招待された側に1,000円が支払われる。100人を超えると、友達の即日払い手数料の5%がキャッシュバックされる。企業向けには、その企業との取引に限って会員が通常より低い手数料で即日払いを使える提携プログラム「フリーナンスともだち」があり、公式のお知らせ（2026-09-10）によれば、freeeはエクストリームと業務提携し、「エクストリームフリーランス」の利用者は確認資料の一部省略、審査時間の短縮、通常より優遇された手数料で即日払いを使える。
+:::
+
+:::guess
+売上4.5億円で赤字が続く会社に11億円を払った理由は、損益ではなく「入口」にあるとみられる。freeeの個人事業主は42万件で、1件あたりの年間ARRは約2.1万円。フリーナンスの有料プランは年5,880〜14,400円で、それ単体ではfreeeの単価を押し上げない。しかし請求書の振込先を握れば、会計ソフトより上流の「お金が入る瞬間」に立てる。第7178521号の特許が会計ソフトとの連携を前提にしていることを考えると、freee請求書で発行した請求書をそのまま即日払いに回す導線が、統合の本線だと推測される。2023年12月期の11.9億円の損失は、売上の伸びに比べて大きく、開示には内訳がない。買い取った債権の評価に関わる費用が含まれていた可能性はあるが、公開情報からは分からない。25億円の借入を譲渡前に親会社側へ移したのは、買い手が事業と会員基盤だけを受け取り、資金調達の負担は売り手側で整理する形にしたと読める。手数料3〜10%のファクタリングは、freeeが決算資料で伸びを強調するトランザクション型の売上と同じ性質で、確定申告ソフトのサブスクリプションに、季節に左右されにくい手数料収入を足す狙いとみられる。
+:::
+
+口座も保険も無料で、値札は資金繰りに困った日にだけ現れる。7年でその設計に30万件の申し込みが集まり、損益は赤字のまま、11億円の値段が付いた。freeeが買ったのは黒字ではなく、42万の個人事業主に売れる「お金の入口」だ。確定申告の締め切りに乗る事業が、請求書の締め日にも乗ろうとしている。
