@@ -1,13 +1,13 @@
 ---
 service: "Make"
 title: "1万クレジット9ドル、超過分は25%増し、紹介料は12カ月35% — 「モジュールが動いた回数」で課金するMake（旧Integromat）の設計"
-description: "チェコ・プラハ発の自動化プラットフォームMake（旧Integromat）は、2020年にCelonisが1億ドル超で買収し、2022年にMakeへ改名した。料金はZapier型の「タスク」ではなく、モジュールが動いた回数＝クレジットで決まり、Coreは1万クレジット9ドルから。超過分は25%増しで、AIモジュールはトークン数でクレジットが変わる。公式の料金ページ、ヘルプセンター、開発者ドキュメント、プレスリリース、アフィリエイト規約、GitHubの公開リポジトリ、当サイトの実観測から、Make自前のAIプロバイダーの裏側がGPT-5 nanoとGPT-5 miniであること、35%を12カ月払うアフィリエイト、Cloudflareの後ろにあるAWSまでを解剖する。"
+description: "チェコ・プラハ発の自動化プラットフォームMake（旧Integromat）は、2020年にCelonisが1億ドル超で買収し、2022年にMakeへ改名した。料金はZapier型の「タスク」ではなく、モジュールが動いた回数＝クレジットで決まり、Coreは1万クレジット9ドルから。超過分は25%増しで、AIモジュールはトークン数でクレジットが変わる。公式の料金ページ、ヘルプセンター、開発者ドキュメント、プレスリリース、アフィリエイト規約、GitHubの公開リポジトリ、当サイトの実観測から、Make自前のAIプロバイダーの段階モデルの中身がGPT-5 nanoとGPT-5 miniであること、35%を12カ月払うアフィリエイト、Cloudflareの後ろにあるAWSまでを解剖する。"
 lead: "Makeの料金ページには「Coreプラン 月9ドル（1万クレジット）」とある。この1クレジットは、原則としてシナリオの中のモジュールが1回動いた回数だ。フォームの回答が10件届けば、後続の3つのモジュールは10回ずつ動いて、合計31クレジットが消える。AIを使えばトークン数でも減る。足りなくなれば25%増しで買い足す。1万クレジットで9ドル、つまり1クレジット0.09セントの単価は、こうして「何をつないだか」ではなく「何回動いたか」で請求書に変わる。2012年にチェコで生まれ、2020年にCelonisへ1億ドル超で売られ、2022年にIntegromatからMakeへ改名したこの会社の設計を解剖する。"
 category: saas
 tags: [no-code, automation, ai, mcp, aws, small-business]
 publishedAt: "2026-09-30"
-updatedAt: "2026-09-30"
-lastVerified: "2026-09-30"
+updatedAt: "2026-10-01"
+lastVerified: "2026-10-01"
 serviceUrl: "https://www.make.com/en"
 # Affiliate link placeholder: Make runs its own public affiliate program
 # (https://www.make.com/en/affiliate; 35% of referred users' subscription payments for
@@ -46,11 +46,11 @@ techStack:
   - layer: "エッジ・ボット対策"
     name: "Cloudflare (managed challenge on www, proxy on app zones)"
     confidence: likely
-    evidence: "当サイトの実観測（2026-09-30）で、www.make.com はcurlにもヘッドレスChromeにも403と cf-mitigated: challenge を返し、ページタイトルは「しばらくお待ちください...」だった。eu1・eu2・us1.make.com と hook.eu1.make.com の応答は server: cloudflare で、解決先IPアドレスのwhois上のネットワーク名は CLOUDFLARENET だった"
+    evidence: "当サイトの実観測（2026-09-30）で、www.make.com はcurlにもヘッドレスChromeにも403と cf-mitigated: challenge を返し、ページタイトルは「しばらくお待ちください...」だった。eu1・eu2・us1.make.com と hook.eu1.make.com の応答は server: cloudflare で、解決先IPアドレスのwhois上のネットワーク名は CLOUDFLARENET（hook.eu1.make.com はRIPE登録の CLOUDFLARE-EU）だった"
   - layer: "Webhookの受け口"
     name: "In-house \"Make Gateway\""
     confidence: likely
-    evidence: "当サイトの実観測（2026-09-30）で、Webhookを受けるホスト hook.eu1.make.com の応答に x-powered-by: Make Gateway/production が付き、cf-rayの拠点はVIE（ウィーン）だった。公開情報からは中身の実装は分からない"
+    evidence: "当サイトの実観測（2026-09-30）で、Webhookを受けるホスト hook.eu1.make.com の応答に x-powered-by: Make Gateway/production が付き、cf-rayの拠点はVIE（ウィーン）だった。GitHubのintegromat組織には「Integromat Gateway Client for Node.js」と説明された gateway リポジトリもあるが、公開情報からは中身の実装は分からない"
   - layer: "バックエンドの言語"
     name: "Node.js / TypeScript"
     confidence: likely
@@ -66,92 +66,92 @@ techStack:
 sources:
   - label: "Make公式: 料金"
     url: "https://www.make.com/en/pricing"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make公式: アフィリエイトプログラム"
     url: "https://www.make.com/en/affiliate"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make公式: パートナープログラム"
     url: "https://www.make.com/en/partners"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make公式: Press（沿革・プレスリリース一覧）"
     url: "https://www.make.com/en/press"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make公式: Make launches Make AI Agents（2025-04-14）"
     url: "https://www.make.com/en/make-ai-agents-press-release"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make公式: Make launches Make Grid（2025-06-24）"
     url: "https://www.make.com/en/make-grid-announcement"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make公式: End of Integromat（2023-02-28）"
     url: "https://www.make.com/en/end-of-integromat"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make公式: AWS partnership（2022-06-09）"
     url: "https://www.make.com/en/aws-make-partnership"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "TechCrunch: Celonis acquires Czech startup Integromat（2020-10-14）"
     url: "https://techcrunch.com/2020/10/14/celonis-acquires-czech-startup-integromat-to-accelerate-move-to-process-automation/"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make公式: Security"
     url: "https://www.make.com/en/security"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make公式: Careers"
     url: "https://www.make.com/en/careers"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make公式: AI Agents"
     url: "https://www.make.com/en/ai-agents"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make公式: Make Grid"
     url: "https://www.make.com/en/grid"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make公式ブログ: Introducing Make Grid（2024-11-14）"
     url: "https://www.make.com/en/blog/introducing-make-grid"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make公式ブログ: Designing Maia by Make（2026-08-21）"
     url: "https://www.make.com/en/blog/designing-maia"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make公式ブログ: How to build Make automations and AI agents in ChatGPT（2026-09-16）"
     url: "https://www.make.com/en/blog/make-plugin-chatgpt"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make Help Center: Credits"
     url: "https://help.make.com/credits"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make Help Center: Operations"
     url: "https://help.make.com/operations"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make Help Center: Extra credits"
     url: "https://help.make.com/extra-credits"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make Help Center: Adjustments to plans and pricing（2025-11-06）"
     url: "https://help.make.com/adjustments-to-plans-and-pricing"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make Help Center: Updated Make's AI Provider token pricing model（2026-08-25）"
     url: "https://help.make.com/more-value-for-your-credits-updated-makes-ai-provider-token-pricing-model"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make Help Center: Credit usage for AI agents"
     url: "https://help.make.com/credit-usage-for-ai-agents"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make Developers: Rate limiting"
     url: "https://developers.make.com/api-documentation/getting-started/rate-limiting"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make Developers: Making your first API request"
     url: "https://developers.make.com/api-documentation/getting-started/making-your-first-api-request"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "Make Developers: Make MCP server"
     url: "https://developers.make.com/mcp-server"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "GitHub: integromat/make-mcp-server"
     url: "https://github.com/integromat/make-mcp-server"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
   - label: "GitHub: integromat（組織）"
     url: "https://github.com/integromat"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-01"
 ---
 
 Makeは、[Zapier](https://zapier.com/)と同じ「アプリをつなぐ自動化」の分野に属する、チェコ・プラハ発の自動化プラットフォームだ。Google Sheetsに行が増えたらSlackに知らせる、フォームの回答ごとに書類を作ってメールする、といった「シナリオ」を、キャンバス上にモジュールを並べて作る。2012年にIntegromatとして生まれ、2020年にドイツのプロセスマイニング企業Celonisが買収し、2022年にMakeへ改名した。料金の単位は「モジュールが動いた回数」で、この単位の選び方に、この会社の設計が詰まっている。
 
 ## サービス解説
 
-Makeは、3,000以上のアプリを視覚的につないで自動化とAIエージェントを作るプラットフォームだ。トリガー（新しい行を見張る、Webhookを受ける）から始まり、フィルタや分岐、変換、各アプリへの書き込みをモジュールとして並べる。2025年からはAIエージェント、2026年からは会話でシナリオを作るMaia、ChatGPTの中から使うプラグイン、外部のAIから触るMCPサーバーが加わった。
+Makeは、3,000以上のアプリを視覚的につないで自動化とAIエージェントを作るプラットフォームだ。トリガー（新しい行を見張る、Webhookを受ける）から始まり、フィルタや分岐、変換、各アプリへの書き込みをモジュールとして並べる。2025年にはAIエージェントと、外部のAIから触るMCPサーバー（GitHubの旧版は2025年3月公開）が加わり、2026年の公式ブログでは会話でシナリオを作るMaiaと、ChatGPTの中から使うプラグインが紹介された。
 
 :::fact
 TechCrunch（2020-10-14）によれば、CelonisはチェコのIntegromatを買収し、CEOのAlexander Rinke氏は金額を「1億ドルを超える3桁の額」と述べた。Integromatは2012年創業で、外部から資金を調達しておらず、およそ1,000万ドル規模の事業、60人のスタッフ、11,000を超える顧客を持っていた。Make公式のPressページによれば、2022年2月22日にIntegromatはMakeへ改名し、2022年6月9日にはAWS Marketplaceに掲載された。同日のプレスリリースは、1,000以上のアプリ、6,000以上のエンドポイント、世界で50万以上の組織を支えると書いている。2023年2月28日の告知によれば、旧Integromatは2023年6月30日にサポートを終え、9月30日に停止し、シナリオはすべて無効化された。CEOは「シナリオは数十万件の単位で移行された」と述べ、期限前に移行した利用者には従来の価格と操作数上限を保つLegacyプランが用意された。
@@ -175,7 +175,7 @@ Makeの体験は、「何が起きたかを全部見せる」方向に寄せて�
 - **止めても途中では止まらない**。同じページは、実行中にStopを押しても、動いているモジュールはすべてのバンドルを処理し終えるまで止まらないと書く。誤って大量のデータを流したときの損失は、その1モジュール分は確定する。
 - **超過は自動で買い足される**。ヘルプセンターのExtra creditsページによれば、有料プランでは1,000単位で手動購入できるほか、自動購入を有効にすると上限を超えた時点でMakeが追加分を買う。2025年11月6日の変更で、自動購入も手動購入も25%増しに統一された（それまでは自動が30%増し、手動は割増なし）。Coreの年払いでは通常のクレジットが毎月リセットされ、買い足したクレジットも毎月の更新時に失効する。
 - **AIは「トークン」という第二の単位を持ち込む**。Creditsページによれば、非AIのモジュールは1操作1クレジットで固定だが、Make's AI Providerを使うAIエージェントやAI Toolkitはトークン数に応じてクレジットが変わり、ファイルサイズ・ページ数・処理時間で変わる機能もある。2026年8月25日の変更で入力と出力のトークン単価が分かれ、Mediumで入力2,000・出力100トークンの抽出処理はおよそ0.6クレジットから0.16クレジットへ減ったと説明されている。長い文章を短い指示で生成させる用途は逆に増えることがあるとも書く。
-- **会話から作る入口が増えた**。2026年8月21日の公式ブログによれば、Maia by Makeはキャンバス上で利用者の隣に立ち、言葉をその場でワークフローに変えながら、何をしているかを吹き出しで説明する。2026年9月16日の公式ブログによれば、ChatGPT用のMakeプラグインはFreeを含む全プランで使え、ブラウザ版・ChatGPT Workのデスクトップアプリ・Codexの3つで動く。
+- **会話から作る入口が増えた**。2026年8月21日の公式ブログによれば、Maia by Makeはキャンバス上で利用者の隣に立ち、言葉をその場でワークフローに変えながら、何をしているかを吹き出しで説明する。2026年9月16日の公式ブログによれば、ChatGPT用のMakeプラグインはFreeを含む全プランで使え、ブラウザ版・ChatGPT Workのデスクトップアプリ・Codexの3つで動く。ただし同じ記事には、OpenAIが自動化ツールの対応を更新するあいだプラグインを一時的に無効にしているという注記があり（2026-10-01確認）、その間はMCP経由でChatGPTやCodexから使う手順が案内されている。
 
 ## 技術構成
 
@@ -190,11 +190,11 @@ Makeの体験は、「何が起きたかを全部見せる」方向に寄せて�
 :::
 
 :::fact
-ヘルプセンターのCreditsページ（2026-09-30時点）によれば、Make's AI Providerは全プランで使え、利用者はOpenAIやAnthropicのアカウントを持たずに済む代わりに、トークン数と操作数に応じたクレジットをMakeに払う。段階モデルのSmallは「GPT-5 nano with minimal reasoning」、Mediumは「GPT-5 nano with low reasoning」、Largeは「GPT-5 mini」で、1クレジットあたりの入力トークンはSmall・Mediumが18,080、Largeが3,616、出力トークンは2,260と452だ。有料プランでは自分のOpenAIやAnthropic Claudeなどの接続を使え、その場合Makeには操作数分のクレジットを、トークン代はプロバイダーへ直接払う。2025年11月6日の変更前は、自分の接続を使えるのはPro以上だけだった。Credit usage for AI agentsページによれば、AIエージェントの実行は「1操作1クレジット＋トークン分」、知識ファイル（PDF/DOCX）の取り込みは「1操作1クレジット＋1ページ10トークン＋説明生成と埋め込みのトークン分」で、埋め込みはファイルをRAG用のベクトルデータベースに入れるための処理だと説明されている。
+ヘルプセンターのCreditsページ（2026-09-30時点）によれば、Make's AI Providerは全プランで使え、利用者はOpenAIやAnthropicのアカウントを持たずに済む代わりに、トークン数と操作数に応じたクレジットをMakeに払う。段階モデルのSmallは「GPT-5 nano with minimal reasoning」、Mediumは「GPT-5 nano with low reasoning」、Largeは「GPT-5 mini」で、1クレジットあたりの入力トークンはSmall・Mediumが18,080、Largeが3,616、出力トークンは2,260と452だ。段階モデルのほかにOpenAIやAnthropicの個別モデルも選べ、表ではGPT-5.5やClaude Opus 5が入力180・出力30〜36トークンで1クレジットと、Smallの100分の1ほどの量で1クレジットになる。有料プランでは自分のOpenAIやAnthropic Claudeなどの接続を使え、その場合Makeには操作数分のクレジットを、トークン代はプロバイダーへ直接払う。2025年11月6日の変更前は、自分の接続を使えるのはPro以上だけだった。Credit usage for AI agentsページによれば、AIエージェントの実行は「1操作1クレジット＋トークン分」、知識ファイル（PDF/DOCX）の取り込みは「1操作1クレジット＋1ページ10トークン＋説明生成と埋め込みのトークン分」で、埋め込みはファイルをRAG用のベクトルデータベースに入れるための処理だと説明されている。
 :::
 
 :::guess
-自社サイトはCloudflareの後ろにあり、curlにもヘッドレスChromeにもマネージドチャレンジを返す。アプリのゾーン（eu1・eu2・us1）とWebhookの受け口もCloudflare経由で、受け口は「Make Gateway」と名乗る自前の層とみられる。実行基盤はAWS（バケット名の eu-west-1 はアイルランド）で、GitHub組織の公開リポジトリがTypeScriptとNode.js向けのフォーク（isolated-vm、node-imap）に偏っていることから、バックエンドはNode.jsで書かれ、利用者のカスタム関数のような信頼できないコードを隔離して動かす仕組みを持つと推測される。段階モデルのSmall・Medium・Largeがすべて安価なOpenAIのモデル（GPT-5 nano・mini）で構成されているのは、Make's AI Providerを「トークン単価の安さで儲ける層」ではなく「アカウント不要で始められる入口」として置き、本気で使う利用者には自分のAPIキーを持ち込ませる設計だとみられる。
+自社サイトはCloudflareの後ろにあり、curlにもヘッドレスChromeにもマネージドチャレンジを返す。アプリのゾーン（eu1・eu2・us1）とWebhookの受け口もCloudflare経由で、受け口は「Make Gateway」と名乗る自前の層とみられる。実行基盤はAWS（バケット名の eu-west-1 はアイルランド）で、GitHub組織の公開リポジトリがTypeScriptとNode.js向けのフォーク（isolated-vm、node-imap）に偏っていることから、バックエンドはNode.jsで書かれ、利用者のカスタム関数のような信頼できないコードを隔離して動かす仕組みを持つと推測される。段階モデルのSmall・Medium・Largeがすべて安価なOpenAIのモデル（GPT-5 nano・mini）で構成されているのは、既定の段階を「アカウント不要で安く始められる入口」として置く設計だとみられる。同じプロバイダーで上位モデルを選べば1クレジットで処理できるトークンは大きく減るので、性能を求める利用者はクレジットを多く使うか、自分のAPIキーを持ち込んでトークン代をプロバイダーへ直接払うかを選ぶことになる。
 :::
 
 ## ビジネスモデル
@@ -206,11 +206,11 @@ Makeの体験は、「何が起きたかを全部見せる」方向に寄せて�
 :::
 
 :::fact
-公式のアフィリエイトページによれば、報酬は「紹介したすべてのユーザーに対して12カ月間35%」で、対象はその利用者のサブスクリプションの支払い、12カ月はアフィリエイトリンクから登録した時点から数える。リンクをクリックした訪問者がMakeに登録するまでの猶予は30日。Makeのアカウントがあれば誰でもアフィリエイトになれ、統合コンサルタント・代理店・思想的リーダー・フリーランサーに向くと書く。支払いはWise経由で、最低支払額は100ドル、支払いを申請する前に3人の異なる有料ユーザーを紹介している必要があり、申請から2〜3週間で処理される（現在は遅延があるとも書かれている）。有料広告では商標「Make」をタイトルにも本文にも使ってはならず、オンラインキャンペーンでの商標利用にはCelonisの事前の書面同意が要る。パートナーページは、ほかにソリューションパートナー（コンサルティング・導入支援）、テクノロジーパートナー（コネクタを作るISV）、大学向けのAcademic Alliance、VC・アクセラレーター向けのStartupパートナーを挙げている。
+公式のアフィリエイトページによれば、報酬は「紹介したすべてのユーザーに対して12カ月間35%」で、対象はその利用者のサブスクリプションの支払いで、利用者が追加で買った操作（クレジット）からは報酬が出ない。12カ月はアフィリエイトリンクから登録した時点から数える。リンクをクリックした訪問者がMakeに登録するまでの猶予は30日。Makeのアカウントがあれば誰でもアフィリエイトになれ、統合コンサルタント・代理店・思想的リーダー・フリーランサーに向くと書く。支払いはWise経由で、最低支払額は100ドル、支払いを申請する前に3人の異なる有料ユーザーを紹介している必要があり、申請から2〜3週間で処理される（現在は遅延があるとも書かれている）。有料広告では商標「Make」をタイトルにも本文にも使ってはならず、オンラインキャンペーンでの商標利用にはCelonisの事前の書面同意が要る。パートナーページは、ほかにソリューションパートナー（コンサルティング・導入支援）、テクノロジーパートナー（コネクタを作るISV）、大学向けのAcademic Alliance、VC・アクセラレーター向けのStartupパートナーを挙げている。
 :::
 
 :::fact
-Careersページ（2026-09-30時点）によれば、Makeには50を超える国籍の350人以上の「Maker」が働き、求人はプラハとマドリードに置かれ、フッターは「© 2026 Celonis, Inc.」だ。2025年4月14日のプレスリリース（ニューヨーク発）は「20万以上の企業」がMakeを使い、2,000以上のアプリと3万以上のアクションがあると書き、CEOのFabian Veit氏と製品担当VPのAnton Danilov氏の談話を載せた。2025年6月24日のMake Grid一般公開のプレスリリースは「25万以上の組織」と書き、共同創業者でCTOのPatrik Simek氏が、自動化のネットワークをブラックボックスから共有できる地図に変えると述べた。Make Gridは2024年11月14日にベータとして発表され、ベータ中は無料、公開後は一部の機能が別料金になる場合があると案内されている。
+Careersページ（2026-09-30時点）によれば、Makeには50を超える国籍の350人以上の「Maker」が働き、求人はプラハとマドリードに置かれ、フッターは「© 2026 Celonis, Inc.」だ。2025年4月14日のプレスリリース（ニューヨーク発）は「20万以上の企業」がMakeを使い、2,000以上のアプリと3万以上のアクションがあると書き、CEOのFabian Veit氏と製品担当VPのAnton Danilov氏の談話を載せた。2025年6月24日のMake Gridオープンベータ公開のプレスリリースは「25万以上の組織」と書き、共同創業者でCTOのPatrik Simek氏が、自動化のネットワークをブラックボックスから共有できる地図に変えると述べた。Make Gridは2024年11月14日にクローズドベータとして発表された。公式のGridページは、オープンベータ中は無料で、正式公開後は一部の機能や情報が特定のプランに限られるか追加料金になる場合があると案内している。
 :::
 
 :::guess
