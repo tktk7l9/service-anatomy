@@ -105,6 +105,9 @@ tech editorial (magazine-style) design.
   `src/engine/articles/disclosure.ts`: the notice above the article body (`AffiliateNotice`),
   the PR card after it (`AffiliateCard`), and the "PR" label on listing cards (`ArticleCard`).
   Do not add a new affiliate surface with its own condition.
+  Comparison pages take the links of their two articles through `affiliateSlots()` in the same
+  file: the same notice above the body, and after it one `AffiliateCard` per affiliated side
+  under the service name (`ComparisonAffiliates`).
   **Use the ASP's ad code as provided** (A8.net and Moshimo Affiliate forbid modifying it).
   Their code is a link plus a 1x1 impression image, so copy both: the `<a href>` goes to
   `affiliate.url` and the `<img src>` to the optional `affiliate.impressionUrl` (https only;

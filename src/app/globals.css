@@ -1394,6 +1394,26 @@ main:focus {
   color: var(--ink-soft);
 }
 
+/* Affiliate boxes after the body of a comparison page: one per compared service, each under
+   the service name so the reader can tell the two links apart without relying on position. */
+.comparison-affiliates {
+  display: grid;
+  gap: 1.4rem;
+  margin: 2.2rem 0 0;
+}
+
+.comparison-affiliate-service {
+  margin: 0 0 0.45rem;
+  font-family: var(--display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.comparison-affiliate .affiliate-card {
+  margin: 0;
+}
+
 .link-card-body {
   display: flex;
   flex-direction: column;
