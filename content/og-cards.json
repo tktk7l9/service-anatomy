@@ -175,6 +175,14 @@
     "siteName": "スモールビジネスを世界の主役に freee株式会社",
     "fetchedAt": "2026-09-28"
   },
+  "freenance": {
+    "url": "https://freenance.net/",
+    "title": "FREENANCE（フリーナンス）",
+    "description": "フリーランスをもっと自由に。",
+    "image": "https://freenance.net/wp-content/uploads/2025/09/ogp_2025.png",
+    "siteName": "FREENANCE（フリーナンス）",
+    "fetchedAt": "2026-09-30"
+  },
   "gemini": {
     "url": "https://gemini.google.com/",
     "title": "‎Google Gemini",
@@ -266,6 +274,14 @@
     "image": "https://biz.moneyforward.com/portal/images/ogp/ca_web/img_tax_return.png",
     "siteName": "バックオフィスの業務効率化なら「マネーフォワード クラウド」",
     "fetchedAt": "2026-09-28"
+  },
+  "moneyforward-me": {
+    "url": "https://moneyforward.com/me",
+    "title": "マネーフォワード ME｜公式｜人気の家計簿・資産管理アプリ",
+    "description": "『マネーフォワード ME』は、簡単・無料で始められる人気の家計簿・資産管理アプリ。銀行・カード連携で家計と資産を安全に一元管理。お金の流れや資産の現状を把握することで、お金の不安をなくすための第一歩をサポートします。",
+    "image": "https://storage.googleapis.com/production-os-assets/assets/d47be031-87c0-4432-b975-069f53c60cb4",
+    "siteName": "マネーフォワード ME｜公式｜人気の家計簿・資産管理アプリ",
+    "fetchedAt": "2026-10-01"
   },
   "nani-translation": {
     "url": "https://nani.now/ja",
