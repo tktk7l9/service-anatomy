@@ -1267,6 +1267,11 @@ main:focus {
   text-decoration: none;
 }
 
+/* "PR" label of a comparison whose articles carry affiliate links */
+.compare-list-item .kicker {
+  margin-bottom: 0.4rem;
+}
+
 .compare-list-title {
   margin: 0 0 0.4rem;
   font-family: var(--display);
