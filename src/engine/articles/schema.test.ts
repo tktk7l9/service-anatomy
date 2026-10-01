@@ -40,6 +40,28 @@ describe("parseFrontmatter", () => {
     });
   });
 
+  it("accepts affiliate.impressionUrl (the network's impression pixel)", () => {
+    const raw = mutate((r) => {
+      r.affiliate = {
+        url: "https://px.example.net/click?id=1",
+        program: "Example (ASP)",
+        impressionUrl: "https://www12.example.net/0.gif?id=1",
+      };
+    });
+    expect(parseFrontmatter(raw, "ctx").affiliate).toEqual({
+      url: "https://px.example.net/click?id=1",
+      program: "Example (ASP)",
+      impressionUrl: "https://www12.example.net/0.gif?id=1",
+    });
+  });
+
+  it("leaves impressionUrl off the object when it is not set", () => {
+    const raw = mutate((r) => {
+      r.affiliate = { url: "https://shopify.pxf.io/abc", program: "Shopify" };
+    });
+    expect(parseFrontmatter(raw, "ctx").affiliate).not.toHaveProperty("impressionUrl");
+  });
+
   it("undefined when revisions is not set", () => {
     expect(parseFrontmatter(makeRawFrontmatter(), "ctx").revisions).toBeUndefined();
   });
@@ -166,6 +188,53 @@ describe("parseFrontmatter", () => {
       "affiliate.url is not https",
       (r: Record<string, unknown>) => (r.affiliate = { url: "http://shopify.pxf.io/abc", program: "p" }),
       /affiliate: url must be a URL starting with https:\/\//,
+    ],
+    [
+      "affiliate.impressionUrl is not https (protocol-relative ad code must be rewritten)",
+      (r: Record<string, unknown>) =>
+        (r.affiliate = { url: "https://a.example/c", program: "p", impressionUrl: "//i.example/af/i/impression" }),
+      /affiliate: impressionUrl must be a URL starting with https:\/\//,
+    ],
+    [
+      "affiliate.impressionUrl has a wildcard host",
+      (r: Record<string, unknown>) =>
+        (r.affiliate = { url: "https://a.example/c", program: "p", impressionUrl: "https://*.example.net/0.gif" }),
+      /affiliate: impressionUrl must be a plain https URL with a concrete host/,
+    ],
+    [
+      "affiliate.impressionUrl carries credentials",
+      (r: Record<string, unknown>) =>
+        (r.affiliate = { url: "https://a.example/c", program: "p", impressionUrl: "https://user:pw@i.example/0.gif" }),
+      /affiliate: impressionUrl must be a plain https URL with a concrete host/,
+    ],
+    [
+      "affiliate.impressionUrl carries a user name",
+      (r: Record<string, unknown>) =>
+        (r.affiliate = { url: "https://a.example/c", program: "p", impressionUrl: "https://user@i.example/0.gif" }),
+      /affiliate: impressionUrl must be a plain https URL with a concrete host/,
+    ],
+    [
+      "affiliate.impressionUrl carries only a password",
+      (r: Record<string, unknown>) =>
+        (r.affiliate = { url: "https://a.example/c", program: "p", impressionUrl: "https://:pw@i.example/0.gif" }),
+      /affiliate: impressionUrl must be a plain https URL with a concrete host/,
+    ],
+    [
+      "affiliate.impressionUrl contains whitespace",
+      (r: Record<string, unknown>) =>
+        (r.affiliate = { url: "https://a.example/c", program: "p", impressionUrl: "https://i.example/0.gif 'unsafe-inline'" }),
+      /affiliate: impressionUrl must be a plain https URL with a concrete host/,
+    ],
+    [
+      "affiliate.impressionUrl does not parse",
+      (r: Record<string, unknown>) =>
+        (r.affiliate = { url: "https://a.example/c", program: "p", impressionUrl: "https://" }),
+      /affiliate: impressionUrl must be a plain https URL with a concrete host/,
+    ],
+    [
+      "affiliate.impressionUrl is empty",
+      (r: Record<string, unknown>) => (r.affiliate = { url: "https://a.example/c", program: "p", impressionUrl: "" }),
+      /affiliate: impressionUrl must be a non-empty string/,
     ],
     [
       "affiliate.program is missing",

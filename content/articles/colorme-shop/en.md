@@ -12,6 +12,7 @@ serviceUrl: "https://shop-pro.jp/"
 affiliate:
   url: "https://af.moshimo.com/af/c/click?a_id=5825557&p_id=2563&pc_id=5685&pl_id=39485"
   program: "ColorMe Shop Affiliate Program (Moshimo Affiliate)"
+  impressionUrl: "https://i.moshimo.com/af/i/impression?a_id=5825557&p_id=2563&pc_id=5685&pl_id=39485"
 vendor: "GMO Pepabo, Inc."
 origin: "JP"
 heroTheme: "colorme-shop"

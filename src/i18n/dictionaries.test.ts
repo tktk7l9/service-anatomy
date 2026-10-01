@@ -71,4 +71,15 @@ describe("i18n/dictionaries", () => {
     expect(dictionary.article.affiliatePr).toBe("PR");
     expect(dictionary.disclosure.howItems.join(" ")).toContain("PR");
   });
+
+  // The ASP impression pixel is third-party tracking; the policy must say when it loads and
+  // that articles without an affiliate link do not load it.
+  it.each([
+    ["ja", ja, ["1×1", "アフィリエイトリンクを含む記事でだけ", "アフィリエイトリンクを含まない記事では読み込みません"]],
+    ["en", en, ["1×1", "only on articles that contain an affiliate link", "Articles without an affiliate link do not load it"]],
+  ] as const)("%s: the policy discloses the impression pixel and its scope", (_l, dictionary, phrases) => {
+    for (const phrase of phrases) {
+      expect(dictionary.disclosure.pixelBody).toContain(phrase);
+    }
+  });
 });

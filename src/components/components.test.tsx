@@ -193,14 +193,46 @@ describe("components smoke", () => {
     );
     const anchor = container.querySelector("a.affiliate-card-cta");
     expect(anchor).toHaveAttribute("href", "https://shopify.pxf.io/abc");
-    expect(anchor).toHaveAttribute("rel", "sponsored noopener noreferrer");
+    // Follows the networks' ad code: nofollow, and no "noreferrer" (it would suppress the Referer).
+    expect(anchor).toHaveAttribute("rel", "sponsored nofollow noopener");
+    expect(anchor).toHaveAttribute("referrerpolicy", "no-referrer-when-downgrade");
     expect(anchor).toHaveAttribute("target", "_blank");
+    // No impressionUrl (e.g. Impact links) = no pixel.
+    expect(container.querySelector("img")).toBeNull();
     expect(anchor).toHaveTextContent("Shopify を無料で試す");
     expect(screen.getByText("PR")).toBeInTheDocument();
     // Shopify's program terms = disclose "being a Shopify Affiliate" and possible compensation every time it is shared
     const note = container.querySelector(".affiliate-card-note");
     expect(note).toHaveTextContent("Shopify Affiliate Program に参加");
     expect(note).toHaveTextContent("紹介料");
+  });
+
+  it("AffiliateCard renders the network's impression pixel right after the link", () => {
+    const { container } = render(
+      <AffiliateCard
+        affiliate={{
+          url: "https://px.example.net/c?id=1",
+          program: "Example Program (ASP)",
+          impressionUrl: "https://www12.example.net/0.gif?id=1",
+        }}
+        service="Example"
+        dict={ja}
+      />,
+    );
+    const pixel = container.querySelector("img");
+    expect(pixel).toHaveAttribute("src", "https://www12.example.net/0.gif?id=1");
+    expect(pixel).toHaveAttribute("width", "1");
+    expect(pixel).toHaveAttribute("height", "1");
+    expect(pixel).toHaveAttribute("loading", "lazy");
+    expect(pixel).toHaveAttribute("referrerpolicy", "no-referrer-when-downgrade");
+    // Decorative: an empty alt removes it from the accessibility tree.
+    expect(pixel).toHaveAttribute("alt", "");
+    expect(screen.queryByRole("img")).toBeNull();
+    // The CSP has no nonce for inline styles to lean on and the layout must not shift: class only.
+    expect(pixel).not.toHaveAttribute("style");
+    expect(pixel).toHaveClass("affiliate-card-pixel");
+    expect(pixel?.previousElementSibling).toBe(container.querySelector("a.affiliate-card-cta"));
+    expect(container.querySelectorAll("img")).toHaveLength(1);
   });
 
   it("AffiliateCard note includes the program name with the English dictionary too", () => {

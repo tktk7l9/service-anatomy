@@ -150,9 +150,11 @@ const en: Dictionary = {
       "Referral (affiliate) programs run directly by the company behind a service",
     ],
     programsNote: "The affiliate box at the end of each article names the specific program involved.",
-    cookiesTitle: "Cookies",
+    cookiesTitle: "Cookies and tracking pixels",
     cookiesBody:
       "When you click an affiliate link, the partner program (or its tracking service) may use cookies or similar technologies on its own site to attribute the sign-up. That is governed by each company's privacy policy. This site itself sets no cookies for affiliate links.",
+    pixelBody:
+      "We use the ad code that affiliate networks (ASPs) provide as it is, without modifying it. That code can include a 1×1-pixel tracking image used to count how often the ad was shown. The image is loaded from the network's server only on articles that contain an affiliate link, when the affiliate link box at the end of the article comes near the screen. At that point the network receives your IP address, browser information and the URL of the article you are reading, and may use cookies or similar technologies. Articles without an affiliate link do not load it.",
     contactTitle: "Contact",
     contactBody: "Questions or concerns about how we label advertising are welcome as a GitHub issue.",
     contactLink: "GitHub Issues",

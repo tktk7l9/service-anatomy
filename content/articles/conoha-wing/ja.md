@@ -9,15 +9,10 @@ publishedAt: "2026-09-30"
 updatedAt: "2026-09-30"
 lastVerified: "2026-09-30"
 serviceUrl: "https://www.conoha.jp/wing/"
-# Affiliate link placeholder: the owner must join the ConoHa WING promotion on
-# Moshimo Affiliate (the official affiliate page lists A8.net and Moshimo as the two ASPs,
-# with rewards from 3,500 to 12,000 yen per contract by plan) before enabling this block.
-# Do not use the customer referral URL (お客様紹介プログラム) here: the official FAQ says it
-# cannot be combined with the ASP programs and both rewards may be lost.
-# Keep the url identical in ja.md and en.md (parity.ts checks it).
-# affiliate:
-#   url: "https://af.moshimo.com/af/c/click?a_id=<owner-id>&p_id=<program-id>&pc_id=<pc-id>&pl_id=<link-id>"
-#   program: "ConoHa WING Affiliate Program (Moshimo Affiliate)"
+affiliate:
+  url: "https://af.moshimo.com/af/c/click?a_id=5828003&p_id=2312&pc_id=4967&pl_id=39288"
+  program: "ConoHa WING Affiliate Program (Moshimo Affiliate)"
+  impressionUrl: "https://i.moshimo.com/af/i/impression?a_id=5828003&p_id=2312&pc_id=4967&pl_id=39288"
 vendor: "GMOインターネット株式会社"
 origin: "JP"
 heroTheme: "conoha-wing"

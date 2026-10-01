@@ -9,15 +9,10 @@ publishedAt: "2026-09-30"
 updatedAt: "2026-09-30"
 lastVerified: "2026-09-30"
 serviceUrl: "https://squareup.com/jp/ja"
-# Affiliate link placeholder: Square's own affiliate page
-# (https://squareup.com/jp/ja/affiliate) says the program is offered only through
-# Moshimo Affiliate. The owner must apply to the "Square 成果報酬型プログラム" on
-# Moshimo and pass its review before enabling this block. Self-referral has been
-# prohibited since 2022-11-01, so never use the link for the owner's own account.
-# Keep the url identical in ja.md and en.md (parity.ts checks it).
-# affiliate:
-#   url: "https://af.moshimo.com/af/c/click?a_id=<owner-id>&p_id=<square-program-id>&pc_id=<...>&pl_id=<...>"
-#   program: "Square Performance Program (Moshimo Affiliate)"
+affiliate:
+  url: "https://af.moshimo.com/af/c/click?a_id=5828004&p_id=1151&pc_id=1733&pl_id=38660"
+  program: "Square Performance Program (Moshimo Affiliate)"
+  impressionUrl: "https://i.moshimo.com/af/i/impression?a_id=5828004&p_id=1151&pc_id=1733&pl_id=38660"
 vendor: "Block, Inc. (Japan entity: Square K.K.)"
 origin: "US"
 heroTheme: "square"

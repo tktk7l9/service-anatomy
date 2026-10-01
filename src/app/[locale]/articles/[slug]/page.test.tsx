@@ -36,10 +36,29 @@ describe("article page advertising disclosure", () => {
     expect(container.querySelector(".affiliate-card a[rel~='sponsored']")).not.toBeNull();
   });
 
+  it.each(["ja", "en"] as const)("%s: loads the network's impression pixel inside the PR card", async (locale) => {
+    const article = ALL_ARTICLES.find((a) => a.ja.frontmatter.affiliate?.impressionUrl);
+    const container = await renderArticle(locale, article!.slug);
+    const pixels = container.querySelectorAll("img.affiliate-card-pixel");
+    expect(pixels).toHaveLength(1);
+    expect(pixels[0]).toHaveAttribute("src", article!.ja.frontmatter.affiliate!.impressionUrl);
+    expect(pixels[0].closest(".affiliate-card")).not.toBeNull();
+  });
+
+  it.each(["ja", "en"] as const)("%s: an affiliate link without impressionUrl loads no pixel", async (locale) => {
+    const article = ALL_ARTICLES.find(
+      (a) => a.ja.frontmatter.affiliate && !a.ja.frontmatter.affiliate.impressionUrl,
+    );
+    const container = await renderArticle(locale, article!.slug);
+    expect(container.querySelector(".affiliate-card")).not.toBeNull();
+    expect(container.querySelector(".affiliate-card-pixel")).toBeNull();
+  });
+
   it.each(["ja", "en"] as const)("%s: shows neither notice nor PR card without an affiliate link", async (locale) => {
     const container = await renderArticle(locale, withoutAffiliate!.slug);
     expect(container.querySelector(".affiliate-notice")).toBeNull();
     expect(container.querySelector(".affiliate-card")).toBeNull();
     expect(container.querySelector("a[rel~='sponsored']")).toBeNull();
+    expect(container.querySelector(".affiliate-card-pixel")).toBeNull();
   });
 });
