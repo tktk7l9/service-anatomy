@@ -161,7 +161,7 @@ export default async function ArticlePage({
       </header>
 
       <div className="article-hero">
-        <HeroArt theme={frontmatter.heroTheme} className="card-art" />
+        <HeroArt theme={frontmatter.heroTheme} label={frontmatter.service} className="card-art" />
       </div>
 
       <div className="article-layout">

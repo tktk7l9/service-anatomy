@@ -30,7 +30,7 @@ export function ArticleCard({
       href={`/${locale}/articles/${article.slug}`}
       className={featured ? "card card-featured" : "card"}
     >
-      <HeroArt theme={frontmatter.heroTheme} className="card-art" />
+      <HeroArt theme={frontmatter.heroTheme} label={frontmatter.service} className="card-art" />
       <div className="card-body">
         <p className="kicker">
           <span>{dict.categories[frontmatter.category]}</span>
