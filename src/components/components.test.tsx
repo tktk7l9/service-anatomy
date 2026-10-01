@@ -208,6 +208,53 @@ describe("components smoke", () => {
     expect(note).toHaveTextContent("紹介料");
   });
 
+  it("AffiliateCard adds attributionsrc only to Moshimo click links", () => {
+    const moshimo = render(
+      <AffiliateCard
+        affiliate={{
+          url: "https://af.moshimo.com/af/c/click?a_id=1&p_id=2&pc_id=3&pl_id=4",
+          program: "Example Program (Moshimo)",
+        }}
+        service="Example"
+        locale="ja"
+        dict={ja}
+      />,
+    );
+    expect(moshimo.container.querySelector("a.affiliate-card-cta")).toHaveAttribute(
+      "attributionsrc",
+      "",
+    );
+    moshimo.unmount();
+    const labelled = render(
+      <AffiliateCard
+        affiliate={{
+          url: "https://af.moshimo.com/af/c/click?a_id=1&p_id=2&pc_id=3&pl_id=4",
+          program: "Example Program (Moshimo)",
+          label: "Example ad text",
+        }}
+        service="Example"
+        locale="ja"
+        dict={ja}
+      />,
+    );
+    expect(labelled.container.querySelector("a.affiliate-card-cta")).toHaveAttribute(
+      "attributionsrc",
+      "",
+    );
+    labelled.unmount();
+    const other = render(
+      <AffiliateCard
+        affiliate={{ url: "https://px.a8.net/svt/ejp?a8mat=X", program: "Example Program (A8)" }}
+        service="Example"
+        locale="ja"
+        dict={ja}
+      />,
+    );
+    expect(other.container.querySelector("a.affiliate-card-cta")).not.toHaveAttribute(
+      "attributionsrc",
+    );
+  });
+
   it("AffiliateCard renders the network's impression pixel right after the link", () => {
     const { container } = render(
       <AffiliateCard
