@@ -19,6 +19,8 @@ import type { Dictionary } from "@/i18n/dictionaries";
 // - The pixel (affiliate.impressionUrl) is rendered right after the link when the network has one.
 //   alt="" keeps it out of the accessibility tree, the CSS class takes it out of the layout, and
 //   its origin reaches the CSP img-src through src/lib/impression-origins.ts.
+// - Moshimo's code also carries a bare attributionsrc attribute (Attribution Reporting API), so
+//   links to their click host get it too. React has no typing for it, hence the spread.
 
 //
 // The text of a text ad is part of that code too (A8.net forbids rewording it or using only the
@@ -31,6 +33,12 @@ import type { Dictionary } from "@/i18n/dictionaries";
 
 // Kana or CJK ideographs: enough to tell Japanese ad copy from an English one.
 const JAPANESE_TEXT = /[\u3040-\u30ff\u3400-\u9fff]/;
+
+const MOSHIMO_CLICK_HOST = "af.moshimo.com";
+
+function attributionProps(url: string): { attributionsrc?: string } {
+  return URL.parse(url)?.hostname === MOSHIMO_CLICK_HOST ? { attributionsrc: "" } : {};
+}
 
 export function AffiliateCard({
   affiliate,
@@ -45,6 +53,7 @@ export function AffiliateCard({
 }) {
   const cueId = useId();
   const { label } = affiliate;
+  const attribution = attributionProps(affiliate.url);
   const pixel = affiliate.impressionUrl ? (
     // A tracking pixel, not content: next/image would proxy it and break the count.
     // eslint-disable-next-line @next/next/no-img-element
@@ -69,6 +78,7 @@ export function AffiliateCard({
             target="_blank"
             rel="sponsored nofollow noopener"
             referrerPolicy="no-referrer-when-downgrade"
+            {...attribution}
             lang={locale !== "ja" && JAPANESE_TEXT.test(label) ? "ja" : undefined}
             aria-describedby={cueId}
           >
@@ -88,6 +98,7 @@ export function AffiliateCard({
             target="_blank"
             rel="sponsored nofollow noopener"
             referrerPolicy="no-referrer-when-downgrade"
+            {...attribution}
           >
             {dict.article.affiliateCta.replace("{service}", service)} ↗
           </a>
