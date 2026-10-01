@@ -12,6 +12,7 @@ serviceUrl: "https://squareup.com/jp/ja"
 affiliate:
   url: "https://af.moshimo.com/af/c/click?a_id=5828004&p_id=1151&pc_id=1733&pl_id=38660"
   program: "Square Performance Program (Moshimo Affiliate)"
+  impressionUrl: "https://i.moshimo.com/af/i/impression?a_id=5828004&p_id=1151&pc_id=1733&pl_id=38660"
 vendor: "Block, Inc. (Japan entity: Square K.K.)"
 origin: "US"
 heroTheme: "square"
