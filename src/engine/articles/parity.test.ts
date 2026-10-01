@@ -87,6 +87,47 @@ describe("localeParityIssues", () => {
     expect(localeParityIssues(article).join("\n")).toMatch(/affiliate\.url differs between ja\/en \(ja=none/);
   });
 
+  it("no issue when affiliate.impressionUrl matches", () => {
+    const affiliate = {
+      url: "https://px.example.net/c?id=1",
+      program: "Example",
+      impressionUrl: "https://www12.example.net/0.gif?id=1",
+    };
+    expect(localeParityIssues(makeArticle("x", { affiliate }))).toEqual([]);
+  });
+
+  it("detects a mismatched affiliate.impressionUrl", () => {
+    const base = { url: "https://px.example.net/c?id=1", program: "Example" };
+    const article = makeArticle(
+      "x",
+      { affiliate: { ...base, impressionUrl: "https://www12.example.net/0.gif?id=1" } },
+      { affiliate: { ...base, impressionUrl: "https://www12.example.net/0.gif?id=2" } },
+    );
+    expect(localeParityIssues(article).join("\n")).toMatch(/affiliate\.impressionUrl differs between ja\/en/);
+  });
+
+  it("mismatch when impressionUrl exists only on ja (shows en=none)", () => {
+    const base = { url: "https://px.example.net/c?id=1", program: "Example" };
+    const article = makeArticle(
+      "x",
+      { affiliate: { ...base, impressionUrl: "https://www12.example.net/0.gif?id=1" } },
+      { affiliate: base },
+    );
+    expect(localeParityIssues(article)).toEqual([
+      "affiliate.impressionUrl differs between ja/en (ja=https://www12.example.net/0.gif?id=1 / en=none)",
+    ]);
+  });
+
+  it("mismatch when impressionUrl exists only on en (shows ja=none)", () => {
+    const base = { url: "https://px.example.net/c?id=1", program: "Example" };
+    const article = makeArticle(
+      "x",
+      { affiliate: base },
+      { affiliate: { ...base, impressionUrl: "https://www12.example.net/0.gif?id=1" } },
+    );
+    expect(localeParityIssues(article).join("\n")).toMatch(/affiliate\.impressionUrl differs between ja\/en \(ja=none/);
+  });
+
   it("treated as matching when neither side sets revisions", () => {
     expect(localeParityIssues(makeArticle("x"))).toEqual([]);
   });

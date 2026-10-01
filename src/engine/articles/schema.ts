@@ -39,10 +39,15 @@ export interface RevisionEntry {
   note: string;
 }
 
-/** Affiliate link. ja/en carry the same URL (verified by parity.ts). Not included in the public JSON. */
+/**
+ * Affiliate link. ja/en carry the same URLs (verified by parity.ts). Not included in the public JSON.
+ * impressionUrl is the 1x1 impression-tracking image that an affiliate network (ASP) ships next to
+ * the link in its ad code. Set it whenever the network's code has one, so the code is used as provided.
+ */
 export interface AffiliateLink {
   url: string;
   program: string;
+  impressionUrl?: string;
 }
 
 export interface ArticleFrontmatter {
@@ -144,16 +149,31 @@ function parseTechStack(obj: Record<string, unknown>, context: string): TechStac
   });
 }
 
+// The impression pixel's origin goes into the CSP img-src, so it must be a concrete https origin:
+// parseable, no wildcard host, no credentials, no whitespace.
+function requireImpressionUrl(record: Record<string, unknown>, context: string): string {
+  const value = requireHttpsUrl(record, "impressionUrl", context);
+  const url = URL.canParse(value) ? new URL(value) : undefined;
+  if (!url || /\s/.test(value) || url.hostname.includes("*") || url.username !== "" || url.password !== "") {
+    fail(context, `impressionUrl must be a plain https URL with a concrete host (no wildcard, credentials or spaces)`);
+  }
+  return value;
+}
+
 function parseAffiliate(obj: Record<string, unknown>, context: string): AffiliateLink | undefined {
   if (obj.affiliate === undefined) {
     return undefined;
   }
   const record = asRecord(obj.affiliate, context, "affiliate");
   const entryContext = `${context}: affiliate`;
-  return {
+  const affiliate: AffiliateLink = {
     url: requireHttpsUrl(record, "url", entryContext),
     program: requireString(record, "program", entryContext),
   };
+  if (record.impressionUrl !== undefined) {
+    affiliate.impressionUrl = requireImpressionUrl(record, entryContext);
+  }
+  return affiliate;
 }
 
 export function parseFrontmatter(data: unknown, context: string): ArticleFrontmatter {

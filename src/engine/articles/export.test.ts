@@ -39,11 +39,17 @@ describe("articles/export", () => {
 
   it("affiliate (affiliate link) is not included in the public JSON", () => {
     const article = makeArticle("alpha", {
-      affiliate: { url: "https://shopify.pxf.io/abc", program: "Shopify" },
+      affiliate: {
+        url: "https://shopify.pxf.io/abc",
+        program: "Shopify",
+        impressionUrl: "https://pixel.example.net/0.gif?id=1",
+      },
     });
     const exported = buildAnatomyExport([article], BASE, "2026-07-17").articles[0];
     expect(exported).not.toHaveProperty("affiliate");
     expect(JSON.stringify(exported)).not.toContain("pxf.io");
+    // The impression pixel is tracking code for our own pages; it must not leak into the export either.
+    expect(JSON.stringify(exported)).not.toContain("pixel.example.net");
   });
 
   it("techStack is written out preserving whether evidenceUrl is present", () => {

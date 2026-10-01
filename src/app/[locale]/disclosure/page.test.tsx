@@ -20,6 +20,8 @@ describe("disclosure page", () => {
       d.cookiesTitle,
       d.contactTitle,
     ]);
+    expect(container).toHaveTextContent(d.cookiesBody);
+    expect(container).toHaveTextContent(d.pixelBody);
     const items = [...container.querySelectorAll("li")].map((li) => li.textContent);
     expect(items).toEqual([...d.howItems, ...d.independenceItems, ...d.programsItems]);
     expect(container.querySelector(`a[href="${GITHUB_URL}/issues"]`)).toHaveAttribute("rel", "noopener noreferrer");

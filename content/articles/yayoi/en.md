@@ -12,6 +12,7 @@ serviceUrl: "https://www.yayoi-kk.co.jp/shinkoku/aoiroshinkoku/"
 affiliate:
   url: "https://af.moshimo.com/af/c/click?a_id=5825559&p_id=914&pc_id=1138&pl_id=38628"
   program: "Yayoi Affiliate Program (Moshimo Affiliate)"
+  impressionUrl: "https://i.moshimo.com/af/i/impression?a_id=5825559&p_id=914&pc_id=1138&pl_id=38628"
 vendor: "Yayoi Co., Ltd."
 origin: "JP"
 heroTheme: "yayoi"

@@ -1299,6 +1299,7 @@ main:focus {
 
 /* Affiliate link box (PR). Directly below LinkCard. Prioritizes spacing and labeling that make it obviously an ad */
 .affiliate-card {
+  position: relative;
   margin: 1rem 0 0;
   padding: 1rem 1.3rem 1.1rem;
   border: 1px dashed var(--rule-strong);
@@ -1307,6 +1308,18 @@ main:focus {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.6rem 0.9rem;
+}
+
+/* ASP impression pixel. Out of flow so it adds no flex gap and causes no layout shift.
+   Never display:none or visibility:hidden: a lazy image that is not rendered is never requested. */
+.affiliate-card-pixel {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  pointer-events: none;
 }
 
 .affiliate-card-pr {

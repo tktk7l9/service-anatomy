@@ -104,7 +104,19 @@ tech editorial (magazine-style) design.
   disclosure surface keys off `hasAffiliate()` / `affiliateOf()` in
   `src/engine/articles/disclosure.ts`: the notice above the article body (`AffiliateNotice`),
   the PR card after it (`AffiliateCard`), and the "PR" label on listing cards (`ArticleCard`).
-  Do not add a new affiliate surface with its own condition. The policy page is
+  Do not add a new affiliate surface with its own condition.
+  **Use the ASP's ad code as provided** (A8.net and Moshimo Affiliate forbid modifying it).
+  Their code is a link plus a 1x1 impression image, so copy both: the `<a href>` goes to
+  `affiliate.url` and the `<img src>` to the optional `affiliate.impressionUrl` (https only;
+  rewrite Moshimo's protocol-relative `//i.moshimo.com/...` to `https://`; ja/en must match,
+  parity.ts checks it). Networks without a pixel (e.g. Shopify via Impact) leave it unset.
+  `AffiliateCard` renders the pixel after the link and gives the link
+  `rel="sponsored nofollow noopener"` + `referrerPolicy="no-referrer-when-downgrade"` —
+  **no `noreferrer`**, because the networks' code sends the Referer. Other external links keep
+  `noopener noreferrer`. The pixel's origin reaches the CSP `img-src` automatically:
+  `next.config.ts` derives it from the articles via `src/lib/impression-origins.ts`
+  (exact origins, never a wildcard). The pixel is third-party tracking that loads only on
+  articles with `impressionUrl`; the policy page says so — keep that text true. The policy page is
   `/[locale]/disclosure` (linked from the footer, about, and the notice); bump its
   `POLICY_UPDATED_AT` when the policy text changes. Keep the notice above the body, at
   body-like size and in regular ink — the CAA operational standards treat end-only,

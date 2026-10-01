@@ -12,6 +12,7 @@ serviceUrl: "https://biz.moneyforward.com/tax_return/"
 affiliate:
   url: "https://af.moshimo.com/af/c/click?a_id=5824839&p_id=888&pc_id=1087&pl_id=38622"
   program: "Money Forward Cloud Affiliate Program (Moshimo Affiliate)"
+  impressionUrl: "https://i.moshimo.com/af/i/impression?a_id=5824839&p_id=888&pc_id=1087&pl_id=38622"
 vendor: "Money Forward, Inc."
 origin: "JP"
 heroTheme: "moneyforward-cloud"
