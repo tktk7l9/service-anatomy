@@ -19,7 +19,11 @@ import { ARTICLE_COMPONENTS, type ArticleComponent } from "./split";
 //   :::fact / :::guess explicit callout for observed fact / guess (labels injected per locale)
 //   ::scorecard        insertion point for the React component rendering frontmatter scores
 //   ::techstack        insertion point for the React component rendering frontmatter techStack
-// Unknown directives are unwrapped into their children (neither silently dropped nor passed through).
+// Unknown container/leaf directives are unwrapped into their children (neither silently dropped
+// nor passed through).
+// Inline text directives (":name") are not part of this site's syntax, but remark-directive parses
+// any colon followed by a letter or digit as one — "10:00", "23:59までに" — and the directive name
+// would vanish from the output. They are restored to the exact source text instead.
 
 export interface CalloutLabels {
   fact: string;
@@ -40,7 +44,8 @@ function isArticleComponent(name: string): name is ArticleComponent {
 }
 
 function remarkArticleDirectives(labels: CalloutLabels) {
-  return (tree: Root) => {
+  return (tree: Root, file: { toString(): string }) => {
+    const source = String(file);
     visit(tree, (node, index, parent) => {
       if (
         node.type !== "containerDirective" &&
@@ -75,9 +80,19 @@ function remarkArticleDirectives(labels: CalloutLabels) {
         return;
       }
 
-      // Unknown directive: unwrap into its children.
       /* v8 ignore next -- on the paths where visit reaches a directive, parent/index always exist */
       if (!parent || index === undefined) return;
+
+      if (node.type === "textDirective") {
+        // Not a directive the author wrote: put the literal characters back (times, ratios).
+        /* v8 ignore next -- nodes produced by the parser always carry offsets */
+        if (node.position?.start.offset === undefined || node.position.end.offset === undefined) return;
+        const literal = source.slice(node.position.start.offset, node.position.end.offset);
+        parent.children.splice(index, 1, { type: "text", value: literal });
+        return index + 1;
+      }
+
+      // Unknown container/leaf directive: unwrap into its children.
       parent.children.splice(index, 1, ...(node.children as never[]));
       return index;
     });
