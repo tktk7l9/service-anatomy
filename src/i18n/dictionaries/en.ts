@@ -133,6 +133,7 @@ const en: Dictionary = {
       "At the top of the article, before the body, we show a “PR” label and the sentence “This article contains affiliate links (advertising).”",
       "The affiliate box at the end of the article shows “PR”, the name of the program we participate in, and that we may earn a commission.",
       "Article cards in listings also show “PR”.",
+      "Comparison pages, which set two services side by side, are treated the same way when the article on either service has an affiliate link: the same label at the top, and after the body one affiliate box per service, each under the name of that service.",
       "Affiliate links carry the search-engine advertising marker (rel=\"sponsored\").",
       "Articles without affiliate links show none of these labels. The “Official site” link and the official link card in each article are not affiliate links.",
     ],
@@ -155,7 +156,7 @@ const en: Dictionary = {
     cookiesBody:
       "When you click an affiliate link, the partner program (or its tracking service) may use cookies or similar technologies on its own site to attribute the sign-up. That is governed by each company's privacy policy. This site itself sets no cookies for affiliate links.",
     pixelBody:
-      "We use the ad code that affiliate networks (ASPs) provide as it is, without modifying it. That code can include a 1×1-pixel tracking image used to count how often the ad was shown. The image is loaded from the network's server only on articles that contain an affiliate link, when the affiliate link box at the end of the article comes near the screen. At that point the network receives your IP address, browser information and the URL of the article you are reading, and may use cookies or similar technologies. Articles without an affiliate link do not load it.",
+      "We use the ad code that affiliate networks (ASPs) provide as it is, without modifying it. That code can include a 1×1-pixel tracking image used to count how often the ad was shown. The image is loaded from the network's server only on articles that contain an affiliate link (comparison pages included), when the affiliate link box at the end of the article comes near the screen. At that point the network receives your IP address, browser information and the URL of the article you are reading, and may use cookies or similar technologies. Articles without an affiliate link do not load it.",
     contactTitle: "Contact",
     contactBody: "Questions or concerns about how we label advertising are welcome as a GitHub issue.",
     contactLink: "GitHub Issues",
