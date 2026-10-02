@@ -17,3 +17,24 @@ export function affiliateOf(frontmatter: Pick<ArticleFrontmatter, "affiliate">):
 export function hasAffiliate(frontmatter: Pick<ArticleFrontmatter, "affiliate">): boolean {
   return affiliateOf(frontmatter) !== null;
 }
+
+/** One side of a page that covers several articles (a comparison), with its affiliate link. */
+export interface AffiliateSlot {
+  slug: string;
+  service: string;
+  affiliate: AffiliateLink;
+}
+
+/**
+ * Affiliate links of a page built from several articles, in the given order. Sides without a
+ * link are dropped, so an empty result means "no advertising on this page": the comparison page
+ * shows the notice and the PR cards from this one list, the same way an article uses affiliateOf.
+ */
+export function affiliateSlots(
+  sides: readonly { slug: string; frontmatter: Pick<ArticleFrontmatter, "affiliate" | "service"> }[],
+): AffiliateSlot[] {
+  return sides.flatMap(({ slug, frontmatter }) => {
+    const affiliate = affiliateOf(frontmatter);
+    return affiliate ? [{ slug, service: frontmatter.service, affiliate }] : [];
+  });
+}
