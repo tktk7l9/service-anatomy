@@ -6,8 +6,8 @@ lead: "You close the laptop and the agent that had been running for six hours is
 category: dev-tool
 tags: [ai, terminal, rust, open-source, developer-tools]
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-01"
-lastVerified: "2026-10-01"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 serviceUrl: "https://herdr.dev/"
 vendor: "Herdr, Inc."
 origin: "TR"
@@ -72,6 +72,9 @@ sources:
   - label: "Herdr official site (home page)"
     url: "https://herdr.dev/"
     accessedAt: "2026-10-01"
+  - label: "Herdr official: agent-guide.md (guide for agents)"
+    url: "https://herdr.dev/agent-guide.md"
+    accessedAt: "2026-10-02"
   - label: "Herdr official docs: Concepts"
     url: "https://herdr.dev/docs/concepts/"
     accessedAt: "2026-10-01"
@@ -119,7 +122,7 @@ sources:
     accessedAt: "2026-10-01"
   - label: "Herdr official blog: Herdr raised a $6M seed. We're hiring. (2026-09-08)"
     url: "https://herdr.dev/blog/herdr-raised-a-seed/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "Herdr official blog: Connecting the machines (2026-09-07)"
     url: "https://herdr.dev/blog/connecting-the-machines/"
     accessedAt: "2026-10-01"
@@ -143,10 +146,10 @@ sources:
     accessedAt: "2026-10-01"
   - label: "GitHub: commit \"relicense herdr under apache-2.0\" (2026-07-22)"
     url: "https://github.com/herdrdev/herdr/commit/cd5ea1be"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "GitHub: commit \"clarify dual licensing\" (2026-05-26)"
     url: "https://github.com/herdrdev/herdr/commit/cfffe659"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "GitHub: herdrdev/herdr SPONSORS.md"
     url: "https://github.com/herdrdev/herdr/blob/v0.9.3/SPONSORS.md"
     accessedAt: "2026-10-01"
@@ -164,7 +167,7 @@ Coding agents run inside terminals. With one agent, one terminal tab is enough. 
 
 Herdr is a terminal workspace manager for AI coding agents. Its official guide for agents describes it as "a multiplexer, like tmux": a background server owns real terminal processes, and clients attach to render them. Close the client or lose the SSH connection, and the processes in the panes keep running.
 
-On top of that, it has three things tmux does not: it finds agents inside panes and shows their state, the whole UI can be operated with a mouse, and it has a CLI and a socket API that scripts and the agents themselves can call.
+On top of that, the same guide describes the difference from tmux as being "mouse-first and agent-aware": the whole UI is clickable, and Herdr finds agents inside panes and shows their state in a sidebar. It also has a CLI and a local socket API that scripts and the agents themselves can call.
 
 :::fact
 The public repository herdrdev/herdr was created on March 27, 2026, and v0.1.0 shipped the same day. According to the GitHub API, as of October 1, 2026 (UTC) it has 41,769 stars and 3,230 forks, is licensed under Apache 2.0, and is primarily Rust. There are 94 releases including previews, 59 of them stable, the latest being v0.9.3 on September 29, 2026. The home page of the official site shows "1,191,376 installs to date", "1,445 community plugins", and "22 agent CLIs detected" (how installs are counted is not stated).
@@ -244,7 +247,7 @@ The site itself is light. In our observation (2026-10-01 UTC), herdr.dev respond
 As of October 1, 2026, we found no Herdr product with a price on it. What it distributes is an Apache 2.0 binary and its source code, and there is no pricing page.
 
 :::fact
-The license has changed twice. According to the repository's commit history, the initial release (March 2026) was AGPL-3.0; a commit on May 26, 2026 stated that it was dual-licensed under "AGPL-3.0-or-later, plus commercial licenses for organizations that cannot comply with AGPL"; and a commit on July 22, 2026 switched it to Apache 2.0. In the official blog (2026-08-06), Can Celik gave the reason as "I want everyone to use Herdr freely" and wrote that "the runtime, what you use right now, stays free. Apache-2.0." According to SPONSORS.md in the repository, the sponsorship program is closed to new sponsors and the file only lists past backers.
+The license wording was rewritten twice, and the license itself changed once. According to the repository's commit history, the initial release (March 2026) was AGPL-3.0; a commit on May 26, 2026 stated that it was dual-licensed under "AGPL-3.0-or-later, plus commercial licenses for organizations that cannot comply with AGPL"; and a commit on July 22, 2026 switched it to Apache 2.0. In the official blog (2026-08-06), Can Celik gave the reason as "I want everyone to use Herdr freely" and wrote that "the runtime, what you use right now, stays free. Apache-2.0." According to SPONSORS.md in the repository, the sponsorship program is closed to new sponsors and the file only lists past backers.
 :::
 
 :::fact
@@ -256,7 +259,7 @@ Adoption starts on developers' own machines. According to Homebrew's public anal
 :::
 
 :::guess
-The main source of revenue appears likely to be a connection service (Herdr Cloud) built on top of the open runtime. Giving the runtime away widely and charging for the relay and account layer that links machines would fit the official blog's statement that the runtime stays open and the author builds on top of it like everyone else. Dropping the AGPL-plus-commercial dual license in favour of Apache 2.0 can be read as a decision to earn from a service rather than from license sales. That said, neither the price nor the form of the service has been announced, and there is no public information about revenue. Our assessment of the business at this point rests on the spread of usage and the expectations implied by $6M in funding, not on a revenue track record.
+The main source of revenue appears likely to be a connection service (Herdr Cloud) built on top of the open runtime. Giving the runtime away widely and charging for the relay and account layer that links machines would fit the official blog's statement that the runtime stays open and the author builds on top of it like everyone else. Dropping the AGPL-plus-commercial dual license in favour of Apache 2.0 can be read as a decision to earn from a service rather than from license sales. That said, neither the price nor the form of the service has been announced, and there is no public information about revenue. Our assessment of the business at this point rests on the spread of usage and the expectations implied by the $6M round announced on the official blog, not on a revenue track record.
 :::
 
 :::guess
