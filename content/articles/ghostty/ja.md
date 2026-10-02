@@ -6,8 +6,8 @@ lead: "ターミナルは無料で手に入るのが当たり前の道具だ。G
 category: dev-tool
 tags: [terminal, open-source, zig, nonprofit, developer-tools]
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-01"
-lastVerified: "2026-10-01"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 serviceUrl: "https://ghostty.org/"
 vendor: "Ghostty（財務スポンサー: Hack Club）"
 origin: "US"
@@ -107,6 +107,9 @@ sources:
   - label: "Mitchell Hashimoto: Libghostty Is Coming（2025-09-22）"
     url: "https://mitchellh.com/writing/libghostty-is-coming"
     accessedAt: "2026-10-01"
+  - label: "Mitchell Hashimoto: We Rewrote the Ghostty GTK Application（2025-08-14）"
+    url: "https://mitchellh.com/writing/ghostty-gtk-rewrite"
+    accessedAt: "2026-10-02"
   - label: "Mitchell Hashimoto: Ghostty 1.0 is Coming（2024-10-22）"
     url: "https://mitchellh.com/writing/ghostty-is-coming"
     accessedAt: "2026-10-01"
@@ -179,7 +182,7 @@ READMEは、端末1つにつき読み取り・書き込み・描画の専用ス�
 作者は2025年9月の文章で、libghosttyを小さなライブラリ群に分けて提供する計画を示した。最初の1つがlibghostty-vtで、端末の制御シーケンスの解析と状態の保持だけを担い、libcにも依存しない。READMEは、これがZigとCから使え、macOS・Linux・Windows・WebAssemblyに対応すると説明している。一方で、バージョンのタグはまだ付いておらず、APIのシグネチャは変動中だとも書かれている。
 :::
 
-Linux版は2025年8月に書き直されている。作者の文章によると、GTKのオブジェクトシステム（GObject）をZigから正面から使う形に改め、Valgrindで検証しながら進めたという。READMEは、Linux版がsystemdと連携し、単一インスタンスでの新規ウィンドウやcgroupによる分離に使うとも述べている。
+Linux版は2025年8月に書き直されている。作者の文章（2025-08-14）によると、GTKのオブジェクトシステム（GObject）をZigから正面から使う形に改め、Valgrindで検証しながら進めたという。READMEは、Linux版がsystemdと連携し、単一インスタンスでの新規ウィンドウやcgroupによる分離に使うとも述べている。
 
 公式サイトの側は、ごく普通のWebの構成だ。当サイトが2026年10月1日に`curl -sI https://ghostty.org/`で観測した応答には、`server: Vercel`、`x-vercel-cache: HIT`、`x-nextjs-prerender: 1`が含まれていた。サイトのソースも公開されており、`package.json`にはNext.js 16系とReact 19.2.4が並ぶ。ドキュメントの各ページには「Edit on GitHub」のリンクがある。
 
