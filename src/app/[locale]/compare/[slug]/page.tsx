@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { AffiliateNotice } from "@/components/affiliate-notice";
+import { ComparisonAffiliates } from "@/components/comparison-affiliates";
 import { ComparisonScorecard } from "@/components/comparison-scorecard";
 import { ComparisonTechStack } from "@/components/comparison-techstack";
 import { JsonLd } from "@/components/json-ld";
 import { SourcesList } from "@/components/sources-list";
+import { affiliateSlots } from "@/engine/articles/disclosure";
 import { ALL_COMPARISONS, comparisonBySlug, resolveComparison } from "@/engine/comparisons";
 import { techOverlap } from "@/engine/comparisons/diff";
 import { formatDate } from "@/engine/format/date";
@@ -78,6 +81,12 @@ export default async function ComparePage({
   const serviceB = articleB[locale].frontmatter.service;
   const diff = techOverlap(articleA[locale].frontmatter.techStack, articleB[locale].frontmatter.techStack);
   const url = `${BASE_URL}/${locale}/compare/${comparison.slug}`;
+  // Affiliate links come from the two compared articles. This one list drives both the notice
+  // above the body and the PR cards after it; it is empty when neither article has a link.
+  const affiliates = affiliateSlots([
+    { slug: articleA.slug, frontmatter: articleA[locale].frontmatter },
+    { slug: articleB.slug, frontmatter: articleB[locale].frontmatter },
+  ]);
 
   const itemList = buildItemList([
     { name: articleA[locale].frontmatter.title, url: `${BASE_URL}/${locale}/articles/${articleA.slug}` },
@@ -117,6 +126,7 @@ export default async function ComparePage({
             </Link>
           </span>
         </div>
+        {affiliates.length > 0 && <AffiliateNotice locale={locale} dict={dict} />}
       </header>
 
       <ComparisonScorecard
@@ -130,6 +140,8 @@ export default async function ComparePage({
       <ComparisonTechStack diff={diff} serviceA={serviceA} serviceB={serviceB} locale={locale} dict={dict} />
 
       <div className="prose" dangerouslySetInnerHTML={{ __html: html }} />
+
+      <ComparisonAffiliates slots={affiliates} locale={locale} dict={dict} />
 
       <SourcesList sources={frontmatter.sources} locale={locale} dict={dict} />
 
