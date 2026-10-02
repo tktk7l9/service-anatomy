@@ -1,7 +1,7 @@
 ---
 service: "Lovable"
 title: "It Doesn't Sell the Apps It Builds in Its Own Store — Why Lovable Started Distributing Inside ChatGPT and Claude"
-description: "Lovable generates a complete app from conversation alone. Rebranded from its predecessor GPT Engineer in December 2024, it reached $100M ARR and an $1.8B valuation within eight months, then hit a $6.6B valuation in a December 2025 Series B and a $13.3B valuation in an August 2026 Series C. In July 2026 it began letting apps built with Lovable run directly inside ChatGPT and Claude. A dissection, from official sources, of why one of the fastest-growing developer tools alongside [Cursor](/en/articles/cursor) doesn't insist on keeping consumption inside its own app."
+description: "Lovable generates a complete app from conversation alone. Rebranded from its predecessor GPT Engineer in December 2024, it reached $100M ARR and an $1.8B valuation within eight months, then hit a $6.6B valuation in a December 2025 Series B and a $13.3B valuation in an August 2026 Series C. In July 2026 it began letting apps built with Lovable run directly inside ChatGPT and Claude. A dissection, from official sources, of why a developer tool that, like [Cursor](/en/articles/cursor), grew revenue in a short time doesn't insist on keeping consumption inside its own app."
 lead: "Someone using an app built with Lovable doesn't necessarily ever visit Lovable's own site. In July 2026, Lovable began letting apps built on its platform run directly inside ChatGPT and Claude. This Stockholm, Sweden company reached $100M ARR within eight months of rebranding from its predecessor, GPT Engineer, hit a $6.6 billion valuation by December 2025, and a $13.3 billion valuation by August 2026. This dissects a company that doesn't lock its own apps inside its own storefront."
 category: dev-tool
 tags: [ai, app-builder, vibe-coding, supabase, developer-tools]
@@ -138,7 +138,7 @@ Per Lovable's official blog, following an additional $15 million raise led by Cr
 :::
 
 :::pull
-[Cursor](/en/articles/cursor) set the fastest-ARR-growth record by taking the roundabout path of forking VS Code. Lovable set a different kind of fastest-growth record by handing its own apps out beyond its own site.
+[Cursor](/en/articles/cursor) took the roundabout path of forking VS Code and grew its revenue in a short time. Lovable took a different path, handing the apps it builds out beyond its own site, and grew just as quickly.
 :::
 
 ::scorecard
@@ -179,4 +179,4 @@ Per Lovable's official pricing page (checked October 2, 2026), the Free plan gra
 The credit-based pricing looks designed to tie billing to cost — AI model inference cost — scaling with task complexity, the same kind of adaptation to generative AI's distinctive cost structure that shows up in Cursor including a set amount of model usage in each plan and billing anything beyond it at API rates (as of October 2026). Valuation more than tripling in five months plausibly reflects investor enthusiasm not just for the $100 million ARR milestone itself but for the conversation-driven development style broadly known as "vibe coding." Starting distribution inside ChatGPT and Claude may be a bet on expanding revenue opportunity beyond developer-tool sales into the usage of the generated apps themselves.
 :::
 
-Rather than depending on traffic to its own site, Lovable hands the apps it builds directly into the enormous existing user bases of ChatGPT and Claude. What this dissection reveals belongs to the same lineage as [Cursor](/en/articles/cursor) setting a speed record by taking the roundabout path of forking VS Code: building on borrowed foundations while achieving the fastest possible growth without ever owning a distribution network of its own — a design pattern that keeps recurring across AI-native developer tools.
+Rather than depending on traffic to its own site, Lovable hands the apps it builds directly into the enormous existing user bases of ChatGPT and Claude. What this dissection reveals belongs to the same lineage as [Cursor](/en/articles/cursor) growing by taking the roundabout path of forking VS Code: building on borrowed foundations and growing in a short time without ever owning a distribution network of its own — a design pattern that keeps recurring across AI-native developer tools.
