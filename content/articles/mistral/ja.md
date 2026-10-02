@@ -55,9 +55,12 @@ sources:
   - label: "Mistral公式: Pricing（Free / Pro / Team / Enterpriseの料金とFAQ）"
     url: "https://mistral.ai/pricing/"
     accessedAt: "2026-10-02"
-  - label: "Mistral公式: API pricing（モデル別の従量単価・Enterprise APIs・ツール料金）"
+  - label: "Mistral公式: API pricing（モデル別の従量単価・Regional inferenceの割増・Enterprise APIs・ツール料金）"
     url: "https://mistral.ai/pricing/api/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
+  - label: "Mistral公式ドキュメント: Regional inference（定価の1.1倍・対象は入力・出力・キャッシュの読み書き）"
+    url: "https://docs.mistral.ai/inference/regional-inference"
+    accessedAt: "2026-10-02"
   - label: "Mistral公式: シリーズD発表（30億ユーロ・評価額210億ユーロ超・Samsung Electronicsが主導）"
     url: "https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/"
     accessedAt: "2026-10-01"
@@ -88,6 +91,15 @@ sources:
   - label: "Mistral公式: Privacy Policy（運営法人・学習利用とオプトアウト・保持期間・EU域外移転）"
     url: "https://legal.mistral.ai/terms/privacy-policy/"
     accessedAt: "2026-10-01"
+  - label: "Mistral公式: Commercial Terms of Service（14.10 準拠法と管轄・顧客の本社所在地による3区分）"
+    url: "https://legal.mistral.ai/terms/commercial-terms-of-service"
+    accessedAt: "2026-10-02"
+  - label: "Mistral公式: EEA域外の消費者向け利用規約（第10条 準拠法・管轄・仲裁合意）"
+    url: "https://legal.mistral.ai/terms/row-consumer-terms"
+    accessedAt: "2026-10-02"
+  - label: "Mistral公式: EEAの消費者向け利用規約（第12条 準拠法と管轄）"
+    url: "https://legal.mistral.ai/terms/eu-consumers-terms-of-service"
+    accessedAt: "2026-10-02"
   - label: "Mistral公式ドキュメント: Zero data retention（対象エンドポイントと対象外の製品）"
     url: "https://docs.mistral.ai/admin/monitor-comply/zero-data-retention"
     accessedAt: "2026-10-01"
@@ -133,7 +145,7 @@ Mistral AIは、パリに本社を置くAI研究所だ。公式のAboutページ
 :::
 
 :::fact
-計算基盤について。Mistral Computeは2025年6月11日に発表された自社のAIインフラで、公式ページのタイムラインは「2025年4月に構想承認、同年7月にGB200のラック搬入、2026年2月にGB200が本番稼働、スウェーデン拠点（EcoDataCenter）が進行中、同年3月に最初の外部顧客」と記している。容量の目標は「2030年までにEU域内で1GW」。2026年8月11日には、推論を欧州と米国のどちらで実行するか選べるRegional Endpointsの一般提供、稼働率SLAつきのPriority Tierの公開プレビュー、第三者のオープンモデル（Z.aiのGLM-5.2から）の取り扱い開始を発表した。Regional Endpointsについて同社は、選択した地域の外にある再委託先へ限定的な移転が生じうると注記している。
+計算基盤について。Mistral Computeは2025年6月11日に発表された自社のAIインフラで、公式ページのタイムラインは「2025年4月に構想承認、同年7月にGB200のラック搬入、2026年2月にGB200が本番稼働、スウェーデン拠点（EcoDataCenter）が進行中、同年3月に最初の外部顧客」と記している。容量の目標は「2030年までにEU域内で1GW」。2026年8月11日には、推論を欧州と米国のどちらで実行するか選べるRegional Endpointsの一般提供、稼働率SLAつきのPriority Tierの公開プレビュー、第三者のオープンモデル（Z.aiのGLM-5.2から）の取り扱い開始を発表した。API料金ページには現在、GLM 5.3とGLM 5.2が「Third-party」の表示つきで並んでいる（2026-10-02確認）。Regional Endpointsについて同社は、選択した地域の外にある再委託先へ限定的な移転が生じうると注記している。
 :::
 
 Webの観察結果も記録しておく。mistral.ai は Cloudflare の背後にあり、HTMLは /_astro/ 配下のアセットを読み込み、応答ヘッダーには Netlify Edge のキャッシュ表示がある。docs.mistral.ai は server: Vercel と Next.js のプリレンダリングを示すヘッダーを返し、llms.txt を Link ヘッダーで案内している。api.mistral.ai は未認証のリクエストに401を返し、Kongのリクエストidをヘッダーに付けていた。トップページのCSPには、同意管理のAxeptio、HubSpotのEUリージョン（js-eu1）、Google Analyticsのオリジンが列挙されている。
@@ -147,7 +159,7 @@ Webの観察結果も記録しておく。mistral.ai は Cloudflare の背後に
 重みを公開している会社の収益源は、公式ページから読める範囲で少なくとも5つに分かれている。
 
 :::fact
-1つ目はAPIの従量課金。API料金ページの表示では、100万トークンあたりMistral Medium 3.5が入力1.5ドル・出力7.5ドル、Mistral Large 3が入力0.5ドル・出力1.5ドル、Mistral Small 4が入力0.15ドル・出力0.6ドル。バッチ処理は50%引き、キャッシュされた入力は最大90%引きとFAQに書かれている。2つ目はその上乗せ商品で、「Enterprise APIs」は地域単位のデータ処理の制御、システム単位のSLA、レート上限の引き上げ、優先サポートを含み、対象APIの定価に75%を加えた価格で提供すると明記されている。3つ目はVibeのサブスクリプション（Pro月14.99ドル、Team 1ユーザー月24.99ドル）。4つ目はEnterprise契約で、料金表には自社ホスト・プライベートクラウド・オンプレミスへの「Custom deployments」、カスタムモデル、監査ログ、SAML SSO、ホワイトラベルが並び、価格は問い合わせ制。Medium 3.5の商用ライセンス（月間売上2,000万ドル超の企業向け）も、ライセンスの文面によれば営業窓口への問い合わせで個別に付与される。5つ目は計算資源そのもので、複数年の利用確約をMistralが構築するインフラへのアクセス権に変える「European Compute Units（ECU）」を2026年8月に発表している。
+1つ目はAPIの従量課金。API料金ページの表示では、100万トークンあたりMistral Medium 3.5が入力1.5ドル・出力7.5ドル、Mistral Large 3が入力0.5ドル・出力1.5ドル、Mistral Small 4が入力0.15ドル・出力0.6ドル。バッチ処理は50%引き、キャッシュされた入力は最大90%引きとFAQに書かれている。2つ目はその上乗せ商品で、推論の地域を指定する「Regional inference」は定価の10%増しと料金ページに表示され、ドキュメントは入力・出力・キャッシュの読み書きのいずれも定価の1.1倍で課金すると説明している。「Enterprise APIs」は地域単位のデータ処理の制御、システム単位のSLA、レート上限の引き上げ、優先サポートを含み、対象APIの定価に75%を加えた価格で提供すると明記されている。3つ目はVibeのサブスクリプション（Pro月14.99ドル、Team 1ユーザー月24.99ドル）。4つ目はEnterprise契約で、料金表には自社ホスト・プライベートクラウド・オンプレミスへの「Custom deployments」、カスタムモデル、監査ログ、SAML SSO、ホワイトラベルが並び、価格は問い合わせ制。Medium 3.5の商用ライセンス（月間売上2,000万ドル超の企業向け）も、ライセンスの文面によれば営業窓口への問い合わせで個別に付与される。5つ目は計算資源そのもので、複数年の利用確約をMistralが構築するインフラへのアクセス権に変える「European Compute Units（ECU）」を2026年8月に発表している。
 :::
 
 :::fact
@@ -157,6 +169,8 @@ Webの観察結果も記録しておく。mistral.ai は Cloudflare の背後に
 「主権AI」という位置づけは、同社自身の言葉で定義されている。シリーズDの発表は、主権を4つの次元の支配として説明する——組織の境界内にとどまるデータ、制御とカスタマイズが可能なモデル、専有できて予測可能な計算資源、制御と監査が可能な本番システム。2026年8月の発表は「顧客の大半は、すでに自社のデータセンターやクラウド環境の中で当社のモデルを動かしている」と述べ、Mistral Computeの発表は、米国または中国に拠点を置くクラウド・AI事業者に代わる選択肢を待っていた地域に向けたものだと書いている。
 
 データの扱いも、この位置づけに沿って文書化されている。プライバシーポリシーは、EU域内の事業者を優先して選び、例外的に域外の事業者を使う場合はGDPR第46条の保護措置と標準契約条項を付すとしている。入力と出力は、出力の生成に必要な期間に加えて不正利用の監視のため30日間保持されるが、有料プランではステートレスなAPIに限って保持をなくすZero data retentionを申請できる。会話履歴を持つVibeのWorkやChatは、その対象外と明記されている。
+
+準拠法は、利用者の所在地で分かれる。法人向けのCommercial Terms of Service（2026年9月25日発効）の14.10は、顧客の本社所在地を基準に、南北アメリカはカリフォルニア州法とサンタクララ郡の連邦・州裁判所、日本を含むアジア太平洋はシンガポール法とシンガポールの裁判所、それ以外はフランス法とパリの裁判所と定める。EEA域外の消費者向け規約（同日発効）の第10条も、居住地を基準に同じ3区分を置く。この規約はあわせて、紛争を米国仲裁協会（AAA）の消費者仲裁規則に基づくサンタクララ郡での仲裁で解決するという合意と、規約に同意してから30日以内に通知すればその合意から外れられることを定めている。EEAの消費者向け規約（2026年8月7日発効）の第12条は、居住国の裁判所に居住国の法で訴えを起こせるほか、パリの裁判所にフランス法で訴えることもできるとする。運営法人はフランス企業だが、これらの文書に従えば、日本の法人顧客と消費者に適用される準拠法はシンガポール法である。
 
 :::guess
 重みの公開は、収益を手放す行為というより、販売の入口として機能しているとみられる。重みが手元にあれば、顧客は調達の前に自社環境で試せるうえ、特定ベンダーに縛られないという説明が成り立つ。そのうえでMistralが課金しているのは、定価に75%を上乗せするEnterprise APIsや問い合わせ制のEnterprise契約が示すとおり、地域の指定、SLA、カスタマイズ、運用支援といった「重み以外の部分」が中心だと考えられる。ただし最新のMedium 3.5は売上の大きい企業に商用ライセンスを求めており、重みの利用許諾そのものも、大企業向けには売り物に含まれるとみられる。ECUと1GWの目標は、この構造をさらに計算資源の側へ広げる動きと推測される。モデルが配られて差がつきにくくなるほど、欧州域内で確保された計算容量という希少な資産を持つことが、価格を保つ根拠になりうるためだ。一方で、データセンターは先に資金が出ていく事業であり、売上高が公表されていない現時点では、調達額に見合う収益が立っているかを外部から判断する材料は限られる。シリーズCをASML、シリーズDをSamsung Electronicsという製造業の企業が主導している点は、同社が純粋な財務投資だけでなく、産業側の顧客兼株主を集めていることを示しているとみられる。

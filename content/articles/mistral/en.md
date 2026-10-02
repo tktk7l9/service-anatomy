@@ -55,9 +55,12 @@ sources:
   - label: "Mistral official: Pricing (Free / Pro / Team / Enterprise plans and FAQ)"
     url: "https://mistral.ai/pricing/"
     accessedAt: "2026-10-02"
-  - label: "Mistral official: API pricing (per-model rates, Enterprise APIs, tool fees)"
+  - label: "Mistral official: API pricing (per-model rates, Regional inference surcharge, Enterprise APIs, tool fees)"
     url: "https://mistral.ai/pricing/api/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
+  - label: "Mistral official documentation: Regional inference (1.1x list pricing on input, output, cached reads and cache writes)"
+    url: "https://docs.mistral.ai/inference/regional-inference"
+    accessedAt: "2026-10-02"
   - label: "Mistral official: Series D announcement (€3B, valuation above €21B, led by Samsung Electronics)"
     url: "https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/"
     accessedAt: "2026-10-01"
@@ -88,6 +91,15 @@ sources:
   - label: "Mistral official: Privacy Policy (operating entity, training use and opt-out, retention, transfers outside the EU)"
     url: "https://legal.mistral.ai/terms/privacy-policy/"
     accessedAt: "2026-10-01"
+  - label: "Mistral official: Commercial Terms of Service (14.10 governing law and venue, three regions by customer headquarters)"
+    url: "https://legal.mistral.ai/terms/commercial-terms-of-service"
+    accessedAt: "2026-10-02"
+  - label: "Mistral official: Terms of Service for consumers outside the EEA (section 10: governing law, venue, agreement to arbitrate)"
+    url: "https://legal.mistral.ai/terms/row-consumer-terms"
+    accessedAt: "2026-10-02"
+  - label: "Mistral official: Terms of Service for consumers in the EEA (section 12: governing law and venue)"
+    url: "https://legal.mistral.ai/terms/eu-consumers-terms-of-service"
+    accessedAt: "2026-10-02"
   - label: "Mistral official documentation: Zero data retention (covered endpoints and excluded products)"
     url: "https://docs.mistral.ai/admin/monitor-comply/zero-data-retention"
     accessedAt: "2026-10-01"
@@ -133,7 +145,7 @@ On models, from the official model list and announcements: Mistral Large 3 (anno
 :::
 
 :::fact
-On compute: Mistral Compute is the company's own AI infrastructure, announced June 11, 2025. The timeline on the official page reads: concept greenlit in April 2025, GB200 racks landing that July, GB200 serving production in February 2026 with a Sweden site (EcoDataCenter) in motion, and first external customers in March 2026. The stated capacity target is 1 GW across the EU by 2030. On August 11, 2026, the company announced general availability of Regional Endpoints (choosing whether inference runs in Europe or the US), a public preview of Priority Tier with an uptime SLA, and support for third-party open models, starting with Z.ai's GLM-5.2. The company notes that Regional Endpoints remain subject to limited transfers to sub-processors that may be located outside the selected region.
+On compute: Mistral Compute is the company's own AI infrastructure, announced June 11, 2025. The timeline on the official page reads: concept greenlit in April 2025, GB200 racks landing that July, GB200 serving production in February 2026 with a Sweden site (EcoDataCenter) in motion, and first external customers in March 2026. The stated capacity target is 1 GW across the EU by 2030. On August 11, 2026, the company announced general availability of Regional Endpoints (choosing whether inference runs in Europe or the US), a public preview of Priority Tier with an uptime SLA, and support for third-party open models, starting with Z.ai's GLM-5.2. The API pricing page now lists both GLM 5.3 and GLM 5.2, labeled "Third-party" (checked 2026-10-02). The company notes that Regional Endpoints remain subject to limited transfers to sub-processors that may be located outside the selected region.
 :::
 
 Our web observations, for the record: mistral.ai sits behind Cloudflare, its HTML loads assets under /_astro/, and its response headers show a Netlify Edge cache status. docs.mistral.ai returns server: Vercel and headers indicating Next.js prerendering, and advertises llms.txt in a Link header. api.mistral.ai answers unauthenticated requests with 401 and attaches a Kong request id. The homepage CSP lists origins for the consent manager Axeptio, HubSpot's EU region (js-eu1), and Google Analytics.
@@ -147,7 +159,7 @@ A company that champions European sovereignty serving its official site through 
 From what the official pages show, a company that publishes its weights earns in at least five ways.
 
 :::fact
-First, pay-as-you-go API usage. The API pricing page lists, per million tokens, Mistral Medium 3.5 at $1.5 input and $7.5 output, Mistral Large 3 at $0.5 and $1.5, and Mistral Small 4 at $0.15 and $0.6. The FAQ says batch processing halves the price and cached input tokens cut input cost by up to 90%. Second, a premium on top of that: "Enterprise APIs" add regional data processing controls, system-level SLAs, increased rate limits, and premium support, offered at 75% above list pricing on select APIs. Third, Vibe subscriptions (Pro at $14.99 per month, Team at $24.99 per user per month). Fourth, Enterprise contracts: the pricing table lists "Custom deployments" — self-hosted, in a private cloud, or on-premises — along with custom models, audit logs, SAML SSO, and white labeling, priced on request. The commercial license for Medium 3.5 (for companies above $20 million in monthly revenue) is also, per the license text, granted individually through the sales contact. Fifth, compute itself: in August 2026 the company announced "European Compute Units (ECUs)," which convert multi-year commitments into access to Mistral-built infrastructure.
+First, pay-as-you-go API usage. The API pricing page lists, per million tokens, Mistral Medium 3.5 at $1.5 input and $7.5 output, Mistral Large 3 at $0.5 and $1.5, and Mistral Small 4 at $0.15 and $0.6. The FAQ says batch processing halves the price and cached input tokens cut input cost by up to 90%. Second, premiums on top of that: "Regional inference," which pins inference to a chosen region, is shown on the pricing page at +10%, and the documentation says it is billed at 1.1 times list pricing for input tokens, output tokens, cached reads, and cache writes. "Enterprise APIs" add regional data processing controls, system-level SLAs, increased rate limits, and premium support, offered at 75% above list pricing on select APIs. Third, Vibe subscriptions (Pro at $14.99 per month, Team at $24.99 per user per month). Fourth, Enterprise contracts: the pricing table lists "Custom deployments" — self-hosted, in a private cloud, or on-premises — along with custom models, audit logs, SAML SSO, and white labeling, priced on request. The commercial license for Medium 3.5 (for companies above $20 million in monthly revenue) is also, per the license text, granted individually through the sales contact. Fifth, compute itself: in August 2026 the company announced "European Compute Units (ECUs)," which convert multi-year commitments into access to Mistral-built infrastructure.
 :::
 
 :::fact
@@ -157,6 +169,8 @@ Funding, as announced and as reported. Per aggregated Wikipedia reporting, the J
 The "sovereign AI" positioning is defined in the company's own words. The Series D announcement describes sovereignty as retaining control across four dimensions: data that stays inside the organization's boundaries, models that are controllable and customizable, compute that is private and predictable, and systems in production that are controllable and auditable. The August 2026 announcement says most customers already run Mistral's models inside their own data centers and cloud environments, and the Mistral Compute announcement addresses regions that have been waiting for an alternative to cloud and AI providers based in the US or China.
 
 Data handling is documented along the same lines. The privacy policy says the company prioritizes providers within the European Union and, where it exceptionally uses providers outside it, applies safeguards under GDPR Article 46 together with the Standard Contractual Clauses. Inputs and outputs are kept for the time needed to generate the output plus thirty rolling days to monitor abuse; on paid plans, organizations can request zero data retention, which applies only to stateless API endpoints. Vibe Work and Chat, which store conversation history, are explicitly outside its scope.
+
+Governing law depends on where the user is. Section 14.10 of the Commercial Terms of Service (effective September 25, 2026) goes by where the customer is headquartered: California law and the federal or state courts of Santa Clara County for North and South America, the laws and courts of Singapore for the Asia-Pacific region including Japan, and French law and the courts of Paris for everyone else. Section 10 of the terms for consumers outside the EEA (effective the same day) sets the same three regions by place of residence. Those terms also contain an agreement to resolve disputes by arbitration in Santa Clara County under the American Arbitration Association's Consumer Arbitration Rules, and let a user opt out of that agreement by giving notice within 30 days of first accepting the terms. Section 12 of the terms for EEA consumers (effective August 7, 2026) says they may bring claims before the courts of their country of residence under that country's law, or before the courts of Paris under French law. The operating entity is a French company, but under these documents the governing law for business customers and consumers in Japan is Singapore law.
 
 :::guess
 Publishing weights appears to work less as giving up revenue than as the front door to a sale. With the weights in hand, a customer can test in its own environment before procurement, and the argument that it is not locked into one vendor holds up. What Mistral then charges for seems to be mainly everything other than the weights — region selection, SLAs, customization, operational support — as the 75% premium on Enterprise APIs and the quote-based Enterprise tier suggest. The newest Medium 3.5 does, however, require a commercial license from high-revenue companies, so permission to use the weights itself appears to be part of what is sold to large enterprises. ECUs and the 1 GW target can be read as extending that structure further toward compute: the more models are handed out and become hard to differentiate, the more that reserved compute capacity inside Europe, a scarce asset, could serve as the basis for holding prices. At the same time, data centers require money to go out first, and with revenue undisclosed there is limited material for an outsider to judge whether income matches the capital raised. That the Series C was led by ASML and the Series D by Samsung Electronics — both manufacturing companies — suggests the company is gathering industrial customer-shareholders rather than purely financial investors.
