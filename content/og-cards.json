@@ -122,6 +122,13 @@
     "image": "https://www.deepl.com/img/favicon/automatic_social_share_deepl.png",
     "fetchedAt": "2026-08-06"
   },
+  "deepseek": {
+    "url": "https://www.deepseek.com/",
+    "title": "DeepSeek | 深度求索",
+    "description": "深度求索（DeepSeek），探索未至之境。专注于研究世界领先的通用人工智能底层模型与技术，开源 DeepSeek-V4、DeepSeek-R1 等前沿大模型。和 DeepSeek AI 对话，轻松接入 API。",
+    "image": "https://www.deepseek.com/images/deepseek-social.jpg",
+    "fetchedAt": "2026-10-01"
+  },
   "digitalocean": {
     "url": "https://www.digitalocean.com/",
     "title": "AI-Native Cloud | DigitalOcean",
@@ -199,6 +206,22 @@
     "siteName": "Ghost - The Professional Publishing Platform",
     "fetchedAt": "2026-08-06"
   },
+  "ghostty": {
+    "url": "https://ghostty.org/",
+    "title": "Ghostty",
+    "description": "Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.",
+    "image": "https://ghostty.org/social-share-card.jpg",
+    "siteName": "Ghostty",
+    "fetchedAt": "2026-10-01"
+  },
+  "herdr": {
+    "url": "https://herdr.dev/",
+    "title": "Herdr: the runtime coding agents run on",
+    "description": "Run them anywhere. Leave them running. Herdr holds real terminals open so your agents keep working when you close the laptop, and gets you back in from any tty.",
+    "image": "https://herdr.dev/assets/og-card-v9.png",
+    "siteName": "Herdr",
+    "fetchedAt": "2026-10-01"
+  },
   "hostinger": {
     "url": "https://www.hostinger.com/",
     "title": "Hostinger - Bring Your Idea Online With a Website",
@@ -255,9 +278,21 @@
     "image": "https://web-jp-assets-v2.mercdn.net/_next/static/media/ogp.1ea52df1.png",
     "fetchedAt": "2026-08-06"
   },
+  "meta-ai": {
+    "url": "https://ai.meta.com/",
+    "fetchedAt": "2026-10-01"
+  },
   "midjourney": {
     "url": "https://www.midjourney.com/",
     "fetchedAt": "2026-08-06"
+  },
+  "mistral": {
+    "url": "https://mistral.ai/",
+    "title": "Frontier AI LLMs, assistants, agents, services | Mistral",
+    "description": "The most powerful AI platform for enterprises. Customize, fine-tune, and deploy AI assistants, autonomous agents, and multimodal AI with open models.",
+    "image": "https://mistral.ai/cms-media/api/media/file/OG-mistral-main_1x.jpg",
+    "siteName": "Mistral",
+    "fetchedAt": "2026-10-01"
   },
   "mitene": {
     "url": "https://mitene.us/",
@@ -509,6 +544,14 @@
     "siteName": "Vercel",
     "fetchedAt": "2026-08-06"
   },
+  "warp": {
+    "url": "https://www.warp.dev/",
+    "title": "Warp — The Open Platform for Automating Development",
+    "description": "Infrastructure to build, measure, and interact with agents across your SDLC — so you ship more and spend less.",
+    "image": "https://www.warp.dev/og/default.png",
+    "siteName": "Warp",
+    "fetchedAt": "2026-10-01"
+  },
   "webflow": {
     "url": "https://webflow.com/",
     "title": "Webflow: The agentic web platform for modern businesses",
@@ -539,6 +582,10 @@
     "siteName": "X (formerly Twitter)",
     "fetchedAt": "2026-08-06"
   },
+  "xai": {
+    "url": "https://x.ai",
+    "fetchedAt": "2026-10-01"
+  },
   "xserver": {
     "url": "https://www.xserver.ne.jp/",
     "title": "レンタルサーバー 高速・高機能・高安定性の【エックスサーバー】",
@@ -554,6 +601,13 @@
     "image": "https://www.yayoi-kk.co.jp/content/dam/yayoi-corp/shinkoku/aoiroshinkoku/common/img/acq/og.png",
     "siteName": "会計ソフトは弥生株式会社",
     "fetchedAt": "2026-09-29"
+  },
+  "zellij": {
+    "url": "https://zellij.dev/",
+    "title": "Zellij",
+    "description": "A terminal workspace that doesn't sacrifice simplicity for power. Features floating panes, layouts, multiplayer collaboration, plugins, and works in your browser.",
+    "image": "https://zellij.dev/img/floating-panes-preview.png",
+    "fetchedAt": "2026-10-01"
   },
   "zenn": {
     "url": "https://zenn.dev/",
