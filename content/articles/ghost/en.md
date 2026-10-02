@@ -6,8 +6,8 @@ lead: "Ghost's official site displays, at this very moment, its ARR ($11.1 milli
 category: media
 tags: [publishing, newsletter, open-source, nonprofit, activitypub]
 publishedAt: "2026-07-21"
-updatedAt: "2026-09-28"
-lastVerified: "2026-09-28"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 serviceUrl: "https://ghost.org/"
 vendor: "Ghost Foundation"
 origin: "GB"
@@ -47,13 +47,13 @@ techStack:
 sources:
   - label: "Ghost official: About (live public dashboard — ARR, customers, churn; the nonprofit declaration)"
     url: "https://ghost.org/about/"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-02"
   - label: "Ghost official changelog: Ghost 6.0 (ActivityPub federation, native analytics, 2025-08-04)"
     url: "https://ghost.org/changelog/6/"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-02"
   - label: "Ghost official: Pricing (flat hosting fees; 0% added fees on subscription revenue)"
     url: "https://ghost.org/pricing/"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-02"
   - label: "Ghost official GitHub: TryGhost/Ghost (Node.js, TypeScript, 55K+ stars verified)"
     url: "https://github.com/TryGhost/Ghost"
     accessedAt: "2026-09-28"
@@ -101,8 +101,10 @@ Correction (September 28, 2026). The first version gave Ghost 6.0's release date
 Ghost's revenue combines the free open-source core with flat-fee managed hosting, Ghost(Pro).
 
 :::fact
-Per the official pricing page, Ghost(Pro) charges flat monthly fees (from $18 Starter to $199 Business, billed yearly), and Ghost adds 0% in fees on writers' subscription revenue (payment processor fees apply separately). Paid subscriptions take payments through the Stripe integration and are available from the Publisher plan ($29) up, not on Starter. The About page states one hundred percent of this revenue is reinvested into the product and community.
+Per the official pricing page, Ghost(Pro) charges flat monthly fees (for up to 1,000 members: from $15 a month for Starter to $199 for Business when billed yearly, or $18 to $239 when billed monthly), and Ghost adds 0% in fees on writers' subscription revenue (payment processor fees apply separately). Paid subscriptions take payments through the Stripe integration and are available from the Publisher plan ($29 a month, billed yearly) up, not on Starter. The About page states one hundred percent of this revenue is reinvested into the product and community.
 :::
+
+Correction (October 2, 2026). Earlier versions gave the Starter price as "$18, billed yearly," which does not match the official pricing page as of October 2, 2026: there, $18 is the price when billed monthly, and billed yearly it is $15 a month ($180 a year). We could not confirm whether this is a price change or an error in our earlier text.
 
 :::guess
 Flat pricing with no revenue share means the more a writer earns from subscriptions, the better the deal — the sharpest possible counter-position to newsletter platforms that take a percentage. The nonprofit foundation is not a tax story; it is a trust device that structurally guarantees no acquisition-driven change of direction, and it functions as sales material for writers exhausted by platforms that transform under new owners. An ARR of roughly $11 million is small by for-profit SaaS standards, but the combination — 3% churn, 40 people, zero outside capital — is solving a different optimization problem: not maximum growth but maximum endurance. It looks like one completed form of that solution.

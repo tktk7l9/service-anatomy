@@ -43,7 +43,7 @@ sources:
     accessedAt: "2026-09-28"
   - label: "App Store: DayCity（価格・アプリ内課金・評価）"
     url: "https://apps.apple.com/jp/app/id6757228109"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-02"
   - label: "Google Play: DayCity"
     url: "https://play.google.com/store/apps/details?id=jp.co.orude.daycity.android"
     accessedAt: "2026-07-16"

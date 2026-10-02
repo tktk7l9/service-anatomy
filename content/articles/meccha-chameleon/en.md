@@ -40,7 +40,7 @@ techStack:
 sources:
   - label: "Steam store page: MECCHA CHAMELEON"
     url: "https://store.steampowered.com/app/4704690/MECCHA_CHAMELEON/"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-02"
   - label: "ITmedia NEWS: 3 million copies in the first week (2026-06-18)"
     url: "https://www.itmedia.co.jp/news/articles/2606/18/news124.html"
     accessedAt: "2026-09-28"

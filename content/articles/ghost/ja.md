@@ -6,8 +6,8 @@ lead: "Ghostの公式サイトには、いま この瞬間のARR（2026年9月28
 category: media
 tags: [publishing, newsletter, open-source, nonprofit, activitypub]
 publishedAt: "2026-07-21"
-updatedAt: "2026-09-28"
-lastVerified: "2026-09-28"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 serviceUrl: "https://ghost.org/"
 vendor: "Ghost Foundation"
 origin: "GB"
@@ -47,13 +47,13 @@ techStack:
 sources:
   - label: "Ghost公式: About（ライブ公開ダッシュボード=ARR・顧客数・解約率・非営利構造の宣言）"
     url: "https://ghost.org/about/"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-02"
   - label: "Ghost公式チェンジログ: Ghost 6.0（ActivityPub連合・ネイティブ分析・2025-08-04）"
     url: "https://ghost.org/changelog/6/"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-02"
   - label: "Ghost公式: Pricing（定額ホスティング・購読収益への追加手数料0%）"
     url: "https://ghost.org/pricing/"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-02"
   - label: "Ghost公式GitHub: TryGhost/Ghost（Node.js・TypeScript・スター5.5万超を実確認）"
     url: "https://github.com/TryGhost/Ghost"
     accessedAt: "2026-09-28"
@@ -101,8 +101,10 @@ ActivityPubへの投資は、独立パブリッシャーの最大の弱点であ
 Ghostの収益は、OSS本体の無料公開と、マネージドホスティングGhost(Pro)の定額課金の組み合わせだ。
 
 :::fact
-公式の料金ページによれば、Ghost(Pro)は定額の月額課金（Starter 18ドル〜Business 199ドル・年払い時）で、書き手の有料購読収益に対するGhost側の追加手数料は0%と明記されている（決済事業者の手数料は別）。有料購読はStripe連携で決済を受け付け、使えるのはPublisher（29ドル）以上のプランで、Starterには含まれない。Aboutページには、この収益の100%が製品とコミュニティに再投資されると書かれている。
+公式の料金ページによれば、Ghost(Pro)は定額の月額課金（会員1,000人までの場合、年払いでStarter 月15ドル〜Business 月199ドル、月払いでは18ドル〜239ドル）で、書き手の有料購読収益に対するGhost側の追加手数料は0%と明記されている（決済事業者の手数料は別）。有料購読はStripe連携で決済を受け付け、使えるのはPublisher（年払いで月29ドル）以上のプランで、Starterには含まれない。Aboutページには、この収益の100%が製品とコミュニティに再投資されると書かれている。
 :::
+
+訂正（2026年10月2日）。これまでStarterの料金を「18ドル（年払い時）」と書いていたが、2026年10月2日時点の公式料金ページとは合わない。同ページでは18ドルは月払いの料金で、年払いでは月あたり15ドル（年180ドル）である。料金の改定なのか、これまでの記載の誤りなのかは確認できていない。
 
 :::guess
 歩合を取らない定額制は、購読で稼ぐ書き手ほど得をする料金設計であり、収益歩合を取るニュースレター事業者への最も鋭い対抗軸になっているとみられる。非営利財団という器は税制の話ではなく、「買収による方針転換がありえない」ことを構造で保証する信頼の装置で、プラットフォームの豹変に疲れた書き手への営業資料として機能している。ARR約1,100万ドルという規模は営利SaaSの物差しでは小さいが、解約率3%・40人・外部資本ゼロという組み合わせは、成長の最大化ではなく持続の最大化という別の最適化問題を解いている——その解のひとつの完成形と推測される。

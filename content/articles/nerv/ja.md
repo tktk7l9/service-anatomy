@@ -45,7 +45,7 @@ techStack:
 sources:
   - label: "特務機関NERV防災 公式サイト"
     url: "https://nerv.app/"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-02"
   - label: "Wikipedia: 特務機関NERV防災アプリ（沿革・専用線・サポーターズクラブ）"
     url: "https://ja.wikipedia.org/wiki/%E7%89%B9%E5%8B%99%E6%A9%9F%E9%96%A2NERV%E9%98%B2%E7%81%BD%E3%82%A2%E3%83%97%E3%83%AA"
     accessedAt: "2026-09-28"
@@ -63,7 +63,7 @@ sources:
     accessedAt: "2026-09-28"
   - label: "ゲヒルン: 「特務機関NERV防災」アプリ、月額制サポーターズクラブを開始します（2020-09-01）"
     url: "https://www.gehirn.co.jp/news/2020-09-01/01-press-supporters/"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-02"
   - label: "Lumiarch（NTT東日本）: 「特務機関NERV防災」が問う災害情報との向き合い方（2026-03）"
     url: "https://lumiarch.ntt-east.co.jp/articles/202603_disaster_information/"
     accessedAt: "2026-09-28"

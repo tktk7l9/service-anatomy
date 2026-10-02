@@ -45,7 +45,7 @@ techStack:
 sources:
   - label: "NERV Disaster Prevention official site"
     url: "https://nerv.app/"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-02"
   - label: "Wikipedia (ja): NERV Disaster Prevention app (history, dedicated line, supporters club)"
     url: "https://ja.wikipedia.org/wiki/%E7%89%B9%E5%8B%99%E6%A9%9F%E9%96%A2NERV%E9%98%B2%E7%81%BD%E3%82%A2%E3%83%97%E3%83%AA"
     accessedAt: "2026-09-28"
@@ -63,7 +63,7 @@ sources:
     accessedAt: "2026-09-28"
   - label: "Gehirn: launch of the NERV Disaster Prevention Supporters Club (2020-09-01)"
     url: "https://www.gehirn.co.jp/news/2020-09-01/01-press-supporters/"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-02"
   - label: "Lumiarch (NTT East): how NERV Disaster Prevention approaches disaster information (2026-03)"
     url: "https://lumiarch.ntt-east.co.jp/articles/202603_disaster_information/"
     accessedAt: "2026-09-28"

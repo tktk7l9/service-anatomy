@@ -58,7 +58,7 @@ sources:
     accessedAt: "2026-09-28"
   - label: "App Store: PixelPot (pricing, IAP, ratings)"
     url: "https://apps.apple.com/jp/app/id6758675804"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-02"
   - label: "Google Play: PixelPot"
     url: "https://play.google.com/store/apps/details?id=com.smak0412.pixelpot"
     accessedAt: "2026-07-16"
