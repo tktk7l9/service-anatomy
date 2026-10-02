@@ -62,14 +62,21 @@ describe("renderMarkdown", () => {
     expect(html).toContain("<p>後段。</p>");
   });
 
-  it("unknown text directives keep only their label", () => {
-    const html = renderMarkdown("これは :note[補足] です。");
-    expect(html).toContain("補足");
-    expect(html).not.toContain("note");
+  it("inline text directives are not site syntax: the source text stays as written", () => {
+    expect(renderMarkdown("これは :note[補足] です。")).toContain("これは :note[補足] です。");
+    expect(renderMarkdown("これは :bare のテスト。")).toContain("これは :bare のテスト。");
   });
 
-  it("unknown text directives without a label disappear", () => {
-    const html = renderMarkdown("これは :bare のテスト。");
-    expect(html).not.toContain("bare");
+  it("keeps times and ratios that remark-directive would read as inline directives", () => {
+    const html = renderMarkdown(
+      "受付は10:00から23:59までに発生した分。2026/10/5 17:00まで。比率は16:9。\n\n:::fact\nPeak hours are 01:00–04:00 UTC.\n:::",
+    );
+    expect(html).toContain("受付は10:00から23:59までに発生した分。2026/10/5 17:00まで。比率は16:9。");
+    expect(html).toContain("Peak hours are 01:00–04:00 UTC.");
+  });
+
+  it("keeps an inline directive with a label and attributes as literal text", () => {
+    const html = renderMarkdown("See :abbr[HTML]{title=x} here.");
+    expect(html).toContain("See :abbr[HTML]{title=x} here.");
   });
 });

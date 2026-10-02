@@ -11,6 +11,7 @@ import { AffiliateCard } from "./affiliate-card";
 import { AffiliateNotice } from "./affiliate-notice";
 import { ArticleBody } from "./article-body";
 import { ArticleCard } from "./article-card";
+import { ComparisonAffiliates } from "./comparison-affiliates";
 import { ComparisonScorecard } from "./comparison-scorecard";
 import { ComparisonTechStack } from "./comparison-techstack";
 import { Footer } from "./footer";
@@ -462,6 +463,37 @@ describe("components smoke", () => {
     expect(screen.getByText("Alpha")).toBeInTheDocument();
     expect(screen.getByText("Beta")).toBeInTheDocument();
     expect(screen.getAllByText("4.5").length).toBeGreaterThan(0);
+  });
+
+  it("ComparisonAffiliates renders one card per side under its service name, in order", () => {
+    const { container } = render(
+      <ComparisonAffiliates
+        slots={[
+          {
+            slug: "alpha",
+            service: "Alpha",
+            affiliate: { url: "https://example.com/a", program: "Alpha Program", label: "Ad text without a name" },
+          },
+          { slug: "beta", service: "Beta", affiliate: { url: "https://example.com/b", program: "Beta Program" } },
+        ]}
+        locale="en"
+        dict={en}
+      />,
+    );
+    const groups = screen.getAllByRole("group");
+    expect(groups).toHaveLength(2);
+    // The service name labels the group, so the card is attributed in text, not by position.
+    expect(groups[0]).toHaveAccessibleName("Alpha");
+    expect(groups[1]).toHaveAccessibleName("Beta");
+    expect(groups[0].querySelector("a[rel~='sponsored']")).toHaveAttribute("href", "https://example.com/a");
+    expect(groups[1].querySelector("a[rel~='sponsored']")).toHaveAttribute("href", "https://example.com/b");
+    expect(container.querySelectorAll(".affiliate-card")).toHaveLength(2);
+    expect(groups[1].querySelector(".affiliate-card-note")).toHaveTextContent("Beta Program");
+  });
+
+  it("ComparisonAffiliates renders nothing without a slot", () => {
+    const { container } = render(<ComparisonAffiliates slots={[]} locale="ja" dict={ja} />);
+    expect(container).toBeEmptyDOMElement();
   });
 
   it("ComparisonTechStack shows shared / A-only / B-only separately", () => {

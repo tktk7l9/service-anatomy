@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
-import { ALL_COMPARISONS } from "@/engine/comparisons";
+import { affiliateSlots } from "@/engine/articles/disclosure";
+import { ALL_COMPARISONS, resolveComparison, type ComparisonItem } from "@/engine/comparisons";
 import { languageAlternates } from "@/engine/seo/alternates";
 import { buildBreadcrumbList, buildItemList } from "@/engine/seo/jsonld";
 import { BASE_URL } from "@/engine/site";
@@ -25,6 +26,20 @@ export async function generateMetadata({
       languages: languageAlternates("/compare"),
     },
   };
+}
+
+// Same condition as the comparison page itself: advertising is present when either compared
+// article has an affiliate link. The listing shows "PR" before the reader opens the page.
+function hasAdvertising(comparison: ComparisonItem, locale: Locale): boolean {
+  const resolved = resolveComparison(comparison);
+  if (!resolved) return false;
+  const { articleA, articleB } = resolved;
+  return (
+    affiliateSlots([
+      { slug: articleA.slug, frontmatter: articleA[locale].frontmatter },
+      { slug: articleB.slug, frontmatter: articleB[locale].frontmatter },
+    ]).length > 0
+  );
 }
 
 export default async function CompareIndexPage({
@@ -65,6 +80,11 @@ export default async function CompareIndexPage({
           return (
             <li key={comparison.slug} className="compare-list-item">
               <Link href={`/${locale}/compare/${comparison.slug}`}>
+                {hasAdvertising(comparison, locale) && (
+                  <p className="kicker">
+                    <span className="kicker-pr">{dict.article.affiliatePr}</span>
+                  </p>
+                )}
                 <p className="compare-list-title">{frontmatter.title}</p>
                 <p className="compare-list-lead">{frontmatter.lead}</p>
               </Link>
