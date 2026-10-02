@@ -6,7 +6,7 @@ lead: "Someone using an app built with Lovable doesn't necessarily ever visit Lo
 category: dev-tool
 tags: [ai, app-builder, vibe-coding, supabase, developer-tools]
 publishedAt: "2026-07-23"
-updatedAt: "2026-07-23"
+updatedAt: "2026-10-02"
 lastVerified: "2026-07-23"
 serviceUrl: "https://lovable.dev/"
 vendor: "Lovable Labs Incorporated"
@@ -82,7 +82,7 @@ Per Lovable's official blog, it shipped a built-in backend, "Lovable Cloud & AI"
 :::
 
 :::guess
-Adding an in-house built-in backend (Lovable Cloud & AI) on top of the Supabase integration looks like the same kind of staged strategy we saw with [Cursor](/en/articles/cursor) running a fine-tuned third-party model alongside its own frontier model: launch on borrowed infrastructure first, then bring the important layer in-house later. The access-control gap reported in March 2025 plausibly symbolizes a gap between the speed of generating a full app from conversation alone and the specialized-knowledge domain of security configuration — the faster app generation gets, the heavier the product's responsibility to default new apps toward the safe side becomes. Starting distribution inside ChatGPT and Claude looks like a pragmatic choice for a developer tool with no distribution network of its own: reach the enormous existing user base of established AI assistants directly, rather than depending on driving traffic to its own site.
+Adding an in-house built-in backend (Lovable Cloud & AI) on top of the Supabase integration looks like the same kind of staged strategy we saw with [Cursor](/en/articles/cursor) first shipping on a fine-tuned third-party model (its 2024 setup) and adding its own models later: launch on borrowed infrastructure first, then bring the important layer in-house later. The access-control gap reported in March 2025 plausibly symbolizes a gap between the speed of generating a full app from conversation alone and the specialized-knowledge domain of security configuration — the faster app generation gets, the heavier the product's responsibility to default new apps toward the safe side becomes. Starting distribution inside ChatGPT and Claude looks like a pragmatic choice for a developer tool with no distribution network of its own: reach the enormous existing user base of established AI assistants directly, rather than depending on driving traffic to its own site.
 :::
 
 ## Business model
@@ -94,7 +94,7 @@ Per Lovable's official pricing page, the Free plan grants 5 daily build credits 
 :::
 
 :::guess
-The credit-based pricing looks designed to tie billing to cost — AI model inference cost — scaling with task complexity, the same kind of adaptation to generative AI's distinctive cost structure that shows up in Cursor separating individual use from usage-based API billing. Valuation more than tripling in five months plausibly reflects investor enthusiasm not just for the $100 million ARR milestone itself but for the conversation-driven development style broadly known as "vibe coding." Starting distribution inside ChatGPT and Claude may be a bet on expanding revenue opportunity beyond developer-tool sales into the usage of the generated apps themselves.
+The credit-based pricing looks designed to tie billing to cost — AI model inference cost — scaling with task complexity, the same kind of adaptation to generative AI's distinctive cost structure that shows up in Cursor including a set amount of model usage in each plan and billing anything beyond it at API rates (as of October 2026). Valuation more than tripling in five months plausibly reflects investor enthusiasm not just for the $100 million ARR milestone itself but for the conversation-driven development style broadly known as "vibe coding." Starting distribution inside ChatGPT and Claude may be a bet on expanding revenue opportunity beyond developer-tool sales into the usage of the generated apps themselves.
 :::
 
 Rather than depending on traffic to its own site, Lovable hands the apps it builds directly into the enormous existing user bases of ChatGPT and Claude. What this dissection reveals belongs to the same lineage as [Cursor](/en/articles/cursor) setting a speed record by taking the roundabout path of forking VS Code: building on borrowed foundations while achieving the fastest possible growth without ever owning a distribution network of its own — a design pattern that keeps recurring across AI-native developer tools.
