@@ -1,8 +1,8 @@
 ---
 service: "Cursor"
-title: "Why Fork Instead of Copy — The Design Call Behind Cursor's $2B ARR in One Year"
-description: "Cursor, the AI code editor born from forking VS Code, dissected: the editor-level AI integration that a plugin API couldn't achieve, its own fast code-editing model, growth from $100M to $2B in annualized revenue in about a year, and its acquisition by SpaceX in August 2026 — from official sources."
-lead: "An AI code editor could have shipped faster as a plugin. Cursor chose the detour of forking VS Code from scratch instead. That detour bought the freedom to embed AI deep inside the editor, and underwrote the fastest ARR growth in application-layer SaaS history. We dissect the design philosophy of leaning on VS Code's assets while building proprietary infrastructure on top."
+title: "Why Fork Instead of Copy — The Design Call Behind Cursor's Reported $2B Annualized Revenue in About 13 Months"
+description: "Cursor, the AI code editor born from forking VS Code, dissected: the editor-level AI integration that a plugin API couldn't achieve, its own fast code-editing model, the roughly 13 months from over $100M in recurring revenue (January 2025, official) to a reported $2B in annualized revenue (February 2026), and its acquisition by SpaceX in August 2026 — from official sources."
+lead: "An AI code editor could have shipped faster as a plugin. Cursor chose the detour of forking VS Code from scratch instead. That detour bought the freedom to embed AI deep inside the editor. Recurring revenue passed $100 million in January 2025 (official announcement), and annualized revenue was reported to have reached $2 billion in February 2026. We dissect the design philosophy of leaning on VS Code's assets while building proprietary infrastructure on top."
 category: dev-tool
 tags: [ai, code-editor, vscode, developer-tools, funding]
 publishedAt: "2026-07-20"
@@ -104,7 +104,7 @@ sources:
     accessedAt: "2026-10-02"
 ---
 
-Building it as a plugin would have shipped months faster. Cursor chose the detour of forking VS Code instead — and that call is a big part of why, alongside [Linear](/en/articles/linear) in the race for "developer tool speed," Cursor became the fastest-growing ARR story in application-layer SaaS history.
+Building it as a plugin would have shipped months faster. Cursor chose the detour of forking VS Code instead. Like [Linear](/en/articles/linear), the company competes on "developer tool speed"; per its official announcements, recurring revenue passed $100 million in January 2025 and annualized revenue passed $1 billion in November of the same year.
 
 ## What the service is
 
@@ -115,7 +115,7 @@ Per Cursor's official documentation, Cursor is built on the VS Code codebase (th
 :::
 
 :::pull
-To embed AI where a plugin could never reach, Cursor rebuilt the editor itself. The paradox here: the detour turned out to be the shortest route.
+To embed AI where a plugin could never reach, Cursor built the editor itself on the VS Code codebase. Existing extensions, settings and keybindings carry over as they are.
 :::
 
 ::scorecard
@@ -143,7 +143,7 @@ The sequence — a fine-tuned external model (Fast Apply), then an in-house mode
 
 ## Business model
 
-Cursor's revenue growth is record-setting even by application-layer SaaS standards. And in 2026 that growth stopped being the story of an independent company and became part of SpaceX.
+Going by officially announced figures alone, Cursor's annualized revenue grew roughly tenfold in ten months, from over $100 million in January 2025 to over $1 billion that November. And in 2026 that growth stopped being the story of an independent company and became part of SpaceX.
 
 :::fact
 Per the official blog, recurring revenue exceeded $100 million in January 2025, and annualized revenue passed $1 billion by November of the same year. The figure of $2 billion in annualized revenue in February 2026 is not an official announcement; it is a Bloomberg report cited by TechCrunch (April 17, 2026). Funding went from Series C (June 2025, $900M, $9.9B valuation) to Series D (November 2025, $2.3B, $29.3B valuation) — roughly a 3x valuation jump in five months — and NVIDIA and Google joined as new investors in the Series D. These are the last rounds it officially announced before the acquisition.
@@ -161,4 +161,4 @@ Per CNBC (August 29, 2026), after the acquisition closed OpenAI announced it wou
 In its Form S-1, SpaceX frames the deal as an extension of its strategy to vertically integrate compute infrastructure, models, and applications, and says it expects data from coding workflows to enhance the training of its models, including Grok. For Cursor, the parent's compute and the first-party models may offer a way to lower the cost base of an inference-heavy AI application. A pricing design that gives the first-party pool (Grok and Composer) more included usage, and exempts first-party models from the per-token rate charged on Teams plans, is likely intended to steer usage toward models that cost Cursor less to serve. At the same time, the neutrality of being able to pick models from other providers has been part of Cursor's value. With Grok inside the same group, relationships with model providers are likely to be more complicated than before the acquisition, and how far Cursor can remain "the editor where you can choose any model" looks like the thing to watch.
 :::
 
-Choosing to fork rather than plug in — a seemingly roundabout technical decision — is what let Cursor seize control of the editor and post the fastest SaaS growth on record. Having grown up on "borrow the foundation, build only the differentiator," Cursor now sits inside a parent that owns compute and models — a new stage for testing how far that strategy can carry it.
+Choosing to fork rather than plug in — a seemingly roundabout technical decision — is what made room to build AI deep into the editor. On top of it, per official announcements, annualized revenue grew from over $100 million to over $1 billion in ten months. Having grown up on "borrow the foundation, build only the differentiator," Cursor now sits inside a parent that owns compute and models — a new stage for testing how far that strategy can carry it.
