@@ -23,7 +23,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: npm audit
-        run: npm audit --audit-level=low
+        run: node scripts/audit-gate.mjs
       - run: npm run typecheck
       # Next 16's next build does not run lint. Without this step lint
       # runs nowhere (added for the same reason as in acro-finder).
