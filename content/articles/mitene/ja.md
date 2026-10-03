@@ -1,13 +1,13 @@
 ---
 service: "家族アルバム みてね"
 title: "国内の親の65%が使うインフラ — 『みてね』が11年かけて築いた信頼の構造"
-description: "MIXIの家族アルバム『みてね』は世界3,000万人・175カ国に広がった。無料無制限アップロードという踏み絵、Rails+EKSの成熟した基盤、写真グッズからGPSまで広がる事業をまとめて解剖する。"
+description: "MIXIの家族アルバム『みてね』は世界3,000万人・175の国と地域に広がった。無料無制限アップロードという踏み絵、Rails+EKSの成熟した基盤、写真グッズからGPSまで広がる事業をまとめて解剖する。"
 lead: "子どもの写真を、招待した家族だけに、無料で無制限に。2015年に生まれた『みてね』は、2026年に世界累計3,000万人・国内のママパパの約65%が使う「家族のインフラ」になった。派手さのない機能の裏にある、11年分の設計と技術を解剖する。"
 category: consumer-app
 tags: [family, photo-sharing, rails, aws, subscription]
 publishedAt: "2026-07-16"
-updatedAt: "2026-07-16"
-lastVerified: "2026-07-16"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://mitene.us/"
 vendor: "株式会社MIXI"
 origin: "JP"
@@ -24,6 +24,21 @@ techStack:
     confidence: confirmed
     evidence: "同登壇資料および『FamilyAlbum release-flow on EKS』登壇資料に明記"
     evidenceUrl: "https://speakerdeck.com/isaoshimizu/overview-of-operation-management-and-observability-in-familyalbum"
+  - layer: "コンテナオーケストレーション"
+    name: "Kubernetes"
+    confidence: confirmed
+    evidence: "SRE登壇資料に「すべてのサーバーアプリケーションがKubernetes上で稼働」と明記"
+    evidenceUrl: "https://speakerdeck.com/isaoshimizu/overview-of-operation-management-and-observability-in-familyalbum"
+  - layer: "イベント駆動オートスケーリング"
+    name: "KEDA"
+    confidence: confirmed
+    evidence: "SRE登壇資料に、外部メトリクス（SQSなど）に応じたKEDAによるスケールが明記"
+    evidenceUrl: "https://speakerdeck.com/isaoshimizu/overview-of-operation-management-and-observability-in-familyalbum"
+  - layer: "コスト最適化"
+    name: "Amazon EC2 Spot Instances"
+    confidence: confirmed
+    evidence: "AWS公式の導入事例資料（2021年）に、EKS移行とスポットインスタンス活用が明記"
+    evidenceUrl: "https://pages.awscloud.com/rs/112-TZM-766/images/20210826-Cloud-Container-Optimization-mixi-mitene.pdf"
   - layer: "データベース"
     name: "Amazon Aurora MySQL"
     confidence: confirmed
@@ -32,17 +47,17 @@ techStack:
   - layer: "CDN"
     name: "Amazon CloudFront"
     confidence: confirmed
-    evidence: "当サイトによるHTTPヘッダー観測（via: cloudfront.net、2026-07-16）とAWS公式導入事例資料"
+    evidence: "当サイトによるHTTPヘッダー観測（via: cloudfront.net、2026-07-16初回、2026-09-28再観測）とAWS公式導入事例資料"
     evidenceUrl: "https://pages.awscloud.com/rs/112-TZM-766/images/20210826-Cloud-Container-Optimization-mixi-mitene.pdf"
   - layer: "IaC / CD"
-    name: "Terraform / Argo CD / GitHub Actions"
+    name: "Terraform / Argo CD / GitHub Actions / CircleCI"
     confidence: confirmed
-    evidence: "SRE登壇資料に明記"
+    evidence: "SRE登壇資料に明記（CircleCIもCI/CD環境として記載）"
     evidenceUrl: "https://speakerdeck.com/isaoshimizu/overview-of-operation-management-and-observability-in-familyalbum"
   - layer: "監視/オブザーバビリティ"
-    name: "New Relic / Prometheus / Grafana"
+    name: "New Relic / Prometheus / Grafana / PagerDuty"
     confidence: confirmed
-    evidence: "SRE登壇資料およびNew Relic公式導入事例に明記"
+    evidence: "SRE登壇資料およびNew Relic公式導入事例に明記（PagerDutyはオンコール体制として記載）"
     evidenceUrl: "https://speakerdeck.com/isaoshimizu/overview-of-operation-management-and-observability-in-familyalbum"
   - layer: "メディア処理/ML"
     name: "FFmpeg / TensorFlow etc."
@@ -51,25 +66,25 @@ techStack:
 sources:
   - label: "MIXI ニュースリリース: 世界累計利用者数3,000万人突破（2026-05-07）"
     url: "https://mixi.co.jp/news/2026/0507/51754/"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "Speaker Deck: みてねの運用管理・オブザーバビリティの全貌（MIXI 清水勲氏・2024）"
     url: "https://speakerdeck.com/isaoshimizu/overview-of-operation-management-and-observability-in-familyalbum"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "Speaker Deck: FamilyAlbum release-flow on EKS（MIXI・みてね）"
     url: "https://speakerdeck.com/kohbis/familyalbum-release-flow-on-eks"
     accessedAt: "2026-07-16"
   - label: "AWS 導入事例資料: みてねのスポットインスタンス活用（2021）"
     url: "https://pages.awscloud.com/rs/112-TZM-766/images/20210826-Cloud-Container-Optimization-mixi-mitene.pdf"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "New Relic 導入事例: みてねのグローバル展開と急成長を支える"
     url: "https://newrelic.com/jp/customers/mixi"
     accessedAt: "2026-07-16"
   - label: "みてね公式サイト"
     url: "https://mitene.us/"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "みてねみまもりGPS 公式サイト"
     url: "https://family-album.com/gps"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
 ---
 
 バズも、招待キャンペーンも、広告攻勢も印象にない。それなのに、子どもが生まれた家庭のスマホには、いつのまにか入っている。『家族アルバム みてね』は、そういう静かな普及の仕方をした稀有なプロダクトだ。SNSの祖・mixiを生んだ会社が、SNSの対極のような「閉じた共有」で築いた11年を解剖する。
@@ -79,7 +94,7 @@ sources:
 『みてね』は、子どもの写真・動画を「招待した家族だけ」で共有するアプリだ。祖父母を含む家族が、それぞれのスマホから孫の成長を時系列で眺め、コメントを残せる。
 
 :::fact
-MIXIのニュースリリースによれば、2015年4月のサービス開始から11年で、2026年5月に世界累計利用者数3,000万人を突破。日本国内ではママ・パパの約65%以上が利用し、7言語・175以上の国と地域に展開。海外ユーザーが全体の4割超（うち北米が2割）を占め、海外の新規登録者数は国内を上回るペースで増えている。
+MIXIのニュースリリースによれば、2015年4月のサービス開始から11年で、2026年5月に世界累計利用者数3,000万人を突破。日本国内ではママ・パパの約65%以上が利用し、7言語・175の国と地域に展開。海外ユーザーが全体の4割超、北米のユーザーが2割を占め、海外の新規家族数は国内を上回るペースで増えている。
 :::
 
 機能の核は徹底して地味だ。写真と動画の無料・無制限アップロード、家族ごとのタイムライン、1秒動画（自動生成のダイジェスト）、そしてフォトブックなどの物理グッズ。この地味さこそが、後述するように戦略そのものである。
@@ -89,6 +104,8 @@ MIXIのニュースリリースによれば、2015年4月のサービス開始�
 :::
 
 ::scorecard
+
+訂正（2026年9月28日）。初版では展開先を「175以上の国と地域」と書いていたが、誤りだった。MIXIのニュースリリースの記載は「175の国と地域」である。あわせて、海外で国内を上回るペースで増えているのは、リリースの表現に合わせて「新規登録者数」ではなく「新規家族数」と改めた。
 
 ## UX分析
 
@@ -103,7 +120,7 @@ MIXIのニュースリリースによれば、2015年4月のサービス開始�
 
 ## 技術構成
 
-みてねの基盤は、MIXIのエンジニアが登壇資料や技術ブログで継続的に公開しており、国内有数の「教科書的に学べる大規模インフラ」でもある。当サイトでも2026年7月16日にWebサイトのレスポンスヘッダーを観測し、CloudFront経由の配信を確認した。
+みてねの基盤は、MIXIのエンジニアが登壇資料や技術ブログで継続的に公開しており、国内有数の「教科書的に学べる大規模インフラ」でもある。当サイトでも2026年7月16日にWebサイトのレスポンスヘッダーを観測し、CloudFront経由の配信を確認した（2026年9月28日の再観測でも同じ）。
 
 ::techstack
 

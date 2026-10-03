@@ -6,8 +6,8 @@ lead: "いいねの数も、閲覧数も、ランキングも見えない。し�
 category: media
 tags: [writing, blog, nextjs, cloudflare, indie-dev]
 publishedAt: "2026-07-16"
-updatedAt: "2026-07-16"
-lastVerified: "2026-07-16"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://sizu.me/home"
 vendor: "catnose"
 origin: "JP"
@@ -15,53 +15,66 @@ heroTheme: "sizu-me"
 scores: { product: 4.0, ux: 4.5, tech: 4.0, business: 3.0 }
 techStack:
   - layer: "フレームワーク"
-    name: "Next.js (App Router)"
+    name: "Next.js (Pages Router)"
     confidence: confirmed
-    evidence: "当サイトのHTTPヘッダー観測（x-powered-by: Next.js、2026-07-16）と開発者自身の技術解説（2023-11）"
+    evidence: "当サイトのHTTPヘッダー観測（x-powered-by: Next.js、2026-09-28）と開発者自身の技術解説（2023-11公開・2025-09更新）。解説は「App RouterではなくPages Routerを使用」と明記"
     evidenceUrl: "https://zenn.dev/catnose99/articles/f8a90a1616dfb3"
   - layer: "CDN"
     name: "Cloudflare"
     confidence: confirmed
-    evidence: "HTTPヘッダー観測（cf-ray、2026-07-16）と開発者の技術解説"
+    evidence: "HTTPヘッダー観測（server: cloudflare / cf-ray、2026-09-28）と開発者の技術解説"
+    evidenceUrl: "https://zenn.dev/catnose99/articles/f8a90a1616dfb3"
+  - layer: "プロキシ"
+    name: "Cloudflare Workers"
+    confidence: confirmed
+    evidence: "開発者の技術解説（2025-09更新時点）。カスタムドメインをCloudflare Workersに設定し、静的ファイル以外のCloud Runへのリクエストをプロキシしていると明記"
     evidenceUrl: "https://zenn.dev/catnose99/articles/f8a90a1616dfb3"
   - layer: "ホスティング"
     name: "Google Cloud Run"
     confidence: likely
-    evidence: "開発者の技術解説（2023-11時点）。以降の構成変更の有無は非公開"
+    evidence: "開発者の技術解説（2023-11公開・2025-09更新時点）。以降の構成変更の有無は非公開"
     evidenceUrl: "https://zenn.dev/catnose99/articles/f8a90a1616dfb3"
   - layer: "データベース"
-    name: "PlanetScale (MySQL)"
+    name: "PlanetScale / MySQL"
     confidence: likely
-    evidence: "開発者の技術解説（2023-11時点）。以降の構成変更の有無は非公開"
+    evidence: "開発者の技術解説（2025-09更新時点。2024年の料金改定で東京リージョンの最低額が月47ドルになったと追記）。以降の構成変更の有無は非公開"
     evidenceUrl: "https://zenn.dev/catnose99/articles/f8a90a1616dfb3"
   - layer: "キャッシュ"
     name: "Upstash Redis"
     confidence: likely
-    evidence: "開発者の技術解説（2023-11時点）"
+    evidence: "開発者の技術解説（2025-09更新時点）"
     evidenceUrl: "https://zenn.dev/catnose99/articles/f8a90a1616dfb3"
   - layer: "画像/ファイルストレージ"
     name: "Cloudflare R2"
     confidence: likely
-    evidence: "開発者の技術解説（2023-11時点）"
+    evidence: "開発者の技術解説（2025-09更新時点）"
     evidenceUrl: "https://zenn.dev/catnose99/articles/f8a90a1616dfb3"
   - layer: "認証"
     name: "NextAuth.js + Firebase Authentication"
     confidence: likely
-    evidence: "開発者の技術解説（2023-11時点）"
+    evidence: "開発者の技術解説（2025-09更新時点）"
+    evidenceUrl: "https://zenn.dev/catnose99/articles/f8a90a1616dfb3"
+  - layer: "決済"
+    name: "Stripe"
+    confidence: confirmed
+    evidence: "開発者の技術解説（2025-09更新時点）に、StripeのCheckout Sessionで決済すると明記"
     evidenceUrl: "https://zenn.dev/catnose99/articles/f8a90a1616dfb3"
 sources:
   - label: "しずかなインターネット（サービス紹介）"
     url: "https://sizu.me/home"
-    accessedAt: "2026-07-16"
-  - label: "Zenn: しずかなインターネットの技術構成（開発者catnose本人による解説・2023-11）"
+    accessedAt: "2026-09-28"
+  - label: "Zenn: しずかなインターネットの技術構成（開発者catnose本人による解説・2023-11公開・2025-09更新）"
     url: "https://zenn.dev/catnose99/articles/f8a90a1616dfb3"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "しずかなインターネット: 裏側を大幅アップデート（catnose・2024-11）"
     url: "https://sizu.me/catnose/posts/dh12msvx92c3"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "laiso: 「しずかなインターネット」の技術スタックを調べる（外部分析）"
     url: "https://laiso.hatenablog.com/entry/2023/11/23/210736"
     accessedAt: "2026-07-16"
+  - label: "しずかなインターネットの使い方（公式・スポンサー特典の説明）"
+    url: "https://sizu.me/about"
+    accessedAt: "2026-09-28"
 ---
 
 現代のWebサービスは、あらゆる数字を見せることで人を駆動してきた。いいね、閲覧数、フォロワー、ランキング。しずかなインターネットは、その全部を消した。「たくさんの人に読まれなくていい」と公式に言い切る文章サービス——当サイトで[Nani翻訳](/ja/articles/nani-translation)を取り上げたcatnose氏の、もうひとつの代表作を解剖する。
@@ -96,19 +109,21 @@ X（旧Twitter）的な世界への疲労が広がった時期に登場したこ
 ::techstack
 
 :::fact
-開発者自身の技術解説（2023年11月）によれば、公開時の構成はNext.js（App Router）をGoogle Cloud Runでホストし、CDNにCloudflare、DBにPlanetScale（MySQL）、キャッシュにUpstash Redis、ファイルにCloudflare R2、認証にNextAuth.js + Firebase Authenticationという組み合わせだった。当サイトの2026年7月16日の観測でも、Next.js（x-powered-by）とCloudflare（cf-ray）は現行構成として確認できた。
+開発者自身の技術解説（2023年11月公開、2025年9月更新）によれば、構成はNext.js（Pages Router）のフルスタックアプリをGoogle Cloud Runでホストし、CDNにCloudflare、DBにPlanetScale（MySQL）、キャッシュにUpstash Redis、ファイルにCloudflare R2、認証にNextAuth.jsとFirebase Authentication、決済にStripeという組み合わせだ。Cloud Runにカスタムドメインを直接紐付けると遅延が出るため、カスタムドメインをCloudflare Workersに設定し、静的ファイル以外のリクエストをCloud Runへプロキシしている。当サイトの2026年9月28日の観測でも、Next.js（x-powered-by）とCloudflare（server: cloudflare / cf-ray）は現行構成として確認できた。
 :::
 
 :::guess
-2024年11月に「裏側の大幅アップデート」が予告されており、また2023年の解説にあるPlanetScaleは2024年に無料プランを廃止しているため、データベース層は現在までに移行・変更されている可能性がある。表の確度ラベルを likely に留めているのはこのためだ。Nani翻訳（Turso/Upstash/Vercel）との構成の違いを見ると、catnose氏はプロダクトごとに「その時点で最も安く維持できるマネージド構成」を組み替えており、個人開発の複数プロダクト運用における固定費最小化の一貫した戦略とみられる。
+同じ解説の2025年9月更新では、PlanetScaleの2024年の料金改定で東京リージョンの最低額が月47ドルになったことが追記されており、値上げ後もPlanetScaleを使い続けている様子がうかがえる。ただしその後の構成変更の有無は公開されていないため、表の確度ラベルは likely に留めている。Nani翻訳（Turso/Upstash/Vercel）との構成の違いを見ると、catnose氏はプロダクトごとに「その時点で最も安く維持できるマネージド構成」を組み替えており、個人開発の複数プロダクト運用における固定費最小化の一貫した戦略とみられる。
 :::
+
+訂正（2026年9月28日）。初版ではフレームワークを「Next.js（App Router）」と書いていたが、誤りだった。開発者の技術解説は「App RouterではなくPages Routerを使用しています」と明記しており、App Routerへの切り替えは試みたうえで見送ったと説明している。あわせて、初版の推測（PlanetScaleの無料プラン廃止に伴いデータベース層が移行された可能性）は、2025年9月の更新でPlanetScaleの継続利用が読み取れるため書き改めた。
 
 ## ビジネスモデル
 
 しずかなインターネットには、収益を最大化する装置がほとんど見当たらない。
 
 :::fact
-サービス内にはスポンサーやサポートへの導線が存在するが、公式の紹介ページに料金プランの記載はない。広告も表示されない。
+公式の紹介ページに料金プランの記載はなく、広告も表示されない。収益につながる導線は「スポンサー」で、公式の使い方ページによれば、スポンサーになるとスポンサーページへの掲載、ユーザーホームへのタブメニュー設置、公開範囲「URLを知る人だけ」の選択、感想レターでのスポンサー限定スタンプなどの特典が使えるようになる。決済にはStripeが使われている（開発者の技術解説）。
 :::
 
 :::guess

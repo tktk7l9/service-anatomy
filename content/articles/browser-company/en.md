@@ -6,8 +6,8 @@ lead: "Only 5.52% of daily active users regularly used Spaces, Arc's signature f
 category: consumer-app
 tags: [browser, ai, chromium, swift, acquisition]
 publishedAt: "2026-07-21"
-updatedAt: "2026-07-21"
-lastVerified: "2026-07-21"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://thebrowser.company/"
 vendor: "The Browser Company of New York"
 origin: "US"
@@ -27,39 +27,47 @@ techStack:
   - layer: "Client language"
     name: "Swift"
     confidence: confirmed
-    evidence: "Official GitHub (thebrowsercompany/swift-winrt) publishes a WinRT interop library for building Windows apps in Swift (840 stars, verified 2026-07-21) — Swift on Windows as well as macOS"
+    evidence: "Official GitHub (thebrowsercompany/swift-winrt) publishes a WinRT interop library for building Windows apps in Swift (854 stars, verified 2026-09-28) — Swift on Windows as well as macOS"
     evidenceUrl: "https://github.com/thebrowsercompany/swift-winrt"
   - layer: "Website delivery"
     name: "Vercel + Cloudflare"
     confidence: confirmed
-    evidence: "Our own HTTP header observation (x-vercel-id: hnd1::… alongside server: cloudflare; 2026-07-21). Cloudflare layered in front of Vercel"
+    evidence: "Our own HTTP header observation (re-observed 2026-09-28). thebrowser.company returns server: cloudflare alongside x-vercel-id: hnd1::… and 307-redirects to www.thebrowser.company, which returns server: Vercel and x-vercel-cache and is served directly from Vercel"
     evidenceUrl: "https://thebrowser.company/"
 sources:
   - label: "The Browser Company official letter: Letter to Arc members 2025 (CEO Josh Miller — usage data and the freeze decision, 2025-05-26)"
     url: "https://browsercompany.substack.com/p/letter-to-arc-members-2025"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Atlassian official blog: announcing the acquisition of The Browser Company (2025-09-04)"
     url: "https://www.atlassian.com/blog/announcements/atlassian-acquires-the-browser-company"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "CNBC: Atlassian agrees to acquire The Browser Co. for $610 million in cash (2025-09-04)"
     url: "https://www.cnbc.com/2025/09/04/atlassian-the-browser-company-deal.html"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
+  - label: "Atlassian press release: Atlassian Completes Acquisition of The Browser Company of New York (2025-10-21, Business Wire release as republished)"
+    url: "https://finance.yahoo.com/news/atlassian-completes-acquisition-browser-company-120500937.html"
+    accessedAt: "2026-09-28"
+  - label: "9to5Mac: Arc hits 1.0 and drops its waitlist (2023-07-25)"
+    url: "https://9to5mac.com/2023/07/25/arc-browser-no-waitlist/"
+    accessedAt: "2026-09-28"
   - label: "The Browser Company official GitHub: swift-winrt (Swift-on-Windows tooling)"
     url: "https://github.com/thebrowsercompany/swift-winrt"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
 ---
 
 ## Service overview
 
-The Browser Company of New York is a startup that builds browsers. Arc, released publicly in 2022, won devoted fans with bold redesigns — sidebar-first tab management, Spaces for switching work contexts. But in May 2025 the company stopped building new features for Arc and pivoted to Dia, an AI browser; that September, Atlassian announced it would acquire the company.
+The Browser Company of New York is a startup that builds browsers. Arc, opened to the public in July 2023 when it dropped its waitlist, won devoted fans with bold redesigns — sidebar-first tab management, Spaces for switching work contexts. But in May 2025 the company stopped building new features for Arc and pivoted to Dia, an AI browser; that September, Atlassian announced it would acquire the company, and the deal closed on October 21.
 
 :::fact
-In an open letter dated May 26, 2025, CEO Josh Miller disclosed Arc's own feature usage rates: 5.52% of daily active users regularly used multiple Spaces, 4.17% used Live Folders, 0.4% used Calendar Preview on Hover. He called the problem a "novelty tax": for most people Arc was simply too different, with too many new things to learn, for too little reward. Dia, by contrast, was reported to have 40% of DAUs chatting with tabs and 37% using personalization. On September 4, 2025, Atlassian announced the acquisition — approximately $610 million in cash, per CNBC.
+In an open letter dated May 26, 2025, CEO Josh Miller disclosed Arc's own feature usage rates: 5.52% of daily active users regularly used multiple Spaces, 4.17% used Live Folders, 0.4% used Calendar Preview on Hover. He called the problem a "novelty tax": for most people Arc was simply too different, with too many new things to learn, for too little reward. Dia, by contrast, was reported to have 40% of DAUs chatting with tabs and 37% using personalization. On September 4, 2025, Atlassian announced the acquisition — approximately $610 million in cash, per CNBC. According to Atlassian's press release, the acquisition was completed on October 21, 2025.
 :::
 
 :::pull
 "Loved" and "used" turned out to be different metrics. A CEO publishing his own product's usage rates is an unusually honest format for a product's funeral.
 :::
+
+Correction (September 28, 2026). The first version said Arc was released publicly in 2022, which was wrong. According to 9to5Mac's reporting, Arc had been available only through a waitlist until it reached version 1.0 and dropped the waitlist on July 25, 2023, when anyone could start using it.
 
 ::scorecard
 
@@ -89,7 +97,7 @@ In browsers as a category, building the engine itself is impractical — differe
 The Browser Company had not seriously begun monetizing before the acquisition. It ran on VC funding, and the exit was a sale to Atlassian.
 
 :::fact
-Atlassian announced the acquisition on its official blog (September 4, 2025), with CEO Mike Cannon-Brookes stating that "today's browsers weren't built for work. They were built for browsing." The stated plan develops Dia as the knowledge worker's browser along three lines: optimization for SaaS apps, AI capabilities with a memory of work context, and enterprise-grade security and admin controls. Per CNBC, the price was approximately $610 million, paid in cash from Atlassian's balance sheet.
+Atlassian announced the acquisition on its official blog (September 4, 2025), with CEO Mike Cannon-Brookes stating that "today's browsers weren't built for work. They were built for browsing." The stated plan develops Dia as the knowledge worker's browser along three lines: optimization for SaaS apps, AI capabilities with a memory of work context, and enterprise-grade security and admin controls. Per CNBC, the price was approximately $610 million, paid in cash from Atlassian's balance sheet. The acquisition closed on October 21, 2025.
 :::
 
 :::guess

@@ -6,8 +6,8 @@ lead: "A solo developer's tech-article platform was acquired by a company just f
 category: media
 tags: [tech-blog, markdown, nextjs, google-cloud, indie-dev]
 publishedAt: "2026-07-17"
-updatedAt: "2026-07-17"
-lastVerified: "2026-07-17"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://zenn.dev/"
 vendor: "Classmethod"
 origin: "JP"
@@ -44,26 +44,41 @@ techStack:
     confidence: confirmed
     evidence: "Classmethod's Google Cloud case study (2023-03) describes Terraform-managed infrastructure, BigQuery log aggregation, and Looker Studio dashboards"
     evidenceUrl: "https://classmethod.jp/cases/zenn/"
+  - layer: "Load balancer"
+    name: "Cloud Load Balancing"
+    confidence: confirmed
+    evidence: "The official team's Cloud Run migration article states the zero-downtime cutover was done by switching the load balancer's backend service to Cloud Run via a Serverless NEG; consistent with our observation (via: 1.1 google, 2026-09-28)"
+    evidenceUrl: "https://zenn.dev/team_zenn/articles/migrate-appengine-to-cloudrun"
+  - layer: "CSP violation reporting"
+    name: "Cloud Functions"
+    confidence: likely
+    evidence: "Our HTTP header observation (the CSP report-uri points to cloudfunctions.net in asia-northeast1, 2026-09-28); no official documentation found"
   - layer: "CDN"
     name: "Cloudflare"
     confidence: likely
-    evidence: "Our HTTP header observation (server: cloudflare / cf-ray / cf-cache-status: HIT, 2026-07-17); no official documentation found naming the CDN"
+    evidence: "Our HTTP header observation (server: cloudflare / cf-ray / cf-cache-status: HIT, 2026-09-28); no official documentation found naming the CDN"
 sources:
   - label: "Zenn About (official — features and the compensation model)"
     url: "https://zenn.dev/about"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
   - label: "Classmethod: press release on the Zenn acquisition (2021-02-01)"
     url: "https://classmethod.jp/news/20210201-zenn/"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
   - label: "team_zenn: migrating Zenn's backend from App Engine to Cloud Run (2022-03)"
     url: "https://zenn.dev/team_zenn/articles/migrate-appengine-to-cloudrun"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
   - label: "Classmethod: Zenn's Google Cloud case study (2023-03)"
     url: "https://classmethod.jp/cases/zenn/"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
   - label: "ITmedia: Classmethod acquires tech community Zenn (2021-02)"
     url: "https://www.itmedia.co.jp/news/articles/2102/01/news092.html"
     accessedAt: "2026-07-17"
+  - label: "What's New in Zenn: Publication officially launches and the Pro plan becomes available (2024-01-22)"
+    url: "https://info.zenn.dev/2024-01-22-publication-pro-release"
+    accessedAt: "2026-09-28"
+  - label: "What's New in Zenn: Publication Pro passes 100 publications (2026-07)"
+    url: "https://info.zenn.dev/2026-07-22-publication-pro-100"
+    accessedAt: "2026-09-28"
 ---
 
 For years, Qiita was practically the only answer to where Japanese engineers publish technical articles. In September 2020, a solo-built service appeared — and within a few years created a new default: "just write it on Zenn." This is the origin story and still the biggest product of catnose, the developer we covered in [Nani Translation](/en/articles/nani-translation) and [Shizuka na Internet](/en/articles/sizu-me).
@@ -96,7 +111,7 @@ Zenn's strength comes from going all-in on the writer's experience, not the read
 ::techstack
 
 :::fact
-Per the official Zenn team's engineering article (March 2022), the stack consists of two application servers — Next.js and Rails (API mode) — both running on Google Cloud Run. Zenn originally ran on App Engine, but scaling delays when articles went viral (instances took minutes to boot) prompted a zero-downtime migration to Cloud Run, cutting spike scale-out to roughly 10 seconds. Infrastructure is managed with Terraform; logs aggregate into BigQuery and are visualized in Looker Studio. Our own observation on July 17, 2026 confirmed x-powered-by: Next.js, Google's load balancer (via: 1.1 google), and CSP violation reports sent to a Cloud Functions endpoint in asia-northeast1.
+Per the official Zenn team's engineering article (March 2022), the stack consists of two application servers — Next.js and Rails (API mode) — both running on Google Cloud Run. Zenn originally ran on App Engine, but scaling delays when articles went viral (instances took minutes to boot) prompted a zero-downtime migration to Cloud Run, cutting spike scale-out to roughly 10 seconds. The cutover was done by switching the backend service behind Cloud Load Balancing. Infrastructure is managed with Terraform; logs aggregate into BigQuery and are visualized in Looker Studio. Our own observation on September 28, 2026 confirmed x-powered-by: Next.js, Google's load balancer (via: 1.1 google), and CSP violation reports sent to a Cloud Functions endpoint in asia-northeast1.
 :::
 
 :::guess
@@ -108,11 +123,13 @@ Cloudflare sits at the front of delivery (we observed server: cloudflare and cf-
 Zenn's revenue structure is built on C2C fees and strategic value to its parent company, not ads.
 
 :::fact
-No ads are displayed in the service. Monetization consists of book sales (¥0–5,000) and reader-gifted badges — both C2C transactions where money flows to authors. The operator is Classmethod, an AWS consulting company, which stated in its acquisition press release that Zenn would be run independently from its own tech blog, Developers.IO.
+In our own check, we found no conventional ad slots in the service. Monetization for individuals consists of book sales (¥0–5,000) and reader-gifted badges — both C2C transactions where money flows to authors. Separately, "Publication Pro," a paid plan for companies and organizations, launched on January 22, 2024, offering a stats dashboard, review features, and banners tailored to the organization's goals; as of July 22, 2026 more than 100 Publications were on Pro (out of more than 1,800 Publications overall). The operator is Classmethod, an AWS consulting company, which stated in its acquisition press release that Zenn would be run independently from its own tech blog, Developers.IO.
 :::
 
 :::guess
-Whether book and badge fees alone cover a platform of this scale is not disclosed; standalone profitability is likely limited. For Classmethod, Zenn is better understood as a brand asset that occupies the center of Japan's engineering community, with spillover value in hiring and awareness. The reason catnose gave for the transfer — the weight of an individual holding C2C money — is precisely the kind of model that only stabilizes under a company, making Zenn a textbook case of an exit strategy for solo developers.
+Whether book and badge fees plus Publication Pro revenue cover a platform of this scale is not disclosed; standalone profitability is likely limited. For Classmethod, Zenn is better understood as a brand asset that occupies the center of Japan's engineering community, with spillover value in hiring and awareness. The reason catnose gave for the transfer — the weight of an individual holding C2C money — is precisely the kind of model that only stabilizes under a company, making Zenn a textbook case of an exit strategy for solo developers.
 :::
 
 A culture built by one person in four and a half months became sustainable on corporate capital — and still runs on the founder's original values: writing feel, fair compensation, and data you can take with you. Zenn remains one of Japan's rare examples where a solo-dev success and an acquisition success turned out to be the same story.
+
+Correction (September 28, 2026). The first version of this article described Zenn's monetization as consisting only of book sales and reader-gifted badges, which was wrong. Since January 22, 2024, Zenn has offered "Publication Pro," a paid plan for companies and organizations, and we have added it. We also narrowed the statement that "no ads are displayed" to what we could confirm ourselves.
