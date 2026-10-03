@@ -6,7 +6,7 @@ lead: "Lovableで作ったアプリの利用者は、Lovableのサイトを訪�
 category: dev-tool
 tags: [ai, app-builder, vibe-coding, supabase, developer-tools]
 publishedAt: "2026-07-23"
-updatedAt: "2026-10-02"
+updatedAt: "2026-10-03"
 lastVerified: "2026-10-02"
 serviceUrl: "https://lovable.dev/"
 vendor: "Lovable Labs Incorporated"
@@ -15,12 +15,12 @@ heroTheme: "lovable"
 scores: { product: 4.5, ux: 4.0, tech: 3.5, business: 4.5 }
 techStack:
   - layer: "バックエンド連携"
-    name: "Supabase連携（データベース/認証基盤）"
+    name: "Supabase (database / auth integration)"
     confidence: confirmed
     evidence: "Lovable公式ドキュメントに、Supabase連携がデータベース設計・マイグレーション・認証（Supabase Auth）・ストレージ・Edge Functionsを会話から扱え、全プランで使えると明記（2026-10-02確認）"
     evidenceUrl: "https://docs.lovable.dev/integrations/supabase"
   - layer: "自社バックエンド基盤"
-    name: "Lovable Cloud & AI（組み込みバックエンド）"
+    name: "Lovable Cloud & AI (built-in backend)"
     confidence: confirmed
     evidence: "Lovable公式ドキュメントに、組み込みバックエンドはSupabaseのオープンソース基盤を利用していると明記（2026-10-02確認）。公式ブログによればリリースは2025年9月29日"
     evidenceUrl: "https://docs.lovable.dev/features/cloud"
@@ -35,22 +35,22 @@ techStack:
     evidence: "Lovable公式FAQに、2026年5月13日以降に作られた新規アプリはサーバーサイドレンダリング付きのTanStack Startを使い、それ以前のアプリはReact + Viteだと明記（2026-10-02確認）"
     evidenceUrl: "https://docs.lovable.dev/introduction/faq"
   - layer: "アプリの実行基盤"
-    name: "workerd（Cloudflareが公開している実行環境）"
+    name: "workerd (runtime open-sourced by Cloudflare)"
     confidence: confirmed
     evidence: "Lovable公式ブログ（2026-08-18）に、公開された各アプリをCloudflareのworkerdランタイム向けのワーカーとしてビルドし、V8 isolateごとに分離して配信すると明記。同じ記事によれば、lovable.dev自体もVercel上のNext.jsからこの基盤へ移行した"
     evidenceUrl: "https://lovable.dev/blog/how-we-migrated-lovable-dev-away-from-nextjs"
   - layer: "エージェント機能"
-    name: "Lovable Agent（自律型ビルド機能）"
+    name: "Lovable Agent (autonomous build mode)"
     confidence: confirmed
     evidence: "Lovable公式ブログ（2025-07-23）に、Lovable Agentが標準になり、依頼の解釈からコードベースの調査・修正・要約までを逐次の指示なしで進めると明記"
     evidenceUrl: "https://lovable.dev/blog/agent"
   - layer: "配信統合（2026年新設）"
-    name: "ChatGPT / Claude内でのLovableアプリ利用"
+    name: "ChatGPT / Claude (Lovable apps used inside them)"
     confidence: confirmed
     evidence: "Lovable公式ブログ（2026-07-15）に、公開済みのLovableアプリにMCPサーバーを追加し、ChatGPTやClaudeなどのAIツールの中から直接使えるようにしたと明記"
     evidenceUrl: "https://lovable.dev/blog/agent-integrations"
   - layer: "ビジュアル編集"
-    name: "Visual Edits（Figma風のフロントエンド編集機能）"
+    name: "Visual Edits (Figma-style front-end editing)"
     confidence: confirmed
     evidence: "Lovable公式ブログ（2025-02-12）に、Visual Editsがプロンプトなしで文字・サイズ・スタイルをその場で直せる、Figmaに近い操作感の編集機能だと明記"
     evidenceUrl: "https://lovable.dev/blog/introducing-visual-edits"

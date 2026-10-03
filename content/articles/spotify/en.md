@@ -6,7 +6,7 @@ lead: "Every agile practitioner has heard of 'the Spotify model.' But Spotify it
 category: media
 tags: [music-streaming, cloud-migration, engineering-culture, subscription, audio]
 publishedAt: "2026-07-20"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://open.spotify.com/"
 vendor: "Spotify Technology S.A."
@@ -20,12 +20,12 @@ techStack:
     evidence: "Official engineering blog: migrated to GCP in stages starting 2016 and retired all four of its own data centers by 2018"
     evidenceUrl: "https://engineering.atspotify.com/2019/12/views-from-the-cloud-a-history-of-spotifys-journey-to-the-cloud-part-1-2"
   - layer: "Event delivery infrastructure"
-    name: "Google Cloud Pub/Sub (旧Kafkaから移行)"
+    name: "Google Cloud Pub/Sub (migrated from Kafka)"
     confidence: confirmed
     evidence: "Official engineering blog: migrated from an older Kafka-based system to Google Cloud Pub/Sub in 2016-2017, decommissioning the old system in February 2017"
     evidenceUrl: "https://engineering.atspotify.com/2019/11/spotifys-event-delivery-life-in-the-cloud"
   - layer: "Infrastructure operating model"
-    name: "Fleet Management（数千リポジトリの自動一斉変更）"
+    name: "Fleet Management (automated changes across thousands of repos)"
     confidence: confirmed
     evidence: "Official engineering blog (2023-04): shifted to automatically applying changes across thousands of repositories at once rather than case-by-case, deploying a Log4j fix to 80% of production within 9 hours"
     evidenceUrl: "https://engineering.atspotify.com/2023/04/spotifys-shift-to-a-fleet-first-mindset-part-1"

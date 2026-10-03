@@ -6,7 +6,7 @@ lead: "Ignore the green owl's notification and you feel strangely guilty. Duolin
 category: consumer-app
 tags: [language-learning, gamification, aws, python, subscription]
 publishedAt: "2026-07-17"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.duolingo.com/"
 vendor: "Duolingo, Inc."
@@ -15,7 +15,7 @@ heroTheme: "duolingo"
 scores: { product: 4.5, ux: 4.5, tech: 4.0, business: 4.5 }
 techStack:
   - layer: "Backend language"
-    name: "Python 3 (マイクロサービス群)"
+    name: "Python 3 (microservices)"
     confidence: confirmed
     evidence: "Official engineering blog (2025-03) says Duolingo has a lot of sync Python service code and began migrating it to async Python; the 'hundreds of microservices' figure is confirmed in the same blog's aislackbot post (2026-05)"
     evidenceUrl: "https://blog.duolingo.com/async-python-migration/"

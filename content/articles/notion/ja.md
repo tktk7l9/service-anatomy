@@ -6,7 +6,7 @@ lead: "ページも、箇条書きも、データベースの行も、Notionの�
 category: productivity
 tags: [note-taking, collaboration, block-editor, postgres, saas]
 publishedAt: "2026-07-17"
-updatedAt: "2026-07-17"
+updatedAt: "2026-10-03"
 lastVerified: "2026-07-17"
 serviceUrl: "https://www.notion.com/"
 vendor: "Notion Labs"
@@ -19,12 +19,12 @@ revisions:
     note: "初回解剖時点のスコア。評価額は2024年4月Forbes報道の100億ドル・ユーザー1億人（2024年9月公式発表）を根拠としていた。"
 techStack:
   - layer: "データモデル"
-    name: "Block model (全要素を単一のブロック木で表現)"
+    name: "Block model (every element in a single block tree)"
     confidence: confirmed
     evidence: "公式エンジニアリングブログに、テキスト・画像・DB行まで全てをブロックとしてPostgresに格納すると明記"
     evidenceUrl: "https://www.notion.com/blog/sharding-postgres-at-notion"
   - layer: "データベース"
-    name: "PostgreSQL (アプリケーションレベルシャーディング)"
+    name: "PostgreSQL (application-level sharding)"
     confidence: confirmed
     evidence: "公式ブログ2本（2021シャーディング・2023再シャーディング）。ワークスペースIDをキーに32→96物理インスタンスへ無停止拡張と明記"
     evidenceUrl: "https://www.notion.com/blog/the-great-re-shard"

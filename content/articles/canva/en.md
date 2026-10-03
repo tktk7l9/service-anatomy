@@ -6,7 +6,7 @@ lead: "Founder Melanie Perkins was turned down by more than 100 venture capitali
 category: consumer-app
 tags: [design-tool, bootstrapped, saas, aws, ai]
 publishedAt: "2026-07-20"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.canva.com/"
 vendor: "Canva Pty Ltd"
@@ -25,7 +25,7 @@ techStack:
     evidence: "Canva's official engineering blog states 'Canva is an AWS shop and therefore uses Elastic Kubernetes Service (EKS) to run K8s clusters'"
     evidenceUrl: "https://www.canva.dev/blog/engineering/supporting-gpu-accelerated-machine-learning-with-kubernetes-and-nix/"
   - layer: "GPU ML infrastructure"
-    name: "Nix (再現可能なコンテナビルド) + EKS GPUノード"
+    name: "Nix (reproducible container builds) + EKS (GPU nodes)"
     confidence: confirmed
     evidence: "The same blog post states container base images are built with Nix's dockerTools.buildImage, running ML features like background removal on EKS GPU-enabled AMIs (2022-07)"
     evidenceUrl: "https://www.canva.dev/blog/engineering/supporting-gpu-accelerated-machine-learning-with-kubernetes-and-nix/"

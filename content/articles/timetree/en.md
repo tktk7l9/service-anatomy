@@ -6,7 +6,7 @@ lead: "Everything written in a calendar has yet to happen. Born in 2015, TimeTre
 category: consumer-app
 tags: [calendar, family, advertising, google-cloud, spanner]
 publishedAt: "2026-08-06"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://timetreeapp.com/"
 vendor: "TimeTree, Inc."
@@ -20,7 +20,7 @@ techStack:
     evidence: "Stated in the official Google Cloud customer story (2025-07-25); over 15 billion records migrated off a MySQL-based database"
     evidenceUrl: "https://cloud.google.com/blog/ja/topics/customers/timetree-migration-to-spanner-ensures-service-continuity"
   - layer: "Data migration"
-    name: "Datastream / Spanner 移行ツール"
+    name: "Datastream / Spanner (migration tooling)"
     confidence: confirmed
     evidence: "Stated in the same customer story, which notes the migration tooling was tuned for performance together with the Google Cloud engineering team"
     evidenceUrl: "https://cloud.google.com/blog/ja/topics/customers/timetree-migration-to-spanner-ensures-service-continuity"

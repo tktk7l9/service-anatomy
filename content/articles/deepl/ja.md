@@ -6,7 +6,7 @@ lead: "かつて「Google翻訳より自然」という口コミだけで世界�
 category: ai-tool
 tags: [translation, ai, llm, nvidia, b2b]
 publishedAt: "2026-07-17"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.deepl.com/ja/translator"
 vendor: "DeepL SE"
@@ -15,12 +15,12 @@ heroTheme: "deepl"
 scores: { product: 4.5, ux: 4.0, tech: 4.5, business: 4.0 }
 techStack:
   - layer: "翻訳モデル"
-    name: "自社開発の翻訳特化LLM"
+    name: "LLM (in-house, specialized for translation)"
     confidence: confirmed
     evidence: "公式ブログ（2024-07）に、翻訳・編集に特化した次世代LLMを完全自社開発・自社インフラで構築と明記"
     evidenceUrl: "https://www.deepl.com/en/blog/next-gen-language-model"
   - layer: "学習データ"
-    name: "7年超の自社独自データ"
+    name: "Proprietary training data (7+ years)"
     confidence: confirmed
     evidence: "公式ブログ（2024-07）に、7年以上蓄積した独自データで翻訳・文章生成向けにチューニングと明記"
     evidenceUrl: "https://www.deepl.com/en/blog/next-gen-language-model"
@@ -44,7 +44,7 @@ techStack:
     confidence: likely
     evidence: "当サイトのHTTPヘッダー実観測（server: cloudflare / cf-cache-status: HIT、2026-07-17。2026-09-28の再観測でもserver: cloudflare）。公式ドキュメントでの明言は見当たらない"
   - layer: "エッジ/ロードバランサ"
-    name: "自社L7ロードバランサ層"
+    name: "L7 load balancers (in-house layer)"
     confidence: speculative
     evidence: "server-timingヘッダーのl7_lb_*計測値とx-deepl-ingress-typeという独自ヘッダーの実観測（2026-07-17、2026-09-28に再観測）からの推測"
 sources:

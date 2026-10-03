@@ -6,7 +6,7 @@ lead: "ブラウザはゲームエンジンを動かす場所ではない、と�
 category: productivity
 tags: [design-tool, webassembly, collaboration, rust, ipo]
 publishedAt: "2026-07-20"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.figma.com/"
 vendor: "Figma, Inc."
@@ -25,7 +25,7 @@ techStack:
     evidence: "公式ブログにC++レンダラーの描画バックエンドをWebGPUへ移行と明記"
     evidenceUrl: "https://www.figma.com/blog/figma-rendering-powered-by-webgpu/"
   - layer: "リアルタイム同期サーバー"
-    name: "Rust (自作の同時編集プロトコル)"
+    name: "Rust (custom multiplayer protocol)"
     confidence: confirmed
     evidence: "公式ブログに、サーバーはRustで書かれ、OTでもCRDTでもない自作の同時編集システムを採用したと明記"
     evidenceUrl: "https://www.figma.com/blog/how-figmas-multiplayer-technology-works/"

@@ -6,7 +6,7 @@ lead: "The biggest weakness of secondhand e-commerce was that photos and text co
 category: consumer-app
 tags: [live-shopping, marketplace, collectibles, e-commerce, creator-economy]
 publishedAt: "2026-07-23"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.whatnot.com/"
 vendor: "Whatnot Inc."
@@ -15,19 +15,19 @@ heroTheme: "whatnot"
 scores: { product: 4.0, ux: 4.0, tech: 3.0, business: 3.5 }
 techStack:
   - layer: "Streaming infrastructure"
-    name: "ライブ配信型オークション/即売システム"
+    name: "Live-stream auctions (bids and instant buys)"
     confidence: likely
     evidence: "Per aggregated Wikipedia reporting, the core mechanism is sellers presenting items on a live stream while viewers bid or buy instantly. Whatnot's own site returned a 403 error during this research, hence \"likely\""
   - layer: "Cross-border operations"
-    name: "リモートファースト運営（米国・英国・アイルランド・ポーランド・ドイツ拠点）"
+    name: "Remote-first operations (hubs in the US, UK, Ireland, Poland, Germany)"
     confidence: likely
     evidence: "Per aggregated Wikipedia reporting, the company runs remote-first with hubs in the US, UK, Ireland, Poland, and Germany. Not confirmed via a primary source, hence \"likely\""
   - layer: "Commerce integration"
-    name: "Shopify連携（在庫同期）"
+    name: "Shopify (inventory sync integration)"
     confidence: likely
     evidence: "Per aggregated Wikipedia reporting, a Shopify integration enabling inventory syncing was added in March 2026. Not confirmed via a primary source, hence \"likely\""
   - layer: "Category expansion infrastructure"
-    name: "生鮮食品カテゴリ対応（2026年4月追加）"
+    name: "Fresh food category (added April 2026)"
     confidence: likely
     evidence: "Per aggregated Wikipedia reporting, shelf-stable food was added in summer 2025 and a fresh food category in April 2026. Not confirmed via a primary source, hence \"likely\""
 sources:

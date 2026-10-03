@@ -20,27 +20,27 @@ techStack:
     evidence: "The official AT Protocol overview describes atproto as a decentralized protocol for large-scale social web applications, with Bluesky's basic social behaviors provided by the app.bsky.* lexicons"
     evidenceUrl: "https://atproto.com/guides/overview"
   - layer: "Federation architecture"
-    name: "PDS / Relay / AppView 分離"
+    name: "PDS / Relay / AppView (role separation)"
     confidence: confirmed
     evidence: "The official AT Protocol overview names three core services: data hosting (PDS), collecting updates into one firehose (Relay), and network-wide aggregation (App View)"
     evidenceUrl: "https://atproto.com/guides/overview"
   - layer: "Identity"
-    name: "DID + 署名付きデータリポジトリ"
+    name: "DID + signed data repositories"
     confidence: confirmed
     evidence: "The official AT Protocol overview: user data lives in signed data repositories authenticated by DIDs, so an account can migrate to a new PDS without the server's involvement"
     evidenceUrl: "https://atproto.com/guides/overview"
   - layer: "Reference implementation"
-    name: "TypeScript (公式OSSモノレポ)"
+    name: "TypeScript (official OSS monorepo)"
     confidence: confirmed
     evidence: "Primary language of the official bluesky-social/atproto repository (checked via GitHub API, 2026-09-28)"
     evidenceUrl: "https://github.com/bluesky-social/atproto"
   - layer: "Self-hosting"
-    name: "PDS公式コンテナ配布"
+    name: "PDS (official container distribution)"
     confidence: confirmed
     evidence: "The official repository distributes the PDS container image and compose configuration"
     evidenceUrl: "https://github.com/bluesky-social/pds"
   - layer: "Moderation"
-    name: "Ozone (積み替え可能なラベラー)"
+    name: "Ozone (swappable labeler)"
     confidence: confirmed
     evidence: "The official blog describes moderation split out as independent labeler services, with Ozone released as OSS"
     evidenceUrl: "https://web.archive.org/web/20260808024029/https://docs.bsky.app/blog/blueskys-moderation-architecture"

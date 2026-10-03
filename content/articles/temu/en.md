@@ -6,7 +6,7 @@ lead: "Temu launched in the US in September 2022, and within about a year and a 
 category: consumer-app
 tags: [e-commerce, marketplace, cross-border, pdd-holdings, tariffs]
 publishedAt: "2026-07-23"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.temu.com/"
 vendor: "Whaleco, Inc."
@@ -15,19 +15,19 @@ heroTheme: "temu"
 scores: { product: 3.5, ux: 4.0, tech: 3.5, business: 3.5 }
 techStack:
   - layer: "US operating entity"
-    name: "Whaleco, Inc.（PDD Holdings子会社）"
+    name: "Whaleco, Inc. (PDD Holdings subsidiary)"
     confidence: likely
     evidence: "Per aggregated Wikipedia reporting, Temu's US operations run through Whaleco, Inc., a PDD Holdings subsidiary registered in Delaware and Massachusetts. We could not reach a primary Temu/PDD source this time, hence \"likely\""
   - layer: "Parent company"
-    name: "PDD Holdings（旧拼多多）"
+    name: "PDD Holdings (formerly Pinduoduo)"
     confidence: likely
     evidence: "Per aggregated Wikipedia reporting, PDD Holdings is incorporated in the Cayman Islands with a principal office also listed in Dublin, and grew out of Pinduoduo, founded in Shanghai in 2015. It reportedly changed legal domicile from Shanghai to Dublin in 2023"
   - layer: "Supply chain model"
-    name: "「次世代マニュファクチャリング」直送コンサイメントモデル"
+    name: "Consignment model (Next-Gen Manufacturing, direct shipping)"
     confidence: likely
     evidence: "Per aggregated Wikipedia reporting, China-based sellers ship directly to consumers without intermediate distributors, and sellers must meet minimum thresholds such as 30 units and $90 in sales within 14 days"
   - layer: "Domestic sibling platform"
-    name: "拼多多（Pinduoduo）"
+    name: "Pinduoduo (拼多多)"
     confidence: likely
     evidence: "Per aggregated Wikipedia reporting, Pinduoduo continues to operate as PDD Holdings' domestic Chinese sibling platform, while Temu was launched in September 2022 specifically for international expansion"
 sources:

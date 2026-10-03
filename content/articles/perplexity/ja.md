@@ -6,7 +6,7 @@ lead: "Perplexityは、回答に使うサードパーティのAIモデルを「�
 category: ai-tool
 tags: [ai-search, answer-engine, llm-routing, api, publisher-licensing]
 publishedAt: "2026-07-23"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.perplexity.ai/"
 vendor: "Perplexity AI, Inc."
@@ -15,17 +15,17 @@ heroTheme: "perplexity"
 scores: { product: 4.0, ux: 4.0, tech: 3.5, business: 3.0 }
 techStack:
   - layer: "検索特化自社モデル"
-    name: "Sonarモデルファミリー（Sonar / Sonar Pro / Sonar Reasoning Pro / Sonar Deep Research）"
+    name: "Sonar (model family: Sonar / Sonar Pro / Sonar Reasoning Pro / Sonar Deep Research)"
     confidence: confirmed
     evidence: "Perplexity公式APIドキュメントに、検索特化の軽量モデルSonarから、推論特化のSonar Reasoning Pro、深い調査向けのSonar Deep Researchまで、用途別のモデル群が掲載されていることを実確認（2026-09-28再確認）。同じページに、Sonar Chat CompletionsはAgent APIへ移り、Sonarのサポートは2026年9月27日までとする告知がある"
     evidenceUrl: "https://docs.perplexity.ai/getting-started/models"
   - layer: "サードパーティモデルルーティング"
-    name: "OpenAI / Anthropic / Google / xAI（マルチLLMルーティング）"
+    name: "OpenAI / Anthropic / Google / xAI (multi-LLM routing)"
     confidence: confirmed
     evidence: "Perplexity公式APIドキュメントに、Agent APIがOpenAI・Anthropic・Google・xAI・Z.AI・Moonshot AI・NVIDIAのサードパーティモデルを、各モデルの公表料金による透明なトークン課金で提供すると明記（2026-09-28確認）"
     evidenceUrl: "https://docs.perplexity.ai/getting-started/pricing"
   - layer: "ルーティング先モデル（Google製）"
-    name: "Gemini（3.1 Pro / 3.8 Flash 等）"
+    name: "Gemini (3.1 Pro / 3.8 Flash, etc.)"
     confidence: confirmed
     evidence: "Perplexity公式APIドキュメントのAgent APIモデル一覧に、google/gemini-3.1-pro-preview・google/gemini-3.8-flashなどGoogleのGeminiモデル8種が単価つきで掲載されていることを実確認（2026-09-28）"
     evidenceUrl: "https://docs.perplexity.ai/docs/agent-api/models"
@@ -39,11 +39,11 @@ techStack:
     confidence: likely
     evidence: "Wikipediaの集約情報（報道ベース）によれば、2026年1月にMicrosoftと3年間・7億5,000万ドルの契約を結び、AzureとFoundryを使うとされる。主たるクラウドは引き続きAWSとされる。公式発表は確認できていないためlikely扱い"
   - layer: "自社ブラウザ"
-    name: "Cometブラウザ（Chromiumベース）"
+    name: "Comet (Chromium-based browser)"
     confidence: likely
     evidence: "Wikipediaの集約情報によれば、2025年7月にサブスクリプション限定で提供開始され、同年10月に無料開放されたChromiumベースのAI統合ブラウザとされる。Perplexity公式ページは今回アクセスできず未確認のためlikely扱い"
   - layer: "API課金モデル"
-    name: "Search API（$5.00/1,000リクエスト）+ ツール呼び出し従量課金"
+    name: "Search API ($5.00 per 1,000 requests, plus metered tool calls)"
     confidence: confirmed
     evidence: "Perplexity公式APIドキュメントに、Search APIは1,000リクエストあたり5.00ドル（Fast Searchは1.00ドル）のトークン非依存課金、ツール呼び出しはweb_searchが1回0.0025ドル、fetch_urlが1回0.0005ドル、people_searchとfinance_searchが1回0.005ドルと明記（2026-09-28確認）"
     evidenceUrl: "https://docs.perplexity.ai/getting-started/pricing"

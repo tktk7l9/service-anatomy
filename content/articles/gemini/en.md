@@ -6,7 +6,7 @@ lead: "Both ChatGPT and Claude run on compute rented from other companies. Gemin
 category: ai-tool
 tags: [ai-assistant, llm, multimodal, tpu, google]
 publishedAt: "2026-07-23"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://gemini.google.com/"
 vendor: "Google LLC"
@@ -15,7 +15,7 @@ heroTheme: "gemini"
 scores: { product: 4.5, ux: 3.5, tech: 4.5, business: 4.0 }
 techStack:
   - layer: "Foundation models"
-    name: "Geminiモデルファミリー（3.8 Flash / 3.1 Pro / 3.1 Deep Think 等）"
+    name: "Gemini (model family: 3.8 Flash / 3.1 Pro / 3.1 Deep Think, etc.)"
     confidence: confirmed
     evidence: "Verified on the official Google DeepMind model page that multiple purpose-specific versions are listed (3.8 Flash, 3.5 Flash-Lite, 3.1 Pro, 3.1 Deep Think, Omni, and more; 2026-09-28)"
     evidenceUrl: "https://deepmind.google/models/gemini/"
@@ -35,7 +35,7 @@ techStack:
     evidence: "Official site states a three-tier lineup — Google AI Plus, Pro, and Ultra — bundled with Google One storage. The FAQ on the same page states the Google AI Premium plan was renamed Google AI Plus (verified 2026-09-28)"
     evidenceUrl: "https://one.google.com/about/google-ai-plans/"
   - layer: "Distribution integration"
-    name: "Android（Pixel / Galaxy 標準アシスタント）"
+    name: "Android (default assistant on Pixel / Galaxy)"
     confidence: likely
     evidence: "Per aggregated Wikipedia reporting, Gemini became the default assistant on the Pixel 9 and Galaxy S25 lines. Not confirmed on Google's own technical pages, hence \"likely\""
 sources:

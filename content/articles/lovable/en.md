@@ -6,7 +6,7 @@ lead: "Someone using an app built with Lovable doesn't necessarily ever visit Lo
 category: dev-tool
 tags: [ai, app-builder, vibe-coding, supabase, developer-tools]
 publishedAt: "2026-07-23"
-updatedAt: "2026-10-02"
+updatedAt: "2026-10-03"
 lastVerified: "2026-10-02"
 serviceUrl: "https://lovable.dev/"
 vendor: "Lovable Labs Incorporated"
@@ -15,12 +15,12 @@ heroTheme: "lovable"
 scores: { product: 4.5, ux: 4.0, tech: 3.5, business: 4.5 }
 techStack:
   - layer: "Backend integration"
-    name: "Supabase連携（データベース/認証基盤）"
+    name: "Supabase (database / auth integration)"
     confidence: confirmed
     evidence: "Lovable's official documentation states the Supabase integration handles database design, migrations, authentication (Supabase Auth), storage, and Edge Functions from the project chat, and is available on all plans (checked 2026-10-02)"
     evidenceUrl: "https://docs.lovable.dev/integrations/supabase"
   - layer: "In-house backend"
-    name: "Lovable Cloud & AI（組み込みバックエンド）"
+    name: "Lovable Cloud & AI (built-in backend)"
     confidence: confirmed
     evidence: "Lovable's official documentation states the built-in backend utilizes Supabase's open-source foundation (checked 2026-10-02). Per the official blog, it was released on September 29, 2025"
     evidenceUrl: "https://docs.lovable.dev/features/cloud"
@@ -35,22 +35,22 @@ techStack:
     evidence: "Lovable's official FAQ states that new apps created from May 13, 2026 use TanStack Start with server-side rendering, and older apps use React + Vite (checked 2026-10-02)"
     evidenceUrl: "https://docs.lovable.dev/introduction/faq"
   - layer: "App runtime"
-    name: "workerd（Cloudflareが公開している実行環境）"
+    name: "workerd (runtime open-sourced by Cloudflare)"
     confidence: confirmed
     evidence: "Lovable's official blog (2026-08-18) states each published app is built as its own worker for Cloudflare's workerd runtime and served from its own V8 isolate. Per the same post, lovable.dev itself was migrated onto this platform from Next.js on Vercel"
     evidenceUrl: "https://lovable.dev/blog/how-we-migrated-lovable-dev-away-from-nextjs"
   - layer: "Agent capability"
-    name: "Lovable Agent（自律型ビルド機能）"
+    name: "Lovable Agent (autonomous build mode)"
     confidence: confirmed
     evidence: "Lovable's official blog (2025-07-23) states Lovable Agent is now the default and carries a request from interpretation through codebase exploration, fixes and a summary without step-by-step guidance"
     evidenceUrl: "https://lovable.dev/blog/agent"
   - layer: "Distribution integration (new in 2026)"
-    name: "ChatGPT / Claude内でのLovableアプリ利用"
+    name: "ChatGPT / Claude (Lovable apps used inside them)"
     confidence: confirmed
     evidence: "Lovable's official blog (2026-07-15) states you can add an MCP server to a published Lovable app so it can be used directly inside AI tools such as ChatGPT and Claude"
     evidenceUrl: "https://lovable.dev/blog/agent-integrations"
   - layer: "Visual editing"
-    name: "Visual Edits（Figma風のフロントエンド編集機能）"
+    name: "Visual Edits (Figma-style front-end editing)"
     confidence: confirmed
     evidence: "Lovable's official blog (2025-02-12) states Visual Edits lets you change text, sizes and styling on the spot without a prompt, with the control of a Figma-like design tool"
     evidenceUrl: "https://lovable.dev/blog/introducing-visual-edits"

@@ -6,7 +6,7 @@ lead: "年末調整ほど嫌われている書類仕事は少ない。SmartHRは
 category: saas
 tags: [hr, saas, rails, react, b2b]
 publishedAt: "2026-07-17"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://smarthr.jp/"
 vendor: "SmartHR"
@@ -20,7 +20,7 @@ techStack:
     evidence: "公式テックブログに「RailsとReactの基本的な組み合わせを統一して開発」と明記。10超のプロダクトで標準化"
     evidenceUrl: "https://tech.smarthr.jp/entry/2023/12/25/120000"
   - layer: "フロントエンド"
-    name: "React / TypeScript (Next.js導入中)"
+    name: "React / TypeScript (adopting Next.js)"
     confidence: confirmed
     evidence: "公式テックブログにjQuery→React移行とNext.js導入を明記"
     evidenceUrl: "https://tech.smarthr.jp/entry/2023/12/25/120000"

@@ -6,7 +6,7 @@ lead: "Across the 54 services this site has dissected, the same name appears in 
 category: dev-tool
 tags: [cdn, edge-computing, rust, serverless, security]
 publishedAt: "2026-07-21"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.cloudflare.com/"
 vendor: "Cloudflare, Inc."
@@ -25,7 +25,7 @@ techStack:
     evidence: "Official docs state code runs in V8 isolates rather than containers — a single runtime switches between hundreds or thousands of isolates, starting about 100x faster than a Node process on a container"
     evidenceUrl: "https://developers.cloudflare.com/workers/reference/how-workers-works/"
   - layer: "Network"
-    name: "Anycastグローバルネットワーク"
+    name: "Anycast (global network)"
     confidence: confirmed
     evidence: "Official network page states presence in 348 cities across 100+ countries (checked 2026-09-28), within 50 milliseconds of 95% of the Internet-connected population (most within 20ms)"
     evidenceUrl: "https://www.cloudflare.com/network/"

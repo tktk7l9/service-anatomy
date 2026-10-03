@@ -6,7 +6,7 @@ lead: "A page, a bullet point, a database row — inside Notion they are all the
 category: productivity
 tags: [note-taking, collaboration, block-editor, postgres, saas]
 publishedAt: "2026-07-17"
-updatedAt: "2026-07-17"
+updatedAt: "2026-10-03"
 lastVerified: "2026-07-17"
 serviceUrl: "https://www.notion.com/"
 vendor: "Notion Labs"
@@ -19,12 +19,12 @@ revisions:
     note: "The score at initial publication, based on Forbes' April 2024 reporting of a $10B valuation and the September 2024 official announcement of 100 million users."
 techStack:
   - layer: "Data model"
-    name: "Block model (全要素を単一のブロック木で表現)"
+    name: "Block model (every element in a single block tree)"
     confidence: confirmed
     evidence: "Official engineering blog states that everything — text, images, database rows — is stored in Postgres as blocks"
     evidenceUrl: "https://www.notion.com/blog/sharding-postgres-at-notion"
   - layer: "Database"
-    name: "PostgreSQL (アプリケーションレベルシャーディング)"
+    name: "PostgreSQL (application-level sharding)"
     confidence: confirmed
     evidence: "Two official posts (2021 sharding, 2023 re-shard): application-level sharding keyed on workspace ID, expanded from 32 to 96 physical instances with zero downtime"
     evidenceUrl: "https://www.notion.com/blog/the-great-re-shard"

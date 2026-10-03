@@ -6,7 +6,7 @@ lead: "2022年11月30日、ChatGPTは公開から5日で100万ユーザーに達
 category: ai-tool
 tags: [ai-assistant, llm, api, chatbot, coding-agent]
 publishedAt: "2026-07-23"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://chatgpt.com/"
 vendor: "OpenAI Group PBC"
@@ -15,7 +15,7 @@ heroTheme: "chatgpt"
 scores: { product: 4.5, ux: 4.0, tech: 4.5, business: 4.0 }
 techStack:
   - layer: "モデル基盤"
-    name: "GPT-6ファミリー（Astra / Sol / Luna）"
+    name: "GPT-6 (model family: Astra / Sol / Luna)"
     confidence: confirmed
     evidence: "OpenAI公式API開発者向けドキュメントの料金ページに、最新モデルとしてgpt-6-astra・gpt-6-sol・gpt-6-lunaのトークン単価が掲載され、gpt-5.6系列も併存していることを実確認"
     evidenceUrl: "https://developers.openai.com/api/docs/pricing"
@@ -25,7 +25,7 @@ techStack:
     evidence: "OpenAI Developers公式サイトのトップページに、開発者向けコーディングエージェント製品として明記されていることを実確認"
     evidenceUrl: "https://developers.openai.com"
   - layer: "アプリ拡張の標準"
-    name: "Apps SDK（Model Context Protocol準拠）"
+    name: "Apps SDK (built on Model Context Protocol)"
     confidence: confirmed
     evidence: "OpenAI Developers公式サイトに、ChatGPTをアプリで拡張するApps SDKが「Model Context Protocol」に基づくと明記されていることを実確認。競合Anthropicが策定・公開したオープン標準を採用している"
     evidenceUrl: "https://developers.openai.com"
@@ -34,7 +34,7 @@ techStack:
     confidence: likely
     evidence: "Wikipediaの集約情報によれば、2019年以降Microsoft Azureが主要クラウド基盤とされ、2026年4月の契約更新で独占条項が緩和されたと報じられている。OpenAI自身の技術ページでは未確認のためlikely扱い"
   - layer: "計算基盤（追加契約）"
-    name: "Oracle Cloud Infrastructure / Stargateプロジェクト"
+    name: "Oracle Cloud Infrastructure / Stargate (project)"
     confidence: likely
     evidence: "Wikipediaの集約情報によれば、2025年9月にOracleと5年間3,000億ドル規模の計算資源契約を締結、同年1月にはOracle・SoftBank・MGXと共同で総額5,000億ドル規模のデータセンター整備計画「Stargate」を発表したとされる。一次情報未確認のためlikely扱い"
 sources:

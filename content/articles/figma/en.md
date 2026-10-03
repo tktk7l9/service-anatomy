@@ -6,7 +6,7 @@ lead: "The conventional wisdom was that browsers weren't built to run game engin
 category: productivity
 tags: [design-tool, webassembly, collaboration, rust, ipo]
 publishedAt: "2026-07-20"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.figma.com/"
 vendor: "Figma, Inc."
@@ -25,7 +25,7 @@ techStack:
     evidence: "Official blog states the C++ renderer's drawing backend has moved to WebGPU"
     evidenceUrl: "https://www.figma.com/blog/figma-rendering-powered-by-webgpu/"
   - layer: "Realtime sync server"
-    name: "Rust (自作の同時編集プロトコル)"
+    name: "Rust (custom multiplayer protocol)"
     confidence: confirmed
     evidence: "Official blog: the server is written in Rust and uses a custom collaborative-editing system, adopting neither OT nor CRDTs"
     evidenceUrl: "https://www.figma.com/blog/how-figmas-multiplayer-technology-works/"

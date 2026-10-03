@@ -6,7 +6,7 @@ lead: "カレンダーに書かれることは、例外なくまだ起きてい�
 category: consumer-app
 tags: [calendar, family, advertising, google-cloud, spanner]
 publishedAt: "2026-08-06"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://timetreeapp.com/"
 vendor: "株式会社TimeTree"
@@ -20,7 +20,7 @@ techStack:
     evidence: "Google Cloud公式ブログのTimeTree導入事例（2025-07-25）に明記。150億以上のレコードをMySQLベースのDBから移行"
     evidenceUrl: "https://cloud.google.com/blog/ja/topics/customers/timetree-migration-to-spanner-ensures-service-continuity"
   - layer: "データ移行"
-    name: "Datastream / Spanner 移行ツール"
+    name: "Datastream / Spanner (migration tooling)"
     confidence: confirmed
     evidence: "同導入事例に明記。Google Cloud開発チームと連携して移行ツールの性能向上を実施したと記載"
     evidenceUrl: "https://cloud.google.com/blog/ja/topics/customers/timetree-migration-to-spanner-ensures-service-continuity"

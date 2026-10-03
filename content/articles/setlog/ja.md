@@ -6,7 +6,7 @@ lead: "友人と最大12人。1時間ごとに来る通知に合わせて2秒だ
 category: consumer-app
 tags: [video, social, closed-sns, bereal, gen-z]
 publishedAt: "2026-07-17"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://apps.apple.com/jp/app/setlog/id6587576438"
 vendor: "New Chat Inc."
@@ -15,7 +15,7 @@ heroTheme: "setlog"
 scores: { product: 4.0, ux: 4.0, tech: 2.5, business: 2.5 }
 techStack:
   - layer: "配信プラットフォーム"
-    name: "iOS / Android (ネイティブアプリ)"
+    name: "iOS / Android (native apps)"
     confidence: confirmed
     evidence: "App Store（日本）およびGoogle Playの公式ストア掲載により両OS向けネイティブアプリとして提供と確認"
     evidenceUrl: "https://apps.apple.com/jp/app/setlog/id6587576438"

@@ -6,7 +6,7 @@ lead: "創業者Melanie Perkins氏は100社を超えるVCに断られた。そ�
 category: consumer-app
 tags: [design-tool, bootstrapped, saas, aws, ai]
 publishedAt: "2026-07-20"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.canva.com/"
 vendor: "Canva Pty Ltd"
@@ -25,7 +25,7 @@ techStack:
     evidence: "Canva公式エンジニアリングブログに「CanvaはAWSショップであり、K8sクラスタの実行にEKSを使用」と明記"
     evidenceUrl: "https://www.canva.dev/blog/engineering/supporting-gpu-accelerated-machine-learning-with-kubernetes-and-nix/"
   - layer: "GPU機械学習基盤"
-    name: "Nix (再現可能なコンテナビルド) + EKS GPUノード"
+    name: "Nix (reproducible container builds) + EKS (GPU nodes)"
     confidence: confirmed
     evidence: "同ブログに、NixのdockerTools.buildImageでコンテナベースイメージを構築し、背景除去等のML機能にEKSのGPU対応AMIを使用と明記（2022-07）"
     evidenceUrl: "https://www.canva.dev/blog/engineering/supporting-gpu-accelerated-machine-learning-with-kubernetes-and-nix/"

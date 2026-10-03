@@ -6,7 +6,7 @@ lead: "当サイトが解剖してきたSaaSは、ほぼ例外なくAWSかGoogle
 category: saas
 tags: [no-code, groupware, kubernetes, on-premises, b2b]
 publishedAt: "2026-07-21"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://kintone.cybozu.co.jp/"
 vendor: "サイボウズ株式会社"
@@ -15,12 +15,12 @@ heroTheme: "cybozu-kintone"
 scores: { product: 4.0, ux: 3.5, tech: 4.5, business: 4.5 }
 techStack:
   - layer: "インフラ基盤"
-    name: "Neco (自社Kubernetes基盤)"
+    name: "Neco (in-house Kubernetes platform)"
     confidence: confirmed
     evidence: "公式エンジニアリングブログに、数千台規模の自社Kubernetesクラスタとしてkintone・Garoon・サイボウズOfficeを支えると明記。サーバー管理のSabakan・クラスタ管理のCKEを自社開発し、BMC診断による故障検知と自動復旧まで自動化"
     evidenceUrl: "https://blog.cybozu.io/entry/2025/04/11/112000"
   - layer: "データセンター"
-    name: "オンプレミス (国内東西データセンター)"
+    name: "On-premises (data centers in eastern and western Japan)"
     confidence: confirmed
     evidence: "公式エンジニアリングブログに、国内複数のデータセンターにラックを借りて自社運用し、東西分散で耐災害性を確保していると明記"
     evidenceUrl: "https://blog.cybozu.io/entry/2025/06/16/080000"

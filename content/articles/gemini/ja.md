@@ -6,7 +6,7 @@ lead: "ChatGPTもClaudeも、モデルを動かす計算資源を他社から買
 category: ai-tool
 tags: [ai-assistant, llm, multimodal, tpu, google]
 publishedAt: "2026-07-23"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://gemini.google.com/"
 vendor: "Google LLC"
@@ -15,7 +15,7 @@ heroTheme: "gemini"
 scores: { product: 4.5, ux: 3.5, tech: 4.5, business: 4.0 }
 techStack:
   - layer: "モデル基盤"
-    name: "Geminiモデルファミリー（3.8 Flash / 3.1 Pro / 3.1 Deep Think 等）"
+    name: "Gemini (model family: 3.8 Flash / 3.1 Pro / 3.1 Deep Think, etc.)"
     confidence: confirmed
     evidence: "開発元Google DeepMindの公式モデルページに、用途別に分かれた複数バージョン（3.8 Flash・3.5 Flash-Lite・3.1 Pro・3.1 Deep Think・Omni等）が掲載されていることを実確認（2026-09-28）"
     evidenceUrl: "https://deepmind.google/models/gemini/"
@@ -35,7 +35,7 @@ techStack:
     evidence: "Google公式サイトに、Google AI Plus・Pro・Ultraの3段階プランがGoogle Oneのストレージと統合されて提供されていると明記。同ページのFAQに、Google AI プレミアム プランはGoogle AI Plusに名称が変わったと記載（2026-09-28確認）"
     evidenceUrl: "https://one.google.com/about/google-ai-plans/"
   - layer: "配信統合"
-    name: "Android（Pixel / Galaxy 標準アシスタント）"
+    name: "Android (default assistant on Pixel / Galaxy)"
     confidence: likely
     evidence: "Wikipediaの集約情報によれば、Pixel 9・Galaxy S25シリーズでGeminiが標準アシスタントとして採用されたとされる。Google自身の技術ページでは未確認のためlikely扱い"
 sources:

@@ -20,27 +20,27 @@ techStack:
     evidence: "AT Protocol公式のプロトコル概要に、atprotoを大規模ソーシャルWebアプリ向けの分散プロトコルとし、Blueskyの基本的なソーシャル機能をapp.bsky.*レキシコンで提供すると明記"
     evidenceUrl: "https://atproto.com/guides/overview"
   - layer: "連合アーキテクチャ"
-    name: "PDS / Relay / AppView 分離"
+    name: "PDS / Relay / AppView (role separation)"
     confidence: confirmed
     evidence: "AT Protocol公式のプロトコル概要に、ネットワークの中核サービスをデータ保管(PDS)・更新の集約(Relay)・ネットワーク全体の集計(App View)の3つに分けると明記"
     evidenceUrl: "https://atproto.com/guides/overview"
   - layer: "アイデンティティ"
-    name: "DID + 署名付きデータリポジトリ"
+    name: "DID + signed data repositories"
     confidence: confirmed
     evidence: "AT Protocol公式のプロトコル概要に、サーバーの関与なしに新しいPDSへ移行できるよう、データを署名付きリポジトリに保管しDIDで認証すると明記"
     evidenceUrl: "https://atproto.com/guides/overview"
   - layer: "リファレンス実装"
-    name: "TypeScript (公式OSSモノレポ)"
+    name: "TypeScript (official OSS monorepo)"
     confidence: confirmed
     evidence: "公式リポジトリbluesky-social/atprotoの主要言語（GitHub APIで確認・2026-09-28）"
     evidenceUrl: "https://github.com/bluesky-social/atproto"
   - layer: "セルフホスト"
-    name: "PDS公式コンテナ配布"
+    name: "PDS (official container distribution)"
     confidence: confirmed
     evidence: "公式リポジトリでPDSのコンテナイメージとcompose構成を配布"
     evidenceUrl: "https://github.com/bluesky-social/pds"
   - layer: "モデレーション"
-    name: "Ozone (積み替え可能なラベラー)"
+    name: "Ozone (swappable labeler)"
     confidence: confirmed
     evidence: "公式ブログに、モデレーションを独立サービス(ラベラー)として分離しOzoneをOSS公開と明記"
     evidenceUrl: "https://web.archive.org/web/20260808024029/https://docs.bsky.app/blog/blueskys-moderation-architecture"
