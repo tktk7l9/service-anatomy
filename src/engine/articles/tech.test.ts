@@ -16,6 +16,26 @@ describe("techTokens", () => {
   ] as const)("%s → %j", (name, expected) => {
     expect(techTokens(name)).toEqual([...expected]);
   });
+
+  it.each([
+    ["Google Cloud Pub/Sub (migrated from Kafka)", ["Google Cloud Pub/Sub"]],
+    ["Pub/Sub", ["Pub/Sub"]],
+    ["CI/CD", ["CI/CD"]],
+    ["TCP/IP + I/O", ["TCP/IP", "I/O"]],
+    ["REST API + @hostinger/mcp", ["REST API", "@hostinger/mcp"]],
+  ] as const)("keeps an unspaced slash inside a name: %s → %j", (name, expected) => {
+    expect(techTokens(name)).toEqual([...expected]);
+  });
+
+  it.each([
+    ["Anthropic / OpenAI / Google", ["Anthropic", "OpenAI", "Google"]],
+    ["PDS / Relay / AppView (role separation)", ["PDS", "Relay", "AppView"]],
+    ["Pub/Sub / Cloud Tasks", ["Pub/Sub", "Cloud Tasks"]],
+    ["React /Vue", ["React", "Vue"]],
+    ["React/ Vue", ["React", "Vue"]],
+  ] as const)("splits on a slash with whitespace on either side: %s → %j", (name, expected) => {
+    expect(techTokens(name)).toEqual([...expected]);
+  });
 });
 
 describe("techSlug", () => {
@@ -24,6 +44,7 @@ describe("techSlug", () => {
     ["Argo CD", "argo-cd"],
     ["Epic Online Services", "epic-online-services"],
     ["C++", "c"],
+    ["Google Cloud Pub/Sub", "google-cloud-pub-sub"],
     ["日本語トークン", ""],
   ] as const)("%s → %s", (token, expected) => {
     expect(techSlug(token)).toBe(expected);

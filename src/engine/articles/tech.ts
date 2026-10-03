@@ -4,6 +4,9 @@ import type { Article } from "./load";
 // the name in techStack frontmatter. Because name allows compound forms such as "Next.js (App Router)"
 // or "Terraform / Argo CD / GitHub Actions", it is split into individual tech tokens by
 // (1) removing parenthetical notes → (2) splitting on " / " and " + " → (3) removing "etc.".
+// Only a slash with whitespace on at least one side is a list separator. A slash inside a word
+// ("Pub/Sub", "CI/CD", "TCP/IP", "I/O") is part of the name, so "Google Cloud Pub/Sub" stays one
+// token (slug "google-cloud-pub-sub") instead of becoming "google-cloud-pub" and "sub".
 // Tokens that cannot be slugified, such as Japanese ones, are skipped.
 
 export interface TechRef {
@@ -23,7 +26,7 @@ export function techTokens(name: string): string[] {
     .replace(/[（(][^）)]*[）)]/g, " ")
     .replace(/\betc\.?/gi, " ");
   return stripped
-    .split(/\s*\/\s*|\s\+\s/)
+    .split(/\s+\/\s*|\s*\/\s+|\s\+\s/)
     .map((token) => token.trim())
     .filter((token) => token !== "");
 }
