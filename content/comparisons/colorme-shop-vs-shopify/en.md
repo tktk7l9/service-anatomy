@@ -5,15 +5,15 @@ lead: "On monthly fee alone, ColorMe Shop's Regular plan and Shopify's Basic pla
 slugA: "colorme-shop"
 slugB: "shopify"
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-02"
-lastVerified: "2026-10-02"
+updatedAt: "2026-10-03"
+lastVerified: "2026-10-03"
 sources:
   - label: "ColorMe Shop official: plans and pricing"
     url: "https://shop-pro.jp/plans/"
-    accessedAt: "2026-10-02"
+    accessedAt: "2026-10-03"
   - label: "ColorMe Shop official: Free plan"
     url: "https://shop-pro.jp/plans/free/"
-    accessedAt: "2026-10-02"
+    accessedAt: "2026-10-03"
   - label: "ColorMe Shop official: Premium plan"
     url: "https://shop-pro.jp/plans/premium/"
     accessedAt: "2026-10-02"
@@ -22,7 +22,10 @@ sources:
     accessedAt: "2026-10-01"
   - label: "ColorMe Shop official: ColorMe Payment (supported payment methods, fees, payout cycle, eligibility)"
     url: "https://shop-pro.jp/special/colorme-payment/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-03"
+  - label: "ColorMe Shop help centre: What is the Free plan? (the Free-plan-only ColorMe Payment; updated 2026-09-30, Japanese)"
+    url: "https://help.shop-pro.jp/hc/ja/articles/1500004507401"
+    accessedAt: "2026-10-03"
   - label: "ColorMe Shop official: feature page — smartphone carrier billing"
     url: "https://shop-pro.jp/functions/carrier/"
     accessedAt: "2026-10-01"
@@ -103,13 +106,13 @@ According to ColorMe Shop's official pricing page, there are four plans — Free
 
 | ColorMe Shop | Monthly fee | Initial fee | Card processing fee |
 | --- | --- | --- | --- |
-| Free | 0 yen | 0 yen | from 6.6% + 30 yen |
+| Free | 0 yen (accepting cards adds a 3-D Secure fee of 1,000 yen a month, excluding tax) | 0 yen | from 6.6% + 30 yen |
 | Regular | 4,950 yen | 3,300 yen | from 3.4% |
 | Large | 9,595 yen | 3,300 yen | from 3.19% |
 | Premium | from 35,640 yen (the comparison table's monthly-fee row says 39,600 yen) | 22,000 yen | from 2.99% |
 
 :::fact
-According to the notes on the same page, using a payment service requires a separate contract with a payment processor, and the processing fees in the table are based on the rates under the payment package "ColorMe Payment." The Free plan page writes the processing fee as "from 6.6% + 30 yen" in its table and as "6.6% of the payment amount + 33 yen" in its FAQ. The Premium plan page gives the monthly fee as "from 35,640 yen" and explains that longer contracts lower the monthly fee.
+According to the notes on the same page, using a payment service requires a separate contract with a payment processor, and the processing fees in the table are based on the rates under the payment package "ColorMe Payment." The Free plan page writes the processing fee as "from 6.6% + 30 yen" in its table and as "6.6% of the payment amount + 33 yen" in its FAQ. The help centre article "What is the Free plan?" (updated 2026-09-30), on the other hand, gives the Free plan's processing fee as "6.6% + 30 yen per order (excluding tax)" (6.5% + 30 yen for Amazon Pay), and says card payment is optional but, if used, requires a contract for "3-D Secure (identity verification service)," which costs "1,000 yen a month (excluding tax)." The pricing page's note that all prices include tax and the help article's "excluding tax" do not agree, and the official wording does not settle which treatment applies to the 6.6% part either. The Premium plan page gives the monthly fee as "from 35,640 yen" and explains that longer contracts lower the monthly fee.
 :::
 
 :::fact
@@ -138,7 +141,11 @@ The two tables cannot be compared as they stand. ColorMe Shop states that its pr
 This is where the practical difference shows. Japan has payment methods that shoppers use widely besides cards: konbini payment (paying in cash at a convenience store), bank transfer, carrier billing (the charge is added to the shopper's mobile phone bill) and deferred payment (atobarai: the shopper pays from an invoice after the goods arrive). The two services put these in different places.
 
 :::fact
-According to its official page, ColorMe Payment is a payment package provided by GMO Epsilon, and its fees are paid to GMO Epsilon rather than to ColorMe Shop (GMO Pepabo). The page's price table (tax included, for shops on a paid plan) lists Amazon Pay at 3.9%, PayPay at 3.45% (plus 2,200 yen a month on Regular and Large), Rakuten Pay at 4% (plus 2,200 yen a month), konbini payment from 165 yen per transaction, online-bank payment, cash on delivery from 352 yen per transaction, smartphone carrier billing at 6% (3,300 yen a month for the three-carrier set), GMO deferred payment at 4.0% + 279 yen per transaction (1,100 yen a month), and bank transfer to a virtual account at 22 yen per transaction (1,100 yen a month). In the table for corporations, konbini payment and some other methods carry a monthly minimum fee of 1,100 yen. Payouts are closed at month end and paid at the end of the following month; use requires a review, and it takes roughly 5 to 24 business days from application to start. The eligibility condition is having applied for or contracted a paid plan, and the page says shops on the Free plan are not eligible.
+According to its official page, ColorMe Payment is a payment package provided by GMO Epsilon, and its fees are paid to GMO Epsilon rather than to ColorMe Shop (GMO Pepabo). The page's price table (tax included, for shops on a paid plan) lists Amazon Pay at 3.9%, PayPay at 3.45% (plus 2,200 yen a month on Regular and Large), Rakuten Pay at 4% (plus 2,200 yen a month), konbini payment from 165 yen per transaction, online-bank payment, cash on delivery from 352 yen per transaction, smartphone carrier billing at 6% (3,300 yen a month for the three-carrier set), GMO deferred payment at 4.0% + 279 yen per transaction (1,100 yen a month), and bank transfer to a virtual account at 22 yen per transaction (1,100 yen a month). In the table for corporations, konbini payment and some other methods carry a monthly minimum fee of 1,100 yen. Payouts are closed at month end and paid at the end of the following month; use requires a review, and it takes roughly 5 to 24 business days from application to start. The eligibility condition is having applied for or contracted a paid plan, and the page says shops on the Free plan are not eligible. In the same page's table of options, the 3-D Secure authentication support service has no monthly fee.
+:::
+
+:::fact
+That does not mean the Free plan has no payments. According to the help centre article (updated 2026-09-30), the Free plan uses a "ColorMe Payment for the Free plan only," also contracted with GMO Epsilon, and the article states that it differs from the ColorMe Payment used on paid plans. The only methods available are Amazon Pay, konbini payment, cards (five brands), GMO deferred payment and bank transfer to a virtual account; no other payment method can be used. The fee is 6.6% + 30 yen per order (excluding tax), or 6.5% + 30 yen for Amazon Pay. Cards are optional, but using them requires a 3-D Secure contract at 1,000 yen a month (excluding tax). GMO deferred payment adds 203 yen per postcard invoice or 236 yen per sealed-letter invoice. Payouts are closed at month end and paid at the end of the following month.
 :::
 
 :::fact
@@ -163,24 +170,27 @@ The following is an illustration calculated by this site using only the official
 
 - Every order is paid with a card issued in Japan (Visa/Mastercard).
 - The Free plan charges 30 yen per transaction, so the calculation needs an order count; it assumes 5,000 yen per order. This is an assumption set by this site, not an official number.
+- Because orders are paid by card, the Free plan also carries the 3-D Secure fee of 1,000 yen a month.
 - Initial fees, fees for apps and options, introductory discounts (such as Shopify's 150 yen for 3 months) and paid templates are not included.
-- ColorMe Shop's prices are used as stated (tax included); Shopify's are used as stated (no tax statement found). The amounts are not on the same basis.
+- ColorMe Shop's prices are used as stated (tax included); Shopify's are used as stated (no tax statement found). The Free plan's 6.6% + 30 yen and the 1,000-yen 3-D Secure fee, however, are used as the help article states them (excluding tax). The amounts are not on the same basis.
 - For ColorMe Shop's "from" rates, the lower bound is used.
 
 | Monthly sales | ColorMe Free | ColorMe Regular | Regular after Nov. revision | Shopify Basic, monthly | Shopify Basic, annual |
 | --- | --- | --- | --- | --- | --- |
-| 100,000 yen (20 orders) | 7,200 yen | 8,350 yen | 9,340 yen | 8,400 yen | 7,200 yen |
-| 500,000 yen (100 orders) | 36,000 yen | 21,950 yen | 22,940 yen | 22,600 yen | 21,400 yen |
+| 100,000 yen (20 orders) | 8,200 yen | 8,350 yen | 9,340 yen | 8,400 yen | 7,200 yen |
+| 500,000 yen (100 orders) | 37,000 yen | 21,950 yen | 22,940 yen | 22,600 yen | 21,400 yen |
 
 The arithmetic:
 
-- Free: 100,000 × 6.6% + 30 × 20 = 6,600 + 600 = 7,200 yen. 500,000 × 6.6% + 30 × 100 = 33,000 + 3,000 = 36,000 yen. At 33 yen per transaction, these become 7,260 yen and 36,300 yen.
+- Free: 100,000 × 6.6% + 30 × 20 + 1,000 = 6,600 + 600 + 1,000 = 8,200 yen. 500,000 × 6.6% + 30 × 100 + 1,000 = 33,000 + 3,000 + 1,000 = 37,000 yen. At the pricing page FAQ's 33 yen per transaction, these become 8,260 yen and 37,300 yen. If this site also adds 10% to the 3-D Secure fee, making it 1,100 yen, they become 8,360 yen and 37,400 yen (this site's conversion; the 6.6% part is not converted).
 - Regular: 4,950 + 100,000 × 3.4% = 8,350 yen. 4,950 + 500,000 × 3.4% = 21,950 yen. After the revision, replace the monthly fee with 5,940 yen.
 - Shopify Basic, paid monthly: 4,850 + 100,000 × 3.55% = 8,400 yen. 4,850 + 500,000 × 3.55% = 22,600 yen. For annual payment, replace the monthly fee with 3,650 yen.
 
 :::guess
-Within this illustration, at 100,000 yen in monthly sales every option lands between 7,200 and 9,340 yen, and at 500,000 yen only ColorMe Shop's Free plan pulls away. The gap between Regular and Shopify Basic ranges from 50 yen to 2,140 yen a month depending on the combination of terms, and given the differences in tax treatment and contract terms, it appears too small to decide on monthly fee and card rate alone. The difference is presumed to come from what the table leaves out: payment methods other than cards, monthly app fees, and the cost of templates.
+Within this illustration, at 100,000 yen in monthly sales every option lands between 7,200 and 9,340 yen, and at 500,000 yen only ColorMe Shop's Free plan pulls away. When orders are paid by card, even at 100,000 yen the Free plan is only 150 yen cheaper than Regular (10 yen more expensive under this site's conversion of the 3-D Secure fee to 1,100 yen) and 1,000 yen more expensive than Shopify Basic paid annually. The gap between Regular and Shopify Basic ranges from 50 yen to 2,140 yen a month depending on the combination of terms, and given the differences in tax treatment and contract terms, it appears too small to decide on monthly fee and card rate alone. The difference is presumed to come from what the table leaves out: payment methods other than cards, monthly app fees, and the cost of templates.
 :::
+
+Correction (October 3, 2026). The first version said the Free plan's only cost is the processing fee when something sells, and said only that ColorMe Payment is "not available on the Free plan." That was inaccurate. What the Free plan cannot use is the paid-plan ColorMe Payment; the Free plan has its own ColorMe Payment, and accepting cards on it requires a 3-D Secure contract at 1,000 yen a month (excluding tax). The illustration, which assumes every order is paid by card, left out that fee and so understated the Free plan's cost by 1,000 yen a month. The help centre article has been added as a source, the Free plan's payment terms have been added, and the illustration's Free plan column has been corrected from 7,200 to 8,200 yen at 100,000 yen in monthly sales and from 36,000 to 37,000 yen at 500,000 yen. In the first version's table, the Free plan at 100,000 yen looked tied with Shopify Basic paid annually as the cheapest option; after the correction it is only 150 yen cheaper than Regular and 1,000 yen more expensive than Basic paid annually. The "which situation fits which" section has been corrected to match.
 
 ## Shipping, design, apps, selling abroad, support and invoices
 
@@ -245,7 +255,7 @@ No ranking here. From the facts confirmed on the official pages, this sorts out 
 :::guess
 The situations that appear to match ColorMe Shop's design are these:
 
-- You do not know whether the shop will sell and want to start with zero fixed cost. The Free plan has no monthly fee and no initial fee; the only cost is the processing fee when something sells. Note that a shop cannot move back from a paid plan to the Free plan.
+- You do not know whether the shop will sell and want to start with as little fixed cost as possible. The Free plan has no monthly fee and no initial fee, but accepting cards adds the 3-D Secure fee of 1,000 yen a month (excluding tax). Fixed cost stays at zero only if you accept Amazon Pay, konbini payment, deferred payment and bank transfer alone (and, per the help article, using your own domain adds 1,100 yen a month, tax included, for always-on SSL). With a 6.6% fee rate, the Free plan becomes more expensive than the paid plans as monthly sales grow. Also, a shop cannot move back from a paid plan to the Free plan.
 - Most of your customers are in Japan and your products call for payment methods other than cards, such as konbini payment or deferred payment.
 - You want to ask questions in Japanese by phone. The paid plans include phone support.
 - You can already write HTML and CSS and want to edit templates directly.
