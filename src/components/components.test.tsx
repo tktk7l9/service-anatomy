@@ -489,6 +489,10 @@ describe("components smoke", () => {
     expect(groups[1].querySelector("a[rel~='sponsored']")).toHaveAttribute("href", "https://example.com/b");
     expect(container.querySelectorAll(".affiliate-card")).toHaveLength(2);
     expect(groups[1].querySelector(".affiliate-card-note")).toHaveTextContent("Beta Program");
+    // Two complementary landmarks on one page need distinct names (axe landmark-unique).
+    const asides = screen.getAllByRole("complementary");
+    expect(asides[0]).toHaveAccessibleName("Affiliate link for Alpha (PR)");
+    expect(asides[1]).toHaveAccessibleName("Affiliate link for Beta (PR)");
   });
 
   it("ComparisonAffiliates renders nothing without a slot", () => {
@@ -513,7 +517,7 @@ describe("components smoke", () => {
 
   it("ArticleBody interleaves html with scorecard/techstack", () => {
     const markdown = "## 序\n\n本文。\n\n::scorecard\n\n## 技術\n\n::techstack\n\n結び。";
-    const html = renderMarkdown(markdown, ja.article.callouts);
+    const html = renderMarkdown(markdown, { ...ja.article.callouts, table: ja.article.tableRegion });
     const { container } = render(
       <ArticleBody html={html} frontmatter={makeFrontmatter()} locale="ja" dict={ja} />,
     );

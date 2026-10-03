@@ -33,7 +33,7 @@ const ja = {
     updated: "更新",
     lastVerified: "最終確認",
     visitService: "公式サイト",
-    affiliateAria: "提携リンク（PR）",
+    affiliateAria: "{service} の提携リンク（PR）",
     affiliatePr: "PR",
     affiliateNotice: "この記事には広告（アフィリエイトリンク）が含まれます。",
     affiliateNoticeLink: "広告・アフィリエイトについて",
@@ -69,6 +69,8 @@ const ja = {
       fact: "事実",
       guess: "推測",
     },
+    // Name of the scrollable region around each table in the body ({n} = table number).
+    tableRegion: "表 {n}",
     accessedAt: "閲覧日",
     related: "関連する解剖",
     revisionsTitle: "定点観測",
