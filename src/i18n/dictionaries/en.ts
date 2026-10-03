@@ -71,6 +71,8 @@ const en: Dictionary = {
     tableRegion: "Table {n}",
     accessedAt: "Accessed",
     related: "Related dissections",
+    comparisons: "Comparisons featuring this service",
+    comparedWith: "Compared with",
     revisionsTitle: "Re-observations",
     revisionsNote: "The score trend over time, from past dissections — each note records the evidence behind a change.",
     revisionsCurrent: "Current",

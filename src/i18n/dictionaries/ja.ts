@@ -73,6 +73,8 @@ const ja = {
     tableRegion: "表 {n}",
     accessedAt: "閲覧日",
     related: "関連する解剖",
+    comparisons: "この記事を含む比較解剖",
+    comparedWith: "比較相手",
     revisionsTitle: "定点観測",
     revisionsNote: "過去の解剖スコアからの推移。noteに変更点の根拠を記す時系列データ。",
     revisionsCurrent: "現在",
