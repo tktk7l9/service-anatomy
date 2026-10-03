@@ -5,8 +5,8 @@ lead: "A shop or freelancer in Japan who wants to accept cards usually ends up a
 slugA: "square"
 slugB: "stripe"
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-01"
-lastVerified: "2026-10-01"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 sources:
   - label: "Square Japan: payment fees (rates, payout schedule, FAQ on review)"
     url: "https://squareup.com/jp/ja/payments/our-fees"
@@ -175,7 +175,7 @@ What follows is how we read the fee tables and conditions above. It is not a ran
 - For sending invoices to clients who pay by card, the tables show Square Invoices at 3.25% with no monthly fee, and Stripe at 3.6% for Payments plus 0.4% for Invoicing. If the client wants to pay by bank transfer, on the other hand, Stripe's pricing has a bank transfer row at 1.5%, and Square's list of online payment methods has no bank transfer row. The choice likely turns on how the other side pays.
 - A SaaS product or online course that builds monthly billing into its own web service or app appears to fit Stripe's design. Billing adds 0.7%, but features such as trials and discounts, usage-based billing and payment retries (Smart Retries) can be built into your own product through the API. For flat monthly tuition or membership dues at a class or gym, Square's subscriptions or recurring invoices may be enough.
 - For an online store that wants to offer konbini or PayPay at checkout, Stripe's pricing has those rows. For a shop that wants in-store and online inventory to be one, Square Online runs on the same account as the POS.
-- A fair number of businesses presumably use both — Square at the counter, Stripe for monthly billing on their own site. Neither pricing model has a fixed monthly fee, so running both does not add fixed costs. The trade-off to plan for is that payouts and bookkeeping are split across two systems.
+- Using both is also conceivable — Square at the counter, Stripe for monthly billing on your own site. Neither pricing model has a fixed monthly fee, so running both does not add fixed costs. The trade-off to plan for is that payouts and bookkeeping are split across two systems.
 :::
 
 ## Why the fee tables are shaped differently

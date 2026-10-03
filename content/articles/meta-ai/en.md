@@ -6,8 +6,8 @@ lead: "Meta gives away its conversational assistant, Meta AI, and has published 
 category: ai-tool
 tags: [ai-assistant, ai-agent, llm, open-source, advertising]
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-01"
-lastVerified: "2026-10-01"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 serviceUrl: "https://ai.meta.com/"
 vendor: "Meta Platforms, Inc."
 origin: "US"
@@ -71,7 +71,7 @@ sources:
     accessedAt: "2026-10-01"
   - label: "AI at Meta Blog: Introducing Muse Spark (2026-04-08 — Meta Superintelligence Labs, compute efficiency versus Llama 4 Maverick)"
     url: "https://ai.meta.com/blog/introducing-muse-spark-msl/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "Meta Newsroom Japan: Muse Spark announcement (2026-04-09 — regional rollout, mention of future open-sourcing)"
     url: "https://about.fb.com/ja/news/2026/04/introducing-muse-spark-meta-superintelligence-labs-first-model-built-to-prioritize-people/"
     accessedAt: "2026-10-01"
@@ -92,13 +92,13 @@ sources:
     accessedAt: "2026-10-01"
   - label: "Meta Newsroom: Introducing Muse (2026-09-08 — Muse Secure VM, no data sharing with ad systems)"
     url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "Meta Newsroom Japan: Muse announcement (2026-09-09 — availability in Japan undecided)"
     url: "https://about.fb.com/ja/news/2026/09/introducing-muse-personal-ai-agent/"
     accessedAt: "2026-10-01"
   - label: "Meta Newsroom: Muse for Small Business (2026-09-29 — available in the US and Canada)"
     url: "https://about.fb.com/news/2026/09/introducing-muse-small-business/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "Meta Newsroom: The Biggest News From Connect 2026 (2026-09-24 — more connectors, Muse on AI glasses)"
     url: "https://about.fb.com/news/2026/09/the-biggest-news-from-connect-2026/"
     accessedAt: "2026-10-01"
@@ -141,7 +141,7 @@ ai.meta.com is the official site where Meta presents its AI products, models and
 A year ago, Meta's generative AI meant Llama. The name at the center of the site today is "Muse" — both a model family and the name of the agent product.
 
 :::fact
-According to the official blog, Muse Spark was announced on April 8, 2026 as the first model in the Muse family from Meta Superintelligence Labs (MSL). Meta describes it as the first product of a ground-up overhaul of its AI efforts, and says it can reach the same capabilities as its previous model, Llama 4 Maverick, with over an order of magnitude less compute. On July 9, Muse Spark 1.1 arrived together with the public preview of the Meta Model API, and on August 10 the 30B-parameter Muse Glimmer was released under Apache 2.0. The developer site currently lists Muse Spark 1.3 as the latest version. The Muse agent product was announced on September 8, and Meta Newsroom describes it as available in the US and Canada.
+According to the official blog, Muse Spark was announced on April 8, 2026 as the first model in the Muse family from Meta Superintelligence Labs (MSL). Meta describes it as the first product of a ground-up overhaul of its AI efforts, and says it can reach the same capabilities as its previous model, Llama 4 Maverick, with over an order of magnitude less training compute (Meta's own comparison, based on a scaling law fitted to a series of small models). On July 9, Muse Spark 1.1 arrived together with the public preview of the Meta Model API, and on August 10 the 30B-parameter Muse Glimmer was released under Apache 2.0. The developer site currently lists Muse Spark 1.3 as the latest version. The Muse agent product was announced on September 8, and the announcement said it was rolling out in the US. A Meta Newsroom post of September 29 describes Muse as "available in the US and Canada."
 :::
 
 :::fact
@@ -162,7 +162,7 @@ The design that can be read from the public pages leans toward one thing: not ma
 - **You talk to the agent as a message thread.** Muse takes instructions in the Muse app, on muse.ai, or directly in WhatsApp, the same way you would message a person. Meta puts "no learning curve" at the center of the design.
 - **Approval and audit are placed up front.** Before actions such as sending an email or making a purchase, Muse asks for confirmation, and permission can be granted once, always, or denied. Meta says people can see an audit trail of what Muse has done and what it plans to do.
 - **There are many names and domains.** ai.meta.com (overview), meta.ai (assistant), muse.ai (agent), dev.meta.ai (developers) and research.meta.ai (research) are split by role, and llama.com redirects to the developer site. A first-time visitor has to work out whether Meta AI or Muse is the right one for the job.
-- **Regional differences are large.** Muse starts in the US and Canada, and new Meta AI features have also been announced as rolling out "in select markets" first. What a user in Japan can touch today is Meta AI.
+- **Regional differences are large.** Muse is limited to the US and Canada, and new Meta AI features have also been announced as rolling out "in select markets" first. What a user in Japan can touch today is Meta AI.
 
 :::guess
 Placing the assistant inside existing apps and making the agent work as a WhatsApp conversation appears to prioritize using the distribution Meta already has over competing on polish as a standalone app. Per the earnings release, 3.60 billion people on average used Meta's family of apps daily in June 2026. Not needing anyone to install something new is presumably the strongest asset here. In exchange, the confusion that comes with more names and domains seems to be left for users to absorb for the time being.

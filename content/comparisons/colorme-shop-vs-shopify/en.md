@@ -5,18 +5,18 @@ lead: "On monthly fee alone, ColorMe Shop's Regular plan and Shopify's Basic pla
 slugA: "colorme-shop"
 slugB: "shopify"
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-01"
-lastVerified: "2026-10-01"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 sources:
   - label: "ColorMe Shop official: plans and pricing"
     url: "https://shop-pro.jp/plans/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "ColorMe Shop official: Free plan"
     url: "https://shop-pro.jp/plans/free/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "ColorMe Shop official: Premium plan"
     url: "https://shop-pro.jp/plans/premium/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "ColorMe Shop official: notice of price revision for the Regular and Large plans (2026-09-09)"
     url: "https://shop-pro.jp/news/202611-pricing-notice"
     accessedAt: "2026-10-01"
@@ -52,7 +52,7 @@ sources:
     accessedAt: "2026-10-01"
   - label: "Shopify official (Japan): pricing"
     url: "https://www.shopify.com/jp/pricing"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "Shopify Help Center: payment methods available with Shopify Payments in Japan"
     url: "https://help.shopify.com/ja/manual/payments/shopify-payments/supported-countries/japan/payment-methods"
     accessedAt: "2026-10-01"
@@ -73,7 +73,7 @@ sources:
     accessedAt: "2026-10-01"
   - label: "Shopify Theme Store: all themes"
     url: "https://themes.shopify.com/themes"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "Shopify Help Center: editing theme code"
     url: "https://help.shopify.com/ja/manual/online-store/themes/theme-structure/extend/edit-theme-code"
     accessedAt: "2026-10-01"
@@ -159,7 +159,7 @@ Putting those two together, a Shopify shop that accepts konbini payment or carri
 
 ## Working out a monthly cost (an illustration)
 
-The following is an illustration that uses only the official numbers above. It is not an actual bill. The assumptions are:
+The following is an illustration calculated by this site using only the official numbers above. It is not an actual bill. The assumptions are:
 
 - Every order is paid with a card issued in Japan (Visa/Mastercard).
 - The Free plan charges 30 yen per transaction, so the calculation needs an order count; it assumes 5,000 yen per order. This is an assumption set by this site, not an official number.
@@ -179,7 +179,7 @@ The arithmetic:
 - Shopify Basic, paid monthly: 4,850 + 100,000 × 3.55% = 8,400 yen. 4,850 + 500,000 × 3.55% = 22,600 yen. For annual payment, replace the monthly fee with 3,650 yen.
 
 :::guess
-Within this illustration, at 100,000 yen in monthly sales every option lands between roughly 7,000 and 9,500 yen, and at 500,000 yen only ColorMe Shop's Free plan pulls away. The gap between Regular and Shopify Basic is a few hundred to somewhat over a thousand yen a month, and given the differences in tax treatment and contract terms, it appears too small to decide on monthly fee and card rate alone. The difference is presumed to come from what the table leaves out: payment methods other than cards, monthly app fees, and the cost of templates.
+Within this illustration, at 100,000 yen in monthly sales every option lands between 7,200 and 9,340 yen, and at 500,000 yen only ColorMe Shop's Free plan pulls away. The gap between Regular and Shopify Basic ranges from 50 yen to 2,140 yen a month depending on the combination of terms, and given the differences in tax treatment and contract terms, it appears too small to decide on monthly fee and card rate alone. The difference is presumed to come from what the table leaves out: payment methods other than cards, monthly app fees, and the cost of templates.
 :::
 
 ## Shipping, design, apps, selling abroad, support and invoices
@@ -193,7 +193,7 @@ According to ColorMe Shop's feature pages, bulk registration of tracking numbers
 ### Design
 
 :::fact
-According to ColorMe Shop's feature page, there are about 90 design templates, free and paid combined, and HTML/CSS editing is supported. The comparison table on the Free plan page also has a row for HTML/CSS editing. The paid templates in the template list were priced at 22,000 yen, 31,574 yen and 38,500 yen. Shopify's Theme Store listed 1,298 themes when checked. According to the Help Center, most theme files are written in Liquid, Shopify's templating language, and also contain HTML, CSS, JSON and JavaScript. The same page advises editing code only if you know HTML and CSS and have a basic understanding of Liquid, and warns that if your changes are incompatible with a theme update, they are removed in the updated copy.
+According to ColorMe Shop's feature page, there are about 90 design templates, free and paid combined, and HTML/CSS editing is supported. The comparison table on the Free plan page also has a row for HTML/CSS editing. The paid templates in the template list were priced at 22,000 yen, 31,574 yen and 38,500 yen. Shopify's Theme Store listed 1,299 themes when checked on October 2, 2026. According to the Help Center, most theme files are written in Liquid, Shopify's templating language, and also contain HTML, CSS, JSON and JavaScript. The same page advises editing code only if you know HTML and CSS and have a basic understanding of Liquid, and warns that if your changes are incompatible with a theme update, they are removed in the updated copy.
 :::
 
 ### Apps and extensions

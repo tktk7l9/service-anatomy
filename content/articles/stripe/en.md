@@ -6,8 +6,8 @@ lead: "Few people have ever 'seen' Stripe's product. Developers call an API, and
 category: saas
 tags: [payments, fintech, api, ruby, developer-experience]
 publishedAt: "2026-07-21"
-updatedAt: "2026-07-21"
-lastVerified: "2026-07-21"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://stripe.com/"
 vendor: "Stripe, Inc."
 origin: "US"
@@ -24,6 +24,11 @@ techStack:
     confidence: confirmed
     evidence: "Official engineering blog states DocDB, an in-house database-as-a-service built on MongoDB Community, serves five million queries per second across 2,000+ shards at 99.999% uptime with zero-downtime data migrations"
     evidenceUrl: "https://stripe.dev/blog/how-stripes-document-databases-supported-99.999-uptime-with-zero-downtime-data-migrations"
+  - layer: "Database engine"
+    name: "MongoDB"
+    confidence: confirmed
+    evidence: "Official engineering blog (2024-06) states DocDB is an extension of MongoDB Community, and that because MongoDB Atlas did not exist in 2011, Stripe built a self-managed cluster of MongoDB instances in the cloud"
+    evidenceUrl: "https://stripe.dev/blog/how-stripes-document-databases-supported-99.999-uptime-with-zero-downtime-data-migrations"
   - layer: "Fraud-detection ML"
     name: "Stripe Radar (DNN)"
     confidence: confirmed
@@ -32,24 +37,24 @@ techStack:
   - layer: "Storage"
     name: "Amazon S3"
     confidence: likely
-    evidence: "Our own HTTP header observation: stripe.com's CSP includes stripe-images.s3.us-west-1.amazonaws.com (2026-07-21). An image-delivery observation, separate from the core application"
+    evidence: "Our own HTTP header observation: stripe.com's CSP (connect-src) includes stripe-images.s3.us-west-1.amazonaws.com (2026-09-28). An image-delivery observation, separate from the core application"
   - layer: "Website delivery"
     name: "nginx / Contentful"
     confidence: likely
-    evidence: "Our own HTTP header observation (server: nginx, x-stripe-proxy-response, CSP includes assets.ctfassets.net = Contentful; 2026-07-21). Observed on the marketing site"
+    evidence: "Our own HTTP header observation (server: nginx, x-stripe-proxy-response, CSP includes assets.ctfassets.net = Contentful; 2026-09-28). Observed on the marketing site"
 sources:
   - label: "Stripe official newsroom: 2025 annual letter (TPV $1.9T, ~1.6% of global GDP, $159B tender offer, 2026-02)"
     url: "https://stripe.com/newsroom/news/stripe-2025-update"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Stripe official blog: Sorbet — open-sourcing Stripe's type checker (15M lines, 150K files)"
     url: "https://stripe.dev/blog/sorbet-stripes-type-checker-for-ruby"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Stripe official blog: DocDB — the in-house document database behind 99.999% uptime and zero-downtime migrations"
     url: "https://stripe.dev/blog/how-stripes-document-databases-supported-99.999-uptime-with-zero-downtime-data-migrations"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Stripe official blog: How we built it — Stripe Radar (migrating to a DNN-only model)"
     url: "https://stripe.dev/blog/how-we-built-it-stripe-radar"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
 ---
 
 ## Service overview
@@ -80,11 +85,11 @@ To discuss Stripe's UX is to discuss developer experience. A company with almost
 ::techstack
 
 :::fact
-Stripe's core remains an enormous Ruby codebase — over 15 million lines across 150,000 files, per the official engineering blog. To carry that scale, Stripe built its own type checker, Sorbet, in C++ (development began November 2017), open-sourcing it in June 2019; over 95% of files are type-checked. For data, Stripe built DocDB, an in-house database-as-a-service on top of MongoDB Community, serving five million queries per second across more than 2,000 shards at 99.999% uptime, with zero-downtime migrations between shards. Radar, the fraud system, moved from an XGBoost + DNN ensemble to a DNN-only model in mid-2022.
+Stripe's core remains an enormous Ruby codebase — over 15 million lines across 150,000 files, per the official engineering blog. To carry that scale, Stripe built its own type checker, Sorbet, in C++ (development began November 2017), open-sourcing it in June 2019; over 95% of files are type-checked. For data, Stripe built DocDB, an in-house database-as-a-service on top of MongoDB Community (running a self-managed MongoDB cluster in the cloud since 2011, when MongoDB Atlas did not yet exist), serving five million queries per second across more than 2,000 shards at 99.999% uptime, with zero-downtime migrations between shards. Radar, the fraud system, moved from an XGBoost + DNN ensemble to a DNN-only model in mid-2022.
 :::
 
 :::guess
-The decision to keep Ruby and build a type checker rather than rewrite looks like a sober reading of opportunity cost. In a domain where compatibility is life, adding tools to a language is cheaper than migrating away from it — Sorbet is the product of that engineering judgment, and it rhymes with Shopify's investment in Ruby's own JIT. Building DocDB on MongoDB Community rather than a managed database likely reflects that at five million queries per second, the constraints of off-the-shelf services — shard management, migration freedom — become the bottleneck first. Fifteen million lines of Ruby plus a home-built database reads as a conservative technology strategy optimized for never stopping, rather than for spectacle.
+The decision to keep Ruby and build a type checker rather than rewrite looks like a sober reading of opportunity cost. In a domain where compatibility is life, adding tools to a language is cheaper than migrating away from it — Sorbet is the product of that engineering judgment, and it rhymes with Shopify's investment in Ruby's own JIT. The official blog's direct reason for building DocDB on MongoDB Community is that the managed MongoDB Atlas did not exist in 2011; that Stripe has kept running it in-house since likely reflects that at five million queries per second, the constraints of off-the-shelf services — shard management, migration freedom — become the bottleneck first. Fifteen million lines of Ruby plus a home-built database reads as a conservative technology strategy optimized for never stopping, rather than for spectacle.
 :::
 
 ## Business model

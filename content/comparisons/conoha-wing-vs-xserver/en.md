@@ -1,16 +1,16 @@
 ---
 title: "ConoHa WING vs. Xserver Compared — One Price List Shows a Discount Rate, the Other a Cashback"
-description: "A comparison of ConoHa WING and Xserver, the two shared hosts people in Japan most often weigh when starting a WordPress site, using only official pages as of October 1, 2026. It lines up prices by contract length, campaign end dates and what happens at renewal, free-domain conditions, backups, trials and cancellation, and support channels, then sorts out which fits which situation. Behind the difference sit two origins: hourly billing inherited from a VPS, and a prepaid shared host sold since 2003."
+description: "A comparison of ConoHa WING and Xserver, two shared hosts that people in Japan starting a WordPress site often find hard to choose between, using only official pages as of October 1, 2026. It lines up prices by contract length, campaign end dates and what happens at renewal, free-domain conditions, backups, trials and cancellation, and support channels, then sorts out which fits which situation. Behind the difference sit two origins: hourly billing inherited from a VPS, and a prepaid shared host sold since 2003."
 lead: "On a 36-month contract, ConoHa WING's Basic plan is ¥649 a month and Xserver's Standard plan is ¥990 (an effective ¥495 after cashback). Both are time-limited campaign figures, and they get cheap in different ways: one is a discount applied at sign-up, the other a refund you apply for half a year later. This piece checks the official pages against each other — how to read each price list, free domains, backups, trials, cancellation terms — and dissects how the two companies' designs differ."
 slugA: "conoha-wing"
 slugB: "xserver"
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-01"
-lastVerified: "2026-10-01"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 sources:
   - label: "ConoHa WING official: pricing (WING Pack, regular pricing, campaign footnotes, payment methods)"
     url: "https://www.conoha.jp/wing/pricing/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "ConoHa WING official: WING Pack (sign-up month, plan changes, auto-renewal of free domains)"
     url: "https://www.conoha.jp/wing/wingpack/"
     accessedAt: "2026-10-01"
@@ -28,7 +28,13 @@ sources:
     accessedAt: "2026-10-01"
   - label: "ConoHa WING official: top page (processing-speed and uptime claims with footnotes)"
     url: "https://www.conoha.jp/wing/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
+  - label: "ConoHa WING news: notice of recovery from a DB connection outage on one host (2026-09-18)"
+    url: "https://www.conoha.jp/wing/news/?ap=2015054832"
+    accessedAt: "2026-10-02"
+  - label: "ConoHa WING news: apology and notice on unauthorized third-party access to some hosts (2026-09-20)"
+    url: "https://www.conoha.jp/wing/news/?ap=2015054834"
+    accessedAt: "2026-10-02"
   - label: "GMO Internet Group: press release on the launch of ConoHa WING byGMO (2018-09-26)"
     url: "https://group.gmo/news/article/6167/"
     accessedAt: "2026-10-01"
@@ -37,7 +43,7 @@ sources:
     accessedAt: "2026-10-01"
   - label: "Xserver official: pricing plans (plan comparison, price table, permanently free domain perk)"
     url: "https://www.xserver.ne.jp/price/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "Xserver official: half-price cashback campaign (period, when to apply, how it is paid)"
     url: "https://www.xserver.ne.jp/campaign/campaign_260907.php"
     accessedAt: "2026-10-01"
@@ -73,7 +79,7 @@ sources:
     accessedAt: "2026-10-01"
 ---
 
-When someone in Japan starts a blog or a small-business site on WordPress, the two names most likely to survive the shortlist are [ConoHa WING](/en/articles/conoha-wing) and [Xserver](/en/articles/xserver). Both are shared hosting — what Japan calls a "rental server," where many customers share one machine — and on the entry plans the officially published storage, CPU and memory figures are almost identical. Where they differ is in how the price is presented and how the contract binds you.
+When someone in Japan starts a blog or a small-business site on WordPress, two names that tend to stay on the shortlist are [ConoHa WING](/en/articles/conoha-wing) and [Xserver](/en/articles/xserver). Both are shared hosting — what Japan calls a "rental server," where many customers share one machine — and on the entry plans the officially published storage, CPU and memory figures are almost identical. Where they differ is in how the price is presented and how the contract binds you.
 
 This piece is written only from what the two companies' official pages said when fetched on October 1, 2026. This site did not sign up for either service or measure its speed or usability. Prices and campaigns change on a short cycle, so check the official pricing pages for the latest numbers before signing up. All prices below are in Japanese yen and tax-inclusive (Japan's consumption tax), as both companies state.
 
@@ -135,6 +141,12 @@ The core and memory numbers are the same, but ConoHa WING presents them as "refe
 ConoHa WING's top page displays "No. 1 in server processing speed" and "uptime of 99.99% or higher." Per its footnotes, the speed claim is the company's own survey from July 2026: it compared the average of five runs of h2load and Apache Bench against the lowest plans of the top ten services that together hold more than 90% of the domestic market. The uptime figure is the actual result from July 1, 2025 to July 31, 2026 "when an outage is defined as a state in which the server is completely inaccessible." Xserver's top page also displays "No. 1 in server speed" and "a track record of 99.99% or higher uptime," and says its server uptime has been 99.99% or higher since its founding.
 :::
 
+:::fact
+ConoHa WING's uptime figure covers results up to July 31, 2026, and defines an outage as "a state in which the server is completely inaccessible." According to later official notices, from about 14:35 on September 16, 2026 to about 01:55 on September 18, one host (mysql1045.conoha.ne.jp) had an outage in which its database server could not be reached; the cause was a hardware failure, and data on that host was restored to its state at around 01:00–02:00 on September 16. A notice dated September 20 disclosed that a third party had gained unauthorized access to the web server areas of some customers and placed unauthorized programs in 426 accounts, and that member, contract and payment information is managed in a separate environment and was not leaked.
+:::
+
+This site did not survey Xserver's outage notices for the same period in the same way. This does not mean only one side had incidents; read it as an example of how an uptime display comes with a period and a definition.
+
 Since each company states that its own speed ranks first, these displays alone cannot settle which is faster. Both are the companies' claims, not measurements by this site. The footnote text giving the basis for Xserver's speed claim could not be confirmed within the top page this site fetched.
 
 ## Free domains, backups and WordPress tools
@@ -173,13 +185,13 @@ Xserver lets you "touch it for 10 days before paying." ConoHa WING lets you "pay
 
 This is not a ranking. Here is what the official conditions suggest for each situation.
 
-- If you want to keep the first payment small, ConoHa WING's WING Pack tends to fit. The discount applies at sign-up, and nothing has to be claimed later.
+- If you are taking a contract of 12 months or longer and want to keep the first payment small, ConoHa WING's WING Pack tends to fit. The discount applies at sign-up, and nothing has to be claimed later. On 3- and 6-month contracts the two entry plans cost almost the same per month (¥1,331 versus ¥1,320 on 3 months, ¥1,210 for both on 6 months).
 - If you are confident you will remember to apply half a year later, and can think in post-refund terms, Xserver's cashback tends to fit. On a 36-month contract the effective monthly price the company presents is ¥495 for Standard.
 - If you want to check the control panel and behavior before committing, Xserver has the 10-day free trial. Note that using WordPress Quick Start removes the trial.
 - If you may use it only for days or weeks, or have not decided whether to continue, ConoHa WING has regular pricing: billed by the hour, with no minimum term. It does not come with a free domain.
 - If you want a 12-month contract to see how things go, watch the number of free domains. Xserver Standard gives one on 12 months; ConoHa WING's WING Pack gives up to two regardless of term.
 - If the second domain matters to you, the choices differ: eight types at ConoHa WING, three at Xserver, overlapping on .online and .site.
-- If you want to ask questions by chat, Xserver is the one that officially lists a chat channel.
+- If you want to ask questions by chat, look at how each lists its channels. Within the pages this site checked, Xserver states a chat channel and its hours, while ConoHa WING's pricing page says "phone and email support."
 
 Whichever you choose, a 36-month prepayment does not come back if you stop partway. If this is your first site and you are not sure you will keep it up, it is safer to separate the nudge that "longer contracts mean a lower monthly price" from your own realistic odds of continuing.
 

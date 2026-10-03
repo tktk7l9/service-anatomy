@@ -5,8 +5,8 @@ lead: "When a sole proprietor in Japan picks accounting software, the monthly pr
 slugA: "freee"
 slugB: "moneyforward-cloud"
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-01"
-lastVerified: "2026-10-01"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 sources:
   - label: "freee official: pricing plans for sole proprietors (Japanese)"
     url: "https://www.freee.co.jp/personal-business/accounting/pricing/"
@@ -28,7 +28,7 @@ sources:
     accessedAt: "2026-10-01"
   - label: "Money Forward Cloud Tax Return: pricing (Japanese)"
     url: "https://biz.moneyforward.com/tax_return/price/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "Money Forward Cloud Support: partial revision of the pricing structure (effective December 1, 2026 and June 1, 2027; Japanese)"
     url: "https://biz.moneyforward.com/support/plan/news/20260924.html"
     accessedAt: "2026-10-01"
@@ -37,7 +37,7 @@ sources:
     accessedAt: "2026-10-01"
   - label: "Money Forward Cloud Tax Return: service overview (number of linked services, e-filing; Japanese)"
     url: "https://biz.moneyforward.com/tax_return/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "Money Forward Cloud Tax Return: smartphone app (Japanese)"
     url: "https://biz.moneyforward.com/tax_return/app"
     accessedAt: "2026-10-01"
@@ -184,7 +184,7 @@ This is not a ranking. It lines up, situation by situation, what can be read fro
 - Want to ask by phone: phone support comes with freee Premium (¥39,800 a year) and Money Forward Personal Plus (¥35,760 a year, ¥38,160 after the revision). The scope differs: Money Forward states that its phone support covers how to operate the product.
 - Want to hand off the data entry itself: among the pricing pages checked for this piece, only freee's data-entry plan lists outsourced entry and journalizing as a plan for sole proprietors.
 - Want invoicing, expenses and payroll under the same contract: Money Forward says 12 services are included in the base price.
-- Already using Money Forward ME for household budgeting: it works with the same ID, and entries can be made from the household-budget data.
+- Already using Money Forward ME for household budgeting: according to the service page, linking with Money Forward ME lets entries be made from the household-budget data.
 
 :::guess
 If you cannot decide, the most reliable comparison is probably to use both free periods and look at two things: whether your own bank and card statements can be imported, and whether the screen for registering those statements makes sense to you. In many situations the price difference stays within a few thousand yen a year, and the difference in time spent on monthly bookkeeping can plausibly be larger.
@@ -193,7 +193,7 @@ If you cannot decide, the most reliable comparison is probably to use both free 
 ## When you think about switching
 
 :::fact
-Money Forward Cloud Tax Return's support site has a guide for a "freee journal import" feature that takes in journal data exported from freee. freee's Help Center has a procedure for reshaping journal-form data exported from other products into freee's format and importing it as CSV, with a file limit of 64 MB and 50,000 rows. freee's Premium plan includes outsourced data migration and initial setup.
+Money Forward Cloud Tax Return's support site has a guide for a "freee journal import" feature that takes in journal data exported from freee. freee's Help Center has a procedure for reshaping journal-form data exported from other products into freee's format and importing it as CSV, with a file limit of 64 MB and 50,000 rows. freee's Premium plan includes outsourced data migration and initial setup. Money Forward's pricing page likewise says an onboarding support plan that handles data migration and initial setup is available (no price is given on that page).
 :::
 
 Changes that can prompt a switch include:

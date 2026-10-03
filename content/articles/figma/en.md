@@ -6,8 +6,8 @@ lead: "The conventional wisdom was that browsers weren't built to run game engin
 category: productivity
 tags: [design-tool, webassembly, collaboration, rust, ipo]
 publishedAt: "2026-07-20"
-updatedAt: "2026-07-20"
-lastVerified: "2026-07-20"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://www.figma.com/"
 vendor: "Figma, Inc."
 origin: "US"
@@ -34,6 +34,11 @@ techStack:
     confidence: confirmed
     evidence: "Official blog (2022-10): a DynamoDB-backed journal processes over 2.2 billion changes per day, cutting worst-case data loss from 60 seconds to under 1 second"
     evidenceUrl: "https://www.figma.com/blog/making-multiplayer-more-reliable/"
+  - layer: "Persistence (checkpoints)"
+    name: "Amazon S3"
+    confidence: confirmed
+    evidence: "Official blog (2022-10): to create a checkpoint, the entire file is encoded into a binary format, compressed, and uploaded to S3"
+    evidenceUrl: "https://www.figma.com/blog/making-multiplayer-more-reliable/"
   - layer: "Persistence (non-multiplayer data)"
     name: "PostgreSQL"
     confidence: confirmed
@@ -42,7 +47,7 @@ techStack:
   - layer: "Cloud platform"
     name: "AWS + CloudFront"
     confidence: confirmed
-    evidence: "Official infrastructure blog states operation on AWS; consistent with our own HTTP header observation (via: CloudFront, 2026-07-20)"
+    evidence: "Official infrastructure blog states operation on AWS; consistent with our own HTTP header observation (via: CloudFront, 2026-07-20; unchanged when re-observed on 2026-09-28)"
     evidenceUrl: "https://www.figma.com/blog/under-the-hood-of-figmas-infrastructure/"
 sources:
   - label: "Figma official blog: How Figma's multiplayer technology works (why not OT/CRDT)"
@@ -50,7 +55,7 @@ sources:
     accessedAt: "2026-07-20"
   - label: "Figma official blog: Making multiplayer more reliable (2022-10 — DynamoDB WAL)"
     url: "https://www.figma.com/blog/making-multiplayer-more-reliable/"
-    accessedAt: "2026-07-20"
+    accessedAt: "2026-09-28"
   - label: "Figma official blog: WebAssembly cut Figma's load time by 3x"
     url: "https://www.figma.com/blog/webassembly-cut-figmas-load-time-by-3x/"
     accessedAt: "2026-07-20"
@@ -92,7 +97,7 @@ Figma's UX concentrates its technical investment on a single goal: never let you
 ::techstack
 
 :::fact
-Per official blog posts, Figma's rendering engine was originally written in C++ and compiled to WebAssembly via Emscripten (a move that cut load times 3x), with the drawing backend more recently migrated to WebGPU. Real-time collaboration uses neither OT (Operational Transform) nor CRDTs (Conflict-free Replicated Data Types), but a custom, centralized protocol run on Rust servers. Persistence is split by purpose: general data like comments, users, and teams live in PostgreSQL, while multiplayer change history runs through a Write-Ahead Journal on DynamoDB. A 2022 official post reports that journal processing over 2.2 billion changes per day, cutting worst-case data-loss exposure from 60 seconds to under 1 second. The platform runs on AWS, and our own header observation confirmed delivery via CloudFront.
+Per official blog posts, Figma's rendering engine was originally written in C++ and compiled to WebAssembly via Emscripten (a move that cut load times 3x), with the drawing backend more recently migrated to WebGPU. Real-time collaboration uses neither OT (Operational Transform) nor CRDTs (Conflict-free Replicated Data Types), but a custom, centralized protocol run on Rust servers. Persistence is split by purpose: general data like comments, users, and teams live in PostgreSQL, while multiplayer change history runs through a Write-Ahead Journal on DynamoDB, and whole-file checkpoints are compressed and stored in Amazon S3. A 2022 official post reports that journal processing over 2.2 billion changes per day, cutting worst-case data-loss exposure from 60 seconds to under 1 second. The platform runs on AWS, and our own header observation confirmed delivery via CloudFront.
 :::
 
 :::guess

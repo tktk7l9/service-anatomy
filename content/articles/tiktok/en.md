@@ -6,8 +6,8 @@ lead: "TikTok is no longer one company worldwide. On January 22, 2026, a new com
 category: media
 tags: [short-video, social-media, algorithm, e-commerce, bytedance]
 publishedAt: "2026-07-23"
-updatedAt: "2026-07-23"
-lastVerified: "2026-07-23"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://www.tiktok.com/"
 vendor: "TikTok Ltd."
 origin: "CN"
@@ -22,8 +22,13 @@ techStack:
   - layer: "US operating entity (established 2026)"
     name: "TikTok USDS Joint Venture LLC"
     confidence: confirmed
-    evidence: "The entity's own official site states it operates as a joint venture dedicated to the US business, covering data protection, algorithm security, trust and safety, and more (as of 2026)"
+    evidence: "The entity's own official site states it operates as a joint venture dedicated to the US business, covering four areas: data protection, algorithm security, trust and safety, and software assurance (re-verified September 28, 2026)"
     evidenceUrl: "https://usdsjv.tiktok.com/"
+  - layer: "US cloud infrastructure"
+    name: "Oracle Cloud"
+    confidence: confirmed
+    evidence: "TikTok's official newsroom announcement from January 2026 states that US user data is protected in Oracle's secure US cloud environment and that the recommendation algorithm is secured in the same environment. The joint venture's own site also states that all of its applications operate within Oracle's secure environment"
+    evidenceUrl: "https://newsroom.tiktok.com/announcement-from-the-new-tiktok-usds-joint-venture-llc"
   - layer: "Recommendation algorithm"
     name: "「For You」レコメンドシステム"
     confidence: likely
@@ -36,21 +41,24 @@ techStack:
 sources:
   - label: "ByteDance official: company overview (founding year, product lineup, board of directors, major investors)"
     url: "https://www.bytedance.com/en/"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
   - label: "TikTok USDS Joint Venture official site (the US-dedicated joint venture's role and leadership)"
     url: "https://usdsjv.tiktok.com/"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
+  - label: "TikTok official newsroom: announcement of TikTok USDS Joint Venture LLC (Oracle cloud environment, apps covered by the safeguards, investors, leadership)"
+    url: "https://newsroom.tiktok.com/announcement-from-the-new-tiktok-usds-joint-venture-llc"
+    accessedAt: "2026-09-28"
   - label: "Wikipedia: TikTok (launch date, 2025 US restructuring framework and ownership stakes, user growth, ad revenue)"
     url: "https://en.wikipedia.org/wiki/TikTok"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
 ---
 
 ## Service overview
 
-TikTok is the short-video app China's ByteDance launched on September 20, 2016. ByteDance was founded in 2012 by Zhang Yiming and Liang Rubo, among others; per its official site, it now operates in roughly 120 cities worldwide with over 150,000 employees, and its board includes well-known investors like Coatue, General Atlantic, Sequoia Capital, KKR, and SoftBank Vision Fund. Globally, TikTok itself is run by TikTok Ltd., incorporated in the Cayman Islands and based in Singapore and Los Angeles (per Wikipedia).
+TikTok is the short-video app China's ByteDance launched on September 20, 2016. ByteDance was founded in 2012 by Zhang Yiming and Liang Rubo, among others; per its official site, it now operates in roughly 120 cities worldwide with over 150,000 employees, and lists Coatue, General Atlantic, Sequoia Capital, KKR, and SoftBank Vision Fund among its major investors. Globally, TikTok itself is run by TikTok Ltd., incorporated in the Cayman Islands and based in Singapore and Los Angeles (per Wikipedia).
 
 :::fact
-On September 14, 2025, a framework agreement for the US business was announced, and on January 22, 2026, a new company, "TikTok USDS Joint Venture LLC," began operating as the entity dedicated to the US business. Per aggregated Wikipedia reporting, ownership stakes are split with Oracle, MGX Fund Management, and Silver Lake each holding 15%, ByteDance reduced to 19.9%, and the remaining 35.1% split between Michael Dell's investment entity and Vastmere Strategic Investments. The entity's own official site states it covers five areas: data protection, algorithm security, trust and safety, software assurance, and interoperability. User scale is reported at 2 billion downloads by April 2020 and 1 billion monthly active users by September 2021.
+On September 14, 2025, a framework agreement for the US business was announced, and on January 22, 2026, a new company, "TikTok USDS Joint Venture LLC," began operating as the entity dedicated to the US business. Per aggregated Wikipedia reporting, ownership stakes are split with Oracle, MGX Fund Management, and Silver Lake each holding 15%, ByteDance reduced to 19.9%, and the remaining 35.1% split between Michael Dell's investment entity and Vastmere Strategic Investments. The entity's own official site states it covers four areas: data protection, algorithm security, trust and safety, and software assurance. Per TikTok's official newsroom announcement, US user data and the recommendation algorithm are protected in Oracle's US cloud environment, and the safeguards also cover CapCut and Lemon8 in the US. The same announcement puts the US user base at more than 200 million people and 7.5 million businesses. Worldwide, the app is reported to have reached 2 billion downloads by April 2020 and 1 billion users by September 2021 (per Wikipedia).
 :::
 
 :::pull
@@ -73,7 +81,7 @@ The core of TikTok's UX is the "For You" feed itself, which doesn't depend on fo
 ::techstack
 
 :::fact
-TikTok is operated by ByteDance subsidiary TikTok Ltd. (incorporated in the Cayman Islands, based in Singapore and Los Angeles). On January 22, 2026, a new company dedicated to the US business, "TikTok USDS Joint Venture LLC," began operating; per its official site, it covers five areas: data protection, algorithm security, trust and safety, software assurance, and interoperability. The "For You" recommendation feature is described as an AI-driven feed weighting in-viewing behavioral data over follow relationships. Within the same ByteDance group, related products such as TikTok Shop and CapCut are also operated.
+TikTok is operated by ByteDance subsidiary TikTok Ltd. (incorporated in the Cayman Islands, based in Singapore and Los Angeles). On January 22, 2026, a new company dedicated to the US business, "TikTok USDS Joint Venture LLC," began operating; per its official site, it covers four areas: data protection, algorithm security, trust and safety, and software assurance. Per TikTok's official newsroom announcement, US user data is protected in Oracle's US cloud environment, and the recommendation algorithm is retrained on US user data and secured in the same environment. Interoperability, which keeps the experience global, and commercial activities such as advertising, e-commerce, and marketing are handled by TikTok global's US entities. The "For You" recommendation feature is described as an AI-driven feed weighting in-viewing behavioral data over follow relationships. Within the same ByteDance group, related products such as TikTok Shop and CapCut are also operated.
 :::
 
 :::guess
@@ -85,7 +93,7 @@ Separating the global app entity (TikTok Ltd.) from a US-only joint venture hand
 TikTok's revenue rests on two pillars: advertising and commerce fees from TikTok Shop.
 
 :::fact
-Per aggregated Wikipedia reporting, advertising revenue reached $4 billion in 2021 and was projected at $14.15 billion in 2023 (up from $9.89 billion in 2022). The same source notes US ad monetization at roughly $0.31 per hour of viewing, about a third of Facebook's rate. TikTok Shop launched first in the UK, with a US rollout announced in October 2022, positioned as a commerce feature that lets users go from watching a video to buying on the spot inside the same app.
+Per aggregated Wikipedia reporting, advertising revenue reached $4 billion in 2021 and a research firm projected $14.15 billion for 2023 (up from $9.89 billion in 2022). The same source notes US ad monetization at roughly $0.31 per hour of viewing, about a third of Facebook's rate. TikTok Shop launched first in the UK, with a US rollout announced in October 2022, positioned as a commerce feature that lets users go from watching a video to buying on the spot inside the same app.
 :::
 
 :::guess

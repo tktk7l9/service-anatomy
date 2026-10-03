@@ -6,8 +6,8 @@ lead: "Temu launched in the US in September 2022, and within about a year and a 
 category: consumer-app
 tags: [e-commerce, marketplace, cross-border, pdd-holdings, tariffs]
 publishedAt: "2026-07-23"
-updatedAt: "2026-07-23"
-lastVerified: "2026-07-23"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://www.temu.com/"
 vendor: "Whaleco, Inc."
 origin: "CN"
@@ -33,10 +33,16 @@ techStack:
 sources:
   - label: "Wikipedia: Temu (launch history, consignment model, user growth trajectory, tariff-policy response, regulatory developments aggregated)"
     url: "https://en.wikipedia.org/wiki/Temu"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
   - label: "Wikipedia: PDD Holdings (restructuring history from Pinduoduo, domicile change, group financial metrics aggregated)"
     url: "https://en.wikipedia.org/wiki/PDD_Holdings"
     accessedAt: "2026-07-23"
+  - label: "European Commission press release: Temu fined €200 million for breaching the Digital Services Act (May 28, 2026)"
+    url: "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_1178"
+    accessedAt: "2026-09-28"
+  - label: "European Commission, Taxation and Customs Union: guidance and legal text on the temporary flat duty on low-value imports (€3 per item from July 1, 2026)"
+    url: "https://taxation-customs.ec.europa.eu/news/guidance-and-legal-text-temporary-flat-fee-low-value-imports-which-will-apply-until-1-july-2028-2026-06-08_en"
+    accessedAt: "2026-09-28"
 ---
 
 ## Service overview
@@ -79,11 +85,11 @@ A direct-shipping model with no intermediate distributor is both the source of p
 Temu's revenue rests on seller commissions and maximizing purchase frequency through aggressively low prices.
 
 :::fact
-Per aggregated Wikipedia reporting, parent PDD Holdings' group-wide gross merchandise value (GMV) was reported at 4.17 trillion yuan (roughly $590 billion) in 2021, with 2024 revenue at $54.0 billion and net income at $15.4 billion. On regulation, a 2023 US House committee report flagged forced-labor risk in the supply chain; from late 2024, the EU reportedly found violations of its rules on illegal product sales, followed by a €200 million fine reported in May 2026. Litigation with Shein over copyright and antitrust claims continues, with a UK trial reportedly expected in late 2026.
+Per aggregated Wikipedia reporting, parent PDD Holdings' group-wide gross merchandise value (GMV) was reported at 4.17 trillion yuan (roughly $590 billion) in 2021, with 2024 revenue at $54.0 billion and net income at $15.4 billion. On regulation, a 2023 US House committee report flagged forced-labor risk in the supply chain; from late 2024, the EU investigated the sale of illegal products, and on May 28, 2026, the European Commission announced a €200 million fine against Temu under the Digital Services Act. The stated reason was an inadequate assessment of the risk of illegal products being offered, and Temu was given until August 28, 2026 to submit an action plan. On customs, per the European Commission, the EU ended its duty exemption for low-value imports of €150 or less on June 30, 2026, and has applied a temporary flat duty of €3 per item since July 1 (until July 1, 2028). Litigation with Shein over copyright and antitrust claims continues, with a UK trial reportedly expected in late 2026.
 :::
 
 :::guess
-Pouring large ad budgets into maximizing awareness and user count quickly looks aimed at locking in market share before regulatory risk and quality concerns fully materialized. That the 2025 tariff-policy pivot and the 2026 EU fine are unfolding at roughly the same time suggests Temu's "cheap and fast" growth model comes bundled with an ongoing bill: regulatory compliance costs that recur, market by market, as it expands. Running Pinduoduo domestically and Temu internationally as separate operations likely reflects the practical reality that regulatory environments and supply chains differ sharply by region.
+Pouring large ad budgets into maximizing awareness and user count quickly looks aimed at locking in market share before regulatory risk and quality concerns fully materialized. That the response to the 2025 US tariff change is overlapping with regulatory costs in the EU in 2026, the fine and the new duty on low-value imports, suggests Temu's "cheap and fast" growth model comes bundled with an ongoing bill: regulatory compliance costs that recur, market by market, as it expands. Running Pinduoduo domestically and Temu internationally as separate operations likely reflects the practical reality that regulatory environments and supply chains differ sharply by region.
 :::
 
 A direct-shipping model built on top of one country's duty exemption had to be rebuilt the moment that exemption changed. What this dissection of Temu reveals is a structure where the supply-chain logic behind its price competitiveness and the fragility of depending on a specific regulatory environment sit permanently side by side.

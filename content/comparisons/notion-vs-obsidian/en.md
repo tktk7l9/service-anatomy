@@ -1,12 +1,12 @@
 ---
 title: "Notes Held for You, Notes You Hold — The Single Choice That Split Notion and Obsidian"
 description: "Notion stores everything as blocks in its own Postgres; Obsidian keeps everything as Markdown files on your device. Two note-taking apps that chose exact opposites, dissected head to head using both articles' structured data. They share exactly one technology — and it sits outside the product."
-lead: "Notion built a 100-million-user SaaS by holding your notes; Obsidian built a world-class product with a team of about 10 by refusing to hold them. Cross-referencing both articles' techStack turns up exactly one shared technology — and it isn't anything that powers a note. It's the CDN serving both companies' websites."
+lead: "Notion built a 100-million-user SaaS by holding your notes; Obsidian built a world-class product with a team of fewer than 10 by refusing to hold them. Cross-referencing both articles' techStack turns up exactly one shared technology — and it isn't anything that powers a note. It's the CDN serving both companies' websites."
 slugA: "notion"
 slugB: "obsidian"
 publishedAt: "2026-07-21"
-updatedAt: "2026-07-21"
-lastVerified: "2026-07-21"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 sources:
   - label: "Notion official blog: Herding elephants — storing every element as a block in Postgres (2021)"
     url: "https://www.notion.com/blog/sharding-postgres-at-notion"
@@ -19,19 +19,19 @@ sources:
     accessedAt: "2026-07-21"
   - label: "Notion official blog: GIC, Sequoia, and Index purchase employee shares ($11B valuation, 2026-01)"
     url: "https://www.notion.com/blog/gic-sequoia-index-purchase-notion-shares"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Obsidian About (team size, philosophy, funding policy)"
     url: "https://obsidian.md/about"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Obsidian Pricing (Sync's E2E encryption, pricing structure)"
     url: "https://obsidian.md/pricing"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
 ---
 
 [Notion](/en/articles/notion) and [Obsidian](/en/articles/obsidian) both deal in notes. Same category — productivity — and both articles carry the note-taking tag. Yet cross-referencing both articles' techStack mechanically turns up exactly one shared technology: Cloudflare. And it isn't anything that powers a note — it was observed at the layer that serves both companies' websites. Two products handling the same thing pass each other almost completely in their technology.
 
 :::fact
-Notion stores everything — text, images, database rows — as blocks in its own Postgres. Sharding started at 32 instances in 2021, expanded to 96 instances with zero downtime in 2023, and the company officially announced 100 million users in September 2024. Obsidian does the opposite: notes live as local Markdown files on your device, and the official site states that your data is stored locally and inaccessible to the company. The team is about 10 people, with an officially stated policy of taking no outside investors. The one technology the two techStacks share — Cloudflare — comes from website-delivery observations on both sides (Notion's is rated likely, based on our own HTTP header observation of its marketing site), not from either product itself.
+Notion stores everything — text, images, database rows — as blocks in its own Postgres. Sharding started at 32 instances in 2021, expanded to 96 instances with zero downtime in 2023, and the company officially announced 100 million users in September 2024. Obsidian does the opposite: notes live as local Markdown files on your device, and the official site states that your data is stored locally and inaccessible to the company. The official About page lists seven team members (as of September 28, 2026), with an officially stated policy of taking no outside investors. The one technology the two techStacks share — Cloudflare — comes from website-delivery observations on both sides (Notion's is rated likely, based on our own HTTP header observation of its marketing site; a re-observation on September 28, 2026 found the cf-ray header on both sites), not from either product itself.
 :::
 
 :::pull
@@ -45,8 +45,10 @@ Scan Notion's tech list and most of it stems from one thing: holding other peopl
 Obsidian's tech list has almost no server side. Electron, CodeMirror, the community plugin API — all of it is the app itself, because the data starts out in the user's hands. Sync exists as a paid service, but only in a form the company cannot read, protected by end-to-end encryption. Even the paid features refuse to break the promise of not holding.
 
 :::guess
-The roughly 10-person team size appears to be a consequence of this design. If you don't hold the data, the server-side complexity that grows with scale never materializes — and neither does much reason to grow the organization. Notion, conversely, can build value that cuts across data — full-text search, collaboration, AI — precisely because it holds it. The choice of where data lives seems to have simultaneously determined what kind of value each company can offer and what shape each organization takes.
+A team of fewer than 10 appears to be a consequence of this design. If you don't hold the data, the server-side complexity that grows with scale never materializes — and neither does much reason to grow the organization. Notion, conversely, can build value that cuts across data — full-text search, collaboration, AI — precisely because it holds it. The choice of where data lives seems to have simultaneously determined what kind of value each company can offer and what shape each organization takes.
 :::
+
+Correction (September 28, 2026). The first version described Obsidian's team as "about 10" people. The official About page lists seven team members as of September 28, 2026 (two co-founders, the CEO, three in engineering, and one in customer success), and the team-size wording in this article has been revised to match. The matching result — Cloudflare as the only technology the two techStacks share — was unchanged when we re-observed both sites on the same day.
 
 ## Business models follow the data's address
 

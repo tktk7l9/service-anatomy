@@ -6,8 +6,8 @@ lead: "AIで700人分の顧客対応をこなせると胸を張った1年後、�
 category: saas
 tags: [fintech, bnpl, ai, customer-service, ipo]
 publishedAt: "2026-07-20"
-updatedAt: "2026-07-20"
-lastVerified: "2026-07-20"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://www.klarna.com/"
 vendor: "Klarna Group plc"
 origin: "SE"
@@ -20,20 +20,26 @@ techStack:
     evidence: "Klarna公式プレスリリース（2024-02-27）とOpenAI公式ページの双方に、OpenAIとの提携でAIアシスタントを構築したと明記"
     evidenceUrl: "https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/"
   - layer: "配信基盤"
-    name: "Amazon S3 + CloudFront"
+    name: "Amazon CloudFront + Envoy"
     confidence: confirmed
-    evidence: "当サイトのHTTPヘッダー実観測（server: AmazonS3 / via: CloudFront、2026-07-20）でコーポレートサイトの配信を確認"
+    evidence: "当サイトのHTTPヘッダー実観測（via: CloudFront・x-amz-cf-pop / server: envoy、2026-09-28）でコーポレートサイトの配信を確認。2026-07-20の観測ではserver: AmazonS3だったが、今回はCloudFrontの背後でEnvoyが応答していた"
     evidenceUrl: "https://www.klarna.com/"
 sources:
   - label: "Klarna公式プレスリリース: AIアシスタントが1ヶ月で従業員700人分の会話をこなす（2024-02-27）"
     url: "https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/"
-    accessedAt: "2026-07-20"
+    accessedAt: "2026-09-28"
   - label: "OpenAI公式: Klarna's AI assistant does the work of 700 full-time agents"
     url: "https://openai.com/index/klarna/"
     accessedAt: "2026-07-20"
   - label: "Klarna Group plc IR: 2025年通期決算発表（2026-02-26）"
     url: "https://investors.klarna.com/News--Events/news/news-details/2026/Klarna-Group-plc-Publishes-Full-Year-2025-Results/default.aspx"
-    accessedAt: "2026-07-20"
+    accessedAt: "2026-09-28"
+  - label: "Klarna Group plc IR: 2026年第2四半期決算発表（2026-08-18）"
+    url: "https://investors.klarna.com/News--Events/news/news-details/2026/Klarna-Reports-Second-Quarter-2026-Results/default.aspx"
+    accessedAt: "2026-09-28"
+  - label: "CX Dive: Klarna changes its AI tune and again recruits humans for customer service（2025-05-09・Klarna広報のコメント）"
+    url: "https://www.customerexperiencedive.com/news/klarna-reinvests-human-talent-customer-service-AI-chatbot/747586/"
+    accessedAt: "2026-09-28"
   - label: "Forbes: Klarna Reverses AI Push, Says Customers Prefer Human Support（2025-05・CEOのBloomberg発言引用）"
     url: "https://www.forbes.com/sites/quickerbettertech/2025/05/18/business-tech-news-klarna-reverses-on-ai-says-customers-like-talking-to-people/"
     accessedAt: "2026-07-20"
@@ -62,7 +68,9 @@ KlarnaのUXは、チェックアウト時の摩擦を減らすというBNPL本�
 - **チェックアウトの分割払いが核心的な発明**。「今買って後で払う」という選択肢をワンクリックで提示する体験は、クレジットカード申込のような重い手続きなしに与信判断を完結させる。BNPL業界全体のUX標準を作った側面がある。
 - **AIアシスタントは速度で圧倒した**。公式プレスリリース（2024年2月）によれば、解決時間は従来の11分から2分未満へ短縮され、顧客満足度も人間対応と同水準だったと報告されている。速度と満足度が両立していたという初期の実測値自体は本物だった。
 - **それでも人間を呼び戻す決断をした**。CEOのSebastian Siemiatkowski氏はBloombergに「コストを重視しすぎた。結果として品質が落ちた」と語り、2025年に人間のオペレーターを段階的に呼び戻した。数値上の効率と、顧客が求める体験の質が必ずしも一致しないことを、自ら証明した形だ。
-- **「Uber型」のハイブリッド体制へ再設計**。学生や主婦など柔軟な勤務形態の人間オペレーターに、AIが会話ごとに支援を提供する構成へ転換したと報じられている。AIを置き換えではなく補助として再定義した。
+- **Uber型のハイブリッド体制へ再設計**。CEOは在宅で柔軟に働ける「Uber型」の体制を試すと語り、Klarna広報は採用対象を「高学歴の学生、専門職、起業家」と説明したと報じられている（CX Dive、2025年5月）。人間のオペレーターをAIと組み合わせる構成へ転換し、AIを置き換えではなく補助として再定義した。
+
+訂正（2026年9月28日）。初版では、呼び戻した人間のオペレーターを「学生や主婦など」と書いていたが、誤りだった。報道で確認できたKlarna広報の説明は「高学歴の学生、専門職、起業家」で、主婦への言及はない。
 
 ## 技術構成
 
@@ -82,6 +90,10 @@ Klarnaの収益は、加盟店からの決済手数料と消費者向け金融�
 
 :::fact
 公式IR（2026年2月）によれば、2025年通期売上は35億ドル（前年比25%増）だが、調整後営業利益は6,500万ドルにとどまり、調整後営業利益率はわずか1.9%。2025年9月にNYSEへ上場している。
+:::
+
+:::fact
+その後の公式IR（2026年8月18日）によれば、2026年第2四半期（3か月）の売上は10億4,200万ドル（前年同期比27%増）、調整後営業利益は9,100万ドル（同214%増）、IFRSの純利益は900万ドル（前年同期は5,300万ドルの赤字）だった。2026年上半期の調整後営業利益は1億5,900万ドルで、2025年通期の6,500万ドルをすでに上回った。一方、同社は2026年第3四半期の調整後営業利益の見通しを500万〜1,500万ドルとし、第3四半期を「投資の四半期」と位置づけている。
 :::
 
 :::guess

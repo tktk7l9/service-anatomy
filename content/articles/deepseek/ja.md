@@ -6,8 +6,8 @@ lead: "DeepSeekのAPI料金表には、同じモデルに6つの値段が並ん�
 category: ai-tool
 tags: [ai-assistant, llm, api, open-weights, coding-agent]
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-01"
-lastVerified: "2026-10-01"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 serviceUrl: "https://www.deepseek.com/"
 vendor: "Hangzhou DeepSeek Artificial Intelligence Co., Ltd."
 origin: "CN"
@@ -15,27 +15,27 @@ heroTheme: "deepseek"
 scores: { product: 4.0, ux: 3.5, tech: 4.5, business: 3.0 }
 techStack:
   - layer: "基盤モデル（現行）"
-    name: "DeepSeek-V4.1-Flash（552B MoE・Causal Encoder-Decoder・画像入力対応）"
+    name: "DeepSeek-V4.1-Flash (552B MoE, Causal Encoder-Decoder, image input)"
     confidence: confirmed
     evidence: "Hugging Faceの公式モデルカードに、バックボーン552BパラメータのマルチモーダルMoEモデルで、20層の因果エンコーダ＋20層のデコーダ構成、入力処理時8B・生成時16Bのパラメータだけを活性化すると記載。ライセンス欄はMIT（2026-10-01確認）"
     evidenceUrl: "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash"
-  - layer: "基盤モデル（上位）"
-    name: "DeepSeek-V4-Pro（1.6T MoE・CSA/HCAハイブリッド注意機構・mHC）"
+  - layer: "基盤モデル（Pro系）"
+    name: "DeepSeek-V4-Pro (1.6T MoE, hybrid CSA/HCA attention, mHC)"
     confidence: confirmed
     evidence: "arXivの技術報告（2606.19348）の要旨に、1.6Tパラメータ（活性49B）・100万トークン文脈、CSAとHCAを組み合わせた注意機構、mHC、Muonオプティマイザ、32T超トークンでの事前学習と記載"
     evidenceUrl: "https://arxiv.org/abs/2606.19348"
   - layer: "API"
-    name: "OpenAI形式 / Anthropic形式の互換API（Responses API対応）"
+    name: "OpenAI-format / Anthropic-format compatible API (Responses API supported)"
     confidence: confirmed
     evidence: "公式APIドキュメントの料金ページに、OpenAI形式のBASE URL（api.deepseek.com）とAnthropic形式のBASE URL（api.deepseek.com/anthropic）が併記され、Responses API・Tool Calls・JSON Outputへの対応が表で示されている"
     evidenceUrl: "https://api-docs.deepseek.com/quick_start/pricing"
   - layer: "推論の効率化"
-    name: "コンテキストキャッシュ（prefix単位でディスクに永続化）"
+    name: "Context caching (prefixes persisted to disk)"
     confidence: confirmed
     evidence: "公式APIドキュメントのキャッシュ解説に、キャッシュヒットには該当prefixがディスクキャッシュに書き込まれている必要があり、リクエスト境界・共通prefix検出・一定トークン間隔の3つの契機で永続化すると記載"
     evidenceUrl: "https://api-docs.deepseek.com/guides/kv_cache"
   - layer: "エージェント実行環境"
-    name: "DeepSeek Harness（TypeScript・Cordisプラグイン構成・MIT）"
+    name: "DeepSeek Harness (TypeScript, Cordis plugin architecture, MIT)"
     confidence: confirmed
     evidence: "GitHubの公式リポジトリdeepseek-ai/deepseek-harnessは主要言語TypeScript・ライセンスMIT（GitHub APIで2026-10-01確認）。公式ページは「everything is a plugin」のCordisアーキテクチャ上に構築と説明"
     evidenceUrl: "https://github.com/deepseek-ai/deepseek-harness"
@@ -44,11 +44,11 @@ techStack:
     confidence: likely
     evidence: "www.deepseek.comへのcurl -sIで server: AmazonS3 / x-cache: Hit from cloudfront / via: CloudFront を実観測、HTMLは/_next/static/以下のチャンクを読み込む（2026-10-01）。構成を明示した公式資料はないためlikely"
   - layer: "API・チャットの前段"
-    name: "Amazon CloudFront + AWS WAF + ロードバランサ（server: elb）"
+    name: "Amazon CloudFront + AWS WAF + load balancer (server: elb)"
     confidence: likely
     evidence: "api.deepseek.comとplatform.deepseek.comは server: elb / via: CloudFront を返し、chat.deepseek.comはブラウザ以外からのGETにHTTP 403とawsWafCookieDomainListを含むチャレンジページを返した（2026-10-01実観測）。応答ヘッダーからの推定のためlikely"
   - layer: "APIドキュメント"
-    name: "Docusaurus v3.1.0 + Tencent Cloud（COS・EdgeOneとみられるCDN）"
+    name: "Docusaurus v3.1.0 + Tencent Cloud (COS; CDN appears to be EdgeOne)"
     confidence: likely
     evidence: "api-docs.deepseek.comのHTMLに generator: Docusaurus v3.1.0、応答ヘッダーに server: tencent-cos / eo-cache-status: HIT、DNSのCNAMEは eo.dnse1.com 配下（2026-10-01実観測）"
   - layer: "ステータスページ"
@@ -56,16 +56,16 @@ techStack:
     confidence: likely
     evidence: "status.deepseek.comのCNAMEが statuspage.flashduty.com を指す（digで2026-10-01実観測）"
   - layer: "規約・ポリシーの配信"
-    name: "Huawei CloudのCDNとみられる配信網（cdn.deepseek.com）"
+    name: "CDN that appears to be Huawei Cloud (cdn.deepseek.com)"
     confidence: speculative
     evidence: "cdn.deepseek.comのCNAMEがcdnhwc系のドメインを指し、応答ヘッダーは server: openresty（2026-10-01実観測）。CNAMEの命名からの推測であり事業者を公式に確認できていない"
 sources:
   - label: "DeepSeek公式サイト（トップ。製品導線・フッターの運営会社表記・ICP番号）"
     url: "https://www.deepseek.com/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "DeepSeek公式APIドキュメント: Models & Pricing（モデル・文脈長・料金・ピーク/オフピーク）"
     url: "https://api-docs.deepseek.com/quick_start/pricing"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "DeepSeek公式APIドキュメント: Change Log（2026-09-10までの変更履歴）"
     url: "https://api-docs.deepseek.com/updates"
     accessedAt: "2026-10-01"
@@ -124,7 +124,7 @@ sources:
 
 ## サービス解説
 
-DeepSeek（深度求索）は、中国・杭州に登記のあるAI研究所だ。大規模言語モデルを自社で開発し、その重みを公開する。同じモデルを、無料のチャットアプリと従量課金のAPIでも提供している。公式サイトのトップに並ぶ導線は「DeepSeek Web」「DeepSeek Harness」「API Platform」「API Docs」「Downloads」の5つで、料金プランのページは存在しない。
+DeepSeek（深度求索）は、中国・杭州に登記のあるAI研究所だ。大規模言語モデルを自社で開発し、その重みを公開する。同じモデルを、無料のチャットアプリと従量課金のAPIでも提供している。公式サイトのトップに並ぶ製品への導線は「DeepSeek Web」「DeepSeek Harness」「API Platform」「API Docs」「Downloads」の5つ（ほかに採用情報へのリンクがある）で、月額の料金プランを案内するページは見当たらない。
 
 :::fact
 公式サイトのフッターは、運営会社を「杭州深度求索人工智能基础技术研究有限公司」と表記している。プライバシーポリシー（日本語版）は、サービスの提供・管理者を「中国に登記住所を有するHangzhou DeepSeek Artificial Intelligence Co., Ltd.」と記す。現行モデルは2系統ある。2026年9月10日公開のDeepSeek-V4.1-Flash（API名は deepseek-flash）と、同年8月13日に正式版となったDeepSeek-V4-Pro（deepseek-v4-pro）だ。公式ドキュメントによれば、どちらも文脈長は100万トークン、最大出力は384Kトークンである。重みはHugging Faceで公開されており、モデルカードのライセンス欄はMITになっている。
@@ -167,7 +167,7 @@ DeepSeek-V4.1-Flashの公式モデルカードによれば、同モデルは552B
 :::
 
 :::fact
-同じモデルカードは、KVキャッシュの圧縮を設計の中心に置いている。注意層ごとにFull・Reindex・Reuseの3モードを割り当てる「CSA2」と、FP4形式でのキャッシュ保持を組み合わせ、グローバルKVキャッシュを1トークンあたり890バイト（前世代V4-Flashの約4分の1）に抑えたという。公式ニュースは、前世代と比べて必要なHBMが4分の1、SSDストレージが8分の1になったと説明し、「エージェントのコストではキャッシュヒット分の課金が大きな割合を占めることが多い」と理由を添えている。上位モデルのV4-Proについては、arXivの技術報告が、100万トークン文脈でDeepSeek-V3.2と比べ1トークンあたりの推論FLOPsが27%、KVキャッシュが10%で済むと記している。
+同じモデルカードは、KVキャッシュの圧縮を設計の中心に置いている。注意層ごとにFull・Reindex・Reuseの3モードを割り当てる「CSA2」と、FP4形式でのキャッシュ保持を組み合わせ、グローバルKVキャッシュを1トークンあたり890バイト（前世代V4-Flashの約4分の1）に抑えたという。公式ニュースは、前世代と比べて必要なHBMが4分の1、SSDストレージが8分の1になったと説明し、「エージェントのコストではキャッシュヒット分の課金が大きな割合を占めることが多い」と理由を添えている。もう1つの現行モデルであるV4-Proについては、arXivの技術報告が、100万トークン文脈でDeepSeek-V3.2と比べ1トークンあたりの推論FLOPsが27%、KVキャッシュが10%で済むと記している。
 :::
 
 :::fact
@@ -199,11 +199,11 @@ DeepSeek-V4.1-Flashの公式モデルカードによれば、同モデルは552B
 :::
 
 :::fact
-データの所在と準拠法は、ポリシーと規約に明記されている。プライバシーポリシーは「当社が収集した情報を中華人民共和国にある安全なサーバーに保存します」と記す。利用規約9.1とOpen Platform利用規約10.1は、準拠法を中華人民共和国（大陸）の法令とし、協議で解決しない紛争はHangzhou DeepSeek Artificial Intelligence Co., Ltd.の登記上の所在地を管轄する裁判所に提起できると定める。日本の個人情報保護委員会は2025年2月3日（同年3月5日更新）、同社のプライバシーポリシーの記載内容として、取得された個人情報を含むデータが中華人民共和国に所在するサーバに保存されること、当該データに中華人民共和国の法令が適用されることの2点を情報提供している。
+データの所在と準拠法は、ポリシーと規約に明記されている。プライバシーポリシーは「当社が収集した情報を中華人民共和国にある安全なサーバーに保存します」と記す。利用規約の9.1・9.2とOpen Platform利用規約の10.1・10.2は、準拠法を中華人民共和国（大陸）の法令とし、協議で解決しない紛争はHangzhou DeepSeek Artificial Intelligence Co., Ltd.の登記上の所在地を管轄する裁判所に提起できると定める。日本の個人情報保護委員会は2025年2月3日（同年3月5日更新）、同社のプライバシーポリシーの記載内容として、取得された個人情報を含むデータが中華人民共和国に所在するサーバに保存されること、当該データに中華人民共和国の法令が適用されることの2点を情報提供している。
 :::
 
 :::guess
-重みをMITで公開すれば、他社のクラウドや利用者の自前環境でも同じモデルを動かせる。それでも自社のAPIに課金の余地が残るのは、売り物がモデルではなく運用の効率だからだと考えられる。キャッシュヒット時の入力単価はキャッシュミス時の50分の1で、オフピークはさらに半額になる。これは、KVキャッシュをディスクに保持する仕組みと、需要の谷に処理を寄せる時間帯別の値付けを、自社の設備で両方握っているから出せる価格だとみられる。重みを入手した第三者が同じ単価を再現するには、同等のキャッシュ基盤と稼働率が要ると推測される。
+重みをMITで公開すれば、他社のクラウドや利用者の自前環境でも同じモデルを動かせる。それでも自社のAPIに課金の余地が残るのは、売り物がモデルではなく運用の効率だからだと考えられる。deepseek-flashの場合、キャッシュヒット時の入力単価（0.006ドル）はキャッシュミス時（0.30ドル）の50分の1で、オフピークはさらに半額になる（deepseek-v4-proは0.044ドルと1.32ドルで30分の1）。これは、KVキャッシュをディスクに保持する仕組みと、需要の谷に処理を寄せる時間帯別の値付けを、自社の設備で両方握っているから出せる価格だとみられる。重みを入手した第三者が同じ単価を再現するには、同等のキャッシュ基盤と稼働率が要ると推測される。
 :::
 
 :::guess

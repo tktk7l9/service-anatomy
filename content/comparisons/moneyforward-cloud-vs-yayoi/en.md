@@ -5,18 +5,21 @@ lead: "For the lowest plan that can file a consumption-tax return, the annual pr
 slugA: "moneyforward-cloud"
 slugB: "yayoi"
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-01"
-lastVerified: "2026-10-01"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 sources:
   - label: "Money Forward Cloud Tax Return: pricing (Japanese)"
     url: "https://biz.moneyforward.com/tax_return/price/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "Money Forward Cloud support: partial revision of pricing (effective December 1, 2026 and June 1, 2027) (Japanese)"
     url: "https://biz.moneyforward.com/support/plan/news/20260924.html"
     accessedAt: "2026-10-01"
   - label: "Money Forward Cloud Tax Return: product top page (Japanese)"
     url: "https://biz.moneyforward.com/tax_return/"
     accessedAt: "2026-10-01"
+  - label: "Money Forward Cloud Tax Return: smartphone app (Japanese)"
+    url: "https://biz.moneyforward.com/tax_return/app"
+    accessedAt: "2026-10-02"
   - label: "Yayoi: Yayoi Blue Return Online pricing plans (Japanese)"
     url: "https://www.yayoi-kk.co.jp/shinkoku/aoiroshinkoku/price/"
     accessedAt: "2026-10-01"
@@ -89,9 +92,9 @@ These are the differences that could be confirmed on the two companies' official
 | --- | --- | --- |
 | Automatic statement import | Bank and credit-card statement import on every plan. "Links with more than 2,300 services" (company survey, February 2024) | Financial-institution links on every plan. More than 1,100 institutions nationwide and more than 2,500 services (as of August 2025) |
 | e-Tax | Electronic filing on every plan. Filing from the app requires a My Number card and a smartphone that can read it | e-Tax on every plan. After preparing the filing data, the user launches a dedicated e-Tax service and signs electronically with a smartphone app to submit. Exporting e-Tax data is also supported |
-| Smartphone app | The product page describes filing electronically "straight from the app" | The "Yayoi Shinkoku" app and the "Yayoi Receipt Capture" app handle transaction entry and receipt capture. The tax return and the blue-return financial statement are prepared on Windows or Mac and cannot be prepared in the app |
+| Smartphone app | The product page describes filing electronically "straight from the app." According to the app page, a consumption-tax return can be prepared only in the web version; one prepared there can be filed electronically from the app | The "Yayoi Shinkoku" app and the "Yayoi Receipt Capture" app handle transaction entry and receipt capture. The tax return and the blue-return financial statement are prepared on Windows or Mac and cannot be prepared in the app |
 | Consumption tax and invoice system | Preparing a consumption-tax return requires Personal or above. Not available on Personal Mini | Every plan covers the consumption-tax return, invoice-aware journal entry, and the 20% special rule |
-| Receipt scanning | Free allowance of 15 per month on Mini, 30 on Personal, 100 on Plus. Beyond that, ¥20 each (before tax); Personal and Plus have no limit from December 1, 2026 | No per-plan limit is stated on the pricing page |
+| Receipt scanning | Free allowance of 15 per month on Mini, 30 on Personal, 100 on Plus. Mini requires a plan upgrade from the 16th item. On Personal and Plus the excess is ¥20 each (before tax), with no limit from December 1, 2026 | No per-plan limit is stated on the pricing page |
 | Email and chat | Available on every plan (how to operate the product) | Basic and above. Self has web FAQ only |
 | Phone | Personal Plus only. Covers how to operate the product; journal-entry and tax questions are not accepted | Basic and above. Basic is limited to 10 calls during the support contract period |
 | Bookkeeping and filing advice | No plan with this is listed on the pricing page | Total adds journal-entry, bookkeeping, and tax-return consultation |
@@ -110,7 +113,7 @@ This is not a ranking. From the facts above, here is which side tends to match e
 - **Registered invoice issuers who want to keep costs down** appear likely to find Yayoi's Self plan a match. It covers the consumption-tax return at ¥11,800/year + tax from the second year, with the first year free. Support, however, is web FAQ only.
 - **People who want to ask by chat or email when stuck** face a split. Money Forward includes email and chat even on Personal Mini, its lowest-priced plan. At Yayoi that starts with Basic (¥22,800/year + tax from the second year).
 - **People who want advice on bookkeeping or filing itself** appear to match Yayoi's Total plan. Money Forward states that its phone support covers how to operate the product and excludes journal-entry and tax questions.
-- **People who want to finish filing on a smartphone alone** seem closer to what Money Forward describes. Yayoi says the return is prepared on Windows or Mac.
+- **People who want to finish filing on a smartphone alone** seem closer to what Money Forward describes. Yayoi says the return is prepared on Windows or Mac. Money Forward, however, prepares the consumption-tax return only in the web version, so someone who files consumption tax cannot finish on a phone alone there either.
 - **People who want invoicing, expenses, and payroll under the same contract** have Money Forward as a candidate, with 12 services in the base fee. If invoicing alone is enough, Yayoi also links with Misoca.
 - **Tax-exempt businesses that do not need a consumption-tax return** see nearly the same price band: Money Forward's Personal Mini (¥10,800 on annual billing, unchanged after the revision) and Yayoi's Self (¥11,800 + tax from the second year). Here the decision probably turns less on price than on whether email and chat are needed and whether the institutions in use are covered.
 - **White-return filers** can use the Free plan of Yayoi White Return Online at no charge. Support starts with Basic.

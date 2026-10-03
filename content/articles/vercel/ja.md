@@ -1,13 +1,13 @@
 ---
 service: "Vercel"
-title: "フレームワークを無料で配り、その置き場所を売る — 当サイトも載っているVercelの構造"
-description: "Next.jsを無償のOSSとして配り、その最適なホスティングを売るVercel。直近12ヶ月で5億ダウンロードを超えたフレームワークのファネル構造、サーバーレスの次を狙うFluid compute、評価額93億ドルのAIクラウド転換までを公式ブログとドキュメントから解剖する。なお、この記事自体がVercelから配信されている。"
-lead: "いま読んでいるこのページは、Vercelのサーバーから届いている。当サイトはNext.jsで書かれ、Vercelにデプロイされているからだ。フレームワークを無料で配り、その最適な置き場所を売る——利用者として渦中にいるこのビジネスモデルを、一歩引いて解剖する。"
+title: "フレームワークを無料で配り、その置き場所を売る — 当サイトも載っていたVercelの構造"
+description: "Next.jsを無償のOSSとして配り、その最適なホスティングを売るVercel。直近12ヶ月で5億ダウンロードを超えたフレームワークのファネル構造、サーバーレスの次を狙うFluid compute、評価額93億ドルのAIクラウド転換までを公式ブログとドキュメントから解剖する。なお、当サイトは2026年9月12日までVercelから配信していた（現在はCloudflare Workers）。"
+lead: "このサイトのページは2026年9月12日まで、Vercelのサーバーから届いていた。当サイトはNext.jsで書かれ、Vercelにデプロイされていたからだ（現在はNext.jsのままCloudflare Workersで配信している）。フレームワークを無料で配り、その最適な置き場所を売る——利用者として渦中にいたこのビジネスモデルを、一歩引いて解剖する。"
 category: dev-tool
 tags: [hosting, nextjs, serverless, rust, ai]
 publishedAt: "2026-07-21"
-updatedAt: "2026-07-21"
-lastVerified: "2026-07-21"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://vercel.com/"
 vendor: "Vercel Inc."
 origin: "US"
@@ -32,30 +32,38 @@ techStack:
   - layer: "基盤クラウド"
     name: "AWS"
     confidence: likely
-    evidence: "公式リージョンドキュメントの20コンピュートリージョンの内部名称（eu-north-1・ap-northeast-1等）がAWSリージョン名と一致することを実確認（2026-07-21）"
+    evidence: "公式リージョンドキュメントの19コンピュートリージョンの内部名称（eu-north-1・ap-northeast-1等）がAWSリージョン名と一致することを実確認（2026-09-28に再確認）"
+  - layer: "実装言語"
+    name: "Rust"
+    confidence: confirmed
+    evidence: "Next.js公式ドキュメントに、TurbopackはRustで書かれたインクリメンタルバンドラと明記。Fluid computeの公式発表（2025-02-04）もRust製ランタイムに言及している"
+    evidenceUrl: "https://nextjs.org/docs/app/api-reference/turbopack"
   - layer: "公式サイト配信"
     name: "Vercel"
     confidence: confirmed
-    evidence: "当サイトのHTTPヘッダー実観測（server: Vercel、2026-07-21）。自社製品による自社サイト配信"
+    evidence: "vercel.com のHTTPヘッダー実観測（server: Vercel、2026-09-28に再確認）。自社製品による自社サイト配信"
     evidenceUrl: "https://vercel.com/"
 sources:
   - label: "Vercel公式ブログ: Towards the AI Cloud — Series F（3億ドル調達・評価額93億ドル・2025-09-30）"
     url: "https://vercel.com/blog/series-f"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Vercel公式ブログ: Introducing Fluid compute（2025-02-04）"
     url: "https://vercel.com/blog/introducing-fluid-compute"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Next.js公式ドキュメント: Turbopack（Rust製・Next.js 16で既定バンドラ）"
     url: "https://nextjs.org/docs/app/api-reference/turbopack"
-    accessedAt: "2026-07-21"
-  - label: "Vercel公式ドキュメント: Global network and regions（126 PoP・20リージョン）"
+    accessedAt: "2026-09-28"
+  - label: "Vercel公式ドキュメント: Global network and regions（126 PoP・19リージョン）"
     url: "https://vercel.com/docs/regions"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
+  - label: "Vercel公式ブログ: Fluid compute takes any shape（2026-09-01・月1兆リクエスト）"
+    url: "https://vercel.com/blog/fluid-compute-takes-any-shape"
+    accessedAt: "2026-09-28"
 ---
 
 ## サービス解説
 
-VercelはWebアプリのホスティングプラットフォームだ。git pushするだけでビルド・デプロイ・世界配信までが完了する体験を売り、その入口として、Reactフレームワークのデファクトになった[Next.js](https://nextjs.org/)を無償のOSSとして開発・配布している。当サイト自身もNext.jsで書かれ、Vercelから配信されている——この記事は、利用者が自分の足元を解剖する試みでもある。
+VercelはWebアプリのホスティングプラットフォームだ。git pushするだけでビルド・デプロイ・世界配信までが完了する体験を売り、その入口として、Reactフレームワークのデファクトになった[Next.js](https://nextjs.org/)を無償のOSSとして開発・配布している。当サイト自身もNext.jsで書かれ、2026年9月12日まではVercelから配信していた（現在はCloudflare Workersで配信している）——この記事は、利用者が自分の足元を解剖する試みでもある。
 
 :::fact
 公式のSeries F発表（2025年9月30日）によれば、VercelはAccelとGICの共同リードで3億ドルを調達し、評価額は93億ドル。同時に約3億ドル規模のテンダーオファー（従業員・初期投資家向け）も実施した。Next.jsの直近12ヶ月のダウンロードは5億回を超え、「2016年から2024年の合計より多い」とされる。AI SDKの週間ダウンロードは1年で44.6万から320万に伸び、Grok・Claude・CursorのフロントエンドがNext.jsで動いていることにも言及されている。
@@ -74,14 +82,14 @@ VercelのUXは「デプロイという概念を消す」ことに向けられて
 - **git pushがデプロイになる**。ブランチを押せばプレビューURLが生え、mainに入れば本番へ。CI/CDの構築という概念自体を製品が吸収し、個人開発者にも大企業と同じ配信パイプラインを与えた。
 - **プレビューURLが共同作業の単位になる**。変更ごとに世界へ配信される一意のURLは、レビュー・デザイン確認・共有の摩擦を大きく下げた発明で、後発ホスティングが揃って模倣する型になった。
 - **ゼロ設定の陰に「最適化の檻」もある**。Next.jsの新機能はVercel上で最も滑らかに動くよう設計され、他ホスティングでは自前の設定や機能差の吸収が必要になる場面がある。簡単さの代償として、事実上の囲い込みが機能している。
-- **ダッシュボードは観測装置を兼ねる**。Analytics・Speed Insights・ログが同じ画面に集まり、「配信して終わり」でなく「測って直す」導線が既定で敷かれている。当サイトのWeb Analyticsもこの仕組みの上にある。
+- **ダッシュボードは観測装置を兼ねる**。Analytics・Speed Insights・ログが同じ画面に集まり、「配信して終わり」でなく「測って直す」導線が既定で敷かれている。当サイトのWeb AnalyticsもVercelで配信していた当時はこの仕組みの上にあった。
 
 ## 技術構成
 
 ::techstack
 
 :::fact
-Vercelのインフラは126のPoPと20のコンピュートリージョンで構成され、公式ドキュメントのリージョン一覧の内部名称はAWSリージョン名と一致する。実行基盤は2025年2月発表のFluid computeで、単発呼び出しで課金される従来型サーバーレスに代えて、1インスタンスが多数のリクエストを並行処理する「ミニサーバー」型を採用し、コンピュートコストを最大85%削減すると公表。ビルド側はRust製のTurbopackがNext.js 16から既定のバンドラになっている。
+Vercelのインフラは126のPoPと19のコンピュートリージョンで構成され（公式ドキュメント・2026年9月28日確認。初出の2026年7月時点の記載は20）、公式ドキュメントのリージョン一覧の内部名称はAWSリージョン名と一致する。実行基盤は2025年2月発表のFluid computeで、単発呼び出しで課金される従来型サーバーレスに代えて、1インスタンスが多数のリクエストを並行処理する「ミニサーバー」型を採用し、コンピュートコストを最大85%削減すると公表。公式ブログ（2026年9月1日）によれば、Fluid computeは1日1,500万回超のビルド、週2,500万のサンドボックス、月1兆のリクエストを動かしている。ビルド側はRust製のTurbopackがNext.js 16から既定のバンドラになっている。
 :::
 
 :::guess
@@ -100,4 +108,4 @@ Series F発表では、調達資金の使途としてv0（自然言語からのU
 Next.jsという無償OSSは、ホスティングという有料製品の獲得コストをほぼゼロにする装置として機能しているとみられる。フレームワークの学習者が最初のデプロイ先に選ぶのは自然とVercelになり、営業なしで世界中から見込み客が流入する。一方でこの構造は「OSSのスチュワードと商業ホスティングの利益相反」という緊張を常に孕み、Next.jsがVercel外でも完全に同等に動くかは、コミュニティが監視し続ける論点であり続けるだろう。評価額93億ドルはARR推定値に対してかなり強気で、AIクラウド転換の成否——v0とAI SDKが第二のNext.jsになれるか——を先取りした価格と推測される。
 :::
 
-無料で配ったフレームワークが12ヶ月で5億回落とされ、その置き場所として自社クラウドが選ばれる。当サイトもその5億分の1であり、この記事もその構造の中から配信されている。OSSをファネルにする戦略の完成形と、その利益相反という宿題——Vercelの解剖は、現代の開発者向けビジネスの教科書そのものだ。
+無料で配ったフレームワークが12ヶ月で5億回落とされ、その置き場所として自社クラウドが選ばれる。当サイトもその5億分の1であり、2026年9月12日まではこの記事もその構造の中から配信されていた。いまはNext.jsのまま、Cloudflare Workersへ移っている。OSSをファネルにする戦略の完成形と、その利益相反という宿題——Vercelの解剖は、現代の開発者向けビジネスの教科書そのものだ。

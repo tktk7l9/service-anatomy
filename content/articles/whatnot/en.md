@@ -1,13 +1,13 @@
 ---
 service: "Whatnot"
 title: "Solving a Trust Problem Photos and Text Never Could — Why Whatnot Expanded Into Fresh Food"
-description: "Whatnot, the livestream marketplace for trading cards, sneakers, and other collectibles. Founded in 2019, it passed $8 billion in gross merchandise value and roughly 60% market share of live commerce across North America and Europe in 2025, while its valuation jumped from $4.97 billion to $11.5 billion the same year. In 2026 it expanded into fresh food. A dissection, from public information, of how far a collectibles-first format can generalize."
+description: "Whatnot, the livestream marketplace for trading cards, sneakers, and other collectibles. Founded in 2019, it passed $8 billion in gross merchandise value and roughly 60% market share of live commerce across North America and Europe in 2025, while its valuation jumped from $4.97 billion to $11.5 billion the same year, then reportedly reached $20 billion with a Series G in August 2026. In 2026 it also expanded into fresh food. A dissection, from public information, of how far a collectibles-first format can generalize."
 lead: "The biggest weakness of secondhand e-commerce was that photos and text could never fully convey whether an item is genuine or in good condition. Whatnot, founded in 2019, solved this with a livestream format: sellers show items one at a time on a live broadcast, and viewers bid or buy instantly. It passed $8 billion in gross merchandise value in 2025, and by 2026 had expanded its categories from trading cards to fresh food. This dissects why a collectibles-focused app reached for groceries."
 category: consumer-app
 tags: [live-shopping, marketplace, collectibles, e-commerce, creator-economy]
 publishedAt: "2026-07-23"
-updatedAt: "2026-07-23"
-lastVerified: "2026-07-23"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://www.whatnot.com/"
 vendor: "Whatnot Inc."
 origin: "US"
@@ -33,7 +33,13 @@ techStack:
 sources:
   - label: "Wikipedia: Whatnot (founding history, funding trajectory, gross merchandise value, category expansion, market share aggregated)"
     url: "https://en.wikipedia.org/wiki/Whatnot"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
+  - label: "Press report, Fortune: Whatnot Series G ($545 million, $20 billion valuation, August 7, 2026)"
+    url: "https://fortune.com/2026/08/07/ai-obsessed-silicon-valley-live-commerce-platform-whatnot-new-funding-round-20-billion/"
+    accessedAt: "2026-09-28"
+  - label: "Press report, Tubefilter: Whatnot Series G (lead investors, 2025 gross merchandise value)"
+    url: "https://www.tubefilter.com/2026/08/07/whatnot-series-g-funding-round-545-million-live-shopping/"
+    accessedAt: "2026-09-28"
 ---
 
 ## Service overview
@@ -41,7 +47,7 @@ sources:
 Whatnot is the livestream marketplace founded in 2019 by Grant LaFontaine and Logan Head, headquartered in Marina Del Rey, California (incorporated in Delaware). It grew around trading cards, sports cards, Funko Pops, and other collectibles, with sellers presenting items live on stream as they sell.
 
 :::fact
-Per aggregated Wikipedia reporting, gross merchandise value moved through Whatnot's live sales reached $3 billion in 2024 and passed $8 billion in 2025. That year, new account creation exceeded 20 million and headcount reached roughly 800. As of June 2025 it reportedly ranked among the top 15 free iPhone apps in the US, and No. 1 in the shopping category. On funding, it raised a Series E in 2025 ($265 million, at a $4.97 billion valuation) and a Series F that October ($225 million, at an $11.5 billion valuation, co-led by DST Global and CapitalG).
+Per aggregated Wikipedia reporting, gross merchandise value moved through Whatnot's live sales reached $3 billion in 2024 and passed $8 billion in 2025. That year, new account creation exceeded 20 million and headcount reached roughly 800. As of June 2025 it reportedly ranked among the top 15 free iPhone apps in the US, and No. 1 in the shopping category. On funding, it raised a Series E in 2025 ($265 million, at a $4.97 billion valuation) and a Series F that October ($225 million, at an $11.5 billion valuation, co-led by DST Global and CapitalG). Per reporting by Fortune and Tubefilter, it raised a $545 million Series G on August 7, 2026, at a $20 billion valuation. The round was led by ICONIQ, Lightspeed, and Avra, and total funding since founding is put at about $1.5 billion.
 :::
 
 :::pull
@@ -76,11 +82,11 @@ The Shopify integration looks aimed at connecting the livestream sales channel t
 Whatnot's revenue is reported to rest on seller commissions and influencer/brand collaborations.
 
 :::fact
-Per aggregated Wikipedia reporting, Whatnot's revenue comes from seller fees and collaborations with influencers and brands. Gross merchandise value grew from $3 billion in 2024 to over $8 billion in 2025, while valuation more than doubled in the same window, from $4.97 billion (2025 Series E) to $11.5 billion (that October's Series F). It reportedly holds roughly 60% of the live commerce market across North America and Europe, establishing itself as the category leader.
+Per aggregated Wikipedia reporting, Whatnot's revenue comes from seller fees and collaborations with influencers and brands. Gross merchandise value grew from $3 billion in 2024 to over $8 billion in 2025, while valuation more than doubled in the same window, from $4.97 billion (2025 Series E) to $11.5 billion (that October's Series F). Per press reports, the Series G in August 2026 took the valuation to $20 billion. It reportedly holds roughly 60% of the live commerce market across North America and Europe, establishing itself as the category leader.
 :::
 
 :::guess
-The valuation more than doubling from Series E to Series F within a few months likely reflects investor enthusiasm for the live commerce category itself, layered on top of the rapid GMV growth. A dominant roughly-60% share in collectibles plausibly provides a revenue base sturdy enough to absorb the experimentation cost of extending the same format into other categories, and the push into food looks like an attempt to reduce reliance on a single category while establishing live commerce as a format in its own right, rather than a collectibles company.
+The valuation more than doubling from Series E to Series F within a few months, then nearly doubling again at Series G, likely reflects investor enthusiasm for the live commerce category itself, layered on top of the rapid GMV growth. A dominant roughly-60% share in collectibles plausibly provides a revenue base sturdy enough to absorb the experimentation cost of extending the same format into other categories, and the push into food looks like an attempt to reduce reliance on a single category while establishing live commerce as a format in its own right, rather than a collectibles company.
 :::
 
 A trust problem photos and text couldn't fully solve got solved by a livestream — showing the item in real time instead. What this dissection of Whatnot reveals is a company still mid-growth, reusing an experience design refined in the hardest-to-trust category (collectibles) to test how far the format itself can generalize, starting with a category carrying an entirely different kind of trust problem: food.

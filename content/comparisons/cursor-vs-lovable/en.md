@@ -20,6 +20,12 @@ sources:
   - label: "Cursor official docs: Models & Pricing (Composer and Grok in the first-party Cursor Models pool)"
     url: "https://cursor.com/docs/models-and-pricing"
     accessedAt: "2026-10-02"
+  - label: "Cursor official blog: Introducing Composer 2.5 (2026-05-18 — built on Kimi K2.5)"
+    url: "https://cursor.com/blog/composer-2-5"
+    accessedAt: "2026-10-02"
+  - label: "Anthropic official: Lovable customer story (use of Claude)"
+    url: "https://claude.com/customers/lovable"
+    accessedAt: "2026-10-02"
   - label: "Lovable official blog: Series C (2026-08-12 — $400M raised, $13.3B valuation)"
     url: "https://lovable.dev/blog/series-c"
     accessedAt: "2026-10-02"
@@ -40,23 +46,25 @@ sources:
     accessedAt: "2026-10-02"
 ---
 
-[Cursor](/en/articles/cursor) and [Lovable](/en/articles/lovable) both grew, at strikingly similar speed, in the same market — having AI build an app from conversation or code. Yet a mechanical comparison of their tech stacks finds zero shared technology. And where each chose to bring a layer in-house, on top of an otherwise borrowed foundation, points in completely different directions. In August 2026 that difference showed up in ownership too: Cursor was acquired by SpaceX.
+[Cursor](/en/articles/cursor) and [Lovable](/en/articles/lovable) both grew, at strikingly similar speed, in the same market — having AI build an app from conversation or code. Yet a mechanical comparison of their tech stacks finds just one shared entry: Anthropic, a provider of AI models. And where each chose to bring a layer in-house, on top of an otherwise borrowed foundation, points in completely different directions. In August 2026 that difference showed up in ownership too: Cursor was acquired by SpaceX.
 
 ## Same strategy, different layer brought in-house
 
 :::fact
-Per the [Cursor](/en/articles/cursor) dissection, Cursor forked the VS Code codebase as its editor foundation, used a code-editing model called Fast Apply (a fine-tuned Llama-3-70B via a Fireworks AI partnership) as of 2024, and introduced its own in-house coding model, Composer, in October 2025. As of October 2026, the official docs group Composer 2.5 and Grok 4.7, 4.6 and 4.5 into a first-party pool called "Cursor Models." Per Lovable's official blog, it released its built-in backend, Lovable Cloud & AI (including data persistence and authentication), on September 29, 2025. Its official docs (checked October 2026) say that built-in backend uses Supabase's open-source foundation, and they still describe connecting a Supabase project of your own as an option.
+Per the [Cursor](/en/articles/cursor) dissection, Cursor forked the VS Code codebase as its editor foundation, used a code-editing model called Fast Apply (a fine-tuned Llama-3-70B via a Fireworks AI partnership) as of 2024, and introduced its own in-house coding model, Composer, in October 2025. As of October 2026, the official docs group Composer 2.5 and Grok 4.7, 4.6 and 4.5 into a first-party pool called "Cursor Models," and offer third-party models from Anthropic, OpenAI, Google and others in an "Other Models" pool. Per the official Composer 2.5 post, that model is built on an open-source checkpoint, Moonshot's Kimi K2.5. Per Lovable's official blog, it released its built-in backend, Lovable Cloud & AI (including data persistence and authentication), on September 29, 2025. Its official docs (checked October 2026) say that built-in backend uses Supabase's open-source foundation, and they still describe connecting a Supabase project of your own as an option. Anthropic's official customer story presents Lovable as a company building with Claude, and per the [Lovable](/en/articles/lovable) dissection, it assigns different models to different work and uses models it post-trained itself for part of it.
 :::
 
 :::pull
 Cursor borrowed the editor and built the model. Lovable borrowed the backend and built the cloud. Same "borrow, then build" strategy — but which layer you pick defines the company.
 :::
 
-What Cursor brought in-house is the "intelligence" layer. It delegates the editor UI to a well-worn open-source project, VS Code, and concentrates its own differentiation on the model layer that determines editing precision and speed. Since the acquisition, though, that layer is no longer Cursor's alone: per the Cursor dissection, its parent SpaceX supplies GPU cluster compute, and Grok sits in the first-party pool next to Composer. What Lovable brought in-house is the "foundation" layer. The AI model that generates the app itself is apparently left to third parties, while the backend — database, authentication — that lets the generated app actually run is assembled as Lovable's own service on top of Supabase's open-source foundation.
+What Cursor brought in-house is the "intelligence" layer. It delegates the editor UI to a well-worn open-source project, VS Code, and concentrates its own differentiation on the model layer that determines editing precision and speed. Since the acquisition, though, that layer is no longer Cursor's alone: per the Cursor dissection, its parent SpaceX supplies GPU cluster compute, and Grok sits in the first-party pool next to Composer. What Lovable brought in-house is the "foundation" layer. For the AI models that generate the app, it mainly draws on outside frontier models, Anthropic's Claude among them, while the backend — database, authentication — that lets the generated app actually run is assembled as Lovable's own service on top of Supabase's open-source foundation.
 
 :::guess
-This difference in choice likely reflects the two companies placing value on different parts of the same phenomenon: AI writing code. Cursor's users are already developers who can write code themselves, and what they judge the product on is the precision and speed of editing itself — so owning the model layer becomes a direct differentiator. Lovable's users include non-engineers who just want to build an app from conversation, and for them the value lies in "something functional comes out the other end" — the reliability of the backend that keeps the generated app running matters more to the experience than model sophistication. Even within the same "AI developer tool" category, the assumed technical sophistication of the target user appears to determine which layer is worth owning.
+This difference in choice likely reflects the two companies placing value on different parts of the same phenomenon: AI writing code. Cursor's users are already developers who can write code themselves, and what they judge the product on is the precision and speed of editing itself — so owning the model layer becomes a direct differentiator. Lovable's users include non-engineers who just want to build an app from conversation, and for them the value lies in "something functional comes out the other end" — the reliability of the backend that keeps the generated app running matters more to the experience than model sophistication. Even within the same "AI developer tool" category, the assumed technical sophistication of the target user appears to determine which layer is worth owning. Note that Composer sits on an open-source checkpoint and Lovable Cloud on Supabase's open-source foundation, so both acts of in-housing look closer to reworking a borrowed base into the company's own product than to building from scratch.
 :::
+
+Correction (October 2, 2026). Until now this piece said a mechanical comparison of the two tech stacks found zero shared technology, which was wrong. The Cursor dissection's techStack was missing its third-party model providers, and the Lovable dissection's techStack was missing its generative AI model provider. With both confirmed against primary sources and added, the mechanical comparison returns Anthropic as shared technology. We also replaced the passage that guessed at which AI models Lovable uses with a statement based on Anthropic's official customer story, and added that Composer and Lovable Cloud each sit on an open-source base.
 
 ## The same valuation rhythm, then different destinations
 
