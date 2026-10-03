@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { ALL_ARTICLES } from "@/engine/articles";
-import { ALL_COMPARISONS, comparisonBySlug, resolveComparison } from "./index";
+import { ALL_COMPARISONS, comparisonBySlug, comparisonsFor, resolveComparison } from "./index";
 
 // ALL_COMPARISONS reads the real content/comparisons.
 
@@ -44,5 +44,22 @@ describe("comparisons/index", () => {
   it("resolveComparison returns undefined if either slugA or slugB is unresolved", () => {
     expect(resolveComparison(makeFakeComparison("no-such-a", "no-such-b"))).toBeUndefined();
     expect(resolveComparison(makeFakeComparison(ALL_ARTICLES[0].slug, "no-such-b"))).toBeUndefined();
+  });
+});
+
+describe("comparisonsFor", () => {
+  it("lists every real comparison that includes the article, on either side", () => {
+    for (const comparison of ALL_COMPARISONS) {
+      const { slugA, slugB } = comparison.ja.frontmatter;
+      const ofA = comparisonsFor(slugA).find((r) => r.comparison === comparison);
+      const ofB = comparisonsFor(slugB).find((r) => r.comparison === comparison);
+      expect(ofA?.other.slug).toBe(slugB);
+      expect(ofB?.other.slug).toBe(slugA);
+    }
+  });
+
+  it("finds the Money Forward vs Yayoi and freee vs Yayoi comparisons for yayoi", () => {
+    const slugs = comparisonsFor("yayoi").map((r) => r.comparison.slug);
+    expect(slugs).toEqual(expect.arrayContaining(["moneyforward-cloud-vs-yayoi", "freee-vs-yayoi"]));
   });
 });
