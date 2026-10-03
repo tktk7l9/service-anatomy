@@ -5,8 +5,8 @@ lead: "TypeSafe AI's homepage says Jev's input price is 238 times lower than Cla
 slugA: "typesafe-ai"
 slugB: "claude"
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-01"
-lastVerified: "2026-10-01"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 sources:
   - label: "TypeSafe AI: homepage (the 238x and $42 figures)"
     url: "https://typesafe.ai/"
@@ -16,7 +16,7 @@ sources:
     accessedAt: "2026-10-01"
   - label: "Claude Platform docs: Pricing (input and output prices by model)"
     url: "https://platform.claude.com/docs/en/about-claude/pricing"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "TypeSafe AI: Workflow evals (how the reference labels are made)"
     url: "https://evals.typesafe.ai/"
     accessedAt: "2026-10-01"
@@ -44,10 +44,10 @@ TypeSafe AI's homepage says Jev's input price is "238x lower" than Claude Fable 
 According to TypeSafe AI's official docs, Jev 1.13 costs $0.042 per million input tokens ($42 per billion), and output is free. On Anthropic's official price list (as of October 1, 2026), Claude Fable 5.1 costs $10 per million input tokens and $50 per million output tokens. Dividing $10 by $0.042 gives about 238. The same price list also shows Claude Opus 5.5 ($4 input, $20 output), Claude Sonnet 5.5 ($2 input, $10 output), and Claude Haiku 4.5 ($1 input, $5 output).
 :::
 
-The 238x figure compares Jev with the row that has the highest input price on Claude's list. Applying the same arithmetic ourselves to other rows gives about 95x against Opus 5.5 and about 24x against Haiku 4.5. The gap is an order of magnitude or more against any row, but the multiple moves by a factor of ten depending on which row is chosen.
+The 238x figure compares Jev with the row that has the highest input price among the four current models at the top of Claude's list. Applying the same arithmetic ourselves to other rows gives about 95x against Opus 5.5 and about 24x against Haiku 4.5 (each is this site's calculation: the model's input price divided by $0.042). The list's "other models" section also carries older models; against Claude Opus 4.1 at $15 input the figure would be about 357x, and against Claude Haiku 3.5 at $0.80 about 19x. The gap is an order of magnitude or more against any row, but the multiple moves by a factor of ten depending on which row is chosen.
 
 :::pull
-238x is measured against the most expensive row of the price list. Against the cheapest row, it is about 24x.
+238x is measured against the most expensive input row among the four current models. Against the cheapest of them, Haiku 4.5, it is about 24x.
 :::
 
 One more point: only input is being compared. Claude charges five times its input price for output. Jev's output is free, but it does not output text in the first place. As the [TypeSafe AI](/en/articles/typesafe-ai) dissection shows, Jev returns only one of your defined options, a score, or a probability; the explanations and code Claude returns never exist as something to charge for.
@@ -83,7 +83,7 @@ According to the [Claude](/en/articles/claude) dissection, anyone can use Claude
 :::
 
 :::fact
-What TypeSafe AI publishes is a different kind of information: the code that runs its evals and 705 cases, a page listing nine weak spots of the model, and caveats on its own numbers. The official blog states, in the company's own words, that the 193.6x and 444.6x figures are expected to be on the higher end of real-world gains, that the eval workflows were made by its own team, and that it cannot prove its price is not subsidized.
+What TypeSafe AI publishes is a different kind of information: the code that runs its evals and 705 cases (confirmed in the [TypeSafe AI](/en/articles/typesafe-ai) dissection), a page listing nine weak spots of the model, and caveats on its own numbers. The official blog states, in the company's own words, that the 193.6x and 444.6x figures are expected to be on the higher end of real-world gains, that the eval workflows were made by its own team, and that it cannot prove its price is not subsidized.
 :::
 
 :::guess

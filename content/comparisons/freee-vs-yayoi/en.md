@@ -5,12 +5,12 @@ lead: "freee splits its plans by whether you can file consumption tax. Yayoi giv
 slugA: "freee"
 slugB: "yayoi"
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-01"
-lastVerified: "2026-10-01"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 sources:
   - label: "freee official: pricing plans for sole proprietors"
     url: "https://www.freee.co.jp/personal-business/accounting/pricing/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "freee official: freee Accounting features (sole proprietors)"
     url: "https://www.freee.co.jp/personal-business/accounting/func/"
     accessedAt: "2026-10-01"
@@ -31,13 +31,13 @@ sources:
     accessedAt: "2026-10-01"
   - label: "freee tax accountant search"
     url: "https://search-advisors.freee.co.jp/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "freee K.K.: company profile"
     url: "https://corp.freee.co.jp/company/"
     accessedAt: "2026-10-01"
   - label: "Yayoi Co., Ltd.: Yayoi Blue Return Online pricing plans"
     url: "https://www.yayoi-kk.co.jp/shinkoku/aoiroshinkoku/price/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "Yayoi Co., Ltd.: Yayoi White Return Online pricing plans"
     url: "https://www.yayoi-kk.co.jp/shinkoku/shiroiroshinkoku/price/"
     accessedAt: "2026-10-01"
@@ -80,7 +80,7 @@ sources:
 
 Some background for readers outside Japan. Sole proprietors and freelancers file an income tax return every year between mid-February and mid-March. A "blue return" (aoiro shinkoku) is the filing status that requires proper bookkeeping and in exchange gives a special deduction; a "white return" (shiroiro shinkoku) is the simpler status without it. The "invoice system" is the qualified-invoice regime for consumption tax (Japan's VAT) that started in October 2023.
 
-This comparison uses only what the official sites state. Every price and condition was confirmed on the official pages on October 1, 2026; campaigns and prices can change, so check each company's pricing page before signing up. This is an arrangement of public information, not the result of the author using both products side by side.
+This comparison uses only what the official sites state. Every price and condition was confirmed on the official pages on October 1, 2026; campaigns and prices can change, so check each company's pricing page before signing up. This is an arrangement of public information, not the result of this site using both products side by side.
 
 :::fact
 According to a web survey by MM Research Institute, run on March 23–26, 2026 among 15,845 sole proprietors who filed a return for 2025, Yayoi had 54.0% of sole proprietors using cloud accounting software, freee 25.1%, and Money Forward 15.7%. Accounting software users were 40.9% of all respondents, and 51.0% of those users were on software installed on a PC.
@@ -174,7 +174,7 @@ According to freee's official site, chat and email support are common to all pla
 :::
 
 :::fact
-Yayoi's official site presents its partner program for tax accountants and accounting firms, "Yayoi PAP", and says accounting data can be shared with your tax accountant in real time. The number of accounting firms is given as "more than 14,000" on the tax accountant link page and as "recommended by more than 11,000 accounting firms nationwide" on the product top page; the two pages show different figures. freee runs a site called "freee tax accountant search" where users can look for certified-advisor tax accountants and accounting firms. As far as this site could confirm on October 1, 2026, the top page of that site did not state a total number of registered firms.
+Yayoi's official site presents its partner program for tax accountants and accounting firms, "Yayoi PAP", and says accounting data can be shared with your tax accountant in real time. The number of accounting firms is given as "more than 14,000" on the tax accountant link page and as "recommended by more than 11,000 accounting firms nationwide" on the product top page; the two pages show different figures. freee runs a site called "freee tax accountant search" where users can look for certified-advisor tax accountants and accounting firms. When this site checked on October 2, 2026, the top page of that site said "more than 2,300 listed firms." Yayoi's figures count firms that recommend it or partner with it, while freee's counts firms listed on its search site; they are counted differently, so the sizes cannot be compared directly.
 :::
 
 If you already have a tax accountant, ask which software they can receive data from before you choose. Changing later changes the work on the accountant's side as well.
@@ -184,7 +184,7 @@ If you already have a tax accountant, ask which software they can receive data f
 From here on, the facts above are applied to situations. This is not a ranking. The answer changes with what a given person weighs most.
 
 - You do not need consumption-tax filing and want to keep the cost down. freee Starter (¥11,760 per year) and Yayoi Self (¥0 in year one, ¥11,800 from year two) are the candidates. From year two the prices are nearly the same; the differences are the free first year and whether you can ask a person. freee Starter comes with chat and email; Yayoi Self has Web FAQ only.
-- You registered as an invoice issuer and need to file consumption tax. Yayoi allows consumption-tax filing on every plan. At freee it starts at Standard. The gap in annual price is large, so Yayoi Self or Basic tends to fit the price condition.
+- You registered as an invoice issuer and need to file consumption tax. Yayoi allows consumption-tax filing on every plan. At freee it starts at Standard. If Web FAQ support is enough, Yayoi Self (¥11,800 from year two) is about half of freee Standard (¥23,760). Yayoi Basic (¥22,800 from year two), which lets you ask operating questions, sits in nearly the same price band as Standard; the difference there is the ¥0 first year.
 - You want to ask operating questions by phone. Phone support starts at Basic at Yayoi (¥22,800 from year two, up to 10 calls per contract period) and at Premium at freee (¥39,800). The Yayoi plan without the 10-call cap is Total (¥39,600 from year two), which sits in nearly the same price band as freee Premium.
 - Asking in writing is enough for you. freee has human chat and email from its lowest plan. Doing the same at Yayoi takes Basic.
 - You have no computer and want to finish the filing on a phone. freee says the return can be prepared and submitted on a phone. Yayoi states that preparing the return needs a computer.
