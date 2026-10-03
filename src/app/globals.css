@@ -806,6 +806,21 @@ main:focus {
   vertical-align: top;
 }
 
+/* Body tables sit in a focusable, labelled scroll region (render.ts). A table wider than the
+   column scrolls inside it instead of widening the page; a minimum cell width keeps text from
+   collapsing to a word or two per line, so many-column tables scroll rather than squeeze. */
+.prose .table-scroll {
+  margin: 0 0 1.7em;
+}
+
+.prose .table-scroll > table {
+  margin: 0;
+}
+
+.prose .table-scroll td {
+  min-width: 6rem;
+}
+
 .prose hr {
   margin: 3rem auto;
   width: 5rem;
@@ -862,6 +877,11 @@ main:focus {
 
 .callout p {
   margin: 0 0 1em;
+}
+
+/* Table headers inside a callout: the tinted background takes --ink-faint below 4.5:1. */
+.callout th {
+  color: var(--ink-soft);
 }
 
 .callout .callout-label {
@@ -1372,6 +1392,13 @@ main:focus {
   text-underline-offset: 0.2em;
 }
 
+/* The site's own CTA is a flex item of the card: at least 44px tall as a tap target. */
+.affiliate-card > .affiliate-card-cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+}
+
 /* Link with the network's own ad text (affiliate.label). The text can be long, so the group takes
    the rest of the row and wraps; the new-tab cue flows inline right after the link. */
 .affiliate-card-link {
@@ -1381,9 +1408,10 @@ main:focus {
   overflow-wrap: anywhere;
 }
 
-/* Inline padding enlarges the hit area (7mm) without changing the line layout. */
+/* Block padding on the inline link enlarges each line's hit area to 44px without changing the
+   line layout (the padding of one line may overlap the next; both belong to the same link). */
 .affiliate-card-link .affiliate-card-cta {
-  padding-block: 0.3rem;
+  padding-block: 0.8rem;
 }
 
 .affiliate-card-newtab {

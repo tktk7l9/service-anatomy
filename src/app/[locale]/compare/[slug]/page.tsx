@@ -76,7 +76,10 @@ export default async function ComparePage({
   const { frontmatter, body } = comparison[locale];
   const dict = await getDictionary(locale);
 
-  const html = renderMarkdown(body, dict.article.callouts);
+  const html = renderMarkdown(body, {
+    ...dict.article.callouts,
+    table: dict.article.tableRegion,
+  });
   const serviceA = articleA[locale].frontmatter.service;
   const serviceB = articleB[locale].frontmatter.service;
   const diff = techOverlap(articleA[locale].frontmatter.techStack, articleB[locale].frontmatter.techStack);

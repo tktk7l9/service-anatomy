@@ -19,6 +19,28 @@ describe("renderMarkdown", () => {
     expect(html).toContain("<del>取り消し</del>");
   });
 
+  it("wraps each table in a focusable, labelled scroll region numbered in document order", () => {
+    const table = "| a | b |\n| - | - |\n| 1 | 2 |";
+    const html = renderMarkdown(`${table}\n\n:::fact\n${table}\n:::`, {
+      fact: "事実",
+      guess: "推測",
+      table: "表 {n}",
+    });
+    expect(html).toContain(
+      '<div class="table-scroll" role="region" tabindex="0" aria-label="表 1"><table>',
+    );
+    expect(html).toContain(
+      '<div class="table-scroll" role="region" tabindex="0" aria-label="表 2"><table>',
+    );
+    // Each table is wrapped exactly once.
+    expect(html.match(/class="table-scroll"/g)).toHaveLength(2);
+    expect(html.match(/<table>/g)).toHaveLength(2);
+  });
+
+  it("uses the default English table label", () => {
+    expect(renderMarkdown("| a |\n| - |\n| 1 |")).toContain('aria-label="Table 1"');
+  });
+
   it("raw HTML is ignored (no script is emitted)", () => {
     const html = renderMarkdown('<script>alert("x")</script>\n\n本文');
     expect(html).not.toContain("<script");
@@ -39,7 +61,7 @@ describe("renderMarkdown", () => {
   });
 
   it(":::guess accepts locale-specific labels", () => {
-    const html = renderMarkdown(":::guess\n推測の内容。\n:::", { fact: "事実", guess: "推測" });
+    const html = renderMarkdown(":::guess\n推測の内容。\n:::", { fact: "事実", guess: "推測", table: "表 {n}" });
     expect(html).toContain('<aside class="callout callout-guess">');
     expect(html).toContain('<span class="callout-label">推測</span>');
   });
