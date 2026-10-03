@@ -6,7 +6,7 @@ lead: "緑のフクロウの通知を無視すると、なぜか罪悪感が湧�
 category: consumer-app
 tags: [language-learning, gamification, aws, python, subscription]
 publishedAt: "2026-07-17"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.duolingo.com/"
 vendor: "Duolingo, Inc."
@@ -15,7 +15,7 @@ heroTheme: "duolingo"
 scores: { product: 4.5, ux: 4.5, tech: 4.0, business: 4.5 }
 techStack:
   - layer: "バックエンド言語"
-    name: "Python 3 (マイクロサービス群)"
+    name: "Python 3 (microservices)"
     confidence: confirmed
     evidence: "公式エンジニアリングブログ（2025-03）に、同期Pythonで書かれたサービスコードを大量に抱え、非同期Pythonへの移行を始めたと明記。マイクロサービスが「数百」ある点は同ブログのaislackbot記事（2026-05）で確認"
     evidenceUrl: "https://blog.duolingo.com/async-python-migration/"

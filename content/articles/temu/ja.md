@@ -6,7 +6,7 @@ lead: "2022年9月に米国でサービスを開始したTemuは、わずか1年
 category: consumer-app
 tags: [e-commerce, marketplace, cross-border, pdd-holdings, tariffs]
 publishedAt: "2026-07-23"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.temu.com/"
 vendor: "Whaleco, Inc."
@@ -15,19 +15,19 @@ heroTheme: "temu"
 scores: { product: 3.5, ux: 4.0, tech: 3.5, business: 3.5 }
 techStack:
   - layer: "運営主体（米国）"
-    name: "Whaleco, Inc.（PDD Holdings子会社）"
+    name: "Whaleco, Inc. (PDD Holdings subsidiary)"
     confidence: likely
     evidence: "Wikipediaの集約情報によれば、米国でのTemu運営主体はデラウェア州・マサチューセッツ州登記のPDD Holdings子会社Whaleco, Inc.とされる。一次情報（Temu/PDD公式）は今回アクセスできず未確認のためlikely扱い"
   - layer: "親会社"
-    name: "PDD Holdings（旧拼多多）"
+    name: "PDD Holdings (formerly Pinduoduo)"
     confidence: likely
     evidence: "Wikipediaの集約情報によれば、PDD Holdingsはケイマン諸島法人でダブリンにも主要拠点を置くとされ、2015年に上海で創業した拼多多（Pinduoduo）が母体。2023年に法域を上海からダブリンへ変更したとされる"
   - layer: "サプライチェーンモデル"
-    name: "「次世代マニュファクチャリング」直送コンサイメントモデル"
+    name: "Consignment model (Next-Gen Manufacturing, direct shipping)"
     confidence: likely
     evidence: "Wikipediaの集約情報によれば、中国拠点の出品者が中間流通業者を介さず消費者へ直送する仕組みで、出品者には14日間で30点・90ドル以上の販売実績などの基準が課されているとされる"
   - layer: "国内姉妹プラットフォーム"
-    name: "拼多多（Pinduoduo）"
+    name: "Pinduoduo (拼多多)"
     confidence: likely
     evidence: "Wikipediaの集約情報によれば、拼多多は中国国内向けの姉妹プラットフォームとしてPDD Holdings傘下で運営が継続されており、Temuは海外展開専用に2022年9月に立ち上げられたとされる"
 sources:

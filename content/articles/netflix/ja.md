@@ -6,7 +6,7 @@ lead: "netflix.comにリクエストを送ると、viaヘッダーにAWS us-west
 category: media
 tags: [streaming, video, aws, cdn, microservices]
 publishedAt: "2026-07-21"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.netflix.com/"
 vendor: "Netflix, Inc."
@@ -25,7 +25,7 @@ techStack:
     evidence: "AWS公式導入事例に、リレーショナルDBをAmazon Auroraへ集約、Amazon EKSへ移行、大規模データ処理にAmazon EMRを利用と明記（2026-09-28確認）"
     evidenceUrl: "https://aws.amazon.com/solutions/case-studies/netflix/"
   - layer: "動画配信CDN"
-    name: "Open Connect (自社CDNアプライアンス)"
+    name: "Open Connect (in-house CDN appliances)"
     confidence: confirmed
     evidence: "公式Open Connectサイトに、1,000超のISPと連携し、自社設計のアプライアンス（OCA）を条件を満たすISPへ無償で設置提供（ISP側負担はラック・電源・接続のみ）と明記"
     evidenceUrl: "https://openconnect.netflix.com/en/"

@@ -6,7 +6,7 @@ lead: "Suno generates a complete song — lyrics, melody, and vocals — from a 
 category: ai-tool
 tags: [ai-music, generative-ai, licensing, copyright, creative-tools]
 publishedAt: "2026-07-23"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://suno.com/"
 vendor: "Suno, Inc."
@@ -20,22 +20,22 @@ techStack:
     evidence: "Suno's official blog (September 9, 2026) announces the v6 generation, developed with industry partners (Warner Music Group, BMG, Believe): v6 and v6-wild for Pro/Premier, v6-mini for everyone. Previous models are to be retired as Suno moves entirely onto v6. The preceding v5.5 shipped March 26, 2026"
     evidenceUrl: "https://suno.com/blog/introducing-v6"
   - layer: "Stem separation / production tools"
-    name: "Suno Studio（MIDI / オートメーション / プラグイン等）"
+    name: "Suno Studio (MIDI / automation / plugins, etc.)"
     confidence: confirmed
     evidence: "Suno's official blog states Suno Studio 2.0 (August 13, 2026) added MIDI, audio effects and plugins, automation, and advanced stem separation, available to Premier subscribers"
     evidenceUrl: "https://suno.com/blog/studio-2"
   - layer: "Label licensing foundation"
-    name: "Warner Music Groupとのカタログライセンス提携"
+    name: "Warner Music Group (catalog licensing partnership)"
     confidence: confirmed
     evidence: "Suno's official blog (November 25, 2025) announces the partnership with Warner Music Group and plans for a new generation of models using licensed music. No dollar amount is disclosed"
     evidenceUrl: "https://suno.com/blog/wmg-partnership"
   - layer: "Label licensing foundation"
-    name: "BMGとのグローバル提携"
+    name: "BMG (global partnership)"
     confidence: confirmed
     evidence: "Suno's official blog (August 12, 2026) announces a global partnership with BMG and new economic opportunities for artists and songwriters who opt in"
     evidenceUrl: "https://suno.com/blog/suno-partnership-bmg"
   - layer: "Content identification"
-    name: "Audible Magic（コンテンツ識別パートナーシップ）"
+    name: "Audible Magic (content identification partnership)"
     confidence: confirmed
     evidence: "Suno's official blog states a partnership with content-identification technology provider Audible Magic was announced October 18, 2024"
     evidenceUrl: "https://suno.com/blog"

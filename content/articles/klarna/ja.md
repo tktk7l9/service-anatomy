@@ -6,7 +6,7 @@ lead: "AIで700人分の顧客対応をこなせると胸を張った1年後、�
 category: saas
 tags: [fintech, bnpl, ai, customer-service, ipo]
 publishedAt: "2026-07-20"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.klarna.com/"
 vendor: "Klarna Group plc"
@@ -15,7 +15,7 @@ heroTheme: "klarna"
 scores: { product: 4.0, ux: 3.5, tech: 3.5, business: 3.5 }
 techStack:
   - layer: "AIカスタマーサポート"
-    name: "OpenAI (GPT系モデル)"
+    name: "OpenAI (GPT models)"
     confidence: confirmed
     evidence: "Klarna公式プレスリリース（2024-02-27）とOpenAI公式ページの双方に、OpenAIとの提携でAIアシスタントを構築したと明記"
     evidenceUrl: "https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/"

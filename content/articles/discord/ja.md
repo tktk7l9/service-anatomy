@@ -6,7 +6,7 @@ lead: "ゲーム中の音声チャットから始まった溜まり場は、2022
 category: consumer-app
 tags: [chat, community, elixir, rust, realtime]
 publishedAt: "2026-07-17"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://discord.com/"
 vendor: "Discord"
@@ -20,7 +20,7 @@ techStack:
     evidence: "Elixir公式サイトの導入事例に、ゲートウェイ等のリアルタイム基盤として大規模採用と明記（2020-10）"
     evidenceUrl: "https://elixir-lang.org/blog/2020/10/08/real-time-communication-at-scale-with-elixir-at-discord/"
   - layer: "メッセージデータベース"
-    name: "ScyllaDB (Cassandraから移行)"
+    name: "ScyllaDB (migrated from Cassandra)"
     confidence: confirmed
     evidence: "公式エンジニアリングブログ（2023-03）にCassandra 177ノード→ScyllaDB 72ノードへの移行と明記"
     evidenceUrl: "https://discord.com/blog/how-discord-stores-trillions-of-messages"

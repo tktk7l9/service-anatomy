@@ -6,7 +6,7 @@ lead: "Few chores are as universally hated as Japan's year-end tax adjustment. S
 category: saas
 tags: [hr, saas, rails, react, b2b]
 publishedAt: "2026-07-17"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://smarthr.jp/"
 vendor: "SmartHR"
@@ -20,7 +20,7 @@ techStack:
     evidence: "Official tech blog: development is standardized on the Rails + React combination across 10+ products"
     evidenceUrl: "https://tech.smarthr.jp/entry/2023/12/25/120000"
   - layer: "Frontend"
-    name: "React / TypeScript (Next.js導入中)"
+    name: "React / TypeScript (adopting Next.js)"
     confidence: confirmed
     evidence: "Official tech blog documents the jQuery-to-React migration and recent Next.js adoption"
     evidenceUrl: "https://tech.smarthr.jp/entry/2023/12/25/120000"

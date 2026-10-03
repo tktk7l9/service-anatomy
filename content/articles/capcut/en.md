@@ -6,7 +6,7 @@ lead: "A video made in CapCut doesn't necessarily end up on TikTok. The same vid
 category: consumer-app
 tags: [video-editing, mobile-app, ai-tools, bytedance, creator-tools]
 publishedAt: "2026-07-23"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.capcut.com/"
 vendor: "ByteDance Ltd."
@@ -15,21 +15,21 @@ heroTheme: "capcut"
 scores: { product: 4.0, ux: 4.5, tech: 3.5, business: 3.5 }
 techStack:
   - layer: "Operator"
-    name: "CapCut（ByteDance子会社）"
+    name: "CapCut (ByteDance subsidiary)"
     confidence: confirmed
     evidence: "Verified on ByteDance's official product listing that CapCut is listed as its own product"
     evidenceUrl: "https://www.bytedance.com/en/"
   - layer: "Relationship to the original app"
-    name: "剪映（Jianying）の国際版"
+    name: "Jianying (剪映, the Chinese original)"
     confidence: likely
     evidence: "Per aggregated Wikipedia reporting, the app launched first in China as \"Jianying (剪映)\" in 2019, with the international version launching globally as CapCut in 2020. Not explicitly confirmed on CapCut's own pages this time, hence \"likely\""
   - layer: "Distribution channels"
-    name: "モバイル / デスクトップ / Web / CapCut Pad"
+    name: "Mobile / Desktop / Web / CapCut Pad"
     confidence: confirmed
     evidence: "CapCut's official site states it ships across a mobile app, desktop versions (Mac/Windows), a browser version, and a tablet-focused CapCut Pad"
     evidenceUrl: "https://www.capcut.com/"
   - layer: "Business-focused spin-off"
-    name: "Pippit（CapCut基盤のB2Bコンテンツ生成ツール）"
+    name: "Pippit (B2B content generation built on CapCut)"
     confidence: confirmed
     evidence: "Verified in the footer of Pippit's official site, which states \"Powered by CapCut\" — a video/image generation tool for businesses and marketers built on CapCut's technology"
     evidenceUrl: "https://www.pippit.ai/"

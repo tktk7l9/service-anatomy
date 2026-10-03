@@ -6,7 +6,7 @@ lead: "A year after proudly announcing AI could handle the work of 700 customer 
 category: saas
 tags: [fintech, bnpl, ai, customer-service, ipo]
 publishedAt: "2026-07-20"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.klarna.com/"
 vendor: "Klarna Group plc"
@@ -15,7 +15,7 @@ heroTheme: "klarna"
 scores: { product: 4.0, ux: 3.5, tech: 3.5, business: 3.5 }
 techStack:
   - layer: "AI customer support"
-    name: "OpenAI (GPT系モデル)"
+    name: "OpenAI (GPT models)"
     confidence: confirmed
     evidence: "Both Klarna's official press release (2024-02-27) and OpenAI's own official page state the AI assistant was built through a partnership with OpenAI"
     evidenceUrl: "https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/"

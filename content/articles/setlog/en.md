@@ -6,7 +6,7 @@ lead: "Up to 12 friends. A notification arrives once an hour, and you have that 
 category: consumer-app
 tags: [video, social, closed-sns, bereal, gen-z]
 publishedAt: "2026-07-17"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://apps.apple.com/jp/app/setlog/id6587576438"
 vendor: "New Chat Inc."
@@ -15,7 +15,7 @@ heroTheme: "setlog"
 scores: { product: 4.0, ux: 4.0, tech: 2.5, business: 2.5 }
 techStack:
   - layer: "Distribution platform"
-    name: "iOS / Android (ネイティブアプリ)"
+    name: "iOS / Android (native apps)"
     confidence: confirmed
     evidence: "Confirmed as a native app on both OSes via official listings on the Japan App Store and Google Play"
     evidenceUrl: "https://apps.apple.com/jp/app/setlog/id6587576438"

@@ -6,7 +6,7 @@ lead: "Issue trackers are slow and heavy — Linear was built as a rebellion aga
 category: dev-tool
 tags: [project-management, local-first, sync-engine, graphql, saas]
 publishedAt: "2026-07-17"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://linear.app/"
 vendor: "Linear"
@@ -15,7 +15,7 @@ heroTheme: "linear"
 scores: { product: 4.5, ux: 4.5, tech: 4.5, business: 4.0 }
 techStack:
   - layer: "Sync architecture"
-    name: "独自Sync Engine (OT系・sync id・差分配信)"
+    name: "Sync Engine (in-house; OT-style, sync IDs, delta delivery)"
     confidence: confirmed
     evidence: "The reverse-engineering documentation endorsed by Linear's CTO as 'more correct and complete than what Linear publishes internally' describes an OT-style design with a monotonically increasing sync id establishing total order"
     evidenceUrl: "https://github.com/wzhudev/reverse-linear-sync-engine"
@@ -25,7 +25,7 @@ techStack:
     evidence: "The same documentation: models are made reactive with MobX and persisted to IndexedDB in per-model tables"
     evidenceUrl: "https://github.com/wzhudev/reverse-linear-sync-engine"
   - layer: "Realtime delivery"
-    name: "WebSocket (デルタパケット配信)"
+    name: "WebSocket (delta packet delivery)"
     confidence: confirmed
     evidence: "The same documentation: the server broadcasts incremental delta packets to all connected clients over WebSocket"
     evidenceUrl: "https://github.com/wzhudev/reverse-linear-sync-engine"

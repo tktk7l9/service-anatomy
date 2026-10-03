@@ -6,7 +6,7 @@ lead: "What began as lightweight voice chat for gaming had, by 2022, quietly bec
 category: consumer-app
 tags: [chat, community, elixir, rust, realtime]
 publishedAt: "2026-07-17"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://discord.com/"
 vendor: "Discord"
@@ -20,7 +20,7 @@ techStack:
     evidence: "The official Elixir website's case study documents large-scale adoption for Discord's gateway and realtime systems (2020-10)"
     evidenceUrl: "https://elixir-lang.org/blog/2020/10/08/real-time-communication-at-scale-with-elixir-at-discord/"
   - layer: "Message database"
-    name: "ScyllaDB (Cassandraから移行)"
+    name: "ScyllaDB (migrated from Cassandra)"
     confidence: confirmed
     evidence: "Official engineering blog (2023-03): migrated from 177 Cassandra nodes to 72 ScyllaDB nodes"
     evidenceUrl: "https://discord.com/blog/how-discord-stores-trillions-of-messages"

@@ -6,7 +6,7 @@ lead: "Send a request to netflix.com and the via header lines up an AWS us-west-
 category: media
 tags: [streaming, video, aws, cdn, microservices]
 publishedAt: "2026-07-21"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.netflix.com/"
 vendor: "Netflix, Inc."
@@ -25,7 +25,7 @@ techStack:
     evidence: "AWS official case study states Netflix consolidated its relational databases on Amazon Aurora, migrated to Amazon EKS, and processes massive-scale data workloads on Amazon EMR (checked 2026-09-28)"
     evidenceUrl: "https://aws.amazon.com/solutions/case-studies/netflix/"
   - layer: "Video delivery CDN"
-    name: "Open Connect (自社CDNアプライアンス)"
+    name: "Open Connect (in-house CDN appliances)"
     confidence: confirmed
     evidence: "Official Open Connect site states partnerships with over 1,000 ISPs, providing Netflix-designed appliances (OCAs) to qualifying ISPs at no charge (ISPs provide only rack space, power, and connectivity)"
     evidenceUrl: "https://openconnect.netflix.com/en/"

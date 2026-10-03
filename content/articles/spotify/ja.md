@@ -6,7 +6,7 @@ lead: "「Spotifyモデル」という組織論を知らないアジャイル実
 category: media
 tags: [music-streaming, cloud-migration, engineering-culture, subscription, audio]
 publishedAt: "2026-07-20"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://open.spotify.com/"
 vendor: "Spotify Technology S.A."
@@ -20,12 +20,12 @@ techStack:
     evidence: "公式エンジニアリングブログに、2016年から段階的にGCPへ移行し2018年に自社データセンター4拠点すべてを退役させたと明記"
     evidenceUrl: "https://engineering.atspotify.com/2019/12/views-from-the-cloud-a-history-of-spotifys-journey-to-the-cloud-part-1-2"
   - layer: "イベント配信基盤"
-    name: "Google Cloud Pub/Sub (旧Kafkaから移行)"
+    name: "Google Cloud Pub/Sub (migrated from Kafka)"
     confidence: confirmed
     evidence: "公式エンジニアリングブログに、旧バージョンのKafkaベース基盤から2016〜2017年にGoogle Cloud Pub/Subへ移行し2017年2月に旧システムを廃止したと明記"
     evidenceUrl: "https://engineering.atspotify.com/2019/11/spotifys-event-delivery-life-in-the-cloud"
   - layer: "インフラ運用モデル"
-    name: "Fleet Management（数千リポジトリの自動一斉変更）"
+    name: "Fleet Management (automated changes across thousands of repos)"
     confidence: confirmed
     evidence: "公式エンジニアリングブログ（2023-04）に、個別対応ではなく数千リポジトリを自動的に一斉変更する運用へ転換し、Log4j脆弱性対応を9時間で本番の80%に展開したと明記"
     evidenceUrl: "https://engineering.atspotify.com/2023/04/spotifys-shift-to-a-fleet-first-mindset-part-1"

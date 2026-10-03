@@ -6,7 +6,7 @@ lead: "An AI code editor could have shipped faster as a plugin. Cursor chose the
 category: dev-tool
 tags: [ai, code-editor, vscode, developer-tools, funding]
 publishedAt: "2026-07-20"
-updatedAt: "2026-10-02"
+updatedAt: "2026-10-03"
 lastVerified: "2026-10-02"
 serviceUrl: "https://cursor.com/"
 vendor: "Anysphere, Inc. (acquired by SpaceX in August 2026)"
@@ -15,12 +15,12 @@ heroTheme: "cursor"
 scores: { product: 4.5, ux: 4.0, tech: 4.5, business: 4.0 }
 techStack:
   - layer: "Editor foundation"
-    name: "VS Code (Code - OSS) ベース"
+    name: "VS Code (based on Code - OSS)"
     confidence: confirmed
     evidence: "Cursor's official documentation states 'Cursor is based upon the VS Code codebase,' and offers bulk migration of extensions, themes, settings, and keybindings (re-checked 2026-10-02)"
     evidenceUrl: "https://cursor.com/docs/configuration/migrations/vscode"
   - layer: "Code-editing model"
-    name: "Fast Apply (ファインチューニング済みLlama-3-70B + 投機的デコード)"
+    name: "Fast Apply (fine-tuned Llama-3-70B + speculative decoding)"
     confidence: confirmed
     evidence: "The official blog of inference partner Fireworks AI (2024-06-23) states Cursor served a fine-tuned Llama-3-70B via a speculative decoding API, reaching roughly 1,000 tokens/sec — about a 13x speedup over standard inference. This is the 2024 setup; official sources do not confirm whether it is still the current one"
     evidenceUrl: "https://fireworks.ai/blog/cursor"

@@ -6,7 +6,7 @@ lead: "Nearly every SaaS this site has dissected sits on AWS or Google Cloud. Cy
 category: saas
 tags: [no-code, groupware, kubernetes, on-premises, b2b]
 publishedAt: "2026-07-21"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://kintone.cybozu.co.jp/"
 vendor: "サイボウズ株式会社"
@@ -15,12 +15,12 @@ heroTheme: "cybozu-kintone"
 scores: { product: 4.0, ux: 3.5, tech: 4.5, business: 4.5 }
 techStack:
   - layer: "Infrastructure platform"
-    name: "Neco (自社Kubernetes基盤)"
+    name: "Neco (in-house Kubernetes platform)"
     confidence: confirmed
     evidence: "Official engineering blog describes a Kubernetes cluster at the scale of thousands of servers supporting kintone, Garoon, and Cybozu Office — with in-house tools Sabakan (server lifecycle) and CKE (cluster management), and automated failure detection and recovery via BMC diagnostics"
     evidenceUrl: "https://blog.cybozu.io/entry/2025/04/11/112000"
   - layer: "Data centers"
-    name: "オンプレミス (国内東西データセンター)"
+    name: "On-premises (data centers in eastern and western Japan)"
     confidence: confirmed
     evidence: "Official engineering blog states Cybozu leases racks in multiple domestic data centers, operated in an east/west split for disaster resilience"
     evidenceUrl: "https://blog.cybozu.io/entry/2025/06/16/080000"

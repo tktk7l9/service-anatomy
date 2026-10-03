@@ -6,7 +6,7 @@ lead: "CapCutで作った動画は、TikTokに投稿されるとは限らない�
 category: consumer-app
 tags: [video-editing, mobile-app, ai-tools, bytedance, creator-tools]
 publishedAt: "2026-07-23"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.capcut.com/"
 vendor: "ByteDance Ltd."
@@ -15,21 +15,21 @@ heroTheme: "capcut"
 scores: { product: 4.0, ux: 4.5, tech: 3.5, business: 3.5 }
 techStack:
   - layer: "運営元"
-    name: "CapCut（ByteDance子会社）"
+    name: "CapCut (ByteDance subsidiary)"
     confidence: confirmed
     evidence: "ByteDance公式サイトのプロダクト一覧に、CapCutが自社製品として明記されていることを実確認"
     evidenceUrl: "https://www.bytedance.com/en/"
   - layer: "本家アプリとの関係"
-    name: "剪映（Jianying）の国際版"
+    name: "Jianying (剪映, the Chinese original)"
     confidence: likely
     evidence: "Wikipediaの集約情報によれば、2019年に中国向け「剪映（Jianying）」として先行公開され、2020年にCapCutとして国際版がグローバル展開されたとされる。CapCut公式ページでの明言は今回未確認のためlikely扱い"
   - layer: "提供チャネル"
-    name: "モバイル / デスクトップ / Web / CapCut Pad"
+    name: "Mobile / Desktop / Web / CapCut Pad"
     confidence: confirmed
     evidence: "CapCut公式サイトに、モバイルアプリ・デスクトップ版（Mac/Windows）・ブラウザ版・タブレット向けCapCut Padの複数チャネルで提供されていると明記"
     evidenceUrl: "https://www.capcut.com/"
   - layer: "ビジネス向け派生製品"
-    name: "Pippit（CapCut基盤のB2Bコンテンツ生成ツール）"
+    name: "Pippit (B2B content generation built on CapCut)"
     confidence: confirmed
     evidence: "Pippit公式サイトのフッターに「Powered by CapCut」と明記されており、CapCutの技術基盤を使った企業・マーケター向けの動画/画像生成ツールとして展開されていることを実確認"
     evidenceUrl: "https://www.pippit.ai/"

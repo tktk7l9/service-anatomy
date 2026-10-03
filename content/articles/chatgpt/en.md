@@ -6,7 +6,7 @@ lead: "On November 30, 2022, ChatGPT launched — and hit one million users with
 category: ai-tool
 tags: [ai-assistant, llm, api, chatbot, coding-agent]
 publishedAt: "2026-07-23"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://chatgpt.com/"
 vendor: "OpenAI Group PBC"
@@ -15,7 +15,7 @@ heroTheme: "chatgpt"
 scores: { product: 4.5, ux: 4.0, tech: 4.5, business: 4.0 }
 techStack:
   - layer: "Foundation models"
-    name: "GPT-6ファミリー（Astra / Sol / Luna）"
+    name: "GPT-6 (model family: Astra / Sol / Luna)"
     confidence: confirmed
     evidence: "Verified on OpenAI's official developer pricing documentation that per-token pricing is published for gpt-6-astra, gpt-6-sol, and gpt-6-luna as the latest models, with the gpt-5.6 line still offered alongside"
     evidenceUrl: "https://developers.openai.com/api/docs/pricing"
@@ -25,7 +25,7 @@ techStack:
     evidence: "Verified on the OpenAI Developers official homepage that Codex is listed as its developer-facing coding agent product"
     evidenceUrl: "https://developers.openai.com"
   - layer: "App extension standard"
-    name: "Apps SDK（Model Context Protocol準拠）"
+    name: "Apps SDK (built on Model Context Protocol)"
     confidence: confirmed
     evidence: "Verified on the OpenAI Developers official homepage that the Apps SDK, used to extend ChatGPT with apps, is built on the Model Context Protocol — an open standard authored and published by rival Anthropic"
     evidenceUrl: "https://developers.openai.com"
@@ -34,7 +34,7 @@ techStack:
     confidence: likely
     evidence: "Per aggregated Wikipedia reporting, Microsoft Azure has been the primary cloud provider since 2019, with exclusivity terms reportedly loosened in an April 2026 agreement renewal. Not confirmed on OpenAI's own technical pages, hence \"likely\""
   - layer: "Compute (additional contracts)"
-    name: "Oracle Cloud Infrastructure / Stargateプロジェクト"
+    name: "Oracle Cloud Infrastructure / Stargate (project)"
     confidence: likely
     evidence: "Per aggregated Wikipedia reporting, OpenAI signed a five-year, $300 billion compute deal with Oracle in September 2025, and in January 2025 announced the Stargate project with Oracle, SoftBank, and MGX — a roughly $500 billion data center buildout. Not confirmed via a primary source, hence \"likely\""
 sources:

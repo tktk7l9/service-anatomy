@@ -6,7 +6,7 @@ lead: "拡張機能として作れば早かったはずのAIコードエディ�
 category: dev-tool
 tags: [ai, code-editor, vscode, developer-tools, funding]
 publishedAt: "2026-07-20"
-updatedAt: "2026-10-02"
+updatedAt: "2026-10-03"
 lastVerified: "2026-10-02"
 serviceUrl: "https://cursor.com/"
 vendor: "Anysphere, Inc.（2026年8月にSpaceXが買収）"
@@ -15,12 +15,12 @@ heroTheme: "cursor"
 scores: { product: 4.5, ux: 4.0, tech: 4.5, business: 4.0 }
 techStack:
   - layer: "エディタ基盤"
-    name: "VS Code (Code - OSS) ベース"
+    name: "VS Code (based on Code - OSS)"
     confidence: confirmed
     evidence: "Cursor公式ドキュメントに「Cursor is based upon the VS Code codebase」と明記。拡張機能・テーマ・設定・キーバインドの一括移行機能も提供（2026-10-02再確認）"
     evidenceUrl: "https://cursor.com/docs/configuration/migrations/vscode"
   - layer: "コード編集モデル"
-    name: "Fast Apply (ファインチューニング済みLlama-3-70B + 投機的デコード)"
+    name: "Fast Apply (fine-tuned Llama-3-70B + speculative decoding)"
     confidence: confirmed
     evidence: "推論インフラ提携先Fireworks AIの公式ブログ（2024-06-23）に、Cursorがファインチューニングした Llama-3-70B を投機的デコードAPIで配信し、約1,000トークン/秒（通常推論比約13倍）を達成と明記。2024年時点の構成で、現在も同じ構成かは公式情報では確認できない"
     evidenceUrl: "https://fireworks.ai/blog/cursor"

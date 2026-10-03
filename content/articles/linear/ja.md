@@ -6,7 +6,7 @@ lead: "課題管理ツールは遅くて重い——その業界常識への反�
 category: dev-tool
 tags: [project-management, local-first, sync-engine, graphql, saas]
 publishedAt: "2026-07-17"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://linear.app/"
 vendor: "Linear"
@@ -15,7 +15,7 @@ heroTheme: "linear"
 scores: { product: 4.5, ux: 4.5, tech: 4.5, business: 4.0 }
 techStack:
   - layer: "同期アーキテクチャ"
-    name: "独自Sync Engine (OT系・sync id・差分配信)"
+    name: "Sync Engine (in-house; OT-style, sync IDs, delta delivery)"
     confidence: confirmed
     evidence: "LinearのCTOが「社内文書より正確で完全」と公認したリバースエンジニアリング文書に、単調増加のsync idで全順序を決めるOT系設計と明記"
     evidenceUrl: "https://github.com/wzhudev/reverse-linear-sync-engine"
@@ -25,7 +25,7 @@ techStack:
     evidence: "同文書に、モデルをMobXでリアクティブ化しIndexedDBにモデル別テーブルで永続化すると明記"
     evidenceUrl: "https://github.com/wzhudev/reverse-linear-sync-engine"
   - layer: "リアルタイム配信"
-    name: "WebSocket (デルタパケット配信)"
+    name: "WebSocket (delta packet delivery)"
     confidence: confirmed
     evidence: "同文書に、サーバーが増分デルタをWebSocketで全接続クライアントに配ると明記"
     evidenceUrl: "https://github.com/wzhudev/reverse-linear-sync-engine"

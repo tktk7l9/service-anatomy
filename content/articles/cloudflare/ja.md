@@ -6,7 +6,7 @@ lead: "当サイトがこれまで解剖した54サービスのうち、22サー
 category: dev-tool
 tags: [cdn, edge-computing, rust, serverless, security]
 publishedAt: "2026-07-21"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.cloudflare.com/"
 vendor: "Cloudflare, Inc."
@@ -25,7 +25,7 @@ techStack:
     evidence: "公式ドキュメントに、コンテナではなくV8 isolatesでコードを実行し、単一ランタイムで数百〜数千のisolateを切り替え、コンテナ上のNodeプロセス比で約100倍高速に起動すると明記"
     evidenceUrl: "https://developers.cloudflare.com/workers/reference/how-workers-works/"
   - layer: "ネットワーク"
-    name: "Anycastグローバルネットワーク"
+    name: "Anycast (global network)"
     confidence: confirmed
     evidence: "公式ネットワークページに348都市・100カ国超で展開し（2026-09-28確認）、世界のインターネット人口の95%から50ミリ秒以内（大半は20ミリ秒以内）と明記"
     evidenceUrl: "https://www.cloudflare.com/network/"

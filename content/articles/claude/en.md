@@ -6,7 +6,7 @@ lead: "Anthropic's official presence is now split across two domains: anthropic.
 category: ai-tool
 tags: [ai-assistant, llm, api, developer-tools, mcp]
 publishedAt: "2026-07-23"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://claude.com/"
 vendor: "Anthropic, PBC"
@@ -15,7 +15,7 @@ heroTheme: "claude"
 scores: { product: 4.5, ux: 4.0, tech: 4.5, business: 4.0 }
 techStack:
   - layer: "Foundation models"
-    name: "Claudeモデルファミリー（最新はClaude Opus 5.5）"
+    name: "Claude (model family; latest: Claude Opus 5.5)"
     confidence: confirmed
     evidence: "Verified on Anthropic's official newsroom that Claude Opus 5.5 (2026-09-22) and Claude Fable 5.1 / Claude Mythos 5.1 (2026-09-01) are listed as announced"
     evidenceUrl: "https://www.anthropic.com/news"

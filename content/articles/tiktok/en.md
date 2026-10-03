@@ -6,7 +6,7 @@ lead: "TikTok is no longer one company worldwide. On January 22, 2026, a new com
 category: media
 tags: [short-video, social-media, algorithm, e-commerce, bytedance]
 publishedAt: "2026-07-23"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.tiktok.com/"
 vendor: "TikTok Ltd."
@@ -15,7 +15,7 @@ heroTheme: "tiktok"
 scores: { product: 4.0, ux: 4.5, tech: 4.0, business: 3.5 }
 techStack:
   - layer: "Global operating entity"
-    name: "TikTok Ltd.（ByteDance子会社）"
+    name: "TikTok Ltd. (ByteDance subsidiary)"
     confidence: confirmed
     evidence: "Verified on ByteDance's official product listing that TikTok, TikTok Shop, and CapCut are listed as its own products"
     evidenceUrl: "https://www.bytedance.com/en/"
@@ -30,7 +30,7 @@ techStack:
     evidence: "TikTok's official newsroom announcement from January 2026 states that US user data is protected in Oracle's secure US cloud environment and that the recommendation algorithm is secured in the same environment. The joint venture's own site also states that all of its applications operate within Oracle's secure environment"
     evidenceUrl: "https://newsroom.tiktok.com/announcement-from-the-new-tiktok-usds-joint-venture-llc"
   - layer: "Recommendation algorithm"
-    name: "「For You」レコメンドシステム"
+    name: "For You (recommendation system)"
     confidence: likely
     evidence: "Per aggregated Wikipedia reporting, the feed is described as AI-driven, weighting in-viewing behavioral signals over follow relationships. We could not confirm technical specifics on TikTok's own pages this time, hence \"likely\""
   - layer: "Commerce infrastructure"

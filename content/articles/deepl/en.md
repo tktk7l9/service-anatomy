@@ -6,7 +6,7 @@ lead: "DeepL once spread across the world on word of mouth alone — 'more natur
 category: ai-tool
 tags: [translation, ai, llm, nvidia, b2b]
 publishedAt: "2026-07-17"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.deepl.com/ja/translator"
 vendor: "DeepL SE"
@@ -15,12 +15,12 @@ heroTheme: "deepl"
 scores: { product: 4.5, ux: 4.0, tech: 4.5, business: 4.0 }
 techStack:
   - layer: "Translation model"
-    name: "自社開発の翻訳特化LLM"
+    name: "LLM (in-house, specialized for translation)"
     confidence: confirmed
     evidence: "Official blog (2024-07): a next-generation LLM specialized for translation and editing, built entirely in-house on DeepL's own infrastructure"
     evidenceUrl: "https://www.deepl.com/en/blog/next-gen-language-model"
   - layer: "Training data"
-    name: "7年超の自社独自データ"
+    name: "Proprietary training data (7+ years)"
     confidence: confirmed
     evidence: "Official blog (2024-07): tuned on over seven years of proprietary data for translation and content generation"
     evidenceUrl: "https://www.deepl.com/en/blog/next-gen-language-model"
@@ -44,7 +44,7 @@ techStack:
     confidence: likely
     evidence: "Our HTTP header observation (server: cloudflare / cf-cache-status: HIT, 2026-07-17; server: cloudflare again when re-observed 2026-09-28); no official documentation found"
   - layer: "Edge / load balancing"
-    name: "自社L7ロードバランサ層"
+    name: "L7 load balancers (in-house layer)"
     confidence: speculative
     evidence: "Inferred from observed server-timing metrics (l7_lb_*) and the custom x-deepl-ingress-type header (2026-07-17, re-observed 2026-09-28)"
 sources:

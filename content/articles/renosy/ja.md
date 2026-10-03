@@ -6,7 +6,7 @@ lead: "RENOSYは、会社員が中古のワンルームマンションなどを�
 category: consumer-app
 tags: [real-estate, marketplace, fintech, ruby-on-rails, snowflake]
 publishedAt: "2026-09-28"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.renosy.com/"
 # Affiliate link placeholder: the owner must join a RENOSY affiliate program via an ASP
@@ -71,8 +71,8 @@ techStack:
     evidenceUrl: "https://www.renosy.com/investment/why_renosy/flow"
 sources:
   - label: "株式会社GA technologies: 2026年10月期 第3四半期決算短信〔IFRS〕（連結）（2026-09-14）"
-    url: "https://www.release.tdnet.info/inbs/140120260914535676.pdf"
-    accessedAt: "2026-09-28"
+    url: "https://ssl4.eir-parts.net/doc/3491/tdnet/2884592/00.pdf"
+    accessedAt: "2026-10-03"
   - label: "株式会社GA technologies: 2026年10月期 第3四半期 決算説明資料（2026-09-14）"
     url: "https://ssl4.eir-parts.net/doc/3491/tdnet/2884649/00.pdf"
     accessedAt: "2026-09-28"

@@ -6,7 +6,7 @@ lead: "Stripeの製品を「見た」ことがある人は少ない。開発者�
 category: saas
 tags: [payments, fintech, api, ruby, developer-experience]
 publishedAt: "2026-07-21"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://stripe.com/"
 vendor: "Stripe, Inc."
@@ -20,7 +20,7 @@ techStack:
     evidence: "公式エンジニアリングブログに、15万ファイル・1,500万行超のRubyコードベースをC++実装の自社型チェッカーSorbetで検査していると明記。2017年11月開発開始・2019年6月OSS公開・95%超のファイルがtyped: true"
     evidenceUrl: "https://stripe.dev/blog/sorbet-stripes-type-checker-for-ruby"
   - layer: "データベース基盤"
-    name: "DocDB (MongoDB Communityベースの自社DBaaS)"
+    name: "DocDB (in-house DBaaS based on MongoDB Community)"
     confidence: confirmed
     evidence: "公式エンジニアリングブログに、MongoDB Community上に構築した自社データベース基盤DocDBで2,000超のシャード・秒間500万クエリを99.999%稼働率で処理し、無停止データ移行を実現と明記"
     evidenceUrl: "https://stripe.dev/blog/how-stripes-document-databases-supported-99.999-uptime-with-zero-downtime-data-migrations"

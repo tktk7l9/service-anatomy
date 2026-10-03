@@ -6,7 +6,7 @@ lead: "Few people have ever 'seen' Stripe's product. Developers call an API, and
 category: saas
 tags: [payments, fintech, api, ruby, developer-experience]
 publishedAt: "2026-07-21"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://stripe.com/"
 vendor: "Stripe, Inc."
@@ -20,7 +20,7 @@ techStack:
     evidence: "Official engineering blog states a Ruby codebase of 150,000 files and over 15 million lines, checked by Sorbet — a type checker Stripe built in C++ (development began November 2017, open-sourced June 2019, over 95% of files typed: true)"
     evidenceUrl: "https://stripe.dev/blog/sorbet-stripes-type-checker-for-ruby"
   - layer: "Database platform"
-    name: "DocDB (MongoDB Communityベースの自社DBaaS)"
+    name: "DocDB (in-house DBaaS based on MongoDB Community)"
     confidence: confirmed
     evidence: "Official engineering blog states DocDB, an in-house database-as-a-service built on MongoDB Community, serves five million queries per second across 2,000+ shards at 99.999% uptime with zero-downtime data migrations"
     evidenceUrl: "https://stripe.dev/blog/how-stripes-document-databases-supported-99.999-uptime-with-zero-downtime-data-migrations"

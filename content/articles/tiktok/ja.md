@@ -6,7 +6,7 @@ lead: "TikTokは今、世界共通の1つの会社ではない。2026年1月22�
 category: media
 tags: [short-video, social-media, algorithm, e-commerce, bytedance]
 publishedAt: "2026-07-23"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.tiktok.com/"
 vendor: "TikTok Ltd."
@@ -15,7 +15,7 @@ heroTheme: "tiktok"
 scores: { product: 4.0, ux: 4.5, tech: 4.0, business: 3.5 }
 techStack:
   - layer: "運営主体（グローバル）"
-    name: "TikTok Ltd.（ByteDance子会社）"
+    name: "TikTok Ltd. (ByteDance subsidiary)"
     confidence: confirmed
     evidence: "ByteDance公式サイトのプロダクト一覧に、TikTok・TikTok Shop・CapCutが自社製品として明記されていることを実確認"
     evidenceUrl: "https://www.bytedance.com/en/"
@@ -30,7 +30,7 @@ techStack:
     evidence: "TikTok公式ニュースルームの2026年1月の発表に、米国の利用者データはOracleの米国内の安全なクラウド環境で保護し、推薦アルゴリズムも同じ環境で保護すると明記されている。合弁会社の公式サイトにも、同社のすべてのアプリケーションがOracleの安全な環境内で動くと書かれている"
     evidenceUrl: "https://newsroom.tiktok.com/announcement-from-the-new-tiktok-usds-joint-venture-llc"
   - layer: "推薦アルゴリズム"
-    name: "「For You」レコメンドシステム"
+    name: "For You (recommendation system)"
     confidence: likely
     evidence: "Wikipediaの集約情報によれば、フォロー関係よりも視聴中の行動シグナルを重視するAI主導のフィードと説明されている。TikTok公式の技術詳細ページは今回未確認のためlikely扱い"
   - layer: "コマース基盤"

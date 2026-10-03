@@ -6,7 +6,7 @@ lead: "Sunoは、プロンプト1つで歌詞・メロディ・ボーカルま�
 category: ai-tool
 tags: [ai-music, generative-ai, licensing, copyright, creative-tools]
 publishedAt: "2026-07-23"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://suno.com/"
 vendor: "Suno, Inc."
@@ -20,22 +20,22 @@ techStack:
     evidence: "Suno公式ブログ（2026年9月9日）に、業界パートナー（Warner Music Group・BMG・Believe）と開発したv6世代を公開し、v6とv6-wildはPro/Premier向け、v6-miniは全員向けと明記。旧モデルは終了しv6世代へ一本化する方針。1つ前のv5.5は2026年3月26日公開"
     evidenceUrl: "https://suno.com/blog/introducing-v6"
   - layer: "音源分離/制作ツール"
-    name: "Suno Studio（MIDI / オートメーション / プラグイン等）"
+    name: "Suno Studio (MIDI / automation / plugins, etc.)"
     confidence: confirmed
     evidence: "Suno公式ブログに、Suno Studio 2.0（2026年8月13日）でMIDI・オーディオエフェクトとプラグイン・オートメーション・高度なステム分離が追加され、Premier契約者向けに提供と明記"
     evidenceUrl: "https://suno.com/blog/studio-2"
   - layer: "レーベル許諾基盤"
-    name: "Warner Music Groupとのカタログライセンス提携"
+    name: "Warner Music Group (catalog licensing partnership)"
     confidence: confirmed
     evidence: "Suno公式ブログ（2025年11月25日）に、Warner Music Groupとの提携と、ライセンスされた音楽を使う新世代モデルの計画を明記。金額は開示されていない"
     evidenceUrl: "https://suno.com/blog/wmg-partnership"
   - layer: "レーベル許諾基盤"
-    name: "BMGとのグローバル提携"
+    name: "BMG (global partnership)"
     confidence: confirmed
     evidence: "Suno公式ブログ（2026年8月12日）に、BMGとのグローバル提携と、参加を選んだアーティスト・ソングライターへの新しい経済機会を明記"
     evidenceUrl: "https://suno.com/blog/suno-partnership-bmg"
   - layer: "コンテンツ識別"
-    name: "Audible Magic（コンテンツ識別パートナーシップ）"
+    name: "Audible Magic (content identification partnership)"
     confidence: confirmed
     evidence: "Suno公式ブログに、2024年10月18日にコンテンツ識別技術のAudible Magicとの提携を発表したと明記"
     evidenceUrl: "https://suno.com/blog"

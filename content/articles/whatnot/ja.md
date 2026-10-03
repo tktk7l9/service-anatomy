@@ -6,7 +6,7 @@ lead: "中古品ECの最大の弱点は、写真とテキストだけでは「�
 category: consumer-app
 tags: [live-shopping, marketplace, collectibles, e-commerce, creator-economy]
 publishedAt: "2026-07-23"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.whatnot.com/"
 vendor: "Whatnot Inc."
@@ -15,19 +15,19 @@ heroTheme: "whatnot"
 scores: { product: 4.0, ux: 4.0, tech: 3.0, business: 3.5 }
 techStack:
   - layer: "配信基盤"
-    name: "ライブ配信型オークション/即売システム"
+    name: "Live-stream auctions (bids and instant buys)"
     confidence: likely
     evidence: "Wikipediaの集約情報によれば、出品者がライブ配信で商品を紹介し、視聴者がその場で入札または即決購入する仕組みが中核機能とされる。Whatnot公式サイトへのアクセスが今回のリサーチでは403エラーとなり未確認のためlikely扱い"
   - layer: "越境運営体制"
-    name: "リモートファースト運営（米国・英国・アイルランド・ポーランド・ドイツ拠点）"
+    name: "Remote-first operations (hubs in the US, UK, Ireland, Poland, Germany)"
     confidence: likely
     evidence: "Wikipediaの集約情報によれば、米国・英国・アイルランド・ポーランド・ドイツに拠点を持つリモートファースト体制とされる。一次情報未確認のためlikely扱い"
   - layer: "コマース連携"
-    name: "Shopify連携（在庫同期）"
+    name: "Shopify (inventory sync integration)"
     confidence: likely
     evidence: "Wikipediaの集約情報によれば、2026年3月にShopifyとの連携機能が追加され、在庫の同期が可能になったとされる。一次情報未確認のためlikely扱い"
   - layer: "カテゴリ拡張基盤"
-    name: "生鮮食品カテゴリ対応（2026年4月追加）"
+    name: "Fresh food category (added April 2026)"
     confidence: likely
     evidence: "Wikipediaの集約情報によれば、2025年夏に常温保存食品、2026年4月に生鮮食品カテゴリが追加されたとされる。一次情報未確認のためlikely扱い"
 sources:

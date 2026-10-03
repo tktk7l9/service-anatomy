@@ -6,7 +6,7 @@ lead: "Perplexity's own documentation states it bills third-party models \"at ea
 category: ai-tool
 tags: [ai-search, answer-engine, llm-routing, api, publisher-licensing]
 publishedAt: "2026-07-23"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.perplexity.ai/"
 vendor: "Perplexity AI, Inc."
@@ -15,17 +15,17 @@ heroTheme: "perplexity"
 scores: { product: 4.0, ux: 4.0, tech: 3.5, business: 3.0 }
 techStack:
   - layer: "In-house search models"
-    name: "Sonarモデルファミリー（Sonar / Sonar Pro / Sonar Reasoning Pro / Sonar Deep Research）"
+    name: "Sonar (model family: Sonar / Sonar Pro / Sonar Reasoning Pro / Sonar Deep Research)"
     confidence: confirmed
     evidence: "Verified on Perplexity's official API documentation that a purpose-segmented model lineup is listed, from the lightweight search model Sonar through reasoning-focused Sonar Reasoning Pro to Sonar Deep Research for exhaustive research (re-verified 2026-09-28). The same page carries a notice that Sonar Chat Completions is now the Agent API and that Sonar will be supported until September 27, 2026"
     evidenceUrl: "https://docs.perplexity.ai/getting-started/models"
   - layer: "Third-party model routing"
-    name: "OpenAI / Anthropic / Google / xAI（マルチLLMルーティング）"
+    name: "OpenAI / Anthropic / Google / xAI (multi-LLM routing)"
     confidence: confirmed
     evidence: "Perplexity's official API documentation states the Agent API provides third-party models from OpenAI, Anthropic, Google, xAI, Z.AI, Moonshot AI, and NVIDIA with transparent, token-based pricing at each model's published rates (verified 2026-09-28)"
     evidenceUrl: "https://docs.perplexity.ai/getting-started/pricing"
   - layer: "Routed models (built by Google)"
-    name: "Gemini（3.1 Pro / 3.8 Flash 等）"
+    name: "Gemini (3.1 Pro / 3.8 Flash, etc.)"
     confidence: confirmed
     evidence: "Verified on the Agent API model list in Perplexity's official API documentation that eight Google Gemini models, including google/gemini-3.1-pro-preview and google/gemini-3.8-flash, are listed with per-token rates (2026-09-28)"
     evidenceUrl: "https://docs.perplexity.ai/docs/agent-api/models"
@@ -39,11 +39,11 @@ techStack:
     confidence: likely
     evidence: "Per aggregated Wikipedia reporting (press-based), Perplexity signed a three-year, $750 million agreement with Microsoft in January 2026 to use Azure and Foundry, with AWS remaining its main cloud provider. We found no official announcement, hence \"likely\""
   - layer: "In-house browser"
-    name: "Cometブラウザ（Chromiumベース）"
+    name: "Comet (Chromium-based browser)"
     confidence: likely
     evidence: "Per aggregated Wikipedia reporting, a Chromium-based AI-integrated browser launched subscription-exclusive in July 2025 and was opened up for free in October the same year. We could not reach Perplexity's own page this time, hence \"likely\""
   - layer: "API billing model"
-    name: "Search API（$5.00/1,000リクエスト）+ ツール呼び出し従量課金"
+    name: "Search API ($5.00 per 1,000 requests, plus metered tool calls)"
     confidence: confirmed
     evidence: "Perplexity's official API documentation states the Search API is billed at $5.00 per 1,000 requests independent of tokens ($1.00 with Fast Search), and tool calls are billed per invocation: web_search $0.0025, fetch_url $0.0005, people_search and finance_search $0.005 (verified 2026-09-28)"
     evidenceUrl: "https://docs.perplexity.ai/getting-started/pricing"
