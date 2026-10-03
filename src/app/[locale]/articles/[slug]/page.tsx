@@ -80,7 +80,10 @@ export default async function ArticlePage({
   const { frontmatter, body } = article[locale];
   const dict = await getDictionary(locale);
 
-  const html = renderMarkdown(body, dict.article.callouts);
+  const html = renderMarkdown(body, {
+    ...dict.article.callouts,
+    table: dict.article.tableRegion,
+  });
   const toc = extractToc(body);
   const ogCard = ogCardFor(article.slug);
   const related = relatedTo(article);
