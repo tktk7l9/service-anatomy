@@ -1264,6 +1264,7 @@ main:focus {
 }
 
 .compare-list-item a {
+  display: block;
   text-decoration: none;
 }
 

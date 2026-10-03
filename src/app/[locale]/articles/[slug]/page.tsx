@@ -13,6 +13,7 @@ import { SourcesList } from "@/components/sources-list";
 import { Toc } from "@/components/toc";
 import { ALL_ARTICLES, articleBySlug, ogCardFor, relatedTo } from "@/engine/articles";
 import { affiliateOf } from "@/engine/articles/disclosure";
+import { comparisonHasAdvertising, comparisonsFor } from "@/engine/comparisons";
 import { buildScoreTrend } from "@/engine/articles/revision-trend";
 import { formatDate } from "@/engine/format/date";
 import { estimateReadingMinutes, formatReadingTime } from "@/engine/format/reading-time";
@@ -84,6 +85,7 @@ export default async function ArticlePage({
   const toc = extractToc(body);
   const ogCard = ogCardFor(article.slug);
   const related = relatedTo(article);
+  const comparisons = comparisonsFor(article.slug);
   const scoreTrend = frontmatter.revisions
     ? buildScoreTrend(frontmatter.revisions, frontmatter.scores, frontmatter.updatedAt)
     : null;
@@ -174,6 +176,31 @@ export default async function ArticlePage({
           )}
           {affiliate && (
             <AffiliateCard affiliate={affiliate} service={frontmatter.service} locale={locale} dict={dict} />
+          )}
+
+          {/* Right after the reader finishes the article and meets the service's link: the
+              head-to-head pages are the next step for someone deciding between services. */}
+          {comparisons.length > 0 && (
+            <section aria-label={dict.article.comparisons} className="article-comparisons">
+              <p className="section-label">{dict.article.comparisons}</p>
+              <ul className="compare-list">
+                {comparisons.map((entry) => (
+                  <li key={entry.comparison.slug} className="compare-list-item">
+                    <Link href={`/${locale}/compare/${entry.comparison.slug}`}>
+                      {comparisonHasAdvertising(entry, locale) && (
+                        <p className="kicker">
+                          <span className="kicker-pr">{dict.article.affiliatePr}</span>
+                        </p>
+                      )}
+                      <p className="compare-list-title">{entry.comparison[locale].frontmatter.title}</p>
+                      <p className="compare-list-lead">
+                        {dict.article.comparedWith}: {entry.other[locale].frontmatter.service}
+                      </p>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
           )}
 
           <ul className="tag-list">
