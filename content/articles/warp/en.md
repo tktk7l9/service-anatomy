@@ -1,15 +1,15 @@
 ---
 service: "Warp"
 title: "Give Away the Terminal, Charge for the Agent's Work — In Year Five, Warp Opened Its Client Under AGPL and Moved What It Sells to Software-Factory Infrastructure"
-description: "Warp launched in 2022 as a terminal written in Rust and rendered on the GPU. It dropped mandatory login in 2024, renamed itself an agentic development environment in 2025, open-sourced its client under AGPL v3 in April 2026, and in August 2026 put Warp Factories, a system for running agents in the cloud, at the front. We dissect the home-built Rust UI framework, the blocks made from an Alacritty-derived grid and shell hooks, the ConPTY fork, the agent core that stays on the server, usage-based pricing at $20 a month for 1,500 credits, and the $73 million in publicly announced funding, from the official blog, docs, GitHub and press reports."
-lead: "\"A terminal shouldn't need a login.\" That was the most common criticism of Warp after its 2022 launch. In February 2024 the founder wrote that neither the login requirement nor the closed source would change for now. Nine months later the login requirement was gone, and in April 2026 the client's source code was published under AGPL. The home page no longer calls the product a terminal; it calls it an open platform for automating development. We dissect where a company that gives its tool away moved the price tag."
+description: "Warp launched in 2022 as a terminal written in Rust and rendered on the GPU. It dropped mandatory login in 2024, began calling itself an agentic development environment in 2025, open-sourced its client under AGPL v3 in April 2026, and in August 2026 put Warp Factories, a system for running agents in the cloud, at the front. We dissect the home-built Rust UI framework, the blocks made from an Alacritty-derived grid and shell hooks, the ConPTY fork, the agent core that stays on the server, usage-based pricing at $20 a month for 1,500 credits, and the $73 million in publicly announced funding, from the official blog, docs, GitHub and press reports."
+lead: "\"A terminal shouldn't need a login.\" That has been a recurring criticism of Warp since its 2022 launch. In February 2024 the founder wrote that neither the login requirement nor the closed source would change for now. Nine months later the login requirement was gone, and in April 2026 the client's source code was published under AGPL. The home page no longer calls the product a terminal; it calls it an open platform for automating development. We dissect where a company that gives its tool away moved the price tag."
 category: dev-tool
 tags: [ai, terminal, rust, open-source, coding-agent]
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-01"
-lastVerified: "2026-10-01"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 serviceUrl: "https://www.warp.dev/"
-vendor: "Denver Technologies, Inc. (d/b/a Warp)"
+vendor: "Denver Technologies, Inc. (d/b/a Warp.dev)"
 origin: "US"
 heroTheme: "warp"
 scores: { product: 4.0, ux: 4.0, tech: 4.5, business: 3.5 }
@@ -32,7 +32,7 @@ techStack:
   - layer: "UI framework"
     name: "WarpUI (warpui_core / warpui, MIT license)"
     confidence: confirmed
-    evidence: "\"How Warp Works\" says that, lacking a stable Rust UI framework, the team partnered with Atom co-founder Nathan Sobo and built its own, loosely inspired by Flutter. The public repository's README licenses the UI framework crates (warpui_core, warpui) under MIT and the rest under AGPL v3"
+    evidence: "\"How Warp Works\" says that, lacking a stable Rust UI framework, the team partnered with Atom co-founder Nathan Sobo and built its own on a Rust UI framework he had already started, loosely inspired by Flutter. The public repository's README licenses the UI framework crates (warpui_core, warpui) under MIT and the rest under AGPL v3"
     evidenceUrl: "https://github.com/warpdotdev/warp"
   - layer: "Terminal data model"
     name: "Alacritty-derived grid + shell hooks (precmd / preexec) + DCS"
@@ -106,16 +106,19 @@ sources:
     accessedAt: "2026-10-01"
   - label: "Warp blog: How Warp Works (2021-07-12)"
     url: "https://www.warp.dev/blog/how-warp-works"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "Warp blog: Warp for Linux (2024-02-22)"
     url: "https://www.warp.dev/blog/warp-for-linux"
     accessedAt: "2026-10-01"
   - label: "Warp blog: Bringing Warp to Windows, engineering learnings (2025-01-22)"
     url: "https://www.warp.dev/blog/building-warp-on-windows"
     accessedAt: "2026-10-01"
+  - label: "Warp blog: 2025 in review (Windows version launched in February 2025)"
+    url: "https://www.warp.dev/blog/2025-in-review"
+    accessedAt: "2026-10-02"
   - label: "Warp blog: Open source and login for Warp (2024-02-22)"
     url: "https://www.warp.dev/blog/open-source-and-login-for-warp"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "Warp blog: Lifting the login requirement (2024-11-22)"
     url: "https://www.warp.dev/blog/lifting-login-requirement"
     accessedAt: "2026-10-01"
@@ -172,13 +175,13 @@ sources:
     accessedAt: "2026-10-01"
   - label: "Warp: terms of service (name of the operating entity)"
     url: "https://www.warp.dev/legal/terms-of-service"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "Warp blog: why the marketing site went back to code (2026-06-02)"
     url: "https://www.warp.dev/blog/why-we-tore-down-our-no-code-site-and-went-back-to-code"
     accessedAt: "2026-10-01"
   - label: "Ghostty: Financial Support (fiscal sponsorship by Hack Club)"
     url: "https://ghostty.org/docs/sponsor"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
 ---
 
 A terminal is a tool developers open every day and almost never pay for. One ships with every operating system, and capable alternatives are available as open source. Warp raised venture money to build that unpaid-for tool, which is why it has redrawn the line between what is free and what is sold several times in five years. Following that line shows where developer tools are trying to earn money in the AI era.
@@ -188,11 +191,11 @@ A terminal is a tool developers open every day and almost never pay for. One shi
 Warp is a family of products: a terminal for macOS, Windows and Linux, a coding agent that runs inside it, and infrastructure for running many agents in the cloud. On the home page as we observed it (2026-10-01), the title reads "The Open Platform for Automating Development," and three products are listed: Factories, Terminal and Agent CLI.
 
 :::fact
-According to Wikipedia, Warp was founded in June 2020 by Zach Lloyd. Warp's press release (2026-02-10) describes Lloyd as the former engineering lead for Google Sheets and the Google Docs suite, and says the company is based in New York. The operating entity named in the terms of service is Denver Technologies, Inc. (d/b/a Warp). According to the official blog, the public beta for Mac opened on April 5, 2022 and the Linux version shipped in February 2024; the company's 2025 year-in-review says the Windows version launched in February 2025.
+According to Wikipedia, Warp was founded in June 2020 by Zach Lloyd. Warp's press release (2026-02-10) describes Lloyd as the former engineering lead for Google Sheets and the Google Docs suite, and says the company is based in New York. The operating entity named in the terms of service is Denver Technologies, Inc. (d/b/a Warp.dev). According to the official blog, the public beta for Mac opened on April 5, 2022 and the Linux version shipped in February 2024; the company's 2025 year-in-review says the Windows version launched in February 2025.
 :::
 
 :::fact
-The product has been renamed three times. At the 2022 launch it was "the terminal for the 21st century." With Warp 2.0 in June 2025 it became an "Agentic Development Environment" that put Code, Agents, Terminal and Drive into one app. In February 2026 the company announced Oz, a platform for running and managing agents in the cloud, and on August 18, 2026 it announced Warp Factories in closed beta, which hands triage, spec writing, implementation, review and verification to cloud agents. On user numbers, the February 2026 press release says "over 700,000 developers," the April 2026 blog post says "nearly a million active developers," and the terminal product page as we observed it says "800k+ devs" — the figure differs by page.
+The way the product describes itself has shifted in stages. At the 2022 launch it was "the terminal for the 21st century." With Warp 2.0 in June 2025 it became an "Agentic Development Environment" that put Code, Agents, Terminal and Drive into one app. In February 2026 the company announced Oz, a platform for running and managing agents in the cloud, and on August 18, 2026 it announced Warp Factories in closed beta, which hands triage, spec writing, implementation, review and verification to cloud agents. On user numbers, the February 2026 press release says "over 700,000 developers," the April 2026 blog post says "nearly a million active developers," and the terminal product page as we observed it says "800k+ devs" — the figure differs by page.
 :::
 
 :::pull
@@ -225,7 +228,7 @@ Lifting the login requirement appears to be less an abandonment of the policy th
 ::techstack
 
 :::fact
-According to "How Warp Works" (2021-07-12), Warp's initial requirements were speed (60fps even on 4K or 8K monitors), compatibility with bash, zsh and fish, multiple platforms including the web, rendering arbitrary UI elements, and editor-grade input. After a brief experiment with Electron, the team moved to Rust and direct GPU rendering with Metal. By limiting what is drawn to three primitives — rectangles, images and glyphs — it kept the shaders to about 200 lines, and on top of that it built its own Rust UI framework, loosely inspired by Flutter, in partnership with Atom co-founder Nathan Sobo. The company writes that this "essentially amounted to building the architecture of a browser."
+According to "How Warp Works" (2021-07-12), Warp's initial requirements were speed (60fps even on 4K or 8K monitors), compatibility with bash, zsh and fish, multiple platforms including the web, rendering arbitrary UI elements, and editor-grade input. After a brief experiment with Electron, the team moved to Rust and direct GPU rendering with Metal. By limiting what is drawn to three primitives — rectangles, images and glyphs — it kept the shaders to about 200 lines, and on top of that it built its own Rust UI framework in partnership with Atom co-founder Nathan Sobo, starting from a Flutter-inspired Rust UI framework he had already begun. The company writes that this "essentially amounted to building the architecture of a browser."
 :::
 
 :::fact
@@ -241,7 +244,7 @@ Where the open-source line is drawn appears to overlap closely with where the mo
 :::
 
 :::guess
-The home-built UI framework was originally a choice for speed, but it appears to have become an asset in the agent era. The Agent CLI post says the CLI is built on Warp's terminal infrastructure and puts a pseudoterminal layer between the agent and the shell, which lets the agent drive full-screen apps such as vim or a database REPL. Holding terminal input and output in structured form as blocks is presumably what gives the agent a way to know what is happening on screen.
+The home-built terminal stack was originally a choice for speed and expressiveness, but it appears to have become an asset in the agent era. The Agent CLI post says the CLI is built on Warp's terminal infrastructure and puts a pseudoterminal layer between the agent and the shell, which lets the agent drive full-screen apps such as vim or a database REPL. Holding terminal input and output in structured form as blocks is presumably what gives the agent a way to know what is happening on screen.
 :::
 
 ## Business Model

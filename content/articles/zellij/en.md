@@ -6,8 +6,8 @@ lead: "A terminal multiplexer splits your terminal and keeps your work alive aft
 category: dev-tool
 tags: [terminal, rust, open-source, webassembly, developer-tools]
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-01"
-lastVerified: "2026-10-01"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 serviceUrl: "https://zellij.dev/"
 vendor: "zellij-org"
 origin: "AT"
@@ -88,7 +88,7 @@ sources:
     accessedAt: "2026-10-01"
   - label: "Zellij 0.45.0 release post (nested sessions, Kitty graphics, mobile web UI, Zellij.online announcement)"
     url: "https://zellij.dev/news/nested-sessions-kitty-graphics-new-ui/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "Zellij 0.44.0 release post (native Windows, attach over HTTPS, wasmi/tokio migration, protocol buffers)"
     url: "https://zellij.dev/news/remote-sessions-windows-cli/"
     accessedAt: "2026-10-01"
@@ -101,6 +101,9 @@ sources:
   - label: "Zellij documentation: Session Resurrection"
     url: "https://zellij.dev/documentation/session-resurrection.html"
     accessedAt: "2026-10-01"
+  - label: "Zellij documentation: Layouts (commands in remote-URL layouts are suspended)"
+    url: "https://zellij.dev/documentation/layouts.html"
+    accessedAt: "2026-10-02"
   - label: "Zellij documentation: Plugins"
     url: "https://zellij.dev/documentation/plugins.html"
     accessedAt: "2026-10-01"
@@ -133,7 +136,7 @@ sources:
     accessedAt: "2026-10-01"
   - label: "GitHub Sponsors: imsnif (donation goal, sponsor count)"
     url: "https://github.com/sponsors/imsnif"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
 ---
 
 Split the terminal into panes, and keep the work alive when SSH drops. Tools that do this are called terminal multiplexers, and they have been given away for free for decades. Zellij entered that field in 2020 as an open-source project written in Rust, and its site calls it a "Terminal Workspace with Batteries Included". This dissection uses only public documents, the repository and HTTP headers. It is not a review based on our own extended use of the tool.
@@ -165,9 +168,9 @@ What follows covers design choices described in the official documents, not our 
 - **Nothing to memorise first.** The FAQ says the status bar shows the available shortcuts on screen, so there is nothing to learn by heart. Version 0.43.0 added tooltips that show the hints only when needed, for people who prefer not to give up screen space.
 - **A way out of key collisions.** For users whose editor (vim, for example) fights with the default bindings, there is an official "Unlock-First (non-colliding)" preset, where you unlock the interface before using a Zellij mode.
 - **Floating and stacked panes.** Panes that float above the layout and panes stacked vertically with one expanded are first-class features. Version 0.45.0 changed the default look: pane frames are off and only a title line remains, with a documented setting to bring the classic frames back.
-- **A pause before anything destructive.** When a session is resurrected, saved commands do not run straight away. They wait behind a "Press ENTER to run..." banner, and the documentation gives the reason: avoiding accidents with commands like `rm -rf`. Commands in a layout loaded from a remote URL are held back the same way.
+- **A pause before anything destructive.** When a session is resurrected, saved commands do not run straight away. They wait behind a "Press ENTER to run..." banner, and the documentation gives the reason: avoiding accidents with commands like `rm -rf`. According to the layouts documentation, commands in a layout loaded from a remote URL are held back the same way.
 - **Less friction on upgrade.** In 0.45.0 the release-notes screen that appears after an update detects new keybindings missing from your config file and offers to add them with one keypress.
-- **Several people in one session.** The FAQ describes "True Multiplayer": multiple users connect to the same session and each gets their own coloured cursor. Version 0.45.0 sizes tabs per client, so one person on a small screen no longer shrinks a tab that others are looking at.
+- **Several people in one session.** The FAQ describes "True Multiplayer": multiple users connect to the same session and each gets their own coloured cursor. Version 0.45.0 sizes tabs per client, so one person on a small screen no longer shrinks the view of people who are looking at a different tab.
 
 The pages differ on supported platforms. The 0.44.0 release post says Zellij now runs natively on Windows, and the installation guide has steps for the Windows binary, while the FAQ's platform list still read "Windows: Via WSL" on 2026-10-01. Going by the release post and the distributed binaries, native support looks like the current state.
 
@@ -216,7 +219,7 @@ The same page lists what the paid service does not change. Zellij stays free and
 Much is not public. Neither the explainer page nor the landing page gives Zellij.online's price, the scope of the free tier or a general-availability date. The actual monthly donation total, the number of Zellij users, and the operating company's revenue and headcount cannot be determined from public information. The amounts contributed by the sponsors credited in the README are also not stated.
 
 :::guess
-This looks like a careful attempt at a common fork in the road for open-source sustainability. A multiplexer runs entirely on the user's machine, so the project carries no server costs but also has no natural point at which to charge. Donations depend on goodwill, and judging from 269 sponsors and a $5,000 monthly goal, they are presumably at a scale that only just supports one full-time developer. The response is to sell not the tool but the chores around it: certificates, open ports and NAT traversal. Because the project has promised to keep self-hosting first-class, the paid service would have to earn its price from saved effort alone, with no feature gap to lean on.
+This looks like a careful attempt at a common fork in the road for open-source sustainability. A multiplexer runs entirely on the user's machine, so the project carries no server costs but also has no natural point at which to charge. Donations depend on goodwill. The actual monthly total is not public, but judging from 269 sponsors and a $5,000 monthly goal described as break-even, they are presumably at most around the scale of one full-time developer's living costs. The response is to sell not the tool but the chores around it: certificates, open ports and NAT traversal. Because the project has promised to keep self-hosting first-class, the paid service would have to earn its price from saved effort alone, with no feature gap to lean on.
 :::
 
 :::guess

@@ -6,8 +6,8 @@ lead: "A terminal is a tool people expect to get for free. Ghostty did not add a
 category: dev-tool
 tags: [terminal, open-source, zig, nonprofit, developer-tools]
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-01"
-lastVerified: "2026-10-01"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 serviceUrl: "https://ghostty.org/"
 vendor: "Ghostty (fiscal sponsor: Hack Club)"
 origin: "US"
@@ -107,6 +107,9 @@ sources:
   - label: "Mitchell Hashimoto: Libghostty Is Coming (2025-09-22)"
     url: "https://mitchellh.com/writing/libghostty-is-coming"
     accessedAt: "2026-10-01"
+  - label: "Mitchell Hashimoto: We Rewrote the Ghostty GTK Application (2025-08-14)"
+    url: "https://mitchellh.com/writing/ghostty-gtk-rewrite"
+    accessedAt: "2026-10-02"
   - label: "Mitchell Hashimoto: Ghostty 1.0 is Coming (2024-10-22)"
     url: "https://mitchellh.com/writing/ghostty-is-coming"
     accessedAt: "2026-10-01"
@@ -179,7 +182,7 @@ The README names a multi-threaded architecture with a dedicated read thread, wri
 In a September 2025 post, the author laid out a plan to ship libghostty as a family of smaller libraries. The first is libghostty-vt, which only parses terminal sequences and maintains terminal state, and does not depend even on libc. The README says it is usable from Zig and C and is compatible with macOS, Linux, Windows, and WebAssembly. It also says that no version has been tagged yet and that the API signatures are still in flux.
 :::
 
-The Linux app was rewritten in August 2025. According to the author's post, the rewrite fully embraced the GTK object system (GObject) from Zig and was verified with Valgrind along the way. The README also says the Linux app integrates with systemd for things such as new windows in a single instance and cgroup isolation.
+The Linux app was rewritten in August 2025. According to the author's post (2025-08-14), the rewrite fully embraced the GTK object system (GObject) from Zig and was verified with Valgrind along the way. The README also says the Linux app integrates with systemd for things such as new windows in a single instance and cgroup isolation.
 
 The official website is an ordinary web stack. The response we observed on October 1, 2026 with `curl -sI https://ghostty.org/` included `server: Vercel`, `x-vercel-cache: HIT`, and `x-nextjs-prerender: 1`. The site's source is public too, and its `package.json` lists Next.js 16 and React 19.2.4. Each documentation page carries an "Edit on GitHub" link.
 
