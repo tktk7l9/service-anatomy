@@ -93,6 +93,10 @@ tech editorial (magazine-style) design.
 ## Before publishing
 
 - Starts private. Publish only via publish-check (gitleaks 0 / npm audit all 0 / no PII).
+- CI runs `node scripts/audit-gate.mjs` instead of a bare `npm audit`. It fails on any advisory not listed in
+  `audit-allowlist.json`. An entry needs a reason and an `expires` date (keep it about a month out), and
+  `devOnly: true` stops matching once the package becomes reachable from production dependencies. The gate also
+  fails when an allowlisted advisory gets a fix, so the entry is removed by updating rather than forgotten.
   Observatory **dropped from A+ to B (75, 10/12)** (measured on the Workers production URL on 2026-09-14).
   Both failing items are accepted trade-offs, so this score does not block publishing —
   `content-security-policy` −20 is the `'unsafe-inline'` from the CSP migration, and `subresource-integrity` −5 is
