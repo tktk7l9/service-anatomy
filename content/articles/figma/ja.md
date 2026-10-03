@@ -6,8 +6,8 @@ lead: "ブラウザはゲームエンジンを動かす場所ではない、と�
 category: productivity
 tags: [design-tool, webassembly, collaboration, rust, ipo]
 publishedAt: "2026-07-20"
-updatedAt: "2026-07-20"
-lastVerified: "2026-07-20"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://www.figma.com/"
 vendor: "Figma, Inc."
 origin: "US"
@@ -34,6 +34,11 @@ techStack:
     confidence: confirmed
     evidence: "公式ブログ（2022-10）にDynamoDB上のジャーナルで1日22億件超の変更を処理し、データロス許容時間を60秒から1秒未満に短縮と明記"
     evidenceUrl: "https://www.figma.com/blog/making-multiplayer-more-reliable/"
+  - layer: "永続化（チェックポイント）"
+    name: "Amazon S3"
+    confidence: confirmed
+    evidence: "公式ブログ（2022-10）に、チェックポイントはファイル全体をバイナリ形式にエンコード・圧縮してS3へアップロードすると明記"
+    evidenceUrl: "https://www.figma.com/blog/making-multiplayer-more-reliable/"
   - layer: "永続化（非マルチプレイヤーデータ）"
     name: "PostgreSQL"
     confidence: confirmed
@@ -42,7 +47,7 @@ techStack:
   - layer: "クラウド基盤"
     name: "AWS + CloudFront"
     confidence: confirmed
-    evidence: "公式インフラブログにAWS上での運用を明記。当サイトのHTTPヘッダー実観測（via: CloudFront、2026-07-20）とも整合"
+    evidence: "公式インフラブログにAWS上での運用を明記。当サイトのHTTPヘッダー実観測（via: CloudFront、2026-07-20。2026-09-28の再観測でも同じ）とも整合"
     evidenceUrl: "https://www.figma.com/blog/under-the-hood-of-figmas-infrastructure/"
 sources:
   - label: "Figma公式ブログ: How Figma's multiplayer technology works（OT/CRDT不採用の理由）"
@@ -50,7 +55,7 @@ sources:
     accessedAt: "2026-07-20"
   - label: "Figma公式ブログ: Making multiplayer more reliable（2022-10・DynamoDB WAL）"
     url: "https://www.figma.com/blog/making-multiplayer-more-reliable/"
-    accessedAt: "2026-07-20"
+    accessedAt: "2026-09-28"
   - label: "Figma公式ブログ: WebAssembly cut Figma's load time by 3x"
     url: "https://www.figma.com/blog/webassembly-cut-figmas-load-time-by-3x/"
     accessedAt: "2026-07-20"
@@ -92,7 +97,7 @@ FigmaのUXは「ブラウザの限界を感じさせない」という一点に�
 ::techstack
 
 :::fact
-公式ブログによれば、Figmaのレンダリングエンジンは元々C++で書かれ、Emscriptenを介してWebAssemblyにコンパイルされている（この移行により読み込み時間が3倍改善）。描画バックエンドは近年WebGPUへ移行した。同時編集はOT（Operational Transform）でもCRDT（Conflict-free Replicated Data Type）でもない自作の中央集権的プロトコルで、サーバーはRustで実装されている。永続化は用途で分離されており、コメント・ユーザー・チーム等の一般データはPostgreSQL、マルチプレイヤーの変更履歴はDynamoDB上のWrite-Ahead Journalで扱う。2022年の公式ブログでは、このジャーナルが1日22億件超の変更を処理し、データロス許容時間を60秒から1秒未満に短縮したと報告されている。基盤はAWS上で構築され、当サイトのヘッダー観測でもCloudFront経由の配信を確認できた。
+公式ブログによれば、Figmaのレンダリングエンジンは元々C++で書かれ、Emscriptenを介してWebAssemblyにコンパイルされている（この移行により読み込み時間が3倍改善）。描画バックエンドは近年WebGPUへ移行した。同時編集はOT（Operational Transform）でもCRDT（Conflict-free Replicated Data Type）でもない自作の中央集権的プロトコルで、サーバーはRustで実装されている。永続化は用途で分離されており、コメント・ユーザー・チーム等の一般データはPostgreSQL、マルチプレイヤーの変更履歴はDynamoDB上のWrite-Ahead Journalで扱い、ファイル全体のチェックポイントは圧縮してAmazon S3へ保存する。2022年の公式ブログでは、このジャーナルが1日22億件超の変更を処理し、データロス許容時間を60秒から1秒未満に短縮したと報告されている。基盤はAWS上で構築され、当サイトのヘッダー観測でもCloudFront経由の配信を確認できた。
 :::
 
 :::guess

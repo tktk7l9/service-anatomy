@@ -2,12 +2,12 @@
 service: "Gemini"
 title: "It Makes Its Own Chips and Owns Its Own Distribution — Why Gemini Is the One AI That Doesn't Have to Rent Anything"
 description: "Gemini, the conversational AI built by Google DeepMind. From its rebrand out of Bard, to training on Google's own TPU chips, to distribution through Search, Android, and Workspace — while rivals keep buying compute from multiple vendors, Gemini runs chip-to-distribution vertical integration in-house. A dissection from official sources."
-lead: "Both ChatGPT and Claude run on compute rented from other companies. Gemini alone trains its models on chips it designs itself (TPUs) and delivers them, at no marginal distribution cost, through Search, Android, Chrome, and Workspace — some of the largest reach on the planet. Less than three years after rebranding from \"Bard,\" this is a dissection of the one company that can fight the AI race without renting anything."
+lead: "Both ChatGPT and Claude run on compute rented from other companies. Gemini alone trains its models on chips it designs itself (TPUs) and delivers them, at no marginal distribution cost, through Search, Android, Chrome, and Workspace — some of the largest reach on the planet. Just over two and a half years after rebranding from \"Bard\" in 2024, this is a dissection of the one company that can fight the AI race without renting anything."
 category: ai-tool
 tags: [ai-assistant, llm, multimodal, tpu, google]
 publishedAt: "2026-07-23"
-updatedAt: "2026-07-23"
-lastVerified: "2026-07-23"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://gemini.google.com/"
 vendor: "Google LLC"
 origin: "US"
@@ -15,9 +15,9 @@ heroTheme: "gemini"
 scores: { product: 4.5, ux: 3.5, tech: 4.5, business: 4.0 }
 techStack:
   - layer: "Foundation models"
-    name: "Geminiモデルファミリー（3.6 Flash / 3.1 Pro / 3.1 Deep Think 等）"
+    name: "Geminiモデルファミリー（3.8 Flash / 3.1 Pro / 3.1 Deep Think 等）"
     confidence: confirmed
-    evidence: "Verified on the official Google DeepMind model page that multiple purpose-specific versions are listed (3.6 Flash, 3.5 Flash-Lite, 3.1 Pro, 3.1 Deep Think, Omni, and more)"
+    evidence: "Verified on the official Google DeepMind model page that multiple purpose-specific versions are listed (3.8 Flash, 3.5 Flash-Lite, 3.1 Pro, 3.1 Deep Think, Omni, and more; 2026-09-28)"
     evidenceUrl: "https://deepmind.google/models/gemini/"
   - layer: "Research organization"
     name: "Google DeepMind"
@@ -30,9 +30,9 @@ techStack:
     evidence: "Official Google blog post (2023-12-06) states Gemini 1.0 was trained on Google's own TPU v4 and v5e chips, with the next-generation TPU v5p announced at the same time"
     evidenceUrl: "https://blog.google/technology/ai/google-gemini-ai/"
   - layer: "Subscription infrastructure"
-    name: "Google One AI Premium（Google AI Pro / Ultra）"
+    name: "Google One（Google AI Plus / Pro / Ultra）"
     confidence: confirmed
-    evidence: "Official site states a three-tier lineup — Google AI Plus, Pro, and Ultra — bundled with Google One storage"
+    evidence: "Official site states a three-tier lineup — Google AI Plus, Pro, and Ultra — bundled with Google One storage. The FAQ on the same page states the Google AI Premium plan was renamed Google AI Plus (verified 2026-09-28)"
     evidenceUrl: "https://one.google.com/about/google-ai-plans/"
   - layer: "Distribution integration"
     name: "Android（Pixel / Galaxy 標準アシスタント）"
@@ -41,16 +41,16 @@ techStack:
 sources:
   - label: "Google DeepMind official: Gemini model page (model family and version lineup)"
     url: "https://deepmind.google/models/gemini/"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
   - label: "Google official blog: Gemini announcement (2023-12-06 — TPU v4/v5e training, Bard/Duet AI unification history)"
     url: "https://blog.google/technology/ai/google-gemini-ai/"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
   - label: "Google One official: AI Plans (Plus/Pro/Ultra three-tier lineup)"
     url: "https://one.google.com/about/google-ai-plans/"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
   - label: "Wikipedia: Gemini (chatbot) (rebrand history from Bard, model version history, Android integration aggregated)"
     url: "https://en.wikipedia.org/wiki/Gemini_(chatbot)"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
 ---
 
 ## Service overview
@@ -58,7 +58,7 @@ sources:
 Gemini is the conversational AI developed by Google DeepMind. Its predecessor was "Bard," launched in March 2023; in February 2024, Bard and the productivity-focused "Duet AI" were unified under the Gemini brand. Google DeepMind, its developer, is the research organization formed by merging the former Google Brain and DeepMind.
 
 :::fact
-Per Google's official blog (December 6, 2023), the first Gemini 1.0 shipped in three sizes — Ultra, Pro, and Nano — trained on Google's own TPU v4 and v5e chips. The next-generation Cloud TPU v5p was announced at the same time. On the official Google DeepMind model page, we confirmed that by 2026 Google publishes multiple purpose-specific versions, including Gemini 3.6 Flash, Gemini 3.1 Pro, Gemini 3.1 Deep Think, and the multimodal-focused Gemini Omni.
+Per Google's official blog (December 6, 2023), the first Gemini 1.0 shipped in three sizes — Ultra, Pro, and Nano — trained on Google's own TPU v4 and v5e chips. The next-generation Cloud TPU v5p was announced at the same time. On the official Google DeepMind model page, we confirmed that as of September 28, 2026 Google publishes multiple purpose-specific versions, including Gemini 3.8 Flash, Gemini 3.1 Pro, Gemini 3.1 Deep Think, and the multimodal-focused Gemini Omni.
 :::
 
 :::pull
@@ -81,7 +81,7 @@ Gemini's UX prioritizes penetration across the entire Google product family over
 ::techstack
 
 :::fact
-Per Google's official blog, Gemini is trained on Google's own TPUs (Tensor Processing Units). The first Gemini 1.0 trained on TPU v4 and v5e, with later generations like TPU v5p following. Its developer, Google DeepMind, is the merged organization of the former Google Brain and DeepMind, and as of 2026 publishes a purpose-segmented model lineup: Gemini 3.6 Flash (token-efficiency focused), Gemini 3.1 Pro (complex tasks), Gemini 3.1 Deep Think (science/research), and Gemini Omni (multimodal).
+Per Google's official blog, Gemini is trained on Google's own TPUs (Tensor Processing Units). The first Gemini 1.0 trained on TPU v4 and v5e, with later generations like TPU v5p following. Its developer, Google DeepMind, is the merged organization of the former Google Brain and DeepMind, and as of September 2026 publishes a purpose-segmented model lineup: Gemini 3.8 Flash (complex agentic tasks at scale), Gemini 3.1 Pro (complex tasks), Gemini 3.1 Deep Think (science/research), and Gemini Omni (multimodal).
 :::
 
 :::guess
@@ -93,7 +93,7 @@ Training models on in-house-designed chips (TPUs) and delivering them at no incr
 Gemini's revenue model centers less on a standalone subscription than on embedding into the whole Google ecosystem.
 
 :::fact
-Per the official site, individual users get Google One AI Premium, a three-tier lineup of Google AI Plus, Pro, and Ultra. Each tier bundles Gemini usage limits with Gmail/Google Drive/Google Photos storage, and Ultra includes priority access to the top-tier models. Beyond that, Google secures revenue and usage through several other channels: enterprise API access via Vertex AI, embedding into every Google Workspace product, and default-assistant placement on Android devices.
+Per the official site, individual users get a three-tier lineup of Google AI Plus, Pro, and Ultra (the official FAQ states the former Google AI Premium plan was renamed Google AI Plus). Each tier bundles Gemini usage limits with Gmail/Google Drive/Google Photos storage, and Ultra raises the usage limits for Gemini 3.1 Pro and adds access to Deep Think. Beyond that, Google secures revenue and usage through several other channels: enterprise API access via Vertex AI, embedding into every Google Workspace product, and default-assistant placement on Android devices.
 :::
 
 :::guess

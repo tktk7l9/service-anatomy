@@ -2,12 +2,12 @@
 service: "setlog"
 title: "編集させないという編集 — 韓国発setlogが1時間ごとの通知でZ世代を掴んだ理由"
 description: "BeRealの次に流行るSNSと呼ばれるsetlog。1時間ごとの通知で撮る2秒動画、最大12人の閉じたグループ、加工・編集なしで1本のVlogに自動編集される仕組みと、K-POPスターが火をつけたバイラルの構造、そして見えない収益化までを解剖する。"
-lead: "友人と最大12人。1時間ごとに来る通知に合わせて2秒だけ撮る。編集も加工もできない。setlogが提示したのは「頑張らなくていいSNS」という逆張りで、韓国発の小さなアプリを日本のApp Store無料ランキング1位に押し上げた。"
+lead: "友人と最大12人。1時間ごとに来る通知に合わせて2秒だけ撮る。編集も加工もできない。setlogが提示したのは「頑張らなくていいSNS」という逆張りで、韓国で火がついた小さなアプリを日本のApp Store無料ランキング1位に押し上げた。"
 category: consumer-app
 tags: [video, social, closed-sns, bereal, gen-z]
 publishedAt: "2026-07-17"
-updatedAt: "2026-07-17"
-lastVerified: "2026-07-17"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://apps.apple.com/jp/app/setlog/id6587576438"
 vendor: "New Chat Inc."
 origin: "KR"
@@ -22,27 +22,38 @@ techStack:
   - layer: "CDN"
     name: "Fastly"
     confidence: likely
-    evidence: "当サイトのHTTPヘッダー実観測（x-served-by: cache-nrt-*、Fastly特有のヘッダー形式、2026-07-17）。公式ドキュメントでの明言は見当たらない"
+    evidence: "当サイトのHTTPヘッダー実観測（x-served-by: cache-nrt-*、x-timer等のFastly特有のヘッダー形式、2026-09-28）。公式ドキュメントでの明言は見当たらない"
+  - layer: "公式サイトのホスティング"
+    name: "Firebase Hosting"
+    confidence: likely
+    evidence: "当サイトの実観測（2026-09-28）で、setlog.kr / newchat.kr がFirebase Hosting特有の vary: x-fh-requested-host を返し、Aレコードが199.36.158.100を指す。公式ドキュメントでの明言は見当たらない。アプリ本体のバックエンドとは別物の可能性がある"
 sources:
   - label: "setlog 公式Appストア（日本）ページ"
     url: "https://apps.apple.com/jp/app/setlog/id6587576438"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
   - label: "Business Insider Japan: BeRealの次はこれ。K-POPスターが火をつけたZ世代の人気アプリ「Setlog」とは？"
     url: "https://www.businessinsider.jp/article/2606-setlog-kpop-popular-app-vlog-friends-glimpse-real-life/"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
   - label: "Impress Watch: BeRealの二番手「setlog」が大人気 止まらない「クローズドSNS」への流れ"
     url: "https://www.watch.impress.co.jp/docs/news/2116019.html"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
   - label: "セキュリティ対策Lab: セットログ(Setlog)の危険性と概要を解説"
     url: "https://rocket-boys.co.jp/security-measures-lab/setlog-sns-privacy-threats/"
     accessedAt: "2026-07-17"
+  - label: "DG Daiwa Ventures: New Chat Inc.のシードラウンドに出資（PR TIMES・2026-09-09）"
+    url: "https://prtimes.jp/main/html/rd/p/000000130.000076641.html"
+    accessedAt: "2026-09-28"
 ---
 
-BeRealが「2分以内に投稿しないと遅刻がバレる」という緊張でZ世代を疲れさせ始めた頃、韓国発の小さなアプリがその疲労そのものを製品にした。setlogは、撮る瞬間を減らし、編集する自由を奪うことで、かえって「気楽なSNS」を作り上げた。
+BeRealが「2分以内に投稿しないと遅刻がバレる」という緊張でZ世代を疲れさせ始めた頃、韓国で火がついた小さなアプリがその疲労そのものを製品にした。setlogは、撮る瞬間を減らし、編集する自由を奪うことで、かえって「気楽なSNS」を作り上げた。
 
 ## サービス解説
 
-setlogは、最大12人までの友人グループで日常を記録するビデオSNSだ。運営はNew Chat Inc.（ソウルとニューヨークに拠点を持つ韓国系スタートアップ）。
+setlogは、最大12人までの友人グループで日常を記録するビデオSNSだ。運営はNew Chat Inc.で、韓国でのヒットをきっかけに広がった。
+
+:::fact
+投資元のDG Daiwa Venturesが2026年9月9日に出したプレスリリースによれば、New Chat Inc.は2024年設立で、本社は米国ニューヨーク、CEOはTumblrやSnapchatでの経験を持つDevin Doty氏。同社はシードラウンドでDG Daiwa Venturesから出資を受けた（金額は非公表）。Impress Watch（2026年6月）は同社をニューヨークとソウルを拠点とする企業と報じている。
+:::
 
 :::fact
 Impress Watch（2026年6月）によれば、setlogは1時間ごとに届く通知に合わせてその場で2秒程度の動画を撮る仕組みで、過去に撮影済みの動画のアップロードはできない。1日の終わりには参加者全員の動画が時系列でつながり、1本のミニVlogとして自動生成される。Business Insider Japan（2026年6月）は、K-POPグループSEVENTEENやaespaのカリナがInstagramに使用動画を投稿したことでバイラルに火がついたと報じ、2026年5月単月で200万回超のダウンロードを記録したとしている。日本でも同時期にApp Store無料ランキング1位を獲得した。
@@ -51,6 +62,8 @@ Impress Watch（2026年6月）によれば、setlogは1時間ごとに届く通�
 :::pull
 「頑張らなくていい」という約束は、機能を足すことでは実現できない。setlogはむしろ、加工・編集・後からの投稿という選択肢そのものを取り上げることでそれを実現した。
 :::
+
+訂正（2026年9月28日）。初版では運営会社を「ソウルとニューヨークに拠点を持つ韓国系スタートアップ」と書いていたが、誤りだった。投資元のプレスリリースは、New Chat Inc.の本社を米国ニューヨーク、CEOをTumblrやSnapchatでの経験を持つDevin Doty氏としている。韓国はsetlogの人気に最初に火がついた市場であり、ソウルの拠点は報道（Impress Watch）にもとづく。
 
 ::scorecard
 
@@ -68,11 +81,11 @@ setlogのUXは、BeRealが生んだ「疲労」への正確な処方箋として
 ::techstack
 
 :::fact
-setlogはApp Store（日本）およびGoogle Playの両方でネイティブアプリとして配信されている。当サイトの2026年7月17日の観測では、公式サイト（setlog.kr / newchat.kr）の配信にFastly特有のヘッダー（x-served-by: cache-nrt-*）が確認できた。
+setlogはApp Store（日本）およびGoogle Playの両方でネイティブアプリとして配信されている。当サイトの2026年9月28日の観測では、公式サイト（setlog.kr / newchat.kr）の配信にFastly特有のヘッダー（x-served-by: cache-nrt-*）と、Firebase Hosting特有の vary: x-fh-requested-host が確認でき、両ドメインのAレコードは199.36.158.100を指していた。
 :::
 
 :::guess
-New Chat Incは公開のエンジニアリングブログや技術カンファレンス登壇を持たない小規模スタートアップとみられ、バックエンドの構成（言語・DB・動画処理基盤等）を裏付ける一次情報は見当たらなかった。1時間ごとの通知配信と、参加者全員の動画を時系列で自動結合する処理は技術的に軽くはないはずだが、その実装詳細が非公開であること自体が、急成長中の小規模チームが機能開発を優先しインフラの外部発信に手が回っていない状態を示唆していると推測される。
+公式サイトはFirebase Hosting（その配信網としてFastly）で静的に配られているとみられるが、アプリ本体のバックエンドが同じくGoogleのサービス上にあるかは分からない。New Chat Incは公開のエンジニアリングブログや技術カンファレンス登壇を持たない小規模スタートアップとみられ、バックエンドの構成（言語・DB・動画処理基盤等）を裏付ける一次情報は見当たらなかった。1時間ごとの通知配信と、参加者全員の動画を時系列で自動結合する処理は技術的に軽くはないはずだが、その実装詳細が非公開であること自体が、急成長中の小規模チームが機能開発を優先しインフラの外部発信に手が回っていない状態を示唆していると推測される。
 :::
 
 ## ビジネスモデル
@@ -80,7 +93,7 @@ New Chat Incは公開のエンジニアリングブログや技術カンファ�
 setlogのビジネスモデルは、解剖できる材料が最も少ない部分だ。
 
 :::fact
-アプリは無料で提供されており、公式情報において広告表示やサブスクリプションの導入は確認できなかった。セキュリティ対策Lab（2026年6月）は、開発者がグループ内限定の暗号化を謳う一方、第三者機関によるセキュリティ監査は公表されていないと指摘している。
+アプリは無料で提供されており、2026年9月28日時点のApp Store（日本）掲載でもApp内課金の記載はなく、公式情報において広告表示やサブスクリプションの導入は確認できなかった。2026年9月の出資発表でも収益化の計画は示されておらず、同発表は、正式ローンチ以降、大規模なマーケティング投資なしに短期間で数百万規模のDAUを獲得したと説明している（出資側の発表で、独立した検証はない）。セキュリティ対策Lab（2026年6月）は、開発者がグループ内限定の暗号化を謳う一方、第三者機関によるセキュリティ監査は公表されていないと指摘している。
 :::
 
 :::guess

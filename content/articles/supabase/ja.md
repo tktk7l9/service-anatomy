@@ -1,13 +1,13 @@
 ---
 service: "Supabase"
 title: "「ゼロから作らない」と宣言した会社 — 既製OSSを束ねて100億ドルに至ったSupabaseの編集力"
-description: "Firebaseのオープンソース代替を掲げるSupabase。実体はPostgresを中心にPostgREST（Haskell）・Kong・Denoなど既製OSSを束ね、足りない所だけGo・Elixirで自作する「編集」のプロダクトだ。新規データベースの60%超がAIツール経由という追い風まで、公式ドキュメントと資金調達発表から解剖する。"
+description: "Firebaseのオープンソース代替を掲げるSupabase。実体はPostgresを中心にPostgREST（Haskell）・Envoy・Denoなど既製OSSを束ね、足りない所だけGo・Elixirで自作する「編集」のプロダクトだ。新規データベースの60%超がAIツール経由という追い風まで、公式ドキュメントと資金調達発表から解剖する。"
 lead: "Supabaseの公式アーキテクチャ文書には、異例の宣言が書いてある——「可能な限り、ゼロから開発せず既存のツールを使い、支援する」。Postgresという40年物のOSSを中心に既製部品を束ね、8ヶ月で開発者数を倍にし、評価額100億ドルに至った「作らない」戦略を解剖する。"
 category: dev-tool
 tags: [database, postgres, open-source, backend, baas]
 publishedAt: "2026-07-21"
-updatedAt: "2026-07-21"
-lastVerified: "2026-07-21"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://supabase.com/"
 vendor: "Supabase Inc."
 origin: "US"
@@ -39,6 +39,11 @@ techStack:
     confidence: confirmed
     evidence: "公式アーキテクチャ文書に、Edge FunctionsのランタイムとしてサードパーティOSSのDenoを採用と明記"
     evidenceUrl: "https://supabase.com/docs/guides/getting-started/architecture"
+  - layer: "APIゲートウェイ"
+    name: "Envoy"
+    confidence: confirmed
+    evidence: "公式アーキテクチャ文書に、APIゲートウェイとしてサードパーティOSSのEnvoyを記載（2026-09-28確認）"
+    evidenceUrl: "https://supabase.com/docs/guides/getting-started/architecture"
   - layer: "公式サイト配信"
     name: "Vercel"
     confidence: confirmed
@@ -47,16 +52,16 @@ techStack:
 sources:
   - label: "Supabase公式ドキュメント: Architecture（構成要素と各言語・「既存ツールを使い支援する」宣言）"
     url: "https://supabase.com/docs/guides/getting-started/architecture"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Supabase公式ブログ: Series F（5億ドル・プレ評価額100億ドル・GICリード・2026-06-04）"
     url: "https://supabase.com/blog/supabase-series-f"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Supabase公式ブログ: Series E（1億ドル・評価額50億ドル・Accel/Peak XVリード・2025-10）"
     url: "https://supabase.com/blog/supabase-series-e"
     accessedAt: "2026-07-21"
-  - label: "Supabase公式GitHub: supabase/supabase（スター10.6万超を実確認）"
+  - label: "Supabase公式GitHub: supabase/supabase（スター11万超を実確認）"
     url: "https://github.com/supabase/supabase"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
 ---
 
 ## サービス解説
@@ -87,11 +92,11 @@ SupabaseのUXは「バックエンドという工程の消去」に向けられ�
 ::techstack
 
 :::fact
-公式アーキテクチャ文書は構成部品と出自を明記している。コアはPostgres（C・サードパーティOSS）、REST APIはPostgREST（Haskell・サードパーティOSS）、APIゲートウェイはKong（Lua・サードパーティOSS）、エッジ関数はDeno（サードパーティOSS）。一方、認証（Go）・リアルタイム配信（Elixir）・接続プーラーSupavisor（Elixir）・ストレージ（TypeScript)は自社開発だ。同文書には「技術選定の方針として、可能な限りゼロから開発せず、既存ツールを使い、支援する」と明記されている。本体リポジトリのスターは10万6,000超（2026-07-21実確認）。
+公式アーキテクチャ文書は構成部品と出自を明記している。コアはPostgres（C・サードパーティOSS）、REST APIはPostgREST（Haskell・サードパーティOSS）、APIゲートウェイはEnvoy（サードパーティOSS。2026年9月28日時点の文書による。初版ではKongと書いていた）、エッジ関数はDeno（サードパーティOSS）。一方、認証（Go）・リアルタイム配信（Elixir）・接続プーラーSupavisor（Elixir）・ストレージ（TypeScript)は自社開発だ。同文書には「技術選定の方針として、可能な限りゼロから開発せず、既存ツールを使い、支援する」と明記されている。本体リポジトリのスターは11万超（2026-09-28実確認）。
 :::
 
 :::guess
-HaskellのPostgRESTやLuaのKongをそのまま使う判断は、一貫した基準——「そのレイヤーで最良のOSSが既にあるなら採用し、無ければ作る」——の帰結とみられる。自作部分（認証・リアルタイム・プーラー）はいずれも「Postgresを複数人・大規模接続で使う」ときの隙間であり、埋める場所の選び方が的確だ。この戦略の弱点はアップストリーム依存だが、採用したOSSに開発支援を行うことでリスクを緩和している。Series Fで発表されたMultigres（Postgresの水平スケール層・Vitess共同開発者を招聘）は、「束ねる会社」が初めて最深部の自作に踏み出す転換点と推測される。
+HaskellのPostgRESTやEnvoyをそのまま使う判断は、一貫した基準——「そのレイヤーで最良のOSSが既にあるなら採用し、無ければ作る」——の帰結とみられる。自作部分（認証・リアルタイム・プーラー）はいずれも「Postgresを複数人・大規模接続で使う」ときの隙間であり、埋める場所の選び方が的確だ。この戦略の弱点はアップストリーム依存だが、採用したOSSに開発支援を行うことでリスクを緩和している。Series Fで発表されたMultigres（Postgresの水平スケール層・Vitess共同開発者を招聘）は、「束ねる会社」が初めて最深部の自作に踏み出す転換点と推測される。
 :::
 
 ## ビジネスモデル

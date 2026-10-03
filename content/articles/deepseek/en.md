@@ -6,8 +6,8 @@ lead: "DeepSeek's API price list shows six prices for a single model: cache hit 
 category: ai-tool
 tags: [ai-assistant, llm, api, open-weights, coding-agent]
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-01"
-lastVerified: "2026-10-01"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 serviceUrl: "https://www.deepseek.com/"
 vendor: "Hangzhou DeepSeek Artificial Intelligence Co., Ltd."
 origin: "CN"
@@ -15,27 +15,27 @@ heroTheme: "deepseek"
 scores: { product: 4.0, ux: 3.5, tech: 4.5, business: 3.0 }
 techStack:
   - layer: "Foundation model (current)"
-    name: "DeepSeek-V4.1-Flash（552B MoE・Causal Encoder-Decoder・画像入力対応）"
+    name: "DeepSeek-V4.1-Flash (552B MoE, Causal Encoder-Decoder, image input)"
     confidence: confirmed
     evidence: "The official Hugging Face model card describes a multimodal MoE model with 552B backbone parameters, a 20-layer causal encoder followed by a 20-layer decoder, activating only 8B parameters per token during prefill and 16B during decode. The licence field is MIT (checked 2026-10-01)"
     evidenceUrl: "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash"
-  - layer: "Foundation model (upper tier)"
-    name: "DeepSeek-V4-Pro（1.6T MoE・CSA/HCAハイブリッド注意機構・mHC）"
+  - layer: "Foundation model (Pro line)"
+    name: "DeepSeek-V4-Pro (1.6T MoE, hybrid CSA/HCA attention, mHC)"
     confidence: confirmed
     evidence: "The abstract of the arXiv technical report (2606.19348) states 1.6T parameters (49B activated), a one-million-token context, a hybrid attention architecture combining CSA and HCA, mHC, the Muon optimizer, and pre-training on more than 32T tokens"
     evidenceUrl: "https://arxiv.org/abs/2606.19348"
   - layer: "API"
-    name: "OpenAI形式 / Anthropic形式の互換API（Responses API対応）"
+    name: "OpenAI-format / Anthropic-format compatible API (Responses API supported)"
     confidence: confirmed
     evidence: "The pricing page of the official API docs lists both an OpenAI-format base URL (api.deepseek.com) and an Anthropic-format base URL (api.deepseek.com/anthropic), and a feature table showing support for the Responses API, tool calls and JSON output"
     evidenceUrl: "https://api-docs.deepseek.com/quick_start/pricing"
   - layer: "Inference efficiency"
-    name: "コンテキストキャッシュ（prefix単位でディスクに永続化）"
+    name: "Context caching (prefixes persisted to disk)"
     confidence: confirmed
     evidence: "The caching guide in the official API docs states that a cache hit requires the prefix to have been persisted to the disk cache, and that prefixes are persisted at request boundaries, on common-prefix detection, and at fixed token intervals"
     evidenceUrl: "https://api-docs.deepseek.com/guides/kv_cache"
   - layer: "Agent runtime"
-    name: "DeepSeek Harness（TypeScript・Cordisプラグイン構成・MIT）"
+    name: "DeepSeek Harness (TypeScript, Cordis plugin architecture, MIT)"
     confidence: confirmed
     evidence: "The official GitHub repository deepseek-ai/deepseek-harness has TypeScript as its primary language and an MIT licence (checked via the GitHub API on 2026-10-01). The product page says it is built on Cordis's \"everything is a plugin\" architecture"
     evidenceUrl: "https://github.com/deepseek-ai/deepseek-harness"
@@ -44,11 +44,11 @@ techStack:
     confidence: likely
     evidence: "curl -sI against www.deepseek.com returned server: AmazonS3 / x-cache: Hit from cloudfront / via: CloudFront, and the HTML loads chunks from /_next/static/ (observed 2026-10-01). No official document states the setup, hence likely"
   - layer: "In front of the API and chat"
-    name: "Amazon CloudFront + AWS WAF + ロードバランサ（server: elb）"
+    name: "Amazon CloudFront + AWS WAF + load balancer (server: elb)"
     confidence: likely
     evidence: "api.deepseek.com and platform.deepseek.com returned server: elb / via: CloudFront, and chat.deepseek.com answered a non-browser GET with HTTP 403 and a challenge page containing awsWafCookieDomainList (observed 2026-10-01). Inferred from response headers, hence likely"
   - layer: "API documentation"
-    name: "Docusaurus v3.1.0 + Tencent Cloud（COS・EdgeOneとみられるCDN）"
+    name: "Docusaurus v3.1.0 + Tencent Cloud (COS; CDN appears to be EdgeOne)"
     confidence: likely
     evidence: "The HTML of api-docs.deepseek.com carries generator: Docusaurus v3.1.0, the response headers include server: tencent-cos / eo-cache-status: HIT, and the DNS CNAME sits under eo.dnse1.com (observed 2026-10-01)"
   - layer: "Status page"
@@ -56,16 +56,16 @@ techStack:
     confidence: likely
     evidence: "The CNAME of status.deepseek.com points to statuspage.flashduty.com (observed with dig on 2026-10-01)"
   - layer: "Delivery of terms and policies"
-    name: "Huawei CloudのCDNとみられる配信網（cdn.deepseek.com）"
+    name: "CDN that appears to be Huawei Cloud (cdn.deepseek.com)"
     confidence: speculative
     evidence: "The CNAME of cdn.deepseek.com points to a cdnhwc-style domain and the response header is server: openresty (observed 2026-10-01). This is a guess from the CNAME naming; the provider is not officially confirmed"
 sources:
   - label: "DeepSeek official site (home: product entry points, operating company in the footer, ICP numbers)"
     url: "https://www.deepseek.com/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "DeepSeek API Docs: Models & Pricing (models, context length, prices, peak/off-peak)"
     url: "https://api-docs.deepseek.com/quick_start/pricing"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "DeepSeek API Docs: Change Log (entries up to 2026-09-10)"
     url: "https://api-docs.deepseek.com/updates"
     accessedAt: "2026-10-01"
@@ -124,7 +124,7 @@ sources:
 
 ## What it is
 
-DeepSeek (深度求索) is an AI lab registered in Hangzhou, China. It develops large language models in-house and publishes their weights. It also offers the same models through a free chat app and a pay-as-you-go API. The home page of the official site has five entry points: "DeepSeek Web", "DeepSeek Harness", "API Platform", "API Docs" and "Downloads". There is no pricing-plan page.
+DeepSeek (深度求索) is an AI lab registered in Hangzhou, China. It develops large language models in-house and publishes their weights. It also offers the same models through a free chat app and a pay-as-you-go API. The home page of the official site has five product entry points: "DeepSeek Web", "DeepSeek Harness", "API Platform", "API Docs" and "Downloads" (plus a link to job openings). We found no page offering monthly subscription plans.
 
 :::fact
 The footer of the Chinese-language site names the operator as 杭州深度求索人工智能基础技术研究有限公司. The privacy policy (we were served the Japanese-language version) says the service is provided and controlled by Hangzhou DeepSeek Artificial Intelligence Co., Ltd., with a registered address in China. There are two current model lines: DeepSeek-V4.1-Flash, released on 10 September 2026 (API name deepseek-flash), and DeepSeek-V4-Pro, which reached general availability on 13 August 2026 (deepseek-v4-pro). According to the official docs, both have a context length of one million tokens and a maximum output of 384K tokens. The weights are published on Hugging Face, where the model cards list the licence as MIT.
@@ -167,7 +167,7 @@ According to the official model card, DeepSeek-V4.1-Flash is a Mixture-of-Expert
 :::
 
 :::fact
-The same model card puts KV cache compression at the centre of the design. It combines "CSA2", which assigns each attention layer one of three modes (Full, Reindex or Reuse), with FP4 cache storage, and reports a global KV cache of 890 bytes per token, roughly a quarter of the previous V4-Flash. The official announcement says the cache needs a quarter of the HBM and an eighth of the SSD storage of the previous generation, and gives the reason: "Cache-hit charges often account for a large share of agent costs." For the upper-tier V4-Pro, the arXiv technical report says that in a one-million-token context it needs 27% of the single-token inference FLOPs and 10% of the KV cache of DeepSeek-V3.2.
+The same model card puts KV cache compression at the centre of the design. It combines "CSA2", which assigns each attention layer one of three modes (Full, Reindex or Reuse), with FP4 cache storage, and reports a global KV cache of 890 bytes per token, roughly a quarter of the previous V4-Flash. The official announcement says the cache needs a quarter of the HBM and an eighth of the SSD storage of the previous generation, and gives the reason: "Cache-hit charges often account for a large share of agent costs." For V4-Pro, the other current model, the arXiv technical report says that in a one-million-token context it needs 27% of the single-token inference FLOPs and 10% of the KV cache of DeepSeek-V3.2.
 :::
 
 :::fact
@@ -199,11 +199,11 @@ As a reference point for the price level, we cite Anthropic's official price lis
 :::
 
 :::fact
-Where data is stored and which law governs are written into the policy and the terms. The privacy policy states that DeepSeek stores the information it collects on secure servers located in the People's Republic of China. Section 9.1 of the Terms of Use and section 10.1 of the Open Platform terms set the governing law as "the laws of the People's Republic of China in the mainland", and provide that disputes not settled by negotiation may be brought before a court with jurisdiction over the registered office of Hangzhou DeepSeek Artificial Intelligence Co., Ltd. On 3 February 2025 (updated 5 March 2025), Japan's Personal Information Protection Commission published an information notice on what the company's privacy policy says, in two points: data including personal information obtained through the service is stored on servers located in the People's Republic of China, and the laws of the People's Republic of China apply to that data.
+Where data is stored and which law governs are written into the policy and the terms. The privacy policy states that DeepSeek stores the information it collects on secure servers located in the People's Republic of China. Sections 9.1 and 9.2 of the Terms of Use and sections 10.1 and 10.2 of the Open Platform terms set the governing law as "the laws of the People's Republic of China in the mainland", and provide that disputes not settled by negotiation may be brought before a court with jurisdiction over the registered office of Hangzhou DeepSeek Artificial Intelligence Co., Ltd. On 3 February 2025 (updated 5 March 2025), Japan's Personal Information Protection Commission published an information notice on what the company's privacy policy says, in two points: data including personal information obtained through the service is stored on servers located in the People's Republic of China, and the laws of the People's Republic of China apply to that data.
 :::
 
 :::guess
-Publishing weights under MIT means other clouds and users' own infrastructure can run the same model. That the company's own API can still charge is presumably because the thing on sale is operational efficiency rather than the model. A cache-hit input token costs one-fiftieth of a cache miss, and off-peak halves it again. That price appears to be possible because DeepSeek controls both a mechanism that keeps the KV cache on disk and time-of-day pricing that shifts work into demand troughs, on its own equipment. A third party holding the weights would presumably need comparable cache infrastructure and utilisation to match the same unit price.
+Publishing weights under MIT means other clouds and users' own infrastructure can run the same model. That the company's own API can still charge is presumably because the thing on sale is operational efficiency rather than the model. For deepseek-flash, a cache-hit input token ($0.006 per million) costs one-fiftieth of a cache miss ($0.30), and off-peak halves it again (for deepseek-v4-pro the ratio is one-thirtieth: $0.044 against $1.32). That price appears to be possible because DeepSeek controls both a mechanism that keeps the KV cache on disk and time-of-day pricing that shifts work into demand troughs, on its own equipment. A third party holding the weights would presumably need comparable cache infrastructure and utilisation to match the same unit price.
 :::
 
 :::guess

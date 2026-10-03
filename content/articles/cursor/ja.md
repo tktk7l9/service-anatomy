@@ -1,8 +1,8 @@
 ---
 service: "Cursor"
-title: "コピーではなくフォークを選んだ理由 — Cursorが1年でARR20億ドルに達した設計判断"
-description: "VS Codeをフォークして生まれたAIコードエディタCursor。拡張機能では不可能だったエディタ深部へのAI統合、独自の高速コード編集モデル、ARRが約1年で1億→20億ドルに達した成長、そして2026年8月のSpaceXによる買収までを、公式情報から解剖する。"
-lead: "拡張機能として作れば早かったはずのAIコードエディタを、Cursorはあえてゼロからのフォークとして作った。その回り道が、エディタの奥深くにAIを埋め込む自由度を生み、アプリケーション層SaaS史上最速のARR成長を支えた。VS Code資産を活かしながら独自インフラを積み上げる設計思想を解剖する。"
+title: "コピーではなくフォークを選んだ理由 — 約13か月で年換算売上20億ドルと報じられたCursorの設計判断"
+description: "VS Codeをフォークして生まれたAIコードエディタCursor。拡張機能では不可能だったエディタ深部へのAI統合、独自の高速コード編集モデル、経常収益1億ドル超（2025年1月・公式発表）から年換算20億ドル（2026年2月・報道）までの約13か月の成長、そして2026年8月のSpaceXによる買収までを、公式情報から解剖する。"
+lead: "拡張機能として作れば早かったはずのAIコードエディタを、Cursorはあえてゼロからのフォークとして作った。その回り道が、エディタの奥深くにAIを埋め込む自由度を生んだ。経常収益は2025年1月に1億ドルを超え（公式発表）、2026年2月には年換算20億ドルに達したと報じられている。VS Code資産を活かしながら独自インフラを積み上げる設計思想を解剖する。"
 category: dev-tool
 tags: [ai, code-editor, vscode, developer-tools, funding]
 publishedAt: "2026-07-20"
@@ -24,15 +24,30 @@ techStack:
     confidence: confirmed
     evidence: "推論インフラ提携先Fireworks AIの公式ブログ（2024-06-23）に、Cursorがファインチューニングした Llama-3-70B を投機的デコードAPIで配信し、約1,000トークン/秒（通常推論比約13倍）を達成と明記。2024年時点の構成で、現在も同じ構成かは公式情報では確認できない"
     evidenceUrl: "https://fireworks.ai/blog/cursor"
+  - layer: "推論インフラ（2024年時点）"
+    name: "Fireworks AI"
+    confidence: confirmed
+    evidence: "Fireworks AI公式ブログ（2024-06-23）に、CursorのFast Applyモデルを同社の投機的デコードAPIで配信していると明記。2024年6月時点の情報で、現在の利用状況は公式情報では確認できない"
+    evidenceUrl: "https://fireworks.ai/blog/cursor"
   - layer: "自社コーディングモデル"
     name: "Composer 2.5"
     confidence: confirmed
     evidence: "公式ドキュメントのModels & Pricingが、Composer 2.5を「Cursor Models」枠の自社モデルとして掲載（2026-10-02確認）。初代Composerは公式ブログ（2025-10-29）で「同等の知能を持つモデルの4倍速い」と説明されている"
     evidenceUrl: "https://cursor.com/docs/models-and-pricing"
+  - layer: "Composerの土台モデル"
+    name: "Kimi K2.5 (Moonshot AI)"
+    confidence: confirmed
+    evidence: "Composer 2.5の公式ブログ（2026-05-18）に、Composer 2と同じオープンソースのチェックポイントであるMoonshotのKimi K2.5の上に構築したと明記（2026-10-02再確認）"
+    evidenceUrl: "https://cursor.com/blog/composer-2-5"
   - layer: "グループのフロンティアモデル"
-    name: "Grok 4.7 / 4.6 / 4.5"
+    name: "Grok (4.7 / 4.6 / 4.5)"
     confidence: confirmed
     evidence: "公式ドキュメントが、Grok 4.7・4.6・4.5をComposer 2.5と同じ「Cursor Models」枠に置き、GrokとComposerを「first-party Cursor models」と呼んでいる（2026-10-02確認）。Grok 4.6は公式ブログ（2026-08-12）でSpaceXAIと共同でのリリースと説明されている"
+    evidenceUrl: "https://cursor.com/docs/models-and-pricing"
+  - layer: "他社モデル（Other Models枠）"
+    name: "Anthropic / OpenAI / Google"
+    confidence: confirmed
+    evidence: "公式ドキュメントのModels & Pricingに、OpenAI・Anthropic・Google・SpaceXAIなどのフロンティアモデルに対応すると明記（2026-10-02確認）。OpenAIは2026年11月12日に提供を終える予定と報じられている"
     evidenceUrl: "https://cursor.com/docs/models-and-pricing"
   - layer: "配信基盤"
     name: "Vercel + Next.js"
@@ -75,6 +90,9 @@ sources:
   - label: "Cursor公式ブログ: Introducing Cursor 2.0 and Composer（2025-10-29）"
     url: "https://cursor.com/blog/2-0"
     accessedAt: "2026-10-02"
+  - label: "Cursor公式ブログ: Introducing Composer 2.5（2026-05-18・Kimi K2.5が土台）"
+    url: "https://cursor.com/blog/composer-2-5"
+    accessedAt: "2026-10-02"
   - label: "Cursor公式ドキュメント: Cloud Agents（旧Background Agents）"
     url: "https://cursor.com/docs/cloud-agent"
     accessedAt: "2026-10-02"
@@ -86,7 +104,7 @@ sources:
     accessedAt: "2026-10-02"
 ---
 
-拡張機能として作れば、開発は数ヶ月早く終わったはずだ。CursorはあえてVS Codeをフォークするという回り道を選んだ——その判断が、[Linear](/ja/articles/linear)と並ぶ「開発者ツールの速度」を追求する2社のうち、Cursorをアプリケーション層SaaS史上最速のARR成長企業に押し上げた。
+拡張機能として作れば、開発は数ヶ月早く終わったはずだ。CursorはあえてVS Codeをフォークするという回り道を選んだ。[Linear](/ja/articles/linear)と同じく「開発者ツールの速度」を追求するこの会社は、公式発表によれば2025年1月に経常収益が1億ドルを超え、同年11月には年換算売上が10億ドルを超えた。
 
 ## サービス解説
 
@@ -97,7 +115,7 @@ Cursor公式ドキュメントによれば、CursorはVS Codeのコードベー�
 :::
 
 :::pull
-拡張機能では届かない場所にAIを埋め込むために、Cursorはエディタそのものを作り直した。回り道こそが最短ルートだった、という逆説がここにある。
+拡張機能では届かない場所にAIを埋め込むために、CursorはVS Codeのコードベースを土台に、エディタそのものを作った。既存の拡張機能・設定・キーバインドは、そのまま持ち込める。
 :::
 
 ::scorecard
@@ -125,7 +143,7 @@ Fireworks AIの公式ブログ（2024年6月）によれば、Cursorのコード
 
 ## ビジネスモデル
 
-Cursorの収益成長は、アプリケーション層SaaSとして記録的な速度だ。そして2026年、その成長は独立企業としてではなくSpaceXの一部として続くことになった。
+Cursorの年換算売上は、公式発表の数字だけを追っても、2025年1月の1億ドル超から同年11月の10億ドル超へ、10か月でおよそ10倍になった。そして2026年、その成長は独立企業としてではなくSpaceXの一部として続くことになった。
 
 :::fact
 公式ブログによれば、経常収益は2025年1月に1億ドルを超え、同年11月には年換算売上が10億ドルを超えた。2026年2月に年換算20億ドルに達したという数字は公式発表ではなく、Bloombergの報道をTechCrunch（2026年4月17日）が引用したものである。資金調達はSeries C（2025年6月・9億ドル・評価額99億ドル）からSeries D（2025年11月・23億ドル・評価額293億ドル）へと5ヶ月で評価額が約3倍になり、Series DにはNVIDIAとGoogleが新規投資家として参加した。これらは買収前に公式に発表された最後の調達の記録である。
@@ -143,4 +161,4 @@ CNBC（2026年8月29日）によれば、OpenAIは買収完了後に、Cursor経
 SpaceXはForm S-1で、この取引を「計算基盤・モデル・アプリケーションを垂直統合する戦略の延長」と位置づけ、コーディング作業から得られるデータがGrokを含むモデルの学習を強化すると見込んでいると述べている。Cursorにとっては、推論コストの重いAIアプリケーションの原価を、親会社の計算資源と自社枠のモデルで下げられる可能性があるとみられる。料金体系で自社枠（GrokとComposer）に多めの利用量を割り当て、Teams向けの上乗せ料金を自社モデルには課さない設計は、利用を原価の低い自社モデルへ寄せる狙いを持つと推測される。一方で、他社モデルを選べる中立性はCursorの価値の一部でもあった。グループにGrokを抱える以上、モデル提供元との関係は買収前より複雑になると考えられ、どこまで「どのモデルも選べるエディタ」であり続けられるかが、今後の観察点になりそうだ。
 :::
 
-拡張機能ではなくフォークを選ぶという、一見遠回りな技術判断が、エディタの主導権を握り、史上最速のSaaS成長を可能にした。「土台を借りて、差別化点だけ自作する」という戦略で育ったCursorは、いま計算資源とモデルを持つ親会社の内側で、その戦略がどこまで通用するかを試す新しい段階にいる。
+拡張機能ではなくフォークを選ぶという、一見遠回りな技術判断が、エディタの深部にAIを組み込む余地をつくった。その上で年換算売上は、公式発表によれば10か月で1億ドル超から10億ドル超へ伸びた。「土台を借りて、差別化点だけ自作する」という戦略で育ったCursorは、いま計算資源とモデルを持つ親会社の内側で、その戦略がどこまで通用するかを試す新しい段階にいる。

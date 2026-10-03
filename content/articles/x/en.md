@@ -37,7 +37,7 @@ techStack:
   - layer: "AI integration"
     name: "Grok (xAI)"
     confidence: confirmed
-    evidence: "SpaceX's Form S-1 (2026-05-20) describes native integration of Grok's models into X and says the Basic, Premium and Premium+ tiers include priority Grok interactions. xAI's developer documentation shows Grok 4.7 as the latest model (2026-10-02)"
+    evidence: "SpaceX's Form S-1 (2026-05-20) describes native integration of Grok's models into X and says the Basic, Premium and Premium+ tiers include priority Grok interactions. SpaceXAI's developer documentation (docs.x.ai) shows Grok 4.7 as the latest model (2026-10-02)"
     evidenceUrl: "https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/spaceexplorationtechnologi.htm"
   - layer: "Edge / CDN"
     name: "Cloudflare + Envoy"
@@ -74,8 +74,8 @@ sources:
   - label: "App Store (Japan): X in-app purchases (Premium Basic ¥450 / Premium ¥1,270 / Premium Plus ¥8,000)"
     url: "https://apps.apple.com/jp/app/x/id333903271"
     accessedAt: "2026-10-02"
-  - label: "xAI developer documentation: Grok models and pricing"
-    url: "https://docs.x.ai/docs/models"
+  - label: "SpaceXAI developer documentation (docs.x.ai): Grok models and pricing"
+    url: "https://docs.x.ai/developers/models"
     accessedAt: "2026-10-02"
   - label: "WebProNews: Premium+ raised to $40/month following Grok 3 launch (2025-02)"
     url: "https://www.webpronews.com/x-raises-premium-subscription-to-40-per-month-on-the-strength-of-grok-3/"
@@ -100,7 +100,7 @@ The algorithm is readable on GitHub and the revenue in SEC filings. Only X's own
 
 ## UX analysis
 
-X's UX has two faces: a laboratory for transparency, and a platform subject to Musk's mercurial product changes.
+X's UX has two faces: a laboratory for transparency, and a product whose pricing and feature lineup keep being rearranged.
 
 - **Community Notes is a best-in-class implementation.** Displaying a note only when users from different perspectives agree demonstrates a third path between centralized fact-checking and a free-for-all — and because the scoring algorithm itself is public, it's independently verifiable.
 - **The open-sourced recommendation algorithm has moved to a new repository.** "The Algorithm," published in March 2023, gathered over 70,000 stars and then went quiet in September 2025. In January 2026 the "X For You Feed Algorithm" appeared under xAI's organization, and in August 2026 it added scoring weights and visibility-filtering code. Its README has a "What's not in this repo?" section, so the publisher itself states where the disclosure ends.

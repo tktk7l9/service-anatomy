@@ -5,12 +5,12 @@ lead: "Netflix ships home-built CDN appliances free of charge to over a thousand
 slugA: "netflix"
 slugB: "spotify"
 publishedAt: "2026-07-21"
-updatedAt: "2026-07-21"
-lastVerified: "2026-07-21"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 sources:
   - label: "Netflix official: Open Connect (the ISP-facing in-house CDN program)"
     url: "https://openconnect.netflix.com/en/"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Netflix official tech blog: The Netflix Simian Army (the Chaos Monkey original, 2011)"
     url: "https://netflixtechblog.com/the-netflix-simian-army-16e57fbab116"
     accessedAt: "2026-07-21"
@@ -20,17 +20,25 @@ sources:
   - label: "Spotify official engineering blog: the shift to a fleet-first mindset (2023-04 — automated changes across thousands of repositories)"
     url: "https://engineering.atspotify.com/2023/04/spotifys-shift-to-a-fleet-first-mindset-part-1"
     accessedAt: "2026-07-21"
+  - label: "Spotify official engineering blog: incident report on the April 16, 2025 outage (2025-05-09 — Envoy Proxy at the perimeter)"
+    url: "https://engineering.atspotify.com/2025/05/incident-report-spotify-outage-on-april-16-2025"
+    accessedAt: "2026-09-28"
+  - label: "InfoQ (news report): Netflix's zero-configuration service mesh (2023-09 — adoption of Envoy)"
+    url: "https://www.infoq.com/news/2023/09/zero-config-service-mesh-netflix"
+    accessedAt: "2026-09-28"
 ---
 
-[Netflix](/en/articles/netflix) and [Spotify](/en/articles/spotify) apply the same verb, streaming, to two different nouns: video and audio. Cross-referencing both articles' techStack turns up exactly one shared token — Envoy. Neither company's official materials state this outright; it's a likely rating, drawn from our own observation that both sites return the same response headers when we send them a request. Two companies with no reason to coordinate arrived independently at the same answer.
+[Netflix](/en/articles/netflix) and [Spotify](/en/articles/spotify) apply the same verb, streaming, to two different nouns: video and audio. Cross-referencing both articles' techStack turns up exactly one shared token — Envoy. Spotify states in an official incident report that it uses Envoy Proxy for its networking perimeter. For Netflix it's a likely rating, drawn from the response headers we observed when we sent a request and from news reporting. Two companies with no reason to coordinate arrived independently at the same answer.
 
 :::fact
-Netflix entrusts its control plane — membership, recommendations, billing — to AWS, while carrying the video bytes itself: it distributes home-designed Open Connect appliances free of charge to over 1,000 ISPs. Spotify did the opposite, migrating to Google Cloud in stages starting 2016 and retiring all four of its own data centers by 2018 — handing nearly all its infrastructure to an outside cloud. Yet our own observation shows both netflix.com and spotify.com return Envoy as their edge proxy (server: envoy, x-envoy-upstream-service-time headers). Neither company states this in official documentation; it's a match found only through our independent observation.
+Netflix entrusts its control plane — membership, recommendations, billing — to AWS, while carrying the video bytes itself: it distributes home-designed Open Connect appliances free of charge to over 1,000 ISPs. Spotify did the opposite, migrating to Google Cloud in stages starting 2016 and retiring all four of its own data centers by 2018 — handing nearly all its infrastructure to an outside cloud. Yet our own observation shows both netflix.com and spotify.com return Envoy as their edge proxy (server: envoy, x-envoy-upstream-service-time headers), and the same held on re-observation on September 28, 2026. Spotify states in its official incident report of May 2025 that it uses Envoy Proxy for its networking perimeter systems. For Netflix, InfoQ's report (September 2023), citing a post on the official tech blog, describes the adoption of Envoy.
 :::
 
 :::pull
 Their infrastructure philosophies are opposites, yet one piece of software at the very edge landed on the same answer. Envoy may no longer be a choice — it may be becoming the industry default.
 :::
+
+Correction (September 28, 2026). The first version said of Envoy that "neither company states this in official documentation" and that it was "a match found only through our independent observation." That was wrong. Spotify stated its use of Envoy Proxy in an official incident report dated May 9, 2025, and there is news reporting on Netflix's adoption of Envoy. The result of the mechanical cross-reference (one shared technology, Envoy) is unchanged.
 
 ## Build vs. delegate: opposite answers
 
@@ -50,4 +58,4 @@ Netflix's technology choices are fundamentally home-built. Chaos engineering, bo
 That both camps converged on Envoy at exactly one point — the edge proxy — suggests this piece of technology settled into a specific slot: not worth building yourself, but the best available off the shelf. Both Netflix and Spotify concentrate their resources on differentiating their core business — video, music — and default readily to the industry standard for a component like the proxy that first catches every request, where differentiation buys nothing. This precision in choosing where to differentiate and where to conform is likely exactly what lets both companies keep shipping fast at enormous scale. The same phenomenon we saw in the Cloudflare dissection — infrastructure becoming bedrock — is happening here too, just outside the CDN layer.
 :::
 
-Netflix and Spotify designed opposite distances from the cloud, calibrated to the weight of the media they carry — and still landed independently on the same answer at exactly one point, the edge proxy at the very bottom of the stack. That the shared technology was neither company's own banner nor the other's core component, but a piece of backstage software neither company may even think about, shows that infrastructure decisions at scale are answers to the same question — where to build, where to buy — solved differently depending on what you're actually carrying.
+Netflix and Spotify designed opposite distances from the cloud, calibrated to the weight of the media they carry — and still landed independently on the same answer at exactly one point, the edge proxy at the very bottom of the stack. That the shared technology was neither company's own banner nor the other's core component, but a piece of backstage software that rarely gets the spotlight, shows that infrastructure decisions at scale are answers to the same question — where to build, where to buy — solved differently depending on what you're actually carrying.

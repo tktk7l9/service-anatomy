@@ -2,12 +2,12 @@
 service: "xAI"
 title: "From xAI to SpaceXAI — The Company Behind Grok Now Rents Its One-Gigawatt Compute to Rivals"
 description: "xAI, the developer of Grok, absorbed X in March 2025, was absorbed by SpaceX in February 2026, and now calls itself SpaceXAI. According to the Form S-1 SpaceX filed in May 2026, the AI segment had 2025 revenue of $3.2 billion, an operating loss of $6.36 billion and capital expenditures of $12.7 billion. It has also signed contracts to rent the roughly one gigawatt of compute it built around Memphis to Anthropic and Google for a monthly fee. We dissect Grok 4.7 API pricing, SuperGrok plans, a backend written in Rust and the Cursor acquisition from official docs and the prospectus."
-lead: "Open x.ai and the page title reads SpaceXAI. xAI, the company that built Grok, took in its founder's other company X in March 2025, became a SpaceX subsidiary in February 2026 and changed its sign that July. What SpaceX's IPO prospectus revealed for the first time is a company that started earning from the compute that trains its models before earning from the models themselves. The tenant paying $1.25 billion a month is Anthropic, a direct competitor in AI assistants."
+lead: "Open x.ai and the page title reads SpaceXAI. xAI, the company that built Grok, took in its founder's other company X in March 2025, became a SpaceX subsidiary in February 2026 and changed its sign that July. What SpaceX's IPO prospectus revealed for the first time is a company that, besides selling its models, has started earning from the compute that trains them. The tenant paying $1.25 billion a month is Anthropic, a direct competitor in AI assistants."
 category: ai-tool
 tags: [ai-assistant, llm, api, data-center, coding-agent]
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-01"
-lastVerified: "2026-10-01"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 serviceUrl: "https://x.ai"
 vendor: "Space Exploration Technologies Corp. (SpaceXAI, formerly xAI)"
 origin: "US"
@@ -68,10 +68,10 @@ sources:
     accessedAt: "2026-10-01"
   - label: "SpaceXAI official docs: Models (model list and API pricing)"
     url: "https://docs.x.ai/developers/models"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "SpaceXAI official docs: Pricing (tool calls, Batch, Priority, Grok 4.7 Fast, US endpoint)"
     url: "https://docs.x.ai/developers/pricing"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "SpaceXAI official docs: Grok 4.7 (overview and where it runs)"
     url: "https://docs.x.ai/developers/grok-4-7"
     accessedAt: "2026-10-01"
@@ -95,7 +95,7 @@ sources:
     accessedAt: "2026-10-01"
   - label: "SpaceXAI official: Introducing Grok 4.7 (x.ai cannot be fetched directly, so checked via the Internet Archive capture of 2026-09-29)"
     url: "https://web.archive.org/web/20260929101703/https://x.ai/news/grok-4-7"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "Apple App Store (US): Grok (seller X Corp., in-app purchase prices)"
     url: "https://apps.apple.com/us/app/grok/id6670324846"
     accessedAt: "2026-10-01"
@@ -178,7 +178,7 @@ Merging usage into one pool probably matters more as the number of products grow
 ::techstack
 
 :::fact
-According to the official docs (checked 2026-10-01), the main API model is grok-4.7, with a 500k-token context window priced per million tokens at $2 input, $0.50 cached input and $6 output. When a prompt reaches 200k tokens, every token in that request is billed at double the rate ($4 input, $12 output). grok-4.3 and the grok-4.20 family have a 1M-token context at $1.25 input and $2.50 output. Server-side tools are billed separately: web search and code execution cost $5 per 1,000 calls, while X search is billed per item fetched rather than per call, at $5 per 1,000 posts and $10 per 1,000 profiles. The Batch API discount (20%) exists only for grok-4.3 and the grok-4.20 family, and Priority Processing costs twice the standard rate.
+According to the official docs (checked 2026-10-01), the main API model is grok-4.7, with a 500k-token context window priced per million tokens at $2 input, $0.50 cached input and $6 output. When a prompt reaches 200k tokens, every token in that request is billed at double the rate ($4 input, $12 output). grok-4.3 and the grok-4.20 family have a 1M-token context at $1.25 input and $2.50 output (for prompts under 200k tokens; these rates also double at 200k and above). Server-side tools are billed separately: web search and code execution cost $5 per 1,000 calls, while X search is billed per item fetched rather than per call, at $5 per 1,000 posts and $10 per 1,000 profiles. The Batch API discount (20%) exists only for grok-4.3 and the grok-4.20 family, and Priority Processing costs twice the standard rate.
 :::
 
 :::fact
@@ -202,7 +202,7 @@ The job postings suggest a backend leaning on Rust, JAX in the training stack, a
 There are four revenue lines: advertising on X, X and Grok subscriptions, API access and data licensing, and, added in 2026, compute rental.
 
 :::fact
-According to the Form S-1 (2026-05-20), the AI segment (which includes Grok and X) had 2025 revenue of $3,201 million, a loss from operations of $6,355 million and capital expenditures of $12,727 million. For January to March 2026 the figures were revenue of $818 million, a loss from operations of $2,469 million and capital expenditures of $7,723 million. In the same quarter the Space segment spent $1,052 million on capital expenditures and the Connectivity segment (Starlink) $1,332 million, so the AI segment accounts for most of the total. At the end of March 2026 there were approximately 6.3 million paid subscribers: about 4.4 million on X Premium and Premium+, and about 1.9 million on SuperGrok, SuperGrok Heavy and SuperGrok Lite. The filing puts monthly active AI users across Grok and X at approximately 550 million.
+According to the Form S-1 (2026-05-20), the AI segment (which includes Grok and X) had 2025 revenue of $3,201 million, a loss from operations of $6,355 million and capital expenditures of $12,727 million. For January to March 2026 the figures were revenue of $818 million, a loss from operations of $2,469 million and capital expenditures of $7,723 million. In the same quarter the Space segment spent $1,052 million on capital expenditures and the Connectivity segment (Starlink) $1,332 million, so the AI segment accounts for most of the total. At the end of March 2026 there were approximately 6.3 million paid subscribers: about 4.4 million on X Premium and Premium+, and about 1.9 million on SuperGrok, SuperGrok Heavy and SuperGrok Lite. The filing puts monthly active users across Grok and X at approximately 550 million.
 :::
 
 :::fact
@@ -210,13 +210,13 @@ Compute rental appears in the S-1 as "compute services agreements with third par
 :::
 
 :::fact
-In coding, the company added a product by acquisition. According to CNBC (2026-04-21), SpaceX announced in April 2026 that it had obtained the right to acquire Cursor for $60 billion or to pay $10 billion for the work the two were doing together. The S-1 describes the deal as a compute agreement combined with an acquisition option, and says it expects the data generated by coding workflows to enhance Grok's training and inference. According to the Cursor official blog and Bloomberg Law (both 2026-08-14), the acquisition closed on August 14, 2026. Our article on [Cursor](/en/articles/cursor) was written before the acquisition.
+In coding, the company added a product by acquisition. According to CNBC (2026-04-21), SpaceX announced in April 2026 that it had obtained the right to acquire Cursor for $60 billion or to pay $10 billion for the work the two were doing together. The S-1 describes the deal as a compute agreement combined with an acquisition option, and says it expects the data generated by coding workflows to enhance Grok's training and inference. According to the Cursor official blog and Bloomberg Law (both 2026-08-14), the acquisition closed on August 14, 2026. Our article on [Cursor](/en/articles/cursor) covers the product and pricing after the acquisition.
 :::
 
 :::guess
-Put side by side, the size of the compute rental stands out. The $1.25 billion Anthropic pays each month exceeds, in a single month, the AI segment's revenue of $818 million for the whole January–March 2026 quarter. Simply adding the Google contract gives $2.17 billion a month, or roughly $26 billion a year if the contracts run as written. The data centres built for a model company appear to have started earning as data centres before earning as a model company. This income, however, rests on contracts either side can end with 90 days' notice, and the tenants may be using the capacity as a bridge until their own compute is ready. A Google spokesperson telling CNBC the deal was made to secure "bridge capacity" is consistent with that reading.
+Put side by side, the size of the compute rental stands out. The $1.25 billion Anthropic pays each month exceeds, in a single month, the AI segment's revenue of $818 million for the whole January–March 2026 quarter. Simply adding the Google contract gives $2.17 billion a month, or roughly $26 billion a year if the contracts run as written. The data centres built for a model company appear to have started earning as data centres in their own right. This income, however, rests on contracts either side can end with 90 days' notice, and the tenants may be using the capacity as a bridge until their own compute is ready. A Google spokesperson telling CNBC the deal was made to secure "bridge capacity" is consistent with that reading.
 
-Another reading is the structure the S-1 calls vertical integration. A company that owns the compute, the models and the surfaces that reach users (X, Grok, Cursor) can train its models on data from coding work and ship those models first in its own products. Offering the fast variant of Grok 4.7 only in Cursor and Grok Build looks like that integration made visible on a price list. Meanwhile, the AI segment's operating loss is about twice its revenue and its capital expenditures about four times. Whether the bet pays off presumably depends on how far paid use of Grok itself grows. Lawsuits and regulatory inquiries concerning the safety of Grok's output and the power supply of the data centres have been reported. This article stays with the structural analysis and does not go into individual disputes.
+Another reading is the structure the S-1 calls vertical integration. A company that owns the compute, the models and the surfaces that reach users (X, Grok, Cursor) can train its models on data from coding work and ship those models first in its own products. Offering the fast variant of Grok 4.7 only in Cursor and Grok Build looks like that integration made visible on a price list. Meanwhile, the AI segment's operating loss is about twice its revenue and its capital expenditures about four times. Whether the bet pays off presumably depends on how far paid use of Grok itself grows. This article stays with the structural analysis of the business and the technology; it does not cover individual disputes or regulatory questions concerning Grok's output or the data centres.
 :::
 
 Anthropic, which makes [Claude](/en/articles/claude), has become a tenant, and Google, which makes [Gemini](/en/articles/gemini), is also reported to have signed a contract for bridge capacity. Including OpenAI's [ChatGPT](/en/articles/chatgpt), the race among AI assistants has become as much about how quickly a company can secure power and GPUs as about how good its model is. What the anatomy of xAI shows is a company standing on the landlord's side of that race. The sign changed from xAI to SpaceXAI, but the question did not: whether the day will come when it can fill the compute it built with its own models.

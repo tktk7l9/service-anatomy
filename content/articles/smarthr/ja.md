@@ -1,13 +1,13 @@
 ---
 service: "SmartHR"
 title: "書類仕事を入口にする — SmartHRが年末調整から人事データ基盤へ育つまで"
-description: "クラウド人事労務のSmartHR。入社手続き・年末調整という日本固有のペインをくさびに、労務シェアNo.1からタレントマネジメントへ多プロダクト化。ARR150億円・シリーズE214億円のビジネスと、Rails+React+Cloud SQLの技術構成を解剖する。"
+description: "クラウド人事労務のSmartHR。入社手続き・年末調整という日本固有のペインをくさびに、労務シェアNo.1からタレントマネジメントへ多プロダクト化。ARR300億円（2026年7月）・シリーズE214億円のビジネスと、Rails+React+Cloud SQLの技術構成を解剖する。"
 lead: "年末調整ほど嫌われている書類仕事は少ない。SmartHRはその面倒くささを入口に、従業員データが自然に溜まる構造を作り、労務ソフトから人事データ基盤へと育った。国内SaaSの優等生がどう設計されているのかを、公式テックブログと公式発表から解剖する。"
 category: saas
 tags: [hr, saas, rails, react, b2b]
 publishedAt: "2026-07-17"
-updatedAt: "2026-07-17"
-lastVerified: "2026-07-17"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://smarthr.jp/"
 vendor: "SmartHR"
 origin: "JP"
@@ -37,8 +37,13 @@ techStack:
   - layer: "クラウド基盤"
     name: "Google Cloud"
     confidence: confirmed
-    evidence: "Cloud SQL利用を公式テックブログで確認（コンテナ基盤等の詳細は非公開）"
-    evidenceUrl: "https://tech.smarthr.jp/entry/2025/07/11/081458"
+    evidence: "Google Cloud公式ブログの導入事例（2022-04）にGoogle Cloudへのフルマイグレーションと明記。Cloud SQL利用は公式テックブログ（2025-07）でも確認"
+    evidenceUrl: "https://cloud.google.com/blog/ja/topics/customers/smarthr-full-migration-to-google-cloud?hl=ja"
+  - layer: "アプリ実行環境"
+    name: "Google Cloud Run / Google App Engine"
+    confidence: confirmed
+    evidence: "Google Cloud公式ブログの導入事例（2022-04）に、WebサーバーはCloud Run、長時間の非同期処理はApp Engine（フレキシブル環境）と明記。2022年時点の構成であり、その後の変更は未確認"
+    evidenceUrl: "https://cloud.google.com/blog/ja/topics/customers/smarthr-full-migration-to-google-cloud?hl=ja"
   - layer: "デザインシステム"
     name: "SmartHR UI (OSS)"
     confidence: confirmed
@@ -64,6 +69,15 @@ sources:
   - label: "ITmedia: ユニコーン企業となったSmartHRはどれほど規格外なのか（2021-06）"
     url: "https://www.itmedia.co.jp/business/articles/2106/09/news056.html"
     accessedAt: "2026-07-17"
+  - label: "SmartHR公式プレスリリース: ARR 300億円を突破（2026-07-07・2023年2月100億円/2025年4月200億円）"
+    url: "https://smarthr.co.jp/news/press/20260707/"
+    accessedAt: "2026-09-28"
+  - label: "SmartHR公式: 7年連続シェアNo.1を獲得、登録社数は80,000社を突破（2026-04-28）"
+    url: "https://smarthr.jp/release/20260428/"
+    accessedAt: "2026-09-28"
+  - label: "Google Cloud公式ブログ: SmartHRのGoogle Cloudへのフルマイグレーション（2022-04-27・Cloud Run/App Engine/Cloud SQL）"
+    url: "https://cloud.google.com/blog/ja/topics/customers/smarthr-full-migration-to-google-cloud?hl=ja"
+    accessedAt: "2026-09-28"
 ---
 
 BtoB SaaSの教科書には「強いペインを持つ狭い業務から入れ」と書いてある。SmartHRが選んだ入口は、日本の全企業が毎年必ず苦しむ書類仕事——入社手続きと年末調整だった。労務のシェアNo.1を足場に人事データ基盤へ広がっていく国内SaaSの代表例を、当サイト初のsaasカテゴリ記事として解剖する。
@@ -73,7 +87,7 @@ BtoB SaaSの教科書には「強いペインを持つ狭い業務から入れ�
 SmartHRはクラウド人事労務ソフトだ。入社手続き・雇用契約・年末調整などの労務手続きをオンライン化し、その過程で集まる従業員データをタレントマネジメントに活かす。
 
 :::fact
-公式発表によれば、2024年2月にARR（年間経常収益）150億円を突破し、前年比150%で成長。2024年7月には約214億円のシリーズEラウンドを実施した。公式サイトは労務管理クラウドで7年連続シェアNo.1を掲げ（2026年7月時点）、2024年の同社リリースではタレントマネジメント機能は既存ユーザー企業の30%超が利用とされる。2021年6月のシリーズDでは評価額1,700億円でユニコーン企業となった。
+公式発表によれば、2024年2月にARR（年間経常収益）150億円を突破し、前年比150%で成長。2024年7月には約214億円のシリーズEラウンドを実施した。その後もARRは2025年4月に200億円、2026年7月に300億円を突破し、登録社数は2026年4月に8万社を超えた。公式サイトは労務管理クラウドで7年連続シェアNo.1を掲げ（2026年9月時点）、2024年の同社リリースではタレントマネジメント機能は既存ユーザー企業の30%超が利用とされる。2021年6月のシリーズDでは評価額1,700億円でユニコーン企業となった。
 :::
 
 :::pull
@@ -96,11 +110,11 @@ SmartHRのUXの核心は、「人事担当者のソフト」ではなく「従�
 ::techstack
 
 :::fact
-公式テックブログによれば、SmartHRは10を超えるプロダクトをRails+Reactの統一構成で開発しており、フロントエンドはjQueryからReactへ移行済みで、近年はNext.jsも導入している。最大のRailsアプリケーション（基本機能）では、Cloud SQLのシングルインスタンス構成からリードレプリカ構成へ移行し（対象エンドポイントの読み取りが82%）、Ruby 3.4+YJITへの更新も公開されている。UIコンポーネントはSmartHR UIとしてOSS公開されている。
+公式テックブログによれば、SmartHRは10を超えるプロダクトをRails+Reactの統一構成で開発しており、フロントエンドはjQueryからReactへ移行済みで、近年はNext.jsも導入している。最大のRailsアプリケーション（基本機能）では、Cloud SQLのシングルインスタンス構成からリードレプリカ構成へ移行し（対象エンドポイントの読み取りが82%）、Ruby 3.4+YJITへの更新も公開されている。Google Cloud公式ブログの導入事例（2022年4月）によれば、SmartHRはGoogle Cloudへ全面移行し、WebサーバーをCloud Run、長時間の非同期処理をApp Engineで動かす構成を取った。UIコンポーネントはSmartHR UIとしてOSS公開されている。
 :::
 
 :::guess
-Cloud SQLの利用からGoogle Cloudが本番基盤とみられるが、コンテナ実行環境（GKEなど）の詳細は公式には語られていない。技術選定の思想は一貫して「攻めた構成より、採用しやすく知見を共有できる標準構成」で、Rails+React+デザインシステムという組み合わせは、多プロダクトを並行開発する組織のスループットを最大化するための選択と推測される。10超のプロダクトを支える共通認証・共通データ基盤の作りが、今後の技術的な見どころだろう。
+公開されている実行環境の構成は2022年時点のもので、現在も同じ構成かどうかは確認できていない。Kubernetesを自前で運用せずマネージドのCloud Runを選んだ判断は、次の思想と同じ線上にあるとみられる。技術選定の思想は一貫して「攻めた構成より、採用しやすく知見を共有できる標準構成」で、Rails+React+デザインシステムという組み合わせは、多プロダクトを並行開発する組織のスループットを最大化するための選択と推測される。10超のプロダクトを支える共通認証・共通データ基盤の作りが、今後の技術的な見どころだろう。
 :::
 
 ## ビジネスモデル

@@ -6,8 +6,8 @@ lead: "The homepage reads \"193.6x Faster, 444.6x Cheaper\" and \"$42 per billio
 category: ai-tool
 tags: [ai, api, automation, developer-tools, structured-output]
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-01"
-lastVerified: "2026-10-01"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 serviceUrl: "https://typesafe.ai/"
 vendor: "TypeSafe AI, Inc."
 origin: "US"
@@ -47,7 +47,7 @@ techStack:
   - layer: "Documentation"
     name: "Mintlify"
     confidence: likely
-    evidence: "In our observation (2026-10-01), the CNAME of docs.typesafe.ai pointed to cname.mintlify.builders, images were served from mintcdn.com, and responses carried a Link header to llms.txt. We found no official statement"
+    evidence: "In our observation (2026-10-01), the CNAME of docs.typesafe.ai pointed to cname.mintlify.builders, images were served from mintcdn.com, and responses carried a Link header to llms.txt. The Markdown (.md) version of each page ends with the line \"This documentation is built and hosted on Mintlify\" (checked 2026-10-02). It is not a description of the stack by TypeSafe AI itself, so this is marked likely"
   - layer: "CDN and DNS"
     name: "Cloudflare"
     confidence: likely
@@ -96,7 +96,7 @@ sources:
     accessedAt: "2026-10-01"
   - label: "TypeSafe AI docs: Models (price, rate limits, context length, languages)"
     url: "https://docs.typesafe.ai/models"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "TypeSafe AI docs: System One"
     url: "https://docs.typesafe.ai/concepts/system-one"
     accessedAt: "2026-10-01"
@@ -106,9 +106,9 @@ sources:
   - label: "TypeSafe AI docs: AI primer (RLCD)"
     url: "https://docs.typesafe.ai/introduction/machine-learning-primer"
     accessedAt: "2026-10-01"
-  - label: "TypeSafe AI docs: Jev 1.13 jaggedness (list of weak spots, reviewed 2026-09-17)"
+  - label: "TypeSafe AI docs: Jev 1.13 jaggedness (list of weak spots; last reviewed by the company 2026-09-17)"
     url: "https://docs.typesafe.ai/model-jaggedness/jev-1.13"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "TypeSafe AI docs: Jev with coding agents"
     url: "https://docs.typesafe.ai/introduction/coding-agents"
     accessedAt: "2026-10-01"
@@ -226,7 +226,7 @@ The `typesafe-ai` organization on GitHub publishes the official Python and TypeS
 :::
 
 :::guess
-Public information says little about what is inside Jev. An input price two orders of magnitude below LLMs with free output, a 64k-token context, and the statement that adding questions barely changes response time together suggest an architecture that reads the state once and extracts the answer to every question at the same time with a short computation. On Hacker News, some readers speculated that it is an encoder-style transformer post-trained for classification and regression. The forks of vllm and LLaDA in the organization appear to show that the company studied existing inference stacks and language models that do not generate sequentially, but whether Jev uses either is unknown.
+Public information says little about what is inside Jev. An input price two orders of magnitude below the list price of Claude Fable 5.1 with free output, a 64k-token context, and the statement that adding questions barely changes response time together suggest an architecture that reads the state once and extracts the answer to every question at the same time with a short computation. On Hacker News, some readers speculated that it is an encoder-style transformer post-trained for classification and regression. The forks of vllm and LLaDA in the organization appear to show that the company studied existing inference stacks and language models that do not generate sequentially, but whether Jev uses either is unknown.
 :::
 
 :::guess
