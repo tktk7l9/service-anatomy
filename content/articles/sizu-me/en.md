@@ -6,8 +6,8 @@ lead: "No like counts, no page views, no rankings. Shizuka na Internet deliberat
 category: media
 tags: [writing, blog, nextjs, cloudflare, indie-dev]
 publishedAt: "2026-07-16"
-updatedAt: "2026-07-16"
-lastVerified: "2026-07-16"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://sizu.me/home"
 vendor: "catnose"
 origin: "JP"
@@ -15,53 +15,66 @@ heroTheme: "sizu-me"
 scores: { product: 4.0, ux: 4.5, tech: 4.0, business: 3.0 }
 techStack:
   - layer: "Framework"
-    name: "Next.js (App Router)"
+    name: "Next.js (Pages Router)"
     confidence: confirmed
-    evidence: "Our HTTP header observation (x-powered-by: Next.js; 2026-07-16) plus the developer's own tech write-up (2023-11)"
+    evidence: "Our HTTP header observation (x-powered-by: Next.js; 2026-09-28) plus the developer's own tech write-up (published 2023-11, updated 2025-09), which states it uses the Pages Router rather than the App Router"
     evidenceUrl: "https://zenn.dev/catnose99/articles/f8a90a1616dfb3"
   - layer: "CDN"
     name: "Cloudflare"
     confidence: confirmed
-    evidence: "HTTP header observation (cf-ray; 2026-07-16) plus the developer's tech write-up"
+    evidence: "HTTP header observation (server: cloudflare / cf-ray; 2026-09-28) plus the developer's tech write-up"
+    evidenceUrl: "https://zenn.dev/catnose99/articles/f8a90a1616dfb3"
+  - layer: "Proxy"
+    name: "Cloudflare Workers"
+    confidence: confirmed
+    evidence: "Developer's tech write-up (as updated 2025-09): the custom domain is set on Cloudflare Workers, which proxies non-static requests to Cloud Run"
     evidenceUrl: "https://zenn.dev/catnose99/articles/f8a90a1616dfb3"
   - layer: "Hosting"
     name: "Google Cloud Run"
     confidence: likely
-    evidence: "Developer's tech write-up (as of 2023-11); later changes undisclosed"
+    evidence: "Developer's tech write-up (published 2023-11, as updated 2025-09); later changes undisclosed"
     evidenceUrl: "https://zenn.dev/catnose99/articles/f8a90a1616dfb3"
   - layer: "Database"
-    name: "PlanetScale (MySQL)"
+    name: "PlanetScale / MySQL"
     confidence: likely
-    evidence: "Developer's tech write-up (as of 2023-11); later changes undisclosed"
+    evidence: "Developer's tech write-up (as updated 2025-09, noting that the 2024 price change raised the Tokyo-region minimum to $47/month); later changes undisclosed"
     evidenceUrl: "https://zenn.dev/catnose99/articles/f8a90a1616dfb3"
   - layer: "Cache"
     name: "Upstash Redis"
     confidence: likely
-    evidence: "Developer's tech write-up (as of 2023-11)"
+    evidence: "Developer's tech write-up (as updated 2025-09)"
     evidenceUrl: "https://zenn.dev/catnose99/articles/f8a90a1616dfb3"
   - layer: "Image / file storage"
     name: "Cloudflare R2"
     confidence: likely
-    evidence: "Developer's tech write-up (as of 2023-11)"
+    evidence: "Developer's tech write-up (as updated 2025-09)"
     evidenceUrl: "https://zenn.dev/catnose99/articles/f8a90a1616dfb3"
   - layer: "Auth"
     name: "NextAuth.js + Firebase Authentication"
     confidence: likely
-    evidence: "Developer's tech write-up (as of 2023-11)"
+    evidence: "Developer's tech write-up (as updated 2025-09)"
+    evidenceUrl: "https://zenn.dev/catnose99/articles/f8a90a1616dfb3"
+  - layer: "Payments"
+    name: "Stripe"
+    confidence: confirmed
+    evidence: "Developer's tech write-up (as updated 2025-09) states payments go through Stripe Checkout Sessions"
     evidenceUrl: "https://zenn.dev/catnose99/articles/f8a90a1616dfb3"
 sources:
   - label: "Shizuka na Internet (service introduction)"
     url: "https://sizu.me/home"
-    accessedAt: "2026-07-16"
-  - label: "Zenn: the tech stack of Shizuka na Internet (by developer catnose, 2023-11)"
+    accessedAt: "2026-09-28"
+  - label: "Zenn: the tech stack of Shizuka na Internet (by developer catnose, published 2023-11, updated 2025-09)"
     url: "https://zenn.dev/catnose99/articles/f8a90a1616dfb3"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "sizu.me: major behind-the-scenes update (catnose, 2024-11)"
     url: "https://sizu.me/catnose/posts/dh12msvx92c3"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "laiso: investigating the tech stack of Shizuka na Internet (external analysis)"
     url: "https://laiso.hatenablog.com/entry/2023/11/23/210736"
     accessedAt: "2026-07-16"
+  - label: "How to use Shizuka na Internet (official, explains sponsor perks)"
+    url: "https://sizu.me/about"
+    accessedAt: "2026-09-28"
 ---
 
 Modern web services have driven people by showing them numbers: likes, views, followers, rankings. Shizuka na Internet — "The Quiet Internet" — erased all of them. A writing service that officially declares "you don't need to be read by many people." This is a dissection of the other signature work of catnose, whose [Nani Translate](/en/articles/nani-translation) we covered previously.
@@ -96,19 +109,21 @@ Arriving amid widespread fatigue with the X-style internet, it stands as a rare 
 ::techstack
 
 :::fact
-Per the developer's own write-up (November 2023), the launch architecture ran Next.js (App Router) on Google Cloud Run, with Cloudflare as CDN, PlanetScale (MySQL) as the database, Upstash Redis for caching, Cloudflare R2 for files, and NextAuth.js with Firebase Authentication. Our own observation on July 16, 2026 confirmed Next.js (x-powered-by) and Cloudflare (cf-ray) in the current setup.
+Per the developer's own write-up (published November 2023, updated September 2025), the stack is a full-stack Next.js (Pages Router) app hosted on Google Cloud Run, with Cloudflare as CDN, PlanetScale (MySQL) as the database, Upstash Redis for caching, Cloudflare R2 for files, NextAuth.js with Firebase Authentication for auth, and Stripe for payments. Because binding a custom domain directly to Cloud Run added latency, the custom domain is set on Cloudflare Workers, which proxies non-static requests to Cloud Run. Our own observation on September 28, 2026 confirmed Next.js (x-powered-by) and Cloudflare (server: cloudflare / cf-ray) in the current setup.
 :::
 
 :::guess
-A "major behind-the-scenes update" was announced in November 2024, and PlanetScale — part of the 2023 stack — discontinued its free tier in 2024, so the database layer may have been migrated since; that is why the table keeps those rows at "likely." Comparing this stack with Nani Translate's (Turso/Upstash/Vercel), catnose appears to reassemble, per product, whatever managed stack is cheapest to keep alive at that moment — a consistent fixed-cost-minimization strategy for running multiple indie products.
+The September 2025 update to the same write-up notes that PlanetScale's 2024 price change raised the Tokyo-region minimum to $47/month, which suggests the service kept using PlanetScale after the increase. Any changes since then are undisclosed, which is why the table keeps those rows at "likely." Comparing this stack with Nani Translate's (Turso/Upstash/Vercel), catnose appears to reassemble, per product, whatever managed stack is cheapest to keep alive at that moment — a consistent fixed-cost-minimization strategy for running multiple indie products.
 :::
+
+Correction (September 28, 2026). The first version of this article described the framework as "Next.js (App Router)," which was wrong. The developer's write-up states that the service uses the Pages Router rather than the App Router, explaining that a switch to the App Router was attempted and then shelved. We also rewrote our earlier guess (that the database layer might have moved off PlanetScale after its free tier ended), since the September 2025 update indicates PlanetScale is still in use.
 
 ## Business Model
 
 Shizuka na Internet has almost no machinery for maximizing revenue.
 
 :::fact
-The service contains links for sponsorship and support, but the official introduction lists no pricing plans, and no advertising is displayed.
+The official introduction lists no pricing plans, and no advertising is displayed. The path to revenue is "Sponsor": according to the official how-to page, sponsors get a listing on the sponsors page, tab menus on their user home, an "only people with the URL" visibility option, and sponsor-only stamps for feedback letters, among other perks. Payments run through Stripe (per the developer's write-up).
 :::
 
 :::guess

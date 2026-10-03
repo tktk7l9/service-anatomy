@@ -6,8 +6,8 @@ lead: "訳文だけを返す翻訳機ではなく、ニュアンスの解説と�
 category: ai-tool
 tags: [ai, translation, electron, nextjs, indie-dev]
 publishedAt: "2026-07-16"
-updatedAt: "2026-07-16"
-lastVerified: "2026-07-16"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://nani.now/ja"
 vendor: "合同会社Kioku"
 origin: "JP"
@@ -17,12 +17,12 @@ techStack:
   - layer: "Web/バックエンド"
     name: "Next.js (App Router)"
     confidence: confirmed
-    evidence: "当サイトによるHTTPヘッダー観測（x-powered-by: Next.js・rsc系vary、2026-07-16）と開発者自身の技術解説"
+    evidence: "当サイトによるHTTPヘッダー観測（x-powered-by: Next.js・rsc系vary、2026-07-16。2026-09-28の再観測でもx-powered-by: Next.js）と開発者自身の技術解説"
     evidenceUrl: "https://zenn.dev/catnose99/articles/nani-translate"
   - layer: "ホスティング"
     name: "Vercel"
     confidence: confirmed
-    evidence: "HTTPヘッダー観測（server: Vercel・x-vercel-id=hnd1[東京]、2026-07-16）"
+    evidence: "HTTPヘッダー観測（server: Vercel・x-vercel-id=hnd1[東京]、2026-07-16。2026-09-28の再観測でも同じ）"
     evidenceUrl: "https://zenn.dev/catnose99/articles/nani-translate"
   - layer: "デスクトップアプリ"
     name: "Electron"
@@ -54,16 +54,21 @@ techStack:
     confidence: confirmed
     evidence: "開発者の技術解説"
     evidenceUrl: "https://zenn.dev/catnose99/articles/nani-translate"
+  - layer: "アプリ配布ストレージ"
+    name: "Cloudflare (R2)"
+    confidence: confirmed
+    evidence: "開発者の技術解説（2025-10）。macOS用の.dmgと更新用の.zip・latest-mac.ymlを、GitHub ActionsからCloudflare R2へアップロードして配布"
+    evidenceUrl: "https://zenn.dev/catnose99/articles/nani-translate"
 sources:
   - label: "Nani翻訳 公式サイト（機能紹介）"
     url: "https://nani.now/ja/about"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "Nani翻訳 料金ページ（無料/PRO）"
     url: "https://nani.now/ja/pricing"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "Zenn: Nani翻訳の技術的な話（開発者catnose本人による解説）"
     url: "https://zenn.dev/catnose99/articles/nani-translate"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "PR TIMES: AI翻訳ツール『Nani !?』を公開（合同会社Kioku）"
     url: "https://prtimes.jp/main/html/rd/p/000000004.000170738.html"
     accessedAt: "2026-07-16"
@@ -100,12 +105,12 @@ Nani翻訳のUXの核は**速度**と**文脈**の2つに集約される。
 
 ## 技術構成
 
-本作の技術構成は、開発者本人がZennで詳細に公開しているため、確度の高い情報が揃っている。当サイトでも2026年7月16日にHTTPレスポンスヘッダーを観測し、Web版がNext.js（App Router）+ Vercel（東京リージョン）で動いていることを確認した。
+本作の技術構成は、開発者本人がZennで詳細に公開しているため、確度の高い情報が揃っている。当サイトでも2026年7月16日にHTTPレスポンスヘッダーを観測し、Web版がNext.js（App Router）+ Vercel（東京リージョン）で動いていることを確認した（2026年9月28日の再観測でも同じ結果）。
 
 ::techstack
 
 :::fact
-開発者の解説によれば、デスクトップアプリは当初Tauriで検討したが、起動速度などの理由からElectron（Electron Vite + Electron Builder）を採用。UIはTypeScript / React / Tailwind CSSでWeb版と共通化し、モノレポ（pnpm + Turborepo）で管理。LLMはGoogle・OpenAI・GroqのAPIをTTFT基準で使い分け、基本翻訳はTTFTの小さいGoogle/Groqを優先している。
+開発者の解説によれば、デスクトップアプリは当初Tauriで検討したが、起動速度などの理由からElectron（Electron Vite + Electron Builder）を採用。UIはTypeScript / React / Tailwind CSSでWeb版と共通化し、モノレポ（pnpm + Turborepo）で管理。LLMはGoogle・OpenAI・GroqのAPIをTTFT基準で使い分け、基本翻訳はTTFTの小さいGoogle/Groqを優先している。デスクトップアプリのビルドと配布はGitHub Actionsで行い、macOS用の.dmgと更新用ファイルはCloudflare R2に置いている。
 :::
 
 :::guess

@@ -1,13 +1,13 @@
 ---
 service: "SmartHR"
 title: "Paperwork as the Wedge — How SmartHR Grew From Year-End Tax Forms Into an HR Data Platform"
-description: "SmartHR is Japan's leading cloud HR/labor software. We dissect how it wedged in through Japan's uniquely painful onboarding and year-end tax adjustment paperwork, expanded from #1 labor-management share into talent management, and runs on Rails + React + Cloud SQL — with ¥15B ARR and a ¥21.4B Series E."
+description: "SmartHR is Japan's leading cloud HR/labor software. We dissect how it wedged in through Japan's uniquely painful onboarding and year-end tax adjustment paperwork, expanded from #1 labor-management share into talent management, and runs on Rails + React + Cloud SQL — with ¥30B ARR (July 2026) and a ¥21.4B Series E."
 lead: "Few chores are as universally hated as Japan's year-end tax adjustment. SmartHR used that misery as its entry point, built a structure where employee data accumulates naturally, and grew from labor-management software into an HR data platform. We dissect Japan's model B2B SaaS through its official tech blog and announcements."
 category: saas
 tags: [hr, saas, rails, react, b2b]
 publishedAt: "2026-07-17"
-updatedAt: "2026-07-17"
-lastVerified: "2026-07-17"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://smarthr.jp/"
 vendor: "SmartHR"
 origin: "JP"
@@ -37,8 +37,13 @@ techStack:
   - layer: "Cloud platform"
     name: "Google Cloud"
     confidence: confirmed
-    evidence: "Cloud SQL usage confirmed via the official tech blog (container platform details are not disclosed)"
-    evidenceUrl: "https://tech.smarthr.jp/entry/2025/07/11/081458"
+    evidence: "Google Cloud's official customer story (2022-04) describes a full migration to Google Cloud; Cloud SQL usage is also confirmed via the official tech blog (2025-07)"
+    evidenceUrl: "https://cloud.google.com/blog/ja/topics/customers/smarthr-full-migration-to-google-cloud?hl=ja"
+  - layer: "Application runtime"
+    name: "Google Cloud Run / Google App Engine"
+    confidence: confirmed
+    evidence: "Google Cloud's official customer story (2022-04) states web servers run on Cloud Run and long-running asynchronous jobs on App Engine (flexible environment). This is the architecture as of 2022; later changes are unverified"
+    evidenceUrl: "https://cloud.google.com/blog/ja/topics/customers/smarthr-full-migration-to-google-cloud?hl=ja"
   - layer: "Design system"
     name: "SmartHR UI (OSS)"
     confidence: confirmed
@@ -64,6 +69,15 @@ sources:
   - label: "ITmedia: just how exceptional is unicorn SmartHR? (2021-06)"
     url: "https://www.itmedia.co.jp/business/articles/2106/09/news056.html"
     accessedAt: "2026-07-17"
+  - label: "SmartHR official press release: ARR passes ¥30B (2026-07-07; ¥10B in Feb 2023, ¥20B in Apr 2025)"
+    url: "https://smarthr.co.jp/news/press/20260707/"
+    accessedAt: "2026-09-28"
+  - label: "SmartHR official: #1 share for seven consecutive years, registered companies pass 80,000 (2026-04-28)"
+    url: "https://smarthr.jp/release/20260428/"
+    accessedAt: "2026-09-28"
+  - label: "Google Cloud official blog: SmartHR's full migration to Google Cloud (2022-04-27; Cloud Run / App Engine / Cloud SQL)"
+    url: "https://cloud.google.com/blog/ja/topics/customers/smarthr-full-migration-to-google-cloud?hl=ja"
+    accessedAt: "2026-09-28"
 ---
 
 Every B2B SaaS textbook says to enter through a narrow workflow with acute pain. SmartHR chose the paperwork every Japanese company suffers through annually: employee onboarding and the year-end tax adjustment. As our first article in the SaaS category, we dissect Japan's flagship example of wedging in through labor management — where it holds the #1 share — and expanding into an HR data platform.
@@ -73,7 +87,7 @@ Every B2B SaaS textbook says to enter through a narrow workflow with acute pain.
 SmartHR is cloud HR/labor-management software. It moves procedures like onboarding, employment contracts, and year-end tax adjustments online, then puts the employee data gathered along the way to work in talent management.
 
 :::fact
-Per official announcements, SmartHR's ARR (annual recurring revenue) passed ¥15 billion in February 2024, growing 150% year over year, and the company raised an approximately ¥21.4 billion Series E in July 2024. The official site claims seven consecutive years as the #1 labor-management cloud by share (as of July 2026), and the company's 2024 releases state that over 30% of existing customers use its talent-management features. Its June 2021 Series D valued the company at ¥170 billion, making it a unicorn.
+Per official announcements, SmartHR's ARR (annual recurring revenue) passed ¥15 billion in February 2024, growing 150% year over year, and the company raised an approximately ¥21.4 billion Series E in July 2024. ARR has since passed ¥20 billion in April 2025 and ¥30 billion in July 2026, and registered companies exceeded 80,000 in April 2026. The official site claims seven consecutive years as the #1 labor-management cloud by share (as of September 2026), and the company's 2024 releases state that over 30% of existing customers use its talent-management features. Its June 2021 Series D valued the company at ¥170 billion, making it a unicorn.
 :::
 
 :::pull
@@ -96,11 +110,11 @@ The core of SmartHR's UX is that it is built as software every employee touches,
 ::techstack
 
 :::fact
-Per the official tech blog, SmartHR develops its 10+ products on a standardized Rails + React stack; the frontend has migrated from jQuery to React, with Next.js adopted in recent projects. Its largest Rails application (the core-features product) moved from a single Cloud SQL instance to a read-replica configuration — reads were 82% of traffic on the targeted endpoints — and has been updated to Ruby 3.4 with YJIT. UI components are open-sourced as SmartHR UI.
+Per the official tech blog, SmartHR develops its 10+ products on a standardized Rails + React stack; the frontend has migrated from jQuery to React, with Next.js adopted in recent projects. Its largest Rails application (the core-features product) moved from a single Cloud SQL instance to a read-replica configuration — reads were 82% of traffic on the targeted endpoints — and has been updated to Ruby 3.4 with YJIT. Per Google Cloud's official customer story (April 2022), SmartHR migrated fully to Google Cloud, running web servers on Cloud Run and long-running asynchronous jobs on App Engine. UI components are open-sourced as SmartHR UI.
 :::
 
 :::guess
-Cloud SQL usage points to Google Cloud as the production platform, though the container runtime (GKE or otherwise) is not publicly described. The engineering philosophy is consistently "a standard stack that hires well and shares knowledge" over adventurous choices — Rails + React + a design system reads as a deliberate optimization for the throughput of an organization shipping many products in parallel. The shared authentication and data foundation underneath 10+ products is the technical story to watch next.
+The publicly described runtime architecture dates from 2022, and whether it is unchanged today could not be confirmed. Choosing managed Cloud Run over operating Kubernetes appears to sit on the same line as the philosophy below. The engineering philosophy is consistently "a standard stack that hires well and shares knowledge" over adventurous choices — Rails + React + a design system reads as a deliberate optimization for the throughput of an organization shipping many products in parallel. The shared authentication and data foundation underneath 10+ products is the technical story to watch next.
 :::
 
 ## Business model

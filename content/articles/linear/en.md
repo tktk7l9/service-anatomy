@@ -1,13 +1,13 @@
 ---
 service: "Linear"
 title: "A Rebellion Against Slow Tools — How Linear's Sync Engine Reclaimed the Speed of Instruments"
-description: "Dissecting Linear, the issue tracker: the custom sync engine (IndexedDB + MobX + WebSocket deltas) behind its zero-latency feel, the keyboard-first philosophy codified as the Linear Method, and its spread to 15,000+ companies including OpenAI, capped by a Series C at a $1.25B valuation."
+description: "Dissecting Linear, the issue tracker: the custom sync engine (IndexedDB + MobX + WebSocket deltas) behind its zero-latency feel, the keyboard-first philosophy codified as the Linear Method, and its spread to 40,000+ companies including OpenAI, through an employee tender offer at a $2.5B valuation (August 2026)."
 lead: "Issue trackers are slow and heavy — Linear was built as a rebellion against that industry norm, engineering an experience where the action is finished the moment you click. We dissect the sync engine that writes locally first and reconciles in the background, and the philosophy that shipped a team's aesthetics as a product."
 category: dev-tool
 tags: [project-management, local-first, sync-engine, graphql, saas]
 publishedAt: "2026-07-17"
-updatedAt: "2026-07-17"
-lastVerified: "2026-07-17"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://linear.app/"
 vendor: "Linear"
 origin: "US"
@@ -46,7 +46,13 @@ techStack:
 sources:
   - label: "Linear official blog: Building our way — the Series C announcement (2025-06)"
     url: "https://linear.app/now/building-our-way"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
+  - label: "Linear official blog: Sharing Linear's growth with the people building it (2026-08-26; tender offer at a $2.5B valuation, 40,000+ paying companies, $100M+ ARR)"
+    url: "https://linear.app/now/sharing-growth-with-the-people-building-linear"
+    accessedAt: "2026-09-28"
+  - label: "Linear official: Pricing (Free/Basic/Business/Enterprise)"
+    url: "https://linear.app/pricing"
+    accessedAt: "2026-09-28"
   - label: "The Linear Method (official product philosophy document)"
     url: "https://linear.app/method"
     accessedAt: "2026-07-17"
@@ -61,14 +67,14 @@ sources:
     accessedAt: "2026-07-17"
 ---
 
-People open Jira or Asana with an unconscious habit of waiting a beat. Linear declared that wait the enemy. Born in 2019, this issue tracker achieved speed through architecture rather than features, and spread to more than 15,000 companies including OpenAI. If [Obsidian](/en/articles/obsidian) practiced local-first thinking for notes, Linear practiced it for team SaaS.
+People open Jira or Asana with an unconscious habit of waiting a beat. Linear declared that wait the enemy. Born in 2019, this issue tracker achieved speed through architecture rather than features, and spread to more than 40,000 companies including OpenAI. If [Obsidian](/en/articles/obsidian) practiced local-first thinking for notes, Linear practiced it for team SaaS.
 
 ## What the service is
 
 Linear is issue and project management for software teams — issues, cycles (sprints), and roadmaps handled through a UI where the keyboard is a first-class citizen.
 
 :::fact
-Per the official blog (June 2025), Linear raised an $82 million Series C led by Accel at a $1.25 billion valuation, with 15,000+ companies using it, including OpenAI, Cash App, Ramp, and Scale AI. The product philosophy is officially codified as the Linear Method, and the company openly operates as a small, fully remote team.
+Per the official blog (June 2025), Linear raised an $82 million Series C led by Accel at a $1.25 billion valuation, with 15,000+ companies using it at the time, including OpenAI, Cash App, Ramp, and Scale AI. In an official blog post on August 26, 2026, Linear announced a $99 million tender offer at a $2.5 billion valuation (letting current and former employees sell part of their equity), and stated that it has 40,000+ paying companies, has passed $100 million in ARR, and is cash-flow positive. The product philosophy is officially codified as the Linear Method, and the company openly operates as a small, fully remote team.
 :::
 
 :::pull
@@ -103,7 +109,7 @@ Our observation shows Google's load balancer (via: 1.1 google) behind Cloudflare
 Linear's revenue is seat-based SaaS with a free tier — standard product-led growth.
 
 :::fact
-A free plan exists, with paid tiers stepping up by team size and features. The Series C announcement emphasized investment in AI-era product development (such as agents processing issues), and the customer list is dense with fast-growing AI companies.
+A free plan exists, with paid tiers stepping up by team size and features. The official pricing page (checked September 28, 2026) lists four tiers: Free, Basic ($10 per user per month, billed yearly), Business ($16), and Enterprise (custom). The August 2026 official post also states agents are installed across 95% of paid workspaces. The Series C announcement emphasized investment in AI-era product development (such as agents processing issues), and the customer list is dense with fast-growing AI companies.
 :::
 
 :::guess

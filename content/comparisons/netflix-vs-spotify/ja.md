@@ -1,16 +1,16 @@
 ---
-title: "配信を自作するか、外に预けるか — NetflixとSpotifyが独立に選び、独立に一致したEnvoy"
+title: "配信を自作するか、外に預けるか — NetflixとSpotifyが独立に選び、独立に一致したEnvoy"
 description: "動画のNetflixと音楽のSpotify。クラウド戦略は正反対——Netflixは制御をAWSに預けつつ配信網を自作し、Spotifyはデータセンターを畳んで全てをGoogle Cloudに預けた。それでも両記事のtechStackで唯一重なったのは、どちらも申し合わせなく選んだエッジプロキシEnvoyだった。"
 lead: "Netflixは自社製CDNアプライアンスを1,000超のISPに無償で配り、Spotifyは自社データセンター4拠点を2018年までに全廃してGoogle Cloudへ完全移行した。ストリーミング最大手2社のインフラ思想は対極にある。それでも両記事のtechStackを機械照合すると、共有技術は1つだけ見つかった——エッジプロキシのEnvoyだ。示し合わせたわけではない収束を手がかりに、両社を比較解剖する。"
 slugA: "netflix"
 slugB: "spotify"
 publishedAt: "2026-07-21"
-updatedAt: "2026-07-21"
-lastVerified: "2026-07-21"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 sources:
   - label: "Netflix公式: Open Connect（ISP向け自社CDNプログラム）"
     url: "https://openconnect.netflix.com/en/"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Netflix公式テックブログ: The Netflix Simian Army（Chaos Monkeyの原典・2011）"
     url: "https://netflixtechblog.com/the-netflix-simian-army-16e57fbab116"
     accessedAt: "2026-07-21"
@@ -20,17 +20,25 @@ sources:
   - label: "Spotify公式エンジニアリングブログ: Fleet-first mindsetへの転換（2023-04・数千リポジトリ自動一斉変更）"
     url: "https://engineering.atspotify.com/2023/04/spotifys-shift-to-a-fleet-first-mindset-part-1"
     accessedAt: "2026-07-21"
+  - label: "Spotify公式エンジニアリングブログ: 2025年4月16日の障害のインシデント報告（2025-05-09・境界でEnvoy Proxyを使用）"
+    url: "https://engineering.atspotify.com/2025/05/incident-report-spotify-outage-on-april-16-2025"
+    accessedAt: "2026-09-28"
+  - label: "InfoQ（報道）: Netflixのゼロ設定サービスメッシュ（2023-09・Envoyの採用）"
+    url: "https://www.infoq.com/news/2023/09/zero-config-service-mesh-netflix"
+    accessedAt: "2026-09-28"
 ---
 
-[Netflix](/ja/articles/netflix)と[Spotify](/ja/articles/spotify)は、ストリーミングという同じ動詞を、動画と音楽という別の名詞に適用した2社だ。両記事のtechStackを機械照合すると、共有される技術トークンは1つ——Envoyだけだった。しかもこのEnvoyは、どちらの公式資料にも明記がなく、当サイトが両社のサイトへ実際にリクエストを送って観測した結果、双方から同じレスポンスヘッダーが返ってきたというlikely評価だ。示し合わせたはずのない2社が、同じ答えに独立して辿り着いていた。
+[Netflix](/ja/articles/netflix)と[Spotify](/ja/articles/spotify)は、ストリーミングという同じ動詞を、動画と音楽という別の名詞に適用した2社だ。両記事のtechStackを機械照合すると、共有される技術トークンは1つ——Envoyだけだった。Spotifyは公式のインシデント報告でネットワーク境界にEnvoy Proxyを使うと明記している。Netflixは、当サイトが実際にリクエストを送って観測したレスポンスヘッダーと報道が根拠のlikely評価だ。示し合わせたはずのない2社が、同じ答えに独立して辿り着いていた。
 
 :::fact
-Netflixは制御系（会員管理・推薦・課金）をAWSに預ける一方、動画のバイト自体を運ぶCDNは自社設計のOpen Connectアプライアンスを1,000超のISPに無償配布して自前化している。Spotifyは逆に、2016年から段階的にGoogle Cloudへ移行し、2018年に自社データセンター4拠点をすべて退役させ、インフラのほぼ全てを外部のクラウドに預けた。それでも当サイトの実観測では、netflix.comとspotify.comのいずれもエッジプロキシとしてEnvoy（server: envoy・x-envoy-upstream-service-time ヘッダー）を返す。公式ドキュメントでの明言はどちらの会社も見当たらず、当サイトの独立観測でのみ判明した一致だ。
+Netflixは制御系（会員管理・推薦・課金）をAWSに預ける一方、動画のバイト自体を運ぶCDNは自社設計のOpen Connectアプライアンスを1,000超のISPに無償配布して自前化している。Spotifyは逆に、2016年から段階的にGoogle Cloudへ移行し、2018年に自社データセンター4拠点をすべて退役させ、インフラのほぼ全てを外部のクラウドに預けた。それでも当サイトの実観測では、netflix.comとspotify.comのいずれもエッジプロキシとしてEnvoy（server: envoy・x-envoy-upstream-service-time ヘッダー）を返す（2026年9月28日の再観測でも同じ）。Spotifyは2025年5月の公式インシデント報告で、ネットワーク境界のシステムにEnvoy Proxyを使っていると明記している。NetflixについてはInfoQの報道（2023年9月）が、公式テックブログの記事を引いてEnvoyの採用を伝えている。
 :::
 
 :::pull
 インフラ思想は正反対なのに、末端の1つのソフトウェアだけ答えが揃った。Envoyは、もはや「選択」ではなく「業界の既定値」になりつつあるのかもしれない。
 :::
+
+訂正（2026年9月28日）。初版では、Envoyの利用は「どちらの公式資料にも明記がなく、当サイトの独立観測でのみ判明した一致」と書いていたが、誤りだった。Spotifyは2025年5月9日の公式インシデント報告でEnvoy Proxyの利用を明記しており、NetflixについてもEnvoyの採用を伝える報道がある。機械照合の結果（共有技術はEnvoyの1つ）は変わらない。
 
 ## 「自作」と「委任」、正反対の答え
 
@@ -50,4 +58,4 @@ Netflixの技術選定は基本的に自社製だ。Chaos Monkeyに始まるカ�
 そのどちらの陣営も、エッジプロキシという1点でだけEnvoyに収束したことは、この技術が「自作するには割に合わず、既製の中で最良」という位置に落ち着いたことを示しているとみられる。NetflixもSpotifyも、動画・音楽という中核事業の差別化にはリソースを集中させ、リクエストを最初に受け止めるプロキシ層のような「差別化にならない部品」では業界のデファクトに素直に乗る——この使い分けの精度こそが、両社が巨大な規模を保ちながら開発速度を落とさない理由と推測される。Cloudflareの解剖記事で見た「地層化するインフラ」と同じ現象が、CDNの外側でも起きている。
 :::
 
-NetflixとSpotifyは、扱うメディアの重さに応じてクラウドとの距離を正反対に設計しながら、末端のエッジプロキシという1点でだけ独立に同じ答えに辿り着いた。共有技術が「自社の看板」でも「相手の中核部品」でもなく、両社とも意識していないかもしれない裏方のソフトウェアだったという事実は、大規模インフラの意思決定が「どこを自作し、どこを既製品に任せるか」という同じ問いへの、メディアの性質に応じた別々の最適解であることを示している。
+NetflixとSpotifyは、扱うメディアの重さに応じてクラウドとの距離を正反対に設計しながら、末端のエッジプロキシという1点でだけ独立に同じ答えに辿り着いた。共有技術が「自社の看板」でも「相手の中核部品」でもなく、表に出ることの少ない裏方のソフトウェアだったという事実は、大規模インフラの意思決定が「どこを自作し、どこを既製品に任せるか」という同じ問いへの、メディアの性質に応じた別々の最適解であることを示している。

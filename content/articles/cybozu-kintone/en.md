@@ -1,13 +1,13 @@
 ---
 service: "サイボウズ kintone"
 title: "Building Kubernetes on Your Own Racks in the Age of Cloud — Dissecting Cybozu's Self-Reliance"
-description: "Cybozu, maker of the no-code business-app platform kintone, runs neither on AWS nor Google Cloud: thousands of servers in leased racks across east and west Japan, orchestrated by Neco, a home-built Kubernetes platform. A dissection of Japan's most unusual SaaS company from its engineering blog and IR filings — in a year its operating profit doubled."
+description: "Cybozu, maker of the no-code business-app platform kintone, runs its domestic services on neither AWS nor Google Cloud: thousands of servers in leased racks across east and west Japan, orchestrated by Neco, a home-built Kubernetes platform. A dissection of Japan's most unusual SaaS company from its engineering blog and IR filings — in a year its operating profit doubled."
 lead: "Nearly every SaaS this site has dissected sits on AWS or Google Cloud. Cybozu does not. It leases racks in data centers across eastern and western Japan, runs a home-built Kubernetes platform called Neco across thousands of servers, and serves kintone on top. This is a dissection of the rationale for staying on-premises in the cloud era — and of the fiscal year in which operating profit doubled."
 category: saas
 tags: [no-code, groupware, kubernetes, on-premises, b2b]
 publishedAt: "2026-07-21"
-updatedAt: "2026-07-21"
-lastVerified: "2026-07-21"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://kintone.cybozu.co.jp/"
 vendor: "サイボウズ株式会社"
 origin: "JP"
@@ -39,10 +39,20 @@ techStack:
     confidence: confirmed
     evidence: "Our own HTTP header observation (server: Apache, x-cache: RefreshHit from cloudfront; 2026-07-21). The product runs on Cybozu's own platform, but the marketing site flows through CloudFront"
     evidenceUrl: "https://kintone.cybozu.co.jp/"
+  - layer: "US service platform"
+    name: "AWS"
+    confidence: confirmed
+    evidence: "Official announcement (2019-09) states kintone for the US is served from AWS data centers in the US while the domestic business stays on Cybozu's own platform. The official engineering blog (2020-07) states the AWS migration of all US customers completed on June 21, 2020"
+    evidenceUrl: "https://topics.cybozu.co.jp/news/2019/09/09-8487.html"
+  - layer: "Generative AI inference"
+    name: "Amazon Bedrock"
+    confidence: confirmed
+    evidence: "Official engineering blog (2025-01) states Cybozu set up an AWS footprint to use inference on Amazon Bedrock, with kintone's application servers calling the LLM through servers running on AWS"
+    evidenceUrl: "https://blog.cybozu.io/entry/2025/01/22/112000"
 sources:
   - label: "Cybozu official IR: fiscal 2025 business digest (revenue ¥37.43B, +26.1% YoY; operating profit ¥10.1B)"
     url: "https://cybozu.co.jp/company/ir/meeting/pdf/2512_02.pdf"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Cybozu Inside Out: introducing Neco, Cybozu's Kubernetes platform (2025-04-11)"
     url: "https://blog.cybozu.io/entry/2025/04/11/112000"
     accessedAt: "2026-07-21"
@@ -52,6 +62,18 @@ sources:
   - label: "Mynavi News: Cybozu fiscal 2025 earnings briefing (kintone revenue ¥21.69B; 39,000 customers; 2026-02-25)"
     url: "https://news.mynavi.jp/techplus/article/20260225-4165084/"
     accessedAt: "2026-07-21"
+  - label: "Cybozu official announcement: kintone on AWS launched for the US (2019-09-09)"
+    url: "https://topics.cybozu.co.jp/news/2019/09/09-8487.html"
+    accessedAt: "2026-09-28"
+  - label: "Cybozu Inside Out: US kintone after completing its AWS migration (2020-07-02)"
+    url: "https://blog.cybozu.io/entry/2020/07/02/000000"
+    accessedAt: "2026-09-28"
+  - label: "Cybozu Inside Out: kintone's generative AI features and system overview (2025-01-22; Amazon Bedrock)"
+    url: "https://blog.cybozu.io/entry/2025/01/22/112000"
+    accessedAt: "2026-09-28"
+  - label: "Kintone (US) official: Security (states it uses AWS hosting infrastructure)"
+    url: "https://www.kintone.com/en-us/security/"
+    accessedAt: "2026-09-28"
 ---
 
 ## Service overview
@@ -59,7 +81,7 @@ sources:
 Cybozu, founded in 1997, is a groupware company whose flagship is now kintone — a no-code platform for building business applications. Forms, databases, and approval workflows assemble without programming, on the premise that non-engineers in the field build apps for their own departments. The company is equally known for its philosophy ("a society brimming with teamwork") and its HR stance that a hundred employees should have a hundred ways of working.
 
 :::fact
-Per official IR materials, consolidated revenue for the fiscal year ending December 2025 was ¥37.43 billion (up 26.1% year over year), with operating profit of ¥10.1 billion — up 106.4%, nearly doubling. Per coverage of the earnings briefing, kintone revenue reached ¥21.69 billion (up 33.9%) with contracts surpassing 39,000 companies. The MRR mix by customer size — 39.1% under 100 employees, 33.7% from 100–999, 27.2% at 1,000+ — shows a base no longer dependent on any single segment.
+Per official IR materials, consolidated revenue for the fiscal year ending December 2025 was ¥37.43 billion (up 26.1% year over year), with operating profit of ¥10.1 billion — up 106.4%, nearly doubling. Per coverage of the earnings briefing, kintone revenue reached ¥21.69 billion (up 33.9%) with contracts surpassing 39,000 companies (the official IR business highlights put contracts at 41,000 as of the end of December 2025, combining Japan and overseas). The MRR mix by customer size — 39.1% under 100 employees, 33.7% from 100–999, 27.2% at 1,000+ — shows a base no longer dependent on any single segment.
 :::
 
 :::pull
@@ -82,7 +104,7 @@ kintone's UX is optimized for not waiting on the IT department. It prioritizes s
 ::techstack
 
 :::fact
-Cybozu leases racks in data centers across eastern and western Japan and operates Neco, a home-built Kubernetes platform, across thousands of servers. Per the official engineering blog, the company built its own tooling end to end: Sabakan for physical server inventory and OS provisioning, CKE (Cybozu Kubernetes Engine) for declarative cluster construction and upgrades, with failure detection via BMC diagnostics and automated recovery before human escalation. Storage is distributed on Rook/Ceph; full-text search runs on Elasticsearch. kintone, Garoon, and Cybozu Office all run on this platform.
+Cybozu leases racks in data centers across eastern and western Japan and operates Neco, a home-built Kubernetes platform, across thousands of servers. Per the official engineering blog, the company built its own tooling end to end: Sabakan for physical server inventory and OS provisioning, CKE (Cybozu Kubernetes Engine) for declarative cluster construction and upgrades, with failure detection via BMC diagnostics and automated recovery before human escalation. Storage is distributed on Rook/Ceph; full-text search runs on Elasticsearch. kintone, Garoon, and Cybozu Office all run on this platform. What runs on Cybozu's own platform, however, is the domestic service. Per official announcements, kintone.com for the US has been served from AWS since September 2019, and the migration of all US customers completed on June 21, 2020. The official engineering blog (January 2025) also discloses that generative AI inference uses Amazon Bedrock, for which Cybozu set up an AWS footprint.
 :::
 
 :::guess

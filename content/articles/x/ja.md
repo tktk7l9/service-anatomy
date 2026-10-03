@@ -37,7 +37,7 @@ techStack:
   - layer: "AI統合"
     name: "Grok (xAI)"
     confidence: confirmed
-    evidence: "SpaceXのForm S-1（2026-05-20）が、XにGrokのモデルをネイティブ統合しており、Basic・Premium・Premium+の各プランがGrokの優先利用を含むと説明。xAIの開発者向けドキュメントは最新モデルをGrok 4.7と表示（2026-10-02）"
+    evidence: "SpaceXのForm S-1（2026-05-20）が、XにGrokのモデルをネイティブ統合しており、Basic・Premium・Premium+の各プランがGrokの優先利用を含むと説明。SpaceXAIの開発者向けドキュメント（docs.x.ai）は最新モデルをGrok 4.7と表示（2026-10-02）"
     evidenceUrl: "https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/spaceexplorationtechnologi.htm"
   - layer: "エッジ/CDN"
     name: "Cloudflare + Envoy"
@@ -74,8 +74,8 @@ sources:
   - label: "App Store（日本）: X のアプリ内課金（Premium Basic ¥450／Premium ¥1,270／Premium Plus ¥8,000）"
     url: "https://apps.apple.com/jp/app/x/id333903271"
     accessedAt: "2026-10-02"
-  - label: "xAI開発者向けドキュメント: Grokのモデル一覧と料金"
-    url: "https://docs.x.ai/docs/models"
+  - label: "SpaceXAI開発者向けドキュメント（docs.x.ai）: Grokのモデル一覧と料金"
+    url: "https://docs.x.ai/developers/models"
     accessedAt: "2026-10-02"
   - label: "WebProNews: Grok 3発表後にPremium+を月$40へ値上げ（2025-02）"
     url: "https://www.webpronews.com/x-raises-premium-subscription-to-40-per-month-on-the-strength-of-grok-3/"
@@ -100,7 +100,7 @@ Musk氏自身のX投稿（2025年3月28日）によれば、xAIがXを全株式�
 
 ## UX分析
 
-XのUXは「透明性の実験場」と「Muskの気まぐれな仕様変更」という2つの顔を持つ。
+XのUXは「透明性の実験場」と「料金と機能の組み替えが続く製品」という2つの顔を持つ。
 
 - **Community Notesは業界随一の実装**。文脈の異なる複数ユーザーの合意でノートを表示する仕組みは、中央集権のファクトチェックとも野放しとも違う第三の道を実証しており、採点アルゴリズム自体が公開されているため検証可能性も高い。
 - **推薦アルゴリズムの公開は新しいリポジトリに引き継がれた**。2023年3月公開の「The Algorithm」は7万Star超を集めたまま2025年9月で更新が止まったが、2026年1月にxAIの組織で「X For You Feed Algorithm」が公開され、2026年8月にはスコアの重みや表示制限（visibility filtering）のコードが加わった。READMEには「このリポジトリに含まれないもの」の節があり、公開範囲がどこまでかを公開側が明示している。

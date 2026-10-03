@@ -1,13 +1,13 @@
 ---
 service: "サイボウズ kintone"
 title: "クラウドの時代に、自社ラックでKubernetesを組む — サイボウズの自前主義を解剖する"
-description: "ノーコード業務アプリ基盤kintoneを擁するサイボウズ。AWSでもGCPでもなく、国内東西のデータセンターに数千台のサーバーを並べ、Kubernetes基盤「Neco」を自社開発で運用する異色のSaaS企業を、公式エンジニアリングブログとIR資料から解剖する。営業利益は前年比2倍になった。"
+description: "ノーコード業務アプリ基盤kintoneを擁するサイボウズ。国内向けサービスはAWSでもGCPでもなく、国内東西のデータセンターに数千台のサーバーを並べ、Kubernetes基盤「Neco」を自社開発で運用する異色のSaaS企業を、公式エンジニアリングブログとIR資料から解剖する。営業利益は前年比2倍になった。"
 lead: "当サイトが解剖してきたSaaSは、ほぼ例外なくAWSかGoogle Cloudの上にいた。サイボウズは違う。国内東西のデータセンターにラックを借り、数千台のサーバーで自社開発のKubernetes基盤「Neco」を回し、その上でkintoneを動かす。クラウド全盛の時代にオンプレミスを選び続ける合理と、営業利益が2倍になった決算を解剖する。"
 category: saas
 tags: [no-code, groupware, kubernetes, on-premises, b2b]
 publishedAt: "2026-07-21"
-updatedAt: "2026-07-21"
-lastVerified: "2026-07-21"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://kintone.cybozu.co.jp/"
 vendor: "サイボウズ株式会社"
 origin: "JP"
@@ -39,10 +39,20 @@ techStack:
     confidence: confirmed
     evidence: "当サイトのHTTPヘッダー実観測（server: Apache・x-cache: RefreshHit from cloudfront、2026-07-21）。製品本体は自社基盤だがマーケティングサイトはCloudFront経由"
     evidenceUrl: "https://kintone.cybozu.co.jp/"
+  - layer: "米国向けサービス基盤"
+    name: "AWS"
+    confidence: confirmed
+    evidence: "公式発表（2019-09）に、US向けkintoneをUS国内のAWSデータセンターから提供し、国内事業は自社基盤で運用を続けると明記。公式エンジニアリングブログ（2020-07）に、2020年6月21日に全US顧客のAWS移行が完了したと明記"
+    evidenceUrl: "https://topics.cybozu.co.jp/news/2019/09/09-8487.html"
+  - layer: "生成AI推論"
+    name: "Amazon Bedrock"
+    confidence: confirmed
+    evidence: "公式エンジニアリングブログ（2025-01）に、Amazon Bedrockによる推論を利用するためにAWS基盤を整備し、kintoneのAPサーバーからAWS上のサーバーを介してLLMを呼び出すと明記"
+    evidenceUrl: "https://blog.cybozu.io/entry/2025/01/22/112000"
 sources:
   - label: "サイボウズ公式IR: 2025年12月期 事業ダイジェスト（売上高374.3億円・前年比26.1%増・営業利益101億円）"
     url: "https://cybozu.co.jp/company/ir/meeting/pdf/2512_02.pdf"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Cybozu Inside Out: サイボウズのKubernetes基盤「Neco」の紹介（2025-04-11）"
     url: "https://blog.cybozu.io/entry/2025/04/11/112000"
     accessedAt: "2026-07-21"
@@ -52,6 +62,18 @@ sources:
   - label: "マイナビニュース: サイボウズ2025年度通期決算 記者説明会（kintone売上216.9億円・契約3.9万社・2026-02-25）"
     url: "https://news.mynavi.jp/techplus/article/20260225-4165084/"
     accessedAt: "2026-07-21"
+  - label: "サイボウズ公式発表: US向けにAWS基盤のkintoneを提供開始（2019-09-09）"
+    url: "https://topics.cybozu.co.jp/news/2019/09/09-8487.html"
+    accessedAt: "2026-09-28"
+  - label: "Cybozu Inside Out: AWS移行が完了したUS版kintoneと、これからの挑戦（2020-07-02）"
+    url: "https://blog.cybozu.io/entry/2020/07/02/000000"
+    accessedAt: "2026-09-28"
+  - label: "Cybozu Inside Out: 生成AI技術を活用したkintoneの新機能とシステム概要（2025-01-22・Amazon Bedrock）"
+    url: "https://blog.cybozu.io/entry/2025/01/22/112000"
+    accessedAt: "2026-09-28"
+  - label: "Kintone（米国）公式: Security（AWSのホスティング基盤を利用と明記）"
+    url: "https://www.kintone.com/en-us/security/"
+    accessedAt: "2026-09-28"
 ---
 
 ## サービス解説
@@ -59,7 +81,7 @@ sources:
 サイボウズは1997年創業のグループウェア企業で、現在の主力はノーコード業務アプリ基盤のkintoneだ。プログラミングなしにフォーム・データベース・業務フローを組み立てられるツールで、現場の非エンジニアが自分の部署の業務アプリを作る、という使われ方を想定している。「チームワークあふれる社会を創る」という理念と、「100人いれば100通りの働き方」を掲げる人事制度でも知られる。
 
 :::fact
-公式IR資料によれば、2025年12月期の連結売上高は374.3億円（前年比26.1%増）、営業利益は101億円（同106.4%増）と、増収に対して利益がほぼ倍増した。決算説明会の報道によれば、kintoneの売上は216.9億円（同33.9%増）で契約社数は3万9,000社を突破。顧客規模別のMRR構成は従業員99名以下が39.1%、100〜999名が33.7%、1,000名以上が27.2%と、特定セグメントに依存しない分散が示された。
+公式IR資料によれば、2025年12月期の連結売上高は374.3億円（前年比26.1%増）、営業利益は101億円（同106.4%増）と、増収に対して利益がほぼ倍増した。決算説明会の報道によれば、kintoneの売上は216.9億円（同33.9%増）で契約社数は3万9,000社を突破（公式IRのビジネスハイライトは、国内・海外を合算した2025年12月末の契約社数を4万1,000社とする）。顧客規模別のMRR構成は従業員99名以下が39.1%、100〜999名が33.7%、1,000名以上が27.2%と、特定セグメントに依存しない分散が示された。
 :::
 
 :::pull
@@ -82,7 +104,7 @@ kintoneのUXは「情シスを待たない」ことに最適化されている�
 ::techstack
 
 :::fact
-サイボウズは国内東西のデータセンターにラックを借り、数千台規模のサーバーで自社開発のKubernetes基盤「Neco」を運用している。公式エンジニアリングブログによれば、物理サーバーの在庫管理・OSプロビジョニングを担うSabakan、クラスタ構築・更新を宣言的に行うCKE（Cybozu Kubernetes Engine）をいずれも自社開発し、BMC診断による故障検知からOS再起動・復旧までを自動化。ストレージはRook/Cephの分散構成で、全文検索にはElasticsearchを採用する。kintone・Garoon・サイボウズOfficeはこの基盤の上で動く。
+サイボウズは国内東西のデータセンターにラックを借り、数千台規模のサーバーで自社開発のKubernetes基盤「Neco」を運用している。公式エンジニアリングブログによれば、物理サーバーの在庫管理・OSプロビジョニングを担うSabakan、クラスタ構築・更新を宣言的に行うCKE（Cybozu Kubernetes Engine）をいずれも自社開発し、BMC診断による故障検知からOS再起動・復旧までを自動化。ストレージはRook/Cephの分散構成で、全文検索にはElasticsearchを採用する。kintone・Garoon・サイボウズOfficeはこの基盤の上で動く。ただし自社基盤で動くのは国内向けサービスだ。公式発表によれば、米国向けのkintone.comは2019年9月からAWS上の環境で提供され、2020年6月21日に全US顧客の移行を完了した。生成AI機能の推論にはAmazon Bedrockを使い、そのためのAWS基盤を整備したと公式エンジニアリングブログ（2025年1月）が明かしている。
 :::
 
 :::guess
