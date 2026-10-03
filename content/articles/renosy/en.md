@@ -6,7 +6,7 @@ lead: "RENOSY lets salaried workers invest in real estate — buying a used stud
 category: consumer-app
 tags: [real-estate, marketplace, fintech, ruby-on-rails, snowflake]
 publishedAt: "2026-09-28"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.renosy.com/"
 # Affiliate link placeholder: the owner must join a RENOSY affiliate program via an ASP
@@ -71,8 +71,8 @@ techStack:
     evidenceUrl: "https://www.renosy.com/investment/why_renosy/flow"
 sources:
   - label: "GA technologies Co., Ltd.: Consolidated Financial Results for the Third Quarter of the Fiscal Year Ending October 2026 [IFRS] (2026-09-14, Japanese)"
-    url: "https://www.release.tdnet.info/inbs/140120260914535676.pdf"
-    accessedAt: "2026-09-28"
+    url: "https://ssl4.eir-parts.net/doc/3491/tdnet/2884592/00.pdf"
+    accessedAt: "2026-10-03"
   - label: "GA technologies Co., Ltd.: Q3 FY2026 earnings presentation (2026-09-14, Japanese)"
     url: "https://ssl4.eir-parts.net/doc/3491/tdnet/2884649/00.pdf"
     accessedAt: "2026-09-28"
