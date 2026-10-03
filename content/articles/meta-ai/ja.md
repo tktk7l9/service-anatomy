@@ -6,8 +6,8 @@ lead: "Metaは対話AI「Meta AI」を無料で配り、30Bパラメータのモ
 category: ai-tool
 tags: [ai-assistant, ai-agent, llm, open-source, advertising]
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-01"
-lastVerified: "2026-10-01"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 serviceUrl: "https://ai.meta.com/"
 vendor: "Meta Platforms, Inc."
 origin: "US"
@@ -71,7 +71,7 @@ sources:
     accessedAt: "2026-10-01"
   - label: "AI at Meta Blog: Introducing Muse Spark（2026-04-08・Meta Superintelligence Labs・Llama 4 Maverick比の計算効率）"
     url: "https://ai.meta.com/blog/introducing-muse-spark-msl/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "Meta Newsroom 日本版: 「Muse Spark」登場（2026-04-09・提供地域の展開・将来のオープンソース化に言及）"
     url: "https://about.fb.com/ja/news/2026/04/introducing-muse-spark-meta-superintelligence-labs-first-model-built-to-prioritize-people/"
     accessedAt: "2026-10-01"
@@ -92,13 +92,13 @@ sources:
     accessedAt: "2026-10-01"
   - label: "Meta Newsroom: Introducing Muse（2026-09-08・Muse Secure VM・広告システムとデータを共有しない旨）"
     url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "Meta Newsroom 日本版: Muse登場（2026-09-09・日本での提供は現時点で未定）"
     url: "https://about.fb.com/ja/news/2026/09/introducing-muse-personal-ai-agent/"
     accessedAt: "2026-10-01"
   - label: "Meta Newsroom: Muse for Small Business（2026-09-29・米国とカナダで提供）"
     url: "https://about.fb.com/news/2026/09/introducing-muse-small-business/"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "Meta Newsroom: The Biggest News From Connect 2026（2026-09-24・コネクタ拡大・AIグラスへの展開）"
     url: "https://about.fb.com/news/2026/09/the-biggest-news-from-connect-2026/"
     accessedAt: "2026-10-01"
@@ -141,7 +141,7 @@ ai.meta.com は、MetaがAIの製品・モデル・研究をまとめて見せ�
 1年前まで、Metaの生成AIといえばLlamaだった。いまサイトの中心にあるのは「Muse」という名前で、これはモデルの系列名であり、同時にエージェント製品の名前でもある。
 
 :::fact
-公式ブログによれば、Muse Sparkは2026年4月8日に発表された、Meta Superintelligence Labs（MSL）による最初のMuse系モデルだ。Metaはこれを「AIへの取り組みを土台から作り直した最初の成果」と位置づけ、以前のモデルLlama 4 Maverickと同じ性能に、1桁以上少ない計算量で到達できると説明している。7月9日にはMuse Spark 1.1と同時にMeta Model APIの公開プレビューが始まり、8月10日には30Bパラメータの「Muse Glimmer」がApache 2.0で公開された。開発者サイトには現在、Muse Spark 1.3が最新版として掲載されている。エージェント製品のMuseは9月8日に発表され、Meta Newsroomは「米国とカナダで提供」と記している。
+公式ブログによれば、Muse Sparkは2026年4月8日に発表された、Meta Superintelligence Labs（MSL）による最初のMuse系モデルだ。Metaはこれを「AIへの取り組みを土台から作り直した最初の成果」と位置づけ、以前のモデルLlama 4 Maverickと同じ性能に、1桁以上少ない学習の計算量で到達できると説明している（小さなモデル群に当てはめたスケーリング則にもとづく同社自身の比較）。7月9日にはMuse Spark 1.1と同時にMeta Model APIの公開プレビューが始まり、8月10日には30Bパラメータの「Muse Glimmer」がApache 2.0で公開された。開発者サイトには現在、Muse Spark 1.3が最新版として掲載されている。エージェント製品のMuseは9月8日に発表され、発表記事は米国での提供開始を伝えた。9月29日のMeta Newsroomの記事は、Museを「米国とカナダで利用できる」と記している。
 :::
 
 :::fact
@@ -162,7 +162,7 @@ ai.meta.com は、MetaがAIの製品・モデル・研究をまとめて見せ�
 - **エージェントはメッセージの形で話す**。MuseはMuseアプリ、muse.ai、またはWhatsAppの中で、人にメッセージを送るのと同じ形で指示する。Metaは「学習コストがない」ことを設計の中心に置いている。
 - **承認と監査を前面に出す**。メールの送信や購入などの前にはMuseが確認を求め、許可は「今回だけ」「常に許可」「拒否」から選べる。Museが行ったことと、これから行う予定のことは監査履歴として見られると説明されている。
 - **入口の名前とドメインは多い**。ai.meta.com（紹介）、meta.ai（アシスタント）、muse.ai（エージェント）、dev.meta.ai（開発者）、research.meta.ai（研究）と役割ごとにドメインが分かれ、llama.com は開発者サイトへ転送される。初めての人は、Meta AIとMuseのどちらが自分の用途かをまず見分ける必要がある。
-- **地域差が大きい**。Museは米国とカナダから、Meta AIの新機能も「一部の市場から順次」と告知されている。日本の利用者が今日触れられるのは、Meta AIのほうだ。
+- **地域差が大きい**。Museの提供は米国とカナダにとどまり、Meta AIの新機能も「一部の市場から順次」と告知されている。日本の利用者が今日触れられるのは、Meta AIのほうだ。
 
 :::guess
 アシスタントを既存アプリの中に置き、エージェントをWhatsAppの会話として成立させる設計は、単体アプリとしての完成度を競うより、すでにある配信面をそのまま使うことを優先した判断とみられる。決算資料によれば、Metaのアプリ群を毎日使う人は2026年6月平均で36.0億人。新しいアプリを入れてもらう必要がない、という一点が最大の武器になっていると考えられる。その代わりに、名前とドメインが増えたぶんの分かりにくさは、当面は利用者側が引き受ける構図だと推測される。

@@ -6,8 +6,8 @@ lead: "トップページには「193.6倍速く、444.6倍安い」「10億ト�
 category: ai-tool
 tags: [ai, api, automation, developer-tools, structured-output]
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-01"
-lastVerified: "2026-10-01"
+updatedAt: "2026-10-02"
+lastVerified: "2026-10-02"
 serviceUrl: "https://typesafe.ai/"
 vendor: "TypeSafe AI, Inc."
 origin: "US"
@@ -47,7 +47,7 @@ techStack:
   - layer: "ドキュメント"
     name: "Mintlify"
     confidence: likely
-    evidence: "当サイトの観測（2026-10-01）で、docs.typesafe.aiのCNAMEが cname.mintlify.builders を指し、画像が mintcdn.com から配信され、llms.txtへのLinkヘッダーが付く。公式の明言は見当たらない"
+    evidence: "当サイトの観測（2026-10-01）で、docs.typesafe.aiのCNAMEが cname.mintlify.builders を指し、画像が mintcdn.com から配信され、llms.txtへのLinkヘッダーが付く。各ページのMarkdown版（.md）の末尾には「This documentation is built and hosted on Mintlify」の一文がある（2026-10-02確認）。TypeSafe AI自身による技術構成の説明ではないためlikely扱い"
   - layer: "CDN・DNS"
     name: "Cloudflare"
     confidence: likely
@@ -96,7 +96,7 @@ sources:
     accessedAt: "2026-10-01"
   - label: "TypeSafe AI公式ドキュメント: Models（料金・レート制限・文脈長・言語）"
     url: "https://docs.typesafe.ai/models"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "TypeSafe AI公式ドキュメント: System One"
     url: "https://docs.typesafe.ai/concepts/system-one"
     accessedAt: "2026-10-01"
@@ -106,9 +106,9 @@ sources:
   - label: "TypeSafe AI公式ドキュメント: AI primer（RLCD）"
     url: "https://docs.typesafe.ai/introduction/machine-learning-primer"
     accessedAt: "2026-10-01"
-  - label: "TypeSafe AI公式ドキュメント: Jev 1.13 jaggedness（苦手の一覧・2026-09-17確認）"
+  - label: "TypeSafe AI公式ドキュメント: Jev 1.13 jaggedness（苦手の一覧・同社による最終レビュー2026-09-17）"
     url: "https://docs.typesafe.ai/model-jaggedness/jev-1.13"
-    accessedAt: "2026-10-01"
+    accessedAt: "2026-10-02"
   - label: "TypeSafe AI公式ドキュメント: Jev with coding agents"
     url: "https://docs.typesafe.ai/introduction/coding-agents"
     accessedAt: "2026-10-01"
@@ -198,7 +198,7 @@ Jevの「利用者」は開発者と、開発者の書いたコードだ。体�
 - **質問が3種類しかない**。Choice・Score・Noulのどれかに当てはめる、という制約そのものが設計になっている。1回の要求に3種類を混ぜて入れられ、公式ドキュメントによれば各質問は同じstateに対して並列に、互いに独立して評価される。
 - **確信度で「機械に任せるか、人に回すか」を分ける**。ChoiceとScoreの答えには確信度が付く。公式ドキュメントは、確信度が高ければ自動で処理し、低ければ人や推論型のモデルに回す、という作り方を「Confidence-gated routing」として説明している。
 - **できないことを先に書く**。コーディングエージェント向けのページは、JevはClaude CodeやCursorの裏にあるLLMの置き換えではない、と冒頭で断っている。文章を書かず、コードも書かず、会話もしないからだ。
-- **苦手を並べたページがある**。「Jev 1.13 jaggedness」は、文字どおりに読みすぎる、数を数えられない、日付の前後を比べられない、何段も推論が要る問いに弱い、関係のない情報が多いと精度が落ちる、誘導する文面に動かされうる、など9項目を挙げ、それぞれに回避策を書いている。
+- **苦手を並べたページがある**。「Jev 1.13 jaggedness」は、文字どおりに読みすぎる、数を確実には数えられない、日付の前後の比較が当てにならない、何段も推論が要る問いに弱い、関係のない情報が多いと精度が落ちる、誘導する文面に動かされうる、など9項目を挙げ、それぞれに回避策を書いている。
 - **AIエージェントが読みやすい入口**。docs.typesafe.aiは `llms.txt` を置き、各ページを `.md` で返す。Claude CodeやCodex向けの「agent skill」も公開しており、GitHubのスター数は2,513だった（2026年10月1日時点）。
 
 :::fact
@@ -226,7 +226,7 @@ GitHubの `typesafe-ai` 組織には、公式のPython・TypeScript SDK（MIT）
 :::
 
 :::guess
-Jevの中身について、公開情報から言えることは少ない。入力の単価がLLMより2桁安く、出力を無料にできている点、文脈長が64kトークンである点、質問を何個足しても応答時間がほとんど変わらないと説明されている点からは、stateを1回だけ読み込み、質問ごとの答えを短い計算で同時に取り出す構造だと推測される。Hacker Newsでは、分類や回帰向けに学習し直したエンコーダー型のtransformerではないか、という見方も出ていた。組織にvllmとLLaDAのフォークがあることは、同社が既存の推論基盤や、順番に生成しない方式の言語モデルを調べていたことを示すとみられるが、Jevがそれらを使っているかどうかは分からない。
+Jevの中身について、公開情報から言えることは少ない。入力の単価がClaude Fable 5.1の定価と比べて2桁安く、出力を無料にできている点、文脈長が64kトークンである点、質問を何個足しても応答時間がほとんど変わらないと説明されている点からは、stateを1回だけ読み込み、質問ごとの答えを短い計算で同時に取り出す構造だと推測される。Hacker Newsでは、分類や回帰向けに学習し直したエンコーダー型のtransformerではないか、という見方も出ていた。組織にvllmとLLaDAのフォークがあることは、同社が既存の推論基盤や、順番に生成しない方式の言語モデルを調べていたことを示すとみられるが、Jevがそれらを使っているかどうかは分からない。
 :::
 
 :::guess
