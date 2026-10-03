@@ -2,8 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
-import { affiliateSlots } from "@/engine/articles/disclosure";
-import { ALL_COMPARISONS, resolveComparison, type ComparisonItem } from "@/engine/comparisons";
+import {
+  ALL_COMPARISONS,
+  comparisonHasAdvertising,
+  resolveComparison,
+  type ComparisonItem,
+} from "@/engine/comparisons";
 import { languageAlternates } from "@/engine/seo/alternates";
 import { buildBreadcrumbList, buildItemList } from "@/engine/seo/jsonld";
 import { BASE_URL } from "@/engine/site";
@@ -32,14 +36,7 @@ export async function generateMetadata({
 // article has an affiliate link. The listing shows "PR" before the reader opens the page.
 function hasAdvertising(comparison: ComparisonItem, locale: Locale): boolean {
   const resolved = resolveComparison(comparison);
-  if (!resolved) return false;
-  const { articleA, articleB } = resolved;
-  return (
-    affiliateSlots([
-      { slug: articleA.slug, frontmatter: articleA[locale].frontmatter },
-      { slug: articleB.slug, frontmatter: articleB[locale].frontmatter },
-    ]).length > 0
-  );
+  return resolved ? comparisonHasAdvertising(resolved, locale) : false;
 }
 
 export default async function CompareIndexPage({

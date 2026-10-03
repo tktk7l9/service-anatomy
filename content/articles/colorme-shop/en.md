@@ -6,8 +6,8 @@ lead: "On September 9, 2026, ColorMe Shop announced a price revision. For renewa
 category: saas
 tags: [e-commerce, small-business, php, mysql, mcp]
 publishedAt: "2026-09-29"
-updatedAt: "2026-09-29"
-lastVerified: "2026-09-29"
+updatedAt: "2026-10-03"
+lastVerified: "2026-10-03"
 serviceUrl: "https://shop-pro.jp/"
 affiliate:
   url: "https://af.moshimo.com/af/c/click?a_id=5825557&p_id=2563&pc_id=5685&pl_id=32934"
@@ -69,10 +69,13 @@ sources:
     accessedAt: "2026-09-29"
   - label: "ColorMe Shop official: Plans and pricing (Japanese)"
     url: "https://shop-pro.jp/plans/"
-    accessedAt: "2026-09-29"
+    accessedAt: "2026-10-03"
   - label: "ColorMe Shop official: Free plan (Japanese)"
     url: "https://shop-pro.jp/plans/free/"
-    accessedAt: "2026-09-29"
+    accessedAt: "2026-10-03"
+  - label: "ColorMe Shop help centre: What is the Free plan? (the Free-plan-only ColorMe Payment; updated 2026-09-30, Japanese)"
+    url: "https://help.shop-pro.jp/hc/ja/articles/1500004507401"
+    accessedAt: "2026-10-03"
   - label: "ColorMe Shop official: [Important] Notice of revised fees for the Regular and Large plans (Japanese, 2026-09-09)"
     url: "https://shop-pro.jp/news/202611-pricing-notice"
     accessedAt: "2026-09-29"
@@ -119,7 +122,7 @@ According to GMO Pepabo's earnings presentation (2026-08-13), ColorMe Shop launc
 :::
 
 :::fact
-According to the official pricing pages (as of 2026-09-29, tax included), there are four plans. The Free plan has no setup or monthly fee, with payment fees from 6.6% + ¥30. The Regular plan costs ¥4,950 a month plus a ¥3,300 setup fee, with credit-card fees from 3.4%; the Large plan costs ¥9,595 a month with fees from 3.19%; and the Premium plan costs from ¥35,640 a month plus a ¥22,000 setup fee, with fees from 2.99%. The card rates are given as a guide for shops that sign up for the "ColorMe Payment" payment service. Regular and Large come with a 30-day free trial; the Premium column points to a document download instead of a trial.
+According to the official pricing pages (as of 2026-09-29, tax included), there are four plans. The Free plan has no setup or monthly fee, with payment fees from 6.6% + ¥30. The Regular plan costs ¥4,950 a month plus a ¥3,300 setup fee, with credit-card fees from 3.4%; the Large plan costs ¥9,595 a month with fees from 3.19%; and the Premium plan costs from ¥35,640 a month plus a ¥22,000 setup fee, with fees from 2.99%. The card rates are given as a guide for shops that sign up for the "ColorMe Payment" payment service. According to the help centre article (updated 2026-09-30), the Free plan uses a "ColorMe Payment for the Free plan only" that differs from the paid plans' version, with a payment fee of 6.6% + ¥30 per order (excluding tax). Card payment is optional, but using it requires a 3-D Secure contract, which costs ¥1,000 a month (excluding tax). Regular and Large come with a 30-day free trial; the Premium column points to a document download instead of a trial.
 :::
 
 :::pull
@@ -133,7 +136,7 @@ For renewals on or after November 1, 2026, the Regular plan goes from ¥4,950 to
 ColorMe Shop's UX is built as a one-way staircase: start free, then move up a plan once you sell. In 2026, it put an entrance to AI near the top of that staircase.
 
 - **A free entrance, and a staircase with no way down.** The Free plan page says the plan suits people with "monthly sales of ¥100,000 or less" and that you can switch to an upper plan as your shop grows. Meanwhile, the FAQ on the same page says you cannot move from Regular, Large or Premium back to Free; to use Free again, you have to create a new account. Going up is easy; there is no path down.
-- **The fee notation is inconsistent.** On the Free plan page, the plan comparison table lists the payment fee as "6.6% + ¥30 and up," while the FAQ says "6.6% of the payment amount + ¥33." ¥30 times 1.1 is ¥33, so it could be the difference between tax-excluded and tax-included, but the table carries a note that "all prices are shown tax included," so the page does not make clear which is right. A single line would save people comparing per-order costs from guessing.
+- **The fee notation is inconsistent.** On the Free plan page, the plan comparison table lists the payment fee as "6.6% + ¥30 and up," while the FAQ says "6.6% of the payment amount + ¥33." ¥30 times 1.1 is ¥33, so it could be the difference between tax-excluded and tax-included, but the table carries a note that "all prices are shown tax included," so the page does not make clear which is right. The help centre article writes the same fee as "6.6% + ¥30 (excluding tax)," which reads as ¥33 being the tax-included figure, but it still disagrees with the pricing page's note, and it is unclear whether the 6.6% part is also meant to exclude tax. The ¥1,000 monthly 3-D Secure fee that card payment requires is not on the pricing page either. A single line would save people comparing per-order costs from guessing.
 - **You can talk to your shop's data through AI.** Install "AI Connector" from the app store and AI tools such as Claude Desktop connect to the shop through a remote MCP server. According to the official app page, it authenticates with ColorMe Shop's OAuth and lets you, by conversation, search, update and cancel orders, send confirmation emails, add and update products, grant points to customers and create coupons. This MCP part is free.
 - **The AI inside the admin console is Premium-only.** According to the same app page, the "AI Agent," which you talk to from a side panel in the admin console, is a beta limited to the Premium plan and for now supports only read operations (fetching and checking information). The convenience of AI, too, is placed as one more reason to move up a plan.
 
@@ -159,7 +162,7 @@ The "procurement and operation of server hardware" that the pricing notice gives
 
 ## Business model
 
-The core revenue is the monthly fee shops pay. The Free plan has no monthly fee and charges only payment fees. On top of paid-plan fees come paid apps from the app store and options such as payments and build-for-you services.
+The core revenue is the monthly fee shops pay. The Free plan has no monthly fee and charges payment fees; accepting cards adds the 3-D Secure fee of ¥1,000 a month (excluding tax). On top of paid-plan fees come paid apps from the app store and options such as payments and build-for-you services.
 
 :::fact
 According to the data sheet in the November 2023 earnings presentation, ColorMe Shop's contracts grew from 41,191 at the end of March 2021 to 50,663 at the end of December 2022, and stood at 50,264 at the end of September 2023. The average revenue per customer, calculated over monthly plans only, rose from ¥3,436 at the end of March 2021 to ¥5,233 at the end of September 2023. According to a notice on the official developer site (2022-01-21), fees for every plan except the Free and Platinum plans were revised from April 5, 2022, and major optional features were folded into the paid plans. In the August 2026 presentation, the contract count is 47K (end of June 2026).
@@ -174,7 +177,9 @@ Dividing the data-sheet figures, ColorMe Shop's quarterly operating margin works
 :::
 
 :::guess
-The break-even point between Free and Regular moves, too. Ignoring the fixed ¥30 (or ¥33) per order and the setup fee, and dividing the monthly fee by the card-rate difference alone (6.6% minus 3.4%, or 3.2%), Regular becomes cheaper above roughly ¥155K in monthly sales before the revision and roughly ¥186K after it. By comparison, according to its official pricing page, [BASE](/en/articles/base) charges a 3.6% + ¥40 payment fee plus a 3% service fee on its Standard plan with no monthly fee, and on its Growth plan at ¥16,580 a month (paid annually) lowers the payment fee to 2.9% and drops the service fee. Where BASE takes its cut from what sells, ColorMe Shop's design leans toward getting shops to pay a monthly fee early.
+The break-even point between Free and Regular moves, too. Ignoring the fixed ¥30 (or ¥33) per order and the setup fee, assuming card payments, and dividing Regular's monthly fee minus the Free plan's ¥1,000 3-D Secure fee by the card-rate difference (6.6% minus 3.4%, or 3.2%), Regular becomes cheaper above roughly ¥123K in monthly sales before the revision and roughly ¥154K after it. Under this site's conversion of the ¥1,000 (excluding tax) to ¥1,100, the figures are roughly ¥120K and ¥151K. By comparison, according to its official pricing page, [BASE](/en/articles/base) charges a 3.6% + ¥40 payment fee plus a 3% service fee on its Standard plan with no monthly fee, and on its Growth plan at ¥16,580 a month (paid annually) lowers the payment fee to 2.9% and drops the service fee. Where BASE takes its cut from what sells, ColorMe Shop's design leans toward getting shops to pay a monthly fee early.
 :::
+
+Correction (October 3, 2026). The first version said the Free plan has no monthly fee and charges only payment fees, and put the break-even point between Free and Regular at roughly ¥155K in monthly sales (roughly ¥186K after the revision). That was inaccurate. According to the help centre article, accepting cards on the Free plan requires a 3-D Secure contract at ¥1,000 a month (excluding tax). The break-even calculation, which assumes card payments, left out that fee and so made the Free plan look more favorable than it is. The help centre article has been added as a source, the 3-D Secure fee has been added to the pricing description and the fee-notation item, and the break-even point has been corrected to roughly ¥123K (roughly ¥154K after the revision).
 
 The number of shops is slowly shrinking. Even so, with a staircase of plans and costs kept down by its own cloud, ColorMe Shop has reached an operating margin above 40%. In 2026, the reason for a price rise came from that cost side. Placing the entrance to AI near the top of the staircase looks like the next step for keeping shops choosing to move up, even after the price rise.

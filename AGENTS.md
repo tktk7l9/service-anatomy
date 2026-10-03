@@ -75,9 +75,15 @@ tech editorial (magazine-style) design.
   (do not trust the LLM's training knowledge). `npm run freshness` lists articles whose lastVerified is over 90 days old —
   run it in the weekly review, and re-verify overdue articles and update lastVerified, or make them candidates for periodic re-anatomy (定点観測).
 - Broken links: `npm run check-links` sends real requests to serviceUrl / sources[].url / techStack[].evidenceUrl / OGP image URLs
-  (content/og-cards.json) to check whether they are alive. Run it in the weekly review; fix broken ones by
-  replacing or removing the URL, or for OGP images by re-running `npm run og-cards`. 403/999 etc. may be false positives
-  caused by bot protection, so check in a browser before deciding.
+  (content/og-cards.json) to check whether they are alive. Run it in the weekly review (about 1 minute).
+  Each URL is tried with HEAD first, then once more with a browser-like GET (some servers reject HEAD or
+  requests without Sec-Fetch-* headers); a 429/503 is retried once honouring Retry-After. Results are grouped:
+  **Dead (404/410/DNS/TLS)** — fix these by replacing or removing the URL, or for OGP images by re-running
+  `npm run og-cards`. **Other errors** — 5xx/timeouts, check manually. **Rate limited** — run again later.
+  **Blocked by bot protection** (Cloudflare challenge, "Attention Required", 401/403/406/419/999) — cannot be
+  checked from a script, open them in a browser only when something looks off. **Skipped** — `sec.gov` requires a
+  personal contact in the User-Agent, which this project never sends, so it is never contacted.
+  `-- --ci` exits 1 only on dead or other errors.
 - Write ja first and sync en in the same commit (never leave a change in only one language).
 
 ## Development commands

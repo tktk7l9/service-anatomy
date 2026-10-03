@@ -68,7 +68,8 @@ export function AffiliateCard({
     />
   ) : null;
   return (
-    <aside className="affiliate-card" aria-label={dict.article.affiliateAria}>
+    <aside className="affiliate-card" aria-label={dict.article.affiliateAria.replace("{service}", service)}
+    >
       <span className="affiliate-card-pr">{dict.article.affiliatePr}</span>
       {label ? (
         <span className="affiliate-card-link">

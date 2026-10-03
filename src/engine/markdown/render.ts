@@ -1,3 +1,4 @@
+import type { Element, Root as HastRoot } from "hast";
 import type { Root } from "mdast";
 import rehypeSlug from "rehype-slug";
 import rehypeStringify from "rehype-stringify";
@@ -19,6 +20,9 @@ import { ARTICLE_COMPONENTS, type ArticleComponent } from "./split";
 //   :::fact / :::guess explicit callout for observed fact / guess (labels injected per locale)
 //   ::scorecard        insertion point for the React component rendering frontmatter scores
 //   ::techstack        insertion point for the React component rendering frontmatter techStack
+// Tables are wrapped in a labelled, keyboard-focusable scroll container (role="region"), so a table
+// wider than a phone screen scrolls inside its own box instead of the whole page, and keyboard users
+// can reach and scroll it. Each region is numbered ("Table 1", "Table 2", ...) so the names stay unique.
 // Unknown container/leaf directives are unwrapped into their children (neither silently dropped
 // nor passed through).
 // Inline text directives (":name") are not part of this site's syntax, but remark-directive parses
@@ -30,7 +34,12 @@ export interface CalloutLabels {
   guess: string;
 }
 
-const DEFAULT_LABELS: CalloutLabels = { fact: "Fact", guess: "Guess" };
+export interface MarkdownLabels extends CalloutLabels {
+  /** Accessible name of a table's scroll region; "{n}" becomes the 1-based table number. */
+  table: string;
+}
+
+const DEFAULT_LABELS: MarkdownLabels = { fact: "Fact", guess: "Guess", table: "Table {n}" };
 
 const CALLOUT_NAMES = ["fact", "guess"] as const;
 type CalloutName = (typeof CALLOUT_NAMES)[number];
@@ -99,13 +108,40 @@ function remarkArticleDirectives(labels: CalloutLabels) {
   };
 }
 
-export function renderMarkdown(markdown: string, labels: CalloutLabels = DEFAULT_LABELS): string {
+function rehypeTableRegions(label: string) {
+  return (tree: HastRoot) => {
+    let count = 0;
+    visit(tree, "element", (node: Element, index, parent) => {
+      if (node.tagName !== "table") return;
+      /* v8 ignore next -- a table element always has a parent in the tree */
+      if (!parent || index === undefined) return;
+      count += 1;
+      const region: Element = {
+        type: "element",
+        tagName: "div",
+        properties: {
+          className: ["table-scroll"],
+          role: "region",
+          tabIndex: 0,
+          ariaLabel: label.replace("{n}", String(count)),
+        },
+        children: [node],
+      };
+      parent.children.splice(index, 1, region);
+      // Skip the wrapped table: visiting it again would wrap it a second time.
+      return index + 1;
+    });
+  };
+}
+
+export function renderMarkdown(markdown: string, labels: MarkdownLabels = DEFAULT_LABELS): string {
   const processor = unified()
     .use(remarkParse)
     .use(remarkGfm)
     .use(remarkDirective)
     .use(remarkArticleDirectives, labels)
     .use(remarkRehype)
+    .use(rehypeTableRegions, labels.table)
     .use(rehypeSlug)
     .use(rehypeStringify);
   return String(processor.processSync(markdown));
