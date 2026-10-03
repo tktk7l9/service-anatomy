@@ -6,8 +6,8 @@ lead: "SNSの不満は数あれど、根っこは一つ——アカウントも�
 category: media
 tags: [social-media, decentralized, at-protocol, open-source, community]
 publishedAt: "2026-07-17"
-updatedAt: "2026-07-17"
-lastVerified: "2026-07-17"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://bsky.app/"
 vendor: "Bluesky Social, PBC"
 origin: "US"
@@ -32,7 +32,7 @@ techStack:
   - layer: "リファレンス実装"
     name: "TypeScript (公式OSSモノレポ)"
     confidence: confirmed
-    evidence: "公式リポジトリbluesky-social/atprotoの主要言語（GitHub APIで確認・2026-07-17）"
+    evidence: "公式リポジトリbluesky-social/atprotoの主要言語（GitHub APIで確認・2026-09-28）"
     evidenceUrl: "https://github.com/bluesky-social/atproto"
   - layer: "セルフホスト"
     name: "PDS公式コンテナ配布"
@@ -47,10 +47,10 @@ techStack:
 sources:
   - label: "Bluesky公式ドキュメント: 連合アーキテクチャ（PDS/Relay/AppView）"
     url: "https://docs.bsky.app/docs/advanced-guides/federation-architecture"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
   - label: "Bluesky公式ドキュメント: The AT Protocol"
     url: "https://docs.bsky.app/docs/advanced-guides/atproto"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
   - label: "Bluesky公式ブログ: $100MシリーズB開示（2026-03・ユーザー4,300万/公開レコード約200億）"
     url: "https://bsky.social/about/blog/03-19-2026-series-b"
     accessedAt: "2026-07-17"
@@ -60,6 +60,12 @@ sources:
   - label: "TechCrunch: Bluesky announces $100M Series B after CEO transition（2026-03）"
     url: "https://techcrunch.com/2026/03/19/bluesky-announces-100m-series-b-after-ceo-transition/"
     accessedAt: "2026-07-17"
+  - label: "Bluesky公式ブログ: Toni SchneiderをCEOに指名（2026-07-10）"
+    url: "https://bsky.social/about/blog/07-10-2026-toni-schneider-ceo"
+    accessedAt: "2026-09-28"
+  - label: "Wikipedia（集約）: Bluesky（登録ユーザー数・2026-08-16時点）"
+    url: "https://en.wikipedia.org/wiki/Bluesky"
+    accessedAt: "2026-09-28"
 ---
 
 TwitterがXになる過程で、世界は「SNSは運営の持ち物で、ユーザーは間借り人」という当たり前を再確認させられた。Blueskyはその当たり前への技術的な反論だ。アカウント・データ・フォローグラフを運営から切り離せる設計を、理念ではなくプロトコル仕様として実装し、いま4,300万人の実トラフィックで検証している。
@@ -69,7 +75,7 @@ TwitterがXになる過程で、世界は「SNSは運営の持ち物で、ユー
 Blueskyは一見、往年のTwitterによく似たマイクロブログSNSだ。しかし本体はその下にあるAT Protocol（atproto）で、Blueskyアプリは「プロトコル上の1アプリケーション」に過ぎない。
 
 :::fact
-公式ブログ（2026年3月）によれば、2025年4月にBain Capital Cryptoをリードとして1億ドルのシリーズBを実施（累計調達は1.2億ドル超）。ユーザーは2024年10月のシリーズA時点の1,300万人から4,300万人超へ成長し、ネットワーク上の公開レコード（投稿・いいね等）は約200億件、atproto上のアプリは毎週1,000以上使われ、SDKは月間40万回以上ダウンロードされるとする。運営は公益法人（PBC）で、創業CEOのJay GraberはChief Innovation Officerへ移った。
+公式ブログ（2026年3月）によれば、2025年4月にBain Capital Cryptoをリードとして1億ドルのシリーズBを実施（累計調達は1.2億ドル超）。ユーザーは2024年10月のシリーズA時点の1,300万人から4,300万人超へ成長し、ネットワーク上の公開レコード（投稿・いいね等）は約200億件、atproto上のアプリは毎週1,000以上使われ、SDKは月間40万回以上ダウンロードされるとする。運営は公益法人（PBC）で、創業CEOのJay GraberはChief Innovation Officerへ移った。2026年3月から暫定CEOを務めたToni Schneider氏は、2026年7月10日の公式ブログで正式なCEOに指名されている。公式が示す利用者数は4,300万人超のままだが、Wikipediaの集約では2026年8月16日時点の登録ユーザーが4,600万人を超えたとされる。
 :::
 
 :::pull

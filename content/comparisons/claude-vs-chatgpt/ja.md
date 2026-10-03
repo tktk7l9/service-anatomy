@@ -66,7 +66,7 @@ Anthropicの公式発表（2025年11月18日）によれば、同社は300億ド
 [Claude](/ja/articles/claude)の記事によれば、Anthropicは2024年11月、AIとデータソースを安全に接続するオープン標準「Model Context Protocol（MCP）」を無償公開した。[ChatGPT](/ja/articles/chatgpt)の記事によれば、OpenAI公式の開発者向けサイトは、ChatGPTをアプリで拡張する「Apps SDK」がこのMCPに準拠すると明記している。
 :::
 
-MCPの一致のほうは、当サイトの機械比較（techOverlap）には表れない。ChatGPT側のtechStack記載が「Apps SDK（Model Context Protocol準拠）」という1つのエントリで、MCPが括弧内の注記として扱われているため、技術トークンとしては"Apps SDK"だけが抽出され、"Model Context Protocol"という共有トークンには変換されない。機械比較の粒度の限界が、[Figma vs Canva](/ja/compare/figma-vs-canva)の解剖記事で見たのと同じ形で、ここでも表面化している。
+MCPの一致のほうは、当サイトの機械比較（techOverlap）には表れない。ChatGPT側のtechStack記載が「Apps SDK（Model Context Protocol準拠）」という1つのエントリで、MCPが括弧内の注記として扱われているため、技術トークンとしては"Apps SDK"だけが抽出され、"Model Context Protocol"という共有トークンには変換されない。括弧内の注記が機械比較に拾われないという粒度の限界は、親会社ByteDanceの名前が照合に現れない[TikTok vs CapCut](/ja/compare/tiktok-vs-capcut)の解剖記事でも同じ形で表面化している。
 
 :::guess
 競合が策定したオープン標準を自社の拡張機構の土台に採用するという判断は、エージェント連携という新しい規格争いにおいて、独自規格で囲い込むより普及した標準に乗るほうが得策だという、OpenAI側の実利的な判断を示していると考えられる。一方のAnthropicにとって、自社が作った標準を最大のライバルが採用したという事実は、収益源にはならないものの、技術的な主導権の証明として機能しているとみられる。機械比較が拾えるのはクラウドの重なりだけで、規格の重なりは拾えない。それでも両社がこの2点で足並みを揃えているという構図は、表層の対抗関係と、基盤層での協調が同時に存在しうることを示している。

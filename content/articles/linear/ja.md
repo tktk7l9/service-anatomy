@@ -1,13 +1,13 @@
 ---
 service: "Linear"
 title: "遅いツールへの反乱 — Linearがsync engineで取り戻した「道具の速さ」"
-description: "課題管理ツールLinearの解剖。IndexedDB+MobX+WebSocket差分同期の独自sync engineによる体感ゼロ秒のUX、キーボード第一の設計哲学Linear Method、OpenAIら15,000社への浸透とシリーズC（評価額$1.25B）までを読み解く。"
+description: "課題管理ツールLinearの解剖。IndexedDB+MobX+WebSocket差分同期の独自sync engineによる体感ゼロ秒のUX、キーボード第一の設計哲学Linear Method、OpenAIら4万社超への浸透と、評価額$2.5Bでの株式買い取り（2026年8月）までを読み解く。"
 lead: "課題管理ツールは遅くて重い——その業界常識への反乱として、Linearは「クリックした瞬間に終わっている」体験を建築した。ローカルDBに書いてから裏で同期するsync engineの設計と、開発チームの美意識をそのまま製品にした思想を解剖する。"
 category: dev-tool
 tags: [project-management, local-first, sync-engine, graphql, saas]
 publishedAt: "2026-07-17"
-updatedAt: "2026-07-17"
-lastVerified: "2026-07-17"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://linear.app/"
 vendor: "Linear"
 origin: "US"
@@ -46,7 +46,13 @@ techStack:
 sources:
   - label: "Linear公式ブログ: Building our way — シリーズC発表（2025-06）"
     url: "https://linear.app/now/building-our-way"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
+  - label: "Linear公式ブログ: Sharing Linear's growth with the people building it（2026-08-26・評価額25億ドルのテンダーオファー・有料4万社超・ARR1億ドル超）"
+    url: "https://linear.app/now/sharing-growth-with-the-people-building-linear"
+    accessedAt: "2026-09-28"
+  - label: "Linear公式: Pricing（Free/Basic/Business/Enterprise）"
+    url: "https://linear.app/pricing"
+    accessedAt: "2026-09-28"
   - label: "Linear Method（公式・プロダクト思想の文書）"
     url: "https://linear.app/method"
     accessedAt: "2026-07-17"
@@ -61,14 +67,14 @@ sources:
     accessedAt: "2026-07-17"
 ---
 
-JiraやAsanaを開くとき、人は無意識にワンテンポ待つ癖がついている。Linearはその「待ち」を敵と定めた。2019年に生まれたこの課題管理ツールは、速さを機能ではなく建築で実現し、OpenAIを含む15,000社超に浸透した。ローカルファーストの思想を[Obsidian](/ja/articles/obsidian)がノートで実践したなら、LinearはチームのSaaSで実践した例だ。
+JiraやAsanaを開くとき、人は無意識にワンテンポ待つ癖がついている。Linearはその「待ち」を敵と定めた。2019年に生まれたこの課題管理ツールは、速さを機能ではなく建築で実現し、OpenAIを含む4万社超に浸透した。ローカルファーストの思想を[Obsidian](/ja/articles/obsidian)がノートで実践したなら、LinearはチームのSaaSで実践した例だ。
 
 ## サービス解説
 
 Linearはソフトウェア開発チーム向けの課題管理・プロジェクト管理ツールだ。イシュー、サイクル（スプリント）、ロードマップを、キーボード操作を第一級市民とするUIで扱う。
 
 :::fact
-公式ブログ（2025年6月）によれば、LinearはAccel主導のシリーズCで8,200万ドルを調達し、評価額は12.5億ドル。OpenAI・Cash App・Ramp・Scale AIを含む15,000社超が利用するとされる。プロダクト思想は「Linear Method」として公式に文書化されており、フルリモートで少人数のチーム運営を公言している。
+公式ブログ（2025年6月）によれば、LinearはAccel主導のシリーズCで8,200万ドルを調達し、評価額は12.5億ドル。当時はOpenAI・Cash App・Ramp・Scale AIを含む15,000社超が利用するとしていた。2026年8月26日の公式ブログでは、評価額25億ドルで9,900万ドルの株式買い取り（現従業員と元従業員が持ち株の一部を売却できるテンダーオファー）を実施したと公表し、有料で利用する企業は4万社超、ARR（年間経常収益）は1億ドルを超え、キャッシュフローは黒字だとしている。プロダクト思想は「Linear Method」として公式に文書化されており、フルリモートで少人数のチーム運営を公言している。
 :::
 
 :::pull
@@ -103,7 +109,7 @@ LinearのCTO Tuomas Artman氏が「おそらく存在する中で最良の文書
 Linearの収益はシート課金のSaaSで、無料枠から有料プランへ引き上げる標準的なPLG（プロダクト主導成長）だ。
 
 :::fact
-無料プランがあり、有料はチーム規模と機能で段階的に上がる。シリーズC発表では、AI時代の製品開発（エージェントによるイシュー処理など）への投資が語られ、顧客リストには急成長AI企業が並ぶ。
+無料プランがあり、有料はチーム規模と機能で段階的に上がる。公式の料金ページ（2026年9月28日確認）では、Free・Basic（年払いで1ユーザー月10ドル）・Business（同16ドル）・Enterprise（個別見積もり）の4段階だ。2026年8月の公式ブログは、有料ワークスペースの95%にエージェントが導入されているとも述べている。シリーズC発表では、AI時代の製品開発（エージェントによるイシュー処理など）への投資が語られ、顧客リストには急成長AI企業が並ぶ。
 :::
 
 :::guess

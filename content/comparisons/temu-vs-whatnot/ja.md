@@ -5,15 +5,18 @@ lead: "オンラインで見知らぬ他人からモノを買うとき、何を�
 slugA: "temu"
 slugB: "whatnot"
 publishedAt: "2026-07-23"
-updatedAt: "2026-07-23"
-lastVerified: "2026-07-23"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 sources:
   - label: "Wikipedia: Temu（直送コンサイメントモデル・利用者数推移の集約）"
     url: "https://en.wikipedia.org/wiki/Temu"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
   - label: "Wikipedia: Whatnot（ライブ配信型オークション・流通総額推移の集約）"
     url: "https://en.wikipedia.org/wiki/Whatnot"
-    accessedAt: "2026-07-23"
+    accessedAt: "2026-09-28"
+  - label: "欧州委員会 税制・関税同盟総局: 少額輸入への一時的な定額関税の手引きと法文（2026年7月1日から1品目3ユーロ）"
+    url: "https://taxation-customs.ec.europa.eu/news/guidance-and-legal-text-temporary-flat-fee-low-value-imports-which-will-apply-until-1-july-2028-2026-06-08_en"
+    accessedAt: "2026-09-28"
 ---
 
 [Temu](/ja/articles/temu)と[Whatnot](/ja/articles/whatnot)は、「見知らぬ他人からモノを買う」というオンラインコマース最大の課題に挑む2社だ。それなのに、その解き方は正反対と言っていいほど違う。
@@ -37,7 +40,7 @@ Temuは、誰が売っているかを消すことで信頼を作る。Whatnotは
 両社とも、当初の勝ちパターンを別の領域へ広げようとしている。だが、その拡張の動機はまるで違う。
 
 :::fact
-[Temu](/ja/articles/temu)の記事によれば、2025年5月、米国の関税政策変更（少額輸入の関税免除制度の見直し）を受け、Temuは中国からの直送を取りやめ、現地拠点のセラーが在庫を持って発送する体制へ転換せざるを得なくなった。[Whatnot](/ja/articles/whatnot)の記事によれば、Whatnotは2025年夏に常温保存食品、2026年4月に生鮮食品と、コレクタブル以外のカテゴリへ自らの意思で拡張している。
+[Temu](/ja/articles/temu)の記事によれば、2025年5月、米国の関税政策変更（少額輸入の関税免除制度の見直し）を受け、Temuは中国からの直送を取りやめ、現地拠点のセラーが在庫を持って発送する体制へ転換せざるを得なくなった。欧州委員会によれば、EUも150ユーロ以下の少額輸入への関税免除を終え、2026年7月1日から1品目あたり3ユーロの定額関税をかけている。[Whatnot](/ja/articles/whatnot)の記事によれば、Whatnotは2025年夏に常温保存食品、2026年4月に生鮮食品と、コレクタブル以外のカテゴリへ自らの意思で拡張している。
 :::
 
 :::guess

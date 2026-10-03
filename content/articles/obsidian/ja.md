@@ -1,13 +1,13 @@
 ---
 service: "Obsidian"
-title: "ファイルはアプリより長生きする — Obsidianが10人で築いた「所有できるノート」"
-description: "ローカルのMarkdownファイルにすべてを保存し、投資家を入れず、約10人のチームで世界的ノートアプリになったObsidian。File over appの思想と、無料本体+Sync/Publishの課金構造を解剖する。"
-lead: "ノートアプリの主流がクラウドへ向かった10年に、Obsidianは逆を張った。データはただのMarkdownファイルとして手元に残り、運営は中身に触れられない。投資家ゼロ・約10人のチームがこの思想だけで世界的プロダクトを築いた構造を解剖する。"
+title: "ファイルはアプリより長生きする — Obsidianが少人数で築いた「所有できるノート」"
+description: "ローカルのMarkdownファイルにすべてを保存し、投資家を入れず、10人に満たないチームで世界的ノートアプリになったObsidian。File over appの思想と、無料本体+Sync/Publishの課金構造を解剖する。"
+lead: "ノートアプリの主流がクラウドへ向かった10年に、Obsidianは逆を張った。データはただのMarkdownファイルとして手元に残り、運営は中身に触れられない。投資家ゼロ・10人に満たないチームがこの思想だけで世界的プロダクトを築いた構造を解剖する。"
 category: productivity
 tags: [markdown, local-first, electron, plugins, note-taking]
 publishedAt: "2026-07-16"
-updatedAt: "2026-07-16"
-lastVerified: "2026-07-16"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://obsidian.md/"
 vendor: "Obsidian"
 origin: "CA"
@@ -42,31 +42,31 @@ techStack:
   - layer: "公式サイト配信"
     name: "Cloudflare / Fastly"
     confidence: confirmed
-    evidence: "当サイトによるHTTPヘッダー観測（cf-ray と x-served-by: cache-nrt…/via: varnish が併存、2026-07-16）"
+    evidence: "当サイトによるHTTPヘッダー観測（cf-ray と x-served-by: cache-nrt…/via: varnish が併存、2026-07-16。2026-09-28の再観測でも同じ）"
     evidenceUrl: "https://obsidian.md/"
 sources:
   - label: "Obsidian 公式サイト"
     url: "https://obsidian.md/"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "Obsidian About（チーム・理念・資金方針）"
     url: "https://obsidian.md/about"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "Obsidian Pricing（無料範囲・Sync/Publish/Catalyst/Commercial）"
     url: "https://obsidian.md/pricing"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "Obsidian Changelog（Electron/CodeMirror更新の一次記録）"
     url: "https://obsidian.md/changelog"
     accessedAt: "2026-07-16"
 ---
 
-NotionやEvernoteが「クラウドにすべてを預ける」方向へ進んだ10年間、その逆——「すべてを手元のファイルに残す」——を選んで世界的プロダクトになったのがObsidianだ。VCの資金を一円も入れず、約10人のチーム（と1匹のオフィス猫）で運営されるこのノートアプリを解剖する。
+NotionやEvernoteが「クラウドにすべてを預ける」方向へ進んだ10年間、その逆——「すべてを手元のファイルに残す」——を選んで世界的プロダクトになったのがObsidianだ。VCの資金を一円も入れず、10人に満たないチーム（と1匹のオフィス猫）で運営されるこのノートアプリを解剖する。
 
 ## サービス解説
 
 Obsidianは、ローカルのMarkdownファイルを「Vault」と呼ぶただのフォルダで管理するノートアプリだ。ノート同士を`[[リンク]]`でつなぎ、知識のネットワーク（グラフ）として育てられる。
 
 :::fact
-公式のAboutページによれば、創業は2020年、共同創業者はShida Li氏とErica Xu氏で、現CEOはSteph Ango（kepano）氏。チームは約10名（エンジニア5名を含む）で、「100% supported by our users, not investors」と投資家資金に頼らない方針を明記している。掲げる原則は Yours / Durable / Private / Malleable / Independent の5つで、「データは端末に保存され、運営からはアクセス不能」とされる。アプリは個人・商用を問わず無料で使える。
+公式のAboutページによれば、創業は2020年、共同創業者はShida Li氏とErica Xu氏で、現CEOはSteph Ango（kepano）氏。同ページに掲載されているメンバーは7名（2026年9月28日時点。共同創業者2名、CEO、エンジニアリング担当3名、カスタマーサクセス担当1名）で、「100% supported by our users, not investors」と投資家資金に頼らない方針を明記している。掲げる原則は Yours / Durable / Private / Malleable / Independent の5つで、「データは端末に保存され、運営からはアクセス不能」とされる。アプリは個人・商用を問わず無料で使える。
 :::
 
 :::pull
@@ -95,7 +95,7 @@ ObsidianのUXは、一般的な「使いやすさ」の物差しでは測れな�
 :::
 
 :::guess
-データ形式が「ただのMarkdownファイル」であることは、技術選定というより事業戦略とみられる。ユーザーのスイッチングコストを意図的にゼロへ近づける（いつでも他のツールで開ける）ことで、ロックインの代わりに信頼で引き留める構造だ。プラグインAPIをJavaScriptで開放したことも、開発リソース10人という制約を、数千のコミュニティ開発者で補う leverage として機能していると推測される。
+データ形式が「ただのMarkdownファイル」であることは、技術選定というより事業戦略とみられる。ユーザーのスイッチングコストを意図的にゼロへ近づける（いつでも他のツールで開ける）ことで、ロックインの代わりに信頼で引き留める構造だ。プラグインAPIをJavaScriptで開放したことも、少人数の開発リソースという制約を、数千のコミュニティ開発者で補う leverage として機能していると推測される。
 :::
 
 ## ビジネスモデル
@@ -107,7 +107,7 @@ ObsidianのUXは、一般的な「使いやすさ」の物差しでは測れな�
 :::
 
 :::guess
-この構造は「思想への共感がそのまま課金理由になる」設計とみられる。SyncとPublishは、ローカルファーストの弱点（マルチデバイス・共有）だけをピンポイントで補う機能であり、本体の無料性と競合しない。VC資金がないことは成長速度の制約である一方、「ユーザー以外に説明責任を負わない」という理念の担保として、むしろプロダクトの競争力に転化している。約10人のチーム規模から逆算すると、数十万人規模の課金ユーザーで十分に持続する損益構造と推測される。
+この構造は「思想への共感がそのまま課金理由になる」設計とみられる。SyncとPublishは、ローカルファーストの弱点（マルチデバイス・共有）だけをピンポイントで補う機能であり、本体の無料性と競合しない。VC資金がないことは成長速度の制約である一方、「ユーザー以外に説明責任を負わない」という理念の担保として、むしろプロダクトの競争力に転化している。10人に満たないチーム規模から逆算すると、数十万人規模の課金ユーザーで十分に持続する損益構造と推測される。
 :::
 
 ファイルはアプリより長生きする。Obsidianは、AI時代にますます増える「自分の知識をどこに置くか」という不安に対して、最も保守的で、それゆえ最も先進的な答えを出したプロダクトだ。

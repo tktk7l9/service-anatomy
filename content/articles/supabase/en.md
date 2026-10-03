@@ -1,13 +1,13 @@
 ---
 service: "Supabase"
 title: "The Company That Declared It Won't Build from Scratch — How Supabase Curated Existing OSS into $10 Billion"
-description: "Supabase bills itself as the open-source Firebase alternative. In substance it is a product of curation: Postgres at the center, bundled with off-the-shelf OSS like PostgREST (Haskell), Kong, and Deno, with gaps filled in Go and Elixir. A dissection from official docs and funding announcements — including the tailwind of 60%+ of new databases being created by AI tools."
+description: "Supabase bills itself as the open-source Firebase alternative. In substance it is a product of curation: Postgres at the center, bundled with off-the-shelf OSS like PostgREST (Haskell), Envoy, and Deno, with gaps filled in Go and Elixir. A dissection from official docs and funding announcements — including the tailwind of 60%+ of new databases being created by AI tools."
 lead: "Supabase's official architecture document carries an unusual declaration: wherever possible, use and support existing tools rather than developing from scratch. Built around Postgres — a 40-year-old piece of open source — the company doubled its developer count in eight months and reached a $10 billion valuation. This is a dissection of the strategy of not building."
 category: dev-tool
 tags: [database, postgres, open-source, backend, baas]
 publishedAt: "2026-07-21"
-updatedAt: "2026-07-21"
-lastVerified: "2026-07-21"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://supabase.com/"
 vendor: "Supabase Inc."
 origin: "US"
@@ -39,6 +39,11 @@ techStack:
     confidence: confirmed
     evidence: "Official architecture doc states Edge Functions run on Deno, adopted as third-party OSS"
     evidenceUrl: "https://supabase.com/docs/guides/getting-started/architecture"
+  - layer: "API gateway"
+    name: "Envoy"
+    confidence: confirmed
+    evidence: "Official architecture doc lists Envoy, third-party OSS, as the API gateway (verified 2026-09-28)"
+    evidenceUrl: "https://supabase.com/docs/guides/getting-started/architecture"
   - layer: "Website delivery"
     name: "Vercel"
     confidence: confirmed
@@ -47,16 +52,16 @@ techStack:
 sources:
   - label: "Supabase official docs: Architecture (components, languages, and the 'use and support existing tools' declaration)"
     url: "https://supabase.com/docs/guides/getting-started/architecture"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Supabase official blog: Series F ($500M at a $10B pre-money valuation, led by GIC, 2026-06-04)"
     url: "https://supabase.com/blog/supabase-series-f"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
   - label: "Supabase official blog: Series E ($100M at a $5B valuation, led by Accel and Peak XV, 2025-10)"
     url: "https://supabase.com/blog/supabase-series-e"
     accessedAt: "2026-07-21"
-  - label: "Supabase official GitHub: supabase/supabase (verified 106K+ stars)"
+  - label: "Supabase official GitHub: supabase/supabase (verified 110K+ stars)"
     url: "https://github.com/supabase/supabase"
-    accessedAt: "2026-07-21"
+    accessedAt: "2026-09-28"
 ---
 
 ## Service overview
@@ -87,11 +92,11 @@ Supabase's UX aims to erase the backend as a phase of work. The audience is deve
 ::techstack
 
 :::fact
-The official architecture document specifies each component and its origin. The core is Postgres (C, third-party OSS); the REST layer is PostgREST (Haskell, third-party OSS); the API gateway is Kong (Lua, third-party OSS); edge functions run on Deno (third-party OSS). Meanwhile auth (Go), Realtime (Elixir), the Supavisor connection pooler (Elixir), and storage (TypeScript) are built in-house. The same document states the policy outright: wherever possible, use and support existing tools rather than developing from scratch. The main repository has over 106,000 stars (verified 2026-07-21).
+The official architecture document specifies each component and its origin. The core is Postgres (C, third-party OSS); the REST layer is PostgREST (Haskell, third-party OSS); the API gateway is Envoy (third-party OSS; per the document as of September 28, 2026 — the first edition said Kong); edge functions run on Deno (third-party OSS). Meanwhile auth (Go), Realtime (Elixir), the Supavisor connection pooler (Elixir), and storage (TypeScript) are built in-house. The same document states the policy outright: wherever possible, use and support existing tools rather than developing from scratch. The main repository has over 110,000 stars (verified 2026-09-28).
 :::
 
 :::guess
-Adopting Haskell's PostgREST and Lua's Kong as-is looks like the consequence of one consistent rule: if the best OSS for a layer already exists, adopt it; build only where nothing exists. The in-house components — auth, realtime, pooling — are precisely the gaps that appear when Postgres is used by many users over many connections; the choice of where to fill is what's sharp. The weakness of the strategy is upstream dependency, mitigated by sponsoring the adopted projects. Multigres, announced with the Series F (a horizontal-scaling layer for Postgres, with a Vitess co-creator hired to lead it), reads as the turning point where the bundling company first steps into building at the deepest layer.
+Adopting Haskell's PostgREST and Envoy as-is looks like the consequence of one consistent rule: if the best OSS for a layer already exists, adopt it; build only where nothing exists. The in-house components — auth, realtime, pooling — are precisely the gaps that appear when Postgres is used by many users over many connections; the choice of where to fill is what's sharp. The weakness of the strategy is upstream dependency, mitigated by sponsoring the adopted projects. Multigres, announced with the Series F (a horizontal-scaling layer for Postgres, with a Vitess co-creator hired to lead it), reads as the turning point where the bundling company first steps into building at the deepest layer.
 :::
 
 ## Business model

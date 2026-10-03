@@ -1,13 +1,13 @@
 ---
 service: "Obsidian"
-title: "Files Outlive Apps — How a Team of Ten Built Obsidian, the Notes You Actually Own"
-description: "Obsidian stores everything in local Markdown files, took no investor money, and became a global note-taking app with a team of about ten. We dissect the 'file over app' philosophy and the free-core + Sync/Publish revenue structure."
-lead: "In a decade when note-taking apps rushed to the cloud, Obsidian bet the other way. Your data stays on your disk as plain Markdown files the company cannot read. We dissect how a zero-investor, ten-person team built a global product out of that one conviction."
+title: "Files Outlive Apps — How a Small Team Built Obsidian, the Notes You Actually Own"
+description: "Obsidian stores everything in local Markdown files, took no investor money, and became a global note-taking app with a team of fewer than ten. We dissect the 'file over app' philosophy and the free-core + Sync/Publish revenue structure."
+lead: "In a decade when note-taking apps rushed to the cloud, Obsidian bet the other way. Your data stays on your disk as plain Markdown files the company cannot read. We dissect how a zero-investor team of fewer than ten built a global product out of that one conviction."
 category: productivity
 tags: [markdown, local-first, electron, plugins, note-taking]
 publishedAt: "2026-07-16"
-updatedAt: "2026-07-16"
-lastVerified: "2026-07-16"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://obsidian.md/"
 vendor: "Obsidian"
 origin: "CA"
@@ -42,31 +42,31 @@ techStack:
   - layer: "Official site delivery"
     name: "Cloudflare / Fastly"
     confidence: confirmed
-    evidence: "Our own HTTP header observation (cf-ray coexisting with x-served-by: cache-nrt… / via: varnish; 2026-07-16)"
+    evidence: "Our own HTTP header observation (cf-ray coexisting with x-served-by: cache-nrt… / via: varnish; 2026-07-16, unchanged when re-observed on 2026-09-28)"
     evidenceUrl: "https://obsidian.md/"
 sources:
   - label: "Obsidian official site"
     url: "https://obsidian.md/"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "Obsidian About (team, principles, funding policy)"
     url: "https://obsidian.md/about"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "Obsidian Pricing (free scope, Sync/Publish/Catalyst/Commercial)"
     url: "https://obsidian.md/pricing"
-    accessedAt: "2026-07-16"
+    accessedAt: "2026-09-28"
   - label: "Obsidian Changelog (primary record of Electron/CodeMirror updates)"
     url: "https://obsidian.md/changelog"
     accessedAt: "2026-07-16"
 ---
 
-While Notion and Evernote spent a decade moving everything into the cloud, Obsidian chose the opposite — keep everything in files on your own machine — and became a global product for it. This is a dissection of a note-taking app run by roughly ten people (plus one office cat) with zero venture capital.
+While Notion and Evernote spent a decade moving everything into the cloud, Obsidian chose the opposite — keep everything in files on your own machine — and became a global product for it. This is a dissection of a note-taking app run by fewer than ten people (plus one office cat) with zero venture capital.
 
 ## Service Overview
 
 Obsidian manages local Markdown files in a plain folder called a Vault. Notes connect through `[[links]]`, growing into a networked graph of knowledge.
 
 :::fact
-According to the official About page, the company was founded in 2020 by Shida Li and Erica Xu, with Steph Ango (kepano) as the current CEO. The team is about ten people (including five engineers), and the site states it is "100% supported by our users, not investors." Its five principles are Yours / Durable / Private / Malleable / Independent, including the statement that your data is stored on your device, inaccessible to the company. The app is free for both personal and commercial use.
+According to the official About page, the company was founded in 2020 by Shida Li and Erica Xu, with Steph Ango (kepano) as the current CEO. The page lists seven team members (as of September 28, 2026: two co-founders, the CEO, three in engineering, and one in customer success), and the site states it is "100% supported by our users, not investors." Its five principles are Yours / Durable / Private / Malleable / Independent, including the statement that your data is stored on your device, inaccessible to the company. The app is free for both personal and commercial use.
 :::
 
 :::pull
@@ -95,7 +95,7 @@ The desktop app is built on Electron and the editor on CodeMirror — both verif
 :::
 
 :::guess
-Storing data as plain Markdown files reads less like a technical choice than a business strategy: deliberately driving switching costs toward zero (any other tool can open your notes at any time) and retaining users through trust instead of lock-in. Opening the plugin API in JavaScript likewise functions as leverage — thousands of community developers compensating for a ten-person development team.
+Storing data as plain Markdown files reads less like a technical choice than a business strategy: deliberately driving switching costs toward zero (any other tool can open your notes at any time) and retaining users through trust instead of lock-in. Opening the plugin API in JavaScript likewise functions as leverage — thousands of community developers compensating for a small development team.
 :::
 
 ## Business Model
@@ -107,7 +107,7 @@ Per the pricing page: the app is free for personal and commercial use. Paid offe
 :::
 
 :::guess
-The structure appears designed so that agreement with the philosophy is itself the reason to pay. Sync and Publish pinpoint exactly the weaknesses of local-first (multi-device, sharing) without competing with the free core. The absence of VC money constrains growth speed, but as collateral for the principle of answering to no one but users, it converts into competitive strength. Working backwards from a ten-person team, the P&L plausibly sustains itself on hundreds of thousands of paying users — no more needed.
+The structure appears designed so that agreement with the philosophy is itself the reason to pay. Sync and Publish pinpoint exactly the weaknesses of local-first (multi-device, sharing) without competing with the free core. The absence of VC money constrains growth speed, but as collateral for the principle of answering to no one but users, it converts into competitive strength. Working backwards from a team of fewer than ten, the P&L plausibly sustains itself on hundreds of thousands of paying users — no more needed.
 :::
 
 Files outlive apps. To the growing anxiety of the AI era — where should my knowledge live? — Obsidian gives the most conservative answer, which is precisely what makes it the most forward-looking one.

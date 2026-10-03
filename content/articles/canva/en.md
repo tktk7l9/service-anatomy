@@ -6,14 +6,19 @@ lead: "Founder Melanie Perkins was turned down by more than 100 venture capitali
 category: consumer-app
 tags: [design-tool, bootstrapped, saas, aws, ai]
 publishedAt: "2026-07-20"
-updatedAt: "2026-07-20"
-lastVerified: "2026-07-20"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://www.canva.com/"
 vendor: "Canva Pty Ltd"
 origin: "AU"
 heroTheme: "canva"
 scores: { product: 4.5, ux: 4.5, tech: 4.0, business: 4.5 }
 techStack:
+  - layer: "Cloud platform"
+    name: "AWS"
+    confidence: confirmed
+    evidence: "The official AWS case study states Canva runs its global design platform on AWS; Canva's official engineering blog also states 'Canva is an AWS shop'"
+    evidenceUrl: "https://aws.amazon.com/solutions/case-studies/innovators/canva/"
   - layer: "Container orchestration"
     name: "Amazon EKS (Kubernetes)"
     confidence: confirmed
@@ -37,17 +42,26 @@ techStack:
   - layer: "CDN"
     name: "Fastly"
     confidence: likely
-    evidence: "Our HTTP header observation (x-served-by: cache-*, a signature Fastly header format, via: varnish, 2026-07-20); no official documentation found"
+    evidence: "Our HTTP header observation (x-served-by: cache-*, a signature Fastly header format, via: varnish, 2026-07-20; unchanged when re-observed on 2026-09-28); no official documentation found"
 sources:
   - label: "Canva official engineering blog: GPU-accelerated ML with Kubernetes and Nix (2022-07)"
     url: "https://www.canva.dev/blog/engineering/supporting-gpu-accelerated-machine-learning-with-kubernetes-and-nix/"
-    accessedAt: "2026-07-20"
-  - label: "Official AWS case study: Canva on AWS (EKS/Bedrock/S3 — 100B events/week)"
+    accessedAt: "2026-09-28"
+  - label: "Official AWS case study: Canva on AWS (Bedrock/S3/Kinesis — 100B events/week)"
     url: "https://aws.amazon.com/solutions/case-studies/innovators/canva/"
-    accessedAt: "2026-07-20"
+    accessedAt: "2026-09-28"
   - label: "Bloomberg: Canva Begins Share Sale at $42 Billion Valuation (2025-08 — the eight-straight-years profitability figure)"
     url: "https://www.bloomberg.com/news/articles/2025-08-20/canva-begins-share-sale-at-42-billion-valuation-in-road-to-ipo"
     accessedAt: "2026-07-20"
+  - label: "Canva official newsroom: A transformative year for Canva: 2025 in review (260M monthly users, $3.5B revenue, 95% of the Fortune 500)"
+    url: "https://www.canva.com/newsroom/news/canva-2025-wrap/"
+    accessedAt: "2026-09-28"
+  - label: "The Next Web: Canva's backers cut $7.1bn from its valuation (2026-08-14 — press report citing the AFR)"
+    url: "https://thenextweb.com/news/canva-valuation-cut-ai-costs-blackbird-airtree"
+    accessedAt: "2026-09-28"
+  - label: "Startup Daily: Canva wipes $11 billion from its valuation (2026-08-17 — press report)"
+    url: "https://www.startupdaily.net/advice/business-strategy/canva-wipes-10-billion-from-its-valuation-putting-ipo-plans-in-doubt/"
+    accessedAt: "2026-09-28"
 ---
 
 A student founder rejected by more than 100 venture capitalists grew a company to a $42 billion valuation while keeping outside-capital dependence to a minimum. Canva stands in sharp contrast to growth stories built on repeated mega-rounds like Figma or Cursor — a real example of contrarian, financially disciplined growth.
@@ -57,7 +71,7 @@ A student founder rejected by more than 100 venture capitalists grew a company t
 Canva is a browser-based design tool built around the premise that you don't need to be a professional designer to create presentations, social posts, and videos. Founded in Australia in 2013 by Melanie Perkins and Cliff Obrecht.
 
 :::fact
-Per Bloomberg (August 2025), Canva reached a $42 billion valuation in an August 2025 employee share sale (up from $37 billion in July of the same year), with annualized revenue (ARR) of $3.5 billion as of October 2025, and reportedly profitable for eight consecutive years. Monthly active users exceeded 260 million, with over 29 million paid subscribers, and over 85% of Fortune 500 companies use the product. Before founding Canva, Perkins was rejected by more than 100 investors.
+Per Bloomberg (August 2025), Canva reached a $42 billion valuation in an August 2025 employee share sale (up from $37 billion in July of the same year), and is reportedly profitable for eight consecutive years. Paid subscribers were also reported at over 29 million. Per Canva's official newsroom review of 2025, 260 million people use Canva every month, revenue reached $3.5 billion in 2025, and 95% of the Fortune 500 use the product. Before founding Canva, Perkins was rejected by more than 100 investors.
 :::
 
 :::pull
@@ -92,7 +106,11 @@ Choosing Nix — a relatively niche build tool — for container image construct
 Canva's revenue is freemium subscription, anchored by a free tier.
 
 :::fact
-Per Bloomberg's reporting, Canva reached $3.5 billion in annualized revenue as of October 2025, reportedly profitable for eight consecutive years. Its August 2025 employee share sale valued the company at $42 billion, and reporting on the hire of former Zoom CFO Kelly Steckelberg points to ongoing IPO preparation.
+Per Canva's official newsroom, revenue reached $3.5 billion in 2025, and per Bloomberg's reporting the company has been profitable for eight consecutive years. Its August 2025 employee share sale valued the company at $42 billion, and reporting on the hire of former Zoom CFO Kelly Steckelberg points to ongoing IPO preparation.
+:::
+
+:::fact
+Reporting from August 2026. The Next Web (August 14, 2026) and Startup Daily (August 17), both citing the Australian Financial Review, reported that Blackbird and Airtree — venture capital firms invested in Canva — cut their estimate of Canva's valuation by about 17%, from $42 billion to $34.9 billion. The independent valuation used to price employee share issuance reportedly fell from $38.9 billion to $31 billion, and Canva is said to have lowered its revenue growth outlook from 30% to 20%. Per the same reports, CEO Melanie Perkins explained that the company slowed the rollout of AI features to rebuild the underlying architecture and bring down serving costs, and that the cost per AI task fell by about 90%. All of these figures come from press reports; Canva itself has not officially announced a valuation.
 :::
 
 :::guess

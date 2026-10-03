@@ -6,8 +6,8 @@ lead: "DeepL once spread across the world on word of mouth alone — 'more natur
 category: ai-tool
 tags: [translation, ai, llm, nvidia, b2b]
 publishedAt: "2026-07-17"
-updatedAt: "2026-07-17"
-lastVerified: "2026-07-17"
+updatedAt: "2026-09-28"
+lastVerified: "2026-09-28"
 serviceUrl: "https://www.deepl.com/ja/translator"
 vendor: "DeepL SE"
 origin: "DE"
@@ -27,8 +27,13 @@ techStack:
   - layer: "Training infrastructure"
     name: "NVIDIA DGX SuperPOD (DGX GB200)"
     confidence: confirmed
-    evidence: "Official press release (2024-10): first commercial deployment in Europe of a DGX GB200-based SuperPOD — DeepL's third — planned to go live in Sweden by mid-2025"
-    evidenceUrl: "https://prtimes.jp/main/html/rd/p/000000027.000112534.html"
+    evidence: "Official press release (2025-06-11): the DGX GB200-based SuperPOD — DeepL's third — is now operational at EcoDataCenter in Sweden. The deployment was first announced in 2024-10"
+    evidenceUrl: "https://www.deepl.com/en/press-release/deepl-first-to-deploy-nvidia-dgx-superpod-with-dgx-gb200-systems-in-europe-advancing-language-ai-with-powerful-generative-features-and-enhanced-user-experience"
+  - layer: "Cloud (sub-processor)"
+    name: "AWS"
+    confidence: confirmed
+    evidence: "Official blog (2026-04-23): DeepL is adding AWS as a sub-processor to support global scale and performance and will no longer process data exclusively within Europe. The post does not say which workloads or regions move to AWS"
+    evidenceUrl: "https://www.deepl.com/en/blog/expanding-deepl-data-infrastructure"
   - layer: "API"
     name: "DeepL API (REST)"
     confidence: confirmed
@@ -37,21 +42,30 @@ techStack:
   - layer: "CDN"
     name: "Cloudflare"
     confidence: likely
-    evidence: "Our HTTP header observation (server: cloudflare / cf-cache-status: HIT, 2026-07-17); no official documentation found"
+    evidence: "Our HTTP header observation (server: cloudflare / cf-cache-status: HIT, 2026-07-17; server: cloudflare again when re-observed 2026-09-28); no official documentation found"
   - layer: "Edge / load balancing"
     name: "自社L7ロードバランサ層"
     confidence: speculative
-    evidence: "Inferred from observed server-timing metrics (l7_lb_*) and the custom x-deepl-ingress-type header (2026-07-17)"
+    evidence: "Inferred from observed server-timing metrics (l7_lb_*) and the custom x-deepl-ingress-type header (2026-07-17, re-observed 2026-09-28)"
 sources:
   - label: "DeepL official blog: next-generation language model (2024-07)"
     url: "https://www.deepl.com/en/blog/next-gen-language-model"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
   - label: "DeepL official press release: $300M raise at a $2B valuation (2024-05)"
     url: "https://www.deepl.com/en/press-release/deepl-announces-300-million-investment-at-2-billion-valuation-fueled-by-global-demand-for-ai-language-solutions"
     accessedAt: "2026-07-17"
   - label: "DeepL official press release: first NVIDIA DGX SuperPOD (DGX GB200) in Europe (2024-10)"
     url: "https://prtimes.jp/main/html/rd/p/000000027.000112534.html"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-09-28"
+  - label: "DeepL official press release: DGX GB200-based SuperPOD operational in Sweden (2025-06-11)"
+    url: "https://www.deepl.com/en/press-release/deepl-first-to-deploy-nvidia-dgx-superpod-with-dgx-gb200-systems-in-europe-advancing-language-ai-with-powerful-generative-features-and-enhanced-user-experience"
+    accessedAt: "2026-09-28"
+  - label: "DeepL official blog: expanding data infrastructure, AWS added as a sub-processor (2026-04-23)"
+    url: "https://www.deepl.com/en/blog/expanding-deepl-data-infrastructure"
+    accessedAt: "2026-09-28"
+  - label: "DeepL official press release: Voice API launch (2026-02-02 — 200,000+ business customers / 228 markets)"
+    url: "https://www.deepl.com/en/press-release/deepl_launches_voice_api_for_real_time_speech_transcription_and_translation"
+    accessedAt: "2026-09-28"
   - label: "AWS Startup Blog: DeepL CTO Talks (2023-07 — 500k+ paid users / 20k+ registered companies)"
     url: "https://aws.amazon.com/jp/blogs/startup/event-report-ctotalks-deepl-2023/"
     accessedAt: "2026-07-17"
@@ -67,7 +81,7 @@ In 2017, a small company in Cologne released a translation service that spread w
 DeepL is a neural machine translation service. Beyond the web and app translator, it offers Pro for businesses, an API for developers, and DeepL Write for editing prose.
 
 :::fact
-The company's predecessor is Linguee, a bilingual concordance search engine founded in Cologne in 2009; DeepL Translator launched in August 2017 on top of that parallel-text data asset. As of an AWS-hosted event in 2023, DeepL had over 500,000 paid users and 20,000+ registered companies. In May 2024 it raised $300 million at a $2 billion valuation, and its official July 2024 announcement stated its customer base exceeds 100,000 organizations, including half of the Fortune 500.
+The company's predecessor is Linguee, a bilingual concordance search engine founded in Cologne in 2009; DeepL Translator launched in August 2017 on top of that parallel-text data asset. As of an AWS-hosted event in 2023, DeepL had over 500,000 paid users and 20,000+ registered companies. In May 2024 it raised $300 million at a $2 billion valuation, and its official July 2024 announcement stated its customer base exceeds 100,000 organizations, including half of the Fortune 500. Its official February 2026 press release puts the figure at over 200,000 business customers across 228 markets.
 :::
 
 :::pull
@@ -90,11 +104,11 @@ DeepL's UX leans hard toward being a working tool for professionals.
 ::techstack
 
 :::fact
-Per the official blog (July 2024), DeepL built a next-generation LLM specialized for translation and editing entirely in-house, trained on its own infrastructure using over seven years of proprietary data. In blind tests, language experts preferred DeepL's output 1.3x more often than Google Translate and 1.7x more often than ChatGPT-4, according to the company. For training capacity, DeepL announced in October 2024 the first commercial deployment in Europe of an NVIDIA DGX SuperPOD with DGX GB200 systems — its third SuperPOD — planned to go live in a Swedish data center by mid-2025.
+Per the official blog (July 2024), DeepL built a next-generation LLM specialized for translation and editing entirely in-house, trained on its own infrastructure using over seven years of proprietary data. In blind tests, language experts preferred DeepL's output 1.3x more often than Google Translate and 1.7x more often than ChatGPT-4, according to the company. For training capacity, DeepL announced in October 2024 the first commercial deployment in Europe of an NVIDIA DGX SuperPOD with DGX GB200 systems — its third SuperPOD — planned to go live in a Swedish data center by mid-2025. In its official June 2025 announcement, DeepL said the SuperPOD is operational at EcoDataCenter in Sweden and cuts the time needed to translate the entire internet from 194 days to just over 18. Separately, its official blog announced in April 2026 that it is adding AWS as a sub-processor for global scale and low latency, and will no longer process data exclusively within Europe. DeepL states that AWS will not control or access customer data in any usable form, and that customers with data residency requirements can have their data kept within Europe.
 :::
 
 :::guess
-On the delivery side, our observation found Cloudflare (server: cloudflare, cache HITs) plus l7_lb server-timing metrics and a custom x-deepl-ingress-type header — suggesting a self-operated L7 load-balancing layer behind the CDN. Owning GPUs and keeping inference on its own infrastructure means heavier fixed costs than renting cloud GPUs, but for a workload as predictable as translation, it can drive unit costs far lower. DeepL appears to be converting "specialists can forecast demand" into an infrastructure strategy.
+On the delivery side, our observation found Cloudflare (server: cloudflare, cache HITs) plus l7_lb server-timing metrics and a custom x-deepl-ingress-type header — suggesting a self-operated L7 load-balancing layer behind the CDN. Owning GPUs and its own training infrastructure means heavier fixed costs than renting cloud GPUs, but for a workload as predictable as translation, it can drive unit costs far lower. DeepL appears to be converting "specialists can forecast demand" into an infrastructure strategy. Adding AWS in April 2026 looks like a choice not to absorb demand peaks on its own hardware alone for low-latency uses such as voice translation.
 :::
 
 ## Business model
