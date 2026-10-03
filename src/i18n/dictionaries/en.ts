@@ -31,7 +31,7 @@ const en: Dictionary = {
     updated: "Updated",
     lastVerified: "Last verified",
     visitService: "Official site",
-    affiliateAria: "Affiliate link (PR)",
+    affiliateAria: "Affiliate link for {service} (PR)",
     affiliatePr: "PR",
     affiliateNotice: "This article contains affiliate links (advertising).",
     affiliateNoticeLink: "Advertising & affiliate policy",
@@ -67,6 +67,8 @@ const en: Dictionary = {
       fact: "Fact",
       guess: "Guess",
     },
+    // Name of the scrollable region around each table in the body ({n} = table number).
+    tableRegion: "Table {n}",
     accessedAt: "Accessed",
     related: "Related dissections",
     comparisons: "Comparisons featuring this service",
