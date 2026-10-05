@@ -6,6 +6,12 @@ on:
   pull_request:
     branches: [main]
 
+# Least privilege for GITHUB_TOKEN: the job only reads the repository
+# (gitleaks-action reads the PR commit list).
+permissions:
+  contents: read
+  pull-requests: read
+
 jobs:
   build-test:
     runs-on: ubuntu-latest
