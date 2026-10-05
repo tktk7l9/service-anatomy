@@ -1,1 +1,1 @@
-stray file (ディレクトリ以外は無視される)
+stray file (non-directory entries are ignored)
