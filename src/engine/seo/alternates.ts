@@ -3,7 +3,7 @@ import { locales, type Locale } from "@/i18n/config";
 // Shared generation of hreflang (metadata.alternates.languages / sitemap alternates).
 // x-default is the fallback for searchers who match no language. The site's defaultLocale
 // is ja, but the worldwide default in hreflang points to the English version.
-export const X_DEFAULT_LOCALE: Locale = "en";
+const X_DEFAULT_LOCALE: Locale = "en";
 
 /** hreflang map for metadata.alternates.languages (relative paths, resolved by metadataBase). */
 export function languageAlternates(path = ""): Record<string, string> {

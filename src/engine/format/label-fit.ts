@@ -14,9 +14,9 @@ export const LABEL_MAX_WRAPPED_FONT_SIZE = 84;
 /** Smallest font size: about 19px on a 358px-wide card on a 390px phone. */
 export const LABEL_MIN_FONT_SIZE = 64;
 export const LABEL_PAD_X = 44;
-export const LABEL_PAD_Y = 40;
+const LABEL_PAD_Y = 40;
 export const LABEL_MIN_PLATE_WIDTH = 300;
-export const LABEL_LINE_HEIGHT = 1.3;
+const LABEL_LINE_HEIGHT = 1.3;
 /** Distance from the visual middle of a line down to its baseline, in em. */
 const BASELINE_SHIFT = 0.36;
 

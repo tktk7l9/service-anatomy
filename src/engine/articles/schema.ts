@@ -1,7 +1,6 @@
 import {
   asRecord,
   fail,
-  ISO_DATE,
   KEBAB_CASE,
   parseSources,
   requireArray,
@@ -15,9 +14,9 @@ import { isCategoryId, type CategoryId } from "./taxonomy";
 // Hand-written validator for article frontmatter. Shared primitives live in engine/content/validators.ts
 // (shared with other content types such as comparisons). scores/techStack/revisions are article-specific.
 
-export { ISO_DATE, KEBAB_CASE, parseSources, type SourceRef };
+export type { SourceRef };
 
-export const CONFIDENCE_LEVELS = ["confirmed", "likely", "speculative"] as const;
+const CONFIDENCE_LEVELS = ["confirmed", "likely", "speculative"] as const;
 export type Confidence = (typeof CONFIDENCE_LEVELS)[number];
 
 export const SCORE_AXES = ["product", "ux", "tech", "business"] as const;
@@ -163,7 +162,7 @@ function requireImpressionUrl(record: Record<string, unknown>, context: string):
   return value;
 }
 
-export const AFFILIATE_LABEL_MAX_LENGTH = 120;
+const AFFILIATE_LABEL_MAX_LENGTH = 120;
 
 // The network's ad text: one line, shown as-is. Only the surrounding whitespace is dropped.
 function requireAffiliateLabel(record: Record<string, unknown>, context: string): string {
