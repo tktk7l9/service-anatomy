@@ -26,47 +26,47 @@ heroTheme: "lolipop"
 scores: { product: 4.0, ux: 3.5, tech: 4.0, business: 3.5 }
 techStack:
   - layer: "Shared servers (OS and web server)"
-    name: "Ubuntu + Nginx/Apache (Economy–Standard) / Nginx + LiteSpeed 6.3 (High Speed, Enterprise)"
+    name: "Ubuntu + nginx + Apache HTTP Server (Economy to Standard) / LiteSpeed Web Server (6.3, High Speed and Enterprise)"
     confidence: confirmed
     evidence: "The official server spec page (as of 2026-10-06) states that the servers run Linux (Ubuntu) as shared servers and that the web server on the High Speed and Enterprise plans is LiteSpeed 6.3. The pricing page lists Nginx+Apache for Economy through Standard and Nginx+LiteSpeed for High Speed and above, PHP in CGI, module, and LiteSpeed builds, and LiteSpeed Cache on High Speed and above"
     evidenceUrl: "https://lolipop.jp/service/server-spec/"
   - layer: "Hosting infrastructure"
-    name: "Bare metal + OpenStack + Kubernetes (private cloud \"Nyah\"), Google Cloud / IDCF Cloud"
+    name: "Bare metal + OpenStack + Kubernetes (private cloud \"Nyah\") + Google Cloud + IDCF Cloud"
     confidence: confirmed
     evidence: "The Pepabo Tech Portal page \"GMO Pepabo's tech stack: Lolipop and Muumuu Domain division\" (as of 2026-10-06) lists Baremetal, OpenStack, Kubernetes, Google Cloud, and IDCF Cloud under Infrastructure, Nginx, ngx_mruby, Apache httpd, LiteSpeed, and ProFTPD under Hosting Web & Storage, MAAS and Cobbler under Hosting Setup, and dockerd, containerd, and haconiwa under Container Runtime. In this site's own observation (2026-10-06), the whois record for the IP address of lolipop.jp (133.130.34.142) had the netname PEPABO-NYAH and the description GMO Pepabo, Inc."
     evidenceUrl: "https://tech.pepabo.com/tech-stack/hosting/"
   - layer: "Database, mail, and DNS"
-    name: "MySQL 8 / PostgreSQL, Postfix + Dovecot + Courier-IMAP + Amazon SES, PowerDNS"
+    name: "MySQL (8) / PostgreSQL + Postfix + Dovecot + Courier-IMAP + Amazon SES + PowerDNS"
     confidence: confirmed
     evidence: "The same tech stack page lists MySQL and PostgreSQL under Hosting Database and Postfix, Dovecot, Courier-IMAP, Amazon SES, and PowerDNS under Hosting Mail & DNS. The pricing page gives MySQL8 for Lite and above (50 on Lite, 100 on Standard, unlimited on High Speed and above), and the spec page names F-Secure for mail virus scanning and GlobalSign (paid) and Let's Encrypt (free) for SSL"
     evidenceUrl: "https://tech.pepabo.com/tech-stack/hosting/"
   - layer: "Operations, observability, and CI/CD"
-    name: "Prometheus + Kafka + Fluentd + Elastic APM + Mackerel + Sentry + Datadog, GitHub Actions + ArgoCD, Chef/Puppet/Ansible/Terraform"
+    name: "Prometheus + Apache Kafka + Fluentd + Elastic APM + Mackerel + Sentry + Datadog + GitHub Actions + Argo CD + Chef + Puppet + Ansible + Terraform"
     confidence: confirmed
     evidence: "The same tech stack page lists Prometheus, Kafka, Fluentd, Elastic APM, Mackerel, Sentry, and Datadog under Observability, GitHub Actions and ArgoCD under CI/CD, Ruby, Chef, Perl, gRPC, Puppet, Ansible, and Hashicorp Terraform under Backend and Hosting Infrastructure, and Memcached, Redis, Consul, Vault, and Wazuh under Other Middleware"
     evidenceUrl: "https://tech.pepabo.com/tech-stack/hosting/"
   - layer: "Public API and MCP server"
-    name: "REST API with Personal Access Token + Lolipop MCP server"
+    name: "Public REST API (Personal Access Token) + Lolipop MCP server"
     confidence: confirmed
     evidence: "GMO Pepabo's notice of 2026-07-16 states that Lolipop! launched a public API for developers and an MCP server, covering domains, subdomains, SSL, WordPress, and account information, with an API key issued in the user panel and usable from Claude Code, Cursor, Gemini CLI, OpenAI Codex, and others. The official page limits availability to the Standard, High Speed, and Enterprise plans and says the Personal Access Token (PAT) also covers mail, PHP versions, MySQL, and FTP accounts"
     evidenceUrl: "https://pepabo.com/news/information/202607161300/"
   - layer: "AI Gateway"
-    name: "OpenAI Responses/Chat Completions and Anthropic Messages compatible gateway over 15 providers"
+    name: "Lolipop AI Gateway (OpenAI- and Anthropic-compatible APIs, 15 providers)"
     confidence: confirmed
     evidence: "The press release of 2026-08-25 states that Lolipop! AI Gateway offers LLMs from 14 AI providers through a unified API compatible with Anthropic and OpenAI, with no setup or monthly base fee and a 5% platform fee on purchases of prepaid credits. A notice of September 18 added Jev, the judgment-focused model from the US company TypeSafe AI, and the official page (as of 2026-10-06) lists 15 providers and 65 models and support for the OpenAI Responses API, Chat Completions API, and Anthropic Messages API"
     evidenceUrl: "https://pepabo.com/news/press/202608251600/"
   - layer: "Deploy Now (web app hosting)"
-    name: "Next.js / Nuxt / Astro / static HTML builds with disposable build environments, sleep-on-idle, WAF and auto HTTPS"
+    name: "Next.js / Nuxt / Astro (disposable builds, sleep-on-idle, WAF, auto HTTPS)"
     confidence: confirmed
     evidence: "The official page (as of 2026-10-06) states that npx lolipop deploy issues a URL, that Next.js, Nuxt, and Astro are built and published as they are, that apps are protected by a WAF, that every project gets automatic HTTPS, and that URLs take the form https://(project name).lolipop-now.app. The Pepabo Tech Portal interview of 2026-09-30 describes a design that throws away the build environment every time, sites that sleep after a period without access and wake when a request arrives, and a team in which everyone implemented with Claude Code"
     evidenceUrl: "https://lolipop.jp/deploy-now/"
   - layer: "AI Agent Cloud"
-    name: "OpenClaw / Hermes Agent / NanoClaw on a dedicated server per user"
+    name: "OpenClaw / Hermes Agent / NanoClaw (dedicated server per user)"
     confidence: confirmed
     evidence: "The press release of 2026-04-22 states that Lolipop! AI Agent Cloud launched as a feature for running OpenClaw with browser operations alone. The official page (as of 2026-10-06) supports three agents (OpenClaw, Hermes Agent, and NanoClaw), charges ¥1,200 a month, provides an independent server per user, includes a free AI allowance for trying it out, and lets users register their own API keys"
     evidenceUrl: "https://pepabo.com/news/press/202604221100/"
   - layer: "Service site and control panel"
-    name: "PHP (lolipop.jp) + EUC-JP user panel, React/Next.js and Vue/Nuxt for newer surfaces"
+    name: "PHP (lolipop.jp, EUC-JP user panel) + React / Next.js / Vue.js / Nuxt (newer surfaces)"
     confidence: likely
     evidence: "In this site's own observation (2026-10-06), lolipop.jp responded over HTTP/1.1 without a server header and set a PHPSESSID cookie, and the response from user.lolipop.jp was charset=EUC-JP. The tech stack page lists React/Next.js and Vue.js/Nuxt.js under Frontend, pepabo.com was served through CloudFront, and tech.pepabo.com returned server: GitHub.com"
 sources:

@@ -26,47 +26,47 @@ heroTheme: "lolipop"
 scores: { product: 4.0, ux: 3.5, tech: 4.0, business: 3.5 }
 techStack:
   - layer: "共用サーバー（OS・Webサーバー）"
-    name: "Ubuntu + Nginx/Apache (Economy–Standard) / Nginx + LiteSpeed 6.3 (High Speed, Enterprise)"
+    name: "Ubuntu + nginx + Apache HTTP Server (Economy to Standard) / LiteSpeed Web Server (6.3, High Speed and Enterprise)"
     confidence: confirmed
     evidence: "公式の「サーバーの仕様」ページ（2026-10-06時点）に、サーバー情報はLinux（Ubuntu）、共用サーバー、ハイスピードプラン・エンタープライズプランのWebサーバーはLiteSpeed 6.3と明記。料金ページはエコノミー〜スタンダードがNginx+Apache、ハイスピード以上がNginx+LiteSpeedで、PHPはCGI版・モジュール版・LiteSpeed版、ハイスピード以上にLiteSpeed Cacheがあると書く"
     evidenceUrl: "https://lolipop.jp/service/server-spec/"
   - layer: "ホスティング基盤"
-    name: "Bare metal + OpenStack + Kubernetes (private cloud \"Nyah\"), Google Cloud / IDCF Cloud"
+    name: "Bare metal + OpenStack + Kubernetes (private cloud \"Nyah\") + Google Cloud + IDCF Cloud"
     confidence: confirmed
     evidence: "Pepabo Tech Portalの「GMOペパボの技術スタック · ロリポップ・ムームードメイン事業部」（2026-10-06時点）に、InfrastructureとしてBaremetal・OpenStack・Kubernetes・Google Cloud・IDCF Cloud、Hosting Web & StorageとしてNginx・ngx_mruby・Apache httpd・LiteSpeed・ProFTPD、Hosting SetupとしてMAAS・Cobbler、Container Runtimeとしてdockerd・containerd・haconiwaが列挙されている。当サイトの実観測（2026-10-06）で、lolipop.jp のIPアドレス（133.130.34.142）のwhoisのnetnameは PEPABO-NYAH、descrは GMO Pepabo, Inc. だった"
     evidenceUrl: "https://tech.pepabo.com/tech-stack/hosting/"
   - layer: "データベース・メール・DNS"
-    name: "MySQL 8 / PostgreSQL, Postfix + Dovecot + Courier-IMAP + Amazon SES, PowerDNS"
+    name: "MySQL (8) / PostgreSQL + Postfix + Dovecot + Courier-IMAP + Amazon SES + PowerDNS"
     confidence: confirmed
     evidence: "同じ技術スタックページに、Hosting DatabaseとしてMySQL・PostgreSQL、Hosting Mail & DNSとしてPostfix・Dovecot・Courier-IMAP・Amazon SES・PowerDNSが列挙されている。料金ページはライト以上のデータベースをMySQL8（ライト50・スタンダード100・ハイスピード以上は無制限）と書き、仕様ページはメールのウイルスチェックにF-Secure、SSLにGlobalSign（有料）とLet's Encrypt（無料）を挙げる"
     evidenceUrl: "https://tech.pepabo.com/tech-stack/hosting/"
   - layer: "運用・監視・CI/CD"
-    name: "Prometheus + Kafka + Fluentd + Elastic APM + Mackerel + Sentry + Datadog, GitHub Actions + ArgoCD, Chef/Puppet/Ansible/Terraform"
+    name: "Prometheus + Apache Kafka + Fluentd + Elastic APM + Mackerel + Sentry + Datadog + GitHub Actions + Argo CD + Chef + Puppet + Ansible + Terraform"
     confidence: confirmed
     evidence: "同じ技術スタックページに、ObservabilityとしてPrometheus・Kafka・Fluentd・Elastic APM・Mackerel・Sentry・Datadog、CI/CDとしてGitHub Actions・ArgoCD、Backend/Hosting InfrastructureとしてRuby・Chef・Perl・gRPC・Puppet・Ansible・Hashicorp Terraform、Other MiddlewareとしてMemcached・Redis・Consul・Vault・Wazuhが列挙されている"
     evidenceUrl: "https://tech.pepabo.com/tech-stack/hosting/"
   - layer: "公開API・MCPサーバー"
-    name: "REST API with Personal Access Token + Lolipop MCP server"
+    name: "Public REST API (Personal Access Token) + Lolipop MCP server"
     confidence: confirmed
     evidence: "GMOペパボの2026年7月16日のお知らせに、ロリポップ！が開発者向けの公開APIとMCPサーバーを提供開始し、ドメイン・サブドメイン・SSL・WordPress・アカウント情報を操作でき、ユーザー専用ページでAPIキーを発行してClaude Code・Cursor・Gemini CLI・OpenAI Codexなどから使うと明記。公式ページは利用できるプランをスタンダード・ハイスピード・エンタープライズとし、Personal Access Token（PAT）でメール・PHPバージョン・MySQL・FTPアカウントも扱えると書く"
     evidenceUrl: "https://pepabo.com/news/information/202607161300/"
   - layer: "AIゲートウェイ"
-    name: "OpenAI Responses/Chat Completions and Anthropic Messages compatible gateway over 15 providers"
+    name: "Lolipop AI Gateway (OpenAI- and Anthropic-compatible APIs, 15 providers)"
     confidence: confirmed
     evidence: "2026年8月25日のプレスリリースに、ロリポップ！AIゲートウェイは14社のAIプロバイダのLLMをAnthropicおよびOpenAI互換の統一APIで提供し、初期費用・月額基本料は無料、前払いクレジットの購入時に5%のプラットフォーム手数料がかかると明記。9月18日のお知らせで米TypeSafe AIの判定特化モデルJevに対応し、公式ページ（2026-10-06時点）は15社・65モデル、OpenAI Responses API・Chat Completions API・Anthropic Messages APIに対応と書く"
     evidenceUrl: "https://pepabo.com/news/press/202608251600/"
   - layer: "デプロイナウ（Webアプリのホスティング）"
-    name: "Next.js / Nuxt / Astro / static HTML builds with disposable build environments, sleep-on-idle, WAF and auto HTTPS"
+    name: "Next.js / Nuxt / Astro (disposable builds, sleep-on-idle, WAF, auto HTTPS)"
     confidence: confirmed
     evidence: "公式ページ（2026-10-06時点）に、npx lolipop deployでURLを発行し、Next.js・Nuxt・Astroをそのままビルドして公開、WAFで保護、全プロジェクトで自動HTTPS、URLは https://（プロジェクト名）.lolipop-now.app と明記。Pepabo Tech Portalの2026年9月30日のインタビューは、ビルド環境を毎回使い捨てる設計と、一定時間アクセスがなければスリープしアクセスが来た時点で起動する仕組み、チーム全員がClaude Codeで実装した開発体制を説明している"
     evidenceUrl: "https://lolipop.jp/deploy-now/"
   - layer: "AIエージェントクラウド"
-    name: "OpenClaw / Hermes Agent / NanoClaw on a dedicated server per user"
+    name: "OpenClaw / Hermes Agent / NanoClaw (dedicated server per user)"
     confidence: confirmed
     evidence: "2026年4月22日のプレスリリースに、ロリポップ！AIエージェントクラウドはOpenClawをブラウザ上の操作だけで動かす機能として提供開始すると明記。公式ページ（2026-10-06時点）はOpenClaw・Hermes Agent・NanoClawの3種類に対応し、料金は月1,200円、ユーザーごとに独立したサーバーを用意し、お試し用のAI無料枠付きで自分のAPIキーも登録できると書く"
     evidenceUrl: "https://pepabo.com/news/press/202604221100/"
   - layer: "サービスサイト・管理画面"
-    name: "PHP (lolipop.jp) + EUC-JP user panel, React/Next.js and Vue/Nuxt for newer surfaces"
+    name: "PHP (lolipop.jp, EUC-JP user panel) + React / Next.js / Vue.js / Nuxt (newer surfaces)"
     confidence: likely
     evidence: "当サイトの実観測（2026-10-06）で、lolipop.jp はHTTP/1.1でserverヘッダーを返さず、PHPSESSIDのCookieを発行し、user.lolipop.jp の応答は charset=EUC-JP だった。技術スタックページのFrontendにはReact/Next.jsとVue.js/Nuxt.jsが列挙され、pepabo.com は CloudFront 経由、tech.pepabo.com は server: GitHub.com を返した"
 sources:

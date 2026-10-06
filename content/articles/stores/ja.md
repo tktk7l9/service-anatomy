@@ -25,22 +25,22 @@ heroTheme: "stores"
 scores: { product: 4.0, ux: 3.5, tech: 3.5, business: 3.5 }
 techStack:
   - layer: "ネットショップ・POSレジのバックエンド"
-    name: "Ruby on Rails monolith (1,500+ models) + MongoDB Atlas"
+    name: "Ruby on Rails (monolith, 1,500+ models) + MongoDB Atlas"
     confidence: confirmed
     evidence: "STORES Product Blogの2024年11月19日の記事に、STORES レジとSTORES ネットショップはバックエンドが同じRuby on Railsのモノリシックなアプリケーションで、DBも同じため商品と在庫が連携される、STORESで最大級のRailsリポジトリで1,500を超えるModelクラスがあると明記。2023年10月26日の記事は、両サービスのバックエンドで使うMongoDBをMongoDB Atlas上で4.4から5.0へ上げたと書く"
     evidenceUrl: "https://product.st.inc/entry/2024/11/19/130231"
   - layer: "ネットショップのフロントエンド"
-    name: "Nuxt (web) + iOS app on the same API"
+    name: "Nuxt (web) + iOS app (same API)"
     confidence: confirmed
     evidence: "同じ2024年11月19日の記事に、STORES ネットショップのフロントエンドはNuxtで作られ、同一のバックエンドからiOSアプリ向けとNuxt向けのAPIを提供していると明記"
     evidenceUrl: "https://product.st.inc/entry/2024/11/19/130231"
   - layer: "予約システム"
-    name: "Ruby on Rails monolith (1,000+ models) + Next.js"
+    name: "Ruby on Rails (monolith, 1,000+ models) + Next.js"
     confidence: confirmed
     evidence: "同じ記事に、STORES 予約はモノリシックなRailsアプリケーションでフロントエンドはNext.js、1,000を超えるModelクラスを持つ巨大なリポジトリだと明記"
     evidenceUrl: "https://product.st.inc/entry/2024/11/19/130231"
   - layer: "ID基盤・サービス間連携"
-    name: "Go + Next.js (OpenID Connect, in-house) + in-house API Gateway / Pub/Sub"
+    name: "Go + Next.js (OpenID Connect, in-house) + API Gateway (in-house) + Pub/Sub (in-house)"
     confidence: confirmed
     evidence: "同じ記事に、ログインアカウントを統合するID基盤はAmazon CognitoやFirebase AuthenticationのようなIDaaSを使わず、GoとNext.jsで開発・運用されていること、ID基盤のアクセストークンで認証・認可してバックエンドへ流すAPI Gatewayと、Webhookで社内システムに通知するPub/Subが社内で作られたことが書かれている"
     evidenceUrl: "https://product.st.inc/entry/2024/11/19/130231"
@@ -64,7 +64,7 @@ techStack:
     confidence: likely
     evidence: "当サイトの実観測（2026-10-06）で、stores.fun と www.st.inc の応答に x-powered-by: Next.js、x-nextjs-prerender、server: cloudflare、cf-ray（NRT）が付き、stores.jp は stores.fun へ301で転送された。stores.fun のHTMLにはVWO（A/Bテスト）のスニペットとGoogle Tag Managerが含まれ、CSPの frame-ancestors に app.vwo.com が許可されていた"
   - layer: "ログイン・管理画面の配信"
-    name: "Amazon CloudFront + S3 (dashboard SPA)"
+    name: "Amazon CloudFront + Amazon S3 (dashboard SPA)"
     confidence: likely
     evidence: "当サイトの実観測（2026-10-06）で、id.stores.jp は x-powered-by: Next.js と via: CloudFront を返し、dashboard.stores.jp は server: AmazonS3 と via: CloudFront を返した"
 sources:

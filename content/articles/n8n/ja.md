@@ -24,17 +24,17 @@ heroTheme: "n8n"
 scores: { product: 4.5, ux: 3.5, tech: 4.5, business: 4.0 }
 techStack:
   - layer: "言語・ランタイム・リポジトリ構成"
-    name: "TypeScript on Node.js 24 (pnpm 12 workspace + Turborepo monorepo)"
+    name: "TypeScript / Node.js (24+) / pnpm (12) / Turborepo"
     confidence: confirmed
     evidence: "GitHubのn8n-io/n8nリポジトリ（2026-10-06時点）は言語の内訳がTypeScript約133MB・Vue約9MBで、ルートのpackage.jsonはenginesにnode >=24.0.0とpnpm >=12.4.2、packageManagerにpnpm@12.4.2、buildスクリプトにturboを指定している。packages/ 配下にcli・core・workflow・nodes-base・frontend・@n8n/（task-runner・task-runner-python・nodes-langchain・typeorm など60以上）が並ぶ"
     evidenceUrl: "https://github.com/n8n-io/n8n/blob/master/package.json"
   - layer: "バックエンド"
-    name: "Express 5 + @n8n/typeorm (fork) on SQLite (default) / PostgreSQL"
+    name: "Express (5) + TypeORM (@n8n/typeorm fork) / SQLite (default) / PostgreSQL"
     confidence: confirmed
     evidence: "packages/cli/package.json（2026-10-06時点）の依存にexpress（カタログで5.1.0）、ワークスペース内の@n8n/typeorm、pg、sqlite3 5.1.7が含まれる。公式ドキュメント「Choose n8n's database」は、既定はSQLiteでPostgreSQLにも対応し、n8n CloudではStarter・ProがSQLite、Enterprise ScalingプランのみPostgreSQLを使うと明記。対応PostgreSQLは17と18、互換性のために16（2026年7月時点）"
     evidenceUrl: "https://github.com/n8n-io/n8n/blob/master/packages/cli/package.json"
   - layer: "スケーリング（キューモード）"
-    name: "Redis + Bull (main / worker / webhook processors)"
+    name: "Redis + Bull (queue mode: main / worker / webhook processors)"
     confidence: confirmed
     evidence: "公式ドキュメント「Enable queue mode」に、メインインスタンスがタイマーとWebhookを受けて実行を生成し、実行IDをメッセージブローカーのRedisへ渡し、ワーカーがそれを取ってDBからワークフローを読み、結果をDBに書いてRedisへ完了を通知すると明記。暗号鍵はメインとワーカーで共有し、SQLiteでのキューモードは推奨されない。packages/cli/package.jsonにはbull 4.16.4とioredis 5.3.2が含まれる"
     evidenceUrl: "https://docs.n8n.io/deploy/host-n8n/configure-n8n/scaling/enable-queue-mode"
@@ -44,22 +44,22 @@ techStack:
     evidence: "公式ドキュメント「Set up task runners」に、タスクランナーはCode nodeのJavaScriptとPythonを実行する唯一の隔離層で、本番では外部モードを使うべきこと、内部モードは子プロセスとしてn8nと同じuid/gidで動き設計上安全でなく、n8n 3.0から非推奨になることが明記。2.0の破壊的変更の一覧は、タスクランナーを既定で有効にし、外部モード用のランナーをn8nio/runnersイメージに分離し、Pyodide版のPython Code nodeをネイティブPythonのランナーに置き換えたと書く"
     evidenceUrl: "https://docs.n8n.io/deploy/host-n8n/configure-n8n/set-up-task-runners"
   - layer: "AI・エージェント機能"
-    name: "LangChain.js 1.x + LangGraph + Model Context Protocol SDK"
+    name: "LangChain.js (1.x) + LangGraph + Model Context Protocol SDK"
     confidence: confirmed
     evidence: "リポジトリのpnpm-workspace.yaml（2026-10-06時点）のカタログに langchain 1.2.30、@langchain/core 1.2.8、@langchain/langgraph 1.0.2、@langchain/openai、@langchain/anthropic が固定され、packages/cli/package.jsonは@modelcontextprotocol/sdkに依存する。packages/@n8n配下にnodes-langchain・ai-workflow-builder.ee・agents・mcp-apps・mcp-browserがある"
     evidenceUrl: "https://github.com/n8n-io/n8n/blob/master/pnpm-workspace.yaml"
   - layer: "エディタ（フロントエンド）"
-    name: "Vue 3.5 + Pinia + Vue Flow + Element Plus + CodeMirror, built with Vite 8"
+    name: "Vue.js (3.5) + Pinia + Vue Flow + Element Plus + CodeMirror + Vite (8)"
     confidence: confirmed
     evidence: "packages/frontend/editor-ui/package.json（2026-10-06時点）の依存にvue・pinia・vue-router（カタログでvue ^3.5.13）、@vue-flow/core 1.48.0、element-plus、@codemirror/state、@n8n/design-systemが含まれ、ビルドはvite（カタログで^8.0.2）"
     evidenceUrl: "https://github.com/n8n-io/n8n/blob/master/packages/frontend/editor-ui/package.json"
   - layer: "ライセンス"
-    name: "Sustainable Use License 1.0 + n8n Enterprise License (.ee files)"
+    name: "Sustainable Use License (1.0) + n8n Enterprise License (.ee files)"
     confidence: confirmed
     evidence: "リポジトリのLICENSE.mdに、ファイル名に.ee.を含むかディレクトリ名が.eeのソースはSustainable Use Licenseの対象外でn8n Enterprise Licenseが要ること、それ以外はSustainable Use Licenseで、自社の内部業務・非商用・個人利用に限り使用・改変でき、他者への提供は非商用かつ無償の場合のみ許されると明記。GitHubはライセンスを「Other」と表示する"
     evidenceUrl: "https://github.com/n8n-io/n8n/blob/master/LICENSE.md"
   - layer: "サービスサイト・ドキュメント・ブログ"
-    name: "Nuxt + Strapi (n8n.io) / GitBook (docs) / Ghost 6 (blog) / Discourse (community), behind Cloudflare"
+    name: "Nuxt + Strapi (n8n.io) / GitBook (docs) / Ghost (6, blog) / Discourse (community) / Cloudflare"
     confidence: likely
     evidence: "当サイトの実観測（2026-10-06）で、n8n.io の応答に server: cloudflare が付き、HTMLに __NUXT__ と _nuxt/ のパス、Vueのscoped CSSが付ける data-v- 属性が700件以上、strapi への参照が300件以上含まれていた。app.n8n.cloud は x-powered-by: Nuxt を返し、docs.n8n.io はGitBookの資産を読み込み x-vercel-id を返し、blog.n8n.io は generator: Ghost 6.68 のmetaを持ち、community.n8n.io は x-discourse-route を返した。n8n.io のOGP画像は Azure Blob Storage（n8niostorageaccount.blob.core.windows.net の n8nio-strapi-blobs コンテナ）から配信されていた"
 sources:

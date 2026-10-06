@@ -24,17 +24,17 @@ heroTheme: "n8n"
 scores: { product: 4.5, ux: 3.5, tech: 4.5, business: 4.0 }
 techStack:
   - layer: "Language, runtime, and repository layout"
-    name: "TypeScript on Node.js 24 (pnpm 12 workspace + Turborepo monorepo)"
+    name: "TypeScript / Node.js (24+) / pnpm (12) / Turborepo"
     confidence: confirmed
     evidence: "The n8n-io/n8n repository on GitHub (as of 2026-10-06) breaks down as roughly 133 MB of TypeScript and 9 MB of Vue, and the root package.json requires node >=24.0.0 and pnpm >=12.4.2 in engines, sets packageManager to pnpm@12.4.2, and builds with turbo. Under packages/ sit cli, core, workflow, nodes-base, frontend, and more than 60 @n8n/ packages including task-runner, task-runner-python, nodes-langchain, and typeorm"
     evidenceUrl: "https://github.com/n8n-io/n8n/blob/master/package.json"
   - layer: "Backend"
-    name: "Express 5 + @n8n/typeorm (fork) on SQLite (default) / PostgreSQL"
+    name: "Express (5) + TypeORM (@n8n/typeorm fork) / SQLite (default) / PostgreSQL"
     confidence: confirmed
     evidence: "The dependencies in packages/cli/package.json (as of 2026-10-06) include express (5.1.0 in the catalog), the in-workspace @n8n/typeorm, pg, and sqlite3 5.1.7. The official documentation page \"Choose n8n's database\" states that SQLite is the default, PostgreSQL is also supported, and on n8n Cloud the Starter and Pro plans use SQLite while only Enterprise Scaling plans use PostgreSQL. Supported PostgreSQL versions are 17 and 18, plus 16 for compatibility (as of July 2026)"
     evidenceUrl: "https://github.com/n8n-io/n8n/blob/master/packages/cli/package.json"
   - layer: "Scaling (queue mode)"
-    name: "Redis + Bull (main / worker / webhook processors)"
+    name: "Redis + Bull (queue mode: main / worker / webhook processors)"
     confidence: confirmed
     evidence: "The official documentation page \"Enable queue mode\" states that the main instance handles timers and webhook calls and generates executions, passes the execution ID to Redis as the message broker, and that workers pick it up, load the workflow from the database, write results back, and notify Redis on completion. The encryption key must be shared between main and workers, and queue mode with SQLite is not recommended. packages/cli/package.json includes bull 4.16.4 and ioredis 5.3.2"
     evidenceUrl: "https://docs.n8n.io/deploy/host-n8n/configure-n8n/scaling/enable-queue-mode"
@@ -44,22 +44,22 @@ techStack:
     evidence: "The official documentation page \"Set up task runners\" states that task runners are the only isolation layer between user-provided code and n8n and that production should use external mode, that internal mode runs as a child process with the same uid and gid as n8n and is insecure by design, and that it is deprecated from n8n 3.0. The v2.0 breaking changes list says task runners are enabled by default, the external-mode runner moved to the separate n8nio/runners image, and the Pyodide-based Python Code node was replaced by a native Python task runner"
     evidenceUrl: "https://docs.n8n.io/deploy/host-n8n/configure-n8n/set-up-task-runners"
   - layer: "AI and agent features"
-    name: "LangChain.js 1.x + LangGraph + Model Context Protocol SDK"
+    name: "LangChain.js (1.x) + LangGraph + Model Context Protocol SDK"
     confidence: confirmed
     evidence: "The catalog in the repository's pnpm-workspace.yaml (as of 2026-10-06) pins langchain 1.2.30, @langchain/core 1.2.8, @langchain/langgraph 1.0.2, @langchain/openai, and @langchain/anthropic, and packages/cli/package.json depends on @modelcontextprotocol/sdk. Under packages/@n8n sit nodes-langchain, ai-workflow-builder.ee, agents, mcp-apps, and mcp-browser"
     evidenceUrl: "https://github.com/n8n-io/n8n/blob/master/pnpm-workspace.yaml"
   - layer: "Editor (frontend)"
-    name: "Vue 3.5 + Pinia + Vue Flow + Element Plus + CodeMirror, built with Vite 8"
+    name: "Vue.js (3.5) + Pinia + Vue Flow + Element Plus + CodeMirror + Vite (8)"
     confidence: confirmed
     evidence: "The dependencies in packages/frontend/editor-ui/package.json (as of 2026-10-06) include vue, pinia, and vue-router (vue ^3.5.13 in the catalog), @vue-flow/core 1.48.0, element-plus, @codemirror/state, and @n8n/design-system, built with vite (^8.0.2 in the catalog)"
     evidenceUrl: "https://github.com/n8n-io/n8n/blob/master/packages/frontend/editor-ui/package.json"
   - layer: "License"
-    name: "Sustainable Use License 1.0 + n8n Enterprise License (.ee files)"
+    name: "Sustainable Use License (1.0) + n8n Enterprise License (.ee files)"
     confidence: confirmed
     evidence: "The repository's LICENSE.md states that source files with .ee. in the filename or .ee in the directory name are not licensed under the Sustainable Use License and require an n8n Enterprise License, and that everything else is under the Sustainable Use License, which allows use and modification only for internal business, non-commercial, or personal purposes and distribution only free of charge for non-commercial purposes. GitHub displays the license as \"Other\""
     evidenceUrl: "https://github.com/n8n-io/n8n/blob/master/LICENSE.md"
   - layer: "Marketing site, docs, and blog"
-    name: "Nuxt + Strapi (n8n.io) / GitBook (docs) / Ghost 6 (blog) / Discourse (community), behind Cloudflare"
+    name: "Nuxt + Strapi (n8n.io) / GitBook (docs) / Ghost (6, blog) / Discourse (community) / Cloudflare"
     confidence: likely
     evidence: "In this site's own observation (2026-10-06), responses from n8n.io carried server: cloudflare, and the HTML contained __NUXT__ and _nuxt/ paths, more than 700 data-v- attributes from Vue's scoped CSS, and more than 300 references to strapi. app.n8n.cloud returned x-powered-by: Nuxt, docs.n8n.io loaded GitBook assets and returned an x-vercel-id header, blog.n8n.io carried a generator meta tag for Ghost 6.68, and community.n8n.io returned x-discourse-route. The OGP image of n8n.io was served from Azure Blob Storage (the n8nio-strapi-blobs container on n8niostorageaccount.blob.core.windows.net)"
 sources:

@@ -25,22 +25,22 @@ heroTheme: "stores"
 scores: { product: 4.0, ux: 3.5, tech: 3.5, business: 3.5 }
 techStack:
   - layer: "Online shop and POS register backend"
-    name: "Ruby on Rails monolith (1,500+ models) + MongoDB Atlas"
+    name: "Ruby on Rails (monolith, 1,500+ models) + MongoDB Atlas"
     confidence: confirmed
     evidence: "The STORES Product Blog post of 2024-11-19 states that STORES Register and STORES Online Shop share one monolithic Ruby on Rails backend and one database, so products and inventory stay in sync, and that it is the company's largest Rails repository with more than 1,500 model classes. The post of 2023-10-26 says the MongoDB behind both services runs on MongoDB Atlas and was upgraded from 4.4 to 5.0"
     evidenceUrl: "https://product.st.inc/entry/2024/11/19/130231"
   - layer: "Online shop frontend"
-    name: "Nuxt (web) + iOS app on the same API"
+    name: "Nuxt (web) + iOS app (same API)"
     confidence: confirmed
     evidence: "The same 2024-11-19 post states that the STORES Online Shop frontend is built with Nuxt and that the single backend serves both the iOS app and the Nuxt frontend"
     evidenceUrl: "https://product.st.inc/entry/2024/11/19/130231"
   - layer: "Booking system"
-    name: "Ruby on Rails monolith (1,000+ models) + Next.js"
+    name: "Ruby on Rails (monolith, 1,000+ models) + Next.js"
     confidence: confirmed
     evidence: "The same post states that STORES Reservations is a separate monolithic Rails application with a Next.js frontend and more than 1,000 model classes"
     evidenceUrl: "https://product.st.inc/entry/2024/11/19/130231"
   - layer: "Identity platform and service-to-service plumbing"
-    name: "Go + Next.js (OpenID Connect, in-house) + in-house API Gateway / Pub/Sub"
+    name: "Go + Next.js (OpenID Connect, in-house) + API Gateway (in-house) + Pub/Sub (in-house)"
     confidence: confirmed
     evidence: "The same post states that the identity platform unifying the login accounts was developed and operated in Go and Next.js without an IDaaS such as Amazon Cognito or Firebase Authentication, and that an API Gateway that authenticates and authorizes requests with the identity platform's access token and a Pub/Sub system that fans out webhooks to subscribing internal systems were built in-house"
     evidenceUrl: "https://product.st.inc/entry/2024/11/19/130231"
@@ -64,7 +64,7 @@ techStack:
     confidence: likely
     evidence: "In this site's own observation (2026-10-06), responses from stores.fun and www.st.inc carried x-powered-by: Next.js, x-nextjs-prerender, server: cloudflare, and a cf-ray (NRT) header, and stores.jp redirected to stores.fun with a 301. The HTML of stores.fun contained the VWO (A/B testing) snippet and Google Tag Manager, and its CSP frame-ancestors allowed app.vwo.com"
   - layer: "Login and dashboard delivery"
-    name: "Amazon CloudFront + S3 (dashboard SPA)"
+    name: "Amazon CloudFront + Amazon S3 (dashboard SPA)"
     confidence: likely
     evidence: "In this site's own observation (2026-10-06), id.stores.jp returned x-powered-by: Next.js and via: CloudFront, and dashboard.stores.jp returned server: AmazonS3 and via: CloudFront"
 sources:
