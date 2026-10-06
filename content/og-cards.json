@@ -246,6 +246,14 @@
     "siteName": "Hostinger",
     "fetchedAt": "2026-09-30"
   },
+  "jira": {
+    "url": "https://www.atlassian.com/software/jira",
+    "title": "Jira: Project Management for the AI Era",
+    "description": "Elevate your team's productivity with Jira. AI agents orchestrate, plan, and track projects at scale — project management for the AI era.",
+    "image": "https://dam-cdn.atl.orangelogic.com/AssetLink/0qw2hr437x574ovc7721dy64614yooac.png",
+    "siteName": "Atlassian",
+    "fetchedAt": "2026-10-06"
+  },
   "klarna": {
     "url": "https://www.klarna.com/",
     "title": "Klarnaをビジネスに | Klarna Japan",
