@@ -407,6 +407,14 @@
     "siteName": "Obsidian",
     "fetchedAt": "2026-08-06"
   },
+  "paypay": {
+    "url": "https://paypay.ne.jp/",
+    "title": "PayPay - QRコードで支払うキャッシュレス決済のスマホアプリ",
+    "description": "PayPayは、スマホひとつでカンタン・おトクにお支払いができるアプリです。最短1分で登録完了！街のお店をはじめ、ネットサービスや請求書のお支払いなどにもご使用いただけます。",
+    "image": "https://paypay.ne.jp/uploads/top/bnr_ogp_17.png",
+    "siteName": "PayPay",
+    "fetchedAt": "2026-10-06"
+  },
   "perplexity": {
     "url": "https://www.perplexity.ai/",
     "title": "Perplexity",
