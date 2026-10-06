@@ -6,8 +6,8 @@ lead: "A solo developer's tech-article platform was acquired by a company just f
 category: media
 tags: [tech-blog, markdown, nextjs, google-cloud, indie-dev]
 publishedAt: "2026-07-17"
-updatedAt: "2026-09-28"
-lastVerified: "2026-09-28"
+updatedAt: "2026-10-06"
+lastVerified: "2026-10-06"
 serviceUrl: "https://zenn.dev/"
 vendor: "Classmethod"
 origin: "JP"
@@ -60,10 +60,10 @@ techStack:
 sources:
   - label: "Zenn About (official — features and the compensation model)"
     url: "https://zenn.dev/about"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-06"
   - label: "Classmethod: press release on the Zenn acquisition (2021-02-01)"
     url: "https://classmethod.jp/news/20210201-zenn/"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-06"
   - label: "team_zenn: migrating Zenn's backend from App Engine to Cloud Run (2022-03)"
     url: "https://zenn.dev/team_zenn/articles/migrate-appengine-to-cloudrun"
     accessedAt: "2026-09-28"
@@ -78,10 +78,19 @@ sources:
     accessedAt: "2026-09-28"
   - label: "What's New in Zenn: Publication Pro passes 100 publications (2026-07)"
     url: "https://info.zenn.dev/2026-07-22-publication-pro-100"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-06"
+  - label: "Zenn FAQ: What are the sales and payout fees?"
+    url: "https://zenn.dev/faq/sales"
+    accessedAt: "2026-10-06"
+  - label: "Zenn: Publication (plans and pricing)"
+    url: "https://zenn.dev/publications"
+    accessedAt: "2026-10-06"
+  - label: "What's New in Zenn: Revising the Publication terms of use (2026-09-16)"
+    url: "https://info.zenn.dev/2026-09-16-update-publication-terms"
+    accessedAt: "2026-10-06"
 ---
 
-For years, Qiita was practically the only answer to where Japanese engineers publish technical articles. In September 2020, a solo-built service appeared — and within a few years created a new default: "just write it on Zenn." This is the origin story and still the biggest product of catnose, the developer we covered in [Nani Translation](/en/articles/nani-translation) and [Shizuka na Internet](/en/articles/sizu-me).
+For years, [Qiita](/en/articles/qiita) was practically the only answer to where Japanese engineers publish technical articles. In September 2020, a solo-built service appeared — and within a few years created a new default: "just write it on Zenn." This is the origin story and still the biggest product of catnose, the developer we covered in [Nani Translation](/en/articles/nani-translation) and [Shizuka na Internet](/en/articles/sizu-me).
 
 ## What the service is
 
@@ -124,6 +133,10 @@ Zenn's revenue structure is built on C2C fees and strategic value to its parent 
 
 :::fact
 In our own check, we found no conventional ad slots in the service. Monetization for individuals consists of book sales (¥0–5,000) and reader-gifted badges — both C2C transactions where money flows to authors. Separately, "Publication Pro," a paid plan for companies and organizations, launched on January 22, 2024, offering a stats dashboard, review features, and banners tailored to the organization's goals; as of July 22, 2026 more than 100 Publications were on Pro (out of more than 1,800 Publications overall). The operator is Classmethod, an AWS consulting company, which stated in its acquisition press release that Zenn would be run independently from its own tech blog, Developers.IO.
+:::
+
+:::fact
+According to Zenn's FAQ "What are the sales and payout fees?" (checked October 6, 2026), a book sale incurs a payment fee of 3.6% of the price (matching Stripe's fee) and a platform fee of 10% of the amount left after it, and each cash withdrawal request costs ¥350; in the FAQ's example a ¥1,000 book leaves the seller ¥868. According to the official Publication page checked the same day, Publication Pro costs ¥9,980 a month or ¥99,800 a year (first 30 days free), and a new plan above it, "Publication Connect" (¥360,000 for six months, ¥60,000 a month), adds a Q&A box on articles, newsletters to followers, repeat-reader analytics, executive reports and priority speaking slots. Zenn revised its Publication terms so it can offer multiple paid plans, effective October 16, 2026 (announced September 16, 2026).
 :::
 
 :::guess

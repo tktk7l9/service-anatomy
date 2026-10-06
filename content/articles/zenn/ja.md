@@ -6,8 +6,8 @@ lead: "個人開発者が作った技術記事プラットフォームが、公�
 category: media
 tags: [tech-blog, markdown, nextjs, google-cloud, indie-dev]
 publishedAt: "2026-07-17"
-updatedAt: "2026-09-28"
-lastVerified: "2026-09-28"
+updatedAt: "2026-10-06"
+lastVerified: "2026-10-06"
 serviceUrl: "https://zenn.dev/"
 vendor: "クラスメソッド"
 origin: "JP"
@@ -60,10 +60,10 @@ techStack:
 sources:
   - label: "Zenn About（公式・機能と対価の仕組み）"
     url: "https://zenn.dev/about"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-06"
   - label: "クラスメソッド: Zenn買収に関するプレスリリース（2021-02-01）"
     url: "https://classmethod.jp/news/20210201-zenn/"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-06"
   - label: "team_zenn: ZennのバックエンドをApp EngineからCloud Runへ移行（2022-03）"
     url: "https://zenn.dev/team_zenn/articles/migrate-appengine-to-cloudrun"
     accessedAt: "2026-09-28"
@@ -78,10 +78,19 @@ sources:
     accessedAt: "2026-09-28"
   - label: "What's New in Zenn: Publication Proが100件を突破（2026-07）"
     url: "https://info.zenn.dev/2026-07-22-publication-pro-100"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-06"
+  - label: "Zenn よくある質問: 販売や振込の手数料は？"
+    url: "https://zenn.dev/faq/sales"
+    accessedAt: "2026-10-06"
+  - label: "Zenn: Publication（プランと料金）"
+    url: "https://zenn.dev/publications"
+    accessedAt: "2026-10-06"
+  - label: "What's New in Zenn: Publicationの利用規約を改定します（2026-09-16）"
+    url: "https://info.zenn.dev/2026-09-16-update-publication-terms"
+    accessedAt: "2026-10-06"
 ---
 
-日本のエンジニアが技術記事を書く場所は、長らくQiitaがほぼ唯一の答えだった。2020年9月、そこに個人開発のサービスが現れ、数年で「とりあえずZennに書く」という新しい既定値を作ってしまう。当サイトで取り上げた[Nani翻訳](/ja/articles/nani-translation)と[しずかなインターネット](/ja/articles/sizu-me)の開発者・catnose氏の原点であり、いまも最大のプロダクトであるZennを解剖する。
+日本のエンジニアが技術記事を書く場所は、長らく[Qiita](/ja/articles/qiita)がほぼ唯一の答えだった。2020年9月、そこに個人開発のサービスが現れ、数年で「とりあえずZennに書く」という新しい既定値を作ってしまう。当サイトで取り上げた[Nani翻訳](/ja/articles/nani-translation)と[しずかなインターネット](/ja/articles/sizu-me)の開発者・catnose氏の原点であり、いまも最大のプロダクトであるZennを解剖する。
 
 ## サービス解説
 
@@ -124,6 +133,10 @@ Zennの収益構造は、広告ではなくC2Cの手数料と親会社の戦略�
 
 :::fact
 当サイトの確認では、サービス内に一般的な広告枠は見当たらない。個人向けの収益化の仕組みは本の販売（0〜5,000円）と読者からのバッジ贈付で、いずれも書き手に対価が渡るC2C取引だ。これとは別に、企業・組織向けの有料プラン「Publication Pro」が2024年1月22日に提供開始された。統計ダッシュボード、レビュー機能、組織の目的に合わせたバナー設置などを備え、2026年7月22日時点で利用Publicationは100を超えた（Publication全体では1,800超）。運営はAWS支援事業などを手がけるクラスメソッドで、同社は買収時のプレスリリースで、自社技術ブログDevelopers.IOとは独立してZennを運営すると表明している。
+:::
+
+:::fact
+2026年10月6日に確認したZennのFAQ「販売や振込の手数料は？」によれば、本の販売には販売価格の3.6%の決済手数料（Stripeの決済手数料に準拠）と、決済手数料を引いた額の10%のプラットフォーム利用料がかかり、現金の振込申請には1回350円がかかる。FAQの例では1,000円の本の受取額は868円だ。同日に確認した公式のPublicationページによれば、Publication Proは月額9,980円または年額99,800円（初回30日間無料）で、その上に新しいプラン「Publication Connect」（6カ月36万円、月あたり6万円）が加わり、記事への質問箱、フォロワーへのニュースレター、リピート読者の分析、経営層向けレポート、優先登壇権が付く。Zennは複数の有料プランを持てるようPublicationの利用規約を改め、2026年10月16日に施行する（2026年9月16日告知）。
 :::
 
 :::guess
