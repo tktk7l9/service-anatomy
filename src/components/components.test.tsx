@@ -53,6 +53,18 @@ describe("components smoke", () => {
     expect(a.innerHTML).not.toBe(c.innerHTML);
   });
 
+  it("HeroArt keeps its markup compact: whole-unit coordinates and one path per stroke group", () => {
+    // Listing pages inline one of these per article and the RSC payload repeats it,
+    // so the markup size is the page's HTML size.
+    const { container } = render(<HeroArt theme="alpha" label="Alpha" />);
+    expect(container.querySelector("line")).toBeNull();
+    const geometry = [...container.querySelectorAll("path, circle")].flatMap((el) =>
+      ["d", "cx", "cy", "r"].map((name) => el.getAttribute(name) ?? ""),
+    );
+    expect(geometry.join(" ")).not.toMatch(/\d\.\d/u);
+    expect(container.querySelectorAll("path").length).toBeLessThanOrEqual(8);
+  });
+
   it("HeroArt draws the service name on a centred plate and stays hidden from assistive tech", () => {
     const { container } = render(<HeroArt theme="alpha" label="Shopify" />);
     const svg = container.querySelector("svg");

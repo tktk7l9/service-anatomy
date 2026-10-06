@@ -25,6 +25,17 @@ function mulberry32(seed: number): () => number {
   };
 }
 
+/** Rounds to a whole viewBox unit (1/1200 of the art's width: invisible at any rendered size). */
+const px = (value: number) => Math.round(value);
+
+/** A straight stroke from (x1, y1) to (x2, y2). */
+type Segment = [x1: number, y1: number, x2: number, y2: number];
+
+/** Path data drawing each segment as its own subpath (same rendering as separate <line>s). */
+function segments(list: Segment[]): string {
+  return list.map(([x1, y1, x2, y2]) => `M${px(x1)} ${px(y1)}L${px(x2)} ${px(y2)}`).join("");
+}
+
 const VIEW_W = LABEL_VIEW_WIDTH;
 const VIEW_H = LABEL_VIEW_HEIGHT;
 
@@ -67,6 +78,43 @@ export function HeroArt({
   const gridLines = [0.15, 0.35, 0.55, 0.75, 0.92].map(
     (t) => t * VIEW_W + between(-25, 25),
   );
+  const nucleusR = between(14, 24);
+  const baseline = VIEW_H * 0.82;
+
+  // Every line of a group shares its stroke, so each group is one <path> of M/L segments
+  // instead of many <line> elements, with coordinates rounded to whole viewBox units.
+  // The listing pages inline one of these per article, and the RSC payload repeats it,
+  // so the markup size goes straight into the HTML size (Lighthouse FCP/LCP on mobile).
+  const grid = segments([
+    ...gridLines.map((x): Segment => [x, 0, x, VIEW_H]),
+    [0, baseline, VIEW_W, baseline],
+  ]);
+  const hatching = segments(
+    Array.from({ length: hatchCount }, (_, i): Segment => {
+      const y = cy - r + hatchGap * (i + 1);
+      const half = Math.sqrt(Math.max(r * r - (y - cy) * (y - cy), 0));
+      return [cx - half, y, cx + half * 0.35, y];
+    }),
+  );
+  const cross = segments([
+    [cx - 12, cy, cx + 12, cy],
+    [cx, cy - 12, cx, cy + 12],
+  ]);
+  const leader = segments([
+    [lx, ly, labelX, labelY],
+    [labelX, labelY, labelX + 70, labelY],
+  ]);
+  const labelStub = segments([
+    [labelX + 8, labelY - 14, labelX + 62, labelY - 14],
+    [labelX + 8, labelY - 26, labelX + 44, labelY - 26],
+  ]);
+  const ticks = segments(
+    Array.from({ length: 9 }, (_, i): Segment => {
+      const x = VIEW_W * 0.08 + i * 28;
+      const h = i % 4 === 0 ? 14 : 7;
+      return [x, baseline, x, baseline - h];
+    }),
+  );
 
   return (
     <svg
@@ -77,61 +125,35 @@ export function HeroArt({
       preserveAspectRatio="xMidYMid slice"
     >
       {/* Plate grid */}
-      <g stroke="var(--rule)" strokeWidth="1">
-        {gridLines.map((x) => (
-          <line key={x} x1={x} y1="0" x2={x} y2={VIEW_H} />
-        ))}
-        <line x1="0" y1={VIEW_H * 0.82} x2={VIEW_W} y2={VIEW_H * 0.82} />
-      </g>
+      <path d={grid} stroke="var(--rule)" strokeWidth="1" />
 
       {/* Main circle (outline + concentric circles + cross-section hatching) */}
       <g fill="none" stroke="var(--ink)" strokeWidth="2">
-        <circle cx={cx} cy={cy} r={r} />
-        <circle cx={cx} cy={cy} r={r * 0.62} strokeDasharray="3 7" strokeWidth="1.5" />
+        <circle cx={px(cx)} cy={px(cy)} r={px(r)} />
+        <circle cx={px(cx)} cy={px(cy)} r={px(r * 0.62)} strokeDasharray="3 7" strokeWidth="1.5" />
       </g>
-      <g stroke="var(--ink)" strokeWidth="1" opacity="0.5">
-        {Array.from({ length: hatchCount }, (_, i) => {
-          const y = cy - r + hatchGap * (i + 1);
-          const half = Math.sqrt(Math.max(r * r - (y - cy) * (y - cy), 0));
-          return <line key={i} x1={cx - half} y1={y} x2={cx + half * 0.35} y2={y} />;
-        })}
-      </g>
+      <path d={hatching} stroke="var(--ink)" strokeWidth="1" opacity="0.5" />
 
       {/* Center point + cross registration mark */}
-      <g stroke="var(--ink)" strokeWidth="1.5">
-        <line x1={cx - 12} y1={cy} x2={cx + 12} y2={cy} />
-        <line x1={cx} y1={cy - 12} x2={cx} y2={cy + 12} />
-      </g>
+      <path d={cross} stroke="var(--ink)" strokeWidth="1.5" />
 
       {/* Accent: nucleus */}
-      <circle cx={cx + r * 0.28} cy={cy - r * 0.18} r={between(14, 24)} fill="var(--accent)" />
+      <circle cx={px(cx + r * 0.28)} cy={px(cy - r * 0.18)} r={px(nucleusR)} fill="var(--accent)" />
 
       {/* Satellite circle */}
       <g fill="none" stroke="var(--ink)" strokeWidth="1.5">
-        <circle cx={sx} cy={sy} r={sr} />
-        <circle cx={sx} cy={sy} r={sr * 0.45} fill="var(--accent-soft)" stroke="none" />
-        <line x1={sx + sr} y1={sy} x2={cx - r} y2={cy} strokeDasharray="2 6" strokeWidth="1" />
+        <circle cx={px(sx)} cy={px(sy)} r={px(sr)} />
+        <circle cx={px(sx)} cy={px(sy)} r={px(sr * 0.45)} fill="var(--accent-soft)" stroke="none" />
+        <path d={segments([[sx + sr, sy, cx - r, cy]])} strokeDasharray="2 6" strokeWidth="1" />
       </g>
 
       {/* Annotation line (leader line) */}
-      <g stroke="var(--ink)" strokeWidth="1.5" fill="none">
-        <line x1={lx} y1={ly} x2={labelX} y2={labelY} />
-        <line x1={labelX} y1={labelY} x2={labelX + 70} y2={labelY} />
-      </g>
-      <circle cx={lx} cy={ly} r="4" fill="var(--ink)" />
-      <g stroke="var(--ink-faint)" strokeWidth="2" strokeLinecap="round">
-        <line x1={labelX + 8} y1={labelY - 14} x2={labelX + 62} y2={labelY - 14} />
-        <line x1={labelX + 8} y1={labelY - 26} x2={labelX + 44} y2={labelY - 26} />
-      </g>
+      <path d={leader} stroke="var(--ink)" strokeWidth="1.5" fill="none" />
+      <circle cx={px(lx)} cy={px(ly)} r="4" fill="var(--ink)" />
+      <path d={labelStub} stroke="var(--ink-faint)" strokeWidth="2" strokeLinecap="round" />
 
       {/* Tick marks (bottom edge) */}
-      <g stroke="var(--ink-soft)" strokeWidth="1.5">
-        {Array.from({ length: 9 }, (_, i) => {
-          const x = VIEW_W * 0.08 + i * 28;
-          const h = i % 4 === 0 ? 14 : 7;
-          return <line key={i} x1={x} y1={VIEW_H * 0.82} x2={x} y2={VIEW_H * 0.82 - h} />;
-        })}
-      </g>
+      <path d={ticks} stroke="var(--ink-soft)" strokeWidth="1.5" />
 
       {/* Service name on an opaque plate: the art behind it never lowers the contrast.
           The whole SVG stays aria-hidden — the name is already in the text next to it. */}

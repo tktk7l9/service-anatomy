@@ -44,4 +44,5 @@ npm run coverage   # カバレッジ（engine/i18n 100% ゲート）
     - `subresource-integrity` −5: Cloudflare Web Analytics のビーコン導入による。導入前は
       外部スクリプトが1本も無く素通りで通っていた項目。**SRI は足さない** —
       `beacon.min.js` はバージョンの付かない URL を Cloudflare が差し替える運用なので、
-      `integrity` を固定すると次の更新でビーコンだけ黙って止まる
+      `integrity` を固定すると次の更新でビーコンだけ黙って止まる。2026-10-06 からビーコンは
+      ハイドレーション後に追加する方式（HTML に `<script src>` を置かない）

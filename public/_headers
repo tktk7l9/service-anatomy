@@ -1,0 +1,5 @@
+# Cloudflare Workers static assets. Workers Assets serve these files before the Worker runs,
+# so the headers() in next.config.ts never reach them. Build output under /_next/static/ has
+# content-hashed names and never changes in place.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
