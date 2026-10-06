@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter_Tight } from "next/font/google";
+import { Analytics } from "@/components/analytics";
 import "./globals.css";
 
 // Latin-only display sans for headings (one file, latin subset only).
@@ -41,18 +42,9 @@ export default function RootLayout({
       </head>
       <body>
         {children}
-        {/* Cloudflare Web Analytics. Replaces Vercel Analytics, which was removed in the Workers
-            migration on 2026-09-14. The token is embedded in the HTML and visible to every visitor, so it is not a secret.
-            The allowed origins live in src/lib/csp.ts, and csp.test.ts pins both.
-            gitleaks flags 32-hex-digit strings as generic-api-key, so gitleaks:allow is placed on the
-            flagged line to suppress it (a config file would also hide other, real secrets). */}
-        {/* eslint-disable-next-line @next/next/no-sync-scripts --
-            type="module" scripts are deferred by spec, so they do not block the parser */}
-        <script
-          type="module"
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon={'{"token": "d8ea39bff560425e8855b06c0d488d51"}' /* gitleaks:allow */}
-        />
+        {/* Cloudflare Web Analytics, loaded after hydration (components/analytics.tsx). Replaces
+            Vercel Analytics, which was removed in the Workers migration on 2026-09-14. */}
+        <Analytics />
       </body>
     </html>
   );

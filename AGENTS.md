@@ -106,6 +106,15 @@ tech editorial (magazine-style) design.
   the Cloudflare Web Analytics beacon. **Never add SRI to the beacon**:
   Cloudflare swaps the content behind the unversioned `beacon.min.js` URL, so
   pinning `integrity` silently stops just the beacon on the next update.
+  Since 2026-10-06 the beacon is appended after hydration (`src/components/analytics.tsx`)
+  instead of a `<script src>` in the HTML, which keeps it out of the first paint and out of
+  the markup Observatory's SRI test reads. Do not move it back into the layout.
+- **Performance (Lighthouse mobile).** The listing pages inline one `HeroArt` SVG per article and
+  the RSC payload repeats it, so its markup size is the page's HTML size (on 2026-10-06 `/ja` was
+  1.1MB raw; rounding coordinates and merging lines into paths cut it to 0.68MB and perf 87→95).
+  Keep the art compact (components.test.tsx checks it). `public/_headers` gives `/_next/static/*`
+  an immutable cache: Workers Assets serve those files before the Worker, so next.config headers
+  never reach them.
 - CI runs `node scripts/audit-gate.mjs` instead of a bare `npm audit`. It fails on any advisory not listed in
   `audit-allowlist.json`. An entry needs a reason and an `expires` date (keep it about a month out), and
   `devOnly: true` stops matching once the package becomes reachable from production dependencies. The gate also
