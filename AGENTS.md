@@ -11,19 +11,27 @@ tech editorial (magazine-style) design.
 
 ## Architectural backbone
 
-- **CSP uses static headers in next.config.ts** (source of truth: `src/lib/csp.ts`).
-  `script-src` is `'self' 'unsafe-inline'`. **Never add `'strict-dynamic'`** —
-  in CSP Level 3, strict-dynamic makes both `'self'` and `'unsafe-inline'` be ignored, and
-  with no nonce and no hashes in this setup every script stops (`src/lib/csp.test.ts` blocks it).
-  Migrated from the per-request nonce approach on 2026-09-12. The reason: Next 16's proxy runs
-  only on the Node runtime and OpenNext (Cloudflare Workers) does not support Node middleware,
-  so the site could not move to Workers. The cost is losing inline XSS protection and Observatory A+
-  (an intentional decision).
+- **CSP: static baseline in next.config.ts, per-request nonce in the Worker** (source of truth:
+  `src/lib/csp.ts`; Worker side: `worker.ts` + `src/lib/csp-nonce.ts`). The static header has
+  `script-src 'self' 'unsafe-inline'`. `wrangler.jsonc` `main` is `worker.ts`, which wraps
+  `.open-next/worker.js` and, for every `text/html` response, replaces that `'unsafe-inline'` with
+  a fresh `'nonce-…'` and stamps the nonce on each inline `<script>` via HTMLRewriter (streaming).
+  The header is replaced, never appended: exactly one CSP per response (two CSPs are both
+  enforced). Hashes were not an option: Next's inline RSC payload differs on every one of the
+  ~2,400 pages, and `public/_headers` allows only 100 rules. Since 2026-10-06 this restores
+  Observatory A+. **Never point `main` back at `.open-next/worker.js`** (silently restores
+  `'unsafe-inline'`). **Never add `'strict-dynamic'`**: it would make `'self'` and the
+  `static.cloudflareinsights.com` host source be ignored, so a beacon Cloudflare injects at the
+  zone level (no nonce) would be blocked (`src/lib/csp.test.ts` / `csp-nonce.test.ts` block it).
+  `next dev` / `next start` (CI Lighthouse) do not run the Worker and keep the static header.
+  History: the per-request nonce used to come from `src/proxy.ts`; Next 16's proxy runs only on
+  the Node runtime and OpenNext does not support Node middleware, so it was dropped on
+  2026-09-12 (Observatory fell to B) until the Worker wrapper brought it back.
   For the `img-src` of the official link card at the end of articles, `next.config.ts` reads
   `content/og-image-hosts.json` and passes it to `contentSecurityPolicy({ extraImgSrc })`.
   Pages can be static. Calling `headers()` forces dynamic rendering, so do not call it
   on pages that should be cached.
-  Inline `<script>` needs no nonce (ld+json is a data block and outside script-src).
+  ld+json is a data block and outside script-src (it gets the nonce anyway; harmless).
 - **Every route is SSG** (`generateStaticParams` + `dynamicParams = false`). 861 pages are
   generated at build time. Read the Markdown in `content/` **only at build time** —
   reading it at runtime depends on how `process.cwd()` resolves in the Worker runtime.
@@ -100,10 +108,10 @@ tech editorial (magazine-style) design.
 
 - Starts private. Publish only via publish-check (gitleaks 0 / `node scripts/audit-gate.mjs` passes, i.e. no advisory outside
   `audit-allowlist.json` / no PII).
-  Observatory **dropped from A+ to B (75, 10/12)** (measured on the Workers production URL on 2026-09-14).
-  Both failing items are accepted trade-offs, so this score does not block publishing —
-  `content-security-policy` −20 is the `'unsafe-inline'` from the CSP migration, and `subresource-integrity` −5 is
-  the Cloudflare Web Analytics beacon. **Never add SRI to the beacon**:
+  Observatory history: A+ → B (75, 10/12) on 2026-09-14 after the nonce was dropped →
+  B+ (80) once the beacon left the HTML → **A+ again on 2026-10-06** with the Worker nonce
+  (see the CSP bullet above; the measured score is in README). The beacon is why
+  `subresource-integrity` once failed. **Never add SRI to the beacon**:
   Cloudflare swaps the content behind the unversioned `beacon.min.js` URL, so
   pinning `integrity` silently stops just the beacon on the next update.
   Since 2026-10-06 the beacon is appended after hydration (`src/components/analytics.tsx`)

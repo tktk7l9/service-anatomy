@@ -8,7 +8,10 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "service-anatomy",
-  "main": ".open-next/worker.js",
+  // worker.ts wraps .open-next/worker.js to give HTML responses a per-request script nonce
+  // (src/lib/csp-nonce.ts). Pointing this back at .open-next/worker.js silently restores
+  // script-src 'unsafe-inline'.
+  "main": "worker.ts",
   // This date is validated in UTC. Putting in "today" in JST can raise an "in the future"
   // error while UTC is still on the previous day (actually hit this in ai-primer).
   "compatibility_date": "2026-09-14",

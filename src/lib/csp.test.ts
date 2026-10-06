@@ -4,7 +4,7 @@ import { contentSecurityPolicy } from "./csp";
 describe("contentSecurityPolicy", () => {
   const prod = contentSecurityPolicy();
 
-  it("does not include a nonce (middleware was removed, so nothing issues one)", () => {
+  it("does not include a nonce (worker.ts adds one per HTML response, src/lib/csp-nonce.ts)", () => {
     expect(prod).not.toContain("nonce-");
   });
 
