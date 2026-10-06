@@ -2,10 +2,13 @@
 //
 // src/proxy.ts used to issue a per-request CSP with a nonce, but Next 16's proxy runs only on
 // the Node runtime, and OpenNext (Cloudflare Workers) does not support Node middleware, so it
-// could not be migrated. The nonce was dropped in favor of a static header.
+// could not be migrated. The static header below is the baseline.
 //
-// script-src needs 'unsafe-inline' because Next's bootstrap (self.__next_f.push) is
-// inline. ld+json is a data block and is not executed, so it is outside script-src.
+// script-src has 'unsafe-inline' here because Next's bootstrap (self.__next_f.push) is
+// inline. In production every HTML response passes through worker.ts, which swaps that token
+// for a per-request nonce (src/lib/csp-nonce.ts), so browsers never see 'unsafe-inline' in
+// script-src on pages. `next dev` / `next start` (CI Lighthouse) keep this static value.
+// ld+json is a data block and is not executed, so it is outside script-src.
 //
 // Widened in two places for the Cloudflare Web Analytics beacon. The script itself is loaded
 // from static.cloudflareinsights.com, and measurements are POSTed to
