@@ -61,6 +61,14 @@
     "siteName": "ChatGPT",
     "fetchedAt": "2026-08-06"
   },
+  "chatwork": {
+    "url": "https://go.chatwork.com/ja/",
+    "title": "ビジネスチャットならChatwork（チャットワーク）【国内利用者数No.1】",
+    "description": "ビジネスチャットならChatwork(チャットワーク)。導入企業数100万社以上！国内利用者数No.1のビジネスチャットツールです。メール・電話・会議など、従来の仕事のコミュニケーションを便利な機能で効率化します。チャットワークを使ったDXで社内の業務改善をはじめましょう。",
+    "image": "https://go.chatwork.com/ja/image/common/ogp2.5.png",
+    "siteName": "Chatwork",
+    "fetchedAt": "2026-10-06"
+  },
   "claude": {
     "url": "https://claude.com/",
     "title": "Claude",
@@ -367,6 +375,14 @@
     "description": "Netflix (ネットフリックス) で映画やドラマをオンラインでストリーム再生! スマートテレビ、ゲーム機、パソコン、Mac、モバイル機器、タブレットなどでお楽しみいただけます。",
     "fetchedAt": "2026-08-06"
   },
+  "note": {
+    "url": "https://note.com/",
+    "title": "note ――つくる、つながる、とどける。",
+    "description": "クリエイターが文章やマンガ、写真、音声を投稿することができ、ユーザーはそのコンテンツを楽しんで応援できるメディアプラットフォームです。だれもが創作を楽しんで続けられるよう、安心できる雰囲気や、多様性を大切にしています。",
+    "image": "https://assets.st-note.com/poc-image/manual/production/default_top_ogp_202212.png",
+    "siteName": "note（ノート）",
+    "fetchedAt": "2026-10-06"
+  },
   "notion": {
     "url": "https://www.notion.com/",
     "title": "The AI workspace that works for you. | Notion",
@@ -404,6 +420,14 @@
     "image": "https://proton.me/images/social/proton-og.png",
     "siteName": "Proton",
     "fetchedAt": "2026-09-28"
+  },
+  "qiita": {
+    "url": "https://qiita.com/",
+    "title": "エンジニアに関する知識を記録・共有するためのサービス - Qiita",
+    "description": "Qiitaは、エンジニアに関する知識を記録・共有するためのサービスです。 プログラミングに関するTips、ノウハウ、メモを簡単に記録 & 公開することができます。",
+    "image": "https://cdn.qiita.com/assets/qiita-ogp-3b6fcfdd74755a85107071ffc3155898.png",
+    "siteName": "Qiita",
+    "fetchedAt": "2026-10-06"
   },
   "railway": {
     "url": "https://railway.com/",
