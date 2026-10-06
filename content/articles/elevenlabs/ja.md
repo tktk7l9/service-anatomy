@@ -6,7 +6,7 @@ lead: "APIの料金表には「1,000文字あたり0.04ドル」「約75ミリ�
 category: ai-tool
 tags: [ai-voice, text-to-speech, api, voice-agents, creator-economy]
 publishedAt: "2026-09-28"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-06"
 lastVerified: "2026-09-28"
 serviceUrl: "https://elevenlabs.io/"
 # Affiliate link placeholder: the owner must sign up for the ElevenLabs affiliate program
@@ -34,12 +34,12 @@ techStack:
     name: "Python (FastAPI)"
     confidence: confirmed
     evidence: "公式の採用ページ（音声図書アプリElevenReaderのGrowth Engineer）に、チームのスタックとしてバックエンドはPython（FastAPI）と明記。当サイトの観測（2026-09-28）でも、api.elevenlabs.ioが server: uvicorn（PythonのASGIサーバー）を返し、存在しないパスにはFastAPI既定の detail: Not Found 形式で応答し、/openapi.json も公開している"
-    evidenceUrl: "https://elevenlabs.io/careers/bed47ac1-9c5c-44ae-8965-3a4312706328/growth-engineer"
+    evidenceUrl: "https://web.archive.org/web/20251209054452/https://elevenlabs.io/careers/bed47ac1-9c5c-44ae-8965-3a4312706328/growth-engineer"
   - layer: "Webサイト"
     name: "Next.js (React / TypeScript)"
     confidence: confirmed
     evidence: "当サイトの観測（2026-09-28）で、elevenlabs.ioが x-powered-by: Next.js を返す。公式の採用ページ（ElevenReaderのGrowth Engineer）も、チームのフロントエンドのスタックをNext.js（React, TypeScript）と明記"
-    evidenceUrl: "https://elevenlabs.io/careers/bed47ac1-9c5c-44ae-8965-3a4312706328/growth-engineer"
+    evidenceUrl: "https://web.archive.org/web/20251209054452/https://elevenlabs.io/careers/bed47ac1-9c5c-44ae-8965-3a4312706328/growth-engineer"
   - layer: "リアルタイム音声API"
     name: "WebSocket (streamed text input + per-character alignment)"
     confidence: confirmed
@@ -105,9 +105,9 @@ sources:
   - label: "Google Cloud公式発表: ElevenLabsがNVIDIA Blackwell GPUでGoogle Cloudと提携（2026-02-26）"
     url: "https://www.googlecloudpresscorner.com/2026-02-26-ElevenLabs-Partners-with-Google-Cloud-for-Cloud-Services-and-the-Latest-NVIDIA-Blackwell-GPUs,1"
     accessedAt: "2026-09-28"
-  - label: "ElevenLabs公式: 採用ページ（Growth Engineer・技術スタック）"
-    url: "https://elevenlabs.io/careers/bed47ac1-9c5c-44ae-8965-3a4312706328/growth-engineer"
-    accessedAt: "2026-09-28"
+  - label: "ElevenLabs公式: 採用ページ（Growth Engineer・技術スタック）のInternet Archive保存版（2025-12-09・原ページは掲載終了）"
+    url: "https://web.archive.org/web/20251209054452/https://web.archive.org/web/20251209054452/https://elevenlabs.io/careers/bed47ac1-9c5c-44ae-8965-3a4312706328/growth-engineer"
+    accessedAt: "2026-10-06"
   - label: "ElevenLabs公式: 採用ページ（Engineering - Internal AI Transformation）"
     url: "https://elevenlabs.io/careers/a3097257-a07a-4a7e-b9fe-b8555c1a0fa7/engineering-internal-ai-transformation"
     accessedAt: "2026-09-28"

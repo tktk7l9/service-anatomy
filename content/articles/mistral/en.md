@@ -6,7 +6,7 @@ lead: "Mistral AI's pricing page answers one question plainly: yes, you can self
 category: ai-tool
 tags: [ai-assistant, llm, api, open-source, sovereign-ai, coding-agent]
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-02"
+updatedAt: "2026-10-06"
 lastVerified: "2026-10-02"
 serviceUrl: "https://mistral.ai/"
 vendor: "Mistral AI SAS"
@@ -23,7 +23,7 @@ techStack:
     name: "Mistral Compute (NVIDIA GB200 / GB300)"
     confidence: confirmed
     evidence: "The official AI Cloud page lists \"GB200, GB300, B300\" GPUs, \"GB200 serving production\" in February 2026, and a capacity target of 1 GW across the EU by 2030"
-    evidenceUrl: "https://mistral.ai/products/ai-cloud/"
+    evidenceUrl: "https://mistral.ai/cloud/compute/"
   - layer: "Inference API delivery"
     name: "Regional Endpoints (Europe / US) + Priority Tier"
     confidence: confirmed
@@ -71,8 +71,8 @@ sources:
     url: "https://mistral.ai/news/regional-inference-open-models-new-compute/"
     accessedAt: "2026-10-01"
   - label: "Mistral official: AI Cloud / Mistral Compute (GPU generations, timeline, 1 GW target)"
-    url: "https://mistral.ai/products/ai-cloud/"
-    accessedAt: "2026-10-01"
+    url: "https://mistral.ai/cloud/compute/"
+    accessedAt: "2026-10-06"
   - label: "Mistral official: Mistral Compute announcement (2025-06-11)"
     url: "https://mistral.ai/news/mistral-compute/"
     accessedAt: "2026-10-01"
