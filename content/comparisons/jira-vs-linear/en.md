@@ -93,7 +93,7 @@ According to the Jira pricing page (checked 2026-10-07), Free covers up to 10 us
 | Top plan | Enterprise (annual, through sales, up to 150 sites) | Enterprise (annual, custom quote) |
 
 :::guess
-Jira appears to assume being rolled out company-wide to organizations of thousands or tens of thousands, lowering the per-user price as headcount grows. Linear limits its free plan not by people but by issues, which suits small teams that start using it heavily and move to paid plans as the organization grows. The former can be read as pricing for "a tool handed out across the company," the latter as pricing for "a tool a team chooses."
+Jira appears to assume being rolled out company-wide to organizations of thousands or tens of thousands, lowering the per-user price as headcount grows. Linear limits its free plan not by people but by issues, which appears to suit small teams that start using it heavily and move to paid plans as the organization grows. The former can be read as pricing for "a tool handed out across the company," the latter as pricing for "a tool a team chooses."
 :::
 
 ## AI billing: credits handed out with seats, or prepaid actual costs
@@ -112,7 +112,7 @@ According to the Rovo licensing page (checked 2026-10-07), paid Jira plans inclu
 | Organizations that do not use it | Nothing extra within the seat allowance | No charge unless the balance is funded |
 
 :::guess
-Jira appears to hand a little AI to every user and charge according to how much the whole organization uses, aiming to spread AI as "everyone's tool." Linear carved out only the heavy work of generating code and running jobs automatically and charges close to cost, which can be read as a choice not to mix AI costs into the seat price. The former absorbs inference costs into the unit price of a credit; the latter shows customers the cost as it is.
+Jira appears to hand a little AI to every user and charge according to how much the whole organization uses, aiming to spread AI as "everyone's tool." Linear carved out only the heavy work of generating code and running jobs automatically and charges close to cost, which can be read as a choice not to mix AI costs into the seat price. The former can be read as absorbing inference costs into the unit price of a credit, and the latter as showing customers the cost as it is.
 :::
 
 ## Entry points for agents
@@ -122,7 +122,7 @@ According to Atlassian's shareholder letter (2026-08-06), monthly active users o
 :::
 
 :::guess
-Both companies assume an era in which agents create and work through issues without passing through the screen. By showing that 98% of MCP users also use the Jira UI, Atlassian appears to be telling investors that seats will not shrink as outside AI grows. By presenting the fact that agents now create half of the work as a growth figure, Linear is presumably trying to redefine issue tracking from "the place people file tickets" to "the place where people and agents work in the same context."
+Both companies appear to assume an era in which agents create and work through issues without passing through the screen. By showing that 98% of MCP users also use the Jira UI, Atlassian appears to be telling investors that seats will not shrink as outside AI grows. By presenting the fact that agents now create half of the work as a growth figure, Linear is presumably trying to redefine issue tracking from "the place people file tickets" to "the place where people and agents work in the same context."
 :::
 
 ## Self-managed: one ending it, one that does not offer it
