@@ -252,6 +252,14 @@
     "image": "https://linear.app/static/og/homepage.jpg",
     "fetchedAt": "2026-08-06"
   },
+  "lolipop": {
+    "url": "https://lolipop.jp/",
+    "title": "ロリポップ！レンタルサーバー｜WordPressサイト月額330円〜",
+    "description": "累積利用者数250万人のレンタルサーバー「ロリポップ！」。月額330円〜、WordPressは申し込みと同時にセットアップ。10日間無料でお試しください。",
+    "image": "https://lolipop.jp/img/common/ogimage.png",
+    "siteName": "ロリポップ！レンタルサーバー",
+    "fetchedAt": "2026-10-06"
+  },
   "lovable": {
     "url": "https://lovable.dev/",
     "title": "AI App Builder | Vibe Code Apps & Websites with AI, Fast",
@@ -317,6 +325,13 @@
     "image": "https://storage.googleapis.com/production-os-assets/assets/d47be031-87c0-4432-b975-069f53c60cb4",
     "siteName": "マネーフォワード ME｜公式｜人気の家計簿・資産管理アプリ",
     "fetchedAt": "2026-10-01"
+  },
+  "n8n": {
+    "url": "https://n8n.io/",
+    "title": "n8n.io - AI workflow automation platform",
+    "description": "n8n is a workflow automation platform that uniquely combines AI capabilities with business process automation, giving technical teams the flexibility of code with the speed of no-code.",
+    "image": "https://n8niostorageaccount.blob.core.windows.net/n8nio-strapi-blobs-stage/assets/og_image_website_3_afd66761a9.png",
+    "fetchedAt": "2026-10-06"
   },
   "nani-translation": {
     "url": "https://nani.now/ja",
@@ -474,6 +489,13 @@
     "image": "https://images.ctfassets.net/2d5q1td6cyxq/jrWlRHtzUuN9qPX7CEGuY/2c5ece49c697c5da6242ff00b86c3263/PD05450_-_USEN_hp_social_share.png?w=1200&h=630&fit=thumb&fm=jpg&q=90",
     "siteName": "Square",
     "fetchedAt": "2026-09-30"
+  },
+  "stores": {
+    "url": "https://stores.fun/",
+    "title": "売れるお店をつくる、店舗運営プラットフォーム｜STORES（ストアーズ）",
+    "description": "STORES（ストアーズ）は、売れるお店をつくる店舗運営プラットフォーム。レジ・決済・予約・ネットショップ・モバイルオーダーをひとつのアカウントで。累計 25 万以上のお店が、フリープランから始められます。",
+    "image": "https://stores.fun/images/ogp/OGP_global_2511.png",
+    "fetchedAt": "2026-10-06"
   },
   "stripe": {
     "url": "https://stripe.com/",

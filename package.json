@@ -53,6 +53,9 @@
   "overrides": {
     "miniflare": {
       "undici": "7.30.0"
+    },
+    "js-yaml@3": {
+      "argparse": "^2.0.1"
     }
   }
 }

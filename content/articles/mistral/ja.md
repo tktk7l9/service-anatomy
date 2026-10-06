@@ -6,7 +6,7 @@ lead: "Mistral AIの料金ページには、質問への答えとして「モデ
 category: ai-tool
 tags: [ai-assistant, llm, api, open-source, sovereign-ai, coding-agent]
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-02"
+updatedAt: "2026-10-06"
 lastVerified: "2026-10-02"
 serviceUrl: "https://mistral.ai/"
 vendor: "Mistral AI SAS"
@@ -23,7 +23,7 @@ techStack:
     name: "Mistral Compute (NVIDIA GB200 / GB300)"
     confidence: confirmed
     evidence: "公式のAI Cloudページに、GPUとして「GB200・GB300・B300」、2026年2月に「GB200 serving production」、EU域内で2030年までに1GWという容量目標が記載されている"
-    evidenceUrl: "https://mistral.ai/products/ai-cloud/"
+    evidenceUrl: "https://mistral.ai/cloud/compute/"
   - layer: "推論APIの提供形態"
     name: "Regional Endpoints (Europe / US) + Priority Tier"
     confidence: confirmed
@@ -71,8 +71,8 @@ sources:
     url: "https://mistral.ai/news/regional-inference-open-models-new-compute/"
     accessedAt: "2026-10-01"
   - label: "Mistral公式: AI Cloud / Mistral Compute（GPU世代・タイムライン・1GW目標）"
-    url: "https://mistral.ai/products/ai-cloud/"
-    accessedAt: "2026-10-01"
+    url: "https://mistral.ai/cloud/compute/"
+    accessedAt: "2026-10-06"
   - label: "Mistral公式: Mistral Compute発表（2025-06-11）"
     url: "https://mistral.ai/news/mistral-compute/"
     accessedAt: "2026-10-01"
