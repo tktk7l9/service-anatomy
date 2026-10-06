@@ -106,7 +106,7 @@ sources:
     url: "https://www.googlecloudpresscorner.com/2026-02-26-ElevenLabs-Partners-with-Google-Cloud-for-Cloud-Services-and-the-Latest-NVIDIA-Blackwell-GPUs,1"
     accessedAt: "2026-09-28"
   - label: "ElevenLabs公式: 採用ページ（Growth Engineer・技術スタック）のInternet Archive保存版（2025-12-09・原ページは掲載終了）"
-    url: "https://web.archive.org/web/20251209054452/https://web.archive.org/web/20251209054452/https://elevenlabs.io/careers/bed47ac1-9c5c-44ae-8965-3a4312706328/growth-engineer"
+    url: "https://web.archive.org/web/20251209054452/https://elevenlabs.io/careers/bed47ac1-9c5c-44ae-8965-3a4312706328/growth-engineer"
     accessedAt: "2026-10-06"
   - label: "ElevenLabs公式: 採用ページ（Engineering - Internal AI Transformation）"
     url: "https://elevenlabs.io/careers/a3097257-a07a-4a7e-b9fe-b8555c1a0fa7/engineering-internal-ai-transformation"
