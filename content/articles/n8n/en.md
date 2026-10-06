@@ -113,7 +113,7 @@ sources:
     accessedAt: "2026-10-06"
 ---
 
-n8n is a workflow tool for building business automations and AI agents by connecting nodes. It plays in the same market as [Make](/en/articles/make) and Zapier, but differs in publishing its source code and letting you run it free on your own server. The "runs free" part gathered 200,000 GitHub stars and 1.7 million monthly active builders; the "we run it for you" part and the "features for large companies" part are the revenue.
+n8n is a workflow tool for building business automations and AI agents by connecting nodes. It plays in the same market as [Make](/en/articles/make) and [Zapier](/en/articles/zapier), but differs in publishing its source code and letting you run it free on your own server. The "runs free" part gathered 200,000 GitHub stars and 1.7 million monthly active builders; the "we run it for you" part and the "features for large companies" part are the revenue.
 
 ## Service overview
 
