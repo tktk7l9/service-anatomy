@@ -1,13 +1,13 @@
 ---
 service: "MECCHA CHAMELEON"
-title: "When Drawing Skill Becomes Game Skill — How MECCHA CHAMELEON Sold 15 Million Copies"
+title: "When Drawing Skill Becomes Game Skill — How MECCHA CHAMELEON Sold 20 Million Copies"
 description: "A hide-and-seek game built by two indie devs in two months sold 7 million copies in 12 days. We dissect the 'paint-yourself camouflage' design that made it stream-friendly, and the EOS-based zero-server-cost architecture."
 lead: "Paint anything you like on your blank white body, then blend into the stage like a chameleon. That one idea repainted Steam in the early summer of 2026 — with zero ad spend, zero server cost, and a team of two. We dissect this anomaly of a hit from four angles: product, UX, tech, and business."
 category: game
 tags: [steam, multiplayer, streaming, unreal-engine, indie-dev]
 publishedAt: "2026-07-16"
-updatedAt: "2026-09-28"
-lastVerified: "2026-09-28"
+updatedAt: "2026-10-06"
+lastVerified: "2026-10-06"
 serviceUrl: "https://store.steampowered.com/app/4704690/MECCHA_CHAMELEON/"
 vendor: "lemorion_1224 (independent developers)"
 origin: "JP"
@@ -58,7 +58,7 @@ sources:
     accessedAt: "2026-07-16"
   - label: "ITmedia NEWS: 20 million copies (2026-08-12)"
     url: "https://www.itmedia.co.jp/news/article/2608/12/2000000507/"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-06"
   - label: "GAME Watch: Switch 2 version goes live after the Nintendo Direct (2026-09-09)"
     url: "https://game.watch.impress.co.jp/docs/news/2139639.html"
     accessedAt: "2026-09-28"

@@ -1,13 +1,13 @@
 ---
 service: "メルカリ"
-title: "1.1兆円の中古品経済圏がクレジットカードを発行するまで — メルカリの循環と与信"
-description: "日本最大のフリマアプリ、メルカリ。GMV1兆1,209億円の二次流通が、取引データを与信に変えてメルカードを500万枚発行するまでのビジネス転回と、PHPモノリスを4年がかりでGoマイクロサービスに置き換えた技術史を、決算短信と公式エンジニアリングブログから解剖する。"
+title: "1.3兆円の中古品経済圏がクレジットカードを発行するまで — メルカリの循環と与信"
+description: "日本最大のフリマアプリ、メルカリ。GMV1兆2,856億円（2026年6月期）の二次流通が、取引データを与信に変えてメルカードを500万枚発行するまでのビジネス転回と、PHPモノリスを4年がかりでGoマイクロサービスに置き換えた技術史を、決算短信と公式エンジニアリングブログから解剖する。"
 lead: "2022年8月4日、メルカリの社内で「web-2」と呼ばれたPHPモノリスが停止した。2018年に始まった置き換えの完了までに4年かかっている。その裏で、中古品の売買データは与信データへと転化し、フリマアプリはクレジットカードを500万枚発行する金融事業者になった。循環経済と金融が絡み合う構造を解剖する。"
 category: consumer-app
 tags: [marketplace, c2c, fintech, go, kubernetes]
 publishedAt: "2026-07-21"
-updatedAt: "2026-09-28"
-lastVerified: "2026-09-28"
+updatedAt: "2026-10-06"
+lastVerified: "2026-10-06"
 serviceUrl: "https://jp.mercari.com/"
 vendor: "株式会社メルカリ"
 origin: "JP"
@@ -45,7 +45,7 @@ sources:
     accessedAt: "2026-09-28"
   - label: "メルカリ 2026年6月期 決算短信（IFRS・連結・2026-08-05、TDnet開示資料の写し）"
     url: "https://finance-frontend-pc-dist.west.edge.storage-yahoo.jp/disclosure/20260805/20260804508114.pdf"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-06"
   - label: "メルカリ IR資料: FY2025.6 Mercari CEO and Shareholder Dialogue（MAU 2,300万・メルカード発行500万枚超）"
     url: "https://pdf.irpocket.com/C4385/K2Hn/r4i9/eYQn.pdf"
     accessedAt: "2026-09-28"

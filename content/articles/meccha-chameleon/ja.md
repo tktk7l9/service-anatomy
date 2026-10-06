@@ -1,13 +1,13 @@
 ---
 service: "めっちゃカメレオン"
-title: "画力がスキルになる — 『めっちゃカメレオン』はなぜ世界で1,500万本売れたのか"
+title: "画力がスキルになる — 『めっちゃカメレオン』はなぜ世界で2,000万本売れたのか"
 description: "個人開発2人・開発2ヶ月のかくれんぼゲームが、発売12日で700万本。配信映えを生む「お絵描き擬態」の設計と、EOSでサーバー費ゼロを実現した技術構成を解剖する。"
 lead: "真っ白な自分の体に絵を描き、ステージの背景に擬態して隠れる。たったそれだけのかくれんぼが、2026年初夏のSteamを塗り替えた。広告費ゼロ・サーバー費ゼロ・開発2人。この異常値だらけのヒットを、プロダクト・UX・技術・ビジネスの4面から解剖する。"
 category: game
 tags: [steam, multiplayer, streaming, unreal-engine, indie-dev]
 publishedAt: "2026-07-16"
-updatedAt: "2026-09-28"
-lastVerified: "2026-09-28"
+updatedAt: "2026-10-06"
+lastVerified: "2026-10-06"
 serviceUrl: "https://store.steampowered.com/app/4704690/MECCHA_CHAMELEON/"
 vendor: "lemorion_1224（個人開発）"
 origin: "JP"
@@ -58,7 +58,7 @@ sources:
     accessedAt: "2026-07-16"
   - label: "ITmedia NEWS: 2000万本突破（2026-08-12）"
     url: "https://www.itmedia.co.jp/news/article/2608/12/2000000507/"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-06"
   - label: "GAME Watch: Switch 2版がNintendo Direct終了後に配信開始（2026-09-09）"
     url: "https://game.watch.impress.co.jp/docs/news/2139639.html"
     accessedAt: "2026-09-28"

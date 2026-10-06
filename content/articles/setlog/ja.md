@@ -1,16 +1,16 @@
 ---
 service: "setlog"
-title: "編集させないという編集 — 韓国発setlogが1時間ごとの通知でZ世代を掴んだ理由"
+title: "編集させないという編集 — 韓国で火がついたsetlogが1時間ごとの通知でZ世代を掴んだ理由"
 description: "BeRealの次に流行るSNSと呼ばれるsetlog。1時間ごとの通知で撮る2秒動画、最大12人の閉じたグループ、加工・編集なしで1本のVlogに自動編集される仕組みと、K-POPスターが火をつけたバイラルの構造、そして見えない収益化までを解剖する。"
 lead: "友人と最大12人。1時間ごとに来る通知に合わせて2秒だけ撮る。編集も加工もできない。setlogが提示したのは「頑張らなくていいSNS」という逆張りで、韓国で火がついた小さなアプリを日本のApp Store無料ランキング1位に押し上げた。"
 category: consumer-app
 tags: [video, social, closed-sns, bereal, gen-z]
 publishedAt: "2026-07-17"
-updatedAt: "2026-10-03"
-lastVerified: "2026-09-28"
+updatedAt: "2026-10-06"
+lastVerified: "2026-10-06"
 serviceUrl: "https://apps.apple.com/jp/app/setlog/id6587576438"
 vendor: "New Chat Inc."
-origin: "KR"
+origin: "US"
 heroTheme: "setlog"
 scores: { product: 4.0, ux: 4.0, tech: 2.5, business: 2.5 }
 techStack:
@@ -30,7 +30,7 @@ techStack:
 sources:
   - label: "setlog 公式Appストア（日本）ページ"
     url: "https://apps.apple.com/jp/app/setlog/id6587576438"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-06"
   - label: "Business Insider Japan: BeRealの次はこれ。K-POPスターが火をつけたZ世代の人気アプリ「Setlog」とは？"
     url: "https://www.businessinsider.jp/article/2606-setlog-kpop-popular-app-vlog-friends-glimpse-real-life/"
     accessedAt: "2026-09-28"
@@ -42,7 +42,7 @@ sources:
     accessedAt: "2026-07-17"
   - label: "DG Daiwa Ventures: New Chat Inc.のシードラウンドに出資（PR TIMES・2026-09-09）"
     url: "https://prtimes.jp/main/html/rd/p/000000130.000076641.html"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-06"
 ---
 
 BeRealが「2分以内に投稿しないと遅刻がバレる」という緊張でZ世代を疲れさせ始めた頃、韓国で火がついた小さなアプリがその疲労そのものを製品にした。setlogは、撮る瞬間を減らし、編集する自由を奪うことで、かえって「気楽なSNS」を作り上げた。
@@ -63,7 +63,7 @@ Impress Watch（2026年6月）によれば、setlogは1時間ごとに届く通�
 「頑張らなくていい」という約束は、機能を足すことでは実現できない。setlogはむしろ、加工・編集・後からの投稿という選択肢そのものを取り上げることでそれを実現した。
 :::
 
-訂正（2026年9月28日）。初版では運営会社を「ソウルとニューヨークに拠点を持つ韓国系スタートアップ」と書いていたが、誤りだった。投資元のプレスリリースは、New Chat Inc.の本社を米国ニューヨーク、CEOをTumblrやSnapchatでの経験を持つDevin Doty氏としている。韓国はsetlogの人気に最初に火がついた市場であり、ソウルの拠点は報道（Impress Watch）にもとづく。
+訂正（2026年9月28日）。初版では運営会社を「ソウルとニューヨークに拠点を持つ韓国系スタートアップ」と書いていたが、誤りだった。投資元のプレスリリースは、New Chat Inc.の本社を米国ニューヨーク、CEOをTumblrやSnapchatでの経験を持つDevin Doty氏としている。韓国はsetlogの人気に最初に火がついた市場であり、ソウルの拠点は報道（Impress Watch）にもとづく。2026年10月6日には、同じ理由でタイトルの「韓国発」と運営会社の所在国の表記（韓国→米国）も改めた。
 
 ::scorecard
 
