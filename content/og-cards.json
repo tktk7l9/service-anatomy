@@ -405,6 +405,14 @@
     "siteName": "Proton",
     "fetchedAt": "2026-09-28"
   },
+  "qiita": {
+    "url": "https://qiita.com/",
+    "title": "エンジニアに関する知識を記録・共有するためのサービス - Qiita",
+    "description": "Qiitaは、エンジニアに関する知識を記録・共有するためのサービスです。 プログラミングに関するTips、ノウハウ、メモを簡単に記録 & 公開することができます。",
+    "image": "https://cdn.qiita.com/assets/qiita-ogp-3b6fcfdd74755a85107071ffc3155898.png",
+    "siteName": "Qiita",
+    "fetchedAt": "2026-10-06"
+  },
   "railway": {
     "url": "https://railway.com/",
     "title": "Railway | The all-in-one intelligent cloud provider",
