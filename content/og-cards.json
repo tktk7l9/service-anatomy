@@ -166,6 +166,14 @@
     "siteName": "Figma",
     "fetchedAt": "2026-08-06"
   },
+  "fly-io": {
+    "url": "https://fly.io/",
+    "title": "Fly.io | Computers for agents",
+    "description": "Sandboxes aren't enough. Give your agent a real computer and get back to building.",
+    "image": "https://fly.io/phx/images/og/home-3f6c47b1e214994f1e91183548f93113.jpg?vsn=d",
+    "siteName": "Fly.io",
+    "fetchedAt": "2026-10-06"
+  },
   "framer": {
     "url": "https://www.framer.com/",
     "title": "Framer: AI design agent",
@@ -339,6 +347,14 @@
     "description": "無料ですぐに使えるAI翻訳サービス。AIが解説と例文つきで高速に翻訳します。翻訳データは端末上に安全に保存されるのでセキュリティ面も安心。",
     "image": "https://translatorassets.kiok.jp/images/opengraph-image.png",
     "fetchedAt": "2026-08-06"
+  },
+  "neon": {
+    "url": "https://neon.com/",
+    "title": "Neon — Postgres backends for apps and agents",
+    "description": "The backend for apps and agents. Build with Lakebase Postgres, Auth, Functions, Storage, and an AI Gateway: instant, branchable, serverless.",
+    "image": "https://neon.com/images/social-previews/index.jpg?updated=2026-05-27",
+    "siteName": "Neon",
+    "fetchedAt": "2026-10-06"
   },
   "nerv": {
     "url": "https://nerv.app/",
@@ -630,6 +646,13 @@
     "image": "https://www.yayoi-kk.co.jp/content/dam/yayoi-corp/shinkoku/aoiroshinkoku/common/img/acq/og.png",
     "siteName": "会計ソフトは弥生株式会社",
     "fetchedAt": "2026-09-29"
+  },
+  "zapier": {
+    "url": "https://zapier.com/",
+    "title": "Zapier: Automate AI Workflows, Agents, and Apps",
+    "description": "Build and scale AI workflows and agents across 9,000+ apps with Zapier—the most connected AI orchestration platform. Trusted by 3 million+ businesses.",
+    "image": "https://res.cloudinary.com/zapier-media/image/upload/q_auto/f_auto/v1776210705/Governance/og-image-homepage_mskeaq.png",
+    "fetchedAt": "2026-10-06"
   },
   "zellij": {
     "url": "https://zellij.dev/",
