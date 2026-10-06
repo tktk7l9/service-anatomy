@@ -13,7 +13,7 @@ ja/en 完全バイリンガル。
 
 ## 技術構成
 
-- **Next.js 16**（App Router / TypeScript / 静的ヘッダーの CSP）
+- **Next.js 16**（App Router / TypeScript / CSP は Worker が HTML ごとに nonce を付与）
 - **コンテンツ**: `content/articles/<slug>/{ja.md, en.md}` — gray-matter frontmatter +
   unified（remark-parse / remark-gfm / remark-directive / remark-rehype / rehype-slug / rehype-stringify）
 - **記事内コンポーネント**: `::scorecard` / `::techstack` ディレクティブ → HTML コメントマーカー →
@@ -38,11 +38,11 @@ npm run coverage   # カバレッジ（engine/i18n 100% ゲート）
 - `src/engine/**` / `src/i18n/**` カバレッジ 100%（CI ゲート）
 - CI: gitleaks / npm audit / typecheck / coverage / build / Lighthouse リグレッションガード
 - 目標: Lighthouse mobile 98+ / desktop 100
-- Mozilla Observatory: **B（score 75・10/12）** — 2026-09-14 に Workers の本番URLで実測
-  ※ 落ちている2項目はどちらも意図した代償で、目標から外している（AGENTS.md の公開ゲートも同様）
-    - `content-security-policy` −20: 2026-09-12 の CSP 移行（nonce → `'unsafe-inline'`）による
-    - `subresource-integrity` −5: Cloudflare Web Analytics のビーコン導入による。導入前は
-      外部スクリプトが1本も無く素通りで通っていた項目。**SRI は足さない** —
-      `beacon.min.js` はバージョンの付かない URL を Cloudflare が差し替える運用なので、
-      `integrity` を固定すると次の更新でビーコンだけ黙って止まる。2026-10-06 からビーコンは
-      ハイドレーション後に追加する方式（HTML に `<script src>` を置かない）
+- Mozilla Observatory: **A+（score 125・12/12）** — 2026-10-06 に serviceanatomy.com で実測
+  - 経緯: 2026-09-14 B（75）→ ビーコンを HTML から外して B+（80）→ 2026-10-06 A+（125）
+  - `content-security-policy`: Worker の入口（`worker.ts`）が HTML の応答ごとに
+    `script-src` の `'unsafe-inline'` を毎リクエストの nonce に置き換え、インライン `<script>` に
+    同じ nonce を付ける（`src/lib/csp-nonce.ts`）。`'strict-dynamic'` は付けない
+  - `subresource-integrity`: ビーコンはハイドレーション後に追加するので HTML に外部スクリプトが無い。
+    **SRI は足さない** — `beacon.min.js` はバージョンの付かない URL を Cloudflare が差し替える運用なので、
+    `integrity` を固定すると次の更新でビーコンだけ黙って止まる
