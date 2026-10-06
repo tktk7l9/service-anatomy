@@ -1,16 +1,16 @@
 ---
 service: "setlog"
-title: "Editing by Refusing to Let You Edit — Why Korea's setlog Won Gen Z With an Hourly Notification"
+title: "Editing by Refusing to Let You Edit — Why setlog, Which Caught Fire in Korea, Won Gen Z With an Hourly Notification"
 description: "Dubbed the app that will succeed BeReal, setlog dissected: the hourly-notification 2-second clips, closed groups of up to 12 friends, automatic same-day vlog compilation with zero editing allowed, the K-pop-fueled virality, and a business model that is still nowhere to be seen."
 lead: "Up to 12 friends. A notification arrives once an hour, and you have that window to shoot two seconds — no editing, no filters, no do-overs. setlog's bet was a 'social media you don't have to try hard at,' and it rode that bet to the top of Japan's free App Store chart."
 category: consumer-app
 tags: [video, social, closed-sns, bereal, gen-z]
 publishedAt: "2026-07-17"
-updatedAt: "2026-10-03"
-lastVerified: "2026-09-28"
+updatedAt: "2026-10-06"
+lastVerified: "2026-10-06"
 serviceUrl: "https://apps.apple.com/jp/app/setlog/id6587576438"
 vendor: "New Chat Inc."
-origin: "KR"
+origin: "US"
 heroTheme: "setlog"
 scores: { product: 4.0, ux: 4.0, tech: 2.5, business: 2.5 }
 techStack:
@@ -30,7 +30,7 @@ techStack:
 sources:
   - label: "setlog official App Store (Japan) listing"
     url: "https://apps.apple.com/jp/app/setlog/id6587576438"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-06"
   - label: "Business Insider Japan: after BeReal comes this — the K-pop-ignited Gen Z app 'Setlog'"
     url: "https://www.businessinsider.jp/article/2606-setlog-kpop-popular-app-vlog-friends-glimpse-real-life/"
     accessedAt: "2026-09-28"
@@ -42,7 +42,7 @@ sources:
     accessedAt: "2026-07-17"
   - label: "DG Daiwa Ventures: investment in New Chat Inc.'s seed round (PR TIMES, 2026-09-09)"
     url: "https://prtimes.jp/main/html/rd/p/000000130.000076641.html"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-06"
 ---
 
 Around the time BeReal started exhausting Gen Z with the anxiety of "post within two minutes or get caught being late," a small app that first caught fire in Korea turned that exact fatigue into a product. setlog made a lighter social network by shooting fewer moments and removing the freedom to edit them.
@@ -63,7 +63,7 @@ Per Impress Watch (June 2026), setlog sends a notification once an hour and user
 The promise of "you don't have to try hard" can't be built by adding features. setlog delivered it instead by taking away the option to filter, edit, or repost.
 :::
 
-Correction (September 28, 2026). The first version of this article described the operator as "a Korean-founded startup with a presence in Seoul and New York," which was wrong. The investor's press release gives New Chat Inc.'s headquarters as New York and its CEO as Devin Doty, who has experience at Tumblr and Snapchat. Korea is the market where setlog first took off, and the Seoul base is based on press reporting (Impress Watch).
+Correction (September 28, 2026). The first version of this article described the operator as "a Korean-founded startup with a presence in Seoul and New York," which was wrong. The investor's press release gives New Chat Inc.'s headquarters as New York and its CEO as Devin Doty, who has experience at Tumblr and Snapchat. Korea is the market where setlog first took off, and the Seoul base is based on press reporting (Impress Watch). On October 6, 2026, we corrected the "Korea's setlog" wording in the title and the operator's country (Korea to the United States) for the same reason.
 
 ::scorecard
 

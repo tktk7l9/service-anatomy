@@ -1,13 +1,13 @@
 ---
 service: "メルカリ"
-title: "How a ¥1.1 Trillion Secondhand Economy Came to Issue Credit Cards — Mercari's Loop of Circulation and Credit"
-description: "Mercari, Japan's largest flea-market app. A dissection of the business turn that converted ¥1,120.9 billion of secondhand GMV into credit data and five million Mercard credit cards, and the four-year engineering history of replacing a PHP monolith with Go microservices — from earnings filings and the official engineering blog."
+title: "How a ¥1.3 Trillion Secondhand Economy Came to Issue Credit Cards — Mercari's Loop of Circulation and Credit"
+description: "Mercari, Japan's largest flea-market app. A dissection of the business turn that converted ¥1,285.6 billion of secondhand GMV (FY ended June 2026) into credit data and five million Mercard credit cards, and the four-year engineering history of replacing a PHP monolith with Go microservices — from earnings filings and the official engineering blog."
 lead: "On August 4, 2022, the PHP monolith known internally as web-2 was shut down — four years after the replacement began in 2018. Meanwhile, secondhand transaction data was converting into credit data, and the flea-market app became a financial operator issuing five million credit cards. This is a dissection of a structure where the circular economy and finance intertwine."
 category: consumer-app
 tags: [marketplace, c2c, fintech, go, kubernetes]
 publishedAt: "2026-07-21"
-updatedAt: "2026-09-28"
-lastVerified: "2026-09-28"
+updatedAt: "2026-10-06"
+lastVerified: "2026-10-06"
 serviceUrl: "https://jp.mercari.com/"
 vendor: "株式会社メルカリ"
 origin: "JP"
@@ -45,7 +45,7 @@ sources:
     accessedAt: "2026-09-28"
   - label: "Mercari fiscal year ending June 2026: earnings report (IFRS, consolidated, 2026-08-05; copy of the TDnet filing)"
     url: "https://finance-frontend-pc-dist.west.edge.storage-yahoo.jp/disclosure/20260805/20260804508114.pdf"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-06"
   - label: "Mercari IR: FY2025.6 Mercari CEO and Shareholder Dialogue (23 million MAU, more than five million Mercards)"
     url: "https://pdf.irpocket.com/C4385/K2Hn/r4i9/eYQn.pdf"
     accessedAt: "2026-09-28"
