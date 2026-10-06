@@ -115,6 +115,9 @@ tech editorial (magazine-style) design.
   Keep the art compact (components.test.tsx checks it). `public/_headers` gives `/_next/static/*`
   an immutable cache: Workers Assets serve those files before the Worker, so next.config headers
   never reach them.
+  `/` renders the default-locale home itself (`src/app/page.tsx`, canonical `/ja`) instead of
+  redirecting: the redirect cost ~0.8s of simulated time and kept `/` (the URL the portal measures)
+  below 90. Do not turn it back into `redirect()`.
 - CI runs `node scripts/audit-gate.mjs` instead of a bare `npm audit`. It fails on any advisory not listed in
   `audit-allowlist.json`. An entry needs a reason and an `expires` date (keep it about a month out), and
   `devOnly: true` stops matching once the package becomes reachable from production dependencies. The gate also
