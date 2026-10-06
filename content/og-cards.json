@@ -367,6 +367,14 @@
     "description": "Netflix (ネットフリックス) で映画やドラマをオンラインでストリーム再生! スマートテレビ、ゲーム機、パソコン、Mac、モバイル機器、タブレットなどでお楽しみいただけます。",
     "fetchedAt": "2026-08-06"
   },
+  "note": {
+    "url": "https://note.com/",
+    "title": "note ――つくる、つながる、とどける。",
+    "description": "クリエイターが文章やマンガ、写真、音声を投稿することができ、ユーザーはそのコンテンツを楽しんで応援できるメディアプラットフォームです。だれもが創作を楽しんで続けられるよう、安心できる雰囲気や、多様性を大切にしています。",
+    "image": "https://assets.st-note.com/poc-image/manual/production/default_top_ogp_202212.png",
+    "siteName": "note（ノート）",
+    "fetchedAt": "2026-10-06"
+  },
   "notion": {
     "url": "https://www.notion.com/",
     "title": "The AI workspace that works for you. | Notion",
