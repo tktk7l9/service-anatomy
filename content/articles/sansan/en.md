@@ -28,22 +28,22 @@ techStack:
     evidence: "The official engineering blog (2026-09-09) states that \"as of September 2026, Sansan uses PostgreSQL 17 for its database.\" It describes a multi-tenant application used by more than 10,000 companies and holding hundreds of millions of business cards, where a view that expands department-level access rights was the bottleneck on the person detail screen"
     evidenceUrl: "https://buildersbox.corp-sansan.com/entry/2026/09/09/130000"
   - layer: "Application (Bill One)"
-    name: "Kotlin + Ktor on Google Cloud Run"
+    name: "Kotlin + Ktor + Google Cloud Run"
     confidence: confirmed
     evidence: "An official engineering blog post (2026-02-04, part of the Bill One team's blog relay) describes its test setup as \"a Ktor application running on Cloud Run\" and says the examples are mostly code running in production. It explains how the team instrumented asynchronous processing with OpenTelemetry"
     evidenceUrl: "https://buildersbox.corp-sansan.com/entry/2026/02/04/100000"
   - layer: "Asynchronous processing (Bill One)"
-    name: "Google Cloud Pub/Sub + Cloud Tasks"
+    name: "Google Cloud Pub/Sub + Google Cloud Tasks"
     confidence: confirmed
     evidence: "The same post explains context propagation in a Ktor + Pub/Sub environment and lists an earlier talk on OpenTelemetry messaging instrumentation with Ktor, Google Cloud Tasks and Pub/Sub"
     evidenceUrl: "https://buildersbox.corp-sansan.com/entry/2026/02/04/100000"
   - layer: "Application (Eight)"
-    name: "Ruby on Rails on AWS (Amazon ECS + Amazon SQS)"
+    name: "Ruby on Rails + Amazon ECS + Amazon SQS (AWS)"
     confidence: confirmed
     evidence: "The official engineering blog (2025-12-20) says Eight has used AWS since its 2012 launch, and that batch and asynchronous jobs once run on EC2 with DelayedJob and whenever were moved to ECS + Active Job + SQS and EventBridge Scheduler + ECS Run Task, with schedules managed in Terraform"
     evidenceUrl: "https://buildersbox.corp-sansan.com/entry/2025/12/20/100000"
   - layer: "Data integration (Sansan Data Hub)"
-    name: "C# + Microsoft Azure (Azure SQL Database Hyperscale / Azure Cosmos DB)"
+    name: "Microsoft Azure (Azure SQL Database Hyperscale / Azure Cosmos DB, C#)"
     confidence: confirmed
     evidence: "An event report on the official engineering blog (2024-08-30) says Sansan Data Hub, the data integration solution, uses Azure SQL Database Hyperscale in some services and stores data integration results as logs in Azure Cosmos DB, and that the team plans more events on C# and Azure"
     evidenceUrl: "https://buildersbox.corp-sansan.com/entry/2024/08/30/143000"

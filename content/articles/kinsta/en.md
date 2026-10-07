@@ -56,7 +56,7 @@ techStack:
     evidence: "The official changelog entry \"Introducing the New Affiliate Dashboard\" (updated 2026-06-12) says Kinsta built its affiliate system from the ground up instead of using an outside service, and that the new version moved to Next.js, fully strict TypeScript, SQL instead of NoSQL, and Apollo GraphQL"
     evidenceUrl: "https://kinsta.com/changelog/new-affiliate-dashboard/"
   - layer: "Own website"
-    name: "WordPress on Kinsta behind Cloudflare (kinsta.com)"
+    name: "WordPress + Cloudflare (kinsta.com itself, hosted on Kinsta)"
     confidence: likely
     evidence: "This site's own observation (2026-10-07) found kinsta.com and kinsta.com/jp/ returning server: cloudflare and x-kinsta-cache: HIT, with images under /wp-content/uploads/. The separate brand's sevalla.com returned x-powered-by: sevalla"
 sources:

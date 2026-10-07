@@ -56,7 +56,7 @@ techStack:
     evidence: "公式の更新情報「Introducing the New Affiliate Dashboard」（2026-06-12更新）に、アフィリエイトの仕組みを外部のサービスを使わずに自社で作り、新版ではNext.jsへの移行、厳格なTypeScript、NoSQLからSQLへの移行、Apollo GraphQLを採用したと明記"
     evidenceUrl: "https://kinsta.com/changelog/new-affiliate-dashboard/"
   - layer: "自社サイト"
-    name: "WordPress on Kinsta behind Cloudflare (kinsta.com)"
+    name: "WordPress + Cloudflare (kinsta.com itself, hosted on Kinsta)"
     confidence: likely
     evidence: "当サイトの実観測（2026-10-07）で、kinsta.com と kinsta.com/jp/ は server: cloudflare と x-kinsta-cache: HIT を返し、画像は /wp-content/uploads/ 以下に置かれていた。別ブランドの sevalla.com は x-powered-by: sevalla を返した"
 sources:

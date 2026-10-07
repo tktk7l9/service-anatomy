@@ -28,22 +28,22 @@ techStack:
     evidence: "公式技術ブログ（2026-09-09）に「2026年9月現在、SansanはDBにPostgreSQL 17を使用しています」と明記。1万社以上が使い、数億件規模の名刺を扱うマルチテナントのアプリケーションで、部署単位のアクセス権限を展開するビューが人物詳細画面のボトルネックだったと説明している"
     evidenceUrl: "https://buildersbox.corp-sansan.com/entry/2026/09/09/130000"
   - layer: "アプリケーション（Bill One）"
-    name: "Kotlin + Ktor on Google Cloud Run"
+    name: "Kotlin + Ktor + Google Cloud Run"
     confidence: confirmed
     evidence: "公式技術ブログ（2026-02-04、Bill One開発Unitのブログリレー）が、検証環境を「Cloud Runで稼働するKtorのアプリケーション」とし、基本的に本番環境で動作しているコードを例にすると明記。OpenTelemetryで非同期処理を計装した知見を説明している"
     evidenceUrl: "https://buildersbox.corp-sansan.com/entry/2026/02/04/100000"
   - layer: "非同期処理（Bill One）"
-    name: "Google Cloud Pub/Sub + Cloud Tasks"
+    name: "Google Cloud Pub/Sub + Google Cloud Tasks"
     confidence: confirmed
     evidence: "同じ記事が、Ktor + Pub/Sub環境でのコンテキスト伝搬を解説し、過去の登壇として「Ktor + Google Cloud Tasks/PubSub におけるOTel Messaging計装の実践」を挙げている"
     evidenceUrl: "https://buildersbox.corp-sansan.com/entry/2026/02/04/100000"
   - layer: "アプリケーション（Eight）"
-    name: "Ruby on Rails on AWS (Amazon ECS + Amazon SQS)"
+    name: "Ruby on Rails + Amazon ECS + Amazon SQS (AWS)"
     confidence: confirmed
     evidence: "公式技術ブログ（2025-12-20）に、Eightは2012年のローンチから長らくAWSを使い、EC2上のDelayedJobやwheneverで動かしていたバッチと非同期ジョブを、ECS + Active Job + SQSとEventBridge Scheduler + ECS Run Taskに移し、スケジュール定義をTerraformで管理するようにしたと明記"
     evidenceUrl: "https://buildersbox.corp-sansan.com/entry/2025/12/20/100000"
   - layer: "データ連携（Sansan Data Hub）"
-    name: "C# + Microsoft Azure (Azure SQL Database Hyperscale / Azure Cosmos DB)"
+    name: "Microsoft Azure (Azure SQL Database Hyperscale / Azure Cosmos DB, C#)"
     confidence: confirmed
     evidence: "公式技術ブログ（2024-08-30）のイベントレポートに、データ連携ソリューションのSansan Data Hubが一部サービスでAzure SQL Database Hyperscaleを使い、データ連携の結果をAzure Cosmos DBにログとして保存していると明記。今後もC#やAzureに関連したイベントを開催するとも書いている"
     evidenceUrl: "https://buildersbox.corp-sansan.com/entry/2024/08/30/143000"
