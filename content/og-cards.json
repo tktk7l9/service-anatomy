@@ -492,6 +492,14 @@
     "siteName": "さくらのレンタルサーバ",
     "fetchedAt": "2026-10-06"
   },
+  "sansan": {
+    "url": "https://jp.sansan.com/",
+    "title": "Sansan（営業AXサービス）",
+    "description": "Sansanは、名刺や企業情報、営業履歴を一元管理して全社で共有できるようにすることで、売上拡大とコスト削減を同時に実現する営業AXサービスです。",
+    "image": "https://jp.sansan.com/og-image.jpg",
+    "siteName": "Sansan（営業AXサービス）",
+    "fetchedAt": "2026-10-07"
+  },
   "sbi-securities": {
     "url": "https://www.sbisec.co.jp/",
     "title": "SBI証券｜株・FX・投資信託・確定拠出年金・NISA",
