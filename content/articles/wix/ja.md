@@ -6,8 +6,8 @@ lead: "2025年6月、ノーコードの代名詞だったWixは、1人で創業�
 category: saas
 tags: [website-builder, no-code, e-commerce, ai, kafka]
 publishedAt: "2026-09-28"
-updatedAt: "2026-09-28"
-lastVerified: "2026-09-28"
+updatedAt: "2026-10-07"
+lastVerified: "2026-10-07"
 serviceUrl: "https://www.wix.com/"
 # Affiliate link placeholder: the owner must register with the Wix Affiliate Program
 # (via Impact, https://www.wix.com/about/affiliates) before enabling this block.
@@ -58,18 +58,27 @@ sources:
   - label: "SEC Form 6-K（Wix.com Ltd.・2025年第4四半期および通期決算・2026-03-04）"
     url: "https://www.sec.gov/Archives/edgar/data/1576789/000162828026014406/fourthquarterandfullyear20.htm"
     accessedAt: "2026-09-28"
+  - label: "Wix: Wix Reports Second Quarter 2026 Results（2026-08-04）"
+    url: "https://4f4a3186-9467-4c09-aa74-51fe1affec20.usrfiles.com/ugd/4f4a31_8c5aa627b16e4a029c0878698fee9ef6.pdf"
+    accessedAt: "2026-10-07"
+  - label: "Wix: Q2'26 Shareholder Update（2026-08-04）"
+    url: "https://4f4a3186-9467-4c09-aa74-51fe1affec20.usrfiles.com/ugd/4f4a31_25423fea2d224a4e8411d94a174adde2.pdf"
+    accessedAt: "2026-10-07"
+  - label: "Wix: Company Overview Second Quarter 2026（決算説明スライド）"
+    url: "https://4f4a3186-9467-4c09-aa74-51fe1affec20.usrfiles.com/ugd/4f4a31_baae91878ea74a109661f4f9202295b6.pdf"
+    accessedAt: "2026-10-07"
   - label: "TechCrunch: 創業6ヶ月・1人所有のBase44がWixに8,000万ドルで売却（2025-06-18）"
     url: "https://techcrunch.com/2025/06/18/6-month-old-solo-owned-vibe-coder-base44-sells-to-wix-for-80m-cash/"
     accessedAt: "2026-09-28"
   - label: "Wix公式プレスルーム: Base44の買収（2025-06-18）"
     url: "https://www.wix.com/press-room/home/post/wix-further-expands-into-vibe-coding-with-acquisition-of-base44-a-hyper-growth-startup-that-simplif"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-07"
   - label: "Wix公式プレスルーム: Wix Harmonyの発表（2026-01-21）"
     url: "https://www.wix.com/press-room/home/post/wix-launches-wix-harmony-the-ai-website-builder-that-merges-human-and-artificial-intelligence-rein"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-07"
   - label: "Wix公式: Site Reliability（マルチクラウドとCDN）"
     url: "https://www.wix.com/site-reliability"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-07"
   - label: "Wix公式エンジニアリングブログ: Kafka費用を30%削減したプッシュ型コンシューマープロキシ（2025-02）"
     url: "https://www.wix.engineering/post/from-bottleneck-to-breakthrough-how-wix-cut-kafka-costs-by-30-with-a-push-based-consumer-proxy"
     accessedAt: "2026-09-28"
@@ -87,7 +96,7 @@ sources:
     accessedAt: "2026-09-28"
   - label: "Wix公式: About Wix（創業年・本社）"
     url: "https://www.wix.com/about/us"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-07"
   - label: "Wix公式: Wix Affiliate Program"
     url: "https://www.wix.com/about/affiliates"
     accessedAt: "2026-09-28"
@@ -143,7 +152,15 @@ WixのUXは「何も知らない人が、今日中に公開できる」ことに
 Wixの収益は、サイトの有料プラン（Creative Subscriptions）と、決済・EC・配送などの業務機能（Business Solutions）の二本柱だ。
 
 :::fact
-SEC提出書類によれば、2025年の売上19.9億ドルのうち、Creative Subscriptionsが14.1億ドル（前年比11%増）、Business Solutionsが5.83億ドル（同18%増）。Business Solutionsのうち、主にWix Paymentsによる取引収益は2.55億ドル（同19%増）だった。他人のサイトやアプリを作る制作会社・フリーランスと、LegalZoomやVistaprintのようなB2Bの再販パートナーを経由した売上（Partners revenue）は7.50億ドルで、前年比23%増と全社を上回る伸びだった。フリーキャッシュフローは5.73億ドルで、買収関連費用を除くと6.05億ドル（売上の30%）になる。2026年はブッキング・売上ともに10%台半ばの成長を見込む。
+SEC提出書類によれば、2025年の売上19.9億ドルのうち、Creative Subscriptionsが14.1億ドル（前年比11%増）、Business Solutionsが5.83億ドル（同18%増）。Business Solutionsのうち、主にWix Paymentsによる取引収益は2.55億ドル（同19%増）だった。他人のサイトやアプリを作る制作会社・フリーランスと、LegalZoomやVistaprintのようなB2Bの再販パートナーを経由した売上（Partners revenue）は7.50億ドルで、前年比23%増と全社を上回る伸びだった。フリーキャッシュフローは5.73億ドルで、買収関連費用を除くと6.05億ドル（売上の30%）になる。2026年3月の時点では、2026年のブッキング・売上ともに10%台半ばの成長を見込んでいた。
+:::
+
+:::fact
+2026年8月4日の第2四半期決算の発表と株主向けの資料によれば、2026年4〜6月期の売上は5億6,310万ドル（前年同期比+15%）、期末のARRは19億6,300万ドル（同+15%）で、Creative Subscriptionsが3億9,840万ドル（同+15%）、Business Solutionsが1億6,470万ドル（同+14%）、パートナー経由の売上が2億1,380万ドル（同+17%）だった。決算説明のスライドによれば、Base44のARRは2026年3月上旬に1億ドル、5月上旬に1億5,000万ドルに達した。6月下旬には、オープンソースのLLMを土台にBase44のデータで学習させた自社のLLM「Base 1」を投入し、年初にほぼゼロだったBase44の非GAAPの売上総利益率が下半期に約60%になると見込む。Base44への広告投資で非GAAPの販売・マーケティング費は前年同期比67%増え、GAAPでは7,640万ドルの純損失だった。6月上旬の組織の再編で、従業員は前四半期から906人減って4,371人になり、登録ユーザーは約3億1,700万人。通期の見通しは6月に改め、売上は前年比10%台前半〜半ば、ブッキングはパートナー経由の弱さから10%台前半の成長とした。
+:::
+
+:::guess
+2026年のWixは、Base44の伸びを広告で買い、その推論の費用を自社のLLMで下げにいく段階に入ったとみられる。売上は15%伸びても、広告費と無料の利用者の推論の費用が利益を押し下げ、組織の再編で人員を2割近く減らした。自社のモデルで原価を下げ、浮いた分をBase44の広告に回すという決算の説明は、AIでアプリを作る市場で、価格より速さで取りにいく判断と読める。
 :::
 
 :::guess
