@@ -562,6 +562,14 @@
     "siteName": "Square",
     "fetchedAt": "2026-09-30"
   },
+  "squarespace": {
+    "url": "https://www.squarespace.com/",
+    "title": "Website Builder – Easily Create Your Own Website — Squarespace",
+    "description": "Create a website and grow your business with a free Squarespace trial. Start with customizable website templates, AI website builder tools, or a domain name.",
+    "image": "https://images.squarespace-cdn.com/content/5134cbefe4b0c6fb04df8065/15a6ba26-81a8-4544-8484-be6c97b8546e/Thumbnail.png?content-type=image%2Fpng",
+    "siteName": "Squarespace",
+    "fetchedAt": "2026-10-07"
+  },
   "stores": {
     "url": "https://stores.fun/",
     "title": "売れるお店をつくる、店舗運営プラットフォーム｜STORES（ストアーズ）",
