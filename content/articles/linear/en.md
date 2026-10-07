@@ -6,8 +6,8 @@ lead: "Issue trackers are slow and heavy — Linear was built as a rebellion aga
 category: dev-tool
 tags: [project-management, local-first, sync-engine, graphql, saas]
 publishedAt: "2026-07-17"
-updatedAt: "2026-10-03"
-lastVerified: "2026-09-28"
+updatedAt: "2026-10-07"
+lastVerified: "2026-10-07"
 serviceUrl: "https://linear.app/"
 vendor: "Linear"
 origin: "US"
@@ -36,23 +36,42 @@ techStack:
     evidenceUrl: "https://linear.app/developers"
   - layer: "Database"
     name: "PostgreSQL"
-    confidence: likely
-    evidence: "The CTO-endorsed documentation and multiple technical write-ups describe the sync server tailing Postgres's replication log"
-    evidenceUrl: "https://github.com/wzhudev/reverse-linear-sync-engine"
+    confidence: confirmed
+    evidence: "Linear's official post \"Rebuilding Linear's delta sync read path\" (2026-08-18) states that client-facing changes (sync actions) are committed and retained in Postgres as an append-only log per workspace, and that delta sync reads were previously served from a Postgres table as well"
+    evidenceUrl: "https://linear.app/now/rebuilding-delta-sync-read-path"
+  - layer: "Delta sync read path"
+    name: "turbopuffer (inverted-index read path, fed by CDC from a Postgres publication)"
+    confidence: confirmed
+    evidence: "The same post states that permission-aware delta sync queries over more than 20 TB of sync actions were moved to turbopuffer's inverted indexes, fed by a custom change-data-capture pipeline from a Postgres publication (about one second of lag at p50), with Postgres still serving the most recent slice"
+    evidenceUrl: "https://linear.app/now/rebuilding-delta-sync-read-path"
+  - layer: "Frontend"
+    name: "React + StyleX (migrated from styled-components)"
+    confidence: confirmed
+    evidence: "Linear's official post \"Styling Linear for the future with StyleX\" (2026-08-26) states that more than 1,000 pull requests moved Linear's React applications from styled-components to Meta's StyleX"
+    evidenceUrl: "https://linear.app/now/styling-linear-for-the-future-stylex"
   - layer: "Delivery / platform"
     name: "Cloudflare + Google Cloud"
     confidence: likely
-    evidence: "Our HTTP header observation (server: cloudflare / via: 1.1 google, 2026-07-17); no official documentation found"
+    evidence: "Our HTTP header observation (server: cloudflare / via: 1.1 google, 2026-07-17 and 2026-10-07); no official documentation found"
 sources:
   - label: "Linear official blog: Building our way — the Series C announcement (2025-06)"
     url: "https://linear.app/now/building-our-way"
     accessedAt: "2026-09-28"
   - label: "Linear official blog: Sharing Linear's growth with the people building it (2026-08-26; tender offer at a $2.5B valuation, 40,000+ paying companies, $100M+ ARR)"
     url: "https://linear.app/now/sharing-growth-with-the-people-building-linear"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-07"
   - label: "Linear official: Pricing (Free/Basic/Business/Enterprise)"
     url: "https://linear.app/pricing"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-07"
+  - label: "Linear Docs: AI Credits"
+    url: "https://linear.app/docs/ai-credits"
+    accessedAt: "2026-10-07"
+  - label: "Linear official blog: Rebuilding Linear's delta sync read path (2026-08-18)"
+    url: "https://linear.app/now/rebuilding-delta-sync-read-path"
+    accessedAt: "2026-10-07"
+  - label: "Linear official blog: Styling Linear for the future with StyleX (2026-08-26)"
+    url: "https://linear.app/now/styling-linear-for-the-future-stylex"
+    accessedAt: "2026-10-07"
   - label: "The Linear Method (official product philosophy document)"
     url: "https://linear.app/method"
     accessedAt: "2026-07-17"
@@ -100,8 +119,12 @@ Linear's UX can be explained through three things: speed, keyboard, opinion.
 Per the reverse-engineering documentation that Linear CTO Tuomas Artman endorsed as "probably the best documentation that exists," the client makes its models reactive with MobX and persists them to IndexedDB. Changes queue as transactions and are sent to the server, which establishes total order with a monotonically increasing sync id and broadcasts delta packets to all clients over WebSocket. It is an OT-style design — a central server decides ordering, not CRDTs — and offline changes are cached as transactions to submit later. The public API is officially GraphQL.
 :::
 
+:::fact
+According to Linear's official blog (2026-08-18), every change is recorded as a "sync action" in an append-only, ordered log per workspace, which clients replay into their local databases. A client coming back online sends the ID of the last change it applied and receives only what changed since (delta sync). The largest workspaces produce close to one million sync actions a day, and the total exceeds 20 TB. Delta sync reads used to be served from a dedicated Postgres table, but intersecting permissions and subscriptions drove up CPU and made tail latency volatile, so Linear moved the read path to turbopuffer's inverted indexes. A custom change-data-capture pipeline streams metadata from a Postgres publication (about one second of lag at p50); Postgres serves the most recent slice that may not have arrived yet, and the two results are merged and deduplicated. The post concludes that storing a change log and serving it are different problems, and that Postgres is the right place to commit and retain the client-facing log. According to a post of August 26, 2026, Linear's React applications moved from styled-components to Meta's StyleX over more than 1,000 pull requests.
+:::
+
 :::guess
-Our observation shows Google's load balancer (via: 1.1 google) behind Cloudflare, suggesting Google Cloud as the production platform. The documented design has the sync server tailing Postgres's replication log — a pragmatic build that repurposes the database's change stream as delivery infrastructure rather than duplicating state. Avoiding CRDTs looks like a domain judgment call: in issue tracking, concurrent-edit conflicts are rare enough that server ordering suffices.
+Our observation shows Google's load balancer (via: 1.1 google) behind Cloudflare, suggesting Google Cloud as the production platform. The 2026 posts show Postgres kept as the source of truth for the change log while only the heavy reads move to a dedicated index — a pragmatic build that uses the log as delivery infrastructure rather than duplicating application state. Avoiding CRDTs looks like a domain judgment call: in issue tracking, concurrent-edit conflicts are rare enough that server ordering suffices.
 :::
 
 ## Business model
@@ -109,7 +132,7 @@ Our observation shows Google's load balancer (via: 1.1 google) behind Cloudflare
 Linear's revenue is seat-based SaaS with a free tier — standard product-led growth.
 
 :::fact
-A free plan exists, with paid tiers stepping up by team size and features. The official pricing page (checked September 28, 2026) lists four tiers: Free, Basic ($10 per user per month, billed yearly), Business ($16), and Enterprise (custom). The August 2026 official post also states agents are installed across 95% of paid workspaces. The Series C announcement emphasized investment in AI-era product development (such as agents processing issues), and the customer list is dense with fast-growing AI companies.
+A free plan exists, with paid tiers stepping up by team size and features. The official pricing page (checked October 7, 2026) lists four tiers: Free (unlimited members, 2 teams, up to 250 issues), Basic ($10 per user per month, billed yearly), Business ($16), and Enterprise (custom). Coding sessions, which have the agent write code, and Loops, which run recurring work, draw on separate "AI credits." According to the official documentation, AI credits are a prepaid, workspace-level balance: coding sessions pay for model tokens at provider-published rates with no markup plus $0.25 per 20-minute block of sandbox runtime, and a typical Loop run costs $0.07–$0.20. Workspaces that never add funds cannot use these features and are never charged for them. The August 2026 official post also states that agents are installed across 95% of paid workspaces, that the share of work agents create grew from 3% a year earlier to 50%, and that net revenue retention reached 177%. The Series C announcement emphasized investment in AI-era product development (such as agents processing issues), and the customer list is dense with fast-growing AI companies.
 :::
 
 :::guess

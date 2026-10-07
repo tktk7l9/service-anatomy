@@ -6,8 +6,8 @@ lead: "課題管理ツールは遅くて重い——その業界常識への反�
 category: dev-tool
 tags: [project-management, local-first, sync-engine, graphql, saas]
 publishedAt: "2026-07-17"
-updatedAt: "2026-10-03"
-lastVerified: "2026-09-28"
+updatedAt: "2026-10-07"
+lastVerified: "2026-10-07"
 serviceUrl: "https://linear.app/"
 vendor: "Linear"
 origin: "US"
@@ -36,23 +36,42 @@ techStack:
     evidenceUrl: "https://linear.app/developers"
   - layer: "データベース"
     name: "PostgreSQL"
-    confidence: likely
-    evidence: "CTO公認のリバースエンジニアリング文書と複数の技術解説で、同期サーバーがPostgresのレプリケーションログを追跡する構成として言及"
-    evidenceUrl: "https://github.com/wzhudev/reverse-linear-sync-engine"
+    confidence: confirmed
+    evidence: "Linear公式ブログ「Rebuilding Linear's delta sync read path」（2026-08-18）に、クライアント向けの変更の記録（sync action）をワークスペースごとの追記専用のログとしてPostgresにコミットして保持し、以前は差分同期の読み出しにもPostgresのテーブルを使っていたと明記"
+    evidenceUrl: "https://linear.app/now/rebuilding-delta-sync-read-path"
+  - layer: "差分同期の読み出し"
+    name: "turbopuffer (inverted-index read path, fed by CDC from a Postgres publication)"
+    confidence: confirmed
+    evidence: "同じ記事に、20TBを超えるsync actionに対する権限つきの差分同期の問い合わせを、転置インデックスを持つturbopufferで処理するよう作り替え、Postgresのpublicationからの独自の変更データキャプチャで反映し（遅延はp50で約1秒）、最新の部分はPostgresが返すと明記"
+    evidenceUrl: "https://linear.app/now/rebuilding-delta-sync-read-path"
+  - layer: "フロントエンド"
+    name: "React + StyleX (migrated from styled-components)"
+    confidence: confirmed
+    evidence: "Linear公式ブログ「Styling Linear for the future with StyleX」（2026-08-26）に、1,000を超えるプルリクエストでLinearのReactアプリケーションをstyled-componentsからMeta製のStyleXに移したと明記"
+    evidenceUrl: "https://linear.app/now/styling-linear-for-the-future-stylex"
   - layer: "配信/基盤"
     name: "Cloudflare + Google Cloud"
     confidence: likely
-    evidence: "当サイトのHTTPヘッダー実観測（server: cloudflare / via: 1.1 google、2026-07-17）。公式ドキュメントでの明言は見当たらない"
+    evidence: "当サイトのHTTPヘッダー実観測（server: cloudflare / via: 1.1 google、2026-07-17と2026-10-07）。公式ドキュメントでの明言は見当たらない"
 sources:
   - label: "Linear公式ブログ: Building our way — シリーズC発表（2025-06）"
     url: "https://linear.app/now/building-our-way"
     accessedAt: "2026-09-28"
   - label: "Linear公式ブログ: Sharing Linear's growth with the people building it（2026-08-26・評価額25億ドルのテンダーオファー・有料4万社超・ARR1億ドル超）"
     url: "https://linear.app/now/sharing-growth-with-the-people-building-linear"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-07"
   - label: "Linear公式: Pricing（Free/Basic/Business/Enterprise）"
     url: "https://linear.app/pricing"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-07"
+  - label: "Linear Docs: AI Credits"
+    url: "https://linear.app/docs/ai-credits"
+    accessedAt: "2026-10-07"
+  - label: "Linear公式ブログ: Rebuilding Linear's delta sync read path（2026-08-18）"
+    url: "https://linear.app/now/rebuilding-delta-sync-read-path"
+    accessedAt: "2026-10-07"
+  - label: "Linear公式ブログ: Styling Linear for the future with StyleX（2026-08-26）"
+    url: "https://linear.app/now/styling-linear-for-the-future-stylex"
+    accessedAt: "2026-10-07"
   - label: "Linear Method（公式・プロダクト思想の文書）"
     url: "https://linear.app/method"
     accessedAt: "2026-07-17"
@@ -100,8 +119,12 @@ LinearのUXは、速度・キーボード・意見の3点で説明できる。
 LinearのCTO Tuomas Artman氏が「おそらく存在する中で最良の文書」と公認したリバースエンジニアリング解説によれば、クライアントはモデルをMobXでリアクティブ化し、IndexedDBに永続化する。変更はトランザクションとしてキューされサーバーに送られ、サーバーは単調増加するsync idで全順序を確定し、差分（デルタパケット）をWebSocketで全クライアントへ配信する。CRDTではなく中央サーバーが順序を決めるOT系の設計で、オフライン時はトランザクションを溜めて後で送る。公開APIは公式にGraphQLだ。
 :::
 
+:::fact
+Linearの公式ブログ（2026-08-18）によれば、変更はすべて「sync action」として、ワークスペースごとの追記専用のログに順番に記録され、クライアントはこれを手元のデータベースに再生する。オフラインから戻ったクライアントは最後に適用したIDを送り、その後の差分だけを受け取る（差分同期）。最大級のワークスペースは1日に100万件近いsync actionを生み、全体では20TBを超える。差分同期の読み出しは以前Postgresの専用テーブルで処理していたが、権限と購読の条件を突き合わせる処理でCPUが増え、遅延の裾が不安定になったため、転置インデックスを持つturbopufferに読み出しを移した。Postgresのpublicationから独自の変更データキャプチャでメタデータを流し込み（反映の遅れはp50で約1秒）、まだ反映されていない最新の部分はPostgresが返し、両者を重ねて重複を除く。記事は、変更のログを保存することと配ることは別の問題で、Postgresはクライアント向けのログを保存する場所として正しいと結んでいる。2026年8月26日の記事によれば、LinearのReactアプリケーションは、1,000を超えるプルリクエストをかけてstyled-componentsからMeta製のStyleXへ移った。
+:::
+
 :::guess
-当サイトの観測ではCloudflareの背後にGoogleのロードバランサ（via: 1.1 google）が見えるため、本番基盤はGoogle Cloudとみられる。同期サーバーはPostgresのレプリケーションログを追う構成が解説されており、「アプリのDBを二重化せず、DBの変更ストリームを配信インフラに転用する」堅実な作りと推測される。CRDTを避けた判断は、課題管理では同時編集の衝突が稀でサーバー順序で十分という、ドメインを見切った割り切りだろう。
+当サイトの観測ではCloudflareの背後にGoogleのロードバランサ（via: 1.1 google）が見えるため、本番基盤はGoogle Cloudとみられる。2026年の公式記事は、Postgresを変更のログの正本に据えたまま、重い読み出しだけを専用のインデックスに逃がす作り方を示しており、アプリのDBを二重化せずにログを配信の基盤に使う堅実な設計と推測される。CRDTを避けた判断は、課題管理では同時編集の衝突が稀でサーバー順序で十分という、ドメインを見切った割り切りだろう。
 :::
 
 ## ビジネスモデル
@@ -109,7 +132,7 @@ LinearのCTO Tuomas Artman氏が「おそらく存在する中で最良の文書
 Linearの収益はシート課金のSaaSで、無料枠から有料プランへ引き上げる標準的なPLG（プロダクト主導成長）だ。
 
 :::fact
-無料プランがあり、有料はチーム規模と機能で段階的に上がる。公式の料金ページ（2026年9月28日確認）では、Free・Basic（年払いで1ユーザー月10ドル）・Business（同16ドル）・Enterprise（個別見積もり）の4段階だ。2026年8月の公式ブログは、有料ワークスペースの95%にエージェントが導入されているとも述べている。シリーズC発表では、AI時代の製品開発（エージェントによるイシュー処理など）への投資が語られ、顧客リストには急成長AI企業が並ぶ。
+無料プランがあり、有料はチーム規模と機能で段階的に上がる。公式の料金ページ（2026年10月7日確認）では、Free（メンバー無制限・2チーム・課題250件まで）・Basic（年払いで1ユーザー月10ドル）・Business（同16ドル）・Enterprise（個別見積もり）の4段階だ。コードを書かせるCoding sessionsと、定期的な作業を任せるLoopsは別に「AIクレジット」を使う。公式ドキュメントによれば、AIクレジットはワークスペースで共有する前払いの残高で、Coding sessionsはモデルのトークン代を提供元の公表価格のまま上乗せなしで払い、サンドボックスの実行時間は20分ごとに0.25ドル、Loopsは1回あたり0.07〜0.20ドル程度。残高を入れなければこれらの機能は使えず、課金もされない。2026年8月の公式ブログは、有料ワークスペースの95%にエージェントが導入され、エージェントが作る作業の割合が1年前の3%から50%に増え、売上の継続率（NRR）が177%だと述べている。シリーズC発表では、AI時代の製品開発（エージェントによるイシュー処理など）への投資が語られ、顧客リストには急成長AI企業が並ぶ。
 :::
 
 :::guess

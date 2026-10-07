@@ -246,6 +246,14 @@
     "siteName": "Hostinger",
     "fetchedAt": "2026-09-30"
   },
+  "jira": {
+    "url": "https://www.atlassian.com/software/jira",
+    "title": "Jira: Project Management for the AI Era",
+    "description": "Elevate your team's productivity with Jira. AI agents orchestrate, plan, and track projects at scale — project management for the AI era.",
+    "image": "https://dam-cdn.atl.orangelogic.com/AssetLink/0qw2hr437x574ovc7721dy64614yooac.png",
+    "siteName": "Atlassian",
+    "fetchedAt": "2026-10-06"
+  },
   "klarna": {
     "url": "https://www.klarna.com/",
     "title": "Klarnaをビジネスに | Klarna Japan",
@@ -399,6 +407,14 @@
     "siteName": "Obsidian",
     "fetchedAt": "2026-08-06"
   },
+  "paypay": {
+    "url": "https://paypay.ne.jp/",
+    "title": "PayPay - QRコードで支払うキャッシュレス決済のスマホアプリ",
+    "description": "PayPayは、スマホひとつでカンタン・おトクにお支払いができるアプリです。最短1分で登録完了！街のお店をはじめ、ネットサービスや請求書のお支払いなどにもご使用いただけます。",
+    "image": "https://paypay.ne.jp/uploads/top/bnr_ogp_17.png",
+    "siteName": "PayPay",
+    "fetchedAt": "2026-10-06"
+  },
   "perplexity": {
     "url": "https://www.perplexity.ai/",
     "title": "Perplexity",
@@ -467,6 +483,14 @@
     "image": "https://replit.com/public/images/opengraph_rebrand.jpg",
     "siteName": "replit",
     "fetchedAt": "2026-09-29"
+  },
+  "sakura-rental-server": {
+    "url": "https://rs.sakura.ad.jp/",
+    "title": "さくらのレンタルサーバ | 高速・安定WordPressなら！無料2週間お試し",
+    "description": "国内最速級のレンタルサーバーで高速・安定したWordPressサイト運用を実現。無料CDNや自動バックアップ完備で安心。初心者からプロまで使いやすい高性能サーバーを提供し、無料電話サポートで皆様に安心してお使いいただけます。",
+    "image": "https://rs.sakura.ad.jp/images/ogp.png",
+    "siteName": "さくらのレンタルサーバ",
+    "fetchedAt": "2026-10-06"
   },
   "sbi-securities": {
     "url": "https://www.sbisec.co.jp/",
