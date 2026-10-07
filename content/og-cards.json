@@ -254,6 +254,14 @@
     "siteName": "Atlassian",
     "fetchedAt": "2026-10-06"
   },
+  "kinsta": {
+    "url": "https://kinsta.com/",
+    "title": "Kinsta® - Simply better hosting for WordPress",
+    "description": "Voted #1 WordPress Hosting Provider on G2. Enterprise-grade speed, security, and support. See what sets us apart with your first month free.",
+    "image": "https://kinsta.com/wp-content/uploads/2025/08/Kinsta-homepage-featured-image.jpg",
+    "siteName": "Kinsta®",
+    "fetchedAt": "2026-10-07"
+  },
   "klarna": {
     "url": "https://www.klarna.com/",
     "title": "Klarnaをビジネスに | Klarna Japan",
@@ -492,6 +500,14 @@
     "siteName": "さくらのレンタルサーバ",
     "fetchedAt": "2026-10-06"
   },
+  "sansan": {
+    "url": "https://jp.sansan.com/",
+    "title": "Sansan（営業AXサービス）",
+    "description": "Sansanは、名刺や企業情報、営業履歴を一元管理して全社で共有できるようにすることで、売上拡大とコスト削減を同時に実現する営業AXサービスです。",
+    "image": "https://jp.sansan.com/og-image.jpg",
+    "siteName": "Sansan（営業AXサービス）",
+    "fetchedAt": "2026-10-07"
+  },
   "sbi-securities": {
     "url": "https://www.sbisec.co.jp/",
     "title": "SBI証券｜株・FX・投資信託・確定拠出年金・NISA",
@@ -553,6 +569,14 @@
     "image": "https://images.ctfassets.net/2d5q1td6cyxq/jrWlRHtzUuN9qPX7CEGuY/2c5ece49c697c5da6242ff00b86c3263/PD05450_-_USEN_hp_social_share.png?w=1200&h=630&fit=thumb&fm=jpg&q=90",
     "siteName": "Square",
     "fetchedAt": "2026-09-30"
+  },
+  "squarespace": {
+    "url": "https://www.squarespace.com/",
+    "title": "Website Builder – Easily Create Your Own Website — Squarespace",
+    "description": "Create a website and grow your business with a free Squarespace trial. Start with customizable website templates, AI website builder tools, or a domain name.",
+    "image": "https://images.squarespace-cdn.com/content/5134cbefe4b0c6fb04df8065/15a6ba26-81a8-4544-8484-be6c97b8546e/Thumbnail.png?content-type=image%2Fpng",
+    "siteName": "Squarespace",
+    "fetchedAt": "2026-10-07"
   },
   "stores": {
     "url": "https://stores.fun/",

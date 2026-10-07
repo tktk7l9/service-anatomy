@@ -12,14 +12,57 @@ const ROOT = path.join(process.cwd(), "content", "articles");
 const UA =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36 ServiceAnatomyBot/1.0 (+https://service-anatomy.vercel.app)";
 
+const NAMED_ENTITIES = {
+  amp: "&",
+  lt: "<",
+  gt: ">",
+  quot: '"',
+  apos: "'",
+  nbsp: " ",
+  ndash: "–",
+  mdash: "—",
+  hellip: "…",
+  lsquo: "‘",
+  rsquo: "’",
+  ldquo: "“",
+  rdquo: "”",
+};
+
+// One pass, so "&amp;lt;" becomes "&lt;" rather than "<". Numeric references (&#8212; / &#x2014;)
+// and the named ones above are decoded; anything else is left as written.
 function decodeEntities(value) {
-  return value
-    .replaceAll("&amp;", "&")
-    .replaceAll("&lt;", "<")
-    .replaceAll("&gt;", ">")
-    .replaceAll("&quot;", '"')
-    .replaceAll("&#39;", "'")
-    .replaceAll("&#x27;", "'");
+  return value.replace(/&(#x[0-9a-f]+|#[0-9]+|[a-z]+);/gi, (entity, body) => {
+    if (body.startsWith("#")) {
+      const hex = body[1] === "x" || body[1] === "X";
+      const code = Number.parseInt(body.slice(hex ? 2 : 1), hex ? 16 : 10);
+      return code > 0 && code <= 0x10ffff ? String.fromCodePoint(code) : entity;
+    }
+    return NAMED_ENTITIES[body.toLowerCase()] ?? entity;
+  });
+}
+
+// An http:// og:image on an https:// page would be mixed content, and the site drops non-https
+// images anyway (src/engine/articles/og-cards.ts), so ask for the same image over https.
+// check-links reports the URL as dead if the host does not serve it over https.
+// Some image URLs redirect to another host (Squarespace's static1 host answers 301 to its CDN).
+// The CSP img-src is checked against every hop, so store the final URL and allow its origin.
+async function resolveImage(image, pageUrl) {
+  const url = new URL(image, pageUrl);
+  if (url.protocol === "http:" && new URL(pageUrl).protocol === "https:") {
+    url.protocol = "https:";
+  }
+  try {
+    const res = await fetch(url, {
+      method: "HEAD",
+      headers: { "user-agent": UA },
+      redirect: "follow",
+      signal: AbortSignal.timeout(15000),
+    });
+    if (res.ok && res.url.startsWith("https://")) return res.url;
+  } catch {
+    // Keep the URL as written; check-links will report it if it is really broken.
+  }
+  return url.toString();
 }
 
 function extractMeta(html, key) {
@@ -51,6 +94,11 @@ function decodeHtml(bytes, contentType) {
   }
 }
 
+function decodeTitle(html) {
+  const title = html.match(/<title[^>]*>([^<]*)<\/title>/i)?.[1]?.trim();
+  return title ? decodeEntities(title) : undefined;
+}
+
 async function fetchCard(url) {
   const res = await fetch(url, {
     headers: { "user-agent": UA, accept: "text/html" },
@@ -61,9 +109,9 @@ async function fetchCard(url) {
   const html = decodeHtml(new Uint8Array(await res.arrayBuffer()), res.headers.get("content-type"));
   const image = extractMeta(html, "og:image") ?? extractMeta(html, "twitter:image");
   return {
-    title: extractMeta(html, "og:title") ?? html.match(/<title[^>]*>([^<]*)<\/title>/i)?.[1]?.trim(),
+    title: extractMeta(html, "og:title") ?? decodeTitle(html),
     description: extractMeta(html, "og:description") ?? extractMeta(html, "description"),
-    image: image ? new URL(image, res.url).toString() : undefined,
+    image: image ? await resolveImage(image, res.url) : undefined,
     siteName: extractMeta(html, "og:site_name"),
     fetchedAt: new Date().toISOString().slice(0, 10),
   };
