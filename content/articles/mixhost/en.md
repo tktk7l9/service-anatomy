@@ -5,12 +5,12 @@ description: "mixhost is a Japanese shared hosting service run by AzPocket, Inc.
 lead: "mixhost's price table shows two prices for every contract length: a discounted price for the first term only, and below it, in smaller type, the \"renewal\" price. In April 2025, mixhost cut that lower line sharply. On a 36-month Business plan, the monthly renewal price fell from 5,478 yen to 2,178 yen. In a Japanese hosting market where first-term discounts are the usual way to win customers, a small company lowered what customers pay from year two onward. This article dissects, from public information alone, the technology and money flows behind it."
 category: dev-tool
 tags: [hosting, wordpress, small-business, php, litespeed, cpanel]
-publishedAt: "2026-10-07"
-updatedAt: "2026-10-07"
-lastVerified: "2026-10-07"
+publishedAt: "2026-10-10"
+updatedAt: "2026-10-10"
+lastVerified: "2026-10-10"
 serviceUrl: "https://mixhost.jp/"
 # Affiliate link placeholder: mixhost distributes its ads only through two affiliate networks,
-# A8.net and afb (https://mixhost.jp/affiliate-program/, checked 2026-10-07: register with either
+# A8.net and afb (https://mixhost.jp/affiliate-program/, checked 2026-10-10: register with either
 # network, search for mixhost and apply). Both are ASPs whose ad code must be used as provided:
 # copy the link to affiliate.url, the 1x1 impression image (if any) to affiliate.impressionUrl,
 # and the text ad verbatim to affiliate.label. Never invent the label — ask the owner for the
@@ -28,7 +28,7 @@ techStack:
   - layer: "Web server"
     name: "LiteSpeed Web Server (HTTP/3)"
     confidence: confirmed
-    evidence: "The official pricing and feature comparison table (checked 2026-10-07) marks \"LiteSpeed Web Server\" and \"HTTP/3\" as included on every plan. The company profile lists LiteSpeed Technologies Inc. as a certified partner"
+    evidence: "The official pricing and feature comparison table (checked 2026-10-10) marks \"LiteSpeed Web Server\" and \"HTTP/3\" as included on every plan. The company profile lists LiteSpeed Technologies Inc. as a certified partner"
     evidenceUrl: "https://mixhost.jp/hosting/web/"
   - layer: "Operating system"
     name: "CloudLinux"
@@ -68,59 +68,59 @@ techStack:
   - layer: "Own website and customer portal"
     name: "WordPress / Cloudflare / WHMCS (accounts.mixhost.jp)"
     confidence: likely
-    evidence: "This site's own observation (2026-10-07) found mixhost.jp returning server: cloudflare, x-litespeed-cache: hit and x-turbo-charged-by: LiteSpeed, plus a link to the WordPress REST API. The customer portal accounts.mixhost.jp, behind Cloudflare, returned a cookie whose name starts with WHMCS and a whmcsBaseUrl variable, suggesting WHMCS handles customer management and billing"
+    evidence: "This site's own observation (2026-10-10) found mixhost.jp returning server: cloudflare, x-litespeed-cache: hit and x-turbo-charged-by: LiteSpeed, plus a link to the WordPress REST API. The customer portal accounts.mixhost.jp, behind Cloudflare, returned a cookie whose name starts with WHMCS and a whmcsBaseUrl variable, suggesting WHMCS handles customer management and billing"
 sources:
   - label: "mixhost official: Home page"
     url: "https://mixhost.jp/"
-    accessedAt: "2026-10-07"
+    accessedAt: "2026-10-10"
   - label: "mixhost official: Shared hosting (pricing, feature comparison and specifications)"
     url: "https://mixhost.jp/hosting/web/"
-    accessedAt: "2026-10-07"
+    accessedAt: "2026-10-10"
   - label: "mixhost official: Overseas hosting (US West Coast, San Jose)"
     url: "https://mixhost.jp/hosting/global/"
-    accessedAt: "2026-10-07"
+    accessedAt: "2026-10-10"
   - label: "mixhost official: Fair use policy"
     url: "https://mixhost.jp/fair-use-policy/"
-    accessedAt: "2026-10-07"
+    accessedAt: "2026-10-10"
   - label: "mixhost Help & Support: About the service level agreement (SLA)"
     url: "https://help.mixhost.jp/articles/360037394031"
-    accessedAt: "2026-10-07"
+    accessedAt: "2026-10-10"
   - label: "mixhost Help & Support: 30-day money-back guarantee"
     url: "https://help.mixhost.jp/articles/360035781732"
-    accessedAt: "2026-10-07"
+    accessedAt: "2026-10-10"
   - label: "mixhost official: Affiliate program (A8.net and afb)"
     url: "https://mixhost.jp/affiliate-program/"
-    accessedAt: "2026-10-07"
+    accessedAt: "2026-10-10"
   - label: "mixhost official: Refer-a-friend program"
     url: "https://mixhost.jp/refer-a-friend/"
-    accessedAt: "2026-10-07"
+    accessedAt: "2026-10-10"
   - label: "AzPocket, Inc.: Company profile"
     url: "https://www.azpocket.co.jp/company/"
-    accessedAt: "2026-10-07"
+    accessedAt: "2026-10-10"
   - label: "AzPocket, Inc.: Home page (business lines)"
     url: "https://www.azpocket.co.jp/"
-    accessedAt: "2026-10-07"
+    accessedAt: "2026-10-10"
   - label: "mixhost News: Notice of renewal price revision (2025-04-01)"
     url: "https://mixhost.jp/news/1736"
-    accessedAt: "2026-10-07"
+    accessedAt: "2026-10-10"
   - label: "mixhost News: Light plan from 495 yen a month, major price cuts and service upgrades (2025-04-22)"
     url: "https://mixhost.jp/news/1760"
-    accessedAt: "2026-10-07"
+    accessedAt: "2026-10-10"
   - label: "mixhost News: Rollout of PHP 8.5 (2026-01-19)"
     url: "https://mixhost.jp/news/1879"
-    accessedAt: "2026-10-07"
+    accessedAt: "2026-10-10"
   - label: "mixhost News: Jetpack free perks and paid options now available (2026-05-25)"
     url: "https://mixhost.jp/news/1924"
-    accessedAt: "2026-10-07"
+    accessedAt: "2026-10-10"
   - label: "mixhost News: Imunify360 security added to the Light plan (2026-09-07)"
     url: "https://mixhost.jp/news/1962"
-    accessedAt: "2026-10-07"
+    accessedAt: "2026-10-10"
   - label: "mixhost News: Posts from 2016"
     url: "https://mixhost.jp/news/date/2016"
-    accessedAt: "2026-10-07"
+    accessedAt: "2026-10-10"
   - label: "A8.net (operated by Fan Communications, Inc.)"
     url: "https://www.a8.net/"
-    accessedAt: "2026-10-07"
+    accessedAt: "2026-10-10"
 ---
 
 mixhost is a Japanese shared hosting service for WordPress blogs and small business websites. Where [Xserver](/en/articles/xserver), [ConoHa WING](/en/articles/conoha-wing), [Lolipop!](/en/articles/lolipop) and [Sakura Rental Server](/en/articles/sakura-rental-server), all dissected on this site, are backed by large IT groups or long histories, mixhost is run by a company born in 2016 with capital of 2 million yen. For its control panel it uses cPanel, which mixhost itself describes as having the world's largest market share, and every plan allows adult sites and reselling. Among Japanese shared hosts, it is built a little differently and allows a little more.
@@ -130,11 +130,11 @@ mixhost is a Japanese shared hosting service for WordPress blogs and small busin
 mixhost centers on shared hosting, alongside plans for adult sites, overseas hosting on the US West Coast, and dedicated cloud hosting where one customer gets a whole server. Its catalog also includes domains, the Sitejet site builder, the pCloud cloud storage service and MillenVPN, a VPN from the same company.
 
 :::fact
-According to the company profile (as of 2026-10-07), AzPocket, Inc., which runs mixhost, was founded on April 11, 2016, is headquartered in Minamisenba, Chuo Ward, Osaka, has capital of 2 million yen, and is engaged in internet infrastructure and in telecommunications business under the Telecommunications Business Act (registered notification number E-28-03926). It lists Sakura Internet, GMO Internet, Akamai Technologies GK and Fan Communications, the operator of A8.net, among its main business partners, and cPanel, L.L.C., LiteSpeed Technologies Inc. and Softaculous Ltd. as certified partners. The company's home page introduces it as an "internet infrastructure startup from Asia" founded in 2016 and names two businesses, mixhost and MillenVPN. Its careers page advertises fully remote work, flextime and permission for side jobs. mixhost's news archive begins in 2016; it launched automatic backup and restore that November and PHP 7.1 that December.
+According to the company profile (as of 2026-10-10), AzPocket, Inc., which runs mixhost, was founded on April 11, 2016, is headquartered in Minamisenba, Chuo Ward, Osaka, has capital of 2 million yen, and is engaged in internet infrastructure and in telecommunications business under the Telecommunications Business Act (registered notification number E-28-03926). It lists Sakura Internet, GMO Internet, Akamai Technologies GK and Fan Communications, the operator of A8.net, among its main business partners, and cPanel, L.L.C., LiteSpeed Technologies Inc. and Softaculous Ltd. as certified partners. The company's home page introduces it as an "internet infrastructure startup from Asia" founded in 2016 and names two businesses, mixhost and MillenVPN. Its careers page advertises fully remote work, flextime and permission for side jobs. mixhost's news archive begins in 2016; it launched automatic backup and restore that November and PHP 7.1 that December.
 :::
 
 :::fact
-According to the pricing and feature comparison table (checked 2026-10-07, tax included), shared hosting comes in four plans, Light, Standard, Premium and Business, with contract lengths of 3, 6, 12, 24 or 36 months paid in full up front. The table shows a discounted first-term price and the renewal price after it. On a 36-month contract the monthly equivalent is 495 yen for the first term and 748 yen on renewal for Light, 858 and 1,298 yen for Standard, 968 and 1,518 yen for Premium, and 1,408 and 2,178 yen for Business. On the 12-month contract labeled "most popular," Standard costs 968 yen for the first term and 1,518 yen on renewal. A note says the discount applies only to the first term and regular prices apply from renewal. Recommended monthly page views are 100,000 for Light, 200,000 for Standard, 300,000 for Premium and 600,000 for Business. File-count limits (inodes) run from 100,000 to 600,000; disk space is 100 GB on Light and "unlimited" on the others. Daily backups kept for 14 days come with Standard and above, not Light. The region is Tokyo, and every plan is marked as allowing commercial use, reselling and adult sites. Overseas hosting runs on servers in San Jose on the US West Coast and starts at 858 yen a month for the first term.
+According to the pricing and feature comparison table (checked 2026-10-10, tax included), shared hosting comes in four plans, Light, Standard, Premium and Business, with contract lengths of 3, 6, 12, 24 or 36 months paid in full up front. The table shows a discounted first-term price and the renewal price after it. On a 36-month contract the monthly equivalent is 495 yen for the first term and 748 yen on renewal for Light, 858 and 1,298 yen for Standard, 968 and 1,518 yen for Premium, and 1,408 and 2,178 yen for Business. On the 12-month contract labeled "most popular," Standard costs 968 yen for the first term and 1,518 yen on renewal. A note says the discount applies only to the first term and regular prices apply from renewal. Recommended monthly page views are 100,000 for Light, 200,000 for Standard, 300,000 for Premium and 600,000 for Business. File-count limits (inodes) run from 100,000 to 600,000; disk space is 100 GB on Light and "unlimited" on the others. Daily backups kept for 14 days come with Standard and above, not Light. The region is Tokyo, and every plan is marked as allowing commercial use, reselling and adult sites. Overseas hosting runs on servers in San Jose on the US West Coast and starts at 858 yen a month for the first term.
 :::
 
 :::pull
@@ -158,11 +158,11 @@ mixhost's experience wraps tools that are standard in overseas hosting in Japane
 ::techstack
 
 :::fact
-The pricing and feature comparison table (checked 2026-10-07) lists, as specifications common to every plan, LiteSpeed Web Server, HTTP/3, CloudLinux, cPanel, MariaDB, PHP 5.6 to 8.5, SSH and Git access, free SSL certificates, DDoS protection, AI-powered security, and malware scanning and removal. Only the Business plan is placed on a "super-fast server with twice the resources." The shared hosting page explains that while typical hosts use physical servers, mixhost uses cloud servers made redundant across multiple machines, so if one fails, sites switch to another automatically. NVMe SSD storage is replicated in real time to multiple storage servers, and backups are kept on storage servers in a separate data center with eleven nines (99.999999999%) of durability. According to the SLA help page, if monthly uptime falls below 99.99%, mixhost refunds 10% of the monthly fee, and 30% below 99.50%, as a deposit or points applied to the next renewal.
+The pricing and feature comparison table (checked 2026-10-10) lists, as specifications common to every plan, LiteSpeed Web Server, HTTP/3, CloudLinux, cPanel, MariaDB, PHP 5.6 to 8.5, SSH and Git access, free SSL certificates, DDoS protection, AI-powered security, and malware scanning and removal. Only the Business plan is placed on a "super-fast server with twice the resources." The shared hosting page explains that while typical hosts use physical servers, mixhost uses cloud servers made redundant across multiple machines, so if one fails, sites switch to another automatically. NVMe SSD storage is replicated in real time to multiple storage servers, and backups are kept on storage servers in a separate data center with eleven nines (99.999999999%) of durability. According to the SLA help page, if monthly uptime falls below 99.99%, mixhost refunds 10% of the monthly fee, and 30% below 99.50%, as a deposit or points applied to the next renewal.
 :::
 
 :::fact
-According to official news posts, mixhost began rolling out PHP 8.5 on January 26, 2026, and on May 25 started offering free perks of Automattic's Jetpack plugin (1 GB of backups, Akismet up to 500 calls a month and Jetpack Protect) and reselling its paid options. The same announcement says, however, that under the provider's terms, sites with adult content cannot use the Jetpack perks. On September 7 it added the Imunify360 security tool to the Light plan as well, with a new item in cPanel. The fair use policy says MailChannels may apply its own sending limits on top of mixhost's caps. This site's own observation (2026-10-07) found that mixhost.jp and the operating company's site return LiteSpeed cache headers and a WordPress REST API link from behind Cloudflare, so both appear to run on WordPress. The customer portal returned a cookie whose name contains WHMCS.
+According to official news posts, mixhost began rolling out PHP 8.5 on January 26, 2026, and on May 25 started offering free perks of Automattic's Jetpack plugin (1 GB of backups, Akismet up to 500 calls a month and Jetpack Protect) and reselling its paid options. The same announcement says, however, that under the provider's terms, sites with adult content cannot use the Jetpack perks. On September 7 it added the Imunify360 security tool to the Light plan as well, with a new item in cPanel. The fair use policy says MailChannels may apply its own sending limits on top of mixhost's caps. This site's own observation (2026-10-10) found that mixhost.jp and the operating company's site return LiteSpeed cache headers and a WordPress REST API link from behind Cloudflare, so both appear to run on WordPress. The customer portal returned a cookie whose name contains WHMCS.
 :::
 
 :::guess
@@ -190,7 +190,7 @@ Japanese hosting price tables tend to be compared on first-term discount rates a
 The business centers on hosting fees paid up front for the full contract length, topped by services such as WordPress migration and speed-up work and by resold products such as Jetpack's paid options. Winning customers is left to affiliates and friend invitations.
 
 :::fact
-According to the affiliate page (checked 2026-10-07), mixhost distributes its ads through two affiliate service providers (ASPs), A8.net and afb; to become an affiliate, one registers with either network, searches for mixhost and applies. According to the refer-a-friend page, when a customer shares a dedicated invitation link and coupon code and a friend signs up with it, the friend gets a 1,000 yen discount, and once 30 days of use are confirmed, the referrer receives 1,000 yen in credit, with no limit on the number of invitations. The comparison table adds WordPress consultations over Zoom (up to twice a month), setup assistance and priority support to Premium and above. The company's products include the MillenVPN VPN besides hosting, and customers on paid pCloud plans are also eligible for the pCloud coupon.
+According to the affiliate page (checked 2026-10-10), mixhost distributes its ads through two affiliate service providers (ASPs), A8.net and afb; to become an affiliate, one registers with either network, searches for mixhost and applies. According to the refer-a-friend page, when a customer shares a dedicated invitation link and coupon code and a friend signs up with it, the friend gets a 1,000 yen discount, and once 30 days of use are confirmed, the referrer receives 1,000 yen in credit, with no limit on the number of invitations. The comparison table adds WordPress consultations over Zoom (up to twice a month), setup assistance and priority support to Premium and above. The company's products include the MillenVPN VPN besides hosting, and customers on paid pCloud plans are also eligible for the pCloud coupon.
 :::
 
 :::guess
