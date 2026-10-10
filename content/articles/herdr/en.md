@@ -23,7 +23,7 @@ techStack:
     name: "ratatui / crossterm"
     confidence: confirmed
     evidence: "The v0.9.3 Cargo.toml lists ratatui 0.30 and crossterm 0.29 as dependencies"
-    evidenceUrl: "https://github.com/herdrdev/herdr/blob/v0.9.3/Cargo.toml"
+    evidenceUrl: "https://raw.githubusercontent.com/herdrdev/herdr/v0.9.3/Cargo.toml"
   - layer: "Terminal emulation"
     name: "libghostty-vt (vendored)"
     confidence: confirmed
@@ -33,12 +33,12 @@ techStack:
     name: "portable-pty (vendored) / ConPTY on Windows"
     confidence: confirmed
     evidence: "Cargo.toml pins portable-pty 0.9.0 and patches it to the in-repo vendor/portable-pty. For Windows, the official docs state that Herdr uses ConPTY"
-    evidenceUrl: "https://github.com/herdrdev/herdr/blob/v0.9.3/Cargo.toml"
+    evidenceUrl: "https://raw.githubusercontent.com/herdrdev/herdr/v0.9.3/Cargo.toml"
   - layer: "Async runtime"
     name: "tokio"
     confidence: confirmed
     evidence: "The v0.9.3 Cargo.toml lists tokio 1 (rt-multi-thread, process, io-util and others) as a dependency"
-    evidenceUrl: "https://github.com/herdrdev/herdr/blob/v0.9.3/Cargo.toml"
+    evidenceUrl: "https://raw.githubusercontent.com/herdrdev/herdr/v0.9.3/Cargo.toml"
   - layer: "Control API"
     name: "NDJSON over Unix domain socket / Windows named pipe"
     confidence: confirmed
@@ -142,8 +142,8 @@ sources:
     url: "https://github.com/herdrdev/herdr/releases"
     accessedAt: "2026-10-01"
   - label: "GitHub: herdrdev/herdr v0.9.3 Cargo.toml"
-    url: "https://github.com/herdrdev/herdr/blob/v0.9.3/Cargo.toml"
-    accessedAt: "2026-10-01"
+    url: "https://raw.githubusercontent.com/herdrdev/herdr/v0.9.3/Cargo.toml"
+    accessedAt: "2026-10-10"
   - label: "GitHub: commit \"relicense herdr under apache-2.0\" (2026-07-22)"
     url: "https://github.com/herdrdev/herdr/commit/cd5ea1be"
     accessedAt: "2026-10-02"
