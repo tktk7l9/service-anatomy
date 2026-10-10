@@ -92,6 +92,14 @@
     "image": "https://www.cloudflare.com/preview.png",
     "fetchedAt": "2026-08-06"
   },
+  "colorfulbox": {
+    "url": "https://www.colorfulbox.jp/",
+    "title": "レンタルサーバー ColorfulBox（カラフルボックス）｜ 30日間無料お試し",
+    "description": "レンタルサーバー「カラフルボックス」は、すべての料金プラン間の移動ができる柔軟性や初心者向けのコンパネ、そして、災害・トラブルに強い次世代のバックアップ機能を導入した高品質レンタルサーバーです。",
+    "image": "https://www.colorfulbox.jp/common/icon/facebook_ogp.png",
+    "siteName": "ColorfulBox カラフルボックス",
+    "fetchedAt": "2026-10-10"
+  },
   "colorme-shop": {
     "url": "https://shop-pro.jp/",
     "title": "カラーミーショップ | ECサイト構築サービス",
@@ -414,6 +422,13 @@
     "description": "Netflix (ネットフリックス) で映画やドラマをオンラインでストリーム再生! スマートテレビ、ゲーム機、パソコン、Mac、モバイル機器、タブレットなどでお楽しみいただけます。",
     "fetchedAt": "2026-08-06"
   },
+  "netlify": {
+    "url": "https://www.netlify.com/",
+    "title": "Push your ideas to the web | Netlify",
+    "description": "Create with AI or code, deploy instantly on production infrastructure. One platform to build and ship.",
+    "image": "https://www.netlify.com/images/og-image-default.png",
+    "fetchedAt": "2026-10-10"
+  },
   "note": {
     "url": "https://note.com/",
     "title": "note ――つくる、つながる、とどける。",
@@ -568,6 +583,13 @@
     "image": "https://static.sizu.me/images/og/default-summary.png",
     "siteName": "しずかなインターネット",
     "fetchedAt": "2026-08-06"
+  },
+  "smaregi": {
+    "url": "https://smaregi.jp/",
+    "title": "【公式】 POSレジなら「スマレジ」 - 無料で使える高機能レジアプリ",
+    "description": "スマレジは、飲食・小売・医療など幅広い業種に対応し、店舗の成長をデータで後押しするクラウドPOSレジです。売上・在庫・顧客の数字をリアルタイムに見える化し、多様な外部システムとの連携で日々の業務を効率化できます。",
+    "image": "https://smaregi.jp/shared/img/ogp/ogp-logo.webp",
+    "fetchedAt": "2026-10-10"
   },
   "smarthr": {
     "url": "https://smarthr.jp/",
