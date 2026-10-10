@@ -59,7 +59,7 @@ techStack:
     name: "Kubernetes / Docker"
     confidence: likely
     evidence: "公式の採用ページ（社内AI化のエンジニア職）が「クラウド基盤（GCP優先）、Kubernetes、Docker」の運用経験を求める。製品本体の実行基盤としての明言は見当たらない"
-    evidenceUrl: "https://elevenlabs.io/careers/a3097257-a07a-4a7e-b9fe-b8555c1a0fa7/engineering-internal-ai-transformation"
+    evidenceUrl: "https://web.archive.org/web/20260917003323/https://elevenlabs.io/careers/a3097257-a07a-4a7e-b9fe-b8555c1a0fa7/engineering-internal-ai-transformation"
   - layer: "ロードバランサー"
     name: "Google Cloud Load Balancing"
     confidence: likely
@@ -108,9 +108,9 @@ sources:
   - label: "ElevenLabs公式: 採用ページ（Growth Engineer・技術スタック）のInternet Archive保存版（2025-12-09・原ページは掲載終了）"
     url: "https://web.archive.org/web/20251209054452/https://elevenlabs.io/careers/bed47ac1-9c5c-44ae-8965-3a4312706328/growth-engineer"
     accessedAt: "2026-10-06"
-  - label: "ElevenLabs公式: 採用ページ（Engineering - Internal AI Transformation）"
-    url: "https://elevenlabs.io/careers/a3097257-a07a-4a7e-b9fe-b8555c1a0fa7/engineering-internal-ai-transformation"
-    accessedAt: "2026-09-28"
+  - label: "ElevenLabs公式: 採用ページ（Engineering - Internal AI Transformation）のInternet Archive保存版（2026-09-17・原ページは掲載終了）"
+    url: "https://web.archive.org/web/20260917003323/https://elevenlabs.io/careers/a3097257-a07a-4a7e-b9fe-b8555c1a0fa7/engineering-internal-ai-transformation"
+    accessedAt: "2026-10-10"
   - label: "GitHub: elevenlabs/elevenlabs-python（公式Python SDK）"
     url: "https://github.com/elevenlabs/elevenlabs-python"
     accessedAt: "2026-09-28"

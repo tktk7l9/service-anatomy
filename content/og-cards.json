@@ -21,6 +21,14 @@
     "image": "https://betterstack.com/assets/v2/og_homepage_v3-fdca4632.jpg",
     "fetchedAt": "2026-09-28"
   },
+  "bitwarden": {
+    "url": "https://bitwarden.com/",
+    "title": "Best Password Manager for Business, Enterprise & Personal | Bitwarden | Bitwarden",
+    "description": "Bitwarden is the trusted, open source password manager for individuals, teams, and enterprises. Securely store, share, and manage passwords, passkeys, and secrets. Free to start.",
+    "image": "https://bitwarden.com/assets/7fzQJmr0qt5ggGZp3t66Y/7bf59a6a2379d49fc580ff49e8510efb/bitwarden.com_og_image.png",
+    "siteName": "Bitwarden",
+    "fetchedAt": "2026-10-10"
+  },
   "bluesky": {
     "url": "https://bsky.app/",
     "title": "Bluesky",
@@ -230,6 +238,13 @@
     "siteName": "Ghostty",
     "fetchedAt": "2026-10-01"
   },
+  "grammarly": {
+    "url": "https://www.grammarly.com/",
+    "title": "Grammarly: Free AI Writing Assistance",
+    "description": "Grammarly makes AI writing convenient. Work smarter with personalized AI guidance and text generation on any app or website.",
+    "image": "https://static-web.grammarly.com/1e6ajr2k4140/1kGiUxfxoLhCPH7wGcvknN/c218a7bbcdfc24301fbbfb6ae9892ec6/default_social_share.png",
+    "fetchedAt": "2026-10-10"
+  },
   "herdr": {
     "url": "https://herdr.dev/",
     "title": "Herdr: the runtime coding agents run on",
@@ -341,6 +356,14 @@
     "image": "https://assets.mitene.us/assets/landing_page/main/top/ja_ogp-5c439dfeb954a8480beb3f7b8e0917beb71502ae04b22622fb4ccd555de14f31.png",
     "siteName": "家族アルバム みてね",
     "fetchedAt": "2026-08-06"
+  },
+  "mixhost": {
+    "url": "https://mixhost.jp/",
+    "title": "mixhost (ミックスホスト) 高速レンタルサーバー｜WordPressに強い！アフィリエイトやビジネスにもおすすめ！",
+    "description": "レンタルサーバーmixhostはWordPressのインストールや管理が簡単。豊富なプランで初心者からビジネス利用まで幅広く対応。アダルトサイトの運営や収益化も可能です。ドラッグアンドドロップでおしゃれなサイトが完成するノーコードビルダーSitejetも無料。",
+    "image": "https://mixhost.jp/wp-content/uploads/2025/08/ogp.png",
+    "siteName": "レンタルサーバー mixhost (ミックスホスト) | WordPressにおすすめ！レンタルサーバーmixhost",
+    "fetchedAt": "2026-10-10"
   },
   "moneyforward-cloud": {
     "url": "https://biz.moneyforward.com/tax_return/",

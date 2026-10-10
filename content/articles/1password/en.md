@@ -6,8 +6,8 @@ lead: "1Password's security white paper spells out a worst case: a malicious dat
 category: saas
 tags: [password-manager, security, developer-tools, rust, end-to-end-encryption]
 publishedAt: "2026-09-28"
-updatedAt: "2026-09-28"
-lastVerified: "2026-09-28"
+updatedAt: "2026-10-10"
+lastVerified: "2026-10-10"
 serviceUrl: "https://1password.com/"
 # Affiliate link placeholder: the owner must join the 1Password affiliate program
 # (https://1password.com/affiliate, run on Commission Junction / CJ) before enabling this block.
@@ -75,7 +75,7 @@ sources:
     accessedAt: "2026-09-28"
   - label: "1Password press release: surpasses $400M ARR and expands its executive team (2025-11-06)"
     url: "https://1password.com/press/2025/nov/1password-strengthens-leadership-amid-growth-milestone"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-10"
   - label: "Kolide official blog: 1Password acquires Kolide (2024-02-20)"
     url: "https://www.kolide.com/blog/1password-acquires-kolide"
     accessedAt: "2026-09-28"
@@ -84,16 +84,16 @@ sources:
     accessedAt: "2026-09-28"
   - label: "1Password official blog: 1Password 8: The Story So Far (2021-08-12)"
     url: "https://1password.com/blog/1password-8-the-story-so-far"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-10"
   - label: "1Password Security Design White Paper: Secret Key"
     url: "https://agilebits.github.io/security-design/apsk.html"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-10"
   - label: "1Password Security Design White Paper: A deeper look at keys (2SKD, 650,000 PBKDF2 rounds)"
     url: "https://agilebits.github.io/security-design/deepKeys.html"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-10"
   - label: "1Password Security Design White Paper: Server infrastructure (Amazon Aurora)"
     url: "https://agilebits.github.io/security-design/infra.html"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-10"
   - label: "1Password official blog: 1Password SDKs are now available in beta (2024-05-14)"
     url: "https://1password.com/blog/sdk-beta"
     accessedAt: "2026-09-28"
@@ -111,13 +111,13 @@ sources:
     accessedAt: "2026-09-28"
   - label: "1Password official: Pricing (Individual and Families)"
     url: "https://1password.com/pricing/password-manager"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-10"
   - label: "1Password official: Pricing (Teams Starter Pack and Business)"
     url: "https://1password.com/business-pricing"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-10"
   - label: "1Password official: Affiliate program"
     url: "https://1password.com/affiliate"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-10"
   - label: "1Password official blog: Okta Support System incident and 1Password (2023)"
     url: "https://1password.com/blog/okta-incident"
     accessedAt: "2026-09-28"
@@ -126,10 +126,10 @@ sources:
     accessedAt: "2026-09-28"
   - label: "Bitwarden official: Pricing (for comparison)"
     url: "https://bitwarden.com/pricing/"
-    accessedAt: "2026-09-28"
-  - label: "Wikipedia: Bitwarden (for comparison; the February 2026 Premium price increase)"
-    url: "https://en.wikipedia.org/wiki/Bitwarden"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-10"
+  - label: "Bitwarden official blog: Bitwarden launches enhanced premium plan (for comparison; the January 2026 Premium repricing, 2026-01-21)"
+    url: "https://bitwarden.com/blog/bitwarden-launches-enhanced-premium-plan/"
+    accessedAt: "2026-10-10"
 ---
 
 A password manager is a tool for gathering every key in one place. The price of that convenience is that if the one place falls, everything falls. 1Password's answer has been a design in which the vault stays shut even if the provider's servers are stolen outright. And it has stretched that same design into a business that protects developers' API keys, employees' devices, and the credentials of AI agents.
@@ -191,7 +191,7 @@ No official document states the server-side language, however. Since an official
 1Password's revenue comes from subscriptions for individuals and families and seat-based subscriptions for businesses. More than three quarters of revenue comes from businesses.
 
 :::fact
-According to the official pricing pages, Individual costs $3.99 a month and Families (up to five people) $5.99 a month, both billed annually. New customers who subscribe annually and directly through 1Password.com pay $2.99 and $4.49 respectively for the first year. For businesses, the Teams Starter Pack for up to 10 people costs $24.95 a month, and Business costs $8.99 per user per month, including SSO integrations and Watchtower (alerts for leaked or weak passwords). Business gives every user a free Families plan for personal use. Enterprise is quoted individually. Individual, Families, the Teams Starter Pack, and Business each have a 14-day free trial, and the business pricing page says it is trusted by "200,000 businesses". For comparison, the open-source Bitwarden syncs across unlimited devices on its free plan; its pricing page lists Premium at $19.80 a year and the Teams business plan at $4 per user per month. Wikipedia notes that Bitwarden Premium rose from $10 to $20 a year in February 2026.
+According to the official pricing pages, Individual costs $3.99 a month and Families (up to five people) $5.99 a month, both billed annually. New customers who subscribe annually and directly through 1Password.com pay $2.99 and $4.49 respectively for the first year. For businesses, the Teams Starter Pack for up to 10 people costs $24.95 a month, and Business costs $8.99 per user per month, including SSO integrations and Watchtower (alerts for leaked or weak passwords). Business gives every user a free Families plan for personal use. Enterprise is quoted individually. Individual, Families, the Teams Starter Pack, and Business each have a 14-day free trial, and the business pricing page says it is trusted by "200,000 businesses". For comparison, the open-source [Bitwarden](/en/articles/bitwarden) syncs across unlimited devices on its free plan; its pricing page lists Premium at $19.80 a year and the Teams business plan at $4 per user per month. According to Bitwarden's official blog (2026-01-21), Premium was repriced at that $19.80 a year, with existing subscribers getting a 25% discount on their next annual renewal only (the blog does not state the previous price).
 :::
 
 :::fact
