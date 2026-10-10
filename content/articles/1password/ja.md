@@ -6,8 +6,8 @@ lead: "1Passwordのセキュリティ白書には、悪意のあるデータベ�
 category: saas
 tags: [password-manager, security, developer-tools, rust, end-to-end-encryption]
 publishedAt: "2026-09-28"
-updatedAt: "2026-09-28"
-lastVerified: "2026-09-28"
+updatedAt: "2026-10-10"
+lastVerified: "2026-10-10"
 serviceUrl: "https://1password.com/"
 # Affiliate link placeholder: the owner must join the 1Password affiliate program
 # (https://1password.com/affiliate, run on Commission Junction / CJ) before enabling this block.
@@ -75,7 +75,7 @@ sources:
     accessedAt: "2026-09-28"
   - label: "1Password公式プレスリリース: ARR4億ドル突破と経営陣の拡充（2025-11-06）"
     url: "https://1password.com/press/2025/nov/1password-strengthens-leadership-amid-growth-milestone"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-10"
   - label: "Kolide公式ブログ: 1PasswordによるKolideの買収（2024-02-20）"
     url: "https://www.kolide.com/blog/1password-acquires-kolide"
     accessedAt: "2026-09-28"
@@ -84,16 +84,16 @@ sources:
     accessedAt: "2026-09-28"
   - label: "1Password公式ブログ: 1Password 8: The Story So Far（2021-08-12）"
     url: "https://1password.com/blog/1password-8-the-story-so-far"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-10"
   - label: "1Password Security Design White Paper: Secret Key"
     url: "https://agilebits.github.io/security-design/apsk.html"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-10"
   - label: "1Password Security Design White Paper: A deeper look at keys（2SKD・PBKDF2 65万回）"
     url: "https://agilebits.github.io/security-design/deepKeys.html"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-10"
   - label: "1Password Security Design White Paper: Server infrastructure（Amazon Aurora）"
     url: "https://agilebits.github.io/security-design/infra.html"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-10"
   - label: "1Password公式ブログ: SDKのベータ公開（2024-05-14）"
     url: "https://1password.com/blog/sdk-beta"
     accessedAt: "2026-09-28"
@@ -111,13 +111,13 @@ sources:
     accessedAt: "2026-09-28"
   - label: "1Password公式: 料金ページ（個人・ファミリー）"
     url: "https://1password.com/pricing/password-manager"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-10"
   - label: "1Password公式: 料金ページ（Teams Starter Pack・Business）"
     url: "https://1password.com/business-pricing"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-10"
   - label: "1Password公式: Affiliate program"
     url: "https://1password.com/affiliate"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-10"
   - label: "1Password公式ブログ: Oktaのサポートシステム侵害と1Password（2023年）"
     url: "https://1password.com/blog/okta-incident"
     accessedAt: "2026-09-28"
@@ -126,10 +126,10 @@ sources:
     accessedAt: "2026-09-28"
   - label: "Bitwarden公式: 料金ページ（比較用）"
     url: "https://bitwarden.com/pricing/"
-    accessedAt: "2026-09-28"
-  - label: "Wikipedia: Bitwarden（比較用・2026年2月のPremium値上げ）"
-    url: "https://en.wikipedia.org/wiki/Bitwarden"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-10"
+  - label: "Bitwarden公式ブログ: Bitwarden launches enhanced premium plan（比較用・2026年1月のPremiumの料金改定・2026-01-21）"
+    url: "https://bitwarden.com/blog/bitwarden-launches-enhanced-premium-plan/"
+    accessedAt: "2026-10-10"
 ---
 
 パスワード管理アプリは、全部の鍵を1か所に集める道具だ。便利さと引き換えに、その1か所が破られたら終わる。1Passwordはこの弱点に、「提供元のサーバーが丸ごと盗まれても、金庫は開かない」という設計で答えてきた。そして同じ設計を、開発者のAPIキーや社員の端末、AIエージェントの資格情報を守る商売にまで広げている。
@@ -191,7 +191,7 @@ sources:
 1Passwordの収益は、個人・家族向けのサブスクリプションと、席数に応じた法人向けのサブスクリプションでできている。収益の4分の3超は法人から来る。
 
 :::fact
-公式の料金ページによれば、個人向けのIndividualは月3.99ドル、最大5人のFamiliesは月5.99ドルで、いずれも年払い。新規の顧客が1Password.comで直接年払いにすると、最初の1年はそれぞれ2.99ドル、4.49ドルになる。法人向けは、10人までのTeams Starter Packが月24.95ドル、Businessが1人あたり月8.99ドルで、SSO連携とWatchtower（漏えいや弱いパスワードの警告）を含む。Businessでは、利用者全員に個人用のFamiliesプランを無料で付ける。Enterpriseは個別見積もり。個人・家族向けとTeams Starter Pack・Businessには14日間の無料トライアルがあり、法人向けの料金ページは「20万社の企業」に使われていると掲げる。比較として、オープンソースのBitwardenは、無料プランで台数無制限に同期でき、PremiumはBitwardenの料金ページで年19.80ドル、法人向けのTeamsは1人あたり月4ドル。Wikipediaによれば、BitwardenのPremiumは2026年2月に年10ドルから20ドルに値上げされた。
+公式の料金ページによれば、個人向けのIndividualは月3.99ドル、最大5人のFamiliesは月5.99ドルで、いずれも年払い。新規の顧客が1Password.comで直接年払いにすると、最初の1年はそれぞれ2.99ドル、4.49ドルになる。法人向けは、10人までのTeams Starter Packが月24.95ドル、Businessが1人あたり月8.99ドルで、SSO連携とWatchtower（漏えいや弱いパスワードの警告）を含む。Businessでは、利用者全員に個人用のFamiliesプランを無料で付ける。Enterpriseは個別見積もり。個人・家族向けとTeams Starter Pack・Businessには14日間の無料トライアルがあり、法人向けの料金ページは「20万社の企業」に使われていると掲げる。比較として、オープンソースの[Bitwarden](/ja/articles/bitwarden)は、無料プランで台数無制限に同期でき、PremiumはBitwardenの料金ページで年19.80ドル、法人向けのTeamsは1人あたり月4ドル。Bitwardenの公式ブログ（2026-01-21）によれば、Premiumの料金はこの年19.80ドルに改められ、既存の契約者には次の年の更新に限り25%の割引が付いた（改定前の価格は公式ブログに書かれていない）。
 :::
 
 :::fact
