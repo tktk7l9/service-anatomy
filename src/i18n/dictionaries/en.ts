@@ -21,7 +21,8 @@ const en: Dictionary = {
     tagline: "Dissecting popular services.",
     lead: "One service per article, examined from four angles: product, UX, tech stack, and business model.",
     featured: "Latest dissection",
-    archive: "Archive",
+    recent: "Recent dissections",
+    viewAll: "See all {count} dissections",
     empty: "Articles are in preparation.",
   },
   article: {
@@ -84,6 +85,8 @@ const en: Dictionary = {
     tagTitle: "Tag",
     techTitle: "Technology",
     countSuffix: "articles",
+    allTitle: "All dissections",
+    allLead: "Every published dissection, newest first.",
   },
   tech: {
     indexTitle: "Tech Index",

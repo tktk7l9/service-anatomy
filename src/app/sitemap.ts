@@ -19,6 +19,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: { languages: alternates("") },
     });
     entries.push({
+      url: `${BASE_URL}/${locale}/articles`,
+      alternates: { languages: alternates("/articles") },
+    });
+    entries.push({
       url: `${BASE_URL}/${locale}/about`,
       alternates: { languages: alternates("/about") },
     });

@@ -24,6 +24,12 @@ function renderTagline(tagline: string) {
   );
 }
 
+// The home page shows the latest article plus this many recent ones and links to the full index
+// (/[locale]/articles). Listing every article here made the HTML grow with each batch: each card
+// inlines its HeroArt SVG and the RSC payload repeats it, so "/" reached ~780 KB raw and pushed the
+// LCP text (the hero lead) back on mobile. 12 fills the auto-fill grid evenly at 2, 3 and 4 columns.
+const HOME_RECENT_COUNT = 12;
+
 export default async function HomePage({
   params,
 }: {
@@ -35,6 +41,7 @@ export default async function HomePage({
   const dict = await getDictionary(locale);
 
   const [featured, ...rest] = ALL_ARTICLES;
+  const recent = rest.slice(0, HOME_RECENT_COUNT);
   const categories = usedCategories();
 
   const webSite = buildWebSite({
@@ -43,8 +50,9 @@ export default async function HomePage({
     url: `${BASE_URL}/${locale}`,
     locale,
   });
+  // The ItemList describes what this page shows; the full list lives on the articles index.
   const itemList = buildItemList(
-    ALL_ARTICLES.map((article) => ({
+    (featured ? [featured, ...recent] : []).map((article) => ({
       name: article[locale].frontmatter.title,
       url: `${BASE_URL}/${locale}/articles/${article.slug}`,
     })),
@@ -75,16 +83,22 @@ export default async function HomePage({
         <>
           <p className="section-label">{dict.home.featured}</p>
           <ArticleCard article={featured} locale={locale} dict={dict} featured />
-          {rest.length > 0 && (
+          {recent.length > 0 && (
             <>
-              <p className="section-label">{dict.home.archive}</p>
+              <p className="section-label">{dict.home.recent}</p>
               <div className="article-grid">
-                {rest.map((article) => (
+                {recent.map((article) => (
                   <ArticleCard key={article.slug} article={article} locale={locale} dict={dict} />
                 ))}
               </div>
             </>
           )}
+          <p className="home-more">
+            <Link href={`/${locale}/articles`}>
+              {dict.home.viewAll.replace("{count}", String(ALL_ARTICLES.length))}
+              <span aria-hidden="true"> →</span>
+            </Link>
+          </p>
         </>
       ) : (
         <p className="empty-note">{dict.home.empty}</p>
