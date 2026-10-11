@@ -1,16 +1,24 @@
 import { ALL_ARTICLES } from "@/engine/articles";
 import { buildRssFeed } from "@/engine/feed/rss";
 import { BASE_URL } from "@/engine/site";
-import { isLocale, type Locale } from "@/i18n/config";
+import { isLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
-// Generate the ja/en feeds at build time (the parent layout's generateStaticParams supplies locale).
-// It used to be force-dynamic, but on Cloudflare Workers content/ cannot be read at runtime,
-// so dynamic rendering cannot work. Articles only change per deploy, so SSG is enough.
+// Generate the ja/en feeds at build time. It used to be force-dynamic, but on Cloudflare Workers
+// content/ cannot be read at runtime, so dynamic rendering cannot work. Articles only change per
+// deploy, so SSG is enough.
 //
 // force-static is required. Since Next 15, GET route handlers are dynamic by default, so
 // just removing force-dynamic leaves it as ƒ (confirmed in the build table).
 export const dynamic = "force-static";
+
+// A route handler does not inherit generateStaticParams from the [locale] layout. Without this,
+// the build table showed "○ /[locale]/rss.xml" with no /ja or /en paths: the feed was rendered on
+// the first request inside the Worker, where content/ is unreadable, and production served both
+// feeds with zero items (found on 2026-10-11). The build table must list /ja/rss.xml and /en/rss.xml.
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export async function GET(
   _request: Request,

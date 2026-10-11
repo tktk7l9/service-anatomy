@@ -38,6 +38,10 @@ tech editorial (magazine-style) design.
   **Route handlers must set `force-static` explicitly.** Since Next 15, GET route handlers are
   dynamic by default, so just removing `force-dynamic` leaves them as `ƒ` (this applies to `rss.xml` and
   `api/anatomy.json`). If even one `ƒ` shows up in the build table, fix it.
+  A route handler under `[locale]` also needs its own `generateStaticParams`: it does not inherit the
+  layout's. Without it the table shows `○ /[locale]/rss.xml` with no `/ja` / `/en` paths, the feed is
+  rendered in the Worker on first request (content/ unreadable there) and ships with zero items —
+  production served empty RSS feeds until 2026-10-11.
 - **Never remove `incrementalCache` from `open-next.config.ts`**
   (`staticAssetsIncrementalCache`). Without it the prerendered output cannot be read from anywhere, and
   combined with `dynamicParams = false` **every article, tag, tech and category page returns 404**.
