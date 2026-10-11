@@ -1,6 +1,6 @@
 ---
 service: "beehiiv"
-title: "料金表の横に『広告で稼げる額』を出すニュースレター基盤 — 購読料から取り分を取らずに年換算3,200万ドルを売り上げ、広告ネットワークとMCPで稼ぎ方とAIの入口を広げるbeehiivを解剖する"
+title: "料金表の横に「広告収益の平均」を出すニュースレター基盤 — 購読料から取り分を取らずに年換算3,200万ドルを売り上げ、広告ネットワークとMCPで稼ぎ方とAIの入口を広げるbeehiivを解剖する"
 description: "beehiivは、2021年にMorning Brewの初期メンバー3人が創業したニューヨーク発のニュースレター基盤だ。メール配信にWebサイト、ポッドキャスト、コミュニティ、デジタル商品、そして自前の広告ネットワークを1つにまとめ、2026年第2四半期時点で17万超のパブリケーションを抱え、送ったメールは累計750億通を超える。有料購読とデジタル商品の売上からは0%しか取らない一方、2025年11月には年換算の売上が3,200万ドルに達した。料金ページとそのMarkdown版、創業者のブログ、プロダクト更新、ヘルプセンター、Trust Centerとサブプロセッサーの一覧、求人、GitHub、当サイトの実観測から、Herokuの上で動くとみられるアプリにSendGrid・Crunchy Data・ClickHouse・Cloudflareを組み合わせた構成、CPMとCPCの広告と20%の手数料を取る有料のおすすめの仕組み、MCPとAIクローラーの制御まで、書き手に稼がせて自分も稼ぐ設計を解剖する。"
 lead: "beehiivの料金ページで購読者数のつまみを動かすと、有料プランの『Ad monetization』の横に月あたりの平均額が現れる。2,500人なら39ドル、10万人なら400ドル。同じ画面に並ぶLiteの年払いの値段は、10万人で月399ドルだ。共同創業者でCEOのTyler Denk氏は2023年、最も大事な指標を『beehiivに払う額より多くをbeehiivから稼いでいる利用者が何人いるか』だと書いた。購読料から取り分を取らない会社が、何で稼ぎ、どう作られているのかを、公開情報だけで解剖する。"
 category: saas
@@ -31,7 +31,7 @@ techStack:
   - layer: "アプリ本体・API・MCP"
     name: "Ruby on Rails (Heroku)"
     confidence: likely
-    evidence: "当サイトの実観測（2026-10-11）で、app.beehiiv.com、api.beehiiv.com、embeds.beehiiv.com、mcp.beehiiv.com はいずれも via: 1.1 heroku-router とHerokuのNELの報告先（heroku-nel）を返し、x-runtime や x-download-options: noopen、x-permitted-cross-domain-policies: none のヘッダーが付いていた。GitHubのbeehiiv/has_state_machine（Ruby・MIT）は、ActiveRecordのモデルに有限状態機械を足すgem。公式のサブプロセッサーの一覧は、クラウドホスティングにAmazonと並べてSalesforceを挙げる"
+    evidence: "当サイトの実観測（2026-10-11）で、app.beehiiv.com、api.beehiiv.com、embeds.beehiiv.com、mcp.beehiiv.com はいずれも via: 1.1 heroku-router、HerokuのNELの報告先（heroku-nel）、x-runtime を返した。x-permitted-cross-domain-policies: none は app、embeds、mcp に、x-download-options: noopen は app と mcp にだけ付いていた（api.beehiiv.com/v2/ の404の応答にはどちらもなかった）。GitHubのbeehiiv/has_state_machine（Ruby・MIT）は、ActiveRecordのモデルに有限状態機械を足すgem。公式のサブプロセッサーの一覧は、クラウドホスティングにAmazonと並べてSalesforceを挙げる"
     evidenceUrl: "https://github.com/beehiiv/has_state_machine"
   - layer: "クラウド基盤・データの保管"
     name: "AWS"
@@ -56,7 +56,7 @@ techStack:
   - layer: "エディタ"
     name: "Tiptap"
     confidence: confirmed
-    evidence: "公式のサブプロセッサーの一覧（2026-10-11確認）に、ベルリンのTiptapを「Collaborative text editor hosting」として明記。2026年7月17日のプロダクト更新は、エディタを1年かけて一から作り直し、見たままを編集できる（WYSIWYG）体験にしたと書く"
+    evidence: "公式のサブプロセッサーの一覧（2026-10-11確認）に、ベルリンのTiptapを「Collaborative text editor hosting」として明記。2026年7月17日のプロダクト更新は、エディタを1年かけて一から作り直し、見たままを編集できる（WYSIWYG）体験にしたと書く（7月17日の時点ではオプトインのベータ）"
     evidenceUrl: "https://subprocessors.beehiiv.com/sub-processor-list"
   - layer: "CDN・WAF・AIクローラーの制御"
     name: "Cloudflare"
@@ -80,7 +80,7 @@ techStack:
   - layer: "決済・収益の送金"
     name: "Stripe (Stripe Express)"
     confidence: confirmed
-    evidence: "料金ページのFAQ（2026-10-11確認）は、有料購読とデジタル商品の売上からbeehiivは0%しか取らず、かかるのはStripeの標準の決済手数料（1件あたり2.9%＋0.30ドル）だけだと明記。Ad NetworkのFAQは、広告と有料のおすすめの収益の受け取りにはStripe Expressのアカウントが必須で、PayPalやWiseなど他の決済事業者には対応しないと書く"
+    evidence: "料金ページのFAQ（2026-10-11確認）は、有料購読とデジタル商品の売上からbeehiivは0%しか取らず、書き手は稼いだ額からStripeの標準の決済手数料（1件あたり2.9%＋0.30ドル）を引いた分を受け取ると明記。Ad NetworkのFAQは、広告と有料のおすすめの収益の受け取りにはStripe Expressのアカウントが必須で、PayPalやWiseなど他の決済事業者には対応しないと書く"
     evidenceUrl: "https://www.beehiiv.com/support/article/17507491038231-ad-network-faq"
   - layer: "パートナー管理"
     name: "Dub"
@@ -151,6 +151,9 @@ sources:
   - label: "beehiivヘルプ: Growing your audience with paid incoming recommendations（20%の手数料）"
     url: "https://www.beehiiv.com/support/article/14492963616279-growing-your-audience-with-paid-incoming-recommendations"
     accessedAt: "2026-10-11"
+  - label: "beehiivヘルプ: Boosts to paid recommendations: what changed（2026-10-01更新）"
+    url: "https://www.beehiiv.com/support/article/41790356251159-boosts-to-paid-recommendations-what-changed"
+    accessedAt: "2026-10-11"
   - label: "beehiivヘルプ: How to control which AI crawlers access your content"
     url: "https://www.beehiiv.com/support/article/41416948596119-how-to-control-which-ai-crawlers-access-your-content"
     accessedAt: "2026-10-11"
@@ -187,11 +190,11 @@ beehiivは、ニュースレターを書いて送り、読者を増やし、お�
 beehiivは、無料のFreeから、Lite、Pro、個別見積もりのEnterpriseまでの4つのプランで売られ、料金ページによれば、どのプランでもニュースレター、Webサイト、ポッドキャスト、コミュニティ、デジタル商品を使える。プランで変わるのは、上限とサポートと上位の機能だ。
 
 :::fact
-About（2026-10-11確認）によれば、beehiivは2021年に、Morning Brewの初期の社員だったTyler Denk氏、Benjamin Hargett氏、Jacob Hurd氏が創業した。全員がリモートで12か国に散らばり、正社員は129人。2026年第2四半期時点で、累計の送信メールは750億通超、ユニークの読者は4億5,000万人超、利用者がbeehiivを通じて稼いだ額は6,000万ドル超、パブリケーションは17万超と掲げる。2021年10月5日付のプレスリリースによれば、シードはSocial Leverageが主導した260万ドルで、Thirty Five Ventures、Company Venturesなどが加わった。CEOのDenk氏はMorning Brewの2人目の社員で、その後Googleでプロダクトリードを務め、HargettとHurdの両氏はMorning Brewのソフトウェアエンジニアだった。2022年9月12日には、既存の投資家のCreator Ventures、Blue Wire Capital、Social Leverageが主導する160万ドルのシードの追加を発表し、調達の累計は約420万ドル、2021年11月の公開から売上は毎月30%超伸び、チームは8人だった。2023年6月21日のシリーズAはLightspeed Venture Partnersが主導した1,250万ドルで、当時の売上のランレートは400万ドル、2023年4月に月単位で黒字になったと書く。2024年11月22日のCEOのブログによれば、2024年4月のシリーズBはNEAが主導し、Lightspeed、Sapphire Sport、DSTなどが加わった3,300万ドルで、うち100万ドル分を利用者が出資できる枠にした。2023年9月にはニュースレター広告のSwapstackを、2024年6月にはAIのWebサイトビルダーのTypedreamを買った。2025年11月19日のCEOのブログによれば、年換算の売上は3,200万ドル、社員は110人で、毎月30億通超のメールを送っている。
+About（2026-10-11確認）によれば、beehiivは2021年に、Morning Brewの初期の社員だったTyler Denk氏、Benjamin Hargett氏、Jacob Hurd氏が創業した。全員がリモートで12か国に散らばり、正社員は129人。2026年第2四半期時点で、累計の送信メールは750億通超、ユニークの読者は4億5,000万人超、利用者がbeehiivを通じて稼いだ額は6,000万ドル超、パブリケーションは17万超と掲げる。2021年10月5日付のプレスリリースによれば、シードはSocial Leverageが主導した260万ドルで、Thirty Five Ventures、Company Venturesなどが加わった。CEOのDenk氏はMorning Brewの2人目の社員で、その後Googleでプロダクトリードを務め、HargettとHurdの両氏はMorning Brewのソフトウェアエンジニアだった。2022年9月12日には、既存の投資家のCreator Ventures、Blue Wire Capital、Social Leverageが主導する160万ドルのシードの追加を発表し、調達の累計は約420万ドル、2021年11月の公開から売上は毎月30%超伸び、チームは8人だった。2023年6月21日に発表したシリーズAはLightspeed Venture Partnersが主導した1,250万ドルで、当時の売上のランレートは400万ドル、2023年4月に月単位で黒字になったと書く。2024年11月22日のCEOのブログによれば、2024年4月のシリーズBはNEAが主導し、Lightspeed、Sapphire Sport、DSTなどが加わった3,300万ドルで、うち100万ドル分を利用者が出資できる枠にした。2023年9月にはニュースレター広告のSwapstackを、2024年6月にはAIのWebサイトビルダーのTypedreamを買った。2025年11月19日のCEOのブログによれば、年換算の売上は3,200万ドル、社員は110人で、毎月30億通超のメールを送っている。
 :::
 
 :::fact
-料金ページ（2026-10-11確認・米ドル）の初期表示は「購読者1,000人まで・年払い」で、Freeは0ドル、Liteは月49ドル、Proは月95ドル、Enterpriseは個別見積もり。同じページのMarkdown版（/pricing.md）によれば、同じ1,000人の段階の月払いはLiteが59ドル、Proが109ドルで、年払いの総額はLiteが588ドル、Proが1,140ドル。料金は購読者数の段階で上がり、Freeは2,500人まで、Liteは10万人の段階まで（年払いで月399ドル、月払いで469ドル）、Proは25万人以上の段階まで（同869ドル、999ドル）売られる。FAQによれば、年払いは月払いより最大20%安く、メールの送信数はどのプランでも無制限だ。有料購読とデジタル商品の売上からbeehiivは0%しか取らず、かかるのは[Stripe](/ja/articles/stripe)の標準の決済手数料（1件あたり2.9%＋0.30ドル）だけだという。Liteで広告ネットワーク、有料購読、自動化、MCPの書き込みが、Proでbeehiivのブランド表示の削除、AIのボットの制御、Send API、最大10のパブリケーションが、EnterpriseでSSO（SAML）、専用IP、学習に使わずデータを保持しない設定、自前のAIモデルの鍵が加わる。Markdown版は、Liteで加わるAd NetworkとRecommendationsを「試用中は不可・一部の地域では不可」と注記し、コード上のプランのキーは launch / grow / scale / enterprise のままだと書く。2026年8月20日のプロダクト更新は上位のプランを「Max」と呼んでいたが、2026-10-11の料金ページに並ぶプランはFree・Lite・Pro・Enterpriseだった。
+料金ページ（2026-10-11確認・米ドル）の初期表示は「購読者1,000人まで・年払い」で、Freeは0ドル、Liteは月49ドル、Proは月95ドル、Enterpriseは個別見積もり。同じページのMarkdown版（/pricing.md）によれば、同じ1,000人の段階の月払いはLiteが59ドル、Proが109ドルで、年払いの総額はLiteが588ドル、Proが1,140ドル。料金は購読者数の段階で上がり、Freeは2,500人まで、Liteは10万人の段階まで（年払いで月399ドル、月払いで469ドル）、Proは25万人以上の段階まで（同869ドル、999ドル）売られる。FAQは、年払いなら月払いより最大20%安いと書くが、料金表から計算すると13〜17%だ。同じFAQによれば、メールの送信数はどのプランでも無制限で、有料購読とデジタル商品の売上からbeehiivは0%しか取らず、書き手は稼いだ額から[Stripe](/ja/articles/stripe)の標準の決済手数料（1件あたり2.9%＋0.30ドル）を引いた分を受け取る。Liteで広告ネットワーク、有料購読、自動化、MCPの書き込みが、Proでbeehiivのブランド表示の削除、AIのボットの制御、Send API、最大10のパブリケーションが、EnterpriseでSSO（SAML）、専用IP、学習に使わずデータを保持しない設定、自前のAIモデルの鍵が加わる。Markdown版は、Liteで加わるAd NetworkとRecommendationsを「試用中は不可・一部の地域では不可」と注記する。2026年8月20日のプロダクト更新は上位のプランを「Max」と呼んでいたが、2026-10-11の料金ページに並ぶプランはFree・Lite・Pro・Enterpriseだった。
 :::
 
 :::pull
@@ -206,31 +209,31 @@ beehiivの体験は、書く・増やす・稼ぐを1つの画面に集めたう
 
 - **料金ページが損得を先に見せる**。料金ページで購読者数のつまみを動かすと、LiteとProの「Ad monetization」の横に、月あたりの平均の広告収益が出る（当サイトが同ページのJavaScriptから読み取った値で、1,000人の段階では表示されない）。Denk氏は2023年11月16日のブログで、多くのSaaSは利用者にとって費用だが、beehiivは最初から利用者の価値を足す側として作ったと書き、最も大事な指標に、beehiivに払う額より多くをbeehiivから稼ぐ利用者の数を挙げた。料金表は、その考えをそのまま画面に置いたものに見える。
 - **広告は書きながら差し込む**。2026年3月9日のプロダクト更新によれば、広告の案件は毎時更新され、エディタで `/ads` と打てば案件を選んで記事に入れられる。選んでから5日（120時間）以内に送ればよく、送信の96時間後に成果の報告が届き、売上は毎月20日に入金される。それまでは、毎週日曜に届く案件を待つ形だった。Ad NetworkのFAQによれば、案件の割り当てには機械学習のシステムを使い、合わない案件は低評価を付ければ消える。営業も広告文も請求も、書き手の手から外れている。
-- **登録の直後に4つのおすすめ**。2026年7月9日のプロダクト更新によれば、新しい読者が登録した直後に、書き手が推す他のニュースレターを最大4つまで見せられる。無料の相互のおすすめと、紹介した読者1人ごとにお金が動く有料のおすすめ（旧Boosts）を1つにまとめ直したもので、これまでにRecommendationsとBoostsから1,500万超の購読が生まれ、他を推すニュースレターは推し返される見込みが32倍だったという。9月29日の更新では、おすすめから生まれた購読は2,000万近くになった。ヘルプ記事によれば、検証に通らなかった購読者を自動で消す機能はなくなり、タグで結果を見せて書き手に判断を任せる形に変わった。
+- **登録の直後に4つのおすすめ**。2026年7月9日のプロダクト更新によれば、新しい読者が登録した直後に、書き手が推す他のニュースレターを最大4つまで見せられる。無料の相互のおすすめと、紹介した読者1人ごとにお金が動く有料のおすすめ（旧Boosts）を1つにまとめ直したもので、これまでにRecommendationsとBoostsから1,500万超の購読が生まれ、他を推すニュースレターは推し返される見込みが32倍だったという。9月29日の更新では、おすすめから生まれた購読は2,000万近くになった。ヘルプ記事（2026-10-01更新）によれば、検証に通らなかった購読者を自動で消す機能はなくなり、タグで結果を見せて書き手に判断を任せる形に変わった。
 - **AIの入口が外にも中にもある**。beehiivは2026年3月に有料の利用者向けにMCPのサーバーを先行公開し、4月30日のv2で順番待ちも有料プランも要らずに全利用者へ開き、6月16日からは有料プランで書き込みもできるようにした。9月29日の更新によれば、MCPは600万回超のリクエストを処理し、[Claude](/ja/articles/claude)と[ChatGPT](/ja/articles/chatgpt)の公式のコネクタになった。製品の中では、7月16日のSummer Release Eventで出したエージェント「Copilot」を、その名前が利用者に不評だったとして8月に「beehiiv Agent」に改名し、9月に記憶とサブエージェントを足した。ヘルプ記事（2026-10-04更新）はFreeを読み取りのみ、Liteを変更まで、ProとEnterpriseを配信の予約と送信までとする一方、GitHubのbeehiiv/agentsのREADMEは、公開と送信は人の操作として残すと書き、両者の記述は揃っていない。
-- **AIのクローラーを見える化して止める**。2026年8月20日のプロダクト更新によれば、beehiivは記事ごとに構造化データ（JSON-LD）を、サイトごとに内容から作るllms.txtを自動で出す。前の月にOpenAI、Anthropic、Google、Microsoftのボットがbeehiivの上のコンテンツを5億回超クロールしたとして、[Cloudflare](/ja/articles/cloudflare)と組んだAI Crawl Controlも出した。ヘルプ記事によれば、対象はWebサイトビルダーで独自ドメインを使うProとEnterpriseのパブリケーションで、22のクローラーを4つの分類で見せ、止める設定はCloudflareのネットワークの段階で強制される。robots.txtのようなお願いではなく、従わないボットも通さない。
-- **稼げるかどうかは国による**。Ad NetworkのFAQによれば、広告と有料のおすすめの収益はStripe Expressのアカウントでしか受け取れず、PayPalやWiseには対応しない。Stripe Expressが使えない国の書き手は、プランにかかわらず広告ネットワークに参加できない。有料のおすすめの案件も対象の国が絞られていることが多く、9月29日の更新に例として並んだ5件のうち4件は、米国、または米国・カナダ・欧州の読者に限っていた。日本から使う場合は、配信の道具としての価値と、稼ぐ道具としての価値を分けて考える必要がある。
+- **AIのクローラーを見える化して止める**。2026年8月20日のプロダクト更新によれば、beehiivは記事ごとに構造化データ（JSON-LD）を、サイトごとに内容から作るllms.txtを自動で出す。前の月にOpenAI、Anthropic、Google、Microsoftのボットがbeehiivの上のコンテンツを5億回超クロールしたとして、[Cloudflare](/ja/articles/cloudflare)と組んだAI Crawl Controlも出した。ヘルプ記事によれば、対象はWebサイトビルダーで独自ドメインを使うProとEnterpriseのパブリケーションで、22のクローラーを4つの分類で管理し、止める設定はCloudflareのネットワークの段階で強制される。robots.txtのようなお願いではなく、従わないボットも通さない。
+- **稼げるかどうかは国による**。Ad NetworkのFAQによれば、広告と有料のおすすめの収益は原則としてStripe Expressのアカウントでしか受け取れず、PayPalやWiseには対応しない。Stripe Expressが使えない国の書き手は、プランにかかわらず広告ネットワークに参加できない。有料のおすすめの案件も、出す側が任意で対象の国を絞れる。9月29日の更新に上位の案件の例として並んだ5件のうち4件は、米国、または米国・カナダ・欧州の読者に限っていた。日本から使う場合は、配信の道具としての価値と、稼ぐ道具としての価値を分けて考える必要がある。
 
 ## 技術構成
 
 ::techstack
 
 :::fact
-当サイトの実観測（2026-10-11）では、マーケティングサイトの www.beehiiv.com は server: cloudflare とともに x-powered-by: Next.js と、hnd1とiad1を含む x-vercel-id を返した。一方、管理画面の app.beehiiv.com、APIの api.beehiiv.com、埋め込みフォームの embeds.beehiiv.com、MCPの mcp.beehiiv.com は、いずれも server: cloudflare の後ろで via: 1.1 heroku-router を返し、x-runtime や x-download-options: noopen のヘッダーが付き、app と mcp はどちらも x-release-version: v9916 だった。mcp.beehiiv.com/mcp は、認証のない要求に401と、OAuthの保護リソースのメタデータを指す www-authenticate を返した。書き手のサイトを配る product.beehiiv.com と、独自ドメインの mail.bigdeskenergy.com は、x-orchid-version: 2 と orchid-v2-prod-v34-20261010001027 というリリースの名前、30日の s-maxage を返し、HTMLに `window.__remixContext` を含んでいた。画像の media.beehiiv.com は、Amazon S3のヘッダーとCloudflareの画像最適化のヘッダー（cf-polished）を返した。料金ページのMarkdown版は、AIが価格を答えるときはHTMLのスライダーを読み取らず、`https://www.beehiiv.com/api/mcp` のMCPのツール `get_pricing` を呼ぶよう書いている。公式ブログの記事内のリンクには utm_source=beehiivblog.beehiiv.com が付き、サブプロセッサーの一覧のページの末尾には「Powered by beehiiv」とある。GitHubのbeehiivの組織は、ActiveRecordのモデルに状態機械を足すRubyのgem（`has_state_machine`）や、MCPのサーバーにつなぐClaude Code、Gemini CLI、Cursor、Codexなどのプラグインの定義（agents）を公開している。
+当サイトの実観測（2026-10-11）では、マーケティングサイトの www.beehiiv.com は server: cloudflare とともに x-powered-by: Next.js と、hnd1とiad1を含む x-vercel-id を返した。一方、管理画面の app.beehiiv.com、APIの api.beehiiv.com、埋め込みフォームの embeds.beehiiv.com、MCPの mcp.beehiiv.com は、いずれも server: cloudflare の後ろで via: 1.1 heroku-router、HerokuのNELの報告先（heroku-nel）、x-runtime を返した。x-permitted-cross-domain-policies: none は app、embeds、mcp に、x-download-options: noopen は app と mcp にだけ付いていた（api.beehiiv.com/v2/ の404の応答にはどちらもなかった）。app と mcp はどちらも x-release-version: v9916 だった。mcp.beehiiv.com/mcp は、認証のない要求に401と、OAuthの保護リソースのメタデータを指す www-authenticate を返した。beehiivのプロダクト更新を載せる product.beehiiv.com と、独自ドメインで運営されるDenk氏のニュースレター mail.bigdeskenergy.com は、どちらもbeehiivの上で配られるパブリケーションのサイトで、x-orchid-version: 2 と orchid-v2-prod-v34-20261010001027 というリリースの名前、30日の s-maxage を返し、HTMLに `window.__remixContext` を含んでいた。画像の media.beehiiv.com は、Amazon S3のヘッダーとCloudflareの画像最適化のヘッダー（cf-polished）を返した。料金ページのMarkdown版は、AIが価格を答えるときはHTMLのスライダーを読み取らず、`https://www.beehiiv.com/api/mcp` のMCPのツール `get_pricing` を呼ぶよう書いている。公式ブログの記事内のリンクには utm_source=beehiivblog.beehiiv.com が付き、サブプロセッサーの一覧のページの末尾には「Powered by beehiiv」とある。GitHubのbeehiivの組織は、ActiveRecordのモデルに状態機械を足すRubyのgem（`has_state_machine`）や、MCPのサーバーにつなぐClaude Code、Gemini CLI、Cursor、Codexなどのプラグインの定義（agents）を公開している。
 :::
 
 :::fact
-公式のサブプロセッサーの一覧（2026-10-11確認）は、クラウドホスティングにAmazonとSalesforce、メール配信にSendGrid、データベースのホスティングにCrunchy DataとClickHouse Cloud、CDNとWAFにCloudflare、共同編集のエディタのホスティングにTiptap、決済と本人確認にStripe、監視にNew RelicとSentry、社内のダッシュボードにRetool、問い合わせの管理にZendesk、分析と顧客への連絡にCustomer.io、メールアドレスの検証にKickbox、不正の検知にE-HawkとIPQualityScoreを挙げる。Trust Centerによれば、データはすべて米国のAWSのリージョンに保存され、2026年1月22日付でSOC 2 Type 2への準拠を達成した。広告ネットワークについて、2024年11月22日のCEOのブログは、数人の機械学習エンジニアが読者のデータ、コンテンツ、広告文、コンバージョンからモデルを作っていると書き、2025年11月19日のブログは、1年近くかけて広告ネットワークのモデルを作って学習させ、案件の割り当てを自動にしたと書く。2026年9月24日に掲載されたデータサイエンティストの求人は、広告ネットワークのClickHouseのデータモデル、エンティティ解決やグラフデータベースのモデリング、出版者への支払いと広告主の価値の釣り合いの分析を仕事に挙げ、報酬の幅を12万〜22万ドル（経験による）とする。Ad NetworkのFAQによれば、CPCの広告では、自動化されたものや無効と判定されたクリックを除き、残りを質の信号で重み付けした「payable clicks」を数え、広告主への請求と書き手への支払いは、この同じ数字にそれぞれの単価を掛けて決まる。
+公式のサブプロセッサーの一覧（2026-10-11確認）は、クラウドホスティングにAmazonとSalesforce、メール配信にSendGrid、データベースのホスティングにCrunchy DataとClickHouse Cloud、CDNとWAFにCloudflare、共同編集のエディタのホスティングにTiptap、決済と本人確認にStripe、クラウドの監視にNew Relic、エラーの報告にSentry、社内のダッシュボードにRetool、問い合わせの管理にZendesk、分析と顧客への連絡にCustomer.io、顧客分析にFullstory、メールアドレスの検証にKickbox、不正の検知にE-HawkとIPQualityScoreを挙げる。Trust Centerによれば、出版物と購読者のデータはすべて米国のAWSのリージョンに保存され、2026年1月22日付でSOC 2 Type 2への準拠を達成した。広告ネットワークについて、2024年11月22日のCEOのブログは、数人の機械学習エンジニアが読者のデータ、コンテンツ、広告文、コンバージョンからモデルを作っていると書き、2025年11月19日のブログは、1年近くかけて広告ネットワークのモデルを作って学習させ、案件の割り当てを自動にしたと書く。2026年9月24日に掲載されたデータサイエンティストの求人は、広告ネットワークのClickHouseのデータモデル、エンティティ解決やグラフデータベースのモデリング、出版者への支払いと広告主の価値の釣り合いの分析を仕事に挙げ、報酬の幅を12万〜22万ドル（経験による）とする。Ad NetworkのFAQによれば、CPCの広告では、自動化されたものや無効と判定されたクリックを除き、残りを質の信号で重み付けした「payable clicks」を数え、広告主への請求と書き手への支払いは、この同じ数字にそれぞれの単価を掛けて決まる。
 :::
 
 :::guess
-構成は、自前で作り込むより、運用を外に預けて組み立てる方向に寄っているように見える。アプリの本体はHerokuの上のRailsとみられ（x-runtime や x-download-options: noopen はRailsのアプリでよく見るヘッダーで、自社のgemもActiveRecord向けだ）、データベースはCrunchy DataのマネージドなPostgres、分析はClickHouse Cloud、配信はSendGrid、入口はCloudflareに任せている。正社員129人の会社が、ニュースレターに加えてWebサイト、ポッドキャスト、コミュニティ、デジタル商品まで手を広げられたのは、この「借りられるものは借りる」割り切りによるところが大きいと推測される。逆に自前で抱えているのは、広告の割り当てのモデル、payable clicksの判定、おすすめの購読者の検証といった、お金の流れを決める部分だ。MCPのサーバーが管理画面と同じリリースの番号を返すことからは、MCPが別のサービスではなく本体のアプリの一部として動いているとみられる。料金ページのMarkdown版がAIに `get_pricing` を勧めていることからは、AIのアシスタントを、検索エンジンと並ぶ客の入口として扱っている様子が読める。
+構成は、自前で作り込むより、運用を外に預けて組み立てる方向に寄っているように見える。アプリの本体はHerokuの上のRailsとみられ（x-runtime や x-download-options: noopen はRailsのアプリでよく見るヘッダーで、自社のgemもActiveRecord向けだ）、データベースはCrunchy DataのマネージドなPostgres、分析はClickHouse Cloud、配信はSendGrid、入口はCloudflareに任せている。正社員129人の会社が、ニュースレターに加えてWebサイト、ポッドキャスト、コミュニティ、デジタル商品まで手を広げられたのは、この「借りられるものは借りる」割り切りによるところが大きいと推測される。逆に自前で抱えているのは、広告の割り当てのモデル、payable clicksの判定、おすすめの購読者の検証といった、お金の流れを決める部分とみられる（ただし不正の検知やメールアドレスの検証には外部の事業者も使っている）。MCPのサーバーが管理画面と同じリリースの番号を返すことからは、MCPが別のサービスではなく本体のアプリの一部として動いているとみられる。料金ページのMarkdown版がAIに `get_pricing` を勧めていることからは、AIのアシスタントを、検索エンジンと並ぶ客の入口として扱っている様子が読める。
 :::
 
 ## 広告とおすすめで『元を取らせる』
 
 :::fact
-beehiivの広告ネットワークは、2022年9月のシードの追加の発表で、一部の出版者と広告主で試験運用を始めるとされ、2023年9月26日のSwapstackの買収の記事は、その2週間前に広告ネットワークを公開したと書く。同じ記事によれば、Swapstackは数千の出版者と数百の広告主を抱え、200万ドル超の広告の取引を仲介してきた会社で、CEOのJake Schonberger氏がbeehiivのブランドとの提携の責任者として広告ネットワークを率いることになった。共同創業者たちは、Morning Brewで数千万ドルの広告売上を扱った広告管理の仕組みを作った経験があるとも書く。2024年10月には、インプレッションに応じて払いが保証されるCPMの案件が加わり（2024年11月22日のCEOのブログ）、2026年3月9日のプロダクト更新は、ニュースレターがNetflix、Roku、HubSpot、Nike、AG1などの広告から合わせて毎月100万ドル超を稼いでいると書く。2026年1月のレポート「The State of Newsletters 2026」によれば、2025年の広告ネットワークの月々の売上の合計は2024年の倍になり、有料購読は書き手に1,900万ドル（2024年は800万ドル）をもたらし、Boostsは書き手の稼ぎ全体の5%を占めた。有料のおすすめ（旧Boosts）では、読者を集めたい側が検証を通った購読者1人あたりの単価（CPA）を決め、その20%が運営とStripeの費用として価格に含まれる。ヘルプ記事の例では、払う側が2.50ドル、推した側が受け取るのが2ドルで、入金は20ドルからだ。料金ページのスライダーが示す有料プランの値段と、広告収益の平均は次の通りだった（値段は年払いの月あたりで料金ページのMarkdown版から、広告収益の平均は当サイトが料金ページのJavaScriptから読み取った値）。
+beehiivの広告ネットワークは、2022年9月のシードの追加の発表で、一部の出版者と広告主で試験運用を始めるとされ、2023年9月26日のSwapstackの買収の記事は、その2週間前に広告ネットワークを公開したと書く。同じ記事によれば、Swapstackは数千の出版者と数百の広告主を抱え、200万ドル超の広告の取引を仲介してきた会社で、CEOのJake Schonberger氏がbeehiivのブランドとの提携の責任者として広告ネットワークを率いることになった。共同創業者たちは、Morning Brewで数千万ドルの広告売上を扱った広告管理の仕組みを作った経験があるとも書く。2024年10月には、インプレッションに応じて払いが保証されるCPMの案件が加わり（2024年11月22日のCEOのブログ）、2026年3月9日のプロダクト更新は、ニュースレターがNetflix、Roku、HubSpot、Nike、AG1などの広告から合わせて毎月100万ドル超を稼いでいると書く。2026年1月のレポート「The State of Newsletters 2026」によれば、2025年の広告ネットワークの月々の売上の合計は2024年の倍になり、有料購読は書き手に1,900万ドル（2024年は800万ドル）をもたらし、Boostsは書き手の稼ぎ全体の5%を占めた。有料のおすすめ（旧Boosts）では、読者を集めたい側が検証を通った購読者1人あたりの単価（CPA）を決め、その20%が運営とStripeの費用として価格に含まれる。ヘルプ記事の例では、払う側が2.50ドル、推した側が受け取るのが2ドルで、払う側が先に入れる資金は20ドルからだ。料金ページのスライダーが示す有料プランの値段と、広告収益の平均は次の通りだった（値段は年払いの月あたりで料金ページのMarkdown版から、広告収益の平均は当サイトが料金ページのJavaScriptから読み取った値）。
 :::
 
 | 購読者数（上限） | Lite（年払い・月あたり） | Pro（年払い・月あたり） | 料金ページの広告収益の平均 |
@@ -248,7 +251,7 @@ beehiivの広告ネットワークは、2022年9月のシードの追加の発�
 | 250,000以上 | — | 869ドル | 月2,300ドル |
 
 :::guess
-1万人から10万人までの5つの段階では、広告収益の平均がLiteの年払いの月額をわずかに上回り（10万人では399ドルに対して400ドル）、25万人以上ではProの869ドルに対して2,300ドルになる。料金を広告で取り戻せるように見せるこの並べ方は、Denk氏の「払う額より多く稼ぐ利用者の数」という指標を、新しい客への約束に変えたものと読める。ただし、平均は大きく稼ぐ一部のニュースレターに引っ張られている可能性があり、FAQも見込みの額は保証ではないと書く。会社の側から見れば、広告ネットワークは広告主への請求と書き手への支払いの単価の差で、有料のおすすめは20%の手数料で稼ぐ仕組みとみられ、どちらも書き手の稼ぎが増えるほどbeehiivの取り分も増える。購読料から取らない分を、ネットワークを流れるお金から取る設計と推測される。
+1万人から10万人までの5つの段階では、広告収益の平均がLiteの年払いの月額をわずかに上回り（10万人では399ドルに対して400ドル）、25万人以上ではProの869ドルに対して2,300ドルになる。料金を広告で取り戻せるように見せるこの並べ方は、Denk氏の「払う額より多く稼ぐ利用者の数」という指標を、新しい客への約束に変えたものと読める。ただし、平均は大きく稼ぐ一部のニュースレターに引っ張られている可能性があり、Ad NetworkのFAQも、見込みの支払額は保証された額ではないと書く。会社の側から見れば、広告ネットワークは広告主への請求と書き手への支払いの単価の差で、有料のおすすめは20%の手数料（Stripeの費用も含む）で稼ぐ仕組みとみられ、どちらも書き手の稼ぎが増えるほどbeehiivの取り分も増える。購読料から取らない分を、ネットワークを流れるお金から取る設計と推測される。
 :::
 
 ## ビジネスモデル
