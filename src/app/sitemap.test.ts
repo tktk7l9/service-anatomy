@@ -9,7 +9,7 @@ describe("sitemap", () => {
   const urls = entries.map((entry) => entry.url);
 
   it.each(locales)("%s: lists the static pages including the ad/affiliate policy", (locale) => {
-    for (const path of ["", "/about", DISCLOSURE_PATH, "/tech", "/compare"]) {
+    for (const path of ["", "/articles", "/about", DISCLOSURE_PATH, "/tech", "/compare"]) {
       expect(urls).toContain(`${BASE_URL}/${locale}${path}`);
     }
   });

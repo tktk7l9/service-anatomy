@@ -23,7 +23,8 @@ const ja = {
     tagline: "人気サービスを、解剖する。",
     lead: "国内外の気になるサービスを1本ずつ取り上げ、プロダクト・UX・技術構成・ビジネスモデルの4面から読み解く分析マガジン。",
     featured: "最新の解剖",
-    archive: "アーカイブ",
+    recent: "最近の解剖",
+    viewAll: "すべての解剖記事を見る（{count}本）",
     empty: "記事を準備中です。",
   },
   article: {
@@ -86,6 +87,8 @@ const ja = {
     tagTitle: "タグ",
     techTitle: "技術",
     countSuffix: "本の記事",
+    allTitle: "すべての解剖記事",
+    allLead: "公開したすべての解剖記事を、新しい順に並べています。",
   },
   tech: {
     indexTitle: "技術データベース",

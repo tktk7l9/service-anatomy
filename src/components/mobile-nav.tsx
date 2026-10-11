@@ -47,7 +47,7 @@ export function MobileNav({ locale, dict }: { locale: Locale; dict: Dictionary }
       </button>
       {open && (
         <nav id="mobile-nav-panel" className="mobile-nav-panel" aria-label="Site">
-          <Link href={`/${locale}`} onClick={close}>
+          <Link href={`/${locale}/articles`} onClick={close}>
             {dict.nav.home}
           </Link>
           <Link href={`/${locale}/tech`} onClick={close}>
