@@ -23,6 +23,12 @@ sources:
   - label: "Shin Rental Server official: Business plans (resource guarantees)"
     url: "https://www.shin-server.jp/service/business.php"
     accessedAt: "2026-10-11"
+  - label: "Shin Rental Server Support: Server specifications (transfer guidelines)"
+    url: "https://www.shin-server.jp/support/manual/man_server_spec.php"
+    accessedAt: "2026-10-11"
+  - label: "Shin Rental Server Support: Free domain for life (one on regular plans, two on business plans)"
+    url: "https://www.shin-server.jp/support/manual/man_order_present_domain.php"
+    accessedAt: "2026-10-11"
   - label: "Shin Rental Server official: Terms of service (trial period, refunds of paid fees)"
     url: "https://www.shin-server.jp/rule.php"
     accessedAt: "2026-10-11"
@@ -92,7 +98,7 @@ This article was put together by rereading both services' official pages on Octo
 ## Company: one company, two brands
 
 :::fact
-According to XServer Inc.'s company overview and history (as of 2026-10-11), the company was founded on January 23, 2004, is headquartered at Grand Front Osaka in Kita Ward, Osaka, and has capital of 100 million yen (including capital reserve). The Xserver shared hosting service started in July 2003 under the trade name Xserver. According to the same history, the company launched the new-generation hosting service "wpX Shin Rental Server" (now "Shin Rental Server") in May 2021. According to a Shin Rental Server announcement (2025-09-02), the services offered under the Shin account were transferred to group company XServer Inc. on October 1, 2025, as part of a group reorganization. Xserver's home page claims the No. 1 domestic share, 260,000 companies and 2.5 million sites in operation. Shin Rental Server's home page claims to be "No. 1 fastest in Japan" and says there is no restriction on the genre of content that can be run.
+According to XServer Inc.'s company overview and history (as of 2026-10-11), the company was founded on January 23, 2004, is headquartered at Grand Front Osaka in Kita Ward, Osaka, and has capital of 100 million yen (including capital reserve). The Xserver shared hosting service started in July 2003 under the trade name Xserver. According to the same history, the company launched the new-generation hosting service "wpX Shin Rental Server" (now "Shin Rental Server") in May 2021. According to a Shin Rental Server announcement (2025-09-02), the services offered under the Shin account were transferred to group company XServer Inc. on October 1, 2025, as part of a group reorganization. Xserver's home page claims the No. 1 domestic share (per W3Techs as of June 2026, according to its notes), 260,000 companies and 2.5 million sites in operation; the notes give the company count as of September 2026 and the site count as of September 2025, both as totals for Xserver and the business service XServer Business. Shin Rental Server's home page claims to be "No. 1 fastest in Japan" and says there is no restriction on the genre of content that can be run.
 :::
 
 | Item | Shin Rental Server | Xserver |
@@ -109,7 +115,7 @@ The CPU and memory tiers carry the same numbers. The difference is whether those
 ## Resources and infrastructure: the same tiers, guaranteed or allocated
 
 :::fact
-Xserver's server specification page (checked 2026-10-11) gives "resource guarantee" values by server: on servers from sv13001 onward, Standard gets 6 virtual cores and 8 GB of memory, Premium 8 cores and 12 GB, and Business 10 cores and 16 GB (on servers sv10001 to sv13000 the values are a step lower, such as 4 cores and 4 GB for Standard). Shin Rental Server's feature list describes the vCPUs and memory of its regular plans as the cores and capacity "allocated to each server account": 6 cores and 8 GB for Basic, 8 cores and 12 GB for Standard, and 10 cores and 16 GB for Premium. Shin's business plan page says that, unlike the regular plans, the business plans guarantee resource values per plan, and gives Business Basic a guarantee of 4 cores and 4 GB. For CPUs, Xserver's home page says it uses 5th-generation AMD EPYC, and Shin's features page says it uses 4th-generation AMD EPYC. Shin's home page says it actively adopts the latest technology, and the page's description (og:description) says it is built on Xserver's system and applies Xserver's system enhancements ahead of it, as fast as possible. Disk is 500 GB, 600 GB and 700 GB on Xserver's Standard, Premium and Business, and 700 GB, 1,000 GB and 1,200 GB on Shin's Basic, Standard and Premium, all NVMe. For automatic backups, both feature lists say they keep 14 days of web and mail data and of MySQL.
+Xserver's server specification page (checked 2026-10-11) gives "resource guarantee" values by server: on servers from sv13001 onward, Standard gets 6 virtual cores and 8 GB of memory, Premium 8 cores and 12 GB, and Business 10 cores and 16 GB (on servers sv10001 to sv13000 the values are a step lower, such as 4 cores and 4 GB for Standard). Shin Rental Server's feature list describes the vCPUs and memory of its regular plans as the cores and capacity "allocated to each server account": 6 cores and 8 GB for Basic, 8 cores and 12 GB for Standard, and 10 cores and 16 GB for Premium. Shin's business plan page says that, unlike the regular plans, the business plans guarantee resource values per plan, and gives Business Basic a guarantee of 4 cores and 4 GB. For CPUs, Xserver's home page says it uses 5th-generation AMD EPYC, and Shin's features page says it uses 4th-generation AMD EPYC. Shin's home page says it actively adopts the latest technology, and the page's description (og:description) says it is built on Xserver's system and applies Xserver's system enhancements ahead of it, as fast as possible. Disk is 500 GB, 600 GB and 700 GB on Xserver's Standard, Premium and Business, and 700 GB, 1,000 GB and 1,200 GB on Shin's Basic, Standard and Premium, all NVMe. For transfer, Xserver's server specification page says it is unlimited (with restrictions when an excessive load is placed on the network or servers), while Shin's server specification page gives daily guidelines of 900 GB for Basic, 1,200 GB for Standard and 1,500 GB for Premium and says speed limits or other restrictions may apply when usage greatly exceeds them. For automatic backups, both feature lists say they keep 14 days of web and mail data and of MySQL.
 :::
 
 | Item | Shin Rental Server | Xserver |
@@ -118,6 +124,7 @@ Xserver's server specification page (checked 2026-10-11) gives "resource guarant
 | Resource guarantee | business plans only (Business Basic: 4 cores, 4 GB) | guarantee values stated for regular plans (they vary by server number) |
 | CPU | 4th-generation AMD EPYC | 5th-generation AMD EPYC |
 | Disk (lowest tier first) | 700 GB, 1,000 GB, 1,200 GB | 500 GB, 600 GB, 700 GB |
+| Transfer | daily guidelines of 900 GB, 1,200 GB and 1,500 GB (restrictions if greatly exceeded) | unlimited (restrictions under excessive load) |
 | Automatic backups | 14 days | 14 days |
 
 :::guess
@@ -127,7 +134,7 @@ The same figure of 6 cores and 8 GB is written as a guarantee by Xserver and as 
 ## Price: Shin's regular price is slightly higher, and on October 11 only Xserver was discounted
 
 :::fact
-According to Shin Rental Server's pricing page (checked 2026-10-11), the monthly price on a 36-month contract is 1,078 yen for Basic, 2,002 yen for Standard and 4,004 yen for Premium, and the new-contract and renewal tables show the same amounts. According to its news index, six campaigns ran from December 26, 2025 to October 7, 2026, each new one announced on the day the previous one ended, and the page for the last one, "up to half-price cashback," said it had ended. According to Xserver's pricing page (checked the same day), the regular monthly price on a 36-month contract is 990 yen for Standard, 1,980 yen for Premium and 3,960 yen for Business, and campaign prices of 693 yen, 1,386 yen and 2,772 yen applied from 17:00 on October 5 to 17:00 on November 4, 2026. On 12-month contracts, the regular 1,100, 2,200 and 4,400 yen became 990, 1,980 and 3,960 yen. Both require the full contract length to be paid up front, and neither charges a setup fee.
+According to Shin Rental Server's pricing page (checked 2026-10-11), the monthly price on a 36-month contract is 1,078 yen for Basic, 2,002 yen for Standard and 4,004 yen for Premium, and the new-contract and renewal tables show the same amounts. According to its news index, six campaigns ran from December 26, 2025 to October 7, 2026, and from the second on, each was announced on the day the previous one ended; the page for the last one, "up to half-price cashback," said it had ended. According to Xserver's pricing page (checked the same day), the regular monthly price on a 36-month contract is 990 yen for Standard, 1,980 yen for Premium and 3,960 yen for Business, and campaign prices of 693 yen, 1,386 yen and 2,772 yen applied from 17:00 on October 5 to 17:00 on November 4, 2026. On 12-month contracts, the regular 1,100, 2,200 and 4,400 yen became 990, 1,980 and 3,960 yen. Both require the full contract length to be paid up front, and neither charges a setup fee.
 :::
 
 | 36-month contract (tax included, monthly equivalent) | Shin Rental Server | Xserver |
@@ -145,7 +152,7 @@ Lined up at regular prices, Shin looks like the same tier with more disk for 22 
 ## Trials and perks: the same terms, slightly different free perks
 
 :::fact
-Both services' terms of service (checked 2026-10-11) set a trial period of 10 days from the notice that service has started, start the full contract on the day payment is confirmed during the trial, and, in the cancellation clause, state that fees already paid are not refunded. The wording of the clauses is almost the same. For free domains, according to Xserver's pricing page, new Standard contracts get one with a 12-month contract and two with 24 months or longer, and Premium and Business get two with any contract. Shin's feature list gives one from a designated list on the regular plans and two on the business plans. The paid WordPress theme "Xwrite" (regularly 9,900 yen a year) is free on Premium and Business at Xserver according to its pricing page (not on Standard), and free on every plan except Basic at Shin.
+Both services' terms of service (checked 2026-10-11) set a trial period of 10 days from the notice that service has started, start the full contract on the day payment is confirmed during the trial, and, in the cancellation clause, state that fees already paid are not refunded. The wording of the clauses is almost the same. For free domains, according to Xserver's pricing page, new Standard contracts get one with a 12-month contract and two with 24 months or longer, and Premium and Business get two with any contract. Shin's support manual says one domain from a designated list is free on the regular plans and two on the business plans (the features page says "any two," so the pages are not consistent). The paid WordPress theme "Xwrite" (regularly 9,900 yen a year) is free on Premium and Business at Xserver according to its pricing page (not on Standard), and free on every plan except Basic at Shin.
 :::
 
 | Item | Shin Rental Server | Xserver |
