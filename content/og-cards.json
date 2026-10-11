@@ -14,6 +14,13 @@
     "siteName": "BASE (ベイス) | ネットショップを無料で簡単に作成",
     "fetchedAt": "2026-09-28"
   },
+  "beehiiv": {
+    "url": "https://www.beehiiv.com/",
+    "title": "Newsletter Platform: Create Newsletters and Websites - beehiiv",
+    "description": "Create, grow, and monetize your newsletter with easy-to-use newsletter tools. Build email newsletters and websites without any coding.",
+    "image": "https://media.beehiiv.com/www/og-image/og-beehiiv.png",
+    "fetchedAt": "2026-10-11"
+  },
   "better-stack": {
     "url": "https://betterstack.com/",
     "title": "Better Stack - 30x cheaper than Datadog, Exceptional support",
@@ -453,6 +460,14 @@
     "siteName": "Obsidian",
     "fetchedAt": "2026-08-06"
   },
+  "onamae": {
+    "url": "https://www.onamae.com/",
+    "title": "ドメイン取得は最安値0円～｜ドメイン取るならお名前.com",
+    "description": "お名前.comは国内最大級のドメイン公式登録サービスです。ドメイン登録実績4900万件を超えました。人気の.com .net .jpドメインを含め630種類のドメインを取り扱っております。",
+    "image": "https://www.onamae.com/common/images/og.jpg",
+    "siteName": "お名前.com",
+    "fetchedAt": "2026-10-11"
+  },
   "paypay": {
     "url": "https://paypay.ne.jp/",
     "title": "PayPay - QRコードで支払うキャッシュレス決済のスマホアプリ",
@@ -559,6 +574,14 @@
     "image": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c5/f4/ef/c5f4ef13-20f0-8ad5-97d5-bd7a60221439/Placeholder.mill/1200x630wa.jpg",
     "siteName": "App Store",
     "fetchedAt": "2026-08-06"
+  },
+  "shin-rental-server": {
+    "url": "https://www.shin-server.jp/",
+    "title": "新世代レンタルサーバー【シンレンタルサーバー】",
+    "description": "「シンレンタルサーバー」は、エックスサーバーのシステムをベースに、最新技術を迅速かつ積極的に取り込むことを目指したサービスです。エックスサーバーのシステム強化を先んじて最速適用。圧倒的な速度の優位性を維持します。",
+    "image": "https://www.shin-server.jp/img/common/ogp.png?date=20240529",
+    "siteName": "シンレンタルサーバー",
+    "fetchedAt": "2026-10-11"
   },
   "shopify": {
     "url": "https://www.shopify.com/",
