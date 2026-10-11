@@ -31,7 +31,14 @@ tech editorial (magazine-style) design.
   `content/og-image-hosts.json` and passes it to `contentSecurityPolicy({ extraImgSrc })`.
   Pages can be static. Calling `headers()` forces dynamic rendering, so do not call it
   on pages that should be cached.
-  ld+json is a data block and outside script-src (it gets the nonce anyway; harmless).
+  Only inline JavaScript gets the nonce: `<script src>`, an SVG `<script href>` and data blocks
+  such as ld+json (outside script-src, never executed) are left unstamped.
+  **Trust boundary:** HTMLRewriter cannot tell Next's inline scripts from injected ones, so any
+  inline `<script>` that reaches the server-rendered HTML gets the nonce. The nonce is safe only
+  while the server never emits untrusted HTML. `src/lib/trust-boundary.test.tsx` enforces it:
+  `dangerouslySetInnerHTML` is allowed only in the files on its allowlist (JSON-LD with every `<`
+  escaped, the trusted-Markdown body), each with a reason and a hostile-input test. A new sink
+  goes on that list with both, or it fails CI.
 - **Every route is SSG** (`generateStaticParams` + `dynamicParams = false`). 861 pages are
   generated at build time. Read the Markdown in `content/` **only at build time** —
   reading it at runtime depends on how `process.cwd()` resolves in the Worker runtime.
