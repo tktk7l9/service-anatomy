@@ -1,20 +1,25 @@
 ---
 service: "ConoHa VPS"
 title: "ChatGPTにはサーバーを作らせず、Claudeには作らせる — 1時間1.3円からの時間課金と、10月29日まで最大66%引きの前払いを並べ、AIエージェントに5つの窓口を開いたConoHa VPSを解剖する"
-description: "ConoHa VPSは、GMOインターネット株式会社が「ConoHa」ブランドで提供するVPS（仮想専用サーバー）だ。ConoHaは2013年7月に、当時のGMOインターネット（現・GMOインターネットグループ）がVPSの新ブランドとして始めた。メモリ512MBから128GBまでの9プランを、1時間1.3円からで月額に上限がある時間課金と、1〜36か月分を前払いする「まとめトク」の二本立てで売り、クラウド基盤はOpenStack、データ転送量は無料だ。まとめトクは2026年10月29日16時までのキャンペーンで時間課金と比べて最大66%OFF（月額293円から）になるが、価格は申し込み時だけで、更新時には適用されない。当サイトが数えたテンプレートはOS 13系統とアプリ31件、スタートアップスクリプトは38件で、Claude Code、Codex CLI、OpenClaw、Hermes AgentなどAIエージェント系の7件には、9月25日から悪性パッケージ対策「Guard」の管理スクリプトを同梱する。2025年7月のOSS版MCPに続いて、2026年にはリモートMCP、Claudeのコネクタ、ChatGPTのプラグインを公開したが、ChatGPTからはサーバーの新規作成とリサイズができない。料金とキャンペーン、テンプレート、MCPとAPIのドキュメント、リリースノート、会員規約、アフィリエイトとパートナー制度、プレスリリース、決算説明資料、当サイトの実観測から、二つの値付けと、AIエージェントへの窓口ごとの権限の分け方を解剖する。"
+description: "ConoHa VPSは、GMOインターネット株式会社が「ConoHa」ブランドで提供するVPS（仮想専用サーバー）だ。ConoHaは2013年7月に、当時のGMOインターネット（現・GMOインターネットグループ）がVPSの新ブランドとして始めた。メモリ512MBから128GBまでの9プランを、1時間1.3円からで月額に上限がある時間課金と、1〜36か月分を前払いする「まとめトク」の二本立てで売り、クラウド基盤はOpenStack、データ転送量は無料だ。まとめトクは2026年10月29日16時までのキャンペーンで時間課金と比べて最大66%OFF（月額293円から）になるが、価格は申し込み時だけで、更新時には適用されない。当サイトが数えたテンプレートはOS 13系統とアプリ31件、スタートアップスクリプトは38件で、Claude Code、Codex CLI、OpenClaw、Hermes AgentなどAIエージェント系の7件には、9月25日から悪性パッケージ対策「Guard」の管理スクリプトを同梱する。2025年7月のOSS版MCPに続いて、2026年にはリモートMCP、Claudeのコネクタ、ChatGPTのプラグインを公開したが、ChatGPTのプラグインからはサーバーの新規作成とリサイズができない。料金とキャンペーン、テンプレート、MCPとAPIのドキュメント、リリースノート、会員規約、アフィリエイトとパートナー制度、プレスリリース、決算説明資料、当サイトの実観測から、二つの値付けと、AIエージェントへの窓口ごとの権限の分け方を解剖する。"
 lead: "「プラグインのご利用によって『ConoHa VPS byGMO』の料金が変動することはありません」——2026年9月1日、GMOインターネットは、ChatGPTからVPSを操作するプラグインの提供開始を、こう説明した。このプラグインからは、料金が新たに発生するサーバーの新規作成やリサイズを行えない。一方、8月に始まったClaudeのコネクタでは、サーバーの作成まで日本語で頼める。1時間単位の時間課金と前払いの割引を並べてきたVPSが、AIエージェントにどこまでの操作を渡したのかを、公開情報だけで解剖する。"
 category: dev-tool
 tags: [hosting, vps, small-business, api, mcp, ai-agent, security]
 publishedAt: "2026-10-13"
 updatedAt: "2026-10-13"
 lastVerified: "2026-10-13"
+expires:
+  - date: "2026-10-29"
+    claim: "Happy Halloweenキャンペーン（まとめトクの初回価格・最大66%OFF、10月29日16時まで）と、それを使った値上がり幅の計算"
+  - date: "2026-11-13"
+    claim: "2026年12月期第2四半期の決算資料を最新とする記述（第3四半期の決算説明会は11月13日の予定）"
 serviceUrl: "https://vps.conoha.jp/"
 # Affiliate link placeholder: ConoHa VPS runs its affiliate program through two ASPs, A8.net and Moshimo
 # Affiliate (https://vps.conoha.jp/affiliate/, checked 2026-10-13): flat rewards per sale, 1GB 1,000 yen,
 # 2GB 1,100 / 2,000 yen (1-month / 3-month-or-longer) up to 96GB 40,200 / 53,900 yen. The page calls the
 # table an excerpt (full terms on each ASP), says there is no cap per sale (several servers in one sale pay
 # for each server) and offers self-back on your own sign-up. Register with A8.net (program s00000000018030)
-# or Moshimo Affiliate (promotion 2540) for free, then apply to the ConoHa VPS program from the network's
+# or Moshimo Affiliate (promotion 2540), then apply to the ConoHa VPS program from the network's
 # dashboard. The owner already has a Moshimo link for ConoHa WING (content/articles/conoha-wing); ConoHa VPS
 # needs its own material. Use the ASP's ad code as provided: the link to affiliate.url, the 1x1 impression
 # image to affiliate.impressionUrl (rewrite Moshimo's //i.moshimo.com to https://), the text ad verbatim to
@@ -42,7 +47,7 @@ techStack:
     evidence: "公式の法人向けページ（2026-10-13確認）に、すべてのストレージにNVMeのSSDを搭載した耐障害性にすぐれた分散ストレージ構成、ホストサーバーの障害時に別のホストサーバーへ自動フェイルオーバーするHA機能の標準搭載、DDoS攻撃対策システムの配備、月間稼働率99.99%のSLAを明記"
     evidenceUrl: "https://vps.conoha.jp/for-corporations/"
   - layer: "ネットワーク"
-    name: "50 Gbps shared uplink (100 Mbps per server, upgradable to 1 Gbps) / 1 Gbps private network"
+    name: "50 Gbps shared uplink (limited to 100 Mbps, upgradable to 1 Gbps) / 1 Gbps private network"
     confidence: confirmed
     evidence: "公式の料金・スペックのページ（2026-10-13確認）に、インターネット50Gbps共有（100Mbps制限あり）、プライベートネットワーク1Gbps共有、IPv4アドレス1個とIPv6アドレス17個、データ転送量は課金なしの無制限と明記。有料のネットワーク帯域拡張は300Mbps・500Mbps・1Gbpsの3段階"
     evidenceUrl: "https://vps.conoha.jp/pricing/"
@@ -64,10 +69,10 @@ techStack:
   - layer: "サプライチェーン対策"
     name: "Takumi Guard (GMO Flatt Security, bundled with 7 AI-agent startup scripts)"
     confidence: confirmed
-    evidence: "公式ドキュメント（2026-10-13確認）に、Takumi GuardはGMO Flatt Securityの「Takumi byGMO」の「Guard」機能で、パッケージレジストリの手前に置くプロキシとしてブロックリストの悪性パッケージへのリクエストを拒否すること、Claude Code、Codex CLI、OpenClawなど7つのスタートアップスクリプトに管理スクリプト（/root/takumi-guard.sh）を同梱し、既定は無効であることを明記"
+    evidence: "公式ドキュメント（2026-10-13確認）に、Takumi GuardはGMO Flatt Securityの「Takumi byGMO」の「Guard」機能で、パッケージレジストリの手前に置くプロキシとしてブロックリストの悪性パッケージへのリクエストを拒否すること、Claude Code、Codex CLI、OpenClawなど7つのスタートアップスクリプトに管理スクリプト（/root/takumi-guard.sh）を同梱することを明記し、リリースノートは既定で無効と書く"
     evidenceUrl: "https://doc.conoha.jp/products/vps-v3/startupscripts-v3/takumi-guard/"
   - layer: "GPU"
-    name: "NVIDIA L4 Tensor Core GPU (24 GB; H100 ended March 2026)"
+    name: "NVIDIA L4 Tensor Core GPU (24 GB; H100 new orders ended March 31, 2026)"
     confidence: confirmed
     evidence: "公式のGPUサーバーのページ（2026-10-13確認）に、NVIDIA L4（GPU搭載メモリ24GB）1枚の構成を、20vCPU・メモリ128GBで1時間154.0円（月90,200円）、4vCPU・メモリ16GBで1時間60.5円（月36,300円）とし、OSはUbuntu 22.04LTS、アプリケーションテンプレートはAutomatic1111・InvokeAI・NVIDIA Container Toolkitと明記。ページ上部には「NVIDIA H100 TensorコアGPU」提供終了のお知らせが載り、リリースノートは2026年3月31日に新規提供を終えたと書く"
     evidenceUrl: "https://vps.conoha.jp/gpu/"
@@ -183,7 +188,7 @@ GMOインターネットの「旧会社の沿革」（2025年1月1日の組織�
 :::
 
 :::pull
-同じリモートMCPにつながっていても、Claudeからはサーバーを作れ、ChatGPTからは作れない。ConoHa VPSは、AIエージェントに渡す権限を窓口ごとに分けている。
+同じリモートMCPサーバー（リモート版）を元にしていても、Claudeからはサーバーを作れ、ChatGPTからは作れない。ConoHa VPSは、AIエージェントに渡す権限を窓口ごとに分けている。
 :::
 
 ::scorecard
@@ -197,7 +202,7 @@ ConoHa VPSの体験は、サーバーが立つまでを短くし、立ったあ�
 - **VPSを消しても、まとめトクは終わらない**。よくある質問は、まとめトクやVPS割引きっぷを使っている場合、VPSの削除だけでは解約にならず、別途自動更新をOFFにする必要があり、更新処理は契約満了日の7日前に行われると説明する。会員規約の第16条も、ConoHa VPSのVPS割引きっぷとまとめトクの更新日を契約満了日の7日前とし、更新しない意思表示がなければ当初の期間で自動的に更新され、契約期間中は解除や解約ができないと定める。料金表は、更新しなければ契約期間の終わりにサーバーが削除されると注記し、トップページのよくある質問によれば、途中解約による返金はないが、解約金（違約金）もかからない。キャンペーン価格は申し込み時にだけ適用され、たとえば2GBの36か月契約は、初回の月677円と更新時の月903円が並んで表示されている。
 - **AIに頼める操作は、窓口で変わる**。リモートMCPのドキュメントによれば、Claude CodeとCodex CLIでは2行のコマンドで登録してConoHaアカウントで認可すれば使え、ClaudeとChatGPTではそれぞれのディレクトリから追加する方法を勧める。ただし、ChatGPTプラグインについては「サーバーおよびボリュームの新規作成、サーバーのリサイズ（プラン変更）の機能は提供していません」と書く。同じドキュメントは、削除、停止、リサイズ、セキュリティグループの変更は実環境に影響し、内容によっては取り消せないとし、AIエージェントが意図と違う操作を提案するときは、対象リソースの名前だけでなくIDも確認するよう指示することを勧める。リモートMCPとTerraform Providerは、基盤がVer.3.0のVPSだけに対応する。
 - **バックアップとアップデートは自分で**。会員規約の第31条は、会社はデータのバックアップを行う義務を負わず、会員が自己の費用と責任で行うと定める。トップページのよくある質問によれば、データを守る手段は、1日1回・最大30世代を保つ有料の自動バックアップ（512MBプランは対象外）、50GBまで無料のイメージ保存、取得から24時間で自動削除される無料のスナップショットの3つだ。同じFAQは、セキュリティ設定、SSL証明書の管理、OSやミドルウェアのアップデートなどの継続的な運用管理は基本的に利用者が行う必要があるとし、運用を外に任せたい法人にはマネージドパックを案内する。
-- **一覧は、リリースノートと読み合わせる**。リリースノートによれば、2026年9月25日にスタートアップスクリプトのGemini CLIが新規提供を終えて後継のAntigravity CLIが加わり、9月16日にはOSテンプレートのNetBSD 11.0の提供が始まった。アプリケーションテンプレートのRedmineは2025年11月26日に新規提供を終え、同名のスタートアップスクリプトが2025年10月23日に始まっている。2026年10月13日の時点で、各ページのHTMLが `rel="llms-txt"` で指す /llms.txt はスタートアップスクリプトの一つにGemini CLIを挙げ、OS・アプリケーションテンプレートの一覧はNetBSDの版を9.3と表示し、料金ページのテンプレートの欄にはRedmineが並んでいた。キャンペーンの割引率も、キャンペーンページの「最大66%OFF」に対し、料金表の帯は「最大65%OFF」と書く。いま選べるものは、日付の入ったリリースノートで確かめたい。
+- **一覧は、リリースノートと読み合わせる**。リリースノートによれば、2026年9月25日にスタートアップスクリプトのGemini CLIが新規提供を終えて後継のAntigravity CLIが加わり、9月16日にはOSテンプレートのNetBSD 11.0の提供が始まった。アプリケーションテンプレートのRedmineは2025年11月26日に新規提供を終え、同名のスタートアップスクリプトが2025年10月23日に始まっている。2026年10月13日の時点で、料金やテンプレートなど多くのページのHTMLが `rel="llms-txt"` で指す /llms.txt はスタートアップスクリプトの一つにGemini CLIを挙げ、OS・アプリケーションテンプレートの一覧はNetBSDの版を9.3と表示し、料金ページのテンプレートの欄にはRedmineが並んでいた。キャンペーンの割引率も、キャンペーンページの「最大66%OFF」に対し、料金表の帯は「最大65%OFF」と書く。いま選べるものは、日付の入ったリリースノートで確かめたい。
 
 ## 技術構成
 
@@ -208,31 +213,31 @@ ConoHa VPSの体験は、サーバーが立つまでを短くし、立ったあ�
 :::
 
 :::fact
-リリースノートによれば、ConoHa VPS MCPは2025年7月23日に初回β版（v0.1.0）を公開し、OSS版（ローカル）は2026年9月24日にv0.6.2になった。OSS版のドキュメントによれば、このMCPサーバーはApache License 2.0で公開され、利用者のPCでNode.js v20以上かDockerを使って動き、APIユーザーのテナントID・ユーザーID・パスワードを要し、ConoHaサポートの対象外のベータ版だ。2026年7月7日に始まったリモート版は、どのクライアントからも `https://api.conoha.jp/vps/mcp` に接続してConoHaアカウントで認可する方式で、AIエージェントの設定にConoHa APIのパスワード、Keystone token、テナントIDを書かない。対応するのはサーバーの一覧・作成・削除・起動・停止・強制停止・再起動・リサイズ・リモートコンソールURL発行、ボリューム、SSHキーペア、セキュリティグループなどで、オブジェクトストレージは2026年8月7日に始まった別のリモートMCP（`https://api.conoha.jp/vps/swift-mcp`）が受け持つ。Claudeのコネクタディレクトリから追加した場合は、内部で `https://api.conoha.jp/vps/claude` という専用のエンドポイントが使われる。Takumi Guardのドキュメントとリリースノートによれば、2026年9月25日から、Claude Code、Codex CLI、OpenCode、Antigravity CLI、OpenClaw、Hermes Agent、NanoClawの7つのスタートアップスクリプトに、GMO Flatt Securityの「Takumi byGMO」の「Guard」機能を設定する管理スクリプト（`/root/takumi-guard.sh`）を同梱した。Guardはパッケージレジストリの手前に置くプロキシとして、ブロックリストに載った悪性パッケージへのリクエストを拒否し、npm、pip・uv、RubyGems、Go modules、Composerの設定ファイルを書き換える。既定は無効で、`enable` でメール登録なしの匿名モード、`register` と `login` でメール認証のモードになり、どちらも無料だ。当サイトの実観測（2026-10-13）では、vps.conoha.jp、doc.conoha.jp、api.conoha.jp はHTTP/2で server: cloudflare と末尾がNRTの cf-ray を返し、vps.conoha.jp は PHPSESSID のクッキーとHSTS（max-age=31536000）を付けた。認証なしで `https://api.conoha.jp/vps/mcp` にGETすると、401と、resource_metadata と `scope="vps:read vps:write"` を含む WWW-Authenticate が返り、メタデータが示す認可サーバー `https://cp.conoha.jp/auth` は、認可コードとリフレッシュトークンのグラント、S256のPKCE、動的クライアント登録のエンドポイント、`client_id_metadata_document_supported: true` を公開していた。コントロールパネルの manage.conoha.jp は `https://www.conoha.jp/login/` への302とともに ASP.NET_SessionId と .ASPXAUTH のクッキーを返し、転送先のログインページは当サイトのスクリプトからの取得に403と cf-mitigated: challenge を返した。vps.conoha.jp の robots.txt は、OAI-SearchBot、ChatGPT-User、Applebot-Extended、PerplexityBot、ClaudeBot を名指しで許可し、/llms.txt は x-robots-tag: noindex を付けて配信されていた。
+リリースノートによれば、ConoHa VPS MCPは2025年7月23日に初回β版（v0.1.0）を公開し、OSS版（ローカル）は2026年9月24日にv0.6.2になった。OSS版のドキュメントによれば、このMCPサーバーはApache License 2.0で公開され、利用者のPCでNode.js v20以上かDockerを使って動き、APIユーザーのテナントID・ユーザーID・パスワードを要し、ConoHaサポートの対象外のベータ版だ。2026年7月7日に始まったリモート版は、どのクライアントからも `https://api.conoha.jp/vps/mcp` に接続してConoHaアカウントで認可する方式で、AIエージェントの設定にConoHa APIのパスワード、Keystone token、テナントIDを書かない。対応するのはサーバーの一覧・作成・削除・起動・停止・強制停止・再起動・リサイズ・リモートコンソールURL発行、ボリューム、SSHキーペア、セキュリティグループなどで、オブジェクトストレージは2026年8月7日に始まった別のリモートMCP（`https://api.conoha.jp/vps/swift-mcp`）が受け持つ。Claudeのコネクタディレクトリから追加した場合は、内部で `https://api.conoha.jp/vps/claude` という専用のエンドポイントが使われる。Takumi Guardのドキュメントとリリースノートによれば、2026年9月25日から、Claude Code、Codex CLI、OpenCode、Antigravity CLI、OpenClaw、Hermes Agent、NanoClawの7つのスタートアップスクリプトに、GMO Flatt Securityの「Takumi byGMO」の「Guard」機能を設定する管理スクリプト（`/root/takumi-guard.sh`）を同梱した。Guardはパッケージレジストリの手前に置くプロキシとして、ブロックリストに載った悪性パッケージへのリクエストを拒否する。管理スクリプトが、npm、pip・uv、RubyGems、Go modules、Composerのうち導入済みのものの設定ファイルを書き換えてGuard経由にする。既定は無効で、`enable` でメール登録なしの匿名モード、`register` と `login` でメール認証のモードになり、どちらも無料だ。当サイトの実観測（2026-10-13）では、vps.conoha.jp、doc.conoha.jp、api.conoha.jp はHTTP/2で server: cloudflare と末尾がNRTの cf-ray を返し、vps.conoha.jp は PHPSESSID のクッキーとHSTS（max-age=31536000）を付けた。認証なしで `https://api.conoha.jp/vps/mcp` にGETすると、401と、resource_metadata と `scope="vps:read vps:write"` を含む WWW-Authenticate が返り、メタデータが示す認可サーバー `https://cp.conoha.jp/auth` は、認可コードとリフレッシュトークンのグラント、S256のPKCE、動的クライアント登録のエンドポイント、`client_id_metadata_document_supported: true` を公開していた。コントロールパネルの manage.conoha.jp は `https://www.conoha.jp/login/` への302とともに ASP.NET_SessionId と .ASPXAUTH のクッキーを返し、転送先のログインページは当サイトのスクリプトからの取得に403と cf-mitigated: challenge を返した。vps.conoha.jp の robots.txt は、OAI-SearchBot、ChatGPT-User、Applebot-Extended、PerplexityBot、ClaudeBot を名指しで許可し、/llms.txt は x-robots-tag: noindex を付けて配信されていた。
 :::
 
 :::guess
-Webサイト、ドキュメント、リモートMCPはCloudflareの背後に置かれる一方、APIの例が指す `compute.c3j1.conoha.io` はnginxが直接応答しており、v2.1という版の名前とあわせて、公開APIをOpenStackの機能で実装しているという説明と合う。リモートMCPは、ConoHaアカウントのOAuthで受けた依頼を、利用者に代わってこの公開APIへ取り次ぐ層と読める。動的クライアント登録とクライアントIDのメタデータ文書に対応した認可サーバーは、事前に登録していないAIクライアントでも、利用者の認可だけでつなげるための設計と推測される。Terraform Providerの説明どおりAPIで作ったサーバーが時間課金になるなら、リモートMCPから作ったサーバーも時間課金になるとみられるが、MCPのドキュメントはこの点を明記していない。クッキーの名前からは、コントロールパネルがASP.NET、サービスサイトがPHPで動いていることがうかがえる。robots.txtでAI検索のクローラーを名指しで迎え、llms.txtを用意していることは、検索結果だけでなくAIアシスタントの回答にも載ることを意識した準備と読める。
+Webサイト、ドキュメント、リモートMCPはCloudflareの背後に置かれているとみられる一方、APIの例が指す `compute.c3j1.conoha.io` はCloudflareを介さずnginxが応答しているとみられ、v2.1という版の名前とあわせて、公開APIをOpenStackの機能で実装しているという説明と合うと読める。リモートMCPは、ConoHaアカウントのOAuthで受けた依頼を、利用者に代わってこの公開APIへ取り次ぐ層と読める。動的クライアント登録とクライアントIDのメタデータ文書に対応した認可サーバーは、事前に登録していないAIクライアントでも、利用者の認可だけでつなげるための設計と推測される。Terraform Providerの説明どおりAPIで作ったサーバーが時間課金になるなら、リモートMCPから作ったサーバーも時間課金になるとみられるが、MCPのドキュメントはこの点を明記していない。クッキーの名前からは、コントロールパネルがASP.NET、サービスサイトがPHPで動いていることがうかがえる。robots.txtでAI検索のクローラーを名指しで迎え、llms.txtを用意していることは、検索結果だけでなくAIアシスタントの回答にも載ることを意識した準備と読める。
 :::
 
 ## AIエージェントに渡す権限は、窓口ごとに違う
 
 :::fact
-リリースノートとプレスリリース（2026-10-13確認）によれば、AIエージェントに向けた窓口と道具は次の順に増えた。2025年7月23日にMCPの初回β版、10月16日にスタートアップスクリプトのClaude Code、Codex CLI、Gemini CLI、Dify、n8n、2026年2月5日にOpenClaw、4月28日にHermes Agent、7月7日にリモートMCP、8月7日にオブジェクトストレージのリモートMCP、8月12日にClaudeのコネクタ、9月1日にChatGPTのプラグイン、9月25日にGuardの同梱とAntigravity CLI。8月12日のプレスリリースは、Claudeのコネクタディレクトリへの掲載を、VPSを提供する国内クラウド事業者で初めてとし（2026年8月12日時点の自社調べ）、GMOインターネットグループが2026年7月10日にAnthropicと戦略的パートナーシップ契約を結んだと書く。9月1日のプレスリリースは、ChatGPT対応プラグインの提供を国内クラウド事業者で初めてとし（2026年9月1日時点の自社調べ）、プラグインはOpenAIの審査を経て公開され、接続設定とサーバー運用の手順をまとめた「スキル」でできていて、GMOインターネットが運用するサーバー上で動くためスマートフォンのアプリからも使えると説明する。決算説明資料（2026年8月14日）は、ドメイン・レンタルサーバー事業のトピックに「AIによるサーバー運用・AIエージェント活用を推進」を掲げた。
+リリースノートとプレスリリース（2026-10-13確認）によれば、AIエージェントに向けた窓口と道具は次の順に増えた。2025年7月23日にMCPの初回β版、10月16日にスタートアップスクリプトのClaude Code、Codex CLI、Gemini CLI、Dify、n8n、2026年2月5日にOpenClaw、4月28日にHermes Agent、5月21日にOpenCodeとNanoClaw、6月4日にOpen WebUI、7月7日にリモートMCP、8月7日にオブジェクトストレージのリモートMCP、8月12日にClaudeのコネクタ、9月1日にChatGPTのプラグイン、9月25日にGuardの同梱とAntigravity CLI。8月12日のプレスリリースは、Claudeのコネクタディレクトリへの掲載を、VPSを提供する国内クラウド事業者で初めてとし（2026年8月12日時点の自社調べ）、GMOインターネットグループが2026年7月10日にAnthropicと戦略的パートナーシップ契約を結んだと書く。9月1日のプレスリリースは、ChatGPT対応プラグインの提供を国内クラウド事業者で初めてとし（2026年9月1日時点の自社調べ）、プラグインはOpenAIの審査を経て公開され、接続設定とサーバー運用の手順をまとめた「スキル」でできていて、GMOインターネットが運用するサーバー上で動くためスマートフォンのアプリからも使えると説明する。決算説明資料（2026年8月14日）は、ドメイン・レンタルサーバー事業のトピックに「AIによるサーバー運用・AIエージェント活用を推進」を掲げた。
 :::
 
 | 窓口 | 公開 | つなぎ方 | サーバーの新規作成・リサイズ |
 | --- | --- | --- | --- |
 | OSS版MCP（ローカル） | 2025年7月23日（β版） | 利用者のPCで動かし、APIユーザーの認証情報を設定する | できる |
 | リモートMCP | 2026年7月7日 | `https://api.conoha.jp/vps/mcp` に接続し、ConoHaアカウントで認可する | できる（通常の料金が発生） |
-| オブジェクトストレージのリモートMCP | 2026年8月7日 | `https://api.conoha.jp/vps/swift-mcp` に接続する | 対象外（オブジェクトストレージを操作） |
+| オブジェクトストレージのリモートMCP | 2026年8月7日 | `https://api.conoha.jp/vps/swift-mcp` に接続し、ConoHaアカウントで認可する | 対象外（オブジェクトストレージを操作） |
 | Claudeのコネクタ | 2026年8月12日 | コネクタディレクトリから追加し、ConoHaアカウントで認可する | できる（通常の料金が発生） |
 | ChatGPTのプラグイン | 2026年9月1日 | プラグインディレクトリから追加し、ConoHaアカウントで認可する | できない（起動・停止・再起動・状態確認・セキュリティ設定の変更など） |
 
 表はリリースノート、MCPのドキュメント、プレスリリースによる。リモートMCP、Claudeのコネクタ、ChatGPTのプラグインそのものの利用料金はいずれも無料で、かかるのは作成や起動などで生じるConoHa VPSの通常の料金と、各AIサービスの利用料だ。
 
 :::guess
-同じリモートMCPにつながりながら、ChatGPTのプラグインだけが料金の発生する操作を外していることは、窓口ごとに想定する利用者に合わせて権限を絞った判断と読める。プレスリリースは、プラグインの利点にスマートフォンからの操作を挙げ、料金が変動しないことを明記しており、サーバーに詳しくない利用者が外出先から再起動するような使い方を想定して、意図せず課金が増える操作を最初から渡さなかったとみられる。一方、Claude Code、Codex CLI、Claudeには作成やリサイズまで渡し、取り消せない操作の確認は利用者に求めている。トップページが「ローカルPCのAIエージェント、閉じると止まってしまう」という悩みに24時間の稼働で応え、AIエージェント系のスタートアップスクリプトにGuardを同梱したことを合わせると、ConoHa VPSは、AIエージェントに操作される道具であると同時に、AIエージェントが常駐する場所としても売り込まれていると推測される。
+同じリモートMCPサーバー（リモート版）を元にしながら、ChatGPTのプラグインだけが料金の発生する操作を外していることは、窓口ごとに想定する利用者に合わせて権限を絞った判断と読める。プレスリリースは、プラグインの利点にスマートフォンからの操作を挙げ、料金が変動しないことを明記しており、サーバーに詳しくない利用者が外出先から再起動するような使い方を想定して、意図せず課金が増える操作を最初から渡さなかったとみられる。一方、Claude Code、Codex CLI、Claudeには作成やリサイズまで渡し、取り消せない操作の確認は利用者に求めている。トップページが「ローカルPCのAIエージェント、閉じると止まってしまう」という悩みに24時間の稼働で応え、AIエージェント系のスタートアップスクリプトにGuardを同梱したことを合わせると、ConoHa VPSは、AIエージェントに操作される道具であると同時に、AIエージェントが常駐する場所としても売り込まれていると推測される。
 :::
 
 ## ビジネスモデル
@@ -244,7 +249,7 @@ Webサイト、ドキュメント、リモートMCPはCloudflareの背後に置�
 :::
 
 :::guess
-2GB以上の3か月以上の報酬が時間課金の月額上限にほぼ並ぶことは、紹介1件に通常料金のおよそ1か月分を払う考え方とみられる。一方、パートナープログラムは更新のたびに15%を払い続ける。単発の申し込みはブログや比較サイトに、長く続く契約は制作会社に集めてもらう二段の販路と推測される。キャンペーンの割引が初回だけに効き、2GBの36か月契約では更新時に月677円から903円へ33.4%上がる（当サイトの計算）設計は、入口の値札で客を集め、更新で単価を戻す形と読める。API経由のサーバーが時間課金になるという説明が当てはまるなら、AIエージェントが作る検証用のサーバーは、月額に直すとまとめトクより高い時間課金で使われることになるとみられる。ただし決算資料はConoHa VPS単体の数字を示しておらず、上半期のドメイン・レンタルサーバー事業の伸びの説明はGPUクラウドの稼働が中心で、AIエージェントとの連携がどれほど新規顧客と継続率に効いているかは、公開情報からは読み取れない。
+2GBから96GBまでの3か月以上の報酬が時間課金の月額上限にほぼ並ぶことは、紹介1件に通常料金のおよそ1か月分を払う考え方とみられる。一方、パートナープログラムは更新のたびに15%を払い続ける。単発の申し込みはブログや比較サイトに、長く続く契約は制作会社に集めてもらう二段の販路と推測される。キャンペーンの割引が初回だけに効き、2GBの36か月契約では更新時に月677円から903円へ33.4%上がる（当サイトの計算）設計は、入口の値札で客を集め、更新で単価を戻す形と読める。API経由のサーバーが時間課金になるという説明が当てはまるなら、AIエージェントが作る検証用のサーバーは、月額に直すとまとめトクより高い時間課金で使われることになるとみられる。ただし決算資料はConoHa VPS単体の数字を示しておらず、ドメイン・レンタルサーバー事業の第2四半期の説明は、既存事業の堅調さに加えてGPUクラウド（H200・B300）の稼働を増収増益の理由に挙げ、AIエージェントとの連携がどれほど新規顧客と継続率に効いているかは、公開情報からは読み取れない。
 :::
 
 2013年に始まったConoHaのVPSは、月の上限がある時間課金と、長く使うほど安い前払いのまとめトクを並べ、テンプレートとスクリプトでサーバーが立つまでを短くしてきた。MCPの初回β版から1年あまりで、その操作をAIエージェントに頼める窓口はリモートMCP、Claude、ChatGPTへと広がり、窓口ごとにサーバーを作れるかどうかが分けられた。AIエージェントを24時間動かしておく置き場所と、AIエージェントが扱える道具を同時に売るこの試みが、同社の掲げる新規顧客の獲得と継続率の向上にどう表れるのか。その答えを、公開されている決算資料の数字から読み取ることは、まだできない。
