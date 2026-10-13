@@ -2,11 +2,11 @@
 service: "mixhost"
 title: "A Web Host That Cut Its Year-Two Price — Dissecting mixhost, Which Lowered Renewal Fees by Up to About 60%, Runs LiteSpeed and cPanel on a Cloud, and Leaves Referrals to A8.net and afb"
 description: "mixhost is a Japanese shared hosting service run by AzPocket, Inc., a company founded in Osaka in April 2016. It uses LiteSpeed as its web server, cPanel as its control panel and CloudLinux as its operating system, on a cloud made redundant across multiple servers. In April 2025 it cut renewal fees by up to about 60% and added a Light plan from 495 yen a month (tax included, first term of a 36-month contract). Every plan allows adult sites and reselling, and customer acquisition is left to affiliates on A8.net and afb. Using the pricing and specification pages, the fair use policy, the SLA, the refund guarantee, news posts, the company profile and this site's own observations, the article dissects the two-tier pricing of first-term discounts and renewal fees, the usage thresholds behind \"unlimited,\" a defense layer that keeps adding tools such as Imunify360 and Jetpack, and a business that wins customers through referrals and friend invitations."
-lead: "mixhost's price table shows two prices for every contract length: a discounted price for the first term only, and below it, in smaller type, the \"renewal\" price. In April 2025, mixhost cut that lower line sharply. On a 36-month Business plan, the monthly renewal price fell from 5,478 yen to 2,178 yen. In a Japanese hosting market where first-term discounts are the usual way to win customers, a small company lowered what customers pay from year two onward. This article dissects, from public information alone, the technology and money flows behind it."
+lead: "mixhost's price table shows two prices for every contract length: a discounted price for the first term only, and below it, in smaller type, the \"renewal\" price. In April 2025, mixhost cut that lower line sharply. On a 36-month Business plan, the monthly renewal price fell from 5,478 yen to 2,178 yen. In a Japanese hosting market where first-term discounts are the usual way to win customers, an Osaka company lowered what customers pay from year two onward. This article dissects, from public information alone, the technology and money flows behind it."
 category: dev-tool
 tags: [hosting, wordpress, small-business, php, litespeed, cpanel]
 publishedAt: "2026-10-10"
-updatedAt: "2026-10-10"
+updatedAt: "2026-10-13"
 lastVerified: "2026-10-10"
 serviceUrl: "https://mixhost.jp/"
 # Affiliate link placeholder: mixhost distributes its ads only through two affiliate networks,
@@ -96,7 +96,7 @@ sources:
     accessedAt: "2026-10-10"
   - label: "AzPocket, Inc.: Company profile"
     url: "https://www.azpocket.co.jp/company/"
-    accessedAt: "2026-10-10"
+    accessedAt: "2026-10-13"
   - label: "AzPocket, Inc.: Home page (business lines)"
     url: "https://www.azpocket.co.jp/"
     accessedAt: "2026-10-10"
@@ -123,14 +123,14 @@ sources:
     accessedAt: "2026-10-10"
 ---
 
-mixhost is a Japanese shared hosting service for WordPress blogs and small business websites. Where [Xserver](/en/articles/xserver), [ConoHa WING](/en/articles/conoha-wing), [Lolipop!](/en/articles/lolipop) and [Sakura Rental Server](/en/articles/sakura-rental-server), all dissected on this site, are backed by large IT groups or long histories, mixhost is run by a company born in 2016 with capital of 2 million yen. For its control panel it uses cPanel, which mixhost itself describes as having the world's largest market share, and every plan allows adult sites and reselling. Among Japanese shared hosts, it is built a little differently and allows a little more.
+mixhost is a Japanese shared hosting service for WordPress blogs and small business websites. Where [Xserver](/en/articles/xserver), [ConoHa WING](/en/articles/conoha-wing), [Lolipop!](/en/articles/lolipop) and [Sakura Rental Server](/en/articles/sakura-rental-server), all dissected on this site, are backed by large IT groups or long histories, mixhost is run by an Osaka company founded in 2016. For its control panel it uses cPanel, which mixhost itself describes as having the world's largest market share, and every plan allows adult sites and reselling. Among Japanese shared hosts, it is built a little differently and allows a little more.
 
 ## Service overview
 
 mixhost centers on shared hosting, alongside plans for adult sites, overseas hosting on the US West Coast, and dedicated cloud hosting where one customer gets a whole server. Its catalog also includes domains, the Sitejet site builder, the pCloud cloud storage service and MillenVPN, a VPN from the same company.
 
 :::fact
-According to the company profile (as of 2026-10-10), AzPocket, Inc., which runs mixhost, was founded on April 11, 2016, is headquartered in Minamisenba, Chuo Ward, Osaka, has capital of 2 million yen, and is engaged in internet infrastructure and in telecommunications business under the Telecommunications Business Act (registered notification number E-28-03926). It lists Sakura Internet, GMO Internet, Akamai Technologies GK and Fan Communications, the operator of A8.net, among its main business partners, and cPanel, L.L.C., LiteSpeed Technologies Inc. and Softaculous Ltd. as certified partners. The company's home page introduces it as an "internet infrastructure startup from Asia" founded in 2016 and names two businesses, mixhost and MillenVPN. Its careers page advertises fully remote work, flextime and permission for side jobs. mixhost's news archive begins in 2016; it launched automatic backup and restore that November and PHP 7.1 that December.
+According to the company profile (as of 2026-10-13), AzPocket, Inc., which runs mixhost, was founded on April 11, 2016, is headquartered in Minamisenba, Chuo Ward, Osaka, and is engaged in internet infrastructure and in telecommunications business under the Telecommunications Business Act (registered notification number E-28-03926). It lists Sakura Internet, GMO Internet, Akamai Technologies GK and Fan Communications, the operator of A8.net, among its main business partners, and cPanel, L.L.C., LiteSpeed Technologies Inc. and Softaculous Ltd. as certified partners. The company's home page introduces it as an "internet infrastructure startup from Asia" founded in 2016 and names two businesses, mixhost and MillenVPN. Its careers page advertises fully remote work, flextime and permission for side jobs. mixhost's news archive begins in 2016; it launched automatic backup and restore that November and PHP 7.1 that December.
 :::
 
 :::fact
@@ -166,7 +166,7 @@ According to official news posts, mixhost began rolling out PHP 8.5 on January 2
 :::
 
 :::guess
-The combination of cPanel, LiteSpeed, CloudLinux, Imunify360 and WHMCS appears to be a stack of off-the-shelf components widely used by hosting companies overseas. Assembling the control panel and billing from licensed products rather than building them lets a small company offer a range of features close to that of large rivals. The trade-off is that license fees grow with the customer base, so price increases for those components presumably weigh on margins. The company profile's main business partners include Sakura Internet, GMO Internet and Akamai Technologies, which run data centers, clouds and CDNs, but which partner handles what is not disclosed.
+The combination of cPanel, LiteSpeed, CloudLinux, Imunify360 and WHMCS appears to be a stack of off-the-shelf components widely used by hosting companies overseas. Assembling the control panel and billing from licensed products rather than building them makes it possible to offer a range of features close to that of large rivals. The trade-off is that license fees grow with the customer base, so price increases for those components presumably weigh on margins. The company profile's main business partners include Sakura Internet, GMO Internet and Akamai Technologies, which run data centers, clouds and CDNs, but which partner handles what is not disclosed.
 :::
 
 ## The April 2025 price cut
@@ -194,7 +194,7 @@ According to the affiliate page (checked 2026-10-10), mixhost distributes its ad
 :::
 
 :::guess
-That a company with 2 million yen in capital can compete in the same market as rivals belonging to large groups appears to come from leaning on affiliates, which are paid only when a sale happens, rather than paying for advertising up front. For the writers who recommend it, credibility depends not only on the payout per sale but on readers not being disappointed at renewal. The renewal price cut and the free migration service can be read as investments in keeping that referral flow strong. Allowing adult sites presumably differentiates mixhost by picking up demand that large hosts are reluctant to serve, though the same policy collides with the terms of partners such as Jetpack.
+That a company founded in 2016 can compete in the same market as rivals belonging to large groups appears to come from leaning on affiliates, which are paid only when a sale happens, rather than paying for advertising up front. For the writers who recommend it, credibility depends not only on the payout per sale but on readers not being disappointed at renewal. The renewal price cut and the free migration service can be read as investments in keeping that referral flow strong. Allowing adult sites presumably differentiates mixhost by picking up demand that large hosts are reluctant to serve, though the same policy collides with the terms of partners such as Jetpack.
 :::
 
-Born in Osaka in 2016, mixhost has sold world-standard components such as LiteSpeed and cPanel, placed on a cloud and wrapped in migration help and Japanese-language support. In 2025 it stepped back from the race of first-term discounts and lowered the renewal fee, the price from year two onward. For a small company that wins customers through referrals rather than advertising, the bet is that being used for a long time is the best customer acquisition of all.
+Born in Osaka in 2016, mixhost has sold world-standard components such as LiteSpeed and cPanel, placed on a cloud and wrapped in migration help and Japanese-language support. In 2025 it stepped back from the race of first-term discounts and lowered the renewal fee, the price from year two onward. For a company that wins customers through referrals rather than advertising, the bet is that being used for a long time is the best customer acquisition of all.
