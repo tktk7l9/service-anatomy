@@ -356,6 +356,14 @@
     "url": "https://www.midjourney.com/",
     "fetchedAt": "2026-08-06"
   },
+  "millenvpn": {
+    "url": "https://millenvpn.jp/",
+    "title": "MillenVPN (ミレンVPN) | 月額396円でセキュリティ強化",
+    "description": "月額396円から使える日本発VPNサービス。スマホ、タブレット、パソコンなどあらゆるデバイスで利用可能。30日間返金保証で安心。MillenVPNで月額396円から安心セキュリティ強化！VPNサービスでスマホ、タブレット、パソコンなどあらゆるデバイスで利用可能。使い方はアプリで簡単。中国・韓国から日本へのアクセスにも。",
+    "image": "https://millenvpn.jp/wp-content/uploads/2023/03/top-3_b.png",
+    "siteName": "MillenVPN",
+    "fetchedAt": "2026-10-13"
+  },
   "mistral": {
     "url": "https://mistral.ai/",
     "title": "Frontier AI LLMs, assistants, agents, services | Mistral",
@@ -395,6 +403,14 @@
     "image": "https://storage.googleapis.com/production-os-assets/assets/d47be031-87c0-4432-b975-069f53c60cb4",
     "siteName": "マネーフォワード ME｜公式｜人気の家計簿・資産管理アプリ",
     "fetchedAt": "2026-10-01"
+  },
+  "muumuu-domain": {
+    "url": "https://muumuu-domain.com/",
+    "title": "ムームードメイン | 0円で人気ドメイン取得 & 簡単サイト作成",
+    "description": "ムームードメインは、国内最大級のドメイン取得サービスです。選べるドメインは620種類以上。サイトやメールアドレスをすぐに作成できるムームーサーバーなら初期費用0円+ドメインもずっと0円でご利用いただけます。まずはドメイン検索から。",
+    "image": "https://muumuu-domain.com/ogp-image.png",
+    "siteName": "ムームードメイン",
+    "fetchedAt": "2026-10-13"
   },
   "n8n": {
     "url": "https://n8n.io/",
@@ -778,6 +794,14 @@
     "image": "https://www.xserver.ne.jp/img/common/ogp.png?date=240930",
     "siteName": "レンタルサーバー 高速・高機能・高安定性の【エックスサーバー】",
     "fetchedAt": "2026-09-28"
+  },
+  "xserver-vps": {
+    "url": "https://vps.xserver.ne.jp/",
+    "title": "XServer VPS（仮想専用サーバー） | 高性能で安定したVPS環境",
+    "description": "AMD EPYC とNVMe SSDを全プランに標準搭載。国内シェアNo.1レンタルサーバー「エックスサーバー」が運営する高性能VPS。月額1,265円から、60種類以上のアプリイメージですぐに始められます。",
+    "image": "https://vps.xserver.ne.jp/assets/images/common/ogp.png?date=240930",
+    "siteName": "XServer VPS",
+    "fetchedAt": "2026-10-13"
   },
   "yayoi": {
     "url": "https://www.yayoi-kk.co.jp/shinkoku/aoiroshinkoku/",
