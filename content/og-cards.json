@@ -115,6 +115,14 @@
     "siteName": "カラーミーショップ | ECサイト構築サービス",
     "fetchedAt": "2026-09-29"
   },
+  "conoha-vps": {
+    "url": "https://vps.conoha.jp/",
+    "title": "ConoHa VPS｜高性能・低価格のVPS",
+    "description": "ConoHa VPSは拡張性、信頼性、自由度を兼ね備えた高性能VPS。AIエージェント・AIアプリのセルフホストにも対応し、MCPサーバーやスタートアップスクリプトで環境構築も簡単。ひと月293円から利用できます。",
+    "image": "https://vps.conoha.jp/vps_67255/common/images/og.jpg",
+    "siteName": "ConoHa",
+    "fetchedAt": "2026-10-13"
+  },
   "conoha-wing": {
     "url": "https://www.conoha.jp/wing/",
     "title": "レンタルサーバーConoHa WING｜国内最速・稼働率99.99%以上・独自ドメイン2個無料",
@@ -252,6 +260,14 @@
     "image": "https://ghostty.org/social-share-card.jpg",
     "siteName": "Ghostty",
     "fetchedAt": "2026-10-01"
+  },
+  "google-workspace": {
+    "url": "https://workspace.google.com/intl/ja/",
+    "title": "ビジネスアプリとコラボレーションツール | Google Workspace",
+    "description": "Google Workspaceのコラボレーションツールや生産性向上ツールをお試しください。Gmail、Docs、Meetなどのビジネスアプリをご用意しています。",
+    "image": "https://lh3.googleusercontent.com/Nbw_A9TQk80cVoQ6xCRZvD7_STv8lV05MD6-YPKMJbORBFttpngQ3qlMa5nz0ACdQJKibh7q0beIjpPs2HxWN7Pt8rebvl0rGra5=w1200-e365",
+    "siteName": "Google Workspace",
+    "fetchedAt": "2026-10-13"
   },
   "grammarly": {
     "url": "https://www.grammarly.com/",
@@ -568,6 +584,14 @@
     "image": "https://rs.sakura.ad.jp/images/ogp.png",
     "siteName": "さくらのレンタルサーバ",
     "fetchedAt": "2026-10-06"
+  },
+  "sakura-vps": {
+    "url": "https://vps.sakura.ad.jp/",
+    "title": "クラウド連携・拡張性を備えた安心・安全な環境｜さくらのVPS",
+    "description": "さくらのVPSは、災害に強い国内自社運営データセンターと24時間365日の監視体制で安全な環境を実現。さらに柔軟なサーバー拡張性や将来的なクラウド移行に対応し、企業のビジネスを強固に支えます。まずは2週間の無料トライアルから。",
+    "image": "https://vps.sakura.ad.jp/assets/images/common/ogp_vps.png",
+    "siteName": "クラウド連携・拡張性を備えた安心・安全な環境｜さくらのVPS",
+    "fetchedAt": "2026-10-13"
   },
   "sansan": {
     "url": "https://jp.sansan.com/",
