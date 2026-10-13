@@ -6,7 +6,7 @@ lead: "\"Read ConoHa WING's SKILL.md and follow the instructions to set it up\" 
 category: dev-tool
 tags: [hosting, wordpress, small-business, ai, php]
 publishedAt: "2026-09-30"
-updatedAt: "2026-09-30"
+updatedAt: "2026-10-13"
 lastVerified: "2026-09-30"
 expires:
   - date: "2026-10-07"
@@ -103,7 +103,10 @@ sources:
     accessedAt: "2026-09-30"
   - label: "ConoHa: Company overview (Japanese; GMO Internet, Inc., ticker 4784, headcount)"
     url: "https://www.conoha.jp/company/"
-    accessedAt: "2026-09-30"
+    accessedAt: "2026-10-13"
+  - label: "GMO Internet, Inc.: Corporate profile in English (the president's name in English)"
+    url: "https://internet.gmo/en/company/outline/"
+    accessedAt: "2026-10-13"
   - label: "ConoHa: Service level agreement (Japanese)"
     url: "https://www.conoha.jp/sla/"
     accessedAt: "2026-09-30"
@@ -165,7 +168,7 @@ According to the GMO Internet Group press release, ConoHa WING launched on Septe
 :::
 
 :::fact
-According to the company overview on the official site, GMO Internet, Inc. was founded on September 8, 1999, trades as ticker 4784 on the TSE Prime market, has capital of ¥10.69 billion and is led by president and CEO Masashi Ito. Headcount at the end of June 2026 was 2,240 consolidated and 1,138 standalone, and the principal shareholder is GMO Internet Group, Inc. Its businesses are the infrastructure trio of domains, cloud and rental servers, and internet access, plus advertising and media. The FY2026 Q2 earnings presentation puts first-half revenue of the "domain and rental server business", which includes the GPU cloud, at ¥11.5 billion (+18.1% year on year) with operating profit of ¥3.10 billion (+73.6%), and the company's total domestic contracts at 13.7 million as of the end of June 2026.
+According to the company overview on the official site (checked 2026-10-13), GMO Internet, Inc. was founded on September 8, 1999, trades as ticker 4784 on the TSE Prime market, has capital of ¥10.69 billion and is led by President and CEO Tadashi Ito (the spelling in the company's English corporate profile). Headcount at the end of June 2026 was 2,405 consolidated and 1,127 standalone, and the principal shareholder is GMO Internet Group, Inc. Its businesses are the infrastructure trio of domains, cloud and rental servers, and internet access, plus advertising and media. The FY2026 Q2 earnings presentation puts first-half revenue of the "domain and rental server business", which includes the GPU cloud, at ¥11.5 billion (+18.1% year on year) with operating profit of ¥3.10 billion (+73.6%), and the company's total domestic contracts at 13.7 million as of the end of June 2026.
 :::
 
 :::fact
