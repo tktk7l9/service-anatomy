@@ -6,6 +6,14 @@
     "image": "https://images.ctfassets.net/2h488pz7kgfv/4JAm44Htcrinu0sTomaEGi/1f7be85af3138e1d38bb31fe5ad6425b/open-graph-1password-business.jpg",
     "fetchedAt": "2026-09-28"
   },
+  "ablenet": {
+    "url": "https://www.ablenet.jp/",
+    "title": "ABLENET®（エイブルネット）｜ホスティングサービス",
+    "description": "ABLENET®（エイブルネット）は28周年を迎えたホスティングサービスです。大容量、転送無制限のレンタルサーバーと業界最高水準のコストパフォーマンスVPSを提供しています。",
+    "image": "https://www.ablenet.jp/common/img/og_ablenet.png",
+    "siteName": "ABLENET",
+    "fetchedAt": "2026-10-13"
+  },
   "base": {
     "url": "https://thebase.com/",
     "title": "BASE (ベイス) -無料で簡単なネットショップ作成サービス",
@@ -130,6 +138,14 @@
     "image": "https://www.conoha.jp/wing_59681/common/images/og.jpg",
     "siteName": "ConoHa",
     "fetchedAt": "2026-09-30"
+  },
+  "coreserver": {
+    "url": "https://www.coreserver.jp/",
+    "title": "WordPressが超高速の最新レンタルサーバー｜コアサーバー",
+    "description": "高速・高安定・大容量のレンタルサーバー「コアサーバー」。全プラン転送量無制限、高速SSD、無料SSL、WordPressインストール対応！さらにサポートも充実。30日間の無料お試し期間があるので、個人から法人まで安心してお使いいただけます。",
+    "image": "https://www.coreserver.jp/common/img/ogp.png",
+    "siteName": "レンタルサーバー CORESERVER（コアサーバー）",
+    "fetchedAt": "2026-10-13"
   },
   "cursor": {
     "url": "https://cursor.com/",
@@ -731,6 +747,14 @@
     "image": "https://supabase.com/images/og/supabase-og.png",
     "siteName": "Supabase",
     "fetchedAt": "2026-08-06"
+  },
+  "surfshark": {
+    "url": "https://surfshark.com/",
+    "title": "Surfshark: identity & scam protection, antivirus, VPN",
+    "description": "Protect your devices, identity, & data ● Scam & phishing protection ● Identity theft protection ● Device security ● Secure connection ● Fast VPN",
+    "image": "https://surfshark.com/website/_next/public/home/images/og/og-en.png",
+    "siteName": "Surfshark",
+    "fetchedAt": "2026-10-13"
   },
   "techacademy": {
     "url": "https://techacademy.jp/",

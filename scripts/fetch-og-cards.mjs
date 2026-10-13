@@ -26,6 +26,9 @@ const NAMED_ENTITIES = {
   rsquo: "’",
   ldquo: "“",
   rdquo: "”",
+  reg: "®",
+  copy: "©",
+  trade: "™",
 };
 
 // One pass, so "&amp;lt;" becomes "&lt;" rather than "<". Numeric references (&#8212; / &#x2014;)
