@@ -61,7 +61,7 @@ techStack:
     confidence: likely
     evidence: "In this site's own observation (2026-10-13), one.value-domain.com and mcp.value-domain.com returned x-turbo-charged-by: LiteSpeed. one.value-domain.com set cookies named XSRF-TOKEN and value_domain_one_session, and its HTML loaded /livewire/livewire.min.js, scripts under /build/assets/, the Tailwind CSS CDN, Bootstrap 5.3.0 and jQuery 3.7.1. Livewire's official documentation (Quickstart) lists Laravel version 10 or later as a prerequisite and shows installing it by running composer require livewire/livewire from the root directory of a Laravel app"
   - layer: "Public API"
-    name: "Value Domain API v1 / OpenAPI 3.0 + ReDoc (Bearer token)"
+    name: "Value Domain API v1 / OpenAPI (3.0) + ReDoc (Bearer token)"
     confidence: confirmed
     evidence: "The API documentation for domains (checked 2026-10-13) is written in OpenAPI 3.0.0 and published with ReDoc 2.0.0-rc.24. The endpoint is https://api.value-domain.com/v1/ with Bearer token authentication; it lists operations for domain registration, transfers, expiry, DNS, DNSSEC and more, and the registrar field of a new registration says \"'GMO'のみ対応しています\" (only 'GMO' is supported). The API page requires SMS verification to issue an API key and says domains whose managing registrar is Enom or Key-Systems are not supported"
     evidenceUrl: "https://www.value-domain.com/api/doc/domain/"

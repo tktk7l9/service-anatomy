@@ -45,12 +45,12 @@ techStack:
     evidence: "The official home page (checked 2026-10-13) states that every plan uses 4th-generation \"AMD EPYC™\" CPUs and the high-speed \"NVMe\" interface. The server specification list gives the OS as Linux and the RAID configuration as RAID 10"
     evidenceUrl: "https://www.star.ne.jp/"
   - layer: "Database"
-    name: "MariaDB 10.5 / 10.11 / SQLite"
+    name: "MariaDB (10.5 / 10.11) / SQLite"
     confidence: confirmed
     evidence: "The official database specification list (checked 2026-10-13) names \"MariaDB 10.5.x\" and \"MariaDB 10.11.x\" (MyISAM and InnoDB) as database servers, and says SQLite is available and PostgreSQL is not. The news index announced support for MariaDB 10.11 on newly provisioned servers on April 20, 2026"
     evidenceUrl: "https://www.star.ne.jp/support/manual/man_db_spec.php"
   - layer: "Languages and acceleration"
-    name: "PHP 7 and 8 (FastCGI, OPcache) / X Accelerator"
+    name: "PHP (7 and 8, FastCGI, OPcache) / X Accelerator"
     confidence: confirmed
     evidence: "The official feature list (checked 2026-10-13) names PHP8/PHP7, FastCGI to reduce the load of PHP and CGI, OPcache, HTTP/2, \"X Accelerator,\" which speeds up page display and expands the number of simultaneous accesses, and browser cache settings"
     evidenceUrl: "https://www.star.ne.jp/service/functions.php"

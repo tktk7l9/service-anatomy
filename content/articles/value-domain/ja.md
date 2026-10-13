@@ -61,7 +61,7 @@ techStack:
     confidence: likely
     evidence: "当サイトの実観測（2026-10-13）で、one.value-domain.com と mcp.value-domain.com は x-turbo-charged-by: LiteSpeed を返した。one.value-domain.com は XSRF-TOKEN と value_domain_one_session という名前のクッキーを設定し、HTMLは /livewire/livewire.min.js、/build/assets/ 配下のスクリプト、Tailwind CSSのCDN、Bootstrap 5.3.0、jQuery 3.7.1 を読み込んでいた。Livewireの公式ドキュメント（クイックスタート）は、導入の前提にLaravel 10以降を挙げ、Laravelアプリのルートディレクトリで composer require livewire/livewire を実行して入れる手順を示す"
   - layer: "公開API"
-    name: "Value Domain API v1 / OpenAPI 3.0 + ReDoc (Bearer token)"
+    name: "Value Domain API v1 / OpenAPI (3.0) + ReDoc (Bearer token)"
     confidence: confirmed
     evidence: "APIドキュメント（ドメイン、2026-10-13確認）はOpenAPI 3.0.0で書かれ、ReDoc 2.0.0-rc.24で公開されている。エンドポイントは https://api.value-domain.com/v1/、認証はBearerトークンで、ドメインの登録・移管・有効期限・DNS・DNSSECなどの操作を並べ、新規登録のレジストラの項目は「'GMO'のみ対応しています」と書く。APIのページは、APIキーの発行にSMS認証を求め、管理レジストラがEnomとKey-Systemsのドメインは未対応とする"
     evidenceUrl: "https://www.value-domain.com/api/doc/domain/"

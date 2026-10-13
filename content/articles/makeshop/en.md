@@ -56,7 +56,7 @@ techStack:
     evidence: "The official engineering blog (2025-01-17) states that while recent services are mostly built on containers or Lambda, many long-running services still run on EC2, and that part of the payment service was moved from EC2 to Fargate. The post explains that a Dockerfile drafted by generative AI (using php:8.1-apache as the runtime and adding mysqli and pdo_mysql) was adapted to requirements by feeding it httpd.conf and php.ini, and it shows the changes made to httpd.conf and php.ini"
     evidenceUrl: "https://tech.makeshop.co.jp/entry/2025/01/17/150153"
   - layer: "Shop design templates"
-    name: "Smarty-based template tags"
+    name: "Smarty (template tags)"
     confidence: confirmed
     evidence: "The Premium plan page (checked 2026-10-13) says of its design editing feature that it offers \"new proprietary tags built on smarty.\" Smarty's official site carries \"PHP Template Engine\" as its page title"
     evidenceUrl: "https://www.makeshop.jp/main/plan/premium.html"
@@ -71,7 +71,7 @@ techStack:
     evidence: "The official engineering blog (2024-03-27) states that the admin console was migrated from Vue2 / Vuetify2 to Vue3 / Vuetify3 over about half a year, including research. The 2024-01-23 post lists the next-generation frontend as \"Vue.js / SPA / Vuetify / TypeScript\""
     evidenceUrl: "https://tech.makeshop.co.jp/entry/half-year-vue3-migration"
   - layer: "New checkout (Smart Checkout)"
-    name: "Go BFF (echo) + OpenAPI (oapi-codegen)"
+    name: "Go (BFF, echo) + OpenAPI (oapi-codegen)"
     confidence: confirmed
     evidence: "The official engineering blog (2024-05-31) states that the first phase of the project to renew the checkout screen was released in April, and that its BFF generates code from an OpenAPI (3.0) schema with oapi-codegen and uses the echo framework; the generated code is Go"
     evidenceUrl: "https://tech.makeshop.co.jp/entry/2024/05/31/180019"

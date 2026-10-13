@@ -56,7 +56,7 @@ techStack:
     evidence: "公式エンジニアブログ（2025-01-17）に、最近のサービスはコンテナやLambdaで作ることが多い一方、長く運用されているサービスはEC2で動いているものも多く、決済サービスの一部をEC2からFargateへ乗せ替えたと明記。記事は生成AIに作らせたDockerfile（php:8.1-apacheをランタイムに使い、mysqli・pdo_mysqlを入れる）をhttpd.confやphp.iniを読ませて要件に合わせたと説明し、httpd.confとphp.iniの設定変更も載せている"
     evidenceUrl: "https://tech.makeshop.co.jp/entry/2025/01/17/150153"
   - layer: "ショップデザインのテンプレート"
-    name: "Smarty-based template tags"
+    name: "Smarty (template tags)"
     confidence: confirmed
     evidence: "プレミアムプランのページ（2026-10-13確認）に、デザイン編集機能について「smartyを採用した新たな独自タグをご用意しており」と明記。Smartyの公式サイトは、ページの表題に「PHP Template Engine」と掲げている"
     evidenceUrl: "https://www.makeshop.jp/main/plan/premium.html"
@@ -71,7 +71,7 @@ techStack:
     evidence: "公式エンジニアブログ（2024-03-27）に、管理画面をVue2 / Vuetify2からVue3 / Vuetify3へ、調査も含めて約半年かけて移行したと明記。2024-01-23の記事は、次世代ECのフロントエンドを「Vue.js / SPA / Vuetify / TypeScript」と書く"
     evidenceUrl: "https://tech.makeshop.co.jp/entry/half-year-vue3-migration"
   - layer: "新決済画面（Smart Checkout）"
-    name: "Go BFF (echo) + OpenAPI (oapi-codegen)"
+    name: "Go (BFF, echo) + OpenAPI (oapi-codegen)"
     confidence: confirmed
     evidence: "公式エンジニアブログ（2024-05-31）に、決済画面をリニューアルするプロジェクトの第一弾が4月にリリースされ、そのBFFではOpenAPI（3.0）のスキーマ定義からoapi-codegenでコードを生成し、フレームワークにechoを使うと明記。生成されるのはGoのコード"
     evidenceUrl: "https://tech.makeshop.co.jp/entry/2024/05/31/180019"

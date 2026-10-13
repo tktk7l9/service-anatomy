@@ -45,12 +45,12 @@ techStack:
     evidence: "公式のトップページ（2026-10-13確認）に、すべてのプランに第4世代「AMD EPYC™」と高速インターフェース「NVMe」を採用すると明記。サーバー仕様一覧は、OSをLinux、RAID構成をRAID 10とする"
     evidenceUrl: "https://www.star.ne.jp/"
   - layer: "データベース"
-    name: "MariaDB 10.5 / 10.11 / SQLite"
+    name: "MariaDB (10.5 / 10.11) / SQLite"
     confidence: confirmed
     evidence: "公式のデータベース仕様一覧（2026-10-13確認）に、データベースサーバーは「MariaDB 10.5.x」と「MariaDB 10.11.x」（MyISAMとInnoDB）、SQLiteは利用可能、PostgreSQLは利用できないと明記。お知らせ一覧は、2026年4月20日に新規受付サーバーでMariaDB 10.11に対応したと告知した"
     evidenceUrl: "https://www.star.ne.jp/support/manual/man_db_spec.php"
   - layer: "言語・高速化"
-    name: "PHP 7 and 8 (FastCGI, OPcache) / X Accelerator"
+    name: "PHP (7 and 8, FastCGI, OPcache) / X Accelerator"
     confidence: confirmed
     evidence: "公式の機能一覧（2026-10-13確認）に、PHP8/PHP7、PHPやCGIの負荷を軽くするFastCGI、OPcache、HTTP/2、サイト表示を高速化して同時アクセス数を拡張する「Xアクセラレータ」、ブラウザキャッシュ設定を明記"
     evidenceUrl: "https://www.star.ne.jp/service/functions.php"
