@@ -96,6 +96,17 @@ describe("localeParityIssues", () => {
     expect(localeParityIssues(article).join("\n")).toMatch(/affiliate\.url differs between ja\/en \(ja=none/);
   });
 
+  it("detects a mismatched affiliate.sameWindow in either direction", () => {
+    const base = { url: "https://example.com/referral", program: "Example" };
+    expect(localeParityIssues(makeArticle("x", { affiliate: { ...base, sameWindow: true } }))).toEqual([]);
+    expect(
+      localeParityIssues(makeArticle("x", { affiliate: { ...base, sameWindow: true } }, { affiliate: base })),
+    ).toEqual(["affiliate.sameWindow differs between ja/en (ja=true / en=false)"]);
+    expect(
+      localeParityIssues(makeArticle("x", { affiliate: base }, { affiliate: { ...base, sameWindow: true } })),
+    ).toEqual(["affiliate.sameWindow differs between ja/en (ja=false / en=true)"]);
+  });
+
   it("no issue when affiliate.impressionUrl matches", () => {
     const affiliate = {
       url: "https://px.example.net/c?id=1",

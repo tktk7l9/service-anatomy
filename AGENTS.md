@@ -170,6 +170,10 @@ tech editorial (magazine-style) design.
   **If you do not know the material's text, ask the owner — never invent a label.** Without
   `label` the card falls back to the site's own CTA from the dictionary (fine for non-ASP
   programs such as Shopify via Impact).
+  **Some programs forbid making their links open a new browser window** (Google Workspace's
+  referral terms 8(b) and affiliate terms 5(b)). For those, set `affiliate.sameWindow: true`
+  (identical in ja/en — parity.ts checks it): the card then opens the link in the same tab, without
+  `target="_blank"` or `noopener`, and drops the ↗ "opens in a new tab" cue. The default stays a new tab.
   `AffiliateCard` renders the pixel after the link and gives the link
   `rel="sponsored nofollow noopener"` + `referrerPolicy="no-referrer-when-downgrade"` —
   **no `noreferrer`**, because the networks' code sends the Referer. Other external links keep

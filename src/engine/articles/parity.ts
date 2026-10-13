@@ -79,6 +79,11 @@ export function localeParityIssues(article: Article): string[] {
       `affiliate.impressionUrl differs between ja/en (ja=${ja.affiliate?.impressionUrl ?? "none"} / en=${en.affiliate?.impressionUrl ?? "none"})`,
     );
   }
+  const jaSameWindow = ja.affiliate?.sameWindow === true;
+  const enSameWindow = en.affiliate?.sameWindow === true;
+  if (jaSameWindow !== enSameWindow) {
+    issues.push(`affiliate.sameWindow differs between ja/en (ja=${jaSameWindow} / en=${enSameWindow})`);
+  }
   if (ja.affiliate?.label !== en.affiliate?.label) {
     issues.push(
       `affiliate.label differs between ja/en (ja=${ja.affiliate?.label ?? "none"} / en=${en.affiliate?.label ?? "none"})`,

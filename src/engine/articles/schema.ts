@@ -45,12 +45,16 @@ export interface RevisionEntry {
  * the link in its ad code. Set it whenever the network's code has one, so the code is used as provided.
  * label is the text of the network's text ad, copied verbatim: networks forbid rewording it, so when
  * it is set the link shows exactly this string in every locale. Without it the site's own CTA is used.
+ * sameWindow opens the link in the same tab instead of a new one. It is off by default; set it only
+ * when the program's terms forbid making links open a new browser window (Google Workspace's
+ * referral and affiliate terms do).
  */
 export interface AffiliateLink {
   url: string;
   program: string;
   impressionUrl?: string;
   label?: string;
+  sameWindow?: boolean;
 }
 
 export interface ArticleFrontmatter {
@@ -194,6 +198,14 @@ function parseAffiliate(obj: Record<string, unknown>, context: string): Affiliat
   }
   if (record.label !== undefined) {
     affiliate.label = requireAffiliateLabel(record, entryContext);
+  }
+  if (record.sameWindow !== undefined) {
+    if (typeof record.sameWindow !== "boolean") {
+      fail(entryContext, `sameWindow must be true or false`);
+    }
+    if (record.sameWindow) {
+      affiliate.sameWindow = true;
+    }
   }
   return affiliate;
 }

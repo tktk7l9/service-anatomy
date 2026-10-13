@@ -31,14 +31,17 @@ serviceUrl: "https://workspace.google.com/intl/ja/"
 #    Google, and nofollow on links; tracking links come through CJ; offers and banners are a library
 #    provided by Google.
 # Both agreements forbid making hyperlinks to Google web pages open a new browser window (referral
-# terms section 8(b), affiliate terms section 5(b)), while AffiliateCard opens links with
-# target="_blank": settle that with the owner before enabling this block. Neither program page
-# publishes an ad text; if one is supplied, copy it verbatim into label. Never invent the label — ask
-# the owner. Keep every field identical in ja.md and en.md (parity.ts checks it).
+# terms section 8(b), affiliate terms section 5(b)), so this block keeps sameWindow: true, which makes
+# AffiliateCard open the link in the same tab with no new-tab cue. To enable it, join one program,
+# paste its link into url (in both ja.md and en.md) and uncomment the block. Neither program page
+# publishes an ad text, so the block has no label and the card uses the site's own CTA; if Google
+# ever supplies an ad text, copy it verbatim into label. Never invent the label. Keep every field
+# identical in ja.md and en.md (parity.ts checks it). For the CJ affiliate program, set program to
+# "Google Workspace Affiliate Program (CJ Affiliate)" instead.
 # affiliate:
 #   url: "https://<google-workspace-referral-link-or-cj-tracking-link>"
 #   program: "Google Workspace Referral Program"
-#   label: "<verbatim text of the ad material>"
+#   sameWindow: true
 vendor: "Google LLC"
 origin: "US"
 heroTheme: "google-workspace"
