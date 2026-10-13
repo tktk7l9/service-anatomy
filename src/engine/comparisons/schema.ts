@@ -7,6 +7,7 @@ import {
   requireString,
   type SourceRef,
 } from "@/engine/content/validators";
+import { parseExpires, type ExpiringClaim } from "@/engine/content/expires";
 
 // Frontmatter validator for comparisons (head-to-head articles). Same hand-written style as
 // articles/schema.ts, reusing the shared primitives in engine/content/validators.ts.
@@ -23,6 +24,8 @@ export interface ComparisonFrontmatter {
   updatedAt: string;
   lastVerified: string;
   sources: SourceRef[];
+  /** Time-limited statements in the body, listed for review after their last valid day (see engine/content/expires.ts). */
+  expires?: ExpiringClaim[];
 }
 
 function parseComparisonSlug(obj: Record<string, unknown>, key: string, context: string): string {
@@ -50,5 +53,6 @@ export function parseComparisonFrontmatter(data: unknown, context: string): Comp
     updatedAt: requireIsoDate(obj, "updatedAt", context),
     lastVerified: requireIsoDate(obj, "lastVerified", context),
     sources: parseSources(obj, context),
+    expires: parseExpires(obj, context),
   };
 }

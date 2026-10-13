@@ -7,6 +7,11 @@ slugB: "onamae"
 publishedAt: "2026-10-13"
 updatedAt: "2026-10-13"
 lastVerified: "2026-10-13"
+expires:
+  - date: "2026-10-31"
+    claim: "両社の10月のサービス維持調整費25.50%と、それを含めた価格（.comの更新2,168円・1,767円、ドメインプロテクション年1,353円ほど）"
+  - date: "2026-10-31"
+    claim: "お名前.comのレンタルサーバー ベーシック向けREST API（2026年10月頃の予定）と、提供開始のお知らせがまだないこと"
 sources:
   - label: "ムームードメイン公式: トップページ（総取得数560万件・620種類以上）"
     url: "https://muumuu-domain.com/"

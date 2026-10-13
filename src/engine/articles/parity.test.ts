@@ -15,6 +15,15 @@ describe("localeParityIssues", () => {
     expect(issues.join("\n")).toMatch(/origin differs between ja\/en/);
   });
 
+  it("detects mismatched expires dates", () => {
+    const article = makeArticle("x", { expires: [{ date: "2026-10-31", claim: "10月の料率" }] }, {
+      expires: [{ date: "2026-11-01", claim: "October rate" }],
+    });
+    expect(localeParityIssues(article)).toEqual([
+      "expires[0].date differs between ja/en (ja=2026-10-31 / en=2026-11-01)",
+    ]);
+  });
+
   it("detects mismatched tags", () => {
     const article = makeArticle("x");
     article.en = makeArticleFile({ tags: ["other-tag"] });

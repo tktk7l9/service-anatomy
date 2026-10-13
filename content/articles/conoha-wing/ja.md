@@ -8,6 +8,9 @@ tags: [hosting, wordpress, small-business, ai, php]
 publishedAt: "2026-09-30"
 updatedAt: "2026-09-30"
 lastVerified: "2026-09-30"
+expires:
+  - date: "2026-10-07"
+    claim: "ベーシック649円のキャンペーン料金（2026年10月7日16時までの新規申し込み）"
 serviceUrl: "https://www.conoha.jp/wing/"
 affiliate:
   url: "https://af.moshimo.com/af/c/click?a_id=5828003&p_id=2312&pc_id=4967&pl_id=30490"

@@ -8,6 +8,11 @@ tags: [domains, hosting, small-business, api, mcp, security, subscription]
 publishedAt: "2026-10-13"
 updatedAt: "2026-10-13"
 lastVerified: "2026-10-13"
+expires:
+  - date: "2026-10-31"
+    claim: "The 25% first-year Google Workspace discount (the page says \"until October 31\")"
+  - date: "2026-10-31"
+    claim: "October's 25.50% service maintenance adjustment fee and the prices that include it (a .com renewal at 2,168 yen, etc.)"
 serviceUrl: "https://muumuu-domain.com/"
 # Affiliate link placeholder: Muumuu Domain publishes a per-result reward table on its official page
 # (https://muumuu-domain.com/affiliate, checked 2026-10-13): new Muumuu Server contract (3 months or

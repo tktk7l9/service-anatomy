@@ -8,6 +8,11 @@ tags: [domains, hosting, small-business, security, subscription]
 publishedAt: "2026-10-11"
 updatedAt: "2026-10-11"
 lastVerified: "2026-10-11"
+expires:
+  - date: "2026-10-30"
+    claim: "移管料金100%キャッシュバックのキャンペーン（10月30日12時まで）"
+  - date: "2026-10-31"
+    claim: "10月のサービス維持調整費25.50%と、それを含めた更新料金の表"
 serviceUrl: "https://www.onamae.com/"
 # Affiliate link placeholder: Onamae.com runs its affiliate program through two ASPs, A8.net and
 # ValueCommerce (https://www.onamae.com/clever/affiliate/, checked 2026-10-11: register with either

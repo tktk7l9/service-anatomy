@@ -26,6 +26,16 @@ describe("parseFrontmatter", () => {
     expect(parseFrontmatter(raw, "ctx").techStack[0].evidenceUrl).toBe("https://example.com/proof");
   });
 
+  it("accepts expires (time-limited claims) and leaves it undefined when not set", () => {
+    expect(parseFrontmatter(makeRawFrontmatter(), "ctx").expires).toBeUndefined();
+    const raw = mutate((r) => {
+      r.expires = [{ date: "2026-10-31", claim: "キャンペーン価格は10月31日まで" }];
+    });
+    expect(parseFrontmatter(raw, "ctx").expires).toEqual([
+      { date: "2026-10-31", claim: "キャンペーン価格は10月31日まで" },
+    ]);
+  });
+
   it("undefined when affiliate is not set", () => {
     expect(parseFrontmatter(makeRawFrontmatter(), "ctx").affiliate).toBeUndefined();
   });

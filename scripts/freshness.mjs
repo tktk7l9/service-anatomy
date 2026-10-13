@@ -1,9 +1,12 @@
 #!/usr/bin/env node
-// Article freshness check. Lists articles whose lastVerified exceeds the threshold (default 90 days), oldest first.
+// Article freshness check. Lists articles whose lastVerified exceeds the threshold (default 90 days), oldest first,
+// then the time-limited claims registered under `expires` in articles and comparisons (src/engine/content/expires.ts),
+// marking the ones past their last valid day.
 // Run `npm run freshness` in the weekly review; overdue articles become candidates for re-verification or periodic re-anatomy.
-// Usage: npm run freshness [-- --days N] [-- --ci] (--ci exits 1 if any article is overdue)
+// Usage: npm run freshness [-- --days N] [-- --ci] (--ci exits 1 if any article is overdue or any claim has expired)
 import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
+import matter from "gray-matter";
 
 const ROOT = path.join(process.cwd(), "content", "articles");
 const MS_PER_DAY = 86_400_000;
@@ -46,4 +49,29 @@ console.log(
     : `\n⚠ ${stale.length}/${rows.length} articles are older than ${maxAgeDays} days. Re-verify them (web search, direct observation) and update lastVerified, or mark them as candidates for a revision (re-anatomy).`,
 );
 
-if (ci && stale.length > 0) process.exit(1);
+// Time-limited claims: `date` is the last day a claim is known to hold, so it expires from the next day on.
+const CONTENT = path.join(process.cwd(), "content");
+const claims = ["articles", "comparisons"]
+  .flatMap((kind) =>
+    readdirSync(path.join(CONTENT, kind), { withFileTypes: true })
+      .filter((entry) => entry.isDirectory())
+      .flatMap((entry) => {
+        const { data } = matter(readFileSync(path.join(CONTENT, kind, entry.name, "ja.md"), "utf8"));
+        const items = Array.isArray(data.expires) ? data.expires : [];
+        return items.map((item) => ({ where: `${kind}/${entry.name}`, date: String(item.date), claim: String(item.claim) }));
+      }),
+  )
+  .sort((a, b) => a.date.localeCompare(b.date) || a.where.localeCompare(b.where));
+const expired = claims.filter((row) => row.date < today);
+
+console.log(`\nTime-limited claims (frontmatter expires, ${claims.length} registered)\n`);
+for (const row of claims) {
+  console.log(`${row.date < today ? "⚠" : " "} ${row.date}  ${row.where}  ${row.claim}`);
+}
+console.log(
+  expired.length === 0
+    ? `\nNo claim is past its last valid day.`
+    : `\n⚠ ${expired.length}/${claims.length} claims are past their last valid day. Re-check them, then rewrite or remove the statement and update or remove its expires entry.`,
+);
+
+if (ci && (stale.length > 0 || expired.length > 0)) process.exit(1);

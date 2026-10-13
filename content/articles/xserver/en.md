@@ -8,6 +8,9 @@ tags: [hosting, wordpress, api, mcp, small-business]
 publishedAt: "2026-09-28"
 updatedAt: "2026-09-28"
 lastVerified: "2026-09-28"
+expires:
+  - date: "2026-10-05"
+    claim: "The campaign refunding half the fee on new contracts of 12 months or longer (until October 5) and the effective 495 yen a month"
 serviceUrl: "https://www.xserver.ne.jp/"
 # Affiliate link placeholder: the owner must join the Xserver program on A8.net
 # (see https://www.xserver.ne.jp/affiliate.php — flat reward per contract by plan) before enabling this block.

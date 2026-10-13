@@ -8,6 +8,9 @@ tags: [hosting, wordpress, api, mcp, small-business]
 publishedAt: "2026-09-28"
 updatedAt: "2026-09-28"
 lastVerified: "2026-09-28"
+expires:
+  - date: "2026-10-05"
+    claim: "12か月以上の新規契約で利用料金の半額をキャッシュバックするキャンペーン（10月5日まで）と実質月額495円"
 serviceUrl: "https://www.xserver.ne.jp/"
 # Affiliate link placeholder: the owner must join the Xserver program on A8.net
 # (see https://www.xserver.ne.jp/affiliate.php — flat reward per contract by plan) before enabling this block.

@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { ALL_ARTICLES } from "@/engine/articles";
+import { expiredClaims } from "@/engine/content/expires";
 import { renderMarkdown } from "@/engine/markdown/render";
 import { locales } from "@/i18n/config";
 import { ALL_COMPARISONS } from "./index";
@@ -37,6 +38,11 @@ describe("cross-cutting consistency of comparison content", () => {
     it("publishedAt <= updatedAt", () => {
       expect(comparison.ja.frontmatter.publishedAt <= comparison.ja.frontmatter.updatedAt).toBe(true);
     });
+
+    // Time-limited claims past their last valid day show up as todo items (see articles/content.test.ts).
+    for (const claim of expiredClaims(comparison.ja.frontmatter.expires, todayIso)) {
+      it.todo(`expired claim (last valid ${claim.date}): ${claim.claim}`);
+    }
 
     it.each(locales)("%s: renderMarkdown converts it and it contains no script", (locale) => {
       const html = renderMarkdown(comparison[locale].body);

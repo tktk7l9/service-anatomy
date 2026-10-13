@@ -9,6 +9,7 @@ import {
   requireString,
   type SourceRef,
 } from "@/engine/content/validators";
+import { parseExpires, type ExpiringClaim } from "@/engine/content/expires";
 import { isCategoryId, type CategoryId } from "./taxonomy";
 
 // Hand-written validator for article frontmatter. Shared primitives live in engine/content/validators.ts
@@ -73,6 +74,8 @@ export interface ArticleFrontmatter {
   revisions?: RevisionEntry[];
   /** Affiliate link (optional). Only articles with one get the "PR" box at the end. */
   affiliate?: AffiliateLink;
+  /** Time-limited statements in the body, listed for review after their last valid day (see engine/content/expires.ts). */
+  expires?: ExpiringClaim[];
 }
 
 function parseCategory(obj: Record<string, unknown>, context: string): CategoryId {
@@ -216,5 +219,6 @@ export function parseFrontmatter(data: unknown, context: string): ArticleFrontma
     sources: parseSources(obj, context),
     revisions: parseRevisions(obj, context),
     affiliate: parseAffiliate(obj, context),
+    expires: parseExpires(obj, context),
   };
 }

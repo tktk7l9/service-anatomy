@@ -8,6 +8,9 @@ tags: [hosting, wordpress, small-business, ai, php]
 publishedAt: "2026-09-30"
 updatedAt: "2026-09-30"
 lastVerified: "2026-09-30"
+expires:
+  - date: "2026-10-07"
+    claim: "The 649-yen Basic campaign price (new sign-ups by 16:00 on October 7, 2026)"
 serviceUrl: "https://www.conoha.jp/wing/"
 affiliate:
   url: "https://af.moshimo.com/af/c/click?a_id=5828003&p_id=2312&pc_id=4967&pl_id=30490"

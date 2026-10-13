@@ -1,3 +1,4 @@
+import { expiresParityIssues } from "@/engine/content/expires";
 import type { ComparisonItem } from "./load";
 
 // Detects mismatches between ja/en frontmatter in fields that should be language-neutral.
@@ -24,5 +25,6 @@ export function localeParityIssues(comparison: ComparisonItem): string[] {
       }
     });
   }
+  issues.push(...expiresParityIssues(ja.expires, en.expires));
   return issues;
 }

@@ -13,6 +13,11 @@ describe("comparisons/localeParityIssues", () => {
     expect(localeParityIssues(comparison).join("\n")).toMatch(/publishedAt differs between ja\/en/);
   });
 
+  it("detects mismatched expires dates", () => {
+    const comparison = makeComparisonItem("x", { expires: [{ date: "2026-10-31", claim: "10月の料率" }] }, {});
+    expect(localeParityIssues(comparison)).toEqual(["expires count differs between ja/en (ja=1 / en=0)"]);
+  });
+
   it("detects mismatched sources count and url", () => {
     const fewer = makeComparisonItem("x");
     fewer.en = makeComparisonFile({

@@ -7,6 +7,9 @@ slugB: "xserver"
 publishedAt: "2026-10-11"
 updatedAt: "2026-10-11"
 lastVerified: "2026-10-11"
+expires:
+  - date: "2026-11-04"
+    claim: "エックスサーバーの最大30%オフのキャンペーン（11月4日17時まで）と、10月11日の価格の比較"
 sources:
   - label: "シン・レンタルサーバー公式: トップページ"
     url: "https://www.shin-server.jp/"

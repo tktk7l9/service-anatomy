@@ -7,6 +7,11 @@ slugB: "onamae"
 publishedAt: "2026-10-13"
 updatedAt: "2026-10-13"
 lastVerified: "2026-10-13"
+expires:
+  - date: "2026-10-31"
+    claim: "Both services' October adjustment fee of 25.50% and the prices that include it (.com renewals at 2,168 and 1,767 yen, Domain Protection at about 1,353 yen a year)"
+  - date: "2026-10-31"
+    claim: "Onamae.com's REST API for Rental Server Basic (planned for around October 2026) and the absence of a launch notice"
 sources:
   - label: "Muumuu Domain official: Home page (5.6 million total registrations, 620+ TLDs)"
     url: "https://muumuu-domain.com/"
