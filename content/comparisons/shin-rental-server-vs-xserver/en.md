@@ -7,6 +7,9 @@ slugB: "xserver"
 publishedAt: "2026-10-11"
 updatedAt: "2026-10-11"
 lastVerified: "2026-10-11"
+expires:
+  - date: "2026-11-04"
+    claim: "Xserver's up-to-30%-off campaign (until 17:00 on November 4) and the October 11 price comparison"
 sources:
   - label: "Shin Rental Server official: Home page"
     url: "https://www.shin-server.jp/"

@@ -93,6 +93,13 @@ tech editorial (magazine-style) design.
 - Freshness: `lastVerified` (ISO date) is required. Always verify with web search and real observation (curl -sI etc.) when writing
   (do not trust the LLM's training knowledge). `npm run freshness` lists articles whose lastVerified is over 90 days old —
   run it in the weekly review, and re-verify overdue articles and update lastVerified, or make them candidates for periodic re-anatomy (定点観測).
+- Time-limited claims: when the body states something with an end date or a short life (a campaign price until a date, a
+  monthly rate such as a service maintenance adjustment fee, a feature announced for "around October"), register it in the
+  frontmatter of both ja.md and en.md (articles and comparisons) as `expires: [{ date: "YYYY-MM-DD", claim: "..." }]`.
+  `date` is the last day the claim is known to hold (a campaign's end date; the last day of the month for a monthly rate);
+  `claim` says what to re-check, in the file's language. ja and en must list the same dates in the same order (parity checks
+  it). After that day, `npm run freshness` marks the claim with ⚠ and the content tests list it as a todo item (they do not
+  fail). Re-check it, then rewrite or remove the statement, and update or remove the entry.
 - Broken links: `npm run check-links` sends real requests to serviceUrl / sources[].url / techStack[].evidenceUrl / OGP image URLs
   (content/og-cards.json) to check whether they are alive. Run it in the weekly review (about 1 minute).
   Each URL is tried with HEAD first, then once more with a browser-like GET (some servers reject HEAD or
@@ -109,7 +116,7 @@ tech editorial (magazine-style) design.
 
 - `npm run dev` / `npm run build` / `npm start`
 - `npm run typecheck` / `npm test` / `npm run coverage` (100% gate)
-- `npm run og-cards` (refetch link cards) / `npm run freshness` (lastVerified freshness list) / `npm run check-links` (external link liveness check)
+- `npm run og-cards` (refetch link cards) / `npm run freshness` (lastVerified freshness list and expired time-limited claims) / `npm run check-links` (external link liveness check)
 
 ## Commit granularity
 

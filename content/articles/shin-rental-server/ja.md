@@ -8,6 +8,9 @@ tags: [hosting, wordpress, small-business, php, api, mcp]
 publishedAt: "2026-10-11"
 updatedAt: "2026-10-11"
 lastVerified: "2026-10-11"
+expires:
+  - date: "2026-11-04"
+    claim: "エックスサーバーの最大30%オフのキャンペーン価格（11月4日17時まで）"
 serviceUrl: "https://www.shin-server.jp/"
 # Affiliate link placeholder: Shin Rental Server runs two referral routes (checked 2026-10-11).
 # (1) ASP: https://www.shin-server.jp/affiliate/ says it promotes through A8.net and Moshimo Affiliate

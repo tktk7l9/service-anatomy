@@ -8,6 +8,11 @@ tags: [hosting, vps, small-business, api, mcp, ai-agent, multiplayer]
 publishedAt: "2026-10-13"
 updatedAt: "2026-10-13"
 lastVerified: "2026-10-13"
+expires:
+  - date: "2026-10-26"
+    claim: "The home page's XServer VPS Cloud pop-up (\"until 10/26 | contract term + 3 months free\")"
+  - date: "2026-11-19"
+    claim: "The Windows Server cashback for new contracts (until 17:00 on November 19) and the guess built on it"
 serviceUrl: "https://vps.xserver.ne.jp/"
 # Affiliate link placeholder: XServer VPS runs its affiliate program through A8.net
 # (https://vps.xserver.ne.jp/affiliate.php, checked 2026-10-13): flat rewards per sale, e.g. XServer VPS 2GB

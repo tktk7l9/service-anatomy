@@ -8,6 +8,11 @@ tags: [domains, hosting, small-business, security, subscription]
 publishedAt: "2026-10-11"
 updatedAt: "2026-10-11"
 lastVerified: "2026-10-11"
+expires:
+  - date: "2026-10-30"
+    claim: "The 100% transfer-fee cashback campaign (until 12:00 on October 30)"
+  - date: "2026-10-31"
+    claim: "October's 25.50% service maintenance adjustment fee and the renewal table that includes it"
 serviceUrl: "https://www.onamae.com/"
 # Affiliate link placeholder: Onamae.com runs its affiliate program through two ASPs, A8.net and
 # ValueCommerce (https://www.onamae.com/clever/affiliate/, checked 2026-10-11: register with either

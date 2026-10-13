@@ -40,6 +40,14 @@ describe("parseComparisonFrontmatter", () => {
     );
   });
 
+  it("accepts expires (time-limited claims) and leaves it undefined when not set", () => {
+    expect(parseComparisonFrontmatter(makeRawComparisonFrontmatter(), "ctx").expires).toBeUndefined();
+    const raw = mutate((r) => {
+      r.expires = [{ date: "2026-10-31", claim: "10月の料率" }];
+    });
+    expect(parseComparisonFrontmatter(raw, "ctx").expires).toEqual([{ date: "2026-10-31", claim: "10月の料率" }]);
+  });
+
   it("error messages include the context (file name)", () => {
     const raw = mutate((r) => delete r.title);
     expect(() => parseComparisonFrontmatter(raw, "deepl-vs-nani/ja.md")).toThrow(/^deepl-vs-nani\/ja\.md: /);

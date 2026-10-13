@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import ogImageHosts from "../../../content/og-image-hosts.json";
+import { expiredClaims } from "@/engine/content/expires";
 import { locales } from "@/i18n/config";
 import { renderMarkdown } from "../markdown/render";
 import { extractToc } from "../markdown/toc";
@@ -33,6 +34,12 @@ describe("cross-cutting consistency of article content", () => {
     it("publishedAt <= updatedAt", () => {
       expect(article.ja.frontmatter.publishedAt <= article.ja.frontmatter.updatedAt).toBe(true);
     });
+
+    // Time-limited claims past their last valid day show up as todo items (they do not fail the run):
+    // re-check them, then rewrite or remove the statement and its `expires` entry.
+    for (const claim of expiredClaims(article.ja.frontmatter.expires, todayIso)) {
+      it.todo(`expired claim (last valid ${claim.date}): ${claim.claim}`);
+    }
 
     it.each(locales)("%s: body has at least four parts (four or more h2)", (locale) => {
       const sections = extractToc(article[locale].body).filter((entry) => entry.depth === 2);

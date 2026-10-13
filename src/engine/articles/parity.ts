@@ -1,3 +1,4 @@
+import { expiresParityIssues } from "@/engine/content/expires";
 import type { Article } from "./load";
 
 // Detects mismatches between ja/en frontmatter in fields that should be language-neutral.
@@ -67,6 +68,7 @@ export function localeParityIssues(article: Article): string[] {
       }
     });
   }
+  issues.push(...expiresParityIssues(ja.expires, en.expires));
   if (ja.affiliate?.url !== en.affiliate?.url) {
     issues.push(
       `affiliate.url differs between ja/en (ja=${ja.affiliate?.url ?? "none"} / en=${en.affiliate?.url ?? "none"})`,
