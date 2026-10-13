@@ -1,16 +1,16 @@
 ---
 service: "Xserver"
-title: "A Shared Server From an Effective ¥495 a Month Opens Up to AI Agents — Xserver Is Rebuilding Japan's Biggest WordPress Home, 30% of the Market, Around an API and MCP"
+title: "A Shared Server From ¥990 a Month Opens Up to AI Agents — Xserver Is Rebuilding Japan's Biggest WordPress Home, 30% of the Market, Around an API and MCP"
 description: "Xserver is the rental server that claims the No. 1 share in Japan. It started in Osaka in 2003 and has grown to 2.5 million hosted sites and ¥8.35 billion in revenue, and in 2026 this veteran of shared hosting shipped a REST API, a CLI, and an official MCP server in quick succession. A dissection — from official news posts, manuals, and company pages — of a web server that runs nginx alongside Apache, new machines with 5th-gen EPYC and NVMe, the acquisition of the free Cocoon theme business, prepaid long-term pricing, and flat A8.net rewards next to a 20% friend-referral program."
-lead: "\"Add the domain example.com and install WordPress\" — in May 2026, Xserver wrote in an official announcement that asking an AI assistant exactly that is now enough to configure a server. The company that claims the No. 1 share in Japan and has become a default home for WordPress sites, on shared servers that cost as little as an effective ¥495 a month during the current campaign, has opened API and MCP doors next to its control panel. This is a dissection of how a 23-year-old shared hosting business is built and how it makes money."
+lead: "\"Add the domain example.com and install WordPress\" — in May 2026, Xserver wrote in an official announcement that asking an AI assistant exactly that is now enough to configure a server. The company that claims the No. 1 share in Japan and has become a default home for WordPress sites, on shared servers that cost from ¥990 a month on a 36-month contract, has opened API and MCP doors next to its control panel. This is a dissection of how a 23-year-old shared hosting business is built and how it makes money."
 category: dev-tool
 tags: [hosting, wordpress, api, mcp, small-business]
 publishedAt: "2026-09-28"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-13"
 lastVerified: "2026-09-28"
 expires:
-  - date: "2026-10-05"
-    claim: "The campaign refunding half the fee on new contracts of 12 months or longer (until October 5) and the effective 495 yen a month"
+  - date: "2026-11-04"
+    claim: "The up-to-30%-off campaign prices (until 17:00 on November 4) and Standard at 693 yen a month on a 36-month contract"
 serviceUrl: "https://www.xserver.ne.jp/"
 # Affiliate link placeholder: the owner must join the Xserver program on A8.net
 # (see https://www.xserver.ne.jp/affiliate.php — flat reward per contract by plan) before enabling this block.
@@ -94,7 +94,7 @@ sources:
     accessedAt: "2026-09-28"
   - label: "Xserver official: Pricing (Japanese)"
     url: "https://www.xserver.ne.jp/price/"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-10-13"
   - label: "Xserver news: Half-price cashback campaign (Japanese, 2026-09-07)"
     url: "https://www.xserver.ne.jp/news_detail.php?view_id=19393"
     accessedAt: "2026-09-28"
@@ -238,7 +238,7 @@ The official MCP server on npm, xserver-mcp, was registered on April 22, 2026, a
 Xserver's revenue rests on shared hosting fees. Its pricing stands out in two ways: the longer you prepay, the lower the monthly price, and campaigns run almost constantly.
 
 :::fact
-According to the pricing page (as of September 28, 2026), there is no setup fee, and the monthly price including tax for Standard is ¥1,320 on a 3-month contract, ¥1,100 on 12 months, and ¥990 on 36 months. On a 36-month contract, Premium is ¥1,980 and Business ¥3,960, with 500GB, 600GB, and 700GB of NVMe disk respectively. The whole contract period is paid up front, and every plan comes with a 10-day free trial. From September 7 to October 5, 2026, a campaign refunds half the fee on new contracts of 12 months or longer, bringing Standard on a 36-month contract to an effective ¥495 a month. For new contracts, custom domains stay free for as long as the contract lasts: one on a 12-month Standard contract, two on Standard contracts of 24 months or more, and two on every Premium or Business contract. From December 2025, Xserver ended the discount it had given to 1-, 3-, and 6-month auto-renewals, and told customers that switching to 12 months or longer would keep their monthly price unchanged.
+According to the pricing page (as of September 28, 2026), there is no setup fee, and the monthly price including tax for Standard is ¥1,320 on a 3-month contract, ¥1,100 on 12 months, and ¥990 on 36 months. On a 36-month contract, Premium is ¥1,980 and Business ¥3,960, with 500GB, 600GB, and 700GB of NVMe disk respectively. The whole contract period is paid up front, and every plan comes with a 10-day free trial. From September 7 to October 5, 2026, a campaign refunded half the fee on new contracts of 12 months or longer (an effective ¥495 a month for Standard on a 36-month contract). According to the pricing page (checked 2026-10-13), campaign prices of up to 30% off then applied from 17:00 on October 5 to 17:00 on November 4, 2026, bringing Standard on a 36-month contract to ¥693 a month (regularly ¥990). For new contracts, custom domains stay free for as long as the contract lasts: one on a 12-month Standard contract, two on Standard contracts of 24 months or more, and two on every Premium or Business contract. From December 2025, Xserver ended the discount it had given to 1-, 3-, and 6-month auto-renewals, and told customers that switching to 12 months or longer would keep their monthly price unchanged.
 :::
 
 :::fact
@@ -253,4 +253,4 @@ Long prepaid contracts give customers a lower monthly price, but they also let t
 The referral design has turned bloggers into a sales network. The A8.net reward is a flat amount, which is easy to understand for anyone writing a "how to choose a server" post. The friend referral program, by contrast, forbids spreading the link on blogs and limits itself to people who know each other. That looks like a line drawn to keep public promotion under the ASP's control and to prevent double rewards. And acquiring the free Cocoon theme, which many bloggers use, in 2022 and keeping it free is, in our view, an investment in staying the first option for anyone starting a blog. Opening the API and MCP server extends the same story about doors. If more people ask an AI agent to "make me a blog", the server whose steps the agent already knows is more likely to be chosen. The SKILL.md for the site creation and publishing skill appears to be an attempt to hand agents those steps ahead of time.
 :::
 
-Xserver did not invent a new kind of cloud. It took shared hosting, an old and familiar shape, and grew it into Japan's largest home for websites through easy WordPress setup, compatibility that keeps .htaccess working, prepaid long-term pricing, and a referral network that brought bloggers on board. In 2026, that company started building doors for customers who never open the control panel: AI agents. Can a market share won when people chose on screens carry over to an era when agents choose by following steps? That is the next contest for a server that starts at an effective ¥495 a month.
+Xserver did not invent a new kind of cloud. It took shared hosting, an old and familiar shape, and grew it into Japan's largest home for websites through easy WordPress setup, compatibility that keeps .htaccess working, prepaid long-term pricing, and a referral network that brought bloggers on board. In 2026, that company started building doors for customers who never open the control panel: AI agents. Can a market share won when people chose on screens carry over to an era when agents choose by following steps? That is the next contest for a server that starts at ¥990 a month.

@@ -2,15 +2,15 @@
 service: "ConoHa WING"
 title: "A Shared Server at ¥2.5 an Hour Greets AI Agents With an FTPS Tool That Cannot Delete — ConoHa WING Keeps Its VPS-Style Billing and a LiteSpeed-Backed \"Fastest in Japan\" Claim"
 description: "ConoHa WING is the rental server GMO Internet launched in 2018. It lists hourly billing next to a 36-month prepaid \"WING Pack\" and claims the No. 1 server processing speed in Japan from its own h2load benchmark. This anatomy walks through the nginx-plus-Apache-plus-LiteSpeed LSAPI stack, Prime Strategy's WEXAL, the FTPS site-publishing skill released for AI coding agents, the unauthorized access and database outage of September 2026, the ¥11.5 billion first-half segment, and the affiliate rewards of up to ¥12,000 on A8.net and Moshimo Affiliate, drawing on the official site, notices and earnings materials."
-lead: "\"Read ConoHa WING's SKILL.md and follow the instructions to set it up\" — as of September 30, 2026, the official page says that asking an AI coding agent exactly that is enough to start publishing to the server. What arrives is not an API or an MCP server, but an FTPS tool that runs on Python's standard library alone and a design that never includes delete. A shared server that grew out of an hourly-billed VPS enters its eighth year on a ¥649-a-month campaign and a \"fastest in Japan\" banner. This anatomy looks at the door it built for the age of AI agents."
+lead: "\"Read ConoHa WING's SKILL.md and follow the instructions to set it up\" — as of September 30, 2026, the official page says that asking an AI coding agent exactly that is enough to start publishing to the server. What arrives is not an API or an MCP server, but an FTPS tool that runs on Python's standard library alone and a design that never includes delete. A shared server that grew out of an hourly-billed VPS enters its eighth year on 36-month prepaid campaign prices and a \"fastest in Japan\" banner. This anatomy looks at the door it built for the age of AI agents."
 category: dev-tool
 tags: [hosting, wordpress, small-business, ai, php]
 publishedAt: "2026-09-30"
 updatedAt: "2026-10-13"
 lastVerified: "2026-09-30"
 expires:
-  - date: "2026-10-07"
-    claim: "The 649-yen Basic campaign price (new sign-ups by 16:00 on October 7, 2026)"
+  - date: "2026-10-22"
+    claim: "The WING Pack campaign price (Basic at 678 yen a month, new sign-ups by 16:00 on October 22, 2026)"
 serviceUrl: "https://www.conoha.jp/wing/"
 affiliate:
   url: "https://af.moshimo.com/af/c/click?a_id=5828003&p_id=2312&pc_id=4967&pl_id=30490"
@@ -81,8 +81,8 @@ sources:
     url: "https://www.conoha.jp/wing/function/"
     accessedAt: "2026-09-30"
   - label: "ConoHa WING: Pricing (Japanese; WING Pack, pay-as-you-go, business plans)"
-    url: "https://www.conoha.jp/wing/pricing/"
-    accessedAt: "2026-09-30"
+    url: "https://www.conoha.jp/pricing/"
+    accessedAt: "2026-10-13"
   - label: "ConoHa WING: Site publishing skill (Japanese; supported agents, Python 3.8, FAQ on deletion)"
     url: "https://www.conoha.jp/function/skills/"
     accessedAt: "2026-09-30"
@@ -157,7 +157,7 @@ sources:
     accessedAt: "2026-09-30"
 ---
 
-When someone in Japan compares rental servers before starting a blog, ConoHa WING comes up next to [Xserver](/en/articles/xserver). It is run by GMO Internet, Inc., a company listed on the Tokyo Stock Exchange Prime market that also runs a domain registrar business and ConoHa VPS. Launched in 2018 under a "fastest in Japan" banner, the service still keeps hourly billing, a rarity among shared servers, while putting a ¥649-a-month figure from its 36-month prepaid "WING Pack" front and center. And in 2026 it opened a door for AI agents — through FTPS rather than an API.
+When someone in Japan compares rental servers before starting a blog, ConoHa WING comes up next to [Xserver](/en/articles/xserver). It is run by GMO Internet, Inc., a company listed on the Tokyo Stock Exchange Prime market that also runs a domain registrar business and ConoHa VPS. Launched in 2018 under a "fastest in Japan" banner, the service still keeps hourly billing, a rarity among shared servers, while putting the campaign price of its 36-month prepaid "WING Pack" (¥678 a month for Basic as of October 13, 2026) front and center. And in 2026 it opened a door for AI agents — through FTPS rather than an API.
 
 ## Service overview
 
@@ -228,7 +228,7 @@ Within GMO Internet, the shape of the AI-agent entrance differs by product. Cono
 ConoHa WING earns from shared-server fees, and its pricing has two legs: the hourly "regular rate" and the prepaid long-term "WING Pack".
 
 :::fact
-According to the pricing page as of September 30, 2026, the regular rate is ¥2.5 an hour on Basic with a monthly cap of ¥1,452, ¥4.4 an hour on Standard capped at ¥2,640, and ¥8.8 an hour on Premium capped at ¥5,280 (all including tax). There is no setup fee and no free-domain benefit on this rate. The WING Pack is a long-term discount paid up front for the whole term: on a 36-month contract the monthly equivalent is ¥649 on Basic (55% off the regular rate), ¥1,925 on Standard and ¥3,850 on Premium, while a three-month contract on Basic is ¥1,331, only 8% off. The ¥649 figure is a campaign price for new sign-ups by 16:00 on October 7, 2026, and up to two domains stay free for as long as the contract runs (the second from eight TLDs: .online, .space, .website, .tech, .site, .fun, .tokyo and .shop). The WING Pack cannot be cancelled mid-term and is not available in monthly installments. The business plans, which guarantee memory and vCPU, are ¥1,331 a month on Biz Light (26% off the regular rate), ¥2,844 on Biz Standard and ¥5,687 on Biz Advance over 36 months, with regular rates of ¥3.1, ¥6.1 and ¥12.1 an hour. The discounts are smaller than on the personal plans; a three-month Biz Light contract is only 6% off. The SLA guarantees 99.99% monthly uptime, crediting 10% of the monthly fee as service credit below 99.99% and 30% below 99.9%.
+According to the pricing page as of September 30, 2026, the regular rate is ¥2.5 an hour on Basic with a monthly cap of ¥1,452, ¥4.4 an hour on Standard capped at ¥2,640, and ¥8.8 an hour on Premium capped at ¥5,280 (all including tax). There is no setup fee and no free-domain benefit on this rate. The WING Pack is a long-term discount paid up front for the whole term; as of September 30, Basic on a 36-month contract was ¥649 a month (55% off the regular rate, a campaign price for new sign-ups by 16:00 on October 7, 2026). According to the pricing page (checked 2026-10-13), the following "Website Creation Support Campaign" puts the monthly equivalent on a 36-month contract at ¥678 on Basic (53% off the regular rate), ¥1,925 on Standard and ¥3,850 on Premium for new sign-ups by 16:00 on October 22, 2026, while a three-month contract on Basic is ¥1,331, only 8% off. Up to two domains stay free for as long as the contract runs (the second from eight TLDs: .online, .space, .website, .tech, .site, .fun, .tokyo and .shop). The WING Pack cannot be cancelled mid-term and is not available in monthly installments. The business plans, which guarantee memory and vCPU, are ¥1,331 a month on Biz Light (26% off the regular rate), ¥2,844 on Biz Standard and ¥5,687 on Biz Advance over 36 months, with regular rates of ¥3.1, ¥6.1 and ¥12.1 an hour. The discounts are smaller than on the personal plans; a three-month Biz Light contract is only 6% off. The SLA guarantees 99.99% monthly uptime, crediting 10% of the monthly fee as service credit below 99.99% and 30% below 99.9%.
 :::
 
 :::fact
@@ -243,4 +243,4 @@ The two rate types look like a way to sell one product to two audiences. Hourly 
 The referral design turns bloggers into a sales channel. The rewards on Moshimo Affiliate and A8.net are flat amounts by plan, easy to handle for a blog that writes "how to choose a rental server". The bump for ordering ConoHa Pencil alongside gives writers a reason to recommend the AI writing tool, a funnel that appears designed to collect a monthly fee for both the server and the AI from the moment a blog starts. Ending sales of the SANGO and OLTANA themes in July 2026 while the top page keeps listing JIN:R and THE THOR at discounted prices reads as trimming the theme lineup while shifting the reward top-up toward the company's own AI tool. The partner program's 15% recurring share gives agencies income on every client renewal — the same mechanism as Xserver's reseller scheme, securing corporate sites' hosting through the agencies that build them.
 :::
 
-ConoHa WING is a service that kept hourly billing, unusual for shared hosting, held the "fastest in Japan" claim for eight years on LiteSpeed LSAPI and nginx, and turned everything from WordPress installation to acceleration into switches. From summer into autumn 2026 the weaknesses of shared hosting surfaced one after another: an SSH suspension, a failed database host, unauthorized access to 426 accounts. The AI-agent entrance it published in the same period was a narrow single lane over FTPS that touches neither deletion nor WordPress nor the database. On the VPS the company opened operations through MCP and connectors; on the shared server it hands over only what cannot be broken. Whether that line holds as the way to protect a ¥649-a-month home, or proves too narrow an entrance in an era when agents choose by the procedures they know, is the next contest.
+ConoHa WING is a service that kept hourly billing, unusual for shared hosting, held the "fastest in Japan" claim for eight years on LiteSpeed LSAPI and nginx, and turned everything from WordPress installation to acceleration into switches. From summer into autumn 2026 the weaknesses of shared hosting surfaced one after another: an SSH suspension, a failed database host, unauthorized access to 426 accounts. The AI-agent entrance it published in the same period was a narrow single lane over FTPS that touches neither deletion nor WordPress nor the database. On the VPS the company opened operations through MCP and connectors; on the shared server it hands over only what cannot be broken. Whether that line holds as the way to protect a low-priced home, or proves too narrow an entrance in an era when agents choose by the procedures they know, is the next contest.
