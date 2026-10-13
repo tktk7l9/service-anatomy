@@ -350,6 +350,14 @@
     "url": "https://www.make.com/en",
     "fetchedAt": "2026-09-30"
   },
+  "makeshop": {
+    "url": "https://www.makeshop.jp/",
+    "title": "makeshop byGMO（公式）｜流通額No.1のECサイト構築システム",
+    "description": "ECサイト・ネットショップの構築・開業なら、ショップ売上が14年連続No.1のmakeshop byGMO！販売サイトをかんたんに開設でき、販売手数料無料だから費用対効果が高い！あらゆる業態・商材のECビジネスをトータルサポートします！",
+    "image": "https://www.makeshop.jp/images/fb/facebook.png",
+    "siteName": "makeshop",
+    "fetchedAt": "2026-10-13"
+  },
   "meccha-chameleon": {
     "url": "https://store.steampowered.com/app/4704690/MECCHA_CHAMELEON/",
     "title": "MECCHA CHAMELEON on Steam",
@@ -686,6 +694,14 @@
     "siteName": "Squarespace",
     "fetchedAt": "2026-10-07"
   },
+  "star-server": {
+    "url": "https://www.star.ne.jp/",
+    "title": "低価格×高性能でコスパ最強！ブログ・ホームページなら【スターレンタルサーバー】",
+    "description": "レンタルサーバーの【スターレンタルサーバー】は、手頃な価格で使える高性能レンタルサーバーです。オールNVMe・無料独自SSL・WordPressが使える高速サーバー環境が利用可能で、高速・サポート充実のプランを253円から提供。",
+    "image": "https://www.star.ne.jp/img/common/ogp.png?date=2606",
+    "siteName": "低価格×高性能でコスパ最強！ブログ・ホームページなら【スターレンタルサーバー】",
+    "fetchedAt": "2026-10-13"
+  },
   "stores": {
     "url": "https://stores.fun/",
     "title": "売れるお店をつくる、店舗運営プラットフォーム｜STORES（ストアーズ）",
@@ -760,6 +776,14 @@
     "image": "https://s.udemycdn.com/meta/default-meta-image-v2.png",
     "siteName": "Udemy",
     "fetchedAt": "2026-09-28"
+  },
+  "value-domain": {
+    "url": "https://www.value-domain.com/",
+    "title": "ドメイン取得ならバリュードメイン - ドメインと変える、サイトの価値。",
+    "description": "Value Domain(バリュードメイン)は、ドメイン登録実績700万件を誇る国内最大級のドメイン取得・管理サービスです。また、高速・高機能なレンタルサーバーや、SSLサーバー証明書なども提供する「ドメイン・ホスティング総合サービス」です。",
+    "image": "https://www.value-domain.com/assets/img/common/ogp.png",
+    "siteName": "Value Domain",
+    "fetchedAt": "2026-10-13"
   },
   "vercel": {
     "url": "https://vercel.com/",
