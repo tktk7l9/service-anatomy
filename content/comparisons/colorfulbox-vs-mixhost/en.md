@@ -1,11 +1,11 @@
 ---
 title: "ColorfulBox vs mixhost — Two Osaka Web Hosts Built From the Same Parts Split on Whether to Give Everyone Backups or Guarantee Uptime on Every Plan"
-description: "A comparison of two Japanese shared hosts for WordPress, ColorfulBox and mixhost, using only their official pricing, specification and feature pages, help centers, news and company profiles as of October 11, 2026. Both are run by small companies in Osaka, both are assembled from the same off-the-shelf parts (LiteSpeed, cPanel, CloudLinux, Imunify360, MariaDB and WHMCS), both accept adult sites, and both collect referrals through A8.net affiliate programs. The difference lies in their choices. ColorfulBox keeps 14 days of automatic backups in a separate region on every plan, including the cheapest BOX1, offers a 30-day free trial with no card, and sells in two tiers: a 50% first-term discount and a renewal price twice as high. mixhost limits backups to Standard and above, but attaches a 99.99% uptime SLA to every plan, holds renewal prices to about 1.5 to 1.6 times the first term, and backs sign-ups with a 30-day refund guarantee. Company, parts, pricing, backups, trials and refunds, uptime guarantees, adult sites, referral programs and tech stack overlap are laid out side by side."
-lead: "Matching the tech stacks of ColorfulBox and mixhost, both dissected on this site, mechanically produces eight shared technologies: LiteSpeed as the web server, cPanel as the control panel, CloudLinux as the operating system, Imunify360 for security, MariaDB as the database, PHP as the language, WHMCS for customer management and Cloudflare in front of the company website. They are run by Osaka companies with 3 million yen and 2 million yen in capital. Where did two companies that buy the same parts and sell in the same market through the same kind of affiliate program make different decisions? Reading both companies' official pages on the same day, this article lines up price, backups, trials, uptime guarantees, adult sites and referral programs."
+description: "A comparison of two Japanese shared hosts for WordPress, ColorfulBox and mixhost, using only their official pricing, specification and feature pages, help centers, news and company profiles as of October 11, 2026. Both are run by companies headquartered in Osaka, both are assembled from the same off-the-shelf parts (LiteSpeed, cPanel, CloudLinux, Imunify360, MariaDB and WHMCS), both accept adult sites, and both collect referrals through A8.net affiliate programs. The difference lies in their choices. ColorfulBox keeps 14 days of automatic backups in a separate region on every plan, including the cheapest BOX1, offers a 30-day free trial with no card, and sells in two tiers: a 50% first-term discount and a renewal price twice as high. mixhost limits backups to Standard and above, but attaches a 99.99% uptime SLA to every plan, holds renewal prices to about 1.5 to 1.6 times the first term, and backs sign-ups with a 30-day refund guarantee. Company, parts, pricing, backups, trials and refunds, uptime guarantees, adult sites, referral programs and tech stack overlap are laid out side by side."
+lead: "Matching the tech stacks of ColorfulBox and mixhost, both dissected on this site, mechanically produces eight shared technologies: LiteSpeed as the web server, cPanel as the control panel, CloudLinux as the operating system, Imunify360 for security, MariaDB as the database, PHP as the language, WHMCS for customer management and Cloudflare in front of the company website. Both are run by companies headquartered in Osaka. Where did two companies that buy the same parts and sell in the same market through the same kind of affiliate program make different decisions? Reading both companies' official pages on the same day, this article lines up price, backups, trials, uptime guarantees, adult sites and referral programs."
 slugA: "colorfulbox"
 slugB: "mixhost"
 publishedAt: "2026-10-11"
-updatedAt: "2026-10-11"
+updatedAt: "2026-10-13"
 lastVerified: "2026-10-11"
 sources:
   - label: "ColorfulBox official: Home page (FAQ, difference from Colorful Business)"
@@ -64,24 +64,23 @@ sources:
     accessedAt: "2026-10-11"
   - label: "AzPocket, Inc.: Company profile"
     url: "https://www.azpocket.co.jp/company/"
-    accessedAt: "2026-10-11"
+    accessedAt: "2026-10-13"
 ---
 
-[ColorfulBox](/en/articles/colorfulbox) and [mixhost](/en/articles/mixhost) are Japanese shared hosts for WordPress blogs and small business websites, and they are often compared with each other. Both are run by small companies in Osaka that combine off-the-shelf parts widely used by hosting companies overseas, allow adult sites, and leave referrals to A8.net affiliate programs. Laying the two dissections on top of each other, the difference between the companies shows less in the performance of their parts than in what they made standard on top of the same parts and what they moved to paid options or higher plans.
+[ColorfulBox](/en/articles/colorfulbox) and [mixhost](/en/articles/mixhost) are Japanese shared hosts for WordPress blogs and small business websites, and they are often compared with each other. Both are run by companies headquartered in Osaka that combine off-the-shelf parts widely used by hosting companies overseas, allow adult sites, and leave referrals to A8.net affiliate programs. Laying the two dissections on top of each other, the difference between the companies shows less in the performance of their parts than in what they made standard on top of the same parts and what they moved to paid options or higher plans.
 
 This article was put together by rereading both companies' official pricing, specification and feature pages, help centers, news and company profiles on October 11, 2026. This site has not signed up for both services under the same conditions to measure page speed or stability, so it does not rank how they feel in use. All prices include tax and are monthly equivalents when the full contract length is paid up front.
 
-## Company and scale: two small companies in Osaka
+## Company and scale: two companies headquartered in Osaka
 
 :::fact
-According to the company profile of AzPocket, Inc. (as of 2026-10-11), the company that runs mixhost was founded on April 11, 2016, is headquartered in Minamisenba, Chuo Ward, Osaka, has capital of 2 million yen, is a notified telecommunications carrier (E-28-03926), and names cPanel, L.L.C., LiteSpeed Technologies Inc. and Softaculous Ltd. as certified partners. The mixhost home page says it is used by more than one million sites, from individuals to large companies. According to ColorfulBox's company information page (as of the same day), ColorfulLab, Inc., which runs ColorfulBox, was founded on January 23, 2018, is headquartered in Awaza, Nishi Ward, Osaka, has capital of 3 million yen, is a notified telecommunications carrier (E-30-04229), and launched the "ColorfulBox" hosting service in July 2018. It puts cumulative users at more than 24,000 (as of September 2026).
+According to the company profile of AzPocket, Inc. (as of 2026-10-13), the company that runs mixhost was founded on April 11, 2016, is headquartered in Minamisenba, Chuo Ward, Osaka, is a notified telecommunications carrier (E-28-03926), and names cPanel, L.L.C., LiteSpeed Technologies Inc. and Softaculous Ltd. as certified partners. The mixhost home page (as of 2026-10-11) says it is used by more than one million sites, from individuals to large companies. According to ColorfulBox's company information page (as of 2026-10-11), ColorfulLab, Inc., which runs ColorfulBox, was founded on January 23, 2018, is headquartered in Awaza, Nishi Ward, Osaka, has capital of 3 million yen, is a notified telecommunications carrier (E-30-04229), and launched the "ColorfulBox" hosting service in July 2018. It puts cumulative users at more than 24,000 (as of September 2026).
 :::
 
 | Item | ColorfulBox | mixhost |
 | --- | --- | --- |
 | Operator | ColorfulLab, Inc. (Nishi Ward, Osaka) | AzPocket, Inc. (Chuo Ward, Osaka) |
 | Founded | January 2018 (service launched that July) | April 2016 |
-| Capital | 3 million yen | 2 million yen |
 | Published scale | more than 24,000 cumulative users (as of September 2026) | used by more than one million sites |
 | Shared hosting plans | eight, BOX1 to BOX8 | four: Light, Standard, Premium and Business |
 
@@ -109,7 +108,7 @@ According to ColorfulBox's specifications page (checked 2026-10-11), the web ser
 | Where servers sit | East or West Japan, chosen by the customer (East by default) | Tokyo |
 
 :::guess
-Neither company appears to build its own control panel, web server, security or billing; both assemble them from licensed products. That lets a small company offer a range of features close to large rivals, but makes it hard to stand out on the performance of the parts. What the two companies can decide for themselves, then, is design: where to put servers, how far to extend backups, and which guarantee to give to whom. ColorfulBox reads as having invested in keeping servers in two regions, mixhost in multiplexing them as a cloud within one region.
+Neither company appears to build its own control panel, web server, security or billing; both assemble them from licensed products. That makes it possible to offer a range of features close to large rivals, but makes it hard to stand out on the performance of the parts. What the two companies can decide for themselves, then, is design: where to put servers, how far to extend backups, and which guarantee to give to whom. ColorfulBox reads as having invested in keeping servers in two regions, mixhost in multiplexing them as a cloud within one region.
 :::
 
 ## Pricing: halve the first term, or keep the gap to renewal small
