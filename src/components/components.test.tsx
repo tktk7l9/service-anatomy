@@ -313,6 +313,46 @@ describe("components smoke", () => {
     expect(container.querySelector(".affiliate-card-newtab")).toBeNull();
   });
 
+  it("AffiliateCard opens in the same window when the program's terms require it", () => {
+    // Google Workspace's referral and affiliate terms forbid making links open a new browser window.
+    const labelled = render(
+      <AffiliateCard
+        affiliate={{
+          url: "https://example.com/referral",
+          program: "Example Referral Program",
+          label: "Example ad text",
+          sameWindow: true,
+        }}
+        service="Example"
+        locale="ja"
+        dict={ja}
+      />,
+    );
+    const labelledAnchor = labelled.container.querySelector("a.affiliate-card-cta");
+    expect(labelledAnchor).not.toHaveAttribute("target");
+    // noopener only matters with target="_blank"; the network's nofollow and sponsored stay.
+    expect(labelledAnchor).toHaveAttribute("rel", "sponsored nofollow");
+    expect(labelledAnchor).toHaveAttribute("referrerpolicy", "no-referrer-when-downgrade");
+    expect(labelledAnchor).toHaveTextContent("Example ad text");
+    // No "opens in a new tab" cue for a link that does not open one.
+    expect(labelledAnchor).not.toHaveAttribute("aria-describedby");
+    expect(labelled.container.querySelector(".affiliate-card-newtab")).toBeNull();
+    labelled.unmount();
+
+    const cta = render(
+      <AffiliateCard
+        affiliate={{ url: "https://example.com/referral", program: "Example Referral Program", sameWindow: true }}
+        service="Example"
+        locale="en"
+        dict={en}
+      />,
+    );
+    const ctaAnchor = cta.container.querySelector("a.affiliate-card-cta");
+    expect(ctaAnchor).not.toHaveAttribute("target");
+    expect(ctaAnchor).toHaveAttribute("rel", "sponsored nofollow");
+    expect(ctaAnchor?.textContent).toBe("Try Example for free");
+  });
+
   it("AffiliateCard uses the ASP material's text verbatim as the link text", () => {
     const label = "フリーランスの請求書を即日払い【EXAMPLE】";
     const { container } = render(

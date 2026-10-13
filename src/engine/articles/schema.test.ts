@@ -98,6 +98,17 @@ describe("parseFrontmatter", () => {
     expect(parseFrontmatter(raw, "ctx").affiliate).not.toHaveProperty("label");
   });
 
+  it("accepts affiliate.sameWindow and keeps the default (new tab) unless it is true", () => {
+    const raw = mutate((r) => {
+      r.affiliate = { url: "https://a.example/c", program: "p", sameWindow: true };
+    });
+    expect(parseFrontmatter(raw, "ctx").affiliate?.sameWindow).toBe(true);
+    const off = mutate((r) => {
+      r.affiliate = { url: "https://a.example/c", program: "p", sameWindow: false };
+    });
+    expect(parseFrontmatter(off, "ctx").affiliate).not.toHaveProperty("sameWindow");
+  });
+
   it("undefined when revisions is not set", () => {
     expect(parseFrontmatter(makeRawFrontmatter(), "ctx").revisions).toBeUndefined();
   });
@@ -271,6 +282,11 @@ describe("parseFrontmatter", () => {
       "affiliate.impressionUrl is empty",
       (r: Record<string, unknown>) => (r.affiliate = { url: "https://a.example/c", program: "p", impressionUrl: "" }),
       /affiliate: impressionUrl must be a non-empty string/,
+    ],
+    [
+      "affiliate.sameWindow is not a boolean",
+      (r: Record<string, unknown>) => (r.affiliate = { url: "https://a.example/c", program: "p", sameWindow: "yes" }),
+      /affiliate: sameWindow must be true or false/,
     ],
     [
       "affiliate.label is empty",

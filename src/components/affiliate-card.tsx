@@ -30,6 +30,10 @@ import type { Dictionary } from "@/i18n/dictionaries";
 //   tied to the link with aria-describedby, so the ad text itself stays untouched.
 // - The label is Japanese ad copy shown on both locales, so the English page marks it lang="ja".
 // Without a label (programs that are not ASP text ads) the site's own CTA is used, as before.
+//
+// Some programs forbid making their links open a new browser window (Google Workspace's referral
+// and affiliate terms). With affiliate.sameWindow the link opens in the same tab: no target, no
+// "noopener" (it only matters with target="_blank"), and no "opens in a new tab" cue or arrow.
 
 // Kana or CJK ideographs: enough to tell Japanese ad copy from an English one.
 const JAPANESE_TEXT = /[\u3040-\u30ff\u3400-\u9fff]/;
@@ -53,7 +57,11 @@ export function AffiliateCard({
 }) {
   const cueId = useId();
   const { label } = affiliate;
+  const sameWindow = affiliate.sameWindow === true;
   const attribution = attributionProps(affiliate.url);
+  const linkProps = sameWindow
+    ? { rel: "sponsored nofollow" }
+    : { target: "_blank", rel: "sponsored nofollow noopener" };
   const pixel = affiliate.impressionUrl ? (
     // A tracking pixel, not content: next/image would proxy it and break the count.
     // eslint-disable-next-line @next/next/no-img-element
@@ -76,32 +84,33 @@ export function AffiliateCard({
           <a
             className="affiliate-card-cta"
             href={affiliate.url}
-            target="_blank"
-            rel="sponsored nofollow noopener"
+            {...linkProps}
             referrerPolicy="no-referrer-when-downgrade"
             {...attribution}
             lang={locale !== "ja" && JAPANESE_TEXT.test(label) ? "ja" : undefined}
-            aria-describedby={cueId}
+            aria-describedby={sameWindow ? undefined : cueId}
           >
             {label}
           </a>
           {pixel}
-          <span className="affiliate-card-newtab" id={cueId}>
-            <span aria-hidden="true">↗</span>
-            <span className="visually-hidden">{dict.article.affiliateNewTab}</span>
-          </span>
+          {sameWindow ? null : (
+            <span className="affiliate-card-newtab" id={cueId}>
+              <span aria-hidden="true">↗</span>
+              <span className="visually-hidden">{dict.article.affiliateNewTab}</span>
+            </span>
+          )}
         </span>
       ) : (
         <>
           <a
             className="affiliate-card-cta"
             href={affiliate.url}
-            target="_blank"
-            rel="sponsored nofollow noopener"
+            {...linkProps}
             referrerPolicy="no-referrer-when-downgrade"
             {...attribution}
           >
-            {dict.article.affiliateCta.replace("{service}", service)} ↗
+            {dict.article.affiliateCta.replace("{service}", service)}
+            {sameWindow ? null : " ↗"}
           </a>
           {pixel}
         </>
