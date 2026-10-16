@@ -32,7 +32,7 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
-    "@opennextjs/cloudflare": "^1.20.10",
+    "@opennextjs/cloudflare": "^1.20.12",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.2",
     "@types/hast": "^3.0.5",
@@ -57,6 +57,9 @@
     },
     "js-yaml@3": {
       "argparse": "^2.0.1"
+    },
+    "@node-minify/core": {
+      "glob": "^10.5.0"
     }
   }
 }
