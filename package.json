@@ -19,7 +19,7 @@
   "dependencies": {
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.3",
-    "next": "^16.3.8",
+    "next": "^16.4.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "rehype-slug": "^6.0.0",
@@ -32,31 +32,30 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
-    "@opennextjs/cloudflare": "^1.20.8",
+    "@opennextjs/cloudflare": "^1.20.12",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.2",
     "@types/hast": "^3.0.5",
     "@types/mdast": "^4.0.4",
-    "@types/node": "^26.6.4",
+    "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
-    "@vitest/coverage-v8": "^5.0.3",
+    "@vitest/coverage-v8": "^5.0.4",
     "esbuild": "^0.28.2",
     "eslint": "^10.12.0",
-    "eslint-config-next": "^16.3.7",
+    "eslint-config-next": "^16.4.0",
     "jsdom": "^30.1.2",
     "typescript": "^6.0.3",
     "vitest": "^5.0.0",
     "wrangler": "^4.147.0"
   },
   "overrides": {
-    "miniflare": {
-      "undici": "7.30.0",
-      "sharp": "0.35.5"
-    },
     "js-yaml@3": {
       "argparse": "^2.0.1"
+    },
+    "@node-minify/core": {
+      "glob": "^10.5.0"
     }
   }
 }
