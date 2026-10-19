@@ -6,7 +6,7 @@ lead: "Qiita's pages have no button to sell an article and no badge to tip a wri
 category: media
 tags: [tech-blog, community, markdown, ruby-on-rails, react, aws, advertising, ai]
 publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+updatedAt: "2026-10-20"
 lastVerified: "2026-10-06"
 serviceUrl: "https://qiita.com/"
 # Affiliate link placeholder: no public affiliate or referral program was found for Qiita or
@@ -78,9 +78,12 @@ sources:
   - label: "ITmedia NEWS: Ateam acquires the operator of Qiita (2017-12-22)"
     url: "https://www.itmedia.co.jp/news/articles/1712/22/news121.html"
     accessedAt: "2026-10-06"
-  - label: "Ateam Holdings: FY2026 (July) full-year earnings briefing transcript (2026-09-04)"
-    url: "https://www.release.tdnet.info/inbs/140120260908533206.pdf"
-    accessedAt: "2026-10-06"
+  - label: "LogMi Finance: Ateam Holdings FY2026 (July) full-year earnings briefing transcript (held 2026-09-04)"
+    url: "https://finance.logmi.jp/articles/385290"
+    accessedAt: "2026-10-20"
+  - label: "Ateam Holdings: FY2026 full-year results presentation (2026-09-04)"
+    url: "https://ssl4.eir-parts.net/doc/3662/tdnet/2881990/00.pdf"
+    accessedAt: "2026-10-20"
   - label: "Qiita Blog: Organization feature updates (2026-08-28)"
     url: "https://blog.qiita.com/organization-improvement/"
     accessedAt: "2026-10-06"
@@ -171,7 +174,7 @@ Qiita for Business (as of 2026-10-06) lists its products for companies: impressi
 :::
 
 :::fact
-According to the transcript of the parent company Ateam Holdings' full-year briefing for the fiscal year ended July 2026 (September 4, 2026), Ateam's revenue was ¥22.997 billion and it reports two segments, Digital Marketing and Entertainment. The briefing names "strengthening promotion within the engineer community site Qiita" as one of the reasons the group's headless CMS company microCMS is growing. Revenue or profit for Qiita alone is not disclosed in the briefing.
+According to the transcript of the parent company Ateam Holdings' full-year briefing for the fiscal year ended July 2026 (September 4, 2026), Ateam's revenue was ¥22.997 billion and it reports two segments, Digital Marketing and Entertainment. The briefing names "strengthening promotion on Qiita, the engineer community site we operate" as one of the reasons the group's headless CMS company microCMS is growing. Revenue or profit for Qiita alone is not disclosed in the briefing.
 :::
 
 :::guess

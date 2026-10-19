@@ -223,11 +223,11 @@
   },
   "fly-io": {
     "url": "https://fly.io/",
-    "title": "Fly.io | Computers for agents",
-    "description": "Sandboxes aren't enough. Give your agent a real computer and get back to building.",
-    "image": "https://fly.io/phx/images/og/home-3f6c47b1e214994f1e91183548f93113.jpg?vsn=d",
+    "title": "Fly.io | Deploy apps and agents on fast, hardware-isolated VMs",
+    "description": "Deploy apps, agents, and databases on fast, hardware-isolated VMs. Pay only for the seconds they run. Sign up free.",
+    "image": "https://fly.io/phx/images/og/home-afaefc54c2631fc9c08c8342d49c041f.jpg?vsn=d",
     "siteName": "Fly.io",
-    "fetchedAt": "2026-10-06"
+    "fetchedAt": "2026-10-20"
   },
   "framer": {
     "url": "https://www.framer.com/",

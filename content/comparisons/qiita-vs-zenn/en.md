@@ -5,7 +5,7 @@ lead: "Both are places to write technical articles in Markdown, both let you pos
 slugA: "qiita"
 slugB: "zenn"
 publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+updatedAt: "2026-10-20"
 lastVerified: "2026-10-06"
 sources:
   - label: "Qiita Inc.: Company profile"
@@ -26,9 +26,9 @@ sources:
   - label: "Qiita Blog: Trend and reporting improvements (2026-01-28, updated 2026-04-23)"
     url: "https://blog.qiita.com/improve-user-experience/"
     accessedAt: "2026-10-06"
-  - label: "Ateam Holdings: FY2026 (July) full-year earnings briefing transcript (2026-09-04)"
-    url: "https://www.release.tdnet.info/inbs/140120260908533206.pdf"
-    accessedAt: "2026-10-06"
+  - label: "LogMi Finance: Ateam Holdings FY2026 (July) full-year earnings briefing transcript (held 2026-09-04)"
+    url: "https://finance.logmi.jp/articles/385290"
+    accessedAt: "2026-10-20"
   - label: "GitHub: increments/qiita-cli"
     url: "https://github.com/increments/qiita-cli"
     accessedAt: "2026-10-06"
@@ -120,7 +120,7 @@ Qiita appears to keep its organization pages free while making them richer, lett
 ## Scale and parent companies
 
 :::fact
-According to Qiita Inc.'s release (2026-09-16), Qiita launched on September 16, 2011 and had more than 1.8 million members and 1.2 million cumulative articles as of September 1, 2026. The company is a subsidiary of Ateam Holdings, listed on the TSE Prime Market; Ateam acquired the then operator in December 2017 for about ¥1.453 billion. Ateam's full-year briefing (2026-09-04) names "strengthening promotion within Qiita" as one reason the group's microCMS is growing, but does not disclose Qiita's own revenue. According to Classmethod's press release (2021-02-01), Classmethod acquired the technical information-sharing service Zenn from CodeBrew LLC, and its main developer joined Classmethod to keep developing it. Zenn's member and article counts do not appear on the official pages this site checked.
+According to Qiita Inc.'s release (2026-09-16), Qiita launched on September 16, 2011 and had more than 1.8 million members and 1.2 million cumulative articles as of September 1, 2026. The company is a subsidiary of Ateam Holdings, listed on the TSE Prime Market; Ateam acquired the then operator in December 2017 for about ¥1.453 billion. Ateam's full-year briefing (2026-09-04) names "strengthening promotion on Qiita" as one reason the group's microCMS is growing, but does not disclose Qiita's own revenue. According to Classmethod's press release (2021-02-01), Classmethod acquired the technical information-sharing service Zenn from CodeBrew LLC, and its main developer joined Classmethod to keep developing it. Zenn's member and article counts do not appear on the official pages this site checked.
 :::
 
 | Item | Qiita | Zenn |
