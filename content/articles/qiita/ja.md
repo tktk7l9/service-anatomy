@@ -6,7 +6,7 @@ lead: "Qiitaの画面には、記事を売るボタンも、書き手に贈る�
 category: media
 tags: [tech-blog, community, markdown, ruby-on-rails, react, aws, advertising, ai]
 publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+updatedAt: "2026-10-20"
 lastVerified: "2026-10-06"
 serviceUrl: "https://qiita.com/"
 # Affiliate link placeholder: no public affiliate or referral program was found for Qiita or
@@ -78,9 +78,12 @@ sources:
   - label: "ITmedia NEWS: 「Qiita」運営会社、エイチームが買収（2017-12-22）"
     url: "https://www.itmedia.co.jp/news/articles/1712/22/news121.html"
     accessedAt: "2026-10-06"
-  - label: "エイチームホールディングス: 2026年7月期 通期決算説明会 書き起こし（2026-09-04）"
-    url: "https://www.release.tdnet.info/inbs/140120260908533206.pdf"
-    accessedAt: "2026-10-06"
+  - label: "ログミーFinance: エイチームホールディングス 2026年7月期 通期決算説明会 書き起こし（2026-09-04 開催）"
+    url: "https://finance.logmi.jp/articles/385290"
+    accessedAt: "2026-10-20"
+  - label: "エイチームホールディングス: FY2026 通期 決算説明資料（2026-09-04）"
+    url: "https://ssl4.eir-parts.net/doc/3662/tdnet/2881990/00.pdf"
+    accessedAt: "2026-10-20"
   - label: "Qiita Blog: Organization機能のアップデート（2026-08-28）"
     url: "https://blog.qiita.com/organization-improvement/"
     accessedAt: "2026-10-06"
@@ -171,7 +174,7 @@ Qiita for Business（2026-10-06時点）は、企業向けのメニューとし�
 :::
 
 :::fact
-親会社エイチームホールディングスの2026年7月期の通期決算説明会（2026年9月4日、書き起こし）によれば、同社の売上高は229億9,700万円で、セグメントはデジタルマーケティングとエンターテインメントの2つだ。同説明会は、グループ入りしたヘッドレスCMSのmicroCMS社が伸びている理由の一つに「エンジニアコミュニティサイトQiita内においてプロモーションを強化していること」を挙げている。Qiita単体の売上高や利益は、同説明会では開示されていない。
+親会社エイチームホールディングスの2026年7月期の通期決算説明会（2026年9月4日、書き起こし）によれば、同社の売上高は229億9,700万円で、セグメントはデジタルマーケティングとエンターテインメントの2つだ。同説明会は、グループ入りしたヘッドレスCMSのmicroCMS社が伸びている理由の一つに「当社が運営するエンジニアコミュニティサイト『Qiita（キータ）』でのプロモーションを強化していること」を挙げている。Qiita単体の売上高や利益は、同説明会では開示されていない。
 :::
 
 :::guess
