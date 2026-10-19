@@ -6,8 +6,8 @@ lead: "A page, a bullet point, a database row — inside Notion they are all the
 category: productivity
 tags: [note-taking, collaboration, block-editor, postgres, saas]
 publishedAt: "2026-07-17"
-updatedAt: "2026-10-03"
-lastVerified: "2026-07-17"
+updatedAt: "2026-10-19"
+lastVerified: "2026-10-19"
 serviceUrl: "https://www.notion.com/"
 vendor: "Notion Labs"
 origin: "US"
@@ -46,29 +46,41 @@ techStack:
   - layer: "Marketing site delivery"
     name: "Next.js / Vercel / Cloudflare"
     confidence: likely
-    evidence: "Our HTTP header observation (x-powered-by: Next.js / x-vercel-id / cf-ray, 2026-07-17). This is the marketing site (notion.com), separate from the app itself"
+    evidence: "Our HTTP header observation (x-powered-by: Next.js / x-vercel-id / cf-ray, 2026-07-17; a re-observation on 2026-10-19 found the same three). This is the marketing site (notion.com), separate from the app itself"
 sources:
   - label: "Notion engineering blog: Herding elephants — lessons from sharding Postgres (2021)"
     url: "https://www.notion.com/blog/sharding-postgres-at-notion"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-10-19"
   - label: "Notion engineering blog: The Great Re-shard — to 96 instances with zero downtime (2023)"
     url: "https://www.notion.com/blog/the-great-re-shard"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-10-19"
   - label: "Notion engineering blog: building and scaling Notion's data lake (2024-07)"
     url: "https://www.notion.com/blog/building-and-scaling-notions-data-lake"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-10-19"
   - label: "Notion blog: 100 million of you (2024-09)"
     url: "https://www.notion.com/blog/100-million-of-you"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-10-19"
   - label: "Forbes: $10B productivity startup Notion (2024-04 — valuation and company trajectory)"
     url: "https://www.forbes.com/sites/kenrickcai/2024/04/11/10-billion-productivity-startup-notion-wants-to-build-your-ai-everything-app/"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-10-19"
   - label: "Notion official blog: GIC, Sequoia, and Index purchase Notion shares ($11B valuation, 2026-01)"
     url: "https://www.notion.com/blog/gic-sequoia-index-purchase-notion-shares"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-10-19"
   - label: "Forbes: Notion kicks off employee share sale at $11B valuation as AI accelerates its growth (2025-12)"
     url: "https://www.forbes.com/sites/annatong/2025/12/15/notion-kicks-off-employee-share-sale-at-11-billion-valuation-as-ai-accelerates-its-growth/"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-10-19"
+  - label: "Notion official blog: Introducing Notion AI for Work — AI bundled into the Business and Enterprise plans (2025-05-13)"
+    url: "https://www.notion.com/blog/notion-ai-for-work"
+    accessedAt: "2026-10-19"
+  - label: "Notion Help Center: What is Notion AI? FAQs (available on Business and Enterprise; Free and Plus get complimentary trial responses)"
+    url: "https://www.notion.com/help/notion-ai-faqs"
+    accessedAt: "2026-10-19"
+  - label: "Notion official: Pricing (plan lineup, AI availability, Custom Agents usage pricing)"
+    url: "https://www.notion.com/pricing"
+    accessedAt: "2026-10-19"
+  - label: "CNBC: Notion rides AI boom to $500 million in annual revenue (2025-09 — the October 2021 Series C at a $10B valuation)"
+    url: "https://www.cnbc.com/2025/09/18/notion-launches-ai-agent-as-it-crosses-500-million-in-annual-revenue.html"
+    accessedAt: "2026-10-19"
 ---
 
 Notes, wikis, task boards, databases — features that normally become separate apps. Notion bet on expressing all of them with a single abstraction: the block. The bet paid off as product flexibility, but it charged engineering a heavy price — every user's every piece of content converges into one colossal table. Here we dissect the flagship of the cloud-side approach, the exact opposite of the local-file bet made by [Obsidian](/en/articles/obsidian).
@@ -113,15 +125,17 @@ Headers show the marketing site (notion.com) is served by Next.js + Vercel + Clo
 Notion's revenue is textbook freemium SaaS with a modern twist: bottom-up adoption.
 
 :::fact
-Individuals get a free plan; paid tiers step up through Plus, Business, and Enterprise. AI features have been offered as an add-on. The officially announced 100 million users form the mouth of this funnel.
+Individuals get a free plan; paid tiers step up through Plus, Business, and Enterprise. AI features were long sold as a paid add-on, but per the official blog (May 13, 2025), "Notion AI for Work" bundled them into the Business and Enterprise plans, with Business starting at $20 per user per month. The official help center likewise states that "Notion AI is available on Business and Enterprise Plans," while Free and Plus get only a limited number of complimentary responses. The pricing page (checked October 19, 2026) lists Notion Agent, AI Meeting Notes, and Enterprise Search under Business, and Custom Agents are free to try, then $10 per 1,000 monthly Notion credits. The officially announced 100 million users form the mouth of this funnel.
 :::
 
 :::fact
-【**Re-observed 2026-07-17**】Per Notion's official blog (January 2026), the company completed an employee tender offer of roughly $270 million — with GIC joining as a new investor alongside returning backers Sequoia Capital and Index Ventures — at an $11 billion valuation, the first update since 2022's $10 billion figure. The same post states that "more than 50% of our ARR came from AI-enabled customers, and that percentage more than doubled over the last year." Forbes (December 2025) reported annual recurring revenue crossed $600 million by the end of 2025. Initial publication cited only Forbes' April 2024 valuation figure of $10B; this quantitative confirmation of AI-driven revenue share is new, so we raise the business axis from 4.5 to 5.0.
+【**Re-observed 2026-07-17**】Per Notion's official blog (January 2026), the company completed an employee tender offer of roughly $270 million — with GIC joining as a new investor alongside returning backers Sequoia Capital and Index Ventures — at an $11 billion valuation. It is the first new valuation since the October 2021 Series C ($275 million raised at $10 billion), which CNBC (September 2025) reports as the company's most recent outside fundraising. The same post states that "more than 50% of our ARR came from AI-enabled customers, and that percentage more than doubled over the last year." Forbes (December 2025) reported annual recurring revenue crossed $600 million by the end of 2025. Initial publication cited only Forbes' April 2024 valuation figure of $10B; this quantitative confirmation of AI-driven revenue share is new, so we raise the business axis from 4.5 to 5.0.
 :::
 
+Correction (October 19, 2026). The first version dated the preceding $10 billion valuation to 2022. CNBC (September 2025) and Forbes (December 2025) both attribute it to the October 2021 Series C, and the text has been revised accordingly.
+
 :::guess
-The typical adoption path is bottom-up — an individual starts free, brings it to the team, knowledge accumulates until switching costs are prohibitive, and the company signs an enterprise contract. Data gravity itself is the lock-in device: the more content accrues, the harder it is to leave. The AI add-on monetizes Notion's position of holding accumulated internal knowledge as inference context — a play to shift from "workspace" to "the interface to institutional knowledge." A majority of ARR now coming from AI-enabled customers suggests that shift is already showing up in the numbers.
+The typical adoption path is bottom-up — an individual starts free, brings it to the team, knowledge accumulates until switching costs are prohibitive, and the company signs an enterprise contract. Data gravity itself is the lock-in device: the more content accrues, the harder it is to leave. Moving AI from a paid add-on into the upper tiers monetizes Notion's position of holding accumulated internal knowledge as inference context through plan upgrades — a play to shift from "workspace" to "the interface to institutional knowledge." A majority of ARR now coming from AI-enabled customers suggests that shift is already showing up in the numbers.
 :::
 
 The 2013-vintage decision to make everything a block still defines the same company in three ways at once: product flexibility, infrastructure difficulty, and fitness for the AI era. Notion is a standing lesson in how early data-model design decides the following decade.

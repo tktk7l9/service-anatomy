@@ -6,8 +6,8 @@ lead: "ページも、箇条書きも、データベースの行も、Notionの�
 category: productivity
 tags: [note-taking, collaboration, block-editor, postgres, saas]
 publishedAt: "2026-07-17"
-updatedAt: "2026-10-03"
-lastVerified: "2026-07-17"
+updatedAt: "2026-10-19"
+lastVerified: "2026-10-19"
 serviceUrl: "https://www.notion.com/"
 vendor: "Notion Labs"
 origin: "US"
@@ -46,29 +46,41 @@ techStack:
   - layer: "公式サイト配信"
     name: "Next.js / Vercel / Cloudflare"
     confidence: likely
-    evidence: "当サイトのHTTPヘッダー実観測（x-powered-by: Next.js / x-vercel-id / cf-ray、2026-07-17）。マーケティングサイト（notion.com）についての観測で、アプリ本体の構成とは別"
+    evidence: "当サイトのHTTPヘッダー実観測（x-powered-by: Next.js / x-vercel-id / cf-ray、2026-07-17。2026-10-19の再観測でも同じ3つを確認）。マーケティングサイト（notion.com）についての観測で、アプリ本体の構成とは別"
 sources:
   - label: "Notion公式ブログ: Herding elephants — Postgresシャーディングの教訓（2021）"
     url: "https://www.notion.com/blog/sharding-postgres-at-notion"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-10-19"
   - label: "Notion公式ブログ: The Great Re-shard — 無停止での96インスタンス化（2023）"
     url: "https://www.notion.com/blog/the-great-re-shard"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-10-19"
   - label: "Notion公式ブログ: データレイクの構築とスケール（2024-07）"
     url: "https://www.notion.com/blog/building-and-scaling-notions-data-lake"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-10-19"
   - label: "Notion公式ブログ: 100 million of you — ユーザー1億人到達（2024-09）"
     url: "https://www.notion.com/blog/100-million-of-you"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-10-19"
   - label: "Forbes: $10B Productivity Startup Notion（2024-04・評価額と企業動向）"
     url: "https://www.forbes.com/sites/kenrickcai/2024/04/11/10-billion-productivity-startup-notion-wants-to-build-your-ai-everything-app/"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-10-19"
   - label: "Notion公式ブログ: GIC・Sequoia・Indexによる従業員株式売却（評価額110億ドル・2026-01）"
     url: "https://www.notion.com/blog/gic-sequoia-index-purchase-notion-shares"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-10-19"
   - label: "Forbes: Notion従業員株式売却、評価額110億ドルでAI成長を反映（2025-12）"
     url: "https://www.forbes.com/sites/annatong/2025/12/15/notion-kicks-off-employee-share-sale-at-11-billion-valuation-as-ai-accelerates-its-growth/"
-    accessedAt: "2026-07-17"
+    accessedAt: "2026-10-19"
+  - label: "Notion公式ブログ: Introducing Notion AI for Work — AIをBusiness・Enterpriseプランに同梱（2025-05-13）"
+    url: "https://www.notion.com/blog/notion-ai-for-work"
+    accessedAt: "2026-10-19"
+  - label: "Notion公式ヘルプ: What is Notion AI? FAQs（AIはBusiness・Enterpriseで利用可、Free・Plusは試用分のみ）"
+    url: "https://www.notion.com/help/notion-ai-faqs"
+    accessedAt: "2026-10-19"
+  - label: "Notion公式: 料金プラン（プラン構成・AIの提供範囲・カスタムエージェントの従量課金）"
+    url: "https://www.notion.com/pricing"
+    accessedAt: "2026-10-19"
+  - label: "CNBC: Notion rides AI boom to $500 million in annual revenue（2025-09・2021年10月のシリーズCで評価額100億ドル）"
+    url: "https://www.cnbc.com/2025/09/18/notion-launches-ai-agent-as-it-crosses-500-million-in-annual-revenue.html"
+    accessedAt: "2026-10-19"
 ---
 
 ノート、Wiki、タスク管理、データベース。普通は別々のアプリになる機能を、Notionはたった1つの抽象——ブロック——で全部表現するという賭けに出た。この賭けはプロダクトの柔軟性として実を結んだ一方、エンジニアリングには「全ユーザーの全コンテンツが1種類の巨大なテーブルに集まる」という重い代償を課した。ローカルファイルに賭けた[Obsidian](/ja/articles/obsidian)とは正反対の道を選んだ、クラウド側の代表を解剖する。
@@ -113,15 +125,17 @@ Notionの体験は「白紙の万能さ」と「白紙の途方もなさ」の�
 Notionの収益はフリーミアムSaaSの教科書に、ボトムアップ導入という現代的なひねりを加えたものだ。
 
 :::fact
-個人向けは無料プランがあり、有料はPlus・Business・Enterpriseの段階制。AI機能は追加課金として提供されてきた。公式発表の1億ユーザーという規模が、このファネルの入口になっている。
+個人向けは無料プランがあり、有料はPlus・Business・Enterpriseの段階制。AI機能は長く追加課金のアドオンだったが、公式ブログ（2025年5月13日）によれば「Notion AI for Work」でBusiness・Enterpriseプランに同梱され、Businessは1ユーザー月額20ドルからになった。公式ヘルプも「Notion AIはBusinessとEnterpriseプランで利用できる」とし、Free・Plusは試用分の回答に限られる。料金ページ（2026年10月19日確認）では、BusinessにNotionエージェント・AIミーティングノート・エンタープライズサーチが含まれ、カスタムエージェントは無料で試したあと月1,000 Notionクレジットあたり10ドルの従量課金になっている。公式発表の1億ユーザーという規模が、このファネルの入口になっている。
 :::
 
 :::fact
-【**定点観測 2026-07-17**】Notion公式ブログ（2026年1月）によれば、GIC（新規）・Sequoia Capital・Index Ventures（既存）が参加する約2億7,000万ドルの従業員株式売却（tender offer）を評価額110億ドルで実施した。2022年の評価額100億ドル以来の更新となる。同ブログは「ARRの50%超がAI対応顧客からのもので、その比率は過去1年で2倍以上になった」と明かしている。Forbes（2025年12月）は年間経常収益（ARR）が2025年末までに6億ドルを超えたと報じた。初回解剖時（2024年4月Forbes報道の評価額100億ドル）にはなかった、AI収益比率という定量的な裏付けが加わったため、ビジネス軸のスコアを4.5→5.0に更新する。
+【**定点観測 2026-07-17**】Notion公式ブログ（2026年1月）によれば、GIC（新規）・Sequoia Capital・Index Ventures（既存）が参加する約2億7,000万ドルの従業員株式売却（tender offer）を評価額110億ドルで実施した。評価額の更新は2021年10月のシリーズC（2億7,500万ドル調達・評価額100億ドル）以来で、CNBC（2025年9月）はこれを最後に外部資金調達をしていないと報じている。同ブログは「ARRの50%超がAI対応顧客からのもので、その比率は過去1年で2倍以上になった」と明かしている。Forbes（2025年12月）は年間経常収益（ARR）が2025年末までに6億ドルを超えたと報じた。初回解剖時（2024年4月Forbes報道の評価額100億ドル）にはなかった、AI収益比率という定量的な裏付けが加わったため、ビジネス軸のスコアを4.5→5.0に更新する。
 :::
 
+訂正（2026年10月19日）。初版では直前の評価額100億ドルを2022年のものとしていたが、CNBC（2025年9月）とForbes（2025年12月）はいずれも2021年10月のシリーズCの評価額としており、本文を改めた。
+
 :::guess
-典型的な浸透経路は「個人が無料で使い始める→チームに持ち込む→情報資産が蓄積して離脱コストが上がる→全社契約」というボトムアップ型で、コンテンツが増えるほど乗り換えが難しくなるデータ重力そのものがロックイン装置として働く。AI機能の追加課金は、蓄積された社内ナレッジを推論の文脈として使えるNotionの位置取りを収益化する動きであり、「ワークスペース」から「社内知識のインターフェース」への転換を狙っているとみられる。ARRの過半をAI対応顧客が占めるという構図は、この転換がすでに数字として実現しつつあることを示している。
+典型的な浸透経路は「個人が無料で使い始める→チームに持ち込む→情報資産が蓄積して離脱コストが上がる→全社契約」というボトムアップ型で、コンテンツが増えるほど乗り換えが難しくなるデータ重力そのものがロックイン装置として働く。AI機能を追加課金から上位プランへの同梱に切り替えた値付けは、蓄積された社内ナレッジを推論の文脈として使えるNotionの位置取りをプランのアップグレードとして収益化する動きであり、「ワークスペース」から「社内知識のインターフェース」への転換を狙っているとみられる。ARRの過半をAI対応顧客が占めるという構図は、この転換がすでに数字として実現しつつあることを示している。
 :::
 
 すべてをブロックにするという2013年由来の設計判断は、プロダクトの柔軟性・インフラの難易度・AI時代の適合性という三つの顔で同じ会社を規定し続けている。Notionは、初期のデータモデル設計がその後の10年を決めるという意味で、ソフトウェア設計の教材そのものだ。
