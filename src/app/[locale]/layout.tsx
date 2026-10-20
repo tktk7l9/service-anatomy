@@ -8,6 +8,14 @@ import { BASE_URL } from "@/engine/site";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
+// Only the locales listed here exist. Without dynamicParams = false, any one-segment path
+// matched /[locale]: bot probes such as /xmlrpc.php, /.env.aws or /wp-login.php (a few hundred
+// a day) each rendered the page in the Worker only to reach notFound(), and Next 16.4 then
+// tried to store that 404 in the read-only static assets cache, logging
+// "StaticAssetsIncrementalCache: Failed to set to read-only cache" every time. Now an unlisted
+// locale gets the 404 page without rendering, like the nested routes below.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
