@@ -6,11 +6,9 @@ lead: "makeshop's pricing page says the \"sales fee is ¥0.\" However much sales
 category: saas
 tags: [e-commerce, b2b, payments, php, go, graphql, aws, mcp]
 publishedAt: "2026-10-13"
-updatedAt: "2026-10-13"
+updatedAt: "2026-10-20"
 lastVerified: "2026-10-13"
 expires:
-  - date: "2026-10-20"
-    claim: "The Food EC Package's free early-access period (August 24 to October 20, 2026), the statement that full service starts on October 20, and the \"display condition customization\" scheduled for October 20"
   - date: "2026-11-02"
     claim: "The planned shutdown of the legacy (REST) API after 15:00 on November 2, 2026, and the statements that the move to the next-generation API is still under way"
   - date: "2026-12-31"
@@ -128,7 +126,7 @@ sources:
     accessedAt: "2026-10-13"
   - label: "makeshop official: Food EC Package (Japanese)"
     url: "https://www.makeshop.jp/main/food/"
-    accessedAt: "2026-10-13"
+    accessedAt: "2026-10-20"
   - label: "makeshop official: Partner program (Japanese)"
     url: "https://www.makeshop.jp/main/reseller/reseller.html"
     accessedAt: "2026-10-13"
@@ -164,7 +162,7 @@ sources:
     accessedAt: "2026-10-13"
   - label: "GMO MAKESHOP Co., Ltd.: makeshop byGMO launches the Food EC Package for food businesses (Japanese, 2026-09-08)"
     url: "https://www.makeshop.co.jp/news/press/2026-09-08/"
-    accessedAt: "2026-10-13"
+    accessedAt: "2026-10-20"
   - label: "GitHub: gmomakeshop/agent-skills"
     url: "https://github.com/gmomakeshop/agent-skills"
     accessedAt: "2026-10-13"
@@ -223,7 +221,7 @@ makeshop's experience leans toward welcoming businesses that already sell, rathe
 - **An entrance built for shops that switch over.** The FAQ on the pricing page says moving from another service "cannot be called easy across the board" and points to the paid "Rakuraku moving service." The free trial can start from templates already set up for each industry (one-click shop setup), and the comparison page says fine-grained design customization needs HTML and CSS knowledge, while no-code design features are also free to use. The Enterprise plan's FAQ answers that it handles data migration for products, members, orders, shipping and designs, but that the admin console itself cannot be customized.
 - **AI comes in from outside the admin console.** "MCP Server for Backoffice" (named "makeshop byGMO MCP" in the app store), released on May 11, 2026, is an MCP server that connects AI agents to a shop's order, member and product data. It started with search only; the AI features page (checked 2026-10-13) now covers updating product names, prices, images, descriptions and SEO settings, plus searching reviews from U-KOMI, and says it has been tested with Claude, Codex and GMO天秤AI Biz. The app is free (the connected AI service's fees are separate); write tools such as product updates can be allowed or blocked by the shop, and items that could identify a person are masked before sending. A notice of August 6, 2026 says the company is considering support for the "Universal Commerce Protocol (UCP)," which Google and e-commerce companies are developing together, and sorts the work as follows: real-time product, inventory and price feeds are supported, payment integration with GMO Payment Gateway is planned, and creating orders through AI agents is under consideration.
 - **Know-how handed out as instructions.** On August 5, 2026, GMO MAKESHOP published four official agent skills — shop analytics, product analysis and improvement, Creator Mode design, and shop opening — on GitHub as open source under the MIT License. The press release calls this a first among Japan's major e-commerce SaaS builders (as of July 2026, per the company's own research). The README explains installation with the GitHub CLI's `gh skill install` and says pull requests are not accepted. CONTRIBUTING.md asks for bug reports and feedback on features through Issues. The Creator Mode design skill generates, from chat instructions, a .cdar file that can be imported into Creator Mode as is.
-- **The food package's features arrive later.** According to the press release of September 8, 2026, the "Food EC Package" for food businesses can be tried free from August 24 to October 20, with full service starting on October 20. Sign-ups by the end of December 2026 get an early sign-up price of no setup fee and ¥5,500 a month (tax included) for one year from sign-up; sign-ups from January 1, 2027, and those whose discount period has ended, pay the regular price (¥11,000 setup fee and ¥13,750 a month). The package page (checked 2026-10-13) lists "display condition customization," in which AI interprets natural-language instructions to help set display conditions on the checkout screen, as starting in October; in-store pickup as "scheduled for December"; temperature-zone shipping settings for January 2027; best-before date management and annual subscription-box scheduling for February 2027; and automation of noshi gift wrapping and multiple delivery addresses for June 2027.
+- **The food package's features arrive later.** According to the press release of September 8, 2026, the "Food EC Package" for food businesses could be tried free from August 24 to October 20, with full service starting on October 20 and the early sign-up price applying from October 21. Sign-ups by the end of December 2026 get an early sign-up price of no setup fee and ¥5,500 a month (tax included) for one year from sign-up; sign-ups from January 1, 2027, and those whose discount period has ended, pay the regular price (¥11,000 setup fee and ¥13,750 a month). The package page (checked 2026-10-20), under the heading "10/20 NEW RELEASE," lists "display condition customization," in which AI interprets natural-language instructions to help set display conditions on the checkout screen, as "available from October"; in-store pickup as "scheduled for December"; temperature-zone shipping settings for January 2027; best-before date management and annual subscription-box scheduling for February 2027; and automation of noshi gift wrapping and multiple delivery addresses for June 2027.
 
 ## Tech stack
 
