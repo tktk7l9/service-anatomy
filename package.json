@@ -51,9 +51,6 @@
     "wrangler": "^4.151.2"
   },
   "overrides": {
-    "js-yaml@3": {
-      "argparse": "^2.0.1"
-    },
     "@node-minify/core": {
       "glob": "^10.5.0"
     }
