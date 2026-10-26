@@ -9,8 +9,13 @@ import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
 const ROOT = path.join(process.cwd(), "content", "articles");
+// The UA carries only the repository URL (where the script lives), never a personal contact.
+// It used to point at the old vercel.app URL, which has been dead since the move to Workers.
 const UA =
-  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36 ServiceAnatomyBot/1.0 (+https://service-anatomy.vercel.app)";
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36 ServiceAnatomyBot/1.0 (+https://github.com/tktk7l9/service-anatomy)";
+// OGP metadata sits in <head>, so this much of a page is enough. Reading the whole body would
+// let one oversized or never-ending response hold the script (or fill memory) for nothing.
+const MAX_HTML_BYTES = 2 * 1024 * 1024;
 
 const NAMED_ENTITIES = {
   amp: "&",
@@ -102,6 +107,25 @@ function decodeTitle(html) {
   return title ? decodeEntities(title) : undefined;
 }
 
+// Reads at most MAX_HTML_BYTES of the body, then cancels the stream.
+async function readHead(res) {
+  if (!res.body) return new Uint8Array();
+  const reader = res.body.getReader();
+  const chunks = [];
+  let size = 0;
+  try {
+    while (size < MAX_HTML_BYTES) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      chunks.push(value);
+      size += value.byteLength;
+    }
+  } finally {
+    reader.cancel().catch(() => {});
+  }
+  return Buffer.concat(chunks);
+}
+
 async function fetchCard(url) {
   const res = await fetch(url, {
     headers: { "user-agent": UA, accept: "text/html" },
@@ -109,7 +133,7 @@ async function fetchCard(url) {
     signal: AbortSignal.timeout(15000),
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const html = decodeHtml(new Uint8Array(await res.arrayBuffer()), res.headers.get("content-type"));
+  const html = decodeHtml(new Uint8Array(await readHead(res)), res.headers.get("content-type"));
   const image = extractMeta(html, "og:image") ?? extractMeta(html, "twitter:image");
   return {
     title: extractMeta(html, "og:title") ?? decodeTitle(html),
