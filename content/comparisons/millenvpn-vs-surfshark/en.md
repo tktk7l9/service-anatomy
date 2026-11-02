@@ -1,24 +1,24 @@
 ---
 title: "MillenVPN vs Surfshark — A VPN Sold by an Osaka Company and a VPN Bundle Sold by an Amsterdam Company Part Ways on Where They Show Renewal Prices, What They Log and How They Pay Referrers"
-description: "A comparison of MillenVPN, run by AzPocket, Inc. in Japan, and Surfshark, run by Surfshark B.V. in the Netherlands, using their official pricing pages, terms, privacy policies, company pages, official blogs and affiliate pages as of October 13, 2026. Both discount the first long prepaid term heavily, place no limit on the number of devices on the VPN and offer a 30-day money-back guarantee. MillenVPN prices the first term of its 2-year plan at 360 yen a month (396 yen with tax) and writes the renewal price of 950 yen a month (before tax) on the same pricing page. Surfshark, under a \"Black Friday\" sale banner on October 13, 2026, sold 27 months (a 24-month plan plus 3 extra months) from 388 yen a month (before tax, VAT added), and puts the renewal amount not on the pricing page but in a table that a script draws on another page. On logging, MillenVPN writes separate rules for each connection method, while Surfshark says it deletes connection data within 15 minutes after a session ends and cites assurance by Deloitte. For referrals, MillenVPN pays up to 3,500 yen through A8.net, and Surfshark runs its own affiliate program starting at 40% of new sales (also listed on networks such as CJ, Awin and Impact)."
-lead: "MillenVPN's pricing page writes \"更新時 ¥950 +税 /月\" (on renewal: ¥950 + tax a month) right below the first-term monthly price of its 2-year plan. Surfshark's pricing page shows a 388-yen-a-month price for 27 months paid in advance and places the amount from month 28 behind a link labelled \"更新料\" (renewal price). This article lines up, from official pages read on the same day, a VPN that an Osaka company runs as a notified telecommunications business in Japan and a subscription in which a Dutch company bundles scam protection and antivirus with its VPN on its higher plans."
+description: "A comparison of MillenVPN, run by AzPocket, Inc. in Japan, and Surfshark, run by Surfshark B.V. in the Netherlands, using their official pricing pages, terms, privacy policies, company pages, official blogs and affiliate pages as of October 13, 2026. Both discount the first long prepaid term heavily, place no limit on the number of devices on the VPN and offer a 30-day money-back guarantee. MillenVPN prices the first term of its 2-year plan at 360 yen a month (396 yen with tax) and writes the renewal price of 950 yen a month (before tax) on the same pricing page. Surfshark, under a \"Black Friday\" sale banner on November 2, 2026, sold 27 months (a 24-month plan plus 3 extra months) from 298 yen a month (before tax, VAT added), and puts the renewal amount not on the pricing page but in a table that a script draws on another page. On logging, MillenVPN writes separate rules for each connection method, while Surfshark says it deletes connection data within 15 minutes after a session ends and cites assurance by Deloitte. For referrals, MillenVPN pays up to 3,500 yen through A8.net, and Surfshark runs its own affiliate program starting at 40% of new sales (also listed on networks such as CJ, Awin and Impact)."
+lead: "MillenVPN's pricing page writes \"更新時 ¥950 +税 /月\" (on renewal: ¥950 + tax a month) right below the first-term monthly price of its 2-year plan. Surfshark's pricing page shows a 298-yen-a-month price for 27 months paid in advance and places the amount from month 28 behind a link labelled \"更新料\" (renewal price). This article lines up, from official pages read on the same day, a VPN that an Osaka company runs as a notified telecommunications business in Japan and a subscription in which a Dutch company bundles scam protection and antivirus with its VPN on its higher plans."
 slugA: "millenvpn"
 slugB: "surfshark"
 publishedAt: "2026-10-13"
-updatedAt: "2026-10-13"
+updatedAt: "2026-11-02"
 lastVerified: "2026-10-13"
 expires:
-  - date: "2026-10-31"
-    claim: "The \"Black Friday\" labels seen on Surfshark's pricing page on October 13, 2026, the 24-month plan prices (10,476 yen for 27 months, 388 yen a month) and the 12-month plan prices (7,920 yen for 15 months, 528 yen a month). No end date is written, so this is an observation to re-check"
-  - date: "2026-10-31"
-    claim: "The renewal amount read from the data embedded in Surfshark's pricing page (12,508 to 12,524 yen every 12 months for Starter, about 1,042 to 1,044 yen a month). The value changed with the time of retrieval on the same day, so this is an observation to re-check"
+  - date: "2026-11-30"
+    claim: "The \"Black Friday\" labels seen on Surfshark's pricing page on November 2, 2026, the 24-month plan prices (8,046 yen for 27 months, 298 yen a month) and the 12-month plan prices (5,970 yen for 15 months, 398 yen a month). An observation to re-check"
+  - date: "2026-11-30"
+    claim: "The renewal amount read from the data embedded in Surfshark's pricing page (12,451 yen every 12 months for Starter, about 1,038 yen a month). An observation to re-check"
 sources:
   - label: "MillenVPN official: Top page (Japanese)"
     url: "https://millenvpn.jp/"
     accessedAt: "2026-10-13"
   - label: "MillenVPN official: Pricing (subscription plans, one-time plans, fixed IP option; Japanese)"
     url: "https://millenvpn.jp/pricing/"
-    accessedAt: "2026-10-13"
+    accessedAt: "2026-11-02"
   - label: "MillenVPN official: The three services you can use with MillenVPN (app, Native, OpenConnect; Japanese)"
     url: "https://millenvpn.jp/millenvpn-and-millenvpnnative/"
     accessedAt: "2026-10-13"
@@ -39,7 +39,7 @@ sources:
     accessedAt: "2026-10-13"
   - label: "Surfshark official: Plans and pricing (Japanese)"
     url: "https://surfshark.com/ja/pricing"
-    accessedAt: "2026-10-13"
+    accessedAt: "2026-11-02"
   - label: "Surfshark official: Billing practices, currency policy and renewal prices (Japanese)"
     url: "https://surfshark.com/ja/terms-of-service/pricing"
     accessedAt: "2026-10-13"
@@ -101,21 +101,21 @@ Both discount the first term deeply and sell long prepaid terms. Where they diff
 ## Pricing: a renewal price on the same page, and a renewal price on another page
 
 :::fact
-According to MillenVPN's pricing page (checked 2026-10-13), the first term of the 2-year plan costs 360 yen a month (396 yen with tax) and the first term of the 1-year plan 540 yen a month (594 yen with tax), and both show "更新時 ¥950 +税 /月" (on renewal: ¥950 + tax a month) in the same box. The monthly figures are per-month amounts when the whole term is paid at once; contracts renew automatically and the discount applies to the first term only. There are also one-time plans for 7, 15 and 30 days (638, 1,078 and 1,738 yen with tax), and the 30-day money-back guarantee applies to subscription plans only. Surfshark's pricing page (checked 2026-10-13) shows Starter's 24-month plan at 388 yen a month with a "+ 3 延長月" (+3 extra months) label and writes, against a struck-through 68,796 yen, that "初めの 27ヶ月間は" (for the first 27 months) the "セール価格 ￥10,476 です （付加価値税が適用されます）" (sale price is ¥10,476, VAT applies); that day, a "Black Friday" sale banner ran across the whole site. The billing practices page says all subscription plans "正規料金で自動的に更新されます" (renew automatically at the regular price) and that users are notified by email 30 days before the end date (except for 1-month plans). The renewal price table on the same page, however, was empty in the HTML this site fetched and is drawn by a script. In the data embedded in the pricing page's HTML, as read by this site, Starter's 12-month plan costs 7,920 yen for 15 months (3 extra months included), its 1-month plan 2,548 yen, and its renewal field (recurringTotalPrice) 12,508 yen every 12 months (all before tax). In a copy fetched later the same day, the first-term prices were unchanged but the renewal field had become 12,524 yen. The pricing page attaches a 30-day money-back guarantee to each plan, and its FAQ says any number of devices can be connected at the same time (up to three during the free trial). The terms of service apply the guarantee only to the first purchase, once per service.
+According to MillenVPN's pricing page (checked 2026-10-13), the first term of the 2-year plan costs 360 yen a month (396 yen with tax) and the first term of the 1-year plan 540 yen a month (594 yen with tax), and both show "更新時 ¥950 +税 /月" (on renewal: ¥950 + tax a month) in the same box. The monthly figures are per-month amounts when the whole term is paid at once; contracts renew automatically and the discount applies to the first term only. There are also one-time plans for 7, 15 and 30 days (638, 1,078 and 1,738 yen with tax), and the 30-day money-back guarantee applies to subscription plans only. Surfshark's pricing page (checked 2026-11-02) shows Starter's 24-month plan at 298 yen a month with a "+ 3 延長月" (+3 extra months) label and writes, against a struck-through 78,246 yen, that "初めの 27ヶ月間は" (for the first 27 months) the "セール価格 ￥8,046 です （付加価値税が適用されます）" (sale price is ¥8,046, VAT applies); that day, a "Black Friday" sale label was on show. The billing practices page says all subscription plans "正規料金で自動的に更新されます" (renew automatically at the regular price) and that users are notified by email 30 days before the end date (except for 1-month plans). The renewal price table on the same page, however, was empty in the HTML this site fetched and is drawn by a script. In the data embedded in the pricing page's HTML, as read by this site, Starter's 12-month plan costs 5,970 yen for 15 months (3 extra months included), its 1-month plan 2,898 yen, and its renewal field (recurringTotalPrice) 12,451 yen every 12 months (all before tax). On October 13, 2026, copies fetched on the same day showed the renewal field moving from 12,508 yen to 12,524 yen while first-term prices stayed the same. The pricing page attaches a 30-day money-back guarantee to each plan, and its FAQ says any number of devices can be connected at the same time (up to three during the free trial). The terms of service apply the guarantee only to the first purchase, once per service.
 :::
 
 | Before tax (with tax in parentheses) | MillenVPN | Surfshark (Starter) |
 | --- | --- | --- |
-| First term of the longest plan | 2-year plan 8,640 yen (9,504 yen), 360 yen a month | 24-month plan (27 months) 10,476 yen, 388 yen a month |
-| First term of a 1-year plan | 1-year plan 6,480 yen (7,128 yen), 540 yen a month | 12-month plan (15 months) 7,920 yen, 528 yen a month |
-| After renewal | 950 yen a month (both the 2-year and the 1-year plan) | 12,508 to 12,524 yen every 12 months, about 1,042 to 1,044 yen a month |
-| Short term | One-time plans: 7 days 580 yen, 15 days 980 yen, 30 days 1,580 yen | 1-month plan 2,548 yen |
+| First term of the longest plan | 2-year plan 8,640 yen (9,504 yen), 360 yen a month | 24-month plan (27 months) 8,046 yen, 298 yen a month |
+| First term of a 1-year plan | 1-year plan 6,480 yen (7,128 yen), 540 yen a month | 12-month plan (15 months) 5,970 yen, 398 yen a month |
+| After renewal | 950 yen a month (both the 2-year and the 1-year plan) | 12,451 yen every 12 months, about 1,038 yen a month |
+| Short term | One-time plans: 7 days 580 yen, 15 days 980 yen, 30 days 1,580 yen | 1-month plan 2,898 yen |
 | Money-back guarantee | 30 days (subscription plans only) | 30 days (first purchase only, once per service) |
 
-Surfshark's post-renewal per-month amounts and MillenVPN's before-tax and with-tax totals are this site's calculation. Surfshark's 12-month and 1-month plan prices and its renewal amount are values this site read from data embedded in the pricing page's HTML, and the renewal amount changed with the time of retrieval on the same day. The amount actually charged can vary with tax, currency and any price test.
+Surfshark's post-renewal per-month amounts and MillenVPN's before-tax and with-tax totals are this site's calculation. Surfshark's 12-month and 1-month plan prices and its renewal amount are values this site read from data embedded in the pricing page's HTML, and the renewal amount can change with the time of retrieval. The amount actually charged can vary with tax, currency and any price test.
 
 :::guess
-The first-term monthly price is 360 yen on MillenVPN's 2-year plan and 388 yen on Surfshark's 24-month plan; both appear to lower the entry price with a deep discount on a long prepaid term and recoup it at renewal. The difference shows in how the renewal price is presented. MillenVPN puts the first-term and renewal prices in the same box, so users can read the monthly price two years out before they sign up. Surfshark keeps the renewal amount off the pricing page and places it in a table on another page that is drawn according to the visitor's location, under a caveat about A/B price testing. This reads either as a design suited to selling with prices swapped by country and currency, or as a design that puts the low first-term price up front.
+The first-term monthly price is 360 yen on MillenVPN's 2-year plan and 298 yen on Surfshark's 24-month plan; both appear to lower the entry price with a deep discount on a long prepaid term and recoup it at renewal. The difference shows in how the renewal price is presented. MillenVPN puts the first-term and renewal prices in the same box, so users can read the monthly price two years out before they sign up. Surfshark keeps the renewal amount off the pricing page and places it in a table on another page that is drawn according to the visitor's location, under a caveat about A/B price testing. This reads either as a design suited to selling with prices swapped by country and currency, or as a design that puts the low first-term price up front.
 :::
 
 ## What is logged: separate rules per connection method, and deletion within 15 minutes
