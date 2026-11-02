@@ -1,6 +1,6 @@
 ---
 title: "BASE vs ColorMe Shop — Taking a Cut of Each Sale, or a Monthly Fee Up Front"
-description: "A comparison of BASE and ColorMe Shop built only from their official pages as of October 3, 2026. Plans, monthly fees, initial fees, fees charged when something sells, when and at what cost sales money reaches the shop, and the payment methods each supports are laid out in tables, followed by ColorMe Shop's November price revision, the conditions of the current campaign, and the differences in support and qualified invoices, plus a cost illustration at 100,000 and 500,000 yen in monthly sales. Material for someone opening a first online shop in Japan to see which design matches their situation."
+description: "A comparison of BASE and ColorMe Shop built only from their official pages as of October 3, 2026, with prices and the cost illustration re-checked on November 2. Plans, monthly fees, initial fees, fees charged when something sells, when and at what cost sales money reaches the shop, and the payment methods each supports are laid out in tables, followed by the price revision ColorMe Shop made in November, the conditions of the current campaign, and the differences in support and qualified invoices, plus a cost illustration at 100,000 and 500,000 yen in monthly sales. Material for someone opening a first online shop in Japan to see which design matches their situation."
 lead: "Both are Japanese online-shop builders that let you start at 0 yen a month, but the money moves differently. BASE takes in the buyer's payment through its own payment service, deducts its fees, and pays the shop when the shop requests it. ColorMe Shop leaves payments to a contract between the shop and GMO Epsilon, and itself collects the monthly fee for its paid plans. This reads both companies' official pages on the same day, lines up the prices, fees and payout terms, and dissects that structural difference."
 slugA: "base"
 slugB: "colorme-shop"
@@ -10,7 +10,7 @@ lastVerified: "2026-10-03"
 sources:
   - label: "BASE official: plans and fees (payment methods, payout cycle, FAQ)"
     url: "https://thebase.com/price/"
-    accessedAt: "2026-10-03"
+    accessedAt: "2026-11-02"
   - label: "BASE official: design (templates, FAQ)"
     url: "https://thebase.com/shopdesign/"
     accessedAt: "2026-10-03"
@@ -73,7 +73,7 @@ sources:
     accessedAt: "2026-11-02"
   - label: "ColorMe Shop official: Free plan"
     url: "https://shop-pro.jp/plans/free/"
-    accessedAt: "2026-10-03"
+    accessedAt: "2026-11-02"
   - label: "ColorMe Shop official: Premium plan"
     url: "https://shop-pro.jp/plans/premium/"
     accessedAt: "2026-10-03"
@@ -141,7 +141,7 @@ According to the notes on the same page, using a payment service requires a sepa
 :::
 
 :::fact
-According to an official notice (2026-09-09), from November 1, 2026 the Regular plan goes from 4,950 yen to 5,940 yen a month and the Large plan from 9,595 yen to 11,000 yen; the Premium plan does not change. The plans page (checked 2026-11-02) shows the revised fees. A contract that starts before November 1 is at the pre-revision price. For a contract that starts on or after November 1, the pre-revision price applies if the renewal and payment are completed before November 1, and the revised price applies if they are done on or after November 1 (separate deadlines are given for each automatic debit method).
+According to an official notice (2026-09-09), on November 1, 2026 the Regular plan went from 4,950 yen to 5,940 yen a month and the Large plan from 9,595 yen to 11,000 yen; the Premium plan did not change. The plans page (checked 2026-11-02) shows the revised fees, and the cost illustration in this article uses them. A contract that starts before November 1 is at the pre-revision price. For a contract that starts on or after November 1, the pre-revision price applies if the renewal and payment are completed before November 1, and the revised price applies if they are done on or after November 1 (separate deadlines are given for each automatic debit method).
 :::
 
 The two tables cannot be compared as they stand. Most of BASE's cost is "a rate on what sells," while most of the cost of ColorMe Shop's paid plans is "a monthly fee." The tax wording also differs. ColorMe Shop's pricing page notes that all prices include tax, but, as shown below, its Help Center describes the Free plan's fee as "tax excluded" in one place. BASE states that the Growth monthly fee includes tax, but no statement of whether the fee rates on its pricing page include or exclude tax was found.
@@ -215,20 +215,19 @@ The following is this site's calculation using only the official numbers above. 
 | BASE Growth (paid monthly) | 22,880 yen | 34,480 yen |
 | BASE Growth (paid annually) | 19,480 yen | 31,080 yen |
 | ColorMe Free | 8,200 yen | 37,000 yen |
-| ColorMe Regular (pre-revision fee) | 8,350 yen | 21,950 yen |
-| ColorMe Regular (after Nov. revision) | 9,340 yen | 22,940 yen |
+| ColorMe Regular | 9,340 yen | 22,940 yen |
 
 The arithmetic:
 
 - BASE Standard: 100,000 × 3.6% + 40 × 20 + 100,000 × 3% = 3,600 + 800 + 3,000 = 7,400 yen. 500,000 × 3.6% + 40 × 100 + 500,000 × 3% = 18,000 + 4,000 + 15,000 = 37,000 yen.
 - BASE Growth, paid monthly: 19,980 + 100,000 × 2.9% = 19,980 + 2,900 = 22,880 yen. 19,980 + 500,000 × 2.9% = 19,980 + 14,500 = 34,480 yen. For annual payment, replace the monthly fee with 16,580 yen: 19,480 yen and 31,080 yen.
 - ColorMe Free: 100,000 × 6.6% + 30 × 20 + 1,000 = 6,600 + 600 + 1,000 = 8,200 yen. 500,000 × 6.6% + 30 × 100 + 1,000 = 33,000 + 3,000 + 1,000 = 37,000 yen. At 33 yen per order, these become 8,260 yen and 37,300 yen.
-- ColorMe Regular: 4,950 + 100,000 × 3.4% = 4,950 + 3,400 = 8,350 yen. 4,950 + 500,000 × 3.4% = 4,950 + 17,000 = 21,950 yen. After the revision, replace the monthly fee with 5,940 yen: 9,340 yen and 22,940 yen.
+- ColorMe Regular: 5,940 + 100,000 × 3.4% = 5,940 + 3,400 = 9,340 yen. 5,940 + 500,000 × 3.4% = 5,940 + 17,000 = 22,940 yen.
 
 In addition, withdrawing sales money from BASE once a month adds a 250 yen transfer fee (in this illustration every requested amount is 20,000 yen or more, so no administrative fee applies). As noted above, the fee on ColorMe Shop's payouts could not be confirmed, so it is not compared. BASE's Help gives "about 500,000 yen" a month (excluding orders through the PAY ID app) as the level at which the Growth plan becomes the better deal.
 
 :::guess
-Within this illustration, at 100,000 yen in monthly sales BASE Standard and ColorMe Shop's Free and Regular plans (including Regular after the revision) land between 7,400 and 9,340 yen, while BASE Growth comes to about 19,000 to 23,000 yen. At 500,000 yen, ColorMe Shop's Regular is in the low 20,000s, BASE Growth is in the 30,000s, and BASE Standard and ColorMe Shop's Free both come to 37,000 yen. While sales are small, plans with no monthly fee cost less; as sales grow, plans that charge a monthly fee to lower the rate cost less. The sales level at which they cross over appears to depend on the order size, the share of non-card payments, and the apps and options a shop uses.
+Within this illustration, at 100,000 yen in monthly sales BASE Standard and ColorMe Shop's Free and Regular plans land between 7,400 and 9,340 yen, while BASE Growth comes to about 19,000 to 23,000 yen. At 500,000 yen, ColorMe Shop's Regular is in the low 20,000s, BASE Growth is in the 30,000s, and BASE Standard and ColorMe Shop's Free both come to 37,000 yen. While sales are small, plans with no monthly fee cost less; as sales grow, plans that charge a monthly fee to lower the rate cost less. The same arithmetic puts Regular below ColorMe Shop's Free at about 130,000 yen a month and below BASE Standard at about 149,000 yen, and BASE Growth paid annually below Regular from about 2.13 million yen. The 990 yen rise in the monthly fee moved up the sales level at which it pays to leave a plan with no monthly fee. Still, the sales level at which they cross over appears to depend on the order size, the share of non-card payments, and the apps and options a shop uses.
 :::
 
 ## Campaigns (as of October 3, 2026)
@@ -316,7 +315,7 @@ ColorMe Shop's Free plan sits on the same side as BASE Standard in costing 0 yen
 ## When switching comes up
 
 :::guess
-The moments likely to prompt a move away from BASE are presumed to be when growing sales make the combined service fee and processing fee heavy, and when cash on delivery or phone support becomes necessary. Since switching to Growth within BASE also lowers the rate, the first comparison would likely be against that plan change. The moments likely to prompt a move away from ColorMe Shop appear to be when falling sales make a paid plan's monthly fee heavy (a shop cannot go back to the Free plan), and when reviewing costs after the November 2026 revision raises the Regular and Large monthly fees. In either direction, switching involves moving product data, design and URLs, but this site did not confirm how much work that takes.
+The moments likely to prompt a move away from BASE are presumed to be when growing sales make the combined service fee and processing fee heavy, and when cash on delivery or phone support becomes necessary. Since switching to Growth within BASE also lowers the rate, the first comparison would likely be against that plan change. The moments likely to prompt a move away from ColorMe Shop appear to be when falling sales make a paid plan's monthly fee heavy (a shop cannot go back to the Free plan), and when a renewal moves Regular or Large onto the revised monthly fee and prompts a review of costs. In either direction, switching involves moving product data, design and URLs, but this site did not confirm how much work that takes.
 :::
 
 Both have a plan at 0 yen a month. What differs is whose payment service the money from a sale passes through, when it reaches the shop, and what is deducted on the way. Deciding first how much you expect to sell each month and how your customers pay decides how to read the price list.

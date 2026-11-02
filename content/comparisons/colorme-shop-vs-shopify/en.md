@@ -1,7 +1,7 @@
 ---
 title: "ColorMe Shop vs Shopify — Domestic Payments in the Core, or Left to Apps"
-description: "A comparison of ColorMe Shop and Shopify built only from their official pages as of October 1, 2026. Plan names, monthly fees, initial fees, processing fees and trial terms are laid out in tables, followed by the differences in konbini payment, carrier billing and deferred payment, shipping, apps, selling abroad, Japanese-language support and qualified invoices, plus a cost illustration at 100,000 and 500,000 yen in monthly sales. Material for someone opening a first online shop in Japan to see which design matches their situation."
-lead: "On monthly fee alone, ColorMe Shop's Regular plan and Shopify's Basic plan are close. What differs is which of two things went into the core and which became an add-on: what you need to sell in Japan, such as convenience-store payment and carrier shipping labels, and what you need to sell abroad, such as multiple languages and duties. This reads both companies' official pages on the same day, lines up the prices and terms, and dissects that structural difference."
+description: "A comparison of ColorMe Shop and Shopify built only from their official pages as of October 1, 2026, with prices and the cost illustration re-checked on November 2. Plan names, monthly fees, initial fees, processing fees and trial terms are laid out in tables, followed by the differences in konbini payment, carrier billing and deferred payment, shipping, apps, selling abroad, Japanese-language support and qualified invoices, plus a cost illustration at 100,000 and 500,000 yen in monthly sales. Material for someone opening a first online shop in Japan to see which design matches their situation."
+lead: "On monthly fee alone, ColorMe Shop's Regular plan (5,940 yen) and Shopify's Basic plan (4,850 yen monthly, 3,650 yen annually) sit in the same price band. What differs is which of two things went into the core and which became an add-on: what you need to sell in Japan, such as convenience-store payment and carrier shipping labels, and what you need to sell abroad, such as multiple languages and duties. This reads both companies' official pages on the same day, lines up the prices and terms, and dissects that structural difference."
 slugA: "colorme-shop"
 slugB: "shopify"
 publishedAt: "2026-10-01"
@@ -13,7 +13,7 @@ sources:
     accessedAt: "2026-11-02"
   - label: "ColorMe Shop official: Free plan"
     url: "https://shop-pro.jp/plans/free/"
-    accessedAt: "2026-10-03"
+    accessedAt: "2026-11-02"
   - label: "ColorMe Shop official: Premium plan"
     url: "https://shop-pro.jp/plans/premium/"
     accessedAt: "2026-10-02"
@@ -55,7 +55,7 @@ sources:
     accessedAt: "2026-10-01"
   - label: "Shopify official (Japan): pricing"
     url: "https://www.shopify.com/jp/pricing"
-    accessedAt: "2026-10-02"
+    accessedAt: "2026-11-02"
   - label: "Shopify Help Center: payment methods available with Shopify Payments in Japan"
     url: "https://help.shopify.com/ja/manual/payments/shopify-payments/supported-countries/japan/payment-methods"
     accessedAt: "2026-10-01"
@@ -116,7 +116,7 @@ According to the notes on the same page, using a payment service requires a sepa
 :::
 
 :::fact
-According to an official notice (2026-09-09), from November 1, 2026 the Regular plan goes from 4,950 yen to 5,940 yen a month and the Large plan from 9,595 yen to 11,000 yen. The plans page (checked 2026-11-02) shows the revised fees.
+According to an official notice (2026-09-09), on November 1, 2026 the Regular plan went from 4,950 yen to 5,940 yen a month and the Large plan from 9,595 yen to 11,000 yen. The plans page (checked 2026-11-02) shows the revised fees, and the cost illustration in this article uses them.
 :::
 
 :::fact
@@ -175,19 +175,19 @@ The following is an illustration calculated by this site using only the official
 - ColorMe Shop's prices are used as stated (tax included); Shopify's are used as stated (no tax statement found). The Free plan's 6.6% + 30 yen and the 1,000-yen 3-D Secure fee, however, are used as the help article states them (excluding tax). The amounts are not on the same basis.
 - For ColorMe Shop's "from" rates, the lower bound is used.
 
-| Monthly sales | ColorMe Free | ColorMe Regular (pre-revision fee) | Regular after Nov. revision | Shopify Basic, monthly | Shopify Basic, annual |
-| --- | --- | --- | --- | --- | --- |
-| 100,000 yen (20 orders) | 8,200 yen | 8,350 yen | 9,340 yen | 8,400 yen | 7,200 yen |
-| 500,000 yen (100 orders) | 37,000 yen | 21,950 yen | 22,940 yen | 22,600 yen | 21,400 yen |
+| Monthly sales | ColorMe Free | ColorMe Regular | Shopify Basic, monthly | Shopify Basic, annual |
+| --- | --- | --- | --- | --- |
+| 100,000 yen (20 orders) | 8,200 yen | 9,340 yen | 8,400 yen | 7,200 yen |
+| 500,000 yen (100 orders) | 37,000 yen | 22,940 yen | 22,600 yen | 21,400 yen |
 
 The arithmetic:
 
 - Free: 100,000 × 6.6% + 30 × 20 + 1,000 = 6,600 + 600 + 1,000 = 8,200 yen. 500,000 × 6.6% + 30 × 100 + 1,000 = 33,000 + 3,000 + 1,000 = 37,000 yen. At the pricing page FAQ's 33 yen per transaction, these become 8,260 yen and 37,300 yen. If this site also adds 10% to the 3-D Secure fee, making it 1,100 yen, they become 8,360 yen and 37,400 yen (this site's conversion; the 6.6% part is not converted).
-- Regular: 4,950 + 100,000 × 3.4% = 8,350 yen. 4,950 + 500,000 × 3.4% = 21,950 yen. After the revision, replace the monthly fee with 5,940 yen.
+- Regular: 5,940 + 100,000 × 3.4% = 9,340 yen. 5,940 + 500,000 × 3.4% = 22,940 yen.
 - Shopify Basic, paid monthly: 4,850 + 100,000 × 3.55% = 8,400 yen. 4,850 + 500,000 × 3.55% = 22,600 yen. For annual payment, replace the monthly fee with 3,650 yen.
 
 :::guess
-Within this illustration, at 100,000 yen in monthly sales every option lands between 7,200 and 9,340 yen, and at 500,000 yen only ColorMe Shop's Free plan pulls away. When orders are paid by card, even at 100,000 yen the Free plan is only 150 yen cheaper than Regular (10 yen more expensive under this site's conversion of the 3-D Secure fee to 1,100 yen) and 1,000 yen more expensive than Shopify Basic paid annually. The gap between Regular and Shopify Basic ranges from 50 yen to 2,140 yen a month depending on the combination of terms, and given the differences in tax treatment and contract terms, it appears too small to decide on monthly fee and card rate alone. The difference is presumed to come from what the table leaves out: payment methods other than cards, monthly app fees, and the cost of templates.
+Within this illustration, at 100,000 yen in monthly sales every option lands between 7,200 and 9,340 yen, and at 500,000 yen only ColorMe Shop's Free plan pulls away. When orders are paid by card, at 100,000 yen the Free plan is 1,140 yen cheaper than Regular (980 yen cheaper under this site's conversion of the 3-D Secure fee to 1,100 yen) and 1,000 yen more expensive than Shopify Basic paid annually. Free and Regular cross over at 130,000 yen in monthly sales (assuming 5,000 yen per order). Regular's stated cost is 340 yen to 2,140 yen a month above Shopify Basic in every combination. However, Shopify's prices are used as shown, with no statement of tax found. If 10% tax were added on top of Shopify's monthly fee and rate (this site's assumption, not an official statement), Basic would come to 9,240 yen monthly or 7,920 yen annually at 100,000 yen, and 24,860 yen monthly or 23,540 yen annually at 500,000 yen, which puts Regular ahead at 500,000 yen. Until the tax treatment and contract terms are confirmed, the gap appears too small to decide on monthly fee and card rate alone. The difference is presumed to come from what the table leaves out: payment methods other than cards, monthly app fees, and the cost of templates.
 :::
 
 Correction (October 3, 2026). The first version said the Free plan's only cost is the processing fee when something sells, and said only that ColorMe Payment is "not available on the Free plan." That was inaccurate. What the Free plan cannot use is the paid-plan ColorMe Payment; the Free plan has its own ColorMe Payment, and accepting cards on it requires a 3-D Secure contract at 1,000 yen a month (excluding tax). The illustration, which assumes every order is paid by card, left out that fee and so understated the Free plan's cost by 1,000 yen a month. The help centre article has been added as a source, the Free plan's payment terms have been added, and the illustration's Free plan column has been corrected from 7,200 to 8,200 yen at 100,000 yen in monthly sales and from 36,000 to 37,000 yen at 500,000 yen. In the first version's table, the Free plan at 100,000 yen looked tied with Shopify Basic paid annually as the cheapest option; after the correction it is only 150 yen cheaper than Regular and 1,000 yen more expensive than Basic paid annually. The "which situation fits which" section has been corrected to match.
@@ -273,11 +273,11 @@ There is one more thing for an individual to check. ColorMe Payment has a separa
 ## When switching comes up
 
 :::guess
-The moments likely to prompt a move away from ColorMe Shop are presumed to be when customers abroad increase and you want the core to handle multiple languages and currencies, when a function you want to add is not in the domestic app store, and when you review costs after the November 2026 revision raises the Regular and Large monthly fees. The moments likely to prompt a move away from Shopify appear to be when non-card payments grow and the third-party transaction fee gets heavier, when the total of monthly app fees swells, and when you want to issue shipping labels and documents without additional apps.
+The moments likely to prompt a move away from ColorMe Shop are presumed to be when customers abroad increase and you want the core to handle multiple languages and currencies, when a function you want to add is not in the domestic app store, and when a renewal moves Regular or Large onto the revised monthly fee and prompts a review of costs. The moments likely to prompt a move away from Shopify appear to be when non-card payments grow and the third-party transaction fee gets heavier, when the total of monthly app fees swells, and when you want to issue shipping labels and documents without additional apps.
 :::
 
 :::guess
 In either direction, switching appears to involve moving product data, customer data, design and URLs. ColorMe Shop's feature page says customer, product and sales data can be downloaded as CSV, but this site did not confirm how much work importing at the destination or rebuilding the design takes. Because the template systems are different, a design presumably cannot be carried over as is. The first choice can be changed later, but changing it takes work.
 :::
 
-On monthly fee alone, the two services are close. What differs is which of two things — what you need to sell in Japan, and what you need to sell abroad — went into the core and which became an add-on. Deciding first where your customers are and how they pay decides how to read the price list.
+On monthly fee alone, the two services sit in the same price band. What differs is which of two things — what you need to sell in Japan, and what you need to sell abroad — went into the core and which became an add-on. Deciding first where your customers are and how they pay decides how to read the price list.
