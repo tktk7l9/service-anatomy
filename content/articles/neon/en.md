@@ -1,13 +1,13 @@
 ---
 service: "Neon"
 title: "80% of Databases Created by AI Agents, Acquired by Databricks, a Free Plan of 100 Projects, and a Public Repository Down to One Commit a Month Since August 2025 — Dissecting Neon, Which Rebuilt Its Free Tier for Agents Instead of People"
-description: "Neon, the serverless Postgres that separated storage from compute and sold branching and scale-to-zero, announced on May 14, 2025 that it was joining Databricks and now calls itself a \"backend for apps and agents\" built around \"Lakebase Postgres.\" Pricing is usage-based with no minimum: Launch is $0.106 per CU-hour and storage is $0.35 per GB-month. The free plan gives 100 projects, each with 100 CU-hours and 1 GB. In April 2026 it deprecated its Azure regions, and in September it made Functions, Object Storage and an AI Gateway generally available. Meanwhile the Apache-2.0 repository on GitHub has seen roughly one commit a month since August 2025. The article dissects all of this from the official pricing page, docs, blog, Databricks press releases, the GitHub API, and this site's own observations."
+description: "Neon, the serverless Postgres that separated storage from compute and sold branching and scale-to-zero, announced on May 14, 2025 that it was joining Databricks and now calls itself a \"backend for apps and agents\" built around \"Lakebase Postgres.\" Pricing is usage-based with no minimum: Launch is $0.106 per CU-hour and storage is $0.35 per GB-month. The free plan gives 100 projects, each with 100 CU-hours and 1 GB (20 GB in total per account). In April 2026 it deprecated its Azure regions, and in September it made Functions, Object Storage and an AI Gateway generally available. Meanwhile the Apache-2.0 repository on GitHub has seen roughly one commit a month since August 2025. The article dissects all of this from the official pricing page, docs, blog, Databricks press releases, the GitHub API, and this site's own observations."
 lead: "Neon's company page shows two numbers in large type: \"15,000,000 Postgres databases turned on every day\" and \"80% of databases are deployed by automated agents.\" A free tier designed for people creating databases by hand needed one or two projects. In a world where agents create more than one a second, it needs a hundred. This article dissects what a company acquired by Databricks is trying to sell as it raises the free plan to 100 projects, retreats from Azure, and lets its public repository go quiet."
 category: dev-tool
 tags: [database, postgres, serverless, rust, ai-agent, open-source, baas, databricks]
 publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
-lastVerified: "2026-10-06"
+updatedAt: "2026-11-03"
+lastVerified: "2026-11-03"
 serviceUrl: "https://neon.com/"
 # Affiliate link placeholder: Neon has no public affiliate program (checked 2026-10-06 on
 # neon.com/pricing and the docs; only a Startup Program, an Open Source Program and an
@@ -49,7 +49,7 @@ techStack:
   - layer: "Cloud and regions"
     name: "AWS (8 regions; Azure regions deprecated 2026-04-07)"
     confidence: confirmed
-    evidence: "The official Regions page (as of 2026-10-06) lists eight AWS regions (us-east-1, us-east-2, us-west-2, eu-central-1, eu-west-2, ap-southeast-1, ap-southeast-2, sa-east-1) and says the three Azure regions (eastus2, westus3, gwc) \"are deprecated. You can no longer create new projects in Azure regions.\" The deprecation guide dates the deprecation to April 7, 2026 with a migration deadline of October 5, 2026, and points users who must stay on Azure to Databricks Lakebase. There is no Tokyo region"
+    evidence: "The official Regions page (as of 2026-11-03) lists eight AWS regions (us-east-1, us-east-2, us-west-2, eu-central-1, eu-west-2, ap-southeast-1, ap-southeast-2, sa-east-1) and says the three Azure regions (eastus2, westus3, gwc) \"are deprecated. You can no longer create new projects in Azure regions.\" According to the deprecation guide, the regions were deprecated on April 7, 2026 and stopped receiving platform updates on October 5, 2026, from which date projects in Free organizations inactive for 90 days or more are subject to deletion. A final end-of-service date is "to be announced," and users who must stay on Azure are pointed to Databricks Lakebase. There is no Tokyo region"
     evidenceUrl: "https://neon.com/docs/introduction/regions"
   - layer: "Login and public site"
     name: "Keycloak (console.neon.tech) / Next.js on Vercel (neon.com) / Cloudflare (console)"
@@ -63,16 +63,16 @@ techStack:
 sources:
   - label: "Neon: Pricing"
     url: "https://neon.com/pricing"
-    accessedAt: "2026-10-06"
+    accessedAt: "2026-11-03"
   - label: "Neon docs: Plans"
     url: "https://neon.com/docs/introduction/plans"
-    accessedAt: "2026-10-06"
+    accessedAt: "2026-11-03"
   - label: "Neon docs: Agent Plan"
     url: "https://neon.com/docs/introduction/agent-plan"
-    accessedAt: "2026-10-06"
+    accessedAt: "2026-11-03"
   - label: "Neon: About us (timeline and company figures)"
     url: "https://neon.com/about-us"
-    accessedAt: "2026-10-06"
+    accessedAt: "2026-11-03"
   - label: "Neon blog: Neon and Databricks (2025-05-14)"
     url: "https://neon.com/blog/neon-and-databricks"
     accessedAt: "2026-10-06"
@@ -105,7 +105,7 @@ sources:
     accessedAt: "2026-10-06"
   - label: "Neon blog: Neon gives you 100 projects for free, with 1 GB of Postgres storage each (2026-10-02)"
     url: "https://neon.com/blog/neon-free-plan-1-gb-per-project"
-    accessedAt: "2026-10-06"
+    accessedAt: "2026-11-03"
   - label: "Neon blog: The Neon backend is GA (2026-09-17)"
     url: "https://neon.com/blog/neon-backend-is-ga"
     accessedAt: "2026-10-06"
@@ -117,10 +117,10 @@ sources:
     accessedAt: "2026-10-06"
   - label: "Neon docs: Regions"
     url: "https://neon.com/docs/introduction/regions"
-    accessedAt: "2026-10-06"
+    accessedAt: "2026-11-03"
   - label: "Neon docs: Azure regions deprecation"
     url: "https://neon.com/docs/import/azure-regions-deprecation"
-    accessedAt: "2026-10-06"
+    accessedAt: "2026-11-03"
   - label: "Neon docs: SOC 2 compliance"
     url: "https://neon.com/docs/security/soc2-compliance"
     accessedAt: "2026-10-06"
@@ -129,7 +129,7 @@ sources:
     accessedAt: "2026-10-06"
   - label: "GitHub: neondatabase/neon (README, releases, commit history)"
     url: "https://github.com/neondatabase/neon"
-    accessedAt: "2026-10-06"
+    accessedAt: "2026-11-03"
   - label: "GitHub Issue #12945: Plans for PostgreSQL 18 support? (user discussion of the public repository's state)"
     url: "https://github.com/neondatabase/neon/issues/12945"
     accessedAt: "2026-10-06"
@@ -149,7 +149,11 @@ According to the Databricks press release (San Francisco, May 14, 2025), Databri
 :::
 
 :::fact
-According to the official pricing page (as of 2026-10-06), there are three plans, Free, Launch and Scale, and Launch and Scale are usage-based with no monthly base fee. Free gives 100 projects, each with 100 CU-hours of compute a month and 1 GB of storage, computes up to 2 CU (8 GB RAM), 10 branches, a 6-hour restore window, Managed Better Auth up to 60,000 MAU, 5 GB of Object Storage, and 1 million Function invocations a month. Launch is $0.106 per CU-hour, $0.35 per GB-month of storage, computes up to 16 CU (64 GB RAM), a 7-day restore window, extra branches at $0.002 per branch-hour, and 500 GB of network transfer per project before $0.10 per GB. Scale is $0.222 per CU-hour, computes up to 56 CU (224 GB RAM), 1,000+ projects, 25 branches, a 30-day restore window, SLAs, HIPAA and private networking. The pricing page's "typical spend" is $15 a month on Launch (intermittent load, 1 GB) and $701 a month on Scale (high load, 100 GB). A CU is "approximately 1 vCPU and 4 GB of RAM," and no CU-hours are consumed while compute is suspended.
+According to the official pricing page (as of 2026-11-03; the page was last updated on October 31, 2026), there are three plans, Free, Launch and Scale, and Launch and Scale are usage-based with no monthly base fee. Free gives 100 projects, each with 100 CU-hours of compute a month and 1 GB of Postgres storage (but no more than 20 GB in total across all projects in the account), 5 GB of public network transfer per project a month, computes up to 2 CU (8 GB RAM), 10 branches, a 6-hour restore window, Managed Better Auth up to 60,000 MAU, 5 GB of Object Storage, and 1 million Function invocations a month. Launch is $0.106 per CU-hour, $0.35 per GB-month of storage, computes up to 16 CU (64 GB RAM), a 7-day restore window, extra branches at $1.50 per branch-month (prorated hourly), and 500 GB of network transfer per project before $0.10 per GB. Scale is $0.222 per CU-hour, 1,000 projects (more on request), 25 branches, a 30-day restore window, SLAs, HIPAA and private networking. Scale's limit is "up to 16 CU autoscaling, or fixed sizes up to 56 CU (224 GB RAM)," and the plans docs state that "Autoscaling is capped at 16 CU. Scale supports fixed computes above 16 CU." The pricing page's "typical spend" is $15 a month on Launch (intermittent load, 1 GB) and $701 a month on Scale (high load, 100 GB). A CU "allocates approximately 4 GB of RAM, along with associated CPU and local SSD resources," and no CU-hours are consumed while compute is suspended.
+:::
+
+:::fact
+The same pricing page's FAQ says each Free limit behaves differently. Running out of CU-hours or transfer (5 GB) suspends compute until the next billing period; exceeding 1 GB of storage in a project, or 20 GB across all projects, blocks writes; reaching 10 branches blocks branch creation. The page says "None of these limits delete your data," and states that "Neon doesn't pause Free projects for inactivity." The exception is projects left in the Azure regions: the deprecation guide in the official docs says that from October 5, 2026, "Projects in Free organizations that have been inactive for 90 days or more are subject to deletion."
 :::
 
 :::pull
@@ -162,12 +166,12 @@ According to the official pricing page (as of 2026-10-06), there are three plans
 
 Neon's UX has been reworked around the work of agents rather than people. The shape of the free plan, the absence of a minimum, and the way branches are used all assume "create many, leave most of them idle."
 
-- **The free plan is not one big project but a hundred small ones**. The official blog (2026-10-02) says "The Neon Free plan assumes the agent workflow: lots of projects, lots of experiments, most of them idle most of the time," explaining why each of the 100 projects gets its own 100 CU-hours and 1 GB. It also notes the scale: "we're creating new projects at a rate of more than one per second!" The pricing FAQ gives the example of a database running at 1 CU for about 3 hours a day using roughly 90 CU-hours a month, within the free allowance.
+- **The free plan is not one big project but a hundred small ones**. The official blog (2026-10-02) says "The Neon Free plan assumes the agent workflow: lots of projects, lots of experiments, most of them idle most of the time," explaining why each of the 100 projects gets its own 100 CU-hours and 1 GB. It also notes the scale: "we're creating new projects at a rate of more than one per second!" Added up, though, the hundred projects still share a 20 GB storage cap per account. The pricing FAQ gives the example of 100 tenant databases on Launch, each running at 0.25 CU for about an hour a day and storing 150 MB, using about 750 CU-hours and 15 GB of storage: roughly $85 a month in total, or about $0.85 per tenant.
 - **No minimum**. The official blog (2025-08-14) moved pricing to "usage-based, no minimum," and a December addendum says "We are no longer enforcing the $5 minimum in our paid plans - if you consume $3, that's what you'll be charged." The post of November 3, 2025 cut Launch from $0.14 to $0.106 per CU-hour and Scale from $0.26 to $0.222, "up to 25% cheaper across plans," citing the move onto Databricks' infrastructure.
 - **Branches become the unit of undo**. According to the docs, "A branch is a copy-on-write clone of your data. You can create a branch from a current or past state." The official blog (2025-05-21) describes Replit's App History, where every checkpoint the Replit Agent creates gets a Neon branch at that exact timestamp so code and database can be rolled back together.
 - **Stopping is the default; not stopping costs money**. According to the docs, compute suspends after 5 minutes of inactivity and reactivates "within a few hundred milliseconds." On the Free plan this cannot be changed; paid plans can disable scale-to-zero for an always-active compute. Restore "performs a complete overwrite of the database timeline, not a merge," and the pre-restore state is kept in a backup branch.
 - **MCP control, with warnings alongside**. The MCP Server docs explain how to let an AI assistant create projects and run queries, and in the same breath say "Always review and authorize actions requested by the LLM before execution" and "Never connect MCP agents to production databases."
-- **No Tokyo region, and Azure is gone**. The regions page lists eight AWS regions (Virginia, Ohio, Oregon, Frankfurt, London, Singapore, Sydney, São Paulo); Singapore is the nearest to Japan. The three Azure regions were deprecated on April 7, 2026 with a migration deadline of October 5, 2026. The deprecation guide explains that "Most Neon projects run in AWS regions, so concentrating there lets us ship features and reliability improvements faster," and points anyone who must keep data in Azure to Databricks Lakebase.
+- **No Tokyo region, and Azure is gone**. The regions page lists eight AWS regions (Virginia, Ohio, Oregon, Frankfurt, London, Singapore, Sydney, São Paulo); Singapore is the nearest to Japan. The three Azure regions were deprecated on April 7, 2026 and stopped receiving platform updates on October 5, 2026 (a final end-of-service date is to be announced). The deprecation guide explains that "Most Neon projects run in AWS regions, so concentrating there lets us ship features and reliability improvements faster," and points anyone who must keep data in Azure to Databricks Lakebase.
 
 The flip side of agent-first design is fewer handholds for people. A hundred free projects leave the user responsible for knowing which experiment belongs to which agent, and the Azure retreat is answered with "the same technology exists on the Databricks side." Whether you are a person or an agent changes how this product looks.
 
@@ -200,7 +204,7 @@ This site observed console.neon.tech's login redirecting to the shape of a Keycl
 Revenue is usage-based compute (CU-hours) and storage (GB-months), with no monthly base fee. The free tier is wide, and the move to paid happens through one of three doors: not stopping, going bigger, or restoring further back.
 
 :::fact
-According to the official pricing page and docs (as of 2026-10-06), on paid plans "you pay only for what you use; there's no minimum monthly fee." Upgrading unlocks disabling scale-to-zero (Launch and up), larger computes (from Free's 2 CU to Launch's 16 CU and Scale's 56 CU), longer restore windows (6 hours to 7 days to 30 days), and higher project and branch limits. Scale alone adds SLAs, HIPAA, private networking, IP allow rules and SOC 2 report access. The AI Gateway charges model providers' list prices with no markup, drawn from prepaid credits. The "Agent Plan" is for "AI agent platforms that provision thousands of databases," with unlimited projects, compute at the Launch rate of $0.106 per CU-hour, and up to $25,000 in initial credits. There is also a Startup Program with up to $100,000 in credits and an Open Source Program. The official blog of May 22, 2026 names Replit and Retool among its biggest agent customers.
+According to the official pricing page and docs (as of 2026-11-03), on paid plans "you pay only for what you use; there's no minimum monthly fee." Upgrading unlocks disabling scale-to-zero (Launch and up), larger computes (from Free's 2 CU to Launch's 16 CU; Scale also autoscales to 16 CU but allows fixed sizes up to 56 CU), no storage cap (storage is unlimited on paid plans), longer restore windows (6 hours to 7 days to 30 days), and higher project and branch limits. Scale alone adds SLAs, HIPAA, private networking, IP allow rules and SOC 2 report access. The AI Gateway charges model providers' list prices with no markup, drawn from prepaid credits. The "Agent Plan" is for "platforms that provision and manage Postgres databases for end users at scale," with unlimited projects, compute at the Launch rate of $0.106 per CU-hour, and up to $25,000 in initial credits. There is also a Startup Program with up to $100,000 in credits and an Open Source Program. The official blog of May 22, 2026 names Replit and Retool among its biggest agent customers.
 :::
 
 :::fact
