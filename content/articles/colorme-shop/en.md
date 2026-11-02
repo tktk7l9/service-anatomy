@@ -2,11 +2,11 @@
 service: "ColorMe Shop"
 title: "The Reason for the Price Rise Is \"Server Hardware\" — The Economics of ColorMe Shop, 21 Years on Its Own Cloud"
 description: "ColorMe Shop is an online-store builder that GMO Pepabo has run in Japan since 2005. Its contract count has slipped to 47K and its revenue is roughly flat, yet its operating margin has passed 40%. Starting from the reason it gave for raising its Regular and Large plans in November 2026 — the cost of \"procuring and operating server hardware\" — we dissect, using its earnings presentations, the official pricing pages and notice, and the official tech blog, an infrastructure that pairs an in-house OpenStack cloud with Amazon RDS, and its move to a remote MCP server."
-lead: "On September 9, 2026, ColorMe Shop announced a price revision. For renewals on or after November 1, the Regular plan goes from ¥4,950 to ¥5,940 a month and the Large plan from ¥9,595 to ¥11,000. The stated reason is rising \"infrastructure costs, starting with the procurement and operation of server hardware.\" At a time when most SaaS runs on public clouds, why would the price of server hardware matter? We dissect it from GMO Pepabo's earnings materials and from how the platform, running on the company's own cloud, is built."
+lead: "On September 9, 2026, ColorMe Shop announced a price revision. For renewals on or after November 1, the Regular plan went from ¥4,950 to ¥5,940 a month and the Large plan from ¥9,595 to ¥11,000. The stated reason is rising \"infrastructure costs, starting with the procurement and operation of server hardware.\" At a time when most SaaS runs on public clouds, why would the price of server hardware matter? We dissect it from GMO Pepabo's earnings materials and from how the platform, running on the company's own cloud, is built."
 category: saas
 tags: [e-commerce, small-business, php, mysql, mcp]
 publishedAt: "2026-09-29"
-updatedAt: "2026-10-03"
+updatedAt: "2026-11-02"
 lastVerified: "2026-10-03"
 serviceUrl: "https://shop-pro.jp/"
 affiliate:
@@ -69,7 +69,7 @@ sources:
     accessedAt: "2026-09-29"
   - label: "ColorMe Shop official: Plans and pricing (Japanese)"
     url: "https://shop-pro.jp/plans/"
-    accessedAt: "2026-10-03"
+    accessedAt: "2026-11-02"
   - label: "ColorMe Shop official: Free plan (Japanese)"
     url: "https://shop-pro.jp/plans/free/"
     accessedAt: "2026-10-03"
@@ -122,11 +122,11 @@ According to GMO Pepabo's earnings presentation (2026-08-13), ColorMe Shop launc
 :::
 
 :::fact
-According to the official pricing pages (as of 2026-09-29, tax included), there are four plans. The Free plan has no setup or monthly fee, with payment fees from 6.6% + ¥30. The Regular plan costs ¥4,950 a month plus a ¥3,300 setup fee, with credit-card fees from 3.4%; the Large plan costs ¥9,595 a month with fees from 3.19%; and the Premium plan costs from ¥35,640 a month plus a ¥22,000 setup fee, with fees from 2.99%. The card rates are given as a guide for shops that sign up for the "ColorMe Payment" payment service. According to the help centre article (updated 2026-09-30), the Free plan uses a "ColorMe Payment for the Free plan only" that differs from the paid plans' version, with a payment fee of 6.6% + ¥30 per order (excluding tax). Card payment is optional, but using it requires a 3-D Secure contract, which costs ¥1,000 a month (excluding tax). Regular and Large come with a 30-day free trial; the Premium column points to a document download instead of a trial.
+According to the official pricing pages (as of 2026-09-29, tax included), there are four plans. The Free plan has no setup or monthly fee, with payment fees from 6.6% + ¥30. The Regular plan costs ¥5,940 a month plus a ¥3,300 setup fee, with credit-card fees from 3.4%; the Large plan costs ¥11,000 a month with fees from 3.19%; and the Premium plan costs from ¥35,640 a month plus a ¥22,000 setup fee, with fees from 2.99%. The card rates are given as a guide for shops that sign up for the "ColorMe Payment" payment service. According to the help centre article (updated 2026-09-30), the Free plan uses a "ColorMe Payment for the Free plan only" that differs from the paid plans' version, with a payment fee of 6.6% + ¥30 per order (excluding tax). Card payment is optional, but using it requires a 3-D Secure contract, which costs ¥1,000 a month (excluding tax). Regular and Large come with a 30-day free trial; the Premium column points to a document download instead of a trial.
 :::
 
 :::pull
-For renewals on or after November 1, 2026, the Regular plan goes from ¥4,950 to ¥5,940 a month, and the Large plan from ¥9,595 to ¥11,000. Premium stays the same. The reason: rising "infrastructure costs, starting with the procurement and operation of server hardware."
+For renewals on or after November 1, 2026, the Regular plan went from ¥4,950 to ¥5,940 a month, and the Large plan from ¥9,595 to ¥11,000. Premium stays the same. The reason: rising "infrastructure costs, starting with the procurement and operation of server hardware."
 :::
 
 ::scorecard

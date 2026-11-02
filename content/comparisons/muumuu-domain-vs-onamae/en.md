@@ -5,7 +5,7 @@ lead: "Open Muumuu Domain's terms of service, and Article 2 says the service use
 slugA: "muumuu-domain"
 slugB: "onamae"
 publishedAt: "2026-10-13"
-updatedAt: "2026-10-13"
+updatedAt: "2026-11-02"
 lastVerified: "2026-10-13"
 expires:
   - date: "2026-10-31"
@@ -18,7 +18,7 @@ sources:
     accessedAt: "2026-10-13"
   - label: "Muumuu Domain official: Price list (registration, renewal, transfer, adjustment-fee checkbox)"
     url: "https://muumuu-domain.com/domain/price"
-    accessedAt: "2026-10-13"
+    accessedAt: "2026-11-02"
   - label: "Muumuu Domain official: Domains free forever (eligible TLDs and conditions)"
     url: "https://muumuu-domain.com/domain/treats/server"
     accessedAt: "2026-10-13"
@@ -157,7 +157,7 @@ Looking only at the first year, Onamae.com's 1 yen stands out, but it is limited
 ## Adjustment fee: the same rates, different switch times
 
 :::fact
-According to Muumuu Domain's December 26, 2022 news post, the company introduced a "service maintenance adjustment fee" of about 10% to 20% on bills for new registrations, renewals and transfers from 00:00 on February 1, 2023, citing soaring domestic electricity prices, the weakening yen and higher wholesale prices for domains, and planned to review it every one to three months. Onamae.com's September 4, 2026 news post says that, "in view of rising prices of various kinds," it temporarily charges a fixed percentage on the applicable fees from February 1, 2023. For 2026, Muumuu Domain's news posts set the rate at 27.00% for August, 26.25% for September and 25.50% for October, each switching at 00:00 on the 1st of the month and applied to the tax-excluded domain price. Onamae.com's news posts set the rate for domains (including options) at 27.00% from 12:00 on August 3, 26.25% from 12:00 on September 1 and 25.50% from 12:00 on October 1, each citing changes in exchange rates as the main factor, and say that bills incurred between 00:00 and 12:00 on the day of a change are calculated at the previous rate. In other words, from 00:00 to 12:00 on October 1, the rate was 25.50% at Muumuu Domain and 26.25% at Onamae.com. In this site's own observation (2026-10-13), both services' price tables load with the checkbox for including the fee (Muumuu Domain's "include the service maintenance adjustment fee," Onamae.com's "service maintenance adjustment fee included") unchecked, and show amounts without the fee. A one-year .com renewal including the fee is 2,168 yen according to the data embedded in Muumuu Domain's price list page, and 1,767 yen at Onamae.com by this site's calculation of adding 25.50% to the 1,408 yen for holders of four or fewer.
+According to Muumuu Domain's December 26, 2022 news post, the company introduced a "service maintenance adjustment fee" of about 10% to 20% on bills for new registrations, renewals and transfers from 00:00 on February 1, 2023, citing soaring domestic electricity prices, the weakening yen and higher wholesale prices for domains, and planned to review it every one to three months. Onamae.com's September 4, 2026 news post says that, "in view of rising prices of various kinds," it temporarily charges a fixed percentage on the applicable fees from February 1, 2023. For 2026, Muumuu Domain's news posts set the rate at 27.00% for August, 26.25% for September, 25.50% for October and 26.25% for November, each switching at 00:00 on the 1st of the month and applied to the tax-excluded domain price. Onamae.com's news posts set the rate for domains (including options) at 27.00% from 12:00 on August 3, 26.25% from 12:00 on September 1 and 25.50% from 12:00 on October 1, each citing changes in exchange rates as the main factor, and say that bills incurred between 00:00 and 12:00 on the day of a change are calculated at the previous rate. In other words, from 00:00 to 12:00 on October 1, the rate was 25.50% at Muumuu Domain and 26.25% at Onamae.com. In this site's own observation (2026-10-13), both services' price tables load with the checkbox for including the fee (Muumuu Domain's "include the service maintenance adjustment fee," Onamae.com's "service maintenance adjustment fee included") unchecked, and show amounts without the fee. At October's rate, a one-year .com renewal including the fee was 2,168 yen according to the data embedded in Muumuu Domain's price list page, and 1,767 yen at Onamae.com by this site's calculation of adding 25.50% to the 1,408 yen for holders of four or fewer. Muumuu Domain's rose to 2,181 yen at November's 26.25% (checked 2026-11-02).
 :::
 
 | Service maintenance adjustment fee | Muumuu Domain | Onamae.com |
@@ -168,7 +168,7 @@ According to Muumuu Domain's December 26, 2022 news post, the company introduced
 | October 2026 | 25.50% (from 00:00 on October 1) | 25.50% (from 12:00 on October 1) |
 | Reason given in news posts | Changes in exchange rates, etc. (at introduction: electricity prices, weak yen, higher wholesale prices) | Main factor: changes in exchange rates (introduction: "rising prices of various kinds") |
 | Price list default view | Fee not included | Fee not included |
-| .com renewal (fee included) | 2,168 yen | 1,767 yen (this site's calculation) |
+| .com renewal (with October's fee) | 2,168 yen | 1,767 yen (this site's calculation) |
 
 :::guess
 The two services' rates went through the same values from August to October 2026. Combined with the fact that Muumuu Domain's terms name Onamae.com as a registrar, Muumuu Domain appears to pass the rate set by the upstream company almost directly into its customers' prices. The switch times differ, however: Muumuu Domain switched at 00:00 on the 1st each time and Onamae.com at 12:00, and in August the gap was two and a half days. In months when the rate falls, as in September and October, Muumuu Domain has the lower rate for the 12 hours until Onamae.com switches. Because both price lists show amounts without the fee by default, a comparison that lines up only the numbers in the tables needs care, since a gap of about a quarter remains between them and what is actually paid.
