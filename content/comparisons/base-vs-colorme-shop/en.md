@@ -5,7 +5,7 @@ lead: "Both are Japanese online-shop builders that let you start at 0 yen a mont
 slugA: "base"
 slugB: "colorme-shop"
 publishedAt: "2026-10-03"
-updatedAt: "2026-10-03"
+updatedAt: "2026-11-02"
 lastVerified: "2026-10-03"
 sources:
   - label: "BASE official: plans and fees (payment methods, payout cycle, FAQ)"
@@ -70,7 +70,7 @@ sources:
     accessedAt: "2026-10-03"
   - label: "ColorMe Shop official: plans and pricing"
     url: "https://shop-pro.jp/plans/"
-    accessedAt: "2026-10-03"
+    accessedAt: "2026-11-02"
   - label: "ColorMe Shop official: Free plan"
     url: "https://shop-pro.jp/plans/free/"
     accessedAt: "2026-10-03"
@@ -132,8 +132,8 @@ According to ColorMe Shop's pricing page, there are three paid plans — Regular
 | ColorMe Shop | Initial fee | Monthly fee | Card processing fee |
 | --- | --- | --- | --- |
 | Free | 0 yen | from 0 yen | from 6.6% + 30 yen |
-| Regular | 3,300 yen | 4,950 yen | from 3.4% |
-| Large | 3,300 yen | 9,595 yen | from 3.19% |
+| Regular | 3,300 yen | 5,940 yen (revised November 1, 2026) | from 3.4% |
+| Large | 3,300 yen | 11,000 yen (same) | from 3.19% |
 | Premium | 22,000 yen | from 35,640 yen (the comparison table's monthly-fee row says 39,600 yen) | from 2.99% |
 
 :::fact
@@ -141,7 +141,7 @@ According to the notes on the same page, using a payment service requires a sepa
 :::
 
 :::fact
-According to an official notice (2026-09-09), from November 1, 2026 the Regular plan goes from 4,950 yen to 5,940 yen a month and the Large plan from 9,595 yen to 11,000 yen; the Premium plan does not change. A contract that starts before November 1 is at the pre-revision price. For a contract that starts on or after November 1, the pre-revision price applies if the renewal and payment are completed before November 1, and the revised price applies if they are done on or after November 1 (separate deadlines are given for each automatic debit method).
+According to an official notice (2026-09-09), from November 1, 2026 the Regular plan goes from 4,950 yen to 5,940 yen a month and the Large plan from 9,595 yen to 11,000 yen; the Premium plan does not change. The plans page (checked 2026-11-02) shows the revised fees. A contract that starts before November 1 is at the pre-revision price. For a contract that starts on or after November 1, the pre-revision price applies if the renewal and payment are completed before November 1, and the revised price applies if they are done on or after November 1 (separate deadlines are given for each automatic debit method).
 :::
 
 The two tables cannot be compared as they stand. Most of BASE's cost is "a rate on what sells," while most of the cost of ColorMe Shop's paid plans is "a monthly fee." The tax wording also differs. ColorMe Shop's pricing page notes that all prices include tax, but, as shown below, its Help Center describes the Free plan's fee as "tax excluded" in one place. BASE states that the Growth monthly fee includes tax, but no statement of whether the fee rates on its pricing page include or exclude tax was found.
@@ -215,7 +215,7 @@ The following is this site's calculation using only the official numbers above. 
 | BASE Growth (paid monthly) | 22,880 yen | 34,480 yen |
 | BASE Growth (paid annually) | 19,480 yen | 31,080 yen |
 | ColorMe Free | 8,200 yen | 37,000 yen |
-| ColorMe Regular | 8,350 yen | 21,950 yen |
+| ColorMe Regular (pre-revision fee) | 8,350 yen | 21,950 yen |
 | ColorMe Regular (after Nov. revision) | 9,340 yen | 22,940 yen |
 
 The arithmetic:

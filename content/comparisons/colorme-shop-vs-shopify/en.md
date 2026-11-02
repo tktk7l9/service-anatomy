@@ -5,12 +5,12 @@ lead: "On monthly fee alone, ColorMe Shop's Regular plan and Shopify's Basic pla
 slugA: "colorme-shop"
 slugB: "shopify"
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-03"
+updatedAt: "2026-11-02"
 lastVerified: "2026-10-03"
 sources:
   - label: "ColorMe Shop official: plans and pricing"
     url: "https://shop-pro.jp/plans/"
-    accessedAt: "2026-10-03"
+    accessedAt: "2026-11-02"
   - label: "ColorMe Shop official: Free plan"
     url: "https://shop-pro.jp/plans/free/"
     accessedAt: "2026-10-03"
@@ -107,8 +107,8 @@ According to ColorMe Shop's official pricing page, there are four plans — Free
 | ColorMe Shop | Monthly fee | Initial fee | Card processing fee |
 | --- | --- | --- | --- |
 | Free | 0 yen (accepting cards adds a 3-D Secure fee of 1,000 yen a month, excluding tax) | 0 yen | from 6.6% + 30 yen |
-| Regular | 4,950 yen | 3,300 yen | from 3.4% |
-| Large | 9,595 yen | 3,300 yen | from 3.19% |
+| Regular | 5,940 yen (revised November 1, 2026) | 3,300 yen | from 3.4% |
+| Large | 11,000 yen (same) | 3,300 yen | from 3.19% |
 | Premium | from 35,640 yen (the comparison table's monthly-fee row says 39,600 yen) | 22,000 yen | from 2.99% |
 
 :::fact
@@ -116,7 +116,7 @@ According to the notes on the same page, using a payment service requires a sepa
 :::
 
 :::fact
-According to an official notice (2026-09-09), from November 1, 2026 the Regular plan goes from 4,950 yen to 5,940 yen a month and the Large plan from 9,595 yen to 11,000 yen. A contract that starts before November 1 is made at the pre-revision price. For someone signing up now, the monthly fee depends on which side of that date the contract starts.
+According to an official notice (2026-09-09), from November 1, 2026 the Regular plan goes from 4,950 yen to 5,940 yen a month and the Large plan from 9,595 yen to 11,000 yen. The plans page (checked 2026-11-02) shows the revised fees.
 :::
 
 :::fact
@@ -175,7 +175,7 @@ The following is an illustration calculated by this site using only the official
 - ColorMe Shop's prices are used as stated (tax included); Shopify's are used as stated (no tax statement found). The Free plan's 6.6% + 30 yen and the 1,000-yen 3-D Secure fee, however, are used as the help article states them (excluding tax). The amounts are not on the same basis.
 - For ColorMe Shop's "from" rates, the lower bound is used.
 
-| Monthly sales | ColorMe Free | ColorMe Regular | Regular after Nov. revision | Shopify Basic, monthly | Shopify Basic, annual |
+| Monthly sales | ColorMe Free | ColorMe Regular (pre-revision fee) | Regular after Nov. revision | Shopify Basic, monthly | Shopify Basic, annual |
 | --- | --- | --- | --- | --- | --- |
 | 100,000 yen (20 orders) | 8,200 yen | 8,350 yen | 9,340 yen | 8,400 yen | 7,200 yen |
 | 500,000 yen (100 orders) | 37,000 yen | 21,950 yen | 22,940 yen | 22,600 yen | 21,400 yen |
