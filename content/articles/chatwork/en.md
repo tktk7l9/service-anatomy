@@ -6,7 +6,7 @@ lead: "The SaaS domain that includes Chatwork now accounts for only 76% of kubel
 category: saas
 tags: [business-chat, small-business, b2b, bpaas, scala, php, kubernetes, ai]
 publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+updatedAt: "2026-11-02"
 lastVerified: "2026-10-06"
 serviceUrl: "https://go.chatwork.com/ja/"
 # Affiliate link placeholder: the official site shows only a reseller program (distributors and
@@ -69,7 +69,7 @@ sources:
     accessedAt: "2026-10-06"
   - label: "Chatwork: Pricing"
     url: "https://go.chatwork.com/ja/price/"
-    accessedAt: "2026-10-06"
+    accessedAt: "2026-11-02"
   - label: "Chatwork: Sales partners"
     url: "https://go.chatwork.com/ja/partner/"
     accessedAt: "2026-10-06"
@@ -144,8 +144,10 @@ Chatwork's platform appears to have evolved by not discarding the PHP monolith a
 There are now two pillars of revenue: the SaaS domain centered on Chatwork subscriptions, and the BPaaS domain that takes on work through the chat.
 
 :::fact
-According to the official pricing page (as of 2026-10-06, before tax), Standard costs ¥700 per user per month on an annual contract or ¥840 on a monthly contract, and Professional costs ¥1,200 or ¥1,440 respectively, with a minimum of five users. Annual contracts are shown as "two months free." According to the "history of price and plan changes" in the earnings presentation, in August 2026 the Business plan was renamed Standard and the Enterprise plan renamed Professional. Before that, in August 2022 the personal paid plan was discontinued; in October 2022 the Free plan's limit on group chats was removed and a viewing limit introduced; in July 2023 new prices were applied to all users, including existing ones; and in August 2024 the Free plan's limit on viewable messages was removed, storage increased and a limit on contacts added.
+According to the official pricing page (as of 2026-10-06, before tax), Standard costs ¥700 per user per month on an annual contract or ¥840 on a monthly contract, and Professional costs ¥1,200 or ¥1,440 respectively. The five-user minimum applies to the Professional plan (checked 2026-11-02). Annual contracts are shown as "two months free." According to the "history of price and plan changes" in the earnings presentation, in August 2026 the Business plan was renamed Standard and the Enterprise plan renamed Professional. Before that, in August 2022 the personal paid plan was discontinued; in October 2022 the Free plan's limit on group chats was removed and a viewing limit introduced; in July 2023 new prices were applied to all users, including existing ones; and in August 2024 the Free plan's limit on viewable messages was removed, storage increased and a limit on contacts added.
 :::
+
+Correction (November 2, 2026). The first version read as if both plans had a five-user minimum, which was inaccurate. The pricing page's note applies that minimum to the Professional plan, and the earnings presentation says the Standard minimum changed to one.
 
 :::fact
 According to the same presentation, consolidated revenue for the second quarter of the fiscal year ending December 2026 (April–June) was ¥2.689 billion (up 17.1% year on year), with the SaaS domain at ¥2.044 billion (up 5.0%) and the BPaaS domain at ¥645 million (up 84.0%). EBITDA was ¥469 million (up 60.6%) and operating profit ¥276 million. Recurring (stock) revenue makes up 95% of sales. The company revised its full-year forecast to revenue of ¥10.768–10.958 billion (up 13–15%) and EBITDA of ¥1.5–1.7 billion; for the fiscal year ended December 2025, revenue was ¥9.529 billion and EBITDA ¥1.371 billion. The BPaaS domain includes Takushita, attendance management, HR evaluation, invoice receipt and mail receipt services, plus the business of atena, which joined the group in April 2026. The official sales-partner page lists SB C&S, Daiwabo Information System, TD SYNNEX and Networld as distributors, along with more than 40 sales partners.
