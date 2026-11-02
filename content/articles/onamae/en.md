@@ -6,13 +6,13 @@ lead: "On Onamae.com's home page, a large \"1 yen\" sits next to .com and .jp. R
 category: dev-tool
 tags: [domains, hosting, small-business, security, subscription]
 publishedAt: "2026-10-11"
-updatedAt: "2026-10-11"
+updatedAt: "2026-11-02"
 lastVerified: "2026-10-11"
 expires:
-  - date: "2026-10-30"
-    claim: "The 100% transfer-fee cashback campaign (until 12:00 on October 30)"
   - date: "2026-10-31"
     claim: "October's 25.50% service maintenance adjustment fee and the renewal table that includes it"
+  - date: "2026-11-30"
+    claim: "The 100% transfer-fee cashback campaign (until 12:00 on November 30)"
 serviceUrl: "https://www.onamae.com/"
 # Affiliate link placeholder: Onamae.com runs its affiliate program through two ASPs, A8.net and
 # ValueCommerce (https://www.onamae.com/clever/affiliate/, checked 2026-10-11: register with either
@@ -105,7 +105,7 @@ sources:
     accessedAt: "2026-10-11"
   - label: "Onamae.com official: Domain transfer 100% cashback campaign (2026-09-30 to 10-30)"
     url: "https://www.onamae.com/campaign/transferincp/"
-    accessedAt: "2026-10-11"
+    accessedAt: "2026-11-02"
   - label: "Onamae.com official: Reseller program (API integration)"
     url: "https://www.onamae.com/partner/"
     accessedAt: "2026-10-11"
@@ -221,7 +221,7 @@ www.onamae.com sits behind Cloudflare, and among the pages this site requested, 
 ## One yen in year one, and a year two that moves with holdings and exchange rates
 
 :::fact
-According to the renewal price page (checked 2026-10-11, tax included), one-year renewal prices fall in four tiers by the number of domains held: .com costs 1,408 yen for four or fewer, 1,375 yen for five or more, 1,342 yen for 11 or more and 1,287 yen for 31 or more. .net and .org go from 1,628 yen down to 1,507 yen, .jp from 3,124 yen to 3,091 yen, and .co.jp from 7,678 yen to 4,125 yen. .xyz (2,013 yen), .shop (6,688 yen) and .online (5,040 yen) have no tiers. The transfer campaign page says that from 12:00 on September 30 to 12:00 on October 30, 2026, transferring .com, .net or general-use and prefecture-type .jp domains from a domestic provider earns a 100% cashback of the transfer fee and a three-year extension of the expiry date (for .jp, only the two-year extension granted the following month; paid by credit card, up to 10 domains per person during the period), and it tells "those holding 31 or more domains" that renewal costs get cheaper as the count grows. On the service maintenance adjustment fee added to these prices, the September 4, 2026 news post says that "in view of the surge in various prices," it has been charged temporarily since February 1, 2023. The home page notes that the rate "differs every month," and the news posts set it at 27.00% from 12:00 on August 3, 2026, 26.25% from 12:00 on September 1 and 25.50% from 12:00 on October 1, all naming "fluctuations in exchange rates" as the main factor and stating that charges incurred between 0:00 and 12:00 on the day of a change are calculated at the previous rate.
+According to the renewal price page (checked 2026-10-11, tax included), one-year renewal prices fall in four tiers by the number of domains held: .com costs 1,408 yen for four or fewer, 1,375 yen for five or more, 1,342 yen for 11 or more and 1,287 yen for 31 or more. .net and .org go from 1,628 yen down to 1,507 yen, .jp from 3,124 yen to 3,091 yen, and .co.jp from 7,678 yen to 4,125 yen. .xyz (2,013 yen), .shop (6,688 yen) and .online (5,040 yen) have no tiers. The transfer campaign page (checked 2026-11-02) says that from 12:00 on October 30 to 12:00 on November 30, 2026, transferring .com, .net or general-use and prefecture-type .jp domains from a domestic provider earns a 100% cashback of the transfer fee and a two-year extension of the expiry date (one year on completion and one more the following month; for .jp, only the extension granted the following month; paid by credit card, up to 10 domains per person during the period; the previous run until October 30 offered three years), and it tells "those holding 31 or more domains" that renewal costs get cheaper as the count grows. On the service maintenance adjustment fee added to these prices, the September 4, 2026 news post says that "in view of the surge in various prices," it has been charged temporarily since February 1, 2023. The home page notes that the rate "differs every month," and the news posts set it at 27.00% from 12:00 on August 3, 2026, 26.25% from 12:00 on September 1 and 25.50% from 12:00 on October 1, all naming "fluctuations in exchange rates" as the main factor and stating that charges incurred between 0:00 and 12:00 on the day of a change are calculated at the previous rate.
 :::
 
 | Domain (tax included) | First registration | Second and later | One-year renewal (four or fewer held) | Transfer | Renewal with the 25.50% surcharge |
