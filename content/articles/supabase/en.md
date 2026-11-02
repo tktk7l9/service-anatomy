@@ -6,7 +6,7 @@ lead: "Supabase's official architecture document carries an unusual declaration:
 category: dev-tool
 tags: [database, postgres, open-source, backend, baas]
 publishedAt: "2026-07-21"
-updatedAt: "2026-09-28"
+updatedAt: "2026-11-02"
 lastVerified: "2026-09-28"
 serviceUrl: "https://supabase.com/"
 vendor: "Supabase Inc."
@@ -108,7 +108,9 @@ The official Series F post names three uses for the capital: accelerating open s
 :::
 
 :::guess
-The valuation surge — $2B to $10B in about a year — looks like prepayment for a position rather than for current revenue: the default backend of AI coding. In an era where AI tools write the code, what wins adoption is not human learning cost but standardness an AI can operate accurately. Sitting atop Postgres and REST — the technologies best represented in training data — Supabase is structurally favored as the landing zone for vibe coding. But the 60%-via-AI figure carries the twin risk of surging free usage decoupled from paid conversion; how many of the ten million AI-created databases grow into paying customers is what will grade this valuation.
+The valuation surge — $2B to $10B in about a year — looks like prepayment for a position rather than for current revenue: the default backend of AI coding. In an era where AI tools write the code, what wins adoption is not human learning cost but standardness an AI can operate accurately. Sitting atop Postgres and REST — the technologies best represented in training data — Supabase is structurally favored as the landing zone for vibe coding. But the 60%-via-AI figure carries the twin risk of surging free usage decoupled from paid conversion; how many of the databases created with AI tools grow into paying customers is what will grade this valuation.
 :::
+
+Correction (November 2, 2026). The first version of this paragraph said "the ten million AI-created databases," which was wrong. The roughly ten million in the Series F announcement counts developers, not databases.
 
 Just as Figma built its engine in C++ and Canva assembled AWS, backend construction forks into building and bundling. Supabase is the terminal case of bundling — a product held together by taste in selection and care in integration. Writing "we don't build from scratch" into official documentation is the clearest possible statement that in the age of open source, product development has shifted its center of gravity from invention to editing.

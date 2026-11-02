@@ -221,6 +221,14 @@
     "siteName": "Figma",
     "fetchedAt": "2026-08-06"
   },
+  "firebase": {
+    "url": "https://firebase.google.com/",
+    "title": "Firebase | Google's Mobile and Web App Development Platform",
+    "description": "Discover Firebase, Google’s mobile and web app development platform that helps developers build apps and games that users will love.",
+    "image": "https://firebase.google.com/images/social.png",
+    "siteName": "Firebase",
+    "fetchedAt": "2026-11-02"
+  },
   "fly-io": {
     "url": "https://fly.io/",
     "title": "Fly.io | Deploy apps and agents on fast, hardware-isolated VMs",
@@ -276,6 +284,14 @@
     "image": "https://ghostty.org/social-share-card.jpg",
     "siteName": "Ghostty",
     "fetchedAt": "2026-10-01"
+  },
+  "github-copilot": {
+    "url": "https://github.com/features/copilot",
+    "title": "GitHub Copilot · Your AI coding agent · GitHub",
+    "description": "GitHub Copilot works every step of the way, from an open issue to reviewing and merging a pull request. Use it in your editor, the terminal, on your desktop, and on GitHub.",
+    "image": "https://images.ctfassets.net/8aevphvgewt8/4KxWJH8PVVXdqBLs1V3UJ8/7b7f6e8405daa24565374f993c0fca68/github-copilot-open-graph-img.jpg",
+    "siteName": "GitHub",
+    "fetchedAt": "2026-11-02"
   },
   "google-workspace": {
     "url": "https://workspace.google.com/intl/ja/",
@@ -361,6 +377,14 @@
     "image": "https://lovable.dev/img/opengraph-image.png",
     "siteName": "Lovable",
     "fetchedAt": "2026-08-06"
+  },
+  "mailchimp": {
+    "url": "https://mailchimp.com/",
+    "title": "Email & SMS Marketing Platform | Mailchimp",
+    "description": "Utilize real-time user behavior data and artificial intelligence to convert more customers. Easy to use, get started for free!",
+    "image": "https://mailchimp.com/ctf/images/yzco4xsimv0y/1SB1jCYU95Dh5YDdrucTh0/b8a7462001c1152ff92fef2c02b3b551/Intuit_Mailchimp_-_Wordmark_2023_-_Recirculation_.png",
+    "siteName": "Mailchimp",
+    "fetchedAt": "2026-11-02"
   },
   "make": {
     "url": "https://www.make.com/en",
@@ -492,6 +516,10 @@
     "image": "https://www.netlify.com/images/og-image-default.png",
     "fetchedAt": "2026-10-10"
   },
+  "nordvpn": {
+    "url": "https://nordvpn.com/",
+    "fetchedAt": "2026-11-02"
+  },
   "note": {
     "url": "https://note.com/",
     "title": "note ――つくる、つながる、とどける。",
@@ -577,6 +605,14 @@
     "image": "https://network.mobile.rakuten.co.jp/assets/img/common/ogp.png",
     "fetchedAt": "2026-10-01"
   },
+  "rakuten-securities": {
+    "url": "https://www.rakuten-sec.co.jp/",
+    "title": "楽天証券 | ネット証券（株・FX・投資信託･確定拠出年金･NISA）",
+    "description": "投資信託や確定拠出年金、NISAなら初心者に選ばれる楽天グループの楽天証券。SPUに仲間入りし、ポイント投資で楽天市場のお買い物のポイントが＋1倍！取引や残高に応じて楽天ポイントが貯まる、使える楽天証券でおトクに資産形成を始めよう！",
+    "image": "https://www.rakuten-sec.co.jp/web/shared/images/og-image.gif",
+    "siteName": "楽天証券",
+    "fetchedAt": "2026-11-02"
+  },
   "rakuten-travel": {
     "url": "https://travel.rakuten.co.jp/",
     "title": "楽天トラベル",
@@ -584,6 +620,14 @@
     "image": "https://img.travel.rakuten.co.jp/share/common/images/bnr_ogp_logo.gif",
     "siteName": "楽天トラベル",
     "fetchedAt": "2026-09-29"
+  },
+  "render": {
+    "url": "https://render.com/",
+    "title": "Render | The cloud for builders",
+    "description": "Deploy and scale any app or agent from your first user to your billionth. Build faster on intuitive cloud infrastructure for the modern web.",
+    "image": "https://cdn.sanity.io/images/hvk0tap5/production/a3528e77b010804af14908fab79f826d66437620-1600x900.png?fit=max&auto=format",
+    "siteName": "Render",
+    "fetchedAt": "2026-11-02"
   },
   "renosy": {
     "url": "https://www.renosy.com/",
@@ -671,6 +715,14 @@
     "siteName": "しずかなインターネット",
     "fetchedAt": "2026-08-06"
   },
+  "slack": {
+    "url": "https://slack.com/intl/ja-jp/",
+    "title": "Slack | AI 活用型の仕事用プラットフォーム＆生産性ツール",
+    "description": "生産性をアップさせて時間を節約。Slack はプロジェクトを管理し、ワークフローを自動化し、チームを安全につなげられる、AI を活用した仕事のためのプラットフォームです。今日から仕事をもっとスマートに。",
+    "image": "https://a.slack-edge.com/73a2348/marketing/img/homepage/revamped-24/unfurl/hp-revamp-unfurl.ja-JP.jpg",
+    "siteName": "Slack",
+    "fetchedAt": "2026-11-02"
+  },
   "smaregi": {
     "url": "https://smaregi.jp/",
     "title": "【公式】 POSレジなら「スマレジ」 - 無料で使える高機能レジアプリ",
@@ -731,6 +783,14 @@
     "description": "Stripe は、あらゆる規模や業種のビジネスにおける決済の受け入れ、柔軟な請求モデルの構築、および資金移動の管理を支援する、金融サービスプラットフォームです。",
     "image": "https://images.stripeassets.com/fzn2n1nzq965/XtX984S1GJVsVOXFC7kMu/01988281e867728dfb09aa7793a6e3b9/Stripe.jpg?q=80",
     "fetchedAt": "2026-08-06"
+  },
+  "studio": {
+    "url": "https://studio.design/ja",
+    "title": "Studio｜ノーコードWeb制作プラットフォーム",
+    "description": "国内利用数No.1のノーコードCMS「Studio」。クオリティの高いWebサイトをワンストップで構築・公開・運用でき、30,000社以上の企業でご活用いただいております。",
+    "image": "https://storage.googleapis.com/production-os-assets/assets/eb2e3ecc-fb30-4740-8bc8-12467ee6eefa",
+    "siteName": "Studio｜ノーコードWeb制作プラットフォーム",
+    "fetchedAt": "2026-11-02"
   },
   "suno": {
     "url": "https://suno.com/",
