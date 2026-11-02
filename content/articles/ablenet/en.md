@@ -6,11 +6,9 @@ lead: "\"Even as procurement costs for components such as server equipment and m
 category: dev-tool
 tags: [hosting, vps, small-business, ai, ai-agent, self-hosted, multiplayer]
 publishedAt: "2026-10-13"
-updatedAt: "2026-10-20"
+updatedAt: "2026-11-02"
 lastVerified: "2026-10-13"
 expires:
-  - date: "2026-10-29"
-    claim: "The ConoHa VPS Matome-Toku first-contract prices in the comparison table (campaign prices until October 29) and the calculations based on them"
   - date: "2026-11-19"
     claim: "The XServer VPS for Windows Server cashback in the comparison table (until 17:00 on November 19) and the calculations based on it"
 serviceUrl: "https://www.ablenet.jp/"
@@ -89,7 +87,7 @@ sources:
     accessedAt: "2026-10-13"
   - label: "ABLENET VPS official: Pricing (introductory special prices and renewal prices, old VPS plan prices)"
     url: "https://www.ablenet.jp/vps/service/plan_fee.html"
-    accessedAt: "2026-10-13"
+    accessedAt: "2026-11-02"
   - label: "ABLENET VPS official: VPS specifications (OS, network, hardware)"
     url: "https://www.ablenet.jp/vps/spec/"
     accessedAt: "2026-10-13"
@@ -170,7 +168,7 @@ sources:
     accessedAt: "2026-10-13"
   - label: "ConoHa VPS official: Pricing and specs (hourly billing, Matome-Toku)"
     url: "https://vps.conoha.jp/pricing/"
-    accessedAt: "2026-10-13"
+    accessedAt: "2026-11-02"
 ---
 
 ABLENET is the service brand that a hosting company in Osaka has long used for its rental servers and VPS (virtual private servers). On October 1, 2026, the operating company changed its trade name from 株式会社ケイアンドケイコーポレーション (abbreviated "K&K" in some of its press releases) to ABLENET Inc., bringing the brand and the company name together. The VPS has two banners: one is a Windows VPS for running automated FX trading on MT4/MT5 around the clock, and the other, launched in July 2026, is a Linux VPS for running AI tools such as Dify and Claude Code on servers that users manage themselves. This site has also dissected [XServer VPS](/en/articles/xserver-vps), [ConoHa VPS](/en/articles/conoha-vps) and [Sakura VPS](/en/articles/sakura-vps) in Japan, which can be read alongside this article when choosing where to host.
@@ -223,18 +221,18 @@ Given that the VPS order form's URL ends in index.cgi and that the ABLE Panel ho
 ## Lining up 2 GB price tags against XServer VPS and ConoHa VPS
 
 :::fact
-According to the VPS news (checked 2026-10-13), on July 1, 2026 ABLENET replaced its Linux plans V0 to V7 with L0 to L7, explaining that "we have revised the specifications and pricing so that the plans can be used at more reasonable prices." Compared with the table that opens when you press "See old VPS plan prices" on the pricing page, the renewal price on annual payment is the same for L1 as for V1 (1.5 GB of memory) but with 2 GB of memory, the same for L2 as for V2 (2.5 GB) but with 4 GB, 30.1% lower for L3 than for V3, and 47.4% to 61.7% lower for L4 to L7 than for V4 to V7 (this site's calculation). The July 29 notice, while referring to soaring component procurement costs, announced that the memory of Win1 to Win4 and the virtual CPUs of Win4 (from 5 cores to 8) had been increased with prices unchanged (the Win4 vCPU increase had already been announced in a July 10 notice as a "Win4 CPU increase campaign"). According to the Windows plan upgrade page, memory went from 1 GB to 2 GB on Win1 and from 8 GB to 10 GB on Win4, and no end date has been set for the increase. Meanwhile, an XServer VPS notice (August 3, 2026), citing sharply soaring equipment procurement costs, revised the prices of every plan on September 1, and the 2 GB plan on a 12-month contract went from 1,170 to 1,540 yen a month. Lining up the 2 GB plans on each company's pricing page on October 13, 2026 (all tax included) gives the table below. The XServer VPS for Windows Server page shows a single price table that does not separate first contracts from renewals, offers new contracts of 12 months or more made by 17:00 on November 19, 2026 cashback of up to 30% of the monthly fee (20% for 12 months), and prices the Remote Desktop SAL at 1,210 yen a month. The ConoHa VPS pricing page gives Matome-Toku first-contract prices as campaign prices until October 29, 2026, and prices the 2 GB plan on hourly billing at 3.7 yen an hour, capped at 2,033 yen a month.
+According to the VPS news (checked 2026-10-13), on July 1, 2026 ABLENET replaced its Linux plans V0 to V7 with L0 to L7, explaining that "we have revised the specifications and pricing so that the plans can be used at more reasonable prices." Compared with the table that opens when you press "See old VPS plan prices" on the pricing page, the renewal price on annual payment is the same for L1 as for V1 (1.5 GB of memory) but with 2 GB of memory, the same for L2 as for V2 (2.5 GB) but with 4 GB, 30.1% lower for L3 than for V3, and 47.4% to 61.7% lower for L4 to L7 than for V4 to V7 (this site's calculation). The July 29 notice, while referring to soaring component procurement costs, announced that the memory of Win1 to Win4 and the virtual CPUs of Win4 (from 5 cores to 8) had been increased with prices unchanged (the Win4 vCPU increase had already been announced in a July 10 notice as a "Win4 CPU increase campaign"). According to the Windows plan upgrade page, memory went from 1 GB to 2 GB on Win1 and from 8 GB to 10 GB on Win4, and no end date has been set for the increase. Meanwhile, an XServer VPS notice (August 3, 2026), citing sharply soaring equipment procurement costs, revised the prices of every plan on September 1, and the 2 GB plan on a 12-month contract went from 1,170 to 1,540 yen a month. Lining up the 2 GB plans on each company's pricing page on October 13, 2026 (all tax included) gives the table below. The XServer VPS for Windows Server page shows a single price table that does not separate first contracts from renewals, offers new contracts of 12 months or more made by 17:00 on November 19, 2026 cashback of up to 30% of the monthly fee (20% for 12 months), and prices the Remote Desktop SAL at 1,210 yen a month. The ConoHa VPS pricing page (checked 2026-11-02) shows the same Matome-Toku amounts for first contract and renewal, and prices the 2 GB plan on hourly billing at 3.7 yen an hour, capped at 2,033 yen a month.
 :::
 
 | 2 GB plan (tax included) | Virtual CPUs, disk, line | Monthly price on a 12-month contract (first) | Monthly price on a 12-month contract (renewal) | Monthly price on a 1-month contract (first / renewal) |
 | --- | --- | --- | --- | --- |
 | ABLENET L1 (Linux) | 2 cores, 40 GB SSD, 200 Mbps shared | 968 yen | 1,130 yen | 1,234 yen / 1,476 yen |
 | XServer VPS 2GB (Linux) | 3 cores, 50 GB NVMe SSD, 10 Gbps shared (up to 100 Mbps per contract) | 1,540 yen | 1,540 yen | 1,980 yen / 1,980 yen |
-| ConoHa VPS 2GB (Linux) | 3 cores, 100 GB SSD, 50 Gbps shared (limited to 100 Mbps) | 774 yen (campaign price) | 980 yen | 1,007 yen (campaign price) / 1,259 yen |
+| ConoHa VPS 2GB (Linux) | 3 cores, 100 GB SSD, 50 Gbps shared (limited to 100 Mbps) | 980 yen | 980 yen | 1,259 yen / 1,259 yen |
 | ABLENET Win1 (Windows) | 2 cores, 60 GB SSD, 200 Mbps shared | 1,587 yen | 2,208 yen | 1,931 yen / 2,732 yen |
 | XServer VPS for Windows Server 2GB | 3 cores, 100 GB NVMe SSD, 10 Gbps shared (limited to 200 Mbps) | 2,500 yen (effectively 2,000 yen after cashback) | Not distinguished (single price table) | 2,740 yen |
 
-The amounts in the table come from each company's pricing page (ABLENET's 12-month contract is annual payment, and ConoHa VPS's is Matome-Toku). Among the 2 GB plans, ABLENET's L1 has one fewer virtual core and a smaller disk than XServer VPS and ConoHa VPS. The 12-month total is 11,616 yen at first and 13,552 yen after renewal for ABLENET's L1 (pricing page) and 18,480 yen for XServer VPS's 2 GB plan (monthly price × 12, this site's calculation), so L1 is 37.1% cheaper than XServer VPS at first and 26.7% cheaper after renewal, while the 12-month monthly price of ConoHa VPS's 2 GB plan (774 yen at first, 980 yen at renewal) is below L1's monthly equivalent (this site's calculation). For one person using MT4 or similar on Windows, the monthly equivalent including one license is 2,907 yen at first and 3,528 yen after renewal for ABLENET's Win1, and 3,710 yen (effectively 3,210 yen after cashback) for the 2 GB plan of XServer VPS for Windows Server (this site's calculation).
+The amounts in the table come from each company's pricing page (ABLENET's 12-month contract is annual payment, and ConoHa VPS's is Matome-Toku). Among the 2 GB plans, ABLENET's L1 has one fewer virtual core and a smaller disk than XServer VPS and ConoHa VPS. The 12-month total is 11,616 yen at first and 13,552 yen after renewal for ABLENET's L1 (pricing page) and 18,480 yen for XServer VPS's 2 GB plan (monthly price × 12, this site's calculation), so L1 is 37.1% cheaper than XServer VPS at first and 26.7% cheaper after renewal, while the 12-month monthly price of ConoHa VPS's 2 GB plan (980 yen at first and at renewal) is slightly above L1's first-term monthly equivalent of 968 yen and below its 1,130 yen after renewal (this site's calculation). For one person using MT4 or similar on Windows, the monthly equivalent including one license is 2,907 yen at first and 3,528 yen after renewal for ABLENET's Win1, and 3,710 yen (effectively 3,210 yen after cashback) for the 2 GB plan of XServer VPS for Windows Server (this site's calculation).
 
 :::guess
 Given that the largest price cuts in July's relaunch fell on the plans with 10 GB or more, and that the setup tool guide recommends L4 (10 GB) or above when in doubt, ABLENET appears to have gone after price competitiveness on the larger-memory plans needed to keep AI apps running continuously. On Windows, the step-up to the renewal price is large, 38% to 46% on the widely used Win1 to Win4 (this site's calculation), which can be read as a design that draws switchers with the first price tag and recovers revenue per customer at renewal, but even at the renewal price, Win1's annual payment stays below the 12-month monthly price of XServer VPS for Windows Server. Facing the same soaring procurement costs for components and equipment, XServer VPS raised its price tags while ABLENET explained that it kept its Windows price tags and raised specifications, but because ABLENET does not disclose its CPU and memory models, public information does not reveal what kind of equipment the added memory runs on.

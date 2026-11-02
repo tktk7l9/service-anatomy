@@ -6,11 +6,11 @@ lead: "\"Read ConoHa WING's SKILL.md and follow the instructions to set it up\" 
 category: dev-tool
 tags: [hosting, wordpress, small-business, ai, php]
 publishedAt: "2026-09-30"
-updatedAt: "2026-10-13"
+updatedAt: "2026-11-02"
 lastVerified: "2026-09-30"
 expires:
-  - date: "2026-10-22"
-    claim: "The WING Pack campaign price (Basic at 678 yen a month, new sign-ups by 16:00 on October 22, 2026)"
+  - date: "2026-11-05"
+    claim: "The Start Support Campaign WING Pack price (Basic at 659 yen a month, up to 54% off, new sign-ups by 16:00 on November 5, 2026)"
 serviceUrl: "https://www.conoha.jp/wing/"
 affiliate:
   url: "https://af.moshimo.com/af/c/click?a_id=5828003&p_id=2312&pc_id=4967&pl_id=30490"
@@ -82,7 +82,7 @@ sources:
     accessedAt: "2026-09-30"
   - label: "ConoHa WING: Pricing (Japanese; WING Pack, pay-as-you-go, business plans)"
     url: "https://www.conoha.jp/pricing/"
-    accessedAt: "2026-10-13"
+    accessedAt: "2026-11-02"
   - label: "ConoHa WING: Site publishing skill (Japanese; supported agents, Python 3.8, FAQ on deletion)"
     url: "https://www.conoha.jp/function/skills/"
     accessedAt: "2026-09-30"
@@ -157,7 +157,7 @@ sources:
     accessedAt: "2026-09-30"
 ---
 
-When someone in Japan compares rental servers before starting a blog, ConoHa WING comes up next to [Xserver](/en/articles/xserver). It is run by GMO Internet, Inc., a company listed on the Tokyo Stock Exchange Prime market that also runs a domain registrar business and ConoHa VPS. Launched in 2018 under a "fastest in Japan" banner, the service still keeps hourly billing, a rarity among shared servers, while putting the campaign price of its 36-month prepaid "WING Pack" (¥678 a month for Basic as of October 13, 2026) front and center. And in 2026 it opened a door for AI agents — through FTPS rather than an API.
+When someone in Japan compares rental servers before starting a blog, ConoHa WING comes up next to [Xserver](/en/articles/xserver). It is run by GMO Internet, Inc., a company listed on the Tokyo Stock Exchange Prime market that also runs a domain registrar business and ConoHa VPS. Launched in 2018 under a "fastest in Japan" banner, the service still keeps hourly billing, a rarity among shared servers, while putting the campaign price of its 36-month prepaid "WING Pack" (¥659 a month for Basic as of November 2, 2026) front and center. And in 2026 it opened a door for AI agents — through FTPS rather than an API.
 
 ## Service overview
 
@@ -228,7 +228,7 @@ Within GMO Internet, the shape of the AI-agent entrance differs by product. Cono
 ConoHa WING earns from shared-server fees, and its pricing has two legs: the hourly "regular rate" and the prepaid long-term "WING Pack".
 
 :::fact
-According to the pricing page as of September 30, 2026, the regular rate is ¥2.5 an hour on Basic with a monthly cap of ¥1,452, ¥4.4 an hour on Standard capped at ¥2,640, and ¥8.8 an hour on Premium capped at ¥5,280 (all including tax). There is no setup fee and no free-domain benefit on this rate. The WING Pack is a long-term discount paid up front for the whole term; as of September 30, Basic on a 36-month contract was ¥649 a month (55% off the regular rate, a campaign price for new sign-ups by 16:00 on October 7, 2026). According to the pricing page (checked 2026-10-13), the following "Website Creation Support Campaign" puts the monthly equivalent on a 36-month contract at ¥678 on Basic (53% off the regular rate), ¥1,925 on Standard and ¥3,850 on Premium for new sign-ups by 16:00 on October 22, 2026, while a three-month contract on Basic is ¥1,331, only 8% off. Up to two domains stay free for as long as the contract runs (the second from eight TLDs: .online, .space, .website, .tech, .site, .fun, .tokyo and .shop). The WING Pack cannot be cancelled mid-term and is not available in monthly installments. The business plans, which guarantee memory and vCPU, are ¥1,331 a month on Biz Light (26% off the regular rate), ¥2,844 on Biz Standard and ¥5,687 on Biz Advance over 36 months, with regular rates of ¥3.1, ¥6.1 and ¥12.1 an hour. The discounts are smaller than on the personal plans; a three-month Biz Light contract is only 6% off. The SLA guarantees 99.99% monthly uptime, crediting 10% of the monthly fee as service credit below 99.99% and 30% below 99.9%.
+According to the pricing page as of September 30, 2026, the regular rate is ¥2.5 an hour on Basic with a monthly cap of ¥1,452, ¥4.4 an hour on Standard capped at ¥2,640, and ¥8.8 an hour on Premium capped at ¥5,280 (all including tax). There is no setup fee and no free-domain benefit on this rate. The WING Pack is a long-term discount paid up front for the whole term; as of September 30, Basic on a 36-month contract was ¥649 a month (55% off the regular rate, a campaign price for new sign-ups by 16:00 on October 7, 2026). When checked on October 13, the "Website Creation Support Campaign" running until 16:00 on October 22 had Basic at ¥678 a month (53% off). According to the pricing and campaign pages (checked 2026-11-02), the current "Start Support Campaign" puts the monthly equivalent on a 36-month contract at ¥659 on Basic (54% off the regular rate), ¥1,925 on Standard and ¥3,850 on Premium for new sign-ups by 16:00 on November 5, 2026, while a three-month contract on Basic is ¥1,331, only 8% off. Up to two domains stay free for as long as the contract runs (the second from eight TLDs: .online, .space, .website, .tech, .site, .fun, .tokyo and .shop). The WING Pack cannot be cancelled mid-term and is not available in monthly installments. The business plans, which guarantee memory and vCPU, are ¥1,331 a month on Biz Light (26% off the regular rate), ¥2,844 on Biz Standard and ¥5,687 on Biz Advance over 36 months, with regular rates of ¥3.1, ¥6.1 and ¥12.1 an hour. The discounts are smaller than on the personal plans; a three-month Biz Light contract is only 6% off. The SLA guarantees 99.99% monthly uptime, crediting 10% of the monthly fee as service credit below 99.99% and 30% below 99.9%.
 :::
 
 :::fact

@@ -6,13 +6,13 @@ lead: "\"Equipment procurement costs have risen sharply, and it has become diffi
 category: dev-tool
 tags: [hosting, vps, small-business, api, mcp, ai-agent, multiplayer]
 publishedAt: "2026-10-13"
-updatedAt: "2026-10-13"
+updatedAt: "2026-11-02"
 lastVerified: "2026-10-13"
 expires:
-  - date: "2026-10-26"
-    claim: "The home page's XServer VPS Cloud pop-up (\"until 10/26 | contract term + 3 months free\")"
   - date: "2026-11-19"
     claim: "The Windows Server cashback for new contracts (until 17:00 on November 19) and the guess built on it"
+  - date: "2027-01-27"
+    claim: "The home page's XServer VPS Cloud pop-up (\"until 1/27 | contract term + 3 months free\"; no year is shown)"
 serviceUrl: "https://vps.xserver.ne.jp/"
 # Affiliate link placeholder: XServer VPS runs its affiliate program through A8.net
 # (https://vps.xserver.ne.jp/affiliate.php, checked 2026-10-13): flat rewards per sale, e.g. XServer VPS 2GB
@@ -80,7 +80,7 @@ techStack:
 sources:
   - label: "XServer VPS official: Home page"
     url: "https://vps.xserver.ne.jp/"
-    accessedAt: "2026-10-13"
+    accessedAt: "2026-11-02"
   - label: "XServer VPS official: Pricing and specifications (price tables for first contracts and renewals)"
     url: "https://vps.xserver.ne.jp/price.php"
     accessedAt: "2026-10-13"
@@ -220,7 +220,7 @@ The ordering API stacks safeguards, a trial calculation in advance, a match agai
 ## How rising equipment costs reached inventory and price tags
 
 :::fact
-According to the news index and the individual notices (checked 2026-10-13), the summer of 2026 went as follows. On July 10, citing tight server inventory caused by more orders than expected, the company stopped taking new orders for the free 2 GB and free 4 GB plans. At 17:00 on July 14, saying that equipment procurement costs had soared amid rising global demand for server hardware, making it hard to secure inventory at the previous level, and that inventory was tight because of more orders than expected, it suspended new orders for the 2 GB plan, ended new provisioning of "Free Memory Expansion" on plans of 4 GB and above, and ended early the "up to 20% off campaign" scheduled to run until September 3; on July 22 it shortened the free VPS usage period. According to the Windows Server and business plan pages, Free Memory Expansion permanently increases memory capacity for free, for example adding 4 GB to 8 GB to make 12 GB. On July 9 it also announced the early end of a campaign that doubled friend referral benefits. On August 3 it announced that prices for first contracts and renewals on every plan would be revised on September 1, and said contracts renewed before that date could be extended at the old prices. On August 31 it suspended new orders for the business plans and, on the same day, launched XServer VPS Cloud, provided on dedicated equipment prepared separately for more than half a year. On September 15, the planned resumption of business plan orders was changed from mid-September to "undecided." On September 17 it stopped new orders for every XServer VPS plan (existing customers could still place additional orders) and said it expected to resume in November, but resumed at 17:00 on October 6. The business plans and the free VPS were still suspended as of October 13. The home page that day carried a pop-up recommending XServer VPS Cloud with "until 10/26 | contract term + 3 months free," from 2,480 yen a month (on a one-month contract).
+According to the news index and the individual notices (checked 2026-10-13), the summer of 2026 went as follows. On July 10, citing tight server inventory caused by more orders than expected, the company stopped taking new orders for the free 2 GB and free 4 GB plans. At 17:00 on July 14, saying that equipment procurement costs had soared amid rising global demand for server hardware, making it hard to secure inventory at the previous level, and that inventory was tight because of more orders than expected, it suspended new orders for the 2 GB plan, ended new provisioning of "Free Memory Expansion" on plans of 4 GB and above, and ended early the "up to 20% off campaign" scheduled to run until September 3; on July 22 it shortened the free VPS usage period. According to the Windows Server and business plan pages, Free Memory Expansion permanently increases memory capacity for free, for example adding 4 GB to 8 GB to make 12 GB. On July 9 it also announced the early end of a campaign that doubled friend referral benefits. On August 3 it announced that prices for first contracts and renewals on every plan would be revised on September 1, and said contracts renewed before that date could be extended at the old prices. On August 31 it suspended new orders for the business plans and, on the same day, launched XServer VPS Cloud, provided on dedicated equipment prepared separately for more than half a year. On September 15, the planned resumption of business plan orders was changed from mid-September to "undecided." On September 17 it stopped new orders for every XServer VPS plan (existing customers could still place additional orders) and said it expected to resume in November, but resumed at 17:00 on October 6. The business plans and the free VPS were still suspended as of October 13. The home page that day carried a pop-up recommending XServer VPS Cloud with "until 10/26 | contract term + 3 months free"; when checked on November 2, 2026, the same pop-up gave the deadline as "until 1/27" (no year is shown), from 2,480 yen a month (on a one-month contract).
 :::
 
 | Monthly price (tax included) | Before (until August 31) | After (from September 1) | Increase (this site's calculation) |
