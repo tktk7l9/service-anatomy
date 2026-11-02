@@ -6,7 +6,7 @@ lead: "Publish your entire recommendation algorithm on GitHub — no other socia
 category: media
 tags: [social-media, ai, open-source, moderation, x-corp]
 publishedAt: "2026-07-20"
-updatedAt: "2026-10-02"
+updatedAt: "2026-11-03"
 lastVerified: "2026-10-02"
 serviceUrl: "https://x.com/"
 vendor: "X Corp. (Space Exploration Technologies Corp.)"
@@ -47,9 +47,9 @@ sources:
   - label: "SEC: SpaceX Form S-1 (filed 2026-05-20; acquisition of xAI and X, MAU, paid subscribers, revenue breakdown, X's borrowings)"
     url: "https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/spaceexplorationtechnologi.htm"
     accessedAt: "2026-10-02"
-  - label: "SEC: SpaceX Form 10-Q (quarter ended June 2026; IPO completion, advertising revenue, repayment of X's term loans)"
-    url: "https://www.sec.gov/Archives/edgar/data/1181412/000162828026052535/spcx-20260630.htm"
-    accessedAt: "2026-10-02"
+  - label: "SpaceX Investor Relations: Form 10-Q (quarter ended June 2026; IPO completion, advertising revenue, repayment of X's term loans)"
+    url: "https://s21.q4cdn.com/184289198/files/doc_financials/2026/q2/dc41a8f3-2234-40ec-95e3-3867336ae181.pdf"
+    accessedAt: "2026-11-03"
   - label: "Elon Musk (official X post): announcing xAI's acquisition of X, valuing it at $80B + $33B (2025-03-28)"
     url: "https://x.com/elonmusk/status/1905731750275510312?lang=en"
     accessedAt: "2026-10-02"

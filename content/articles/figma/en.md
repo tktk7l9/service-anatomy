@@ -1,12 +1,12 @@
 ---
 service: "Figma"
 title: "A Game Engine Inside a Browser — How Figma Turned a Collapsed $20B Deal Into a $1B War Chest"
-description: "Figma, the browser-based design tool, dissected: its custom rendering engine (C++ compiled to WebAssembly), a proprietary real-time collaboration protocol that is neither OT nor CRDT, and the path from a collapsed Adobe acquisition to an independent IPO — from official blog posts and SEC filings."
+description: "Figma, the browser-based design tool, dissected: its custom rendering engine (C++ compiled to WebAssembly), a proprietary real-time collaboration protocol that is neither OT nor CRDT, and the path from a collapsed Adobe acquisition to an independent IPO — from official blog posts."
 lead: "The conventional wisdom was that browsers weren't built to run game engines. Figma broke that by compiling a C++ rendering engine to WebAssembly, enabling multiple people to edit the same canvas at once. When regulators blocked a $20 billion acquisition, the $1 billion breakup fee became the war chest for an independent IPO. We dissect the technical and business strength behind both moves."
 category: productivity
 tags: [design-tool, webassembly, collaboration, rust, ipo]
 publishedAt: "2026-07-20"
-updatedAt: "2026-10-03"
+updatedAt: "2026-11-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.figma.com/"
 vendor: "Figma, Inc."
@@ -59,9 +59,9 @@ sources:
   - label: "Figma official blog: WebAssembly cut Figma's load time by 3x"
     url: "https://www.figma.com/blog/webassembly-cut-figmas-load-time-by-3x/"
     accessedAt: "2026-07-20"
-  - label: "SEC Form 424B4 (Figma, Inc. — IPO prospectus, listed August 2025)"
-    url: "https://www.sec.gov/Archives/edgar/data/1579878/000162828025037014/figma424b4.htm"
-    accessedAt: "2026-07-20"
+  - label: "Figma blog: IPO pricing announcement (2025-07-30 — $33 per share, NYSE trading from July 31)"
+    url: "https://www.figma.com/blog/ipo-pricing/"
+    accessedAt: "2026-11-03"
   - label: "The Register: Figma files for IPO in wake of abandoned Adobe acquisition (2025-04)"
     url: "https://www.theregister.com/2025/04/16/adobe_figma_ipo/"
     accessedAt: "2026-07-20"
@@ -74,7 +74,7 @@ A browser is for displaying documents and forms — not for running a game engin
 Figma is a collaborative design tool that runs in the browser, built around the experience of an entire team — not just designers, but engineers and PMs — viewing and editing the same file at once.
 
 :::fact
-Per its SEC filing (Form 424B4), Figma listed on the New York Stock Exchange on August 1, 2025, offering 12.5 million newly issued shares at a public offering price of $33 per share. Prior to this, Adobe had announced in September 2022 its intent to acquire Figma for roughly $20 billion, but the two companies mutually agreed to terminate the deal in December 2023 after regulators in Europe and the UK gave no clear path to approval. Per reporting including The Register, Adobe paid Figma a $1 billion termination fee as part of that agreement.
+According to Figma's IPO announcement on its official blog (July 30, 2025), Figma priced its IPO at $33 per share and began trading on the New York Stock Exchange (ticker FIG) on July 31, 2025. Figma itself offered 12,472,657 newly issued shares, and existing stockholders offered another 24,464,423. The offering was expected to close on August 1. Prior to this, Adobe had announced in September 2022 its intent to acquire Figma for roughly $20 billion, but the two companies mutually agreed to terminate the deal in December 2023 after regulators in Europe and the UK gave no clear path to approval. Per reporting including The Register, Adobe paid Figma a $1 billion termination fee as part of that agreement.
 :::
 
 :::pull
@@ -109,8 +109,10 @@ Deliberately adopting neither of the two academically established approaches —
 Figma's revenue is seat-based SaaS, but its business history is defined by an M&A drama that overshadows the pricing model itself.
 
 :::fact
-In September 2022, Adobe announced its intent to acquire Figma for roughly $20 billion (split roughly evenly between cash and stock), but with no clear path to European and UK regulatory approval, the deal was mutually terminated in December 2023. Per the termination agreement, Adobe paid Figma a $1 billion breakup fee. Figma subsequently filed for an IPO in July 2025 and went public on August 1, 2025, at $33 per share.
+In September 2022, Adobe announced its intent to acquire Figma for roughly $20 billion (split roughly evenly between cash and stock), but with no clear path to European and UK regulatory approval, the deal was mutually terminated in December 2023. Per the termination agreement, Adobe paid Figma a $1 billion breakup fee. Figma subsequently listed on the New York Stock Exchange on July 31, 2025, at $33 per share.
 :::
+
+Correction (November 3, 2026). The first version gave the listing date as August 1, 2025. That was wrong. According to Figma's announcement, trading began on July 31; August 1 was the expected closing date of the offering.
 
 :::guess
 The widely held interpretation is that regulators blocked the deal because Figma wasn't merely an acquisition target for Adobe — it was a potential competitive threat to Adobe's own future product lines, including Adobe XD. The $1 billion fee likely functioned as insurance against deal-collapse damage (talent flight, customer anxiety), and in effect became the economic push toward choosing independence. As generative AI opens a new axis of competition around design automation, whether Figma can navigate that shift while carrying the quarterly accountability of a public company is the real test ahead.

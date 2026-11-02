@@ -49,7 +49,7 @@ techStack:
   - layer: "Cloud and regions"
     name: "AWS (8 regions; Azure regions deprecated 2026-04-07)"
     confidence: confirmed
-    evidence: "The official Regions page (as of 2026-11-03) lists eight AWS regions (us-east-1, us-east-2, us-west-2, eu-central-1, eu-west-2, ap-southeast-1, ap-southeast-2, sa-east-1) and says the three Azure regions (eastus2, westus3, gwc) \"are deprecated. You can no longer create new projects in Azure regions.\" According to the deprecation guide, the regions were deprecated on April 7, 2026 and stopped receiving platform updates on October 5, 2026, from which date projects in Free organizations inactive for 90 days or more are subject to deletion. A final end-of-service date is "to be announced," and users who must stay on Azure are pointed to Databricks Lakebase. There is no Tokyo region"
+    evidence: "The official Regions page (as of 2026-11-03) lists eight AWS regions (us-east-1, us-east-2, us-west-2, eu-central-1, eu-west-2, ap-southeast-1, ap-southeast-2, sa-east-1) and says the three Azure regions (eastus2, westus3, gwc) \"are deprecated. You can no longer create new projects in Azure regions.\" According to the deprecation guide, the regions were deprecated on April 7, 2026 and stopped receiving platform updates on October 5, 2026, from which date projects in Free organizations inactive for 90 days or more are subject to deletion. A final end-of-service date is \"to be announced,\" and users who must stay on Azure are pointed to Databricks Lakebase. There is no Tokyo region"
     evidenceUrl: "https://neon.com/docs/introduction/regions"
   - layer: "Login and public site"
     name: "Keycloak (console.neon.tech) / Next.js on Vercel (neon.com) / Cloudflare (console)"

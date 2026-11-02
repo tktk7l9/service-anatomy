@@ -1,12 +1,12 @@
 ---
 service: "Shopify"
 title: "「枯れた技術」を自分で若返らせる — Rails創業のShopifyが年間3,780億ドルを支える方法"
-description: "ECプラットフォームの巨人Shopify。2004年の創業からRuby on Railsに賭け続け、自らJITコンパイラYJITを開発してRailsの性能限界を押し上げる技術戦略と、2024年のBFCM期間に10.5兆件のDBクエリを捌いた運用体制を公式エンジニアリングブログとSEC提出書類から解剖する。"
+description: "ECプラットフォームの巨人Shopify。2004年の創業からRuby on Railsに賭け続け、自らJITコンパイラYJITを開発してRailsの性能限界を押し上げる技術戦略と、2024年のBFCM期間に10.5兆件のDBクエリを捌いた運用体制を公式エンジニアリングブログと決算発表から解剖する。"
 lead: "「Railsは大規模には向かない」という通説に、Shopifyは正面から反論し続けてきた——退場するのではなく、自らRailsとRuby本体に手を入れて若返らせることで。年間3,780億ドルの流通総額を、創業時と同じフレームワークの上で処理し続ける技術戦略を解剖する。"
 category: saas
 tags: [e-commerce, ruby-on-rails, saas, google-cloud, open-source]
 publishedAt: "2026-07-20"
-updatedAt: "2026-09-28"
+updatedAt: "2026-11-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.shopify.com/"
 affiliate:
@@ -53,9 +53,9 @@ sources:
   - label: "Shopify公式エンジニアリングブログ: How we prepare Shopify for BFCM（2025-11・実測トラフィック数値）"
     url: "https://shopify.engineering/bfcm-readiness-2025"
     accessedAt: "2026-09-28"
-  - label: "SEC 10-K（Shopify Inc.・2025年度年次報告書）"
-    url: "https://www.sec.gov/Archives/edgar/data/1594805/000159480526000007/shop-20251231.htm"
-    accessedAt: "2026-09-28"
+  - label: "Shopify IR: 2025年第4四半期・通期決算発表（財務諸表付き・2026-02-11）"
+    url: "https://s27.q4cdn.com/572064924/files/doc_financials/2025/q4/Shopify_Investor_Press_Release_Q4-25_FINAL.pdf"
+    accessedAt: "2026-11-03"
   - label: "Shopify公式: 米国の上場先をNYSEからNasdaqへ移管、TSX上場は継続（2025-03-18）"
     url: "https://www.shopify.com/news/shopify-to-transfer-u-s-stock-exchange-listing-to-nasdaq-no-change-to-tsx-listing"
     accessedAt: "2026-10-02"
@@ -74,7 +74,7 @@ sources:
 Shopifyはオンラインストア構築・決済・在庫管理を統合したECプラットフォームだ。カナダのオタワで2004年に創業し、現在は米Nasdaqとトロント証券取引所（TSX）に上場している。
 
 :::fact
-SEC提出書類（2025年通期決算）によれば、2025年のプラットフォーム流通総額（GMV）は3,784億ドルで前年比29%増、総収益は116億ドルで前年比30%増。マーチャントソリューション収益（決済手数料・貸付・広告等）は65億ドルから88億ドルへ35%拡大した。公式エンジニアリングブログによれば、Shopifyは2004年の創業以来Ruby on Railsを採用し続けており、CEOのTobi Lütke氏はRails初期のコア開発メンバーの一人だった。
+2025年第4四半期・通期の決算発表（財務諸表付き）によれば、2025年のプラットフォーム流通総額（GMV）は3,784億ドルで前年比29%増、総収益は116億ドルで前年比30%増。マーチャントソリューション収益（決済手数料・貸付・広告等）は65億ドルから88億ドルへ35%拡大した。公式エンジニアリングブログによれば、Shopifyは2004年の創業以来Ruby on Railsを採用し続けており、CEOのTobi Lütke氏はRails初期のコア開発メンバーの一人だった。
 :::
 
 :::fact
@@ -119,7 +119,7 @@ ShopifyのUXは、マーチャント（出店者）という非エンジニア�
 Shopifyの収益は、月額のサブスクリプションとマーチャントの取引額に連動する従量課金の二本立てだ。
 
 :::fact
-SEC提出書類によれば、2025年の総収益116億ドルのうち、マーチャントソリューション（決済処理手数料・貸付・紹介料・広告収益等）が88億ドルと過半を占め、前年比35%という高い成長率を記録した。GMVは3,784億ドルで前年比29%増。
+決算発表によれば、2025年の総収益116億ドルのうち、マーチャントソリューション（決済処理手数料・貸付・紹介料・広告収益等）が88億ドルと過半を占め、前年比35%という高い成長率を記録した。GMVは3,784億ドルで前年比29%増。
 :::
 
 :::guess

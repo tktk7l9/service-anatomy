@@ -6,7 +6,7 @@ lead: "自社の推薦アルゴリズムを丸ごとGitHubに公開する——S
 category: media
 tags: [social-media, ai, open-source, moderation, x-corp]
 publishedAt: "2026-07-20"
-updatedAt: "2026-10-02"
+updatedAt: "2026-11-03"
 lastVerified: "2026-10-02"
 serviceUrl: "https://x.com/"
 vendor: "X Corp. (Space Exploration Technologies Corp.)"
@@ -47,9 +47,9 @@ sources:
   - label: "SEC: SpaceX Form S-1（2026-05-20提出。xAI・Xの取得、MAU、有料会員数、売上内訳、Xの借入）"
     url: "https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/spaceexplorationtechnologi.htm"
     accessedAt: "2026-10-02"
-  - label: "SEC: SpaceX Form 10-Q（2026年6月期。IPOの完了、広告売上、Xのタームローン返済）"
-    url: "https://www.sec.gov/Archives/edgar/data/1181412/000162828026052535/spcx-20260630.htm"
-    accessedAt: "2026-10-02"
+  - label: "SpaceX IR: Form 10-Q（2026年6月期。IPOの完了、広告売上、Xのタームローン返済）"
+    url: "https://s21.q4cdn.com/184289198/files/doc_financials/2026/q2/dc41a8f3-2234-40ec-95e3-3867336ae181.pdf"
+    accessedAt: "2026-11-03"
   - label: "Elon Musk（公式X投稿）: xAIによるX買収発表・評価額$80B+$33B（2025-03-28）"
     url: "https://x.com/elonmusk/status/1905731750275510312?lang=en"
     accessedAt: "2026-10-02"

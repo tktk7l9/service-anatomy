@@ -6,7 +6,7 @@ lead: "A small white card reader born in the United States in 2009 turned a smar
 category: saas
 tags: [payments, fintech, pos, small-business, hardware, aws]
 publishedAt: "2026-09-30"
-updatedAt: "2026-09-30"
+updatedAt: "2026-11-03"
 lastVerified: "2026-09-30"
 serviceUrl: "https://squareup.com/jp/ja"
 affiliate:
@@ -90,9 +90,9 @@ sources:
   - label: "Affisearch: ASPs carrying the Square affiliate program"
     url: "https://media-analytics.jp/affisearch/promotions/square"
     accessedAt: "2026-09-30"
-  - label: "Block, Inc.: Form 10-K (fiscal 2025, filed with the SEC 2026-02-26)"
-    url: "https://www.sec.gov/Archives/edgar/data/1512673/000162828026012254/xyz-20251231.htm"
-    accessedAt: "2026-09-30"
+  - label: "Block, Inc.: Form 10-K (fiscal 2025, dated 2026-02-26; PDF from Block investor relations)"
+    url: "https://s29.q4cdn.com/628966176/files/doc_financials/2026/ar/Block-Inc-2025-ARS.pdf"
+    accessedAt: "2026-11-03"
   - label: "Block, Inc.: Form 10-Q (Q2 2026, filed with the SEC 2026-08-05)"
     url: "https://www.sec.gov/Archives/edgar/data/1512673/000162828026053368/xyz-20260630.htm"
     accessedAt: "2026-09-30"

@@ -1,12 +1,12 @@
 ---
 service: "Spotify"
 title: "「Spotifyモデル」はもう存在しない — 実在するのは1万個のリポジトリを一斉更新する仕組みだった"
-description: "音楽ストリーミングの巨人Spotify。アジャイル業界で伝説化した「スクワッド」組織論の実態と現在地、KafkaからGoogle Cloud Pub/Subへの移行、数千リポジトリを自動一斉更新する「Fleet Management」までを公式エンジニアリングブログとSEC提出書類から解剖する。"
+description: "音楽ストリーミングの巨人Spotify。アジャイル業界で伝説化した「スクワッド」組織論の実態と現在地、KafkaからGoogle Cloud Pub/Subへの移行、数千リポジトリを自動一斉更新する「Fleet Management」までを公式エンジニアリングブログと決算資料から解剖する。"
 lead: "「Spotifyモデル」という組織論を知らないアジャイル実践者はいないだろう。だが当のSpotify自身は、2012年のスナップショットに過ぎなかったその型をとうに手放している。伝説の裏で今も動いているのは、もっと地味で、もっと効いている仕組みだ。"
 category: media
 tags: [music-streaming, cloud-migration, engineering-culture, subscription, audio]
 publishedAt: "2026-07-20"
-updatedAt: "2026-10-03"
+updatedAt: "2026-11-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://open.spotify.com/"
 vendor: "Spotify Technology S.A."
@@ -44,15 +44,15 @@ sources:
   - label: "Spotify公式エンジニアリングブログ: Event Delivery – Life in the Cloud（2019-11・Kafka→Pub/Sub移行）"
     url: "https://engineering.atspotify.com/2019/11/spotifys-event-delivery-life-in-the-cloud"
     accessedAt: "2026-07-20"
-  - label: "SEC Form 6-K（Spotify Technology S.A.・2025年第4四半期および通期決算・2026-02-10）"
-    url: "https://www.sec.gov/Archives/edgar/data/1639920/000114036126004482/ef20065075_ex99-1.htm"
-    accessedAt: "2026-09-28"
+  - label: "Spotify IR: 2025年第4四半期アップデート（株主向け資料・Form 6-K 添付資料99.1・2026-02-10）"
+    url: "https://s29.q4cdn.com/175625835/files/doc_financials/2025/q4/Q4-2025-Shareholder-Deck-FINAL.pdf"
+    accessedAt: "2026-11-03"
   - label: "45 Degrees: The death of the 'Spotify Model' のInternet Archive保存版（2026-04-22・原ページは掲載終了）"
     url: "https://web.archive.org/web/20260422230135/https://45degrees.be/the-death-of-the-spotify-model/"
     accessedAt: "2026-10-10"
-  - label: "SEC Form 6-K（Spotify Technology S.A.・2026年第2四半期 中間財務報告）"
-    url: "https://www.sec.gov/Archives/edgar/data/0001639920/000162828026052543/spot-20260630x6xk.htm"
-    accessedAt: "2026-09-28"
+  - label: "Spotify IR: 2026年第2四半期アップデート（株主向け資料・2026-08-04）"
+    url: "https://s29.q4cdn.com/175625835/files/doc_financials/2026/q2/Q2-2026-Shareholder-Deck-FINAL.pdf"
+    accessedAt: "2026-11-03"
   - label: "Spotify公式エンジニアリングブログ: 2025年4月16日の障害のインシデント報告（2025-05-09・境界でEnvoy Proxyを使用）"
     url: "https://engineering.atspotify.com/2025/05/incident-report-spotify-outage-on-april-16-2025"
     accessedAt: "2026-09-28"
@@ -65,7 +65,7 @@ sources:
 Spotifyはスウェーデン発の音楽・ポッドキャスト・オーディオブックのストリーミングサービスだ。2006年創業、現在は米国預託証券としてNYSE上場している。
 
 :::fact
-SEC提出書類（2025年通期決算）によれば、2025年末の月間アクティブユーザー（MAU）は7億5,100万人、有料会員（Premium）は2億9,000万人に達し、年間売上は171.9億ユーロ（前年比9.7%増）、うちPremium会員収益が153.5億ユーロと全社売上の89.3%を占める。2026年6月末にはMAUが7億7,700万人、有料会員が3億人に増えた（2026年第2四半期の提出書類）。「Spotifyモデル」という組織論は、開発者Henrik Kniberg氏とAnders Ivarsson氏が2012年に発表した論文『Scaling Agile @ Spotify』が起源で、両氏自身が後に「当時のスナップショットに過ぎず、汎用フレームワークとして意図したものではない」と繰り返し説明している。
+2025年第4四半期の株主向け資料によれば、2025年末の月間アクティブユーザー（MAU）は7億5,100万人、有料会員（Premium）は2億9,000万人に達し、年間売上は171.9億ユーロ（前年比9.7%増）、うちPremium会員収益が153.5億ユーロと全社売上の89.3%を占める。2026年6月末にはMAUが7億7,700万人、有料会員が3億人に増えた（2026年第2四半期の株主向け資料）。「Spotifyモデル」という組織論は、開発者Henrik Kniberg氏とAnders Ivarsson氏が2012年に発表した論文『Scaling Agile @ Spotify』が起源で、両氏自身が後に「当時のスナップショットに過ぎず、汎用フレームワークとして意図したものではない」と繰り返し説明している。
 :::
 
 :::pull
@@ -100,7 +100,7 @@ KafkaからGoogle Cloud Pub/Subへの移行は、当時のKafkaバージョン�
 Spotifyの収益は、Premium会員のサブスクリプションが9割近くを占める構造だ。
 
 :::fact
-SEC提出書類によれば、2025年通期売上171.9億ユーロのうちPremium会員収益は153.5億ユーロ（89.3%）、広告収益を含むAd-Supported事業は残り約1割にとどまる。2025年末の有料会員は2億9,000万人、MAUは7億5,100万人。2026年第2四半期は売上47.77億ユーロのうちPremiumが43.31億ユーロ（90.7%）、Ad-Supportedが4.46億ユーロで、6月末の有料会員は3億人、MAUは7億7,700万人だった。
+株主向け資料によれば、2025年通期売上171.9億ユーロのうちPremium会員収益は153.5億ユーロ（89.3%）、広告収益を含むAd-Supported事業は残り約1割にとどまる。2025年末の有料会員は2億9,000万人、MAUは7億5,100万人。2026年第2四半期は売上47.77億ユーロのうちPremiumが43.31億ユーロ（90.7%）、Ad-Supportedが4.46億ユーロで、6月末の有料会員は3億人、MAUは7億7,700万人だった。
 :::
 
 :::guess

@@ -1,12 +1,12 @@
 ---
 service: "Spotify"
 title: "The 'Spotify Model' No Longer Exists — What's Actually Running Is a Machine That Updates 10,000 Repos at Once"
-description: "Spotify, the music-streaming giant, dissected: the legendary 'squad' organizational model's real status today, the migration from Kafka to Google Cloud Pub/Sub, and Fleet Management — the system that auto-updates thousands of repositories at once — from the official engineering blog and SEC filings."
+description: "Spotify, the music-streaming giant, dissected: the legendary 'squad' organizational model's real status today, the migration from Kafka to Google Cloud Pub/Sub, and Fleet Management — the system that auto-updates thousands of repositories at once — from the official engineering blog and its shareholder decks."
 lead: "Every agile practitioner has heard of 'the Spotify model.' But Spotify itself moved on from that 2012 snapshot long ago. Behind the legend, something quieter — and far more consequential — is what's actually still running."
 category: media
 tags: [music-streaming, cloud-migration, engineering-culture, subscription, audio]
 publishedAt: "2026-07-20"
-updatedAt: "2026-10-03"
+updatedAt: "2026-11-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://open.spotify.com/"
 vendor: "Spotify Technology S.A."
@@ -44,15 +44,15 @@ sources:
   - label: "Spotify official engineering blog: Event Delivery – Life in the Cloud (2019-11 — Kafka to Pub/Sub)"
     url: "https://engineering.atspotify.com/2019/11/spotifys-event-delivery-life-in-the-cloud"
     accessedAt: "2026-07-20"
-  - label: "SEC Form 6-K (Spotify Technology S.A. — Q4 and full-year 2025 results, 2026-02-10)"
-    url: "https://www.sec.gov/Archives/edgar/data/1639920/000114036126004482/ef20065075_ex99-1.htm"
-    accessedAt: "2026-09-28"
+  - label: "Spotify IR: Q4 2025 Update (shareholder deck, Form 6-K Exhibit 99.1, 2026-02-10)"
+    url: "https://s29.q4cdn.com/175625835/files/doc_financials/2025/q4/Q4-2025-Shareholder-Deck-FINAL.pdf"
+    accessedAt: "2026-11-03"
   - label: "45 Degrees: The death of the 'Spotify Model', Internet Archive copy of 2026-04-22 (the original page is no longer available)"
     url: "https://web.archive.org/web/20260422230135/https://45degrees.be/the-death-of-the-spotify-model/"
     accessedAt: "2026-10-10"
-  - label: "SEC Form 6-K (Spotify Technology S.A. — Q2 2026 interim financial report)"
-    url: "https://www.sec.gov/Archives/edgar/data/0001639920/000162828026052543/spot-20260630x6xk.htm"
-    accessedAt: "2026-09-28"
+  - label: "Spotify IR: Q2 2026 Update (shareholder deck, 2026-08-04)"
+    url: "https://s29.q4cdn.com/175625835/files/doc_financials/2026/q2/Q2-2026-Shareholder-Deck-FINAL.pdf"
+    accessedAt: "2026-11-03"
   - label: "Spotify official engineering blog: incident report on the April 16, 2025 outage (2025-05-09 — Envoy Proxy at the perimeter)"
     url: "https://engineering.atspotify.com/2025/05/incident-report-spotify-outage-on-april-16-2025"
     accessedAt: "2026-09-28"
@@ -65,7 +65,7 @@ Squads, tribes, chapters, guilds — anyone in the agile world knows these four 
 Spotify is a Swedish music, podcast, and audiobook streaming service, founded in 2006 and now listed on the NYSE via American Depositary Shares.
 
 :::fact
-Per its SEC filing (full-year 2025 results), Spotify ended 2025 with 751 million monthly active users (MAU) and 290 million Premium subscribers, with annual revenue of €17.19 billion (up 9.7% year over year) — of which Premium subscriber revenue was €15.35 billion, 89.3% of total revenue. By the end of June 2026, MAU had grown to 777 million and Premium subscribers to 300 million (Q2 2026 filing). "The Spotify model" traces back to a 2012 paper, "Scaling Agile @ Spotify," by Henrik Kniberg and Anders Ivarsson, who have since repeatedly explained it was only a snapshot of that moment, never intended as a generic framework.
+Per its Q4 2025 shareholder deck, Spotify ended 2025 with 751 million monthly active users (MAU) and 290 million Premium subscribers, with annual revenue of €17.19 billion (up 9.7% year over year) — of which Premium subscriber revenue was €15.35 billion, 89.3% of total revenue. By the end of June 2026, MAU had grown to 777 million and Premium subscribers to 300 million (Q2 2026 shareholder deck). "The Spotify model" traces back to a 2012 paper, "Scaling Agile @ Spotify," by Henrik Kniberg and Anders Ivarsson, who have since repeatedly explained it was only a snapshot of that moment, never intended as a generic framework.
 :::
 
 :::pull
@@ -100,7 +100,7 @@ Moving from Kafka to Google Cloud Pub/Sub looks like a response to a specific de
 Spotify's revenue structure leans almost entirely on Premium subscriptions.
 
 :::fact
-Per its SEC filing, of €17.19 billion in full-year 2025 revenue, Premium subscriber revenue was €15.35 billion (89.3%), with the Ad-Supported business — including advertising revenue — making up roughly the remaining tenth. At the end of 2025, Premium subscribers stood at 290 million and MAU at 751 million. In Q2 2026, revenue was €4.777 billion, of which Premium was €4.331 billion (90.7%) and Ad-Supported €446 million; at the end of June, Premium subscribers were 300 million and MAU 777 million.
+Per its shareholder decks, of €17.19 billion in full-year 2025 revenue, Premium subscriber revenue was €15.35 billion (89.3%), with the Ad-Supported business — including advertising revenue — making up roughly the remaining tenth. At the end of 2025, Premium subscribers stood at 290 million and MAU at 751 million. In Q2 2026, revenue was €4.777 billion, of which Premium was €4.331 billion (90.7%) and Ad-Supported €446 million; at the end of June, Premium subscribers were 300 million and MAU 777 million.
 :::
 
 :::guess
