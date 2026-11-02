@@ -1,12 +1,12 @@
 ---
 service: "DigitalOcean"
 title: "4ドルのVMから9桁の契約へ — 個人開発者のクラウドDigitalOceanが「AIネイティブクラウド」に賭けるまで"
-description: "月4ドルのVMで個人開発者を集めてきたDigitalOcean。創業時のRailsとPerl、1つのMySQLテーブルをメッセージキュー代わりにした設計が1万5千本の接続に膨らみ、Event Router・Harpoon・RabbitMQで解体されるまでの技術史と、年間100万ドル超の顧客が売上の23%を占めるまでに進んだAI推論クラウドへの転換を、公式エンジニアリングブログとSEC提出書類から解剖する。"
+description: "月4ドルのVMで個人開発者を集めてきたDigitalOcean。創業時のRailsとPerl、1つのMySQLテーブルをメッセージキュー代わりにした設計が1万5千本の接続に膨らみ、Event Router・Harpoon・RabbitMQで解体されるまでの技術史と、年間100万ドル超の顧客が売上の23%を占めるまでに進んだAI推論クラウドへの転換を、公式エンジニアリングブログと決算発表から解剖する。"
 lead: "月4ドル・1 vCPUの仮想マシン。DigitalOceanは、AWSの管理画面に怯む個人開発者のための「シンプルなクラウド」として育った。その会社が2026年、年間9桁ドル規模の契約をAI企業と結び、自らを「AIネイティブクラウド」と呼んでいる。小口の開発者を入口に据えたまま、大口のAI推論へ重心を移す——その構造を解剖する。"
 category: dev-tool
 tags: [cloud, hosting, vps, ai-inference, indie-dev]
 publishedAt: "2026-09-28"
-updatedAt: "2026-09-28"
+updatedAt: "2026-11-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.digitalocean.com/"
 # affiliate: TODO(owner) — join the DigitalOcean Affiliate Program (via CJ) first, then uncomment and paste the tracking URL (same URL in en.md).
@@ -58,12 +58,12 @@ sources:
   - label: "DigitalOcean公式ブログ: The modern Droplet（KVMとvCPUの種類・2021-01-14）"
     url: "https://www.digitalocean.com/blog/how-to-choose-the-right-droplet-vm"
     accessedAt: "2026-09-28"
-  - label: "SEC 8-K（DigitalOcean Holdings・2025年第4四半期および通期決算・2026-02-24）"
-    url: "https://www.sec.gov/Archives/edgar/data/1582961/000158296126000015/a2025-q4dopressrelease.htm"
-    accessedAt: "2026-09-28"
-  - label: "SEC 8-K（DigitalOcean Holdings・2026年第2四半期決算・2026-08-04）"
-    url: "https://www.sec.gov/Archives/edgar/data/0001582961/000162828026052135/a2026-q2dopressrelease.htm"
-    accessedAt: "2026-09-28"
+  - label: "DigitalOcean投資家向けサイト: 2025年第4四半期および通期決算の発表（2026-02-24）"
+    url: "https://investors.digitalocean.com/news/news-details/2026/DigitalOcean-Announces-Fourth-Quarter-and-Fiscal-Year-2025-Financial-Results/default.aspx"
+    accessedAt: "2026-11-03"
+  - label: "DigitalOcean投資家向けサイト: 2026年第2四半期決算の発表（2026-08-04）"
+    url: "https://investors.digitalocean.com/news/news-details/2026/DigitalOcean-Announces-Second-Quarter-2026-Financial-Results/default.aspx"
+    accessedAt: "2026-11-03"
   - label: "DigitalOcean公式エンジニアリングブログ: Under the Hood: Serving Kimi K3（2026-07-30更新）"
     url: "https://www.digitalocean.com/blog/serving-kimi-k3-inference-engine"
     accessedAt: "2026-09-28"
@@ -82,7 +82,7 @@ sources:
 DigitalOceanは、仮想マシン（Droplet）・マネージドKubernetes・マネージドデータベース・オブジェクトストレージ（Spaces）などを提供するクラウド事業者だ。2011年に創業し、ニューヨーク証券取引所に上場している（ティッカーDOCN）。近年はGPUと推論サービスを前面に出し、自社を「AIネイティブクラウド」と呼んでいる。
 
 :::fact
-公式の料金表によれば、最も安いDropletは月4ドル（1 vCPU・メモリ512MiB・SSD 10GiB・転送量500GiB）。2026年1月1日からDropletは秒単位の課金（最低60秒または0.01ドルのうち高い方）に移行した。SEC提出書類によれば、2025年通期の売上は9億100万ドルで前年比15%増、調整後EBITDAマージンは42%。2025年12月には月次売上の年換算が10億ドルに達した。
+公式の料金表によれば、最も安いDropletは月4ドル（1 vCPU・メモリ512MiB・SSD 10GiB・転送量500GiB）。2026年1月1日からDropletは秒単位の課金（最低60秒または0.01ドルのうち高い方）に移行した。2025年第4四半期および通期の決算発表によれば、2025年通期の売上は9億100万ドルで前年比15%増、調整後EBITDAマージンは42%。2025年12月には月次売上の年換算が10億ドルに達した。
 :::
 
 :::pull
@@ -121,7 +121,7 @@ DigitalOceanのUXは「クラウドを1台のサーバーとして見せる」�
 DigitalOceanの収益は、Droplet・データベース・ストレージ・GPUなどの利用量に応じた課金だ。長く「小さな顧客を大量に」の会社だったが、成長の源泉は明らかに大口へ移っている。
 
 :::fact
-2026年第2四半期（2026年8月4日発表）の売上は2億8,100万ドルで前年比29%増。ARRは11億2,500万ドル、そのうちAI顧客のARRは2億3,400万ドルで212%増えた。月8万3,333ドル超（年換算100万ドル超）を使う顧客からの売上は全体の23%を占め、214%増。同四半期には初めて年間9桁ドル規模の契約をAI企業と結び、加重平均の契約期間は1.6年から3年超に延びた。残存履行義務（RPO）は前年同期の7,100万ドルから8億9,400万ドルへ拡大し、2026年通期の売上見通しは11億7,000万〜11億8,000万ドル（30〜31%増）に引き上げられた。なお2025年第4四半期から、月500ドル以下しか使わない利用者（旧称Builders）は顧客数の集計から外されている。
+2026年第2四半期（2026年8月4日発表）の売上は2億8,100万ドルで前年比29%増。ARRは11億2,500万ドル、そのうちAI顧客のARRは2億3,400万ドルで212%増えた。月8万3,333ドル超（年換算100万ドル超）を使う顧客からの売上は全体の23%を占め、214%増。同四半期にはAIネイティブ企業との間で初めて年間9桁ドル規模の契約（複数）を結び、加重平均の契約期間は1.6年から3年超に延びた。残存履行義務（RPO）は前年同期の7,100万ドルから8億9,400万ドルへ拡大し、2026年通期の売上見通しは11億7,000万〜11億8,000万ドル（30〜31%増）に引き上げられた。なお2025年第4四半期から、月500ドル以下しか使わない利用者（旧称Builders）は顧客数の集計から外されている。
 :::
 
 :::fact
