@@ -14,6 +14,14 @@
     "siteName": "ABLENET",
     "fetchedAt": "2026-10-13"
   },
+  "auth0": {
+    "url": "https://auth0.com/",
+    "title": "Secure AI Agent & User Authentication | Auth0",
+    "description": "Secure users, AI agents, and more with Auth0, an easy-to-implement, scalable, and adaptable authentication and authorization platform.",
+    "image": "https://cdn.auth0.com/website/homepage/sharecard.png",
+    "siteName": "Auth0 by Okta",
+    "fetchedAt": "2026-11-02"
+  },
   "base": {
     "url": "https://thebase.com/",
     "title": "BASE (ベイス) -無料で簡単なネットショップ作成サービス",
@@ -99,6 +107,14 @@
     "image": "https://cdn.sanity.io/images/4zrzovbb/claude-com/6c36adaaf60ecdde313a93ad255eef573ea4de97-1200x630.jpg?w=1200&h=630&fit=crop",
     "siteName": "Claude",
     "fetchedAt": "2026-08-06"
+  },
+  "clerk": {
+    "url": "https://clerk.com/",
+    "title": "Clerk | Authentication and User Management",
+    "description": "The easiest way to add authentication and user management to your application. Purpose-built for React, Next.js, Remix, and “The Modern Web”.",
+    "image": "https://clerk.com/opengraph-image.jpg?opengraph-image.17r31whircaqh.jpg",
+    "siteName": "Clerk",
+    "fetchedAt": "2026-11-02"
   },
   "cloudflare": {
     "url": "https://www.cloudflare.com/",
@@ -315,6 +331,12 @@
     "image": "https://herdr.dev/assets/og-card-v9.png",
     "siteName": "Herdr",
     "fetchedAt": "2026-10-01"
+  },
+  "hetzner": {
+    "url": "https://www.hetzner.com/cloud/",
+    "title": "Cloud-hosting provider for developers & teams",
+    "description": "Cloud-hosting provider for developers & teams. Scalable cloud hosting services – join 1,000,000+ customers ✓ GDPR-compliant",
+    "fetchedAt": "2026-11-02"
   },
   "hostinger": {
     "url": "https://www.hostinger.com/",
@@ -552,6 +574,13 @@
     "siteName": "お名前.com",
     "fetchedAt": "2026-10-11"
   },
+  "paddle": {
+    "url": "https://www.paddle.com/",
+    "title": "Paddle - Subscriptions, Payments & Tax Compliance for SaaS & Mobile Apps",
+    "description": "Increase revenue, reduce risk and reduce cost with Paddle, the payment solution powering global revenue for n8n, Letterboxd & AdGuard. One platform that handles billing, tax and compliance.",
+    "image": "https://images.prismic.io/paddle/Z9gwpziBA97GijeQ_paddle-merchant-of-record-og.png?auto=format,compress&rect=0,20,1200,591&w=1280&h=630",
+    "fetchedAt": "2026-11-02"
+  },
   "paypay": {
     "url": "https://paypay.ne.jp/",
     "title": "PayPay - QRコードで支払うキャッシュレス決済のスマホアプリ",
@@ -573,6 +602,20 @@
     "title": "PixelPot — 歩いて育てる、世界にひとつの植物",
     "description": "毎日の歩数で、あなただけのデジタル植物が育つ。AIが生成するユニークなアートを、歩いて咲かせよう。",
     "fetchedAt": "2026-08-06"
+  },
+  "planetscale": {
+    "url": "https://planetscale.com/",
+    "title": "PlanetScale - the world’s fastest and most scalable cloud hosting for Vitess, Neki, and Postgres",
+    "description": "PlanetScale offers the world’s fastest and most scalable cloud hosting for Vitess, Neki, and Postgres.",
+    "image": "https://planetscale.com/assets/homepage-social-Yera6DPM.png",
+    "fetchedAt": "2026-11-02"
+  },
+  "posthog": {
+    "url": "https://posthog.com/",
+    "title": "PostHog – Your product’s context layer",
+    "description": "PostHog automatically diagnoses problems, fixes bugs, and generates pull requests – all without you having to prompt it.",
+    "image": "https://posthog.com/images/og/default.png",
+    "fetchedAt": "2026-11-02"
   },
   "proton": {
     "url": "https://proton.me/",
@@ -645,6 +688,13 @@
     "siteName": "replit",
     "fetchedAt": "2026-09-29"
   },
+  "resend": {
+    "url": "https://resend.com/",
+    "title": "Resend · Email for developers",
+    "description": "The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.",
+    "image": "https://resend.com/static/cover.jpg",
+    "fetchedAt": "2026-11-02"
+  },
   "sakura-rental-server": {
     "url": "https://rs.sakura.ad.jp/",
     "title": "さくらのレンタルサーバ | 高速・安定WordPressなら！無料2週間お試し",
@@ -674,6 +724,14 @@
     "title": "SBI証券｜株・FX・投資信託・確定拠出年金・NISA",
     "description": "投資するならSBI証券。株、FX、投資信託、米国株式、債券、金、CFD、先物・オプション、ロボアド、確定拠出年金（iDeCo）、NISAなどインターネットで簡単にお取引できます。使いやすいチャートやアプリも充実。初心者にも安心の証券会社です。",
     "fetchedAt": "2026-09-29"
+  },
+  "sentry": {
+    "url": "https://sentry.io/",
+    "title": "Application Performance Monitoring & Error Tracking Software",
+    "description": "Application performance monitoring for developers & software teams to see errors clearer, solve issues faster & continue learning continuously. Get started at sentry.io.",
+    "image": "https://sentry.io/_astro/home-hero-meta.DJDejDMD.webp",
+    "siteName": "Sentry",
+    "fetchedAt": "2026-11-02"
   },
   "setlog": {
     "url": "https://apps.apple.com/jp/app/setlog/id6587576438",
