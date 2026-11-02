@@ -3,10 +3,10 @@ import { BASE_URL } from "@/engine/site";
 
 /** Crawlers collecting training data or producing AI summaries.
  *
- *  nonce CSP was dropped on 2026-09-12, but article pages (articles/[slug]) have no
- *  generateStaticParams and remain dynamic, so they are not served from the CDN cache.
- *  Letting aggressive crawlers through means every request costs a full article body
- *  in transfer, so throttling them is still needed.
+ *  Every page is prerendered now (generateStaticParams + dynamicParams = false), so the old
+ *  reason, article pages being rendered per request, no longer applies. The list stays: each
+ *  listing page still inlines one HeroArt SVG per article (0.68 MB for /ja), so aggressive
+ *  crawlers still cost real transfer.
  *
  *  Googlebot / Bingbot are allowed to keep search traffic.
  *  Google-Extended only controls use for Gemini training and does not affect the search index. */

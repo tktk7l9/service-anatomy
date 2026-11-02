@@ -42,9 +42,10 @@ if (http.maxHeaderSize < MIN_HEADER_SIZE) {
 
 const ROOT = process.cwd();
 // First attempt: identify ourselves honestly so site owners can see who is checking.
-// The UA carries only the public site URL, never a personal contact.
+// The UA carries only the repository URL (where the script lives), never a personal contact.
+// It used to point at the old vercel.app URL, which has been dead since the move to Workers.
 const BOT_UA =
-  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36 ServiceAnatomyBot/1.0 (+https://service-anatomy.vercel.app)";
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36 ServiceAnatomyBot/1.0 (+https://github.com/tktk7l9/service-anatomy)";
 // GET retry: a plain browser UA plus the headers a browser sends on a top-level navigation.
 // Some servers reject anything that looks automated or lacks Sec-Fetch-* (ai.meta.com answers
 // 400 without them). The retry is a single GET per URL, i.e. what a reader clicking the link
