@@ -262,7 +262,7 @@ Mailchimpの体験は、はじめてメールを送る人を迷わせず、送�
 ::techstack
 
 :::fact
-当サイトの実観測（2026-11-02）では、mailchimp.com と login.mailchimp.com は server: istio-envoy を返し、x-envoy-decorator-operation に mailchimp-monolith-mailchimpapp-use2 を含む内部のサービス名を出していた。us1.api.mailchimp.com は mailchimp-cloud-httpinterposer-use2 を含む名前、mandrillapp.com は server: nginx と mctx-mandrillapp-usw2 を含む名前を返した。リージョンのヘッダーは、本体とAPIがus-east-2、mandrillappがus-west-2だった。mailchimp.com/developer/ は server: cloudflare と x-fern-renderer: static を返した。mailchimp.com のHTMLには `window.__plums_config` と、公開の機能フラグの名前の一覧があり、その中に `plums.fy27_price_increase_cache_version` が含まれていた。セキュリティのページは、Mailchimpが所有し運用するサーバーを米国のデータセンターに置くと書き、Intuitの2026年度の10-Kは、Mailchimpを含むオンラインのサービスのシステムの大半にAWSやGoogle Cloudなどを使うと書く。サブプロセッサーの一覧（最終更新2024-02-29）は、Akamai、配信と一時保存のAmazon、Googleのほか、SMSにInfobipとTwilio、AIにOpenAIとMicrosoft、データベースの改善にPercona、不正防止にE-HawkとEl Caminoを挙げる。
+当サイトの実観測（2026-11-02）では、mailchimp.com と login.mailchimp.com は server: istio-envoy を返し、x-envoy-decorator-operation に mailchimp-monolith-mailchimpapp-use2 を含む内部のサービス名を出していた。us1.api.mailchimp.com は mailchimp-cloud-httpinterposer-use2 を含む名前、mandrillapp.com は server: nginx と mctx-mandrillapp-usw2 を含む名前を返した。リージョンのヘッダーは、本体とAPIがus-east-2、mandrillappがus-west-2だった。mailchimp.com/developer/ は server: cloudflare と x-fern-renderer: static を返した。セキュリティのページは、Mailchimpが所有し運用するサーバーを米国のデータセンターに置くと書き、Intuitの2026年度の10-Kは、Mailchimpを含むオンラインのサービスのシステムの大半にAWSやGoogle Cloudなどを使うと書く。サブプロセッサーの一覧（最終更新2024-02-29）は、Akamai、配信と一時保存のAmazon、Googleのほか、SMSにInfobipとTwilio、AIにOpenAIとMicrosoft、データベースの改善にPercona、不正防止にE-HawkとEl Caminoを挙げる。
 :::
 
 :::guess
