@@ -1,13 +1,13 @@
 ---
 service: "Neon"
 title: "データベースの80%はAIエージェントが作り、Databricksに買収され、無料枠は100プロジェクト、公開リポジトリのコミットは2025年8月から月1件 — 「人のための無料枠」を「エージェントのための無料枠」に作り替えたNeonを解剖する"
-description: "Postgresのストレージとコンピュートを分離し、ブランチと「ゼロへのスケール」を売りにしたサーバーレスPostgresのNeonは、2025年5月14日にDatabricksへの合流を発表し、いまは「Lakebase Postgres」を中核にした「エージェントのためのバックエンド」を名乗る。料金は最低料金のない従量課金で、Launchは1CU時間0.106ドル、ストレージは1GB月0.35ドル。無料枠は100プロジェクト、各100CU時間と1GB。2026年4月にはAzureリージョンを廃止し、9月にはFunctions・Object Storage・AI Gatewayを正式版にした。一方、Apache-2.0で公開されていたGitHubの本体リポジトリは2025年8月以降、月に1件ほどしかコミットがない。公式の料金ページ、ドキュメント、ブログ、Databricksのプレスリリース、GitHubのAPI、当サイトの実観測から解剖する。"
+description: "Postgresのストレージとコンピュートを分離し、ブランチと「ゼロへのスケール」を売りにしたサーバーレスPostgresのNeonは、2025年5月14日にDatabricksへの合流を発表し、いまは「Lakebase Postgres」を中核にした「エージェントのためのバックエンド」を名乗る。料金は最低料金のない従量課金で、Launchは1CU時間0.106ドル、ストレージは1GB月0.35ドル。無料枠は100プロジェクト、各100CU時間と1GB（アカウント合計は20GBまで）。2026年4月にはAzureリージョンを廃止し、9月にはFunctions・Object Storage・AI Gatewayを正式版にした。一方、Apache-2.0で公開されていたGitHubの本体リポジトリは2025年8月以降、月に1件ほどしかコミットがない。公式の料金ページ、ドキュメント、ブログ、Databricksのプレスリリース、GitHubのAPI、当サイトの実観測から解剖する。"
 lead: "Neonの会社概要ページには、2つの数字が大きく書いてある。「毎日1,500万のPostgresデータベースが起動する」「データベースの80%は自動化されたエージェントが作る」。人が手で作る前提のデータベースの無料枠は、1つか2つのプロジェクトで十分だった。エージェントが1秒に1つ以上作る世界では、100プロジェクトが要る。Databricksに買収された会社が、無料枠を100に増やし、Azureから撤退し、公開リポジトリを静かにしたまま、何を売ろうとしているのかを解剖する。"
 category: dev-tool
 tags: [database, postgres, serverless, rust, ai-agent, open-source, baas, databricks]
 publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
-lastVerified: "2026-10-06"
+updatedAt: "2026-11-03"
+lastVerified: "2026-11-03"
 serviceUrl: "https://neon.com/"
 # Affiliate link placeholder: Neon has no public affiliate program (checked 2026-10-06 on
 # neon.com/pricing and the docs; only a Startup Program, an Open Source Program and an
@@ -49,7 +49,7 @@ techStack:
   - layer: "クラウド・リージョン"
     name: "AWS (8 regions; Azure regions deprecated 2026-04-07)"
     confidence: confirmed
-    evidence: "公式ドキュメント「Regions」（2026-10-06時点）にAWSの8リージョン（us-east-1、us-east-2、us-west-2、eu-central-1、eu-west-2、ap-southeast-1、ap-southeast-2、sa-east-1）を列挙し、Azureの3リージョン（eastus2、westus3、gwc）は「非推奨で、新しいプロジェクトは作れない」と明記。廃止ガイドは2026年4月7日に非推奨、移行期限は2026年10月5日とし、Azureに残す選択肢としてDatabricks Lakebaseを案内する。東京リージョンはない"
+    evidence: "公式ドキュメント「Regions」（2026-11-03時点）にAWSの8リージョン（us-east-1、us-east-2、us-west-2、eu-central-1、eu-west-2、ap-southeast-1、ap-southeast-2、sa-east-1）を列挙し、Azureの3リージョン（eastus2、westus3、gwc）は「非推奨で、新しいプロジェクトは作れない」と明記。廃止ガイドによれば、2026年4月7日に非推奨となり、2026年10月5日でプラットフォームの更新が止まり、同日からFreeの組織で90日以上使われていないプロジェクトは削除の対象になる。最終的なサービス終了日は「後日発表」とされ、Azureに残す選択肢としてDatabricks Lakebaseを案内する。東京リージョンはない"
     evidenceUrl: "https://neon.com/docs/introduction/regions"
   - layer: "ログイン基盤・公開サイト"
     name: "Keycloak (console.neon.tech) / Next.js on Vercel (neon.com) / Cloudflare (console)"
@@ -63,16 +63,16 @@ techStack:
 sources:
   - label: "Neon公式: Pricing"
     url: "https://neon.com/pricing"
-    accessedAt: "2026-10-06"
+    accessedAt: "2026-11-03"
   - label: "Neon公式ドキュメント: Plans"
     url: "https://neon.com/docs/introduction/plans"
-    accessedAt: "2026-10-06"
+    accessedAt: "2026-11-03"
   - label: "Neon公式ドキュメント: Agent Plan"
     url: "https://neon.com/docs/introduction/agent-plan"
-    accessedAt: "2026-10-06"
+    accessedAt: "2026-11-03"
   - label: "Neon公式: About us（年表と会社の数字）"
     url: "https://neon.com/about-us"
-    accessedAt: "2026-10-06"
+    accessedAt: "2026-11-03"
   - label: "Neon公式ブログ: Neon and Databricks（2025-05-14）"
     url: "https://neon.com/blog/neon-and-databricks"
     accessedAt: "2026-10-06"
@@ -105,7 +105,7 @@ sources:
     accessedAt: "2026-10-06"
   - label: "Neon公式ブログ: Neon gives you 100 projects for free, with 1 GB of Postgres storage each（2026-10-02）"
     url: "https://neon.com/blog/neon-free-plan-1-gb-per-project"
-    accessedAt: "2026-10-06"
+    accessedAt: "2026-11-03"
   - label: "Neon公式ブログ: The Neon backend is GA（2026-09-17）"
     url: "https://neon.com/blog/neon-backend-is-ga"
     accessedAt: "2026-10-06"
@@ -117,10 +117,10 @@ sources:
     accessedAt: "2026-10-06"
   - label: "Neon公式ドキュメント: Regions"
     url: "https://neon.com/docs/introduction/regions"
-    accessedAt: "2026-10-06"
+    accessedAt: "2026-11-03"
   - label: "Neon公式ドキュメント: Azure regions deprecation"
     url: "https://neon.com/docs/import/azure-regions-deprecation"
-    accessedAt: "2026-10-06"
+    accessedAt: "2026-11-03"
   - label: "Neon公式ドキュメント: SOC 2 compliance"
     url: "https://neon.com/docs/security/soc2-compliance"
     accessedAt: "2026-10-06"
@@ -129,7 +129,7 @@ sources:
     accessedAt: "2026-10-06"
   - label: "GitHub: neondatabase/neon（README・リリース・コミット履歴）"
     url: "https://github.com/neondatabase/neon"
-    accessedAt: "2026-10-06"
+    accessedAt: "2026-11-03"
   - label: "GitHub Issue #12945: Plans for PostgreSQL 18 support?（公開リポジトリの状態に関する利用者の議論）"
     url: "https://github.com/neondatabase/neon/issues/12945"
     accessedAt: "2026-10-06"
@@ -149,7 +149,11 @@ Databricksのプレスリリース（2025年5月14日・サンフランシスコ
 :::
 
 :::fact
-公式の料金ページ（2026-10-06時点）によれば、プランはFree・Launch・Scaleの3つで、LaunchとScaleは「使った分だけ払う」従量課金で月額の基本料金がない。Freeは100プロジェクト、プロジェクトごとに月100CU時間のコンピュートと1GBのストレージ、最大2CU（8GBメモリ）、10ブランチ、6時間の復元履歴、Managed Better Authが6万MAUまで、Object Storageが5GB、Functionsが月100万回の呼び出し。Launchは1CU時間0.106ドル、ストレージ1GB月0.35ドル、最大16CU（64GBメモリ）、復元履歴7日、追加ブランチは1ブランチ時間0.002ドル、ネットワーク転送は500GBまで無料でその先1GB 0.10ドル。Scaleは1CU時間0.222ドル、最大56CU（224GBメモリ）、1,000以上のプロジェクト、25ブランチ、復元履歴30日、SLA・HIPAA・プライベートネットワーク。料金ページの「典型的な支出」はLaunchで月15ドル（断続的な負荷・1GB）、Scaleで月701ドル（高負荷・100GB）。1CUは「約1vCPUと4GBのメモリ」で、計算を止めている間はCU時間を消費しない。
+公式の料金ページ（2026-11-03時点・ページの最終更新は2026年10月31日）によれば、プランはFree・Launch・Scaleの3つで、LaunchとScaleは「使った分だけ払う」従量課金で月額の基本料金がない。Freeは100プロジェクト、プロジェクトごとに月100CU時間のコンピュートと1GBのPostgresストレージ（ただしアカウント内の全プロジェクトの合計は20GBまで）、公開ネットワークへの転送はプロジェクトごとに月5GB、最大2CU（8GBメモリ）、10ブランチ、6時間の復元履歴、Managed Better Authが6万MAUまで、Object Storageが5GB、Functionsが月100万回の呼び出し。Launchは1CU時間0.106ドル、ストレージ1GB月0.35ドル、最大16CU（64GBメモリ）、復元履歴7日、追加ブランチは1ブランチ月1.50ドル（時間割り）、ネットワーク転送はプロジェクトごとに500GBまで無料でその先1GB 0.10ドル。Scaleは1CU時間0.222ドル、1,000プロジェクト（申請で増枠）、25ブランチ、復元履歴30日、SLA・HIPAA・プライベートネットワーク。Scaleの上限は「オートスケーリングは最大16CU、固定サイズなら最大56CU（224GBメモリ）」で、プランのドキュメントは「オートスケーリングは16CUが上限で、16CUを超える固定サイズのコンピュートはScaleだけ」と書く。料金ページの「典型的な支出」はLaunchで月15ドル（断続的な負荷・1GB）、Scaleで月701ドル（高負荷・100GB）。1CUは「約4GBのメモリと、それに見合うCPUとローカルSSD」で、計算を止めている間はCU時間を消費しない。
+:::
+
+:::fact
+同じ料金ページのFAQによれば、Freeの上限に達したときの動きは上限ごとに違う。CU時間か転送量（5GB）を使い切ると次の請求期間までコンピュートが止まり、1プロジェクト1GBか全体20GBのストレージを超えると書き込みができなくなり、10ブランチに達するとブランチを作れなくなる。料金ページは「どの上限でもデータは消えない」と書き、「NeonはFreeのプロジェクトを使われていないことを理由に一時停止しない」とも明記する。例外はAzureリージョンに残ったプロジェクトで、公式ドキュメントの廃止ガイドは、2026年10月5日から「Freeの組織で90日以上使われていないプロジェクトは削除の対象になる」と書いている。
 :::
 
 :::pull
@@ -162,12 +166,12 @@ Databricksのプレスリリース（2025年5月14日・サンフランシスコ
 
 NeonのUXは、人の作業ではなく「エージェントの作業」に合わせて作り替えられている。無料枠の形、料金の最低額、ブランチの使い方、いずれも「たくさん作って、ほとんど放置する」使い方を前提にしている。
 
-- **無料枠は「1つを大きく」ではなく「100個を小さく」**。公式ブログ（2026-10-02）は「Neonの無料枠はエージェントのワークフローを前提にしている。たくさんのプロジェクト、たくさんの実験、そのほとんどはほとんどの時間アイドル」と書き、100プロジェクトそれぞれに独立した100CU時間と1GBを与える理由を説明する。「新しいプロジェクトを1秒に1つ以上作っている」という規模の記述もある。料金ページのFAQは、1CUで1日3時間動くデータベースは月およそ90CU時間で無料枠に収まる、と例示する。
+- **無料枠は「1つを大きく」ではなく「100個を小さく」**。公式ブログ（2026-10-02）は「Neonの無料枠はエージェントのワークフローを前提にしている。たくさんのプロジェクト、たくさんの実験、そのほとんどはほとんどの時間アイドル」と書き、100プロジェクトそれぞれに独立した100CU時間と1GBを与える理由を説明する。「新しいプロジェクトを1秒に1つ以上作っている」という規模の記述もある。ただし100個を足し上げても、ストレージはアカウント全体で20GBが上限になる。料金ページのFAQは、Launchで100テナント分のデータベースを0.25CUで1日1時間ほど動かし、それぞれ150MBを保存すると、月およそ750CU時間と15GBで合計約85ドル、1テナントあたり約0.85ドルになる、と例示する。
 - **最低料金がない**。公式ブログ（2025-08-14）は料金を「使った分だけ、最低額なし」に改め、同年12月の追記で「5ドルの最低額はもう適用しない。3ドル使えば3ドルの請求」と書いた。2025年11月3日のブログはDatabricksの基盤に移ったことでLaunchの単価を0.14ドルから0.106ドルへ、Scaleを0.26ドルから0.222ドルへ下げ、「全プランで最大25%安く」と発表している。
 - **ブランチが「やり直し」の単位になる**。公式ドキュメントによれば、ブランチは「データのコピーオンライトの複製で、現在または過去の状態から作れる」。公式ブログ（2025-05-21）は、Replitのエージェントがチェックポイントを作るたびにその時刻のNeonのブランチを作り、コードとデータベースをまとめて過去の状態に戻せる「App History」を紹介している。
 - **止まることが既定で、止めないのは有料**。公式ドキュメントによれば、5分間アクティビティがないとコンピュートは停止し、再開は「数百ミリ秒」。無料枠ではこの設定を変えられず、有料プランでは「常時稼働」に切り替えられる。復元は「マージではなくタイムラインの完全な上書き」で、復元前の状態はバックアップのブランチに残る。
 - **MCPで操作でき、同時に警告もある**。公式ドキュメントのMCPサーバーのページは、AIアシスタントにプロジェクトの作成やクエリをさせる手順と並べて、「LLMが要求した操作は必ず確認してから実行する」「MCPエージェントを本番データベースにつながない」と書く。
-- **東京リージョンはなく、Azureは撤退した**。公式ドキュメントのリージョン一覧はAWSの8リージョン（バージニア、オハイオ、オレゴン、フランクフルト、ロンドン、シンガポール、シドニー、サンパウロ）で、日本からはシンガポールが最寄りになる。Azureの3リージョンは2026年4月7日に非推奨となり、既存プロジェクトの移行期限は2026年10月5日。廃止ガイドは理由を「ほとんどのプロジェクトはAWSで動いており、そこに集中するほうが機能と信頼性の改善を速く出せる」とし、Azureにデータを置き続けたい利用者にはDatabricks Lakebaseを案内している。
+- **東京リージョンはなく、Azureは撤退した**。公式ドキュメントのリージョン一覧はAWSの8リージョン（バージニア、オハイオ、オレゴン、フランクフルト、ロンドン、シンガポール、シドニー、サンパウロ）で、日本からはシンガポールが最寄りになる。Azureの3リージョンは2026年4月7日に非推奨となり、2026年10月5日でプラットフォームの更新が止まった（最終的なサービス終了日は後日発表）。廃止ガイドは理由を「ほとんどのプロジェクトはAWSで動いており、そこに集中するほうが機能と信頼性の改善を速く出せる」とし、Azureにデータを置き続けたい利用者にはDatabricks Lakebaseを案内している。
 
 一方で、「エージェント向け」の設計は、人が触るときの手がかりを減らす方向にも働く。無料枠の100プロジェクトは、どれがどのエージェントの実験かを管理する責任を利用者に残し、Azureからの撤退は「同じ技術はDatabricks側にある」という案内で代替される。使う側が人かエージェントかで、この製品の見え方はかなり違う。
 
@@ -200,7 +204,7 @@ GitHubの neondatabase/neon（2026-10-06時点・APIで取得）は、主言語R
 収益は従量課金のコンピュート（CU時間）とストレージ（GB月）で、月額の基本料金はない。無料枠は広く、有料への移行は「止めない」「大きくする」「長く戻す」のいずれかで起きる。
 
 :::fact
-公式の料金ページとドキュメント（2026-10-06時点）によれば、有料プランでは「使った分だけ払い、最低月額はない」。有料への切り替えで起きるのは、スケール・トゥ・ゼロの無効化（Launch以上）、最大CUの引き上げ（Freeの2CUからLaunchの16CU、Scaleの56CUへ）、復元履歴の延長（6時間から7日、30日へ）、プロジェクト数とブランチ数の上限の引き上げだ。Scaleにだけ、SLA、HIPAA、プライベートネットワーク、IP許可リスト、SOC 2レポートの提供が付く。AI Gatewayはモデル提供者の定価のまま上乗せなしで、前払いのクレジットから引き落とす。「Agent Plan」は「何千ものデータベースをプロビジョニングするAIエージェントのプラットフォーム」向けで、プロジェクト数は無制限、コンピュートはLaunchと同じ1CU時間0.106ドル、初期クレジットは最大25,000ドル。ほかにスタートアップ向けに最大10万ドルのクレジット、オープンソース向けのプログラムがある。2026年5月22日の公式ブログは、ReplitとRetoolを「最大のエージェント顧客」の例に挙げている。
+公式の料金ページとドキュメント（2026-11-03時点）によれば、有料プランでは「使った分だけ払い、最低月額はない」。有料への切り替えで起きるのは、スケール・トゥ・ゼロの無効化（Launch以上）、最大CUの引き上げ（Freeの2CUからLaunchの16CUへ。Scaleもオートスケーリングは16CUまでで、固定サイズなら56CUまで）、ストレージ上限の撤廃（有料プランは容量無制限）、復元履歴の延長（6時間から7日、30日へ）、プロジェクト数とブランチ数の上限の引き上げだ。Scaleにだけ、SLA、HIPAA、プライベートネットワーク、IP許可リスト、SOC 2レポートの提供が付く。AI Gatewayはモデル提供者の定価のまま上乗せなしで、前払いのクレジットから引き落とす。「Agent Plan」は「エンドユーザーのためにPostgresデータベースを大規模に用意・管理するプラットフォーム」向けで、プロジェクト数は無制限、コンピュートはLaunchと同じ1CU時間0.106ドル、初期クレジットは最大25,000ドル。ほかにスタートアップ向けに最大10万ドルのクレジット、オープンソース向けのプログラムがある。2026年5月22日の公式ブログは、ReplitとRetoolを「最大のエージェント顧客」の例に挙げている。
 :::
 
 :::fact

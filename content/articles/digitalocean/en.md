@@ -1,12 +1,12 @@
 ---
 service: "DigitalOcean"
 title: "From a $4 VM to Nine-Figure Contracts — How DigitalOcean, the Indie Developer's Cloud, Bet on Being an \"AI-Native Cloud\""
-description: "DigitalOcean won over indie developers with a $4-a-month VM. A dissection, from its official engineering blog and SEC filings, of how a founding design of Rails, Perl, and a single MySQL table used as a message queue swelled to 15,000 connections before being taken apart with Event Router, Harpoon, and RabbitMQ — and of the pivot to AI inference that has pushed customers spending over $1M a year to 23% of revenue."
+description: "DigitalOcean won over indie developers with a $4-a-month VM. A dissection, from its official engineering blog and earnings releases, of how a founding design of Rails, Perl, and a single MySQL table used as a message queue swelled to 15,000 connections before being taken apart with Event Router, Harpoon, and RabbitMQ — and of the pivot to AI inference that has pushed customers spending over $1M a year to 23% of revenue."
 lead: "A $4-a-month virtual machine with one vCPU. DigitalOcean grew up as the \"simple cloud\" for indie developers intimidated by the AWS console. In 2026 the same company is signing nine-figure annual contracts with AI companies and calling itself an \"AI-Native Cloud.\" This is a dissection of how it keeps small developers at the front door while shifting its center of gravity to large-scale AI inference."
 category: dev-tool
 tags: [cloud, hosting, vps, ai-inference, indie-dev]
 publishedAt: "2026-09-28"
-updatedAt: "2026-09-28"
+updatedAt: "2026-11-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.digitalocean.com/"
 # affiliate: TODO(owner) — join the DigitalOcean Affiliate Program (via CJ) first, then uncomment and paste the tracking URL (same URL in ja.md).
@@ -58,12 +58,12 @@ sources:
   - label: "DigitalOcean official blog: The modern Droplet (KVM and vCPU types, 2021-01-14)"
     url: "https://www.digitalocean.com/blog/how-to-choose-the-right-droplet-vm"
     accessedAt: "2026-09-28"
-  - label: "SEC 8-K (DigitalOcean Holdings, Q4 and fiscal year 2025 results, 2026-02-24)"
-    url: "https://www.sec.gov/Archives/edgar/data/1582961/000158296126000015/a2025-q4dopressrelease.htm"
-    accessedAt: "2026-09-28"
-  - label: "SEC 8-K (DigitalOcean Holdings, Q2 2026 results, 2026-08-04)"
-    url: "https://www.sec.gov/Archives/edgar/data/0001582961/000162828026052135/a2026-q2dopressrelease.htm"
-    accessedAt: "2026-09-28"
+  - label: "DigitalOcean investor relations: Fourth Quarter and Fiscal Year 2025 results press release (2026-02-24)"
+    url: "https://investors.digitalocean.com/news/news-details/2026/DigitalOcean-Announces-Fourth-Quarter-and-Fiscal-Year-2025-Financial-Results/default.aspx"
+    accessedAt: "2026-11-03"
+  - label: "DigitalOcean investor relations: Second Quarter 2026 results press release (2026-08-04)"
+    url: "https://investors.digitalocean.com/news/news-details/2026/DigitalOcean-Announces-Second-Quarter-2026-Financial-Results/default.aspx"
+    accessedAt: "2026-11-03"
   - label: "DigitalOcean engineering blog: Under the Hood: Serving Kimi K3 (updated 2026-07-30)"
     url: "https://www.digitalocean.com/blog/serving-kimi-k3-inference-engine"
     accessedAt: "2026-09-28"
@@ -82,7 +82,7 @@ For $4 a month, you get a Linux server of your own. That simplicity is how Digit
 DigitalOcean is a cloud provider offering virtual machines (Droplets), managed Kubernetes, managed databases, object storage (Spaces), and more. It started in 2011 and is listed on the New York Stock Exchange (ticker DOCN). In recent years it has put GPUs and inference services up front and calls itself an "AI-Native Cloud."
 
 :::fact
-According to the official pricing page, the cheapest Droplet costs $4 a month (1 vCPU, 512 MiB memory, 10 GiB SSD, 500 GiB transfer). Effective January 1, 2026, Droplets moved to per-second billing (with a minimum charge of 60 seconds or $0.01, whichever is higher). SEC filings show fiscal 2025 revenue of $901 million, up 15% year over year, at a 42% adjusted EBITDA margin. In December 2025, annualized monthly run-rate revenue reached $1 billion.
+According to the official pricing page, the cheapest Droplet costs $4 a month (1 vCPU, 512 MiB memory, 10 GiB SSD, 500 GiB transfer). Effective January 1, 2026, Droplets moved to per-second billing (with a minimum charge of 60 seconds or $0.01, whichever is higher). The fourth-quarter and fiscal 2025 results release shows fiscal 2025 revenue of $901 million, up 15% year over year, at a 42% adjusted EBITDA margin. In December 2025, annualized monthly run-rate revenue reached $1 billion.
 :::
 
 :::pull
@@ -121,7 +121,7 @@ Using a single table as a queue appears to have been a reasonable shortcut for a
 DigitalOcean earns usage-based revenue from Droplets, databases, storage, GPUs, and so on. For years it was a company of "lots of small customers," but the source of growth has clearly moved upmarket.
 
 :::fact
-Q2 2026 revenue (announced August 4, 2026) was $281 million, up 29% year over year. ARR reached $1,125 million, of which AI customer ARR was $234 million, up 212%. Revenue from customers spending more than $83,333 a month (over $1 million annualized) made up 23% of the total and grew 214%. In the same quarter the company signed its first nine-figure annual commitments with AI companies, extending weighted average contract life from 1.6 years to over 3 years. Remaining performance obligations (RPO) grew from $71 million a year earlier to $894 million, and full-year 2026 revenue guidance was raised to $1.170–$1.180 billion (up 30–31%). Note that since Q4 2025, users spending $500 or less per month (formerly called Builders) have been excluded from the customer count.
+Q2 2026 revenue (announced August 4, 2026) was $281 million, up 29% year over year. ARR reached $1,125 million, of which AI customer ARR was $234 million, up 212%. Revenue from customers spending more than $83,333 a month (over $1 million annualized) made up 23% of the total and grew 214%. In the same quarter the company signed its first nine-figure annual customer commitments with AI-native companies, extending weighted average contract life from 1.6 years to over 3 years. Remaining performance obligations (RPO) grew from $71 million a year earlier to $894 million, and full-year 2026 revenue guidance was raised to $1.170–$1.180 billion (up 30–31%). Note that since Q4 2025, users spending $500 or less per month (formerly called Builders) have been excluded from the customer count.
 :::
 
 :::fact

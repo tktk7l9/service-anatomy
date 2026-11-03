@@ -5,7 +5,7 @@ lead: "Cross-referencing both articles' techStack mechanically yields two shared
 slugA: "figma"
 slugB: "canva"
 publishedAt: "2026-07-21"
-updatedAt: "2026-09-28"
+updatedAt: "2026-11-03"
 lastVerified: "2026-09-28"
 sources:
   - label: "Figma official blog: How Figma's multiplayer technology works (why not OT/CRDT — a custom protocol in Rust)"
@@ -14,9 +14,9 @@ sources:
   - label: "Figma official blog: WebAssembly cut Figma's load time by 3x"
     url: "https://www.figma.com/blog/webassembly-cut-figmas-load-time-by-3x/"
     accessedAt: "2026-07-21"
-  - label: "SEC Form 424B4 (Figma, Inc. — IPO prospectus, listed August 2025)"
-    url: "https://www.sec.gov/Archives/edgar/data/1579878/000162828025037014/figma424b4.htm"
-    accessedAt: "2026-07-21"
+  - label: "Figma blog: IPO pricing announcement (2025-07-30 — $33 per share, NYSE trading from July 31)"
+    url: "https://www.figma.com/blog/ipo-pricing/"
+    accessedAt: "2026-11-03"
   - label: "The Register: Figma files for IPO in wake of abandoned Adobe acquisition (2025-04)"
     url: "https://www.theregister.com/2025/04/16/adobe_figma_ipo/"
     accessedAt: "2026-07-21"
@@ -61,9 +61,9 @@ This fork appears to come down to who each company serves. For Figma, whose user
 
 ## Their distance from capital takes the same shape as their architecture
 
-Figma's capital story is a concentrated bet. It grew on VC funding; Adobe's agreed $20 billion acquisition collapsed under regulatory resistance; Figma collected a $1 billion termination fee and reached its own IPO in August 2025.
+Figma's capital story is a concentrated bet. It grew on VC funding; Adobe's agreed $20 billion acquisition collapsed under regulatory resistance; Figma collected a $1 billion termination fee and reached its own listing on July 31, 2025.
 
-Canva's capital story is closer to self-sufficiency. As the [Canva](/en/articles/canva) article covered, founder Melanie Perkins was turned down by more than 100 VCs and learned to reach profitability without outside money — Canva stayed profitable for eight consecutive years on its way to a $42 billion valuation. In that same August 2025, what it chose was not an IPO but an employee share sale, staying private. In August 2026, its backers Blackbird and Airtree were reported to have cut their estimate of Canva's valuation to $34.9 billion (The Next Web, August 14, 2026; not an official announcement by Canva).
+Canva's capital story is closer to self-sufficiency. As the [Canva](/en/articles/canva) article covered, founder Melanie Perkins was turned down by more than 100 VCs and learned to reach profitability without outside money — Canva stayed profitable for eight consecutive years on its way to a $42 billion valuation. Right after, in August 2025, what it chose was not an IPO but an employee share sale, staying private. In August 2026, its backers Blackbird and Airtree were reported to have cut their estimate of Canva's valuation to $34.9 billion (The Next Web, August 14, 2026; not an official announcement by Canva).
 
 :::guess
 How the money comes in appears to mirror how the technology was built. Figma concentrated outside capital into the high fixed cost of a custom engine, raising its performance ceiling. Canva, holding itself to the constraint of profitability, widened its feature range with off-the-shelf parts. August 2025 — in the same month, Figma chose to enter the public market, and Canva chose to hand employees liquidity while staying private. Each choice appears to sit on the straight-line extension of each company's architecture.

@@ -6,7 +6,7 @@ lead: "当サイトがこれまで解剖した54サービスのうち、22サー
 category: dev-tool
 tags: [cdn, edge-computing, rust, serverless, security]
 publishedAt: "2026-07-21"
-updatedAt: "2026-10-03"
+updatedAt: "2026-11-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.cloudflare.com/"
 vendor: "Cloudflare, Inc."
@@ -55,12 +55,12 @@ sources:
   - label: "Cloudflare公式: グローバルネットワーク（348都市・95%が50ms以内）"
     url: "https://www.cloudflare.com/network/"
     accessedAt: "2026-09-28"
-  - label: "SEC提出書類: Cloudflare Form 8-K 添付 2025年度第4四半期・通期決算（2026-02-10）"
-    url: "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000008/q425exhibit991.htm"
-    accessedAt: "2026-09-28"
-  - label: "SEC提出書類: Cloudflare Form 8-K 添付 2026年度第2四半期決算（2026-08-06・売上6億9,610万ドル・前年比36%増）"
-    url: "https://www.sec.gov/Archives/edgar/data/0001477333/000147733326000053/q226exhibit991.htm"
-    accessedAt: "2026-09-28"
+  - label: "Cloudflare IR: 2025年度第4四半期・通期決算発表（Form 8-K 添付資料99.1・2026-02-10）"
+    url: "https://cloudflare.net/files/doc_financials/2025/q4/Q4-25-Exhibit-99-1_FINAL.pdf"
+    accessedAt: "2026-11-03"
+  - label: "Cloudflare IR: 2026年度第2四半期決算発表（Form 8-K 添付資料99.1・2026-08-06・売上6億9,610万ドル・前年比36%増）"
+    url: "https://cloudflare.net/files/doc_financials/2026/q2/Q2-26-Exhibit-99-1.pdf"
+    accessedAt: "2026-11-03"
 ---
 
 ## サービス解説

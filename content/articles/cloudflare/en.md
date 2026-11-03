@@ -6,7 +6,7 @@ lead: "Across the 54 services this site has dissected, the same name appears in 
 category: dev-tool
 tags: [cdn, edge-computing, rust, serverless, security]
 publishedAt: "2026-07-21"
-updatedAt: "2026-10-03"
+updatedAt: "2026-11-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.cloudflare.com/"
 vendor: "Cloudflare, Inc."
@@ -55,12 +55,12 @@ sources:
   - label: "Cloudflare official: the global network (348 cities; 95% within 50ms)"
     url: "https://www.cloudflare.com/network/"
     accessedAt: "2026-09-28"
-  - label: "SEC filing: Cloudflare Form 8-K exhibit, Q4 and fiscal year 2025 results (2026-02-10)"
-    url: "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000008/q425exhibit991.htm"
-    accessedAt: "2026-09-28"
-  - label: "SEC filing: Cloudflare Form 8-K exhibit, Q2 2026 results (2026-08-06 — $696.1M revenue, +36% YoY)"
-    url: "https://www.sec.gov/Archives/edgar/data/0001477333/000147733326000053/q226exhibit991.htm"
-    accessedAt: "2026-09-28"
+  - label: "Cloudflare IR: Q4 and fiscal year 2025 results press release (Form 8-K Exhibit 99.1, 2026-02-10)"
+    url: "https://cloudflare.net/files/doc_financials/2025/q4/Q4-25-Exhibit-99-1_FINAL.pdf"
+    accessedAt: "2026-11-03"
+  - label: "Cloudflare IR: Q2 2026 results press release (Form 8-K Exhibit 99.1, 2026-08-06 — $696.1M revenue, +36% YoY)"
+    url: "https://cloudflare.net/files/doc_financials/2026/q2/Q2-26-Exhibit-99-1.pdf"
+    accessedAt: "2026-11-03"
 ---
 
 ## Service overview

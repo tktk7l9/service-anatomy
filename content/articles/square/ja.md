@@ -6,7 +6,7 @@ lead: "2009年に米国で生まれた小さな白いカードリーダーは、
 category: saas
 tags: [payments, fintech, pos, small-business, hardware, aws]
 publishedAt: "2026-09-30"
-updatedAt: "2026-09-30"
+updatedAt: "2026-11-03"
 lastVerified: "2026-09-30"
 serviceUrl: "https://squareup.com/jp/ja"
 affiliate:
@@ -90,9 +90,9 @@ sources:
   - label: "アフィサーチ: Squareのアフィリエイト案件を提携できるASP一覧"
     url: "https://media-analytics.jp/affisearch/promotions/square"
     accessedAt: "2026-09-30"
-  - label: "Block, Inc.: Form 10-K（2025年12月期、SEC提出 2026-02-26）"
-    url: "https://www.sec.gov/Archives/edgar/data/1512673/000162828026012254/xyz-20251231.htm"
-    accessedAt: "2026-09-30"
+  - label: "Block, Inc.: Form 10-K（2025年12月期、2026-02-26付、Block IRのPDF）"
+    url: "https://s29.q4cdn.com/628966176/files/doc_financials/2026/ar/Block-Inc-2025-ARS.pdf"
+    accessedAt: "2026-11-03"
   - label: "Block, Inc.: Form 10-Q（2026年第2四半期、SEC提出 2026-08-05）"
     url: "https://www.sec.gov/Archives/edgar/data/1512673/000162828026053368/xyz-20260630.htm"
     accessedAt: "2026-09-30"

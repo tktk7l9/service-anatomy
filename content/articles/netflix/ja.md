@@ -1,12 +1,12 @@
 ---
 service: "Netflix"
 title: "クラウドに全部を預けた会社が、配信だけは自前の箱を置く — Netflixの二層構造"
-description: "7年かけて自社データセンターを捨てAWSへ完全移行したNetflixは、動画のバイトを運ぶCDNだけは自作アプライアンスを世界のISPに無償で置く。HTTPヘッダー1行に現れた「制御はクラウド・配信は自前」の二層構造を、公式資料とSEC提出書類から解剖する。"
+description: "7年かけて自社データセンターを捨てAWSへ完全移行したNetflixは、動画のバイトを運ぶCDNだけは自作アプライアンスを世界のISPに無償で置く。HTTPヘッダー1行に現れた「制御はクラウド・配信は自前」の二層構造を、公式資料と決算資料から解剖する。"
 lead: "netflix.comにリクエストを送ると、viaヘッダーにAWS us-west-2のインスタンスと、東京のインターネットエクスチェンジに置かれたnflxvideo.netの機器が1行で並ぶ。クラウド移行の伝道師でありながら、動画配信だけは自前のハードウェアを1,000超のISPに配る——この一見矛盾した設計の合理を解剖する。"
 category: media
 tags: [streaming, video, aws, cdn, microservices]
 publishedAt: "2026-07-21"
-updatedAt: "2026-10-03"
+updatedAt: "2026-11-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.netflix.com/"
 vendor: "Netflix, Inc."
@@ -44,9 +44,9 @@ techStack:
     evidence: "当サイトのHTTPヘッダー実観測で、viaヘッダーにus-west-2のEC2インスタンスIDと東京IXのnflxvideo.netホストが併記される（2026-07-21。2026-09-28の再観測でも同じ構成）。制御プレーン=AWS・配信エッジ=Open Connectの二層が1行で観測できる"
     evidenceUrl: "https://www.netflix.com/"
 sources:
-  - label: "SEC Form 10-K（Netflix, Inc.・2025年度通期・2026-01-23提出）"
-    url: "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/nflx-20251231.htm"
-    accessedAt: "2026-07-21"
+  - label: "Netflix IR: Form 10-K（Netflix, Inc.・2025年度通期・2026-01-23提出）"
+    url: "https://s22.q4cdn.com/959853165/files/doc_financials/2025/ar/99482238-46b2-4d0d-b292-40e6781bdf03.pdf"
+    accessedAt: "2026-11-03"
   - label: "AWS公式導入事例: Netflix on AWS（4リージョン・Aurora/EKS/EMR）"
     url: "https://aws.amazon.com/solutions/case-studies/netflix/"
     accessedAt: "2026-09-28"
@@ -56,12 +56,12 @@ sources:
   - label: "Netflix公式テックブログ: The Netflix Simian Army（Chaos Monkeyの原典・2011）"
     url: "https://netflixtechblog.com/the-netflix-simian-army-16e57fbab116"
     accessedAt: "2026-07-21"
-  - label: "SEC Form 8-K 添付資料: Netflix 2025年第4四半期 株主向けレター（2026-01）"
-    url: "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000033/ex991_q425.htm"
-    accessedAt: "2026-09-28"
-  - label: "SEC Form 8-K 添付資料: Netflix 2026年第2四半期 株主向けレター（2026-07-16）"
-    url: "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000211/ex991_q226.htm"
-    accessedAt: "2026-09-28"
+  - label: "Netflix IR: 2025年第4四半期 株主向けレター（2026-01-20）"
+    url: "https://s22.q4cdn.com/959853165/files/doc_financials/2025/q4/FINAL-Q4-25-Shareholder-Letter.pdf"
+    accessedAt: "2026-11-03"
+  - label: "Netflix IR: 2026年第2四半期 株主向けレター（2026-07-16）"
+    url: "https://s22.q4cdn.com/959853165/files/doc_financials/2026/q2/FINAL-Q2-26-Shareholder-Letter.pdf"
+    accessedAt: "2026-11-03"
   - label: "InfoQ（報道）: Netflixのゼロ設定サービスメッシュ（2023-09・Envoyの採用）"
     url: "https://www.infoq.com/news/2023/09/zero-config-service-mesh-netflix"
     accessedAt: "2026-09-28"
@@ -72,7 +72,7 @@ sources:
 Netflixは世界190カ国超で展開する映像ストリーミングサービスだ。1997年にDVD郵送レンタルとして始まり、2007年にストリーミングへ転換。オリジナル作品への大規模投資と、視聴データに基づくパーソナライズで、テレビの視聴習慣そのものを置き換えてきた。
 
 :::fact
-SEC提出書類（10-K）と2026年1月の決算発表によれば、2025年度通期の売上は452億ドルで前年比16%増、営業利益は133億ドル（営業利益率29.5%）、純利益は110億ドル。第4四半期に有料メンバーシップは3億2,500万を突破し、広告収入は15億ドル超と前年の2.5倍に伸びた。2026年通期の売上ガイダンスは当初507億〜517億ドルで、2026年7月の第2四半期決算で510億〜514億ドルに絞り込まれた。第2四半期の売上は126億ドル（前年比13%増）、営業利益率は33.4%。2026年の広告収入は約30億ドルと、ほぼ倍増を見込む。
+年次報告書（10-K）と2026年1月の決算発表によれば、2025年度通期の売上は452億ドルで前年比16%増、営業利益は133億ドル（営業利益率29.5%）、純利益は110億ドル。第4四半期に有料メンバーシップは3億2,500万を突破し、広告収入は15億ドル超と前年の2.5倍に伸びた。2026年通期の売上ガイダンスは当初507億〜517億ドルで、2026年7月の第2四半期決算で510億〜514億ドルに絞り込まれた。第2四半期の売上は126億ドル（前年比13%増）、営業利益率は33.4%。2026年の広告収入は約30億ドルと、ほぼ倍増を見込む。
 :::
 
 :::pull

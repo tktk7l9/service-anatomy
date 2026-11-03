@@ -6,7 +6,7 @@ lead: "The headline on its homepage reads 30x cheaper than Datadog. Its error-tr
 category: dev-tool
 tags: [observability, monitoring, logging, clickhouse, incident-management]
 publishedAt: "2026-09-28"
-updatedAt: "2026-09-28"
+updatedAt: "2026-11-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://betterstack.com/"
 # Affiliate link placeholder: the owner must sign up for the Better Stack affiliate program
@@ -69,9 +69,9 @@ techStack:
     confidence: likely
     evidence: "Our observation (2026-09-28) found Backblaze B2 buckets for organization logos and user avatars allowed in betterstack.com's Content-Security-Policy. No explicit official statement found"
 sources:
-  - label: "Better Stack official homepage (30x cheaper than Datadog, 7,000+ customers, 60-day money-back guarantee, covering the rest of a switcher's contract)"
+  - label: "Better Stack official homepage (30x cheaper than Datadog, the cost estimate against Datadog, 7,000+ customers and a 60-day money-back guarantee in the page description, covering the rest of a switcher's contract)"
     url: "https://betterstack.com/"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-11-03"
   - label: "Better Stack press release: infrastructure monitoring launch, profitability, and a $10M raise (2024-01-22)"
     url: "https://betterstack.com/press/raises-10m/"
     accessedAt: "2026-09-28"
@@ -117,11 +117,11 @@ The monitoring market is crowded with large vendors like Datadog, New Relic, and
 Better Stack is an observability platform that combines uptime monitoring, logs, metrics, traces, error tracking, session replay, on-call (phone and Slack alerts to whoever is on duty), and status pages in one place. It started as two separate products — Better Uptime for uptime monitoring and Logtail for log management — which were later merged under the Better Stack name.
 
 :::fact
-According to an official press release, Better Uptime and Logtail were rebranded as Uptime and Logs on the Better Stack platform, with functionality and pricing unchanged and a single account for both. According to Silicon Canals, Better Stack is a Prague company founded in 2021 by Juraj Masar and Veronika Kolejak, and in July 2022 it raised an $18.6M Series A led by Creandum. In an official press release dated January 22, 2024, it announced an additional $10M from existing investor KAYA ($28.6M in total, per TechCrunch) and said it had become "unintentionally" profitable in 2023. According to TechCrunch, it had 28 employees at the time and planned to grow to 50 by the end of the year. At that time it served 200,000+ developers and 4,000+ customers; as of September 2026, the official homepage description says 7,000+ customers and the careers page says 300,000+ developers.
+According to an official press release, Better Uptime and Logtail were rebranded as Uptime and Logs on the Better Stack platform, with functionality and pricing unchanged and a single account for both. According to Silicon Canals, Better Stack is a Prague company founded in 2021 by Juraj Masar and Veronika Kolejak, and in July 2022 it raised an $18.6M Series A led by Creandum. In an official press release dated January 22, 2024, it announced an additional $10M from existing investor KAYA ($28.6M in total, per TechCrunch) and said it had become "unintentionally" profitable in 2023. According to TechCrunch, it had 28 employees at the time and planned to grow to 50 by the end of the year. At that time it served 200,000+ developers and 4,000+ customers. As of November 3, 2026, the official homepage no longer gives a customer count in its body; only the page description (the meta description used for search results and social previews) still says "7,000+ happy customers."
 :::
 
 :::fact
-The official homepage headline is "30x cheaper than Datadog." Comparing against an approximate Datadog bill for 1 TB each of logs, traces, and metrics per month, it claims you can ingest up to 80x more data on the same budget or cut costs by up to 98% (an estimate assuming annual payment, European data location, and one responder with a Tera bundle: roughly $55,574/month for Datadog versus $687/month for Better Stack). The same page also pitches switching directly: "Datadog bill too high? Migrate today, the rest of your contract is on us."
+The official homepage headline is "30x cheaper than Datadog." Comparing against an approximate Datadog bill for 1 TB each of logs, traces, and metrics per month, it claims you can ingest up to 80x more data on the same budget or cut costs by up to 98% (an estimate assuming annual payment, European data location, one responder with a Tera bundle and an average event size of 1 kB, with Datadog priced at $0.1 per ingested GB and $2.5 per million spans and logs indexed for 30 days: as of November 3, 2026, roughly $56,774/month for Datadog versus $687/month for Better Stack. When this article was checked on September 28, 2026, the Datadog side read roughly $55,574/month; the $687 for Better Stack has not changed). The same page also pitches switching directly: "Datadog bill too high? Migrate today, the rest of your contract is on us."
 :::
 
 :::pull

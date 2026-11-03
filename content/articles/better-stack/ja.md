@@ -6,7 +6,7 @@ lead: "トップページの見出しは「Datadogより30倍安い」。エラ�
 category: dev-tool
 tags: [observability, monitoring, logging, clickhouse, incident-management]
 publishedAt: "2026-09-28"
-updatedAt: "2026-09-28"
+updatedAt: "2026-11-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://betterstack.com/"
 # Affiliate link placeholder: the owner must sign up for the Better Stack affiliate program
@@ -69,9 +69,9 @@ techStack:
     confidence: likely
     evidence: "当サイトの観測（2026-09-28）で、betterstack.comのContent-Security-Policyに組織ロゴ・ユーザーアバター用のBackblaze B2のバケットが許可先として並ぶ。公式の明言は見当たらない"
 sources:
-  - label: "Better Stack公式トップページ（Datadog比30倍安い・7,000超の顧客・60日返金保証・乗り換え時の残契約肩代わり）"
+  - label: "Better Stack公式トップページ（Datadog比30倍安い・Datadogとの費用の概算・説明文の7,000超の顧客と60日返金保証・乗り換え時の残契約肩代わり）"
     url: "https://betterstack.com/"
-    accessedAt: "2026-09-28"
+    accessedAt: "2026-11-03"
   - label: "Better Stack公式プレスリリース: インフラ監視の開始・黒字化・1,000万ドル調達（2024-01-22）"
     url: "https://betterstack.com/press/raises-10m/"
     accessedAt: "2026-09-28"
@@ -117,11 +117,11 @@ sources:
 Better Stackは、Webサービスの稼働監視・ログ・メトリクス・トレース・エラー追跡・セッションリプレイ・オンコール（当番への電話やSlack通知）・ステータスページを1つにまとめたオブザーバビリティのプラットフォームだ。元は稼働監視のBetter Uptimeとログ管理のLogtailという別々の製品で、のちにBetter Stackの名前で統合された。
 
 :::fact
-公式プレスリリースによれば、Better UptimeとLogtailはBetter Stack上のUptimeとLogsに名前を変えて統合され、機能と料金はそのまま、1つのアカウントで行き来できるようになった。Silicon Canalsによれば、Better StackはJuraj MasarとVeronika Kolejakが2021年に創業したプラハの会社で、2022年7月にCreandum主導のシリーズAで1,860万ドルを調達した。2024年1月22日の公式プレスリリースでは、既存投資家KAYAから1,000万ドルを追加調達し（TechCrunchによれば累計2,860万ドル）、2023年に「意図せず」黒字化したと発表している。TechCrunchによれば、当時の従業員は28人で、年末までに50人へ増やす計画だった。当時の利用者は開発者20万人超・顧客4,000社超で、2026年9月時点の公式トップページの説明文は「7,000超の顧客」、採用ページは「開発者30万人超」と書く。
+公式プレスリリースによれば、Better UptimeとLogtailはBetter Stack上のUptimeとLogsに名前を変えて統合され、機能と料金はそのまま、1つのアカウントで行き来できるようになった。Silicon Canalsによれば、Better StackはJuraj MasarとVeronika Kolejakが2021年に創業したプラハの会社で、2022年7月にCreandum主導のシリーズAで1,860万ドルを調達した。2024年1月22日の公式プレスリリースでは、既存投資家KAYAから1,000万ドルを追加調達し（TechCrunchによれば累計2,860万ドル）、2023年に「意図せず」黒字化したと発表している。TechCrunchによれば、当時の従業員は28人で、年末までに50人へ増やす計画だった。当時の利用者は開発者20万人超・顧客4,000社超だった。2026年11月3日時点の公式トップページは、本文に顧客数を載せておらず、ページの説明文（検索結果やSNSのプレビューに使われるmeta description）にだけ「7,000超の満足した顧客」と書く。
 :::
 
 :::fact
-公式トップページの見出しは「Datadogより30倍安い」。ログ・トレース・メトリクスを各1TB/月ずつ送る想定でDatadogの概算と比べ、同じ予算で最大80倍のデータを取り込めるか、費用を最大98%減らせると主張している（年払い・欧州でのデータ保管・Responder 1人とTeraバンドルを前提とした概算で、Datadogが月約55,574ドル、Better Stackが月687ドル）。同じページには「Datadogの請求が高すぎる？ 今すぐ移行を。残りの契約期間分は当社が持つ」という乗り換え勧誘も載る。
+公式トップページの見出しは「Datadogより30倍安い」。ログ・トレース・メトリクスを各1TB/月ずつ送る想定でDatadogの概算と比べ、同じ予算で最大80倍のデータを取り込めるか、費用を最大98%減らせると主張している（年払い・欧州でのデータ保管・Responder 1人とTeraバンドル・1イベント平均1kBを前提とし、Datadog側は取り込み1GBあたり0.1ドル、30日間インデックスするスパンとログ100万件あたり2.5ドルで計算した概算。2026年11月3日時点でDatadogが月約56,774ドル、Better Stackが月687ドル。2026年9月28日の確認時はDatadog側が月約55,574ドルで、Better Stack側の687ドルは変わっていない）。同じページには「Datadogの請求が高すぎる？ 今すぐ移行を。残りの契約期間分は当社が持つ」という乗り換え勧誘も載る。
 :::
 
 :::pull

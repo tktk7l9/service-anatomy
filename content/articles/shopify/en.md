@@ -1,12 +1,12 @@
 ---
 service: "Shopify"
 title: "Rejuvenating 'Aged' Technology Yourself — How Rails-Founded Shopify Carries $378B a Year"
-description: "Shopify, the e-commerce platform giant, dissected: its two-decade bet on Ruby on Rails since 2004, building its own JIT compiler (YJIT) to push past Rails' performance ceiling, and the operational discipline behind handling 10.5 trillion database queries over the 2024 BFCM weekend — from the official engineering blog and SEC filings."
+description: "Shopify, the e-commerce platform giant, dissected: its two-decade bet on Ruby on Rails since 2004, building its own JIT compiler (YJIT) to push past Rails' performance ceiling, and the operational discipline behind handling 10.5 trillion database queries over the 2024 BFCM weekend — from the official engineering blog and earnings releases."
 lead: "'Rails doesn't scale' has been conventional wisdom for years. Shopify has spent two decades disproving it head-on — not by leaving Rails, but by reaching into Rails and Ruby itself to rejuvenate them. We dissect the technical strategy that keeps $378 billion a year in merchandise volume flowing through the same framework the company was founded on."
 category: saas
 tags: [e-commerce, ruby-on-rails, saas, google-cloud, open-source]
 publishedAt: "2026-07-20"
-updatedAt: "2026-09-28"
+updatedAt: "2026-11-03"
 lastVerified: "2026-09-28"
 serviceUrl: "https://www.shopify.com/"
 affiliate:
@@ -53,9 +53,9 @@ sources:
   - label: "Shopify official engineering blog: How we prepare Shopify for BFCM (2025-11 — measured traffic figures)"
     url: "https://shopify.engineering/bfcm-readiness-2025"
     accessedAt: "2026-09-28"
-  - label: "SEC Form 10-K (Shopify Inc. — annual report for fiscal 2025)"
-    url: "https://www.sec.gov/Archives/edgar/data/1594805/000159480526000007/shop-20251231.htm"
-    accessedAt: "2026-09-28"
+  - label: "Shopify IR: Q4 and full-year 2025 results press release with financial statements (2026-02-11)"
+    url: "https://s27.q4cdn.com/572064924/files/doc_financials/2025/q4/Shopify_Investor_Press_Release_Q4-25_FINAL.pdf"
+    accessedAt: "2026-11-03"
   - label: "Shopify official: transfer of U.S. listing from the NYSE to Nasdaq; no change to TSX listing (2025-03-18)"
     url: "https://www.shopify.com/news/shopify-to-transfer-u-s-stock-exchange-listing-to-nasdaq-no-change-to-tsx-listing"
     accessedAt: "2026-10-02"
@@ -74,7 +74,7 @@ sources:
 Shopify is an e-commerce platform integrating online store building, payments, and inventory management. Founded in Ottawa, Canada in 2004, it is now listed on Nasdaq in the US and on the Toronto Stock Exchange (TSX).
 
 :::fact
-Per its SEC filing (full-year 2025 results), platform gross merchandise volume (GMV) reached $378.4 billion in 2025, up 29% year over year, with total revenue of $11.6 billion, up 30%. Merchant Solutions revenue (payment processing fees, lending, referrals, advertising, and more) grew 35%, from $6.5 billion to $8.8 billion. Per the official engineering blog, Shopify has run on Ruby on Rails since its 2004 founding, and CEO Tobi Lütke was one of Rails' early Core team members.
+Per its Q4 and full-year 2025 results release (with financial statements), platform gross merchandise volume (GMV) reached $378.4 billion in 2025, up 29% year over year, with total revenue of $11.6 billion, up 30%. Merchant Solutions revenue (payment processing fees, lending, referrals, advertising, and more) grew 35%, from $6.5 billion to $8.8 billion. Per the official engineering blog, Shopify has run on Ruby on Rails since its 2004 founding, and CEO Tobi Lütke was one of Rails' early Core team members.
 :::
 
 :::fact
@@ -119,7 +119,7 @@ Correction (September 28, 2026). The first version said preparation for BFCM too
 Shopify's revenue combines flat monthly subscriptions with usage-based fees tied to merchant transaction volume.
 
 :::fact
-Per its SEC filing, of the $11.6 billion in total 2025 revenue, Merchant Solutions (payment processing fees, lending, referrals, advertising, and more) accounted for the majority at $8.8 billion, growing 35% year over year — outpacing the company's overall growth rate. GMV reached $378.4 billion, up 29%.
+Per its results release, of the $11.6 billion in total 2025 revenue, Merchant Solutions (payment processing fees, lending, referrals, advertising, and more) accounted for the majority at $8.8 billion, growing 35% year over year — outpacing the company's overall growth rate. GMV reached $378.4 billion, up 29%.
 :::
 
 :::guess

@@ -5,7 +5,7 @@ lead: "両記事のtechStackを機械照合すると、共有される技術はA
 slugA: "figma"
 slugB: "canva"
 publishedAt: "2026-07-21"
-updatedAt: "2026-09-28"
+updatedAt: "2026-11-03"
 lastVerified: "2026-09-28"
 sources:
   - label: "Figma公式ブログ: How Figma's multiplayer technology works（OT/CRDT不採用・Rust自作プロトコル）"
@@ -14,9 +14,9 @@ sources:
   - label: "Figma公式ブログ: WebAssembly cut Figma's load time by 3x"
     url: "https://www.figma.com/blog/webassembly-cut-figmas-load-time-by-3x/"
     accessedAt: "2026-07-21"
-  - label: "SEC Form 424B4（Figma, Inc.・IPO目論見書・2025年8月上場）"
-    url: "https://www.sec.gov/Archives/edgar/data/1579878/000162828025037014/figma424b4.htm"
-    accessedAt: "2026-07-21"
+  - label: "Figma公式ブログ: IPOの公開価格の決定（2025-07-30・1株33ドル・NYSEでの取引開始は7月31日）"
+    url: "https://www.figma.com/blog/ipo-pricing/"
+    accessedAt: "2026-11-03"
   - label: "The Register: Figma files for IPO in wake of abandoned Adobe acquisition（2025-04）"
     url: "https://www.theregister.com/2025/04/16/adobe_figma_ipo/"
     accessedAt: "2026-07-21"
@@ -61,9 +61,9 @@ Canvaの技術は「幅」に向かって水平に広がっている。コンテ
 
 ## 資本との距離も、建て方と同じ形
 
-Figmaの資本の物語は一点突破だ。VC資本で成長し、Adobeによる200億ドルでの買収合意は規制当局の抵抗で破談。10億ドルの解約金を受け取り、2025年8月に自力でIPOへ漕ぎ着けた。
+Figmaの資本の物語は一点突破だ。VC資本で成長し、Adobeによる200億ドルでの買収合意は規制当局の抵抗で破談。10億ドルの解約金を受け取り、2025年7月31日に自力で上場へ漕ぎ着けた。
 
-Canvaの資本の物語は自給自足に近い。[Canva](/ja/articles/canva)の記事で見た通り、創業者Melanie Perkins氏は100社を超えるVCに断られた経験から外部資金に頼らずに黒字化する術を学び、8年連続の黒字を維持したまま評価額420億ドルに到達。同じ2025年8月に選んだのはIPOではなく、私企業のままの従業員株式売却だった。なお2026年8月には、出資者のBlackbirdとAirtreeがCanvaの評価額の見積もりを349億ドルへ引き下げたと報じられている（The Next Web、2026年8月14日。Canva自身の公式発表ではない）。
+Canvaの資本の物語は自給自足に近い。[Canva](/ja/articles/canva)の記事で見た通り、創業者Melanie Perkins氏は100社を超えるVCに断られた経験から外部資金に頼らずに黒字化する術を学び、8年連続の黒字を維持したまま評価額420億ドルに到達。その直後の2025年8月に選んだのはIPOではなく、私企業のままの従業員株式売却だった。なお2026年8月には、出資者のBlackbirdとAirtreeがCanvaの評価額の見積もりを349億ドルへ引き下げたと報じられている（The Next Web、2026年8月14日。Canva自身の公式発表ではない）。
 
 :::guess
 資金の入り方は、技術の建て方と同じ形をしているとみられる。外部資本を集中的に取り込み、自作エンジンという高い固定費に投資して性能の天井を上げたFigma。黒字という制約を守りながら、市販の部品で機能の幅を広げたCanva。2025年8月——同じ月に、Figmaは公開市場へ出ることを、Canvaは私企業に留まったまま従業員に流動性を渡すことを選んだ。どちらの選択も、それぞれの建て方の延長線上にあるとみられる。

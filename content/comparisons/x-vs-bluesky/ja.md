@@ -5,7 +5,7 @@ lead: "Xは自社アルゴリズムをGitHubで公開する。Blueskyはプラ�
 slugA: "x"
 slugB: "bluesky"
 publishedAt: "2026-07-20"
-updatedAt: "2026-10-03"
+updatedAt: "2026-11-03"
 lastVerified: "2026-09-28"
 sources:
   - label: "Elon Musk（公式X投稿）: xAIによるX買収発表（2025-03-28）"
@@ -23,8 +23,8 @@ sources:
   - label: "GitHub公式: xai-org/x-algorithm（For Youフィードの現行公開コード・2026-01〜）"
     url: "https://github.com/xai-org/x-algorithm"
     accessedAt: "2026-09-28"
-  - label: "SEC Form 10-Q（Space Exploration Technologies Corp.・2026年第2四半期・xAI買収とAIセグメント）"
-    url: "https://www.sec.gov/Archives/edgar/data/1181412/000162828026052535/spcx-20260630.htm"
+  - label: "SpaceX IR: Form 10-Q（Space Exploration Technologies Corp.・2026年第2四半期・xAI買収とAIセグメント）"
+    url: "https://s21.q4cdn.com/184289198/files/doc_financials/2026/q2/dc41a8f3-2234-40ec-95e3-3867336ae181.pdf"
     accessedAt: "2026-09-28"
 ---
 

@@ -6,7 +6,7 @@ lead: "Metaは対話AI「Meta AI」を無料で配り、30Bパラメータのモ
 category: ai-tool
 tags: [ai-assistant, ai-agent, llm, open-source, advertising]
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-02"
+updatedAt: "2026-11-03"
 lastVerified: "2026-10-02"
 serviceUrl: "https://ai.meta.com/"
 vendor: "Meta Platforms, Inc."
@@ -126,12 +126,12 @@ sources:
   - label: "AI at Meta: Open Source AI（オープン化がMeta自身にも利益になるという説明）"
     url: "https://ai.meta.com/opensourceai/"
     accessedAt: "2026-10-01"
-  - label: "SEC EDGAR: Meta 2026年第2四半期決算プレスリリース（Form 8-K Exhibit 99.1・2026-07-29）"
-    url: "https://www.sec.gov/Archives/edgar/data/1326801/000162828026050596/meta-06302026xexhibit991.htm"
-    accessedAt: "2026-10-01"
-  - label: "SEC EDGAR: Meta Form 10-Q（2026年6月30日までの四半期・2026-07-30提出）"
-    url: "https://www.sec.gov/Archives/edgar/data/1326801/000162828026050705/meta-20260630.htm"
-    accessedAt: "2026-10-01"
+  - label: "Meta IR: 2026年第2四半期決算プレスリリース（Form 8-K Exhibit 99.1・2026-07-29）"
+    url: "https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/Meta-06-30-2026-Exhibit-99-1-FINAL.pdf"
+    accessedAt: "2026-11-03"
+  - label: "Meta IR: Form 10-Q（2026年6月30日までの四半期）"
+    url: "https://d18rn0p25nwr6d.cloudfront.net/CIK-0001326801/abad2059-196d-46e3-8534-cab5756a1926.pdf"
+    accessedAt: "2026-11-03"
 ---
 
 ## サービス解説
